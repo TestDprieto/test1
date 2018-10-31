@@ -343,4 +343,15 @@
         <showsStatus>true</showsStatus>
         <url>http://www.fedex.com/cgi-bin/tracking?tracknumbers={!Opportunity_Tracking_Number}&amp;action=track&amp;language=english&amp;cntry_code=us</url>
     </webLinks>
+    <webLinks>
+        <fullName>newButton1</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>newButton1</masterLabel>
+        <openType>sidebar</openType>
+        <page>VFPage</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>
