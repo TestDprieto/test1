@@ -7,8 +7,8 @@ public class AccountOperationsTest {
         Database.SaveResult result = Database.insert(acc);
         Test.stopTest();
         // Verify
+        //test2_CI
         Account savedAcc = [SELECT Description FROM Account WHERE Id = :result.getId()];
         System.assertEquals('Default Description', savedAcc.Description);
     }
 }
-#test1_CI
