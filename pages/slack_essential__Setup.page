@@ -1,0 +1,113 @@
+<apex:page showHeader="true" sidebar="false" controller="slack_essential.SlackController">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <link href= "{!URLFOR($Resource.slds, '/assets/styles/salesforce-lightning-design-system-vf.css')}" rel="stylesheet" type="text/css" />
+        <style>
+
+            body .slds .sa-absolute-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            -ms-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            }
+            body .slds .sa-content {
+            width: 380px;
+            }
+            body .slds .sa-salesforce-logo {
+            max-width: 180px;
+            }
+            body .slds .sa-slack-logo {
+            max-width: 180px;
+            height: 75px;
+
+            }
+            body .slds .sa-notify {
+            width: 100%;
+            min-width: 0;
+            margin-top: 0;
+            margin-right: 0;
+            margin-left: 0;
+            }
+            body .slds .cke_chrome {
+            border: 1px solid #d8dde6;
+            border-radius: 0.25rem;
+            box-shadow: none;
+            overflow: hidden;
+            }
+            body .slds a.cke_button {
+            height: 26px;
+            cursor: pointer;
+            }
+            body .slds .cke_toolgroup {
+            border: 1px solid #d8dde6;
+            background: white;
+            box-shadow: none;
+            }
+            body .slds a.cke_button_off:hover,
+            body .slds a.cke_button_off:focus,
+            body .slds a.cke_button_off:active,
+            body .slds a.cke_button_disabled:hover,
+            body .slds a.cke_button_disabled:focus,
+            body .slds a.cke_button_disabled:active {
+            background: #f4f6f9;
+            box-shadow: none;
+            }
+            body .slds .cke_button_on {
+            background: #eef1f6;
+            box-shadow: none;
+            }
+            body .slds .cke_top {
+            background: #f4f6f9;
+            border-bottom: 1px solid #d8dde6;
+            }
+            body .slds .cke_toolbar:nth-child(3),
+            body .slds .cke_toolbar:nth-child(4),
+            body .slds .cke_toolbar:nth-child(5) .cke_toolgroup a:nth-child(3),
+            body .slds .cke_toolbar:nth-child(5) .cke_toolgroup a:nth-child(4) {
+            display: none;
+            }
+        </style>
+
+        <script>
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.SlackController.doOauth}',
+            '{!JSENCODE($CurrentPage.parameters.code)}',
+            function(result, event){
+                if (event.status) {
+                    document.getElementById('success').style = '';
+                } else {
+                    document.getElementById('fail').style = '';
+                }
+            },
+            {escape: true}
+        );
+        </script>
+
+        <div id="success" style="display: none;">
+            <div class="slds">
+                <div class="slds-container slds-container--small slds-text-align--center slds-p-vertical--xx-large sa-content slds-container--center">
+                    <img src="{!URLFOR($Resource.images, 'slack-logo.svg')}" class="slds-m-vertical--xx-small sa-slack-logo" />
+                    <h1 class="slds-text-heading--medium slds-m-vertical--large">Thank You!</h1>
+                    <div class="slds-box slds-theme--default">
+                        <div class="slds-notify slds-notify--toast slds-theme--success slds-theme--alert-texture slds-m-bottom--medium sa-notify">
+                            <div class="slds-notfy__content slds-grid">
+                                <svg aria-hidden="true" class="slds-icon slds-icon--small slds-m-right--small">
+                                    <use xlink:href="{!URLFOR($Resource.images, '/assets/icons/utility-sprite/svg/symbols.svg#success')}"></use>
+                                    <div class="slds-assistive-text">Success</div>
+                                </svg>
+                                <div class="slds-col">
+                                    <h3 class="slds-text-heading--small">Successfully Connected</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="slds-text-align--left">Salesforce.com and <strong>Slack</strong> are now connected.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="fail" style="display: none;">
+            There was a problem. Please retry the Authorization process.
+        </div>
+    </html>
+</apex:page>
