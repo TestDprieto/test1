@@ -1,10 +1,10 @@
 #package.xml file is recreated on the fly by Copado, no need to track unnecessary changes of this file
-package.xml
+#package.xml
 
 #Managed packages can trigger the installation or uninstallation of applications, it is  
 #recommended to manage this outside git
 
-installedPackages/*
+#installedPackages/*
 
 #if you are not customizing a managed package, you can keep your repository clean by ignoring 
 #all files for that package. For example, to ignore all files of the "Copado" managed package
