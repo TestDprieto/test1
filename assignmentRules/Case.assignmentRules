@@ -89,4 +89,24 @@
             </criteriaItems>
         </ruleEntry>
     </assignmentRule>
+    <assignmentRule>
+        <fullName>Standard Case Assignment</fullName>
+        <active>false</active>
+        <ruleEntry>
+            <assignedTo>dev1@copado.test</assignedTo>
+            <assignedToType>User</assignedToType>
+            <criteriaItems>
+                <field>User.UserType</field>
+                <operation>equals</operation>
+                <value>Standard</value>
+            </criteriaItems>
+            <overrideExistingTeams>true</overrideExistingTeams>
+            <team>PTI Support L1 Agent USA</team>
+        </ruleEntry>
+        <ruleEntry>
+            <assignedTo>dev1@copado.test</assignedTo>
+            <assignedToType>User</assignedToType>
+            <team>PTI Support L1 Agent USA</team>
+        </ruleEntry>
+    </assignmentRule>
 </AssignmentRules>

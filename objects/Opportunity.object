@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"
+      xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
     <actionOverrides>
         <actionName>AddInfluence</actionName>
         <type>Default</type>
@@ -41,6 +42,7 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <description n1:nil="true" />
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>
@@ -306,6 +308,7 @@
         </filters>
         <label>Won</label>
     </listViews>
+    <nameField n1:nil="true" />
     <searchLayouts>
         <customTabListAdditionalFields>OPPORTUNITY.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
@@ -342,5 +345,16 @@
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
         <url>http://www.fedex.com/cgi-bin/tracking?tracknumbers={!Opportunity_Tracking_Number}&amp;action=track&amp;language=english&amp;cntry_code=us</url>
+    </webLinks>
+    <webLinks>
+        <fullName>newButton1</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>newButton1</masterLabel>
+        <openType>sidebar</openType>
+        <page>VFPage</page>
+        <protected>false</protected>
     </webLinks>
 </CustomObject>
