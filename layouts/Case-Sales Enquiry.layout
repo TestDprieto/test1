@@ -3,7 +3,7 @@
     <emailDefault>false</emailDefault>
     <feedLayout>
         <autocollapsePublisher>true</autocollapsePublisher>
-        <compactFeed>false</compactFeed>
+        <compactFeed>true</compactFeed>
         <feedFilterPosition>LeftFixed</feedFilterPosition>
         <feedFilters>
             <feedFilterType>AllUpdates</feedFilterType>
@@ -24,7 +24,7 @@
             <feedFilterType>FeedItemType</feedFilterType>
             <feedItemType>ActivityEvent</feedItemType>
         </feedFilters>
-        <fullWidthFeed>false</fullWidthFeed>
+        <fullWidthFeed>true</fullWidthFeed>
         <hideSidebar>true</hideSidebar>
         <highlightExternalFeedItems>false</highlightExternalFeedItems>
         <rightComponents>
@@ -45,7 +45,7 @@
         <rightComponents>
             <componentType>CustomButtons</componentType>
         </rightComponents>
-        <useInlineFiltersInConsole>false</useInlineFiltersInConsole>
+        <useInlineFiltersInConsole>true</useInlineFiltersInConsole>
     </feedLayout>
     <layoutSections>
         <customLabel>false</customLabel>
