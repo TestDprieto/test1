@@ -280,11 +280,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Test_AutoNumber_1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Test_Date_1__c</field>
         <readable>false</readable>
     </fieldPermissions>
