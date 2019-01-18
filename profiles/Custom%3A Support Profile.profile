@@ -81,10 +81,6 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <classAccesses>
-        <apexClass>slack_essential__dmlManager</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <custom>true</custom>
     <description>This is the Support Profile</description>
     <fieldPermissions>
