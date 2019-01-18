@@ -2296,10 +2296,6 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>VFPage</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>slack_essential__Setup</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
