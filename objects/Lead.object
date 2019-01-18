@@ -92,6 +92,26 @@
             <default>false</default>
         </values>
     </businessProcesses>
+    <businessProcesses>
+        <fullName>prueba_numero_2</fullName>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed - Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed - Not Converted</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open - Not Contacted</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Working - Contacted</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
