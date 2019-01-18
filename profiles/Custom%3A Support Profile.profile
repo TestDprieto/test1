@@ -82,10 +82,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>classNum1Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>slack_essential__MockHttpResponseGenerator</apexClass>
         <enabled>true</enabled>
     </classAccesses>
