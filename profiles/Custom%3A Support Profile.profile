@@ -2296,10 +2296,6 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>slack_essential__Setup</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>slack_essential__SlackGlobalAction</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
