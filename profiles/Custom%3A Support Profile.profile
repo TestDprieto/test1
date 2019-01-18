@@ -82,10 +82,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>slack_essential__constants</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>slack_essential__dmlManager</apexClass>
         <enabled>true</enabled>
     </classAccesses>
