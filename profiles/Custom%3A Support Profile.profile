@@ -82,10 +82,6 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
-        <apexClass>slack_essential__SlackControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>slack_essential__SlackPostController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
