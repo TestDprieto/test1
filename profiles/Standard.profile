@@ -1545,11 +1545,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Change Offer Service</layout>
-        <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
+        <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Subscription_Change_Request_ELISA__c-Change Offer Service</layout>
-        <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
+        <layout>Subscription_Change_Request_ELISA__c-Change Offer%2FService</layout>
+        <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Layout</layout>
