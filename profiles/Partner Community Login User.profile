@@ -1469,6 +1469,10 @@
         <layout>Solution-Solution Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Subscription_Change_Request_ELISA__c-Change Offer Service</layout>
+        <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Task-Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1654,6 +1658,11 @@
         <recordType>Metric.Progress</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
         <visibility>DefaultOn</visibility>
@@ -1751,6 +1760,10 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <userLicense>Partner Community Login</userLicense>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ActivitiesAccess</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>AddDirectMessageMembers</name>
