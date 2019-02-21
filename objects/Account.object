@@ -246,6 +246,36 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Medicare_status__c</fullName>
+        <externalId>false</externalId>
+        <label>Medicare status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>status 1</fullName>
+                    <default>false</default>
+                    <label>status 1</label>
+                </value>
+                <value>
+                    <fullName>staus 2</fullName>
+                    <default>false</default>
+                    <label>staus 2</label>
+                </value>
+                <value>
+                    <fullName>status 3</fullName>
+                    <default>false</default>
+                    <label>status 3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>NaicsCode</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
