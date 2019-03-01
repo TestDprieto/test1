@@ -2,7 +2,16 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>Account.CF_Account_test_Jan_14__c</members>
+        <members>Account.Intel_CF_for_translations__c</members>
         <name>CustomField</name>
     </types>
-    <version>43.0</version>
+    <types>
+        <members>Account-es</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>es</members>
+        <name>Translations</name>
+    </types>
+    <version>44.0</version>
 </Package>
