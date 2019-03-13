@@ -1627,6 +1627,10 @@
         <layout>Solution-Solution Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Subscription_Change_Request_ELISA_3__c-Change Offer%2FService</layout>
+        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Change Offer Service</layout>
         <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
     </layoutAssignments>
@@ -2468,6 +2472,11 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Metric.Progress</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
