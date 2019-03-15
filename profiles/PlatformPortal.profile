@@ -2384,6 +2384,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
