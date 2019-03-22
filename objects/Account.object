@@ -703,6 +703,34 @@
         <trackHistory>false</trackHistory>
         <type>Phone</type>
     </fields>
+    <fields>
+        <fullName>volvo_recommit_7__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>volvo recommit 7</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>volvo_recommit_8__c</fullName>
+        <externalId>false</externalId>
+        <label>volvo recommit 8</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>volvo_recommit_9__c</fullName>
+        <externalId>false</externalId>
+        <label>volvo recommit 9</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
         <filterScope>Everything</filterScope>
