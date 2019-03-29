@@ -86,10 +86,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountOperationsTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>classNum1</apexClass>
         <enabled>false</enabled>
     </classAccesses>
