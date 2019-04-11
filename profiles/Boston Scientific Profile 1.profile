@@ -135,11 +135,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Cont_Int_Text_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Cont_Int_Text_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
