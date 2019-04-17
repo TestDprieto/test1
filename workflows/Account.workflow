@@ -2,11 +2,13 @@
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <fieldUpdates>
         <fullName>FU_David1</fullName>
+        <description>description new</description>
         <field>Name</field>
         <name>FU David1</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
     <rules>
         <fullName>David1</fullName>
