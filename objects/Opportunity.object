@@ -159,15 +159,6 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>OE_Expected_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>OE Expected Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>OrderNumber__c</fullName>
         <externalId>false</externalId>
         <label>Order Number</label>
@@ -221,15 +212,6 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Validate_Opp_Data__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Validate Opp Data</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
