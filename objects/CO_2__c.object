@@ -43,44 +43,21 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <deprecated>false</deprecated>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>true</enableSearch>
+    <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <fields>
-        <fullName>slack_essential__Record_Id__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Record Id</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>slack_essential__Slack_Channel_Id__c</fullName>
-        <deprecated>false</deprecated>
-        <externalId>false</externalId>
-        <label>Slack Channel Id</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <label>Slack Relationship</label>
+    <label>CO 2</label>
     <nameField>
-        <label>Slack Relationship Name</label>
+        <label>CO 2 Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Slack Relationships</pluralLabel>
+    <pluralLabel>COs_2</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>

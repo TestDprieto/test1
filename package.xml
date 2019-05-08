@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Account.RT_KAR_1</members>
-        <name>RecordType</name>
+        <members>Account</members>
+        <members>Activities</members>
+        <members>Address</members>
+        <members>BusinessHours</members>
+        <members>Case</members>
+        <members>Company</members>
+        <members>Contract</members>
+        <members>Entitlement</members>
+        <members>FieldService</members>
+        <members>FileUploadAndDownloadSecurity</members>
+        <members>Forecasting</members>
+        <members>Ideas</members>
+        <members>IoT</members>
+        <members>Knowledge</members>
+        <members>LiveAgent</members>
+        <members>Macro</members>
+        <members>Mobile</members>
+        <members>Name</members>
+        <members>OmniChannel</members>
+        <members>Opportunity</members>
+        <members>Order</members>
+        <members>OrgPreference</members>
+        <members>PathAssistant</members>
+        <members>Product</members>
+        <members>Quote</members>
+        <members>Search</members>
+        <members>Security</members>
+        <name>Settings</name>
     </types>
-    <version>43.0</version>
+    <version>45.0</version>
 </Package>

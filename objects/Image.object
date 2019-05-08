@@ -29,10 +29,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Share</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -43,40 +39,43 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>Description</fullName>
-        <trackHistory>false</trackHistory>
+        <fullName>CapturedAngle</fullName>
     </fields>
     <fields>
-        <fullName>IsAlohaSupported</fullName>
-    </fields>
-    <fields>
-        <fullName>IsLightningSupported</fullName>
-    </fields>
-    <fields>
-        <fullName>Name</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>OwnerId</fullName>
-        <trackHistory>false</trackHistory>
+        <fullName>ContentDocumentId</fullName>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>StartingContext</fullName>
+        <fullName>ImageAlternateText</fullName>
+    </fields>
+    <fields>
+        <fullName>ImageClass</fullName>
+    </fields>
+    <fields>
+        <fullName>ImageClassObjectType</fullName>
+    </fields>
+    <fields>
+        <fullName>ImageTitle</fullName>
+    </fields>
+    <fields>
+        <fullName>ImageUrl</fullName>
+    </fields>
+    <fields>
+        <fullName>ImageViewType</fullName>
+    </fields>
+    <fields>
+        <fullName>IsActive</fullName>
+    </fields>
+    <fields>
+        <fullName>Name</fullName>
     </fields>
     <searchLayouts>
-        <customTabListAdditionalFields>StartingContext</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedDate</customTabListAdditionalFields>
         <customTabListAdditionalFields>LastModifiedBy</customTabListAdditionalFields>
-        <lookupDialogsAdditionalFields>StartingContext</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>LastModifiedDate</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>LastModifiedBy</lookupDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>StartingContext</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>LastModifiedDate</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>LastModifiedBy</lookupPhoneDialogsAdditionalFields>
-        <searchResultsAdditionalFields>StartingContext</searchResultsAdditionalFields>
+        <customTabListAdditionalFields>ContentDocument</customTabListAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedDate</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>LastModifiedBy</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContentDocument</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

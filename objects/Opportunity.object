@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"
-      xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddInfluence</actionName>
         <type>Default</type>
@@ -42,7 +41,6 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
-    <description n1:nil="true" />
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <fields>
@@ -308,7 +306,6 @@
         </filters>
         <label>Won</label>
     </listViews>
-    <nameField n1:nil="true" />
     <searchLayouts>
         <customTabListAdditionalFields>OPPORTUNITY.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
@@ -349,7 +346,7 @@
     <webLinks>
         <fullName>newButton1</fullName>
         <availability>online</availability>
-        <displayType>link</displayType>
+        <displayType>button</displayType>
         <height>600</height>
         <linkType>page</linkType>
         <masterLabel>newButton1</masterLabel>
