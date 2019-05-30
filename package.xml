@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>OffPlatform_ItemDefinition (a4M1t0000004IT7EAM)</members>
+        <members>Diego Item Implementation 1 (a4D1t000000TZwvEAG)</members>
+        <name>ItemImplementation</name>
+    </types>
+    <types>
+        <members>Diego Orchestration Dependency Definition (a4K1t000000D37iEAC)</members>
+        <name>OrchestrationDependencyDefinition</name>
+    </types>
+    <types>
+        <members>Diego Orchestration Plan Definition (a4M1t000000PFSPEA4)</members>
         <name>OrchestrationItemDefinition</name>
+    </types>
+    <types>
+        <members>Diego Orchestration Plan Definition (a4O1t000000PIeIEAW)</members>
+        <name>OrchestrationPlanDefinition</name>
     </types>
     <version>45.0</version>
 </Package>
