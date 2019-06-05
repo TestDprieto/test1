@@ -2034,14 +2034,14 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
-        <recordType>LiveChatTranscript.USAA_RT_1</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
         <recordType>LiveChatTranscript.USAA_RT_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
+        <layout>LiveChatTranscript-new layout</layout>
+        <recordType>LiveChatTranscript.USAA_RT_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LiveChatTranscript-new layout</layout>
         <recordType>LiveChatTranscript.USAA_RT_3</recordType>
     </layoutAssignments>
     <layoutAssignments>
