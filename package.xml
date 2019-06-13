@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Activity.Topics_Discussed__c</members>
+        <members>Account.Support_Level__c</members>
         <name>CustomField</name>
     </types>
     <types>
-        <members>Topics_Discussed</members>
-        <name>GlobalValueSet</name>
-    </types>
-    <types>
-        <members>Event.B_SH_Event</members>
-        <members>Event.Diagnostic_Lab_Event</members>
-        <members>Event.Diagnostic_Perinatal_Event</members>
-        <members>Event.Surgical_Event</members>
-        <name>RecordType</name>
+        <members>First Response</members>
+        <members>Resolution Time</members>
+        <name>MilestoneType</name>
     </types>
     <version>45.0</version>
 </Package>
