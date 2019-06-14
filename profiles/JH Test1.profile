@@ -1478,7 +1478,7 @@
         <layout>CampaignMember-Campaign Member Page Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Case Layout</layout>
+        <layout>Case-test1</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseClose-Close Case Layout</layout>
@@ -2571,10 +2571,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SubscribeToLightningReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>TransactionalEmailSend</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
