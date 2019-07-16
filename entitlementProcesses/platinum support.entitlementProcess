@@ -9,6 +9,7 @@
         <operation>notEqual</operation>
         <value>true</value>
     </exitCriteriaFilterItems>
+    <isVersionDefault>true</isVersionDefault>
     <milestones>
         <milestoneCriteriaFilterItems>
             <field>Account.Support_Level__c</field>
@@ -29,4 +30,7 @@
         <minutesToComplete>480</minutesToComplete>
         <useCriteriaStartTime>false</useCriteriaStartTime>
     </milestones>
+    <name>Platinum Support</name>
+    <versionMaster>552f4000000AT6T</versionMaster>
+    <versionNumber>1</versionNumber>
 </EntitlementProcess>
