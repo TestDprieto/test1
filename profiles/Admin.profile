@@ -1532,9 +1532,6 @@
         <layout>AssetRelationship-Asset Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Audit__c-Audit Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>CO_2__c-CO 2 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
