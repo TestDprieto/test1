@@ -184,11 +184,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Noor_test_CF1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Noor_test_CF2__c</field>
         <readable>true</readable>
     </fieldPermissions>
