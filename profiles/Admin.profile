@@ -1389,7 +1389,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead.CompanyDunsNumber</field>
+        <field>Lead.CompanyDunsNumberZ</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
