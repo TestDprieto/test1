@@ -2455,7 +2455,7 @@
         <layout>Cont_Int_CO1__c-Cont Int CO1 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Contact-Contact %28Support%29 Layout</layout>
+        <layout>Contact-Contact %28Marketing%29 Layout</layout>
         <recordType>Contact.Contact_RT_NT_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
