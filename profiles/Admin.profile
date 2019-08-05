@@ -1969,7 +1969,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Order.TotalAmount</field>
+        <field>Order.TotalAmountY</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
