@@ -1515,6 +1515,10 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
+        <layout>Account-Account %28Support%29 Layout</layout>
+        <recordType>Account.RT_KAR_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2818,6 +2822,11 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Account.RT_KAR_1</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
         <visible>false</visible>
@@ -3134,11 +3143,19 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ArchiveArticles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>AssignPermissionSets</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>AssignTopics</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>AssignUserToSkill</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -3330,6 +3347,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>EditTranslation</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>EmailMass</name>
     </userPermissions>
     <userPermissions>
@@ -3447,6 +3468,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEmailClientConfig</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageEntitlements</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -3598,7 +3623,15 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>PublishArticles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>PublishPackaging</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>PublishTranslation</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -3635,6 +3668,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SolutionImport</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SubmitForTranslation</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
