@@ -2455,6 +2455,10 @@
         <layout>Cont_Int_CO1__c-Cont Int CO1 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Contact-Contact %28Support%29 Layout</layout>
+        <recordType>Contact.Contact_RT_NT_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -3971,6 +3975,11 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Account.RT_KAR_1</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Contact.Contact_RT_NT_1</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
