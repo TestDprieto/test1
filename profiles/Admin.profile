@@ -1595,9 +1595,6 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>LiveChatTranscriptActive-Live Chat Transcript %28In Progress%29 Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>LiveChatTranscriptEvent-Live Chat Transcript Event Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
