@@ -2,6 +2,11 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Admin</fullName>
     <applicationVisibilities>
+        <application>standard__AppLauncherX</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__AppLauncherY</application>
         <default>false</default>
         <visible>true</visible>
@@ -1389,6 +1394,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead.CompanyDunsNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead.CompanyDunsNumberZ</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1973,6 +1983,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Order.TotalAmountY</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Order.Type</field>
         <readable>true</readable>
@@ -2242,7 +2257,7 @@
         <layout>Cont_Int_CO1__c-Cont Int CO1 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Contact-Contact %28Marketing%29 Layout</layout>
+        <layout>Contact-Contact %28Support%29 Layout</layout>
         <recordType>Contact.Contact_RT_NT_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
