@@ -2,7 +2,7 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Admin</fullName>
     <applicationVisibilities>
-        <application>standard__AppLauncher</application>
+        <application>standard__AppLauncherX</application>
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
