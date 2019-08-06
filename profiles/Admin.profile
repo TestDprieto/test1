@@ -2,7 +2,7 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Admin</fullName>
     <applicationVisibilities>
-        <application>standard__AppLauncherY</application>
+        <application>standard__AppLauncher</application>
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -1389,7 +1389,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead.CompanyDunsNumberZ</field>
+        <field>Lead.CompanyDunsNumber</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
