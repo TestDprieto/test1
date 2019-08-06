@@ -4583,10 +4583,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>EditTranslation</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>PublishTranslation</name>
     </userPermissions>
     <userPermissions>
