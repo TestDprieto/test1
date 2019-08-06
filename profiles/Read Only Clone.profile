@@ -4555,10 +4555,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>ArchiveArticles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>PublishArticles</name>
     </userPermissions>
     <userPermissions>
