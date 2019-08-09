@@ -3638,6 +3638,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <recordType>Order.orderRT</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
         <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

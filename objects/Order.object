@@ -200,6 +200,11 @@
         <filterScope>Everything</filterScope>
         <label>All Orders</label>
     </listViews>
+    <recordTypes>
+        <fullName>orderRT</fullName>
+        <active>true</active>
+        <label>orderRT</label>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ORDERS.ORDER_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>SALES.ACCOUNT.NAME</customTabListAdditionalFields>
