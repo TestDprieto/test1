@@ -143,8 +143,11 @@
     <fields>
         <fullName>Last_Status_Change__c</fullName>
         <description>Stores the last time the status changed -- used by the Case Business Hours Tools package.</description>
+        <enableChangeDataCapture>true</enableChangeDataCapture>
+        <encrypted>true</encrypted>
         <externalId>false</externalId>
         <label>Last Status Change</label>
+        <mobileReady>true</mobileReady>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
