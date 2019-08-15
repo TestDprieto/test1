@@ -197,9 +197,11 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableChangeDataCapture>true</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <fields>
         <fullName>AccountId</fullName>
+        <encrypted>true</encrypted>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
