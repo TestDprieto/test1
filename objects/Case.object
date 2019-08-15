@@ -142,6 +142,17 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>Last_Status_Change__c</fullName>
+        <description>Stores the last time the status changed -- used by the Case Business Hours Tools package.</description>
+        <externalId>false</externalId>
+        <label>Last Status Change</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>Origin</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
