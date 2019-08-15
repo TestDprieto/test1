@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
-    <active>false</active>
+    <active>true</active>
     <allowRecall>false</allowRecall>
     <allowedSubmitters>
         <type>owner</type>
@@ -19,6 +19,7 @@
         <label>Step 1</label>
         <name>Step_1</name>
     </approvalStep>
+    <description>Descp 1 testing</description>
     <emailTemplate>unfiled$public/Approve_Opportunity_Discount</emailTemplate>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
