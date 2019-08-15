@@ -225,6 +225,7 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableChangeDataCapture>true</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <enableHistory>true</enableHistory>
     <fields>
@@ -240,6 +241,7 @@
     </fields>
     <fields>
         <fullName>Active__c</fullName>
+        <encrypted>true</encrypted>
         <externalId>false</externalId>
         <label>Active</label>
         <required>false</required>
