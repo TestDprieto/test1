@@ -45,6 +45,7 @@
     <enableHistory>false</enableHistory>
     <fields>
         <fullName>AccountId</fullName>
+        <inlineHelpText>The Account Name goes here</inlineHelpText>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -159,6 +160,7 @@
     <fields>
         <fullName>OrderNumber__c</fullName>
         <externalId>false</externalId>
+        <inlineHelpText>The Order Number goes here</inlineHelpText>
         <label>Order Number</label>
         <length>8</length>
         <required>false</required>
