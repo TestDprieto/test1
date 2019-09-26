@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Custom_Label_1</members>
-        <name>CustomLabel</name>
+        <members>Account.CSTM_Field_1__c</members>
+        <members>Account.CSTM_Field_2__c</members>
+        <members>Account.CSTM_Field_3__c</members>
+        <members>Account.Cont_Int_Text_1__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <members>Blue Wave Profile test1</members>
+        <members>Blue Wave Profile test2</members>
+        <members>Boston Scientific Profile 1</members>
+        <members>Read Only Clone</members>
+        <members>ReadOnly</members>
+        <name>Profile</name>
     </types>
     <version>46.0</version>
 </Package>
