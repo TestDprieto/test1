@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Opportunity.Sales process 1</members>
-        <name>BusinessProcess</name>
+        <members>Opportunity</members>
+        <name>CustomObject</name>
     </types>
     <types>
         <members>Opportunity.RT_Oppo_1</members>
-        <members>Opportunity.RT_Oppo_2</members>
         <name>RecordType</name>
     </types>
     <version>46.0</version>
