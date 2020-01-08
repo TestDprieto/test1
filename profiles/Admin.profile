@@ -2,6 +2,41 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>Admin</fullName>
     <applicationVisibilities>
+        <application>Console_Refinitiv_App</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Console_Refinitiv_App_2</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Console_Refinitiv_App_3</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Refinitiv_App_1</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Refinitiv_NEW_App_201</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>X0001_Refinitiv_Console</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>X0002_Refinitiv_Console</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
         <visible>true</visible>
@@ -103,46 +138,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>classNum1Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__MockHttpResponseGenerator</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__PostToSlack</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__PostToSlackTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__SlackController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__SlackControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__SlackPostController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__SlackPostControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__Utilities</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__constants</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>slack_essential__dmlManager</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
@@ -259,6 +254,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.DunsNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Endesa_test__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -508,12 +508,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.new_testdate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.one_more_field__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.test_vueling_BP_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.v14_phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -559,6 +569,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.volvo_recommit_9__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.yml_test__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -670,6 +685,86 @@
         <editable>true</editable>
         <field>Audit__c.To_Be_Deleted__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.custom_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.custom_percentage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.custom_phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.to_be_deleted_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationForm.DefaultAuthFormTextId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationForm.EffectiveFromDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationForm.EffectiveToDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationForm.IsSignatureRequired</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationForm.RevisionNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationFormConsent.DocumentVersionId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationFormConsent.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationFormText.ContentDocumentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationFormText.FullAuthorizationFormUrl</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationFormText.Locale</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AuthorizationFormText.SummaryAuthFormText</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CMT_1__mdt.CMT_Field_1__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -902,6 +997,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Last_Status_Change__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Case.MilestoneStatus</field>
         <readable>false</readable>
@@ -1128,6 +1228,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.New_field_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.OtherAddress</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1149,6 +1254,26 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Title</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointTypeConsent.DataUsePurposeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointTypeConsent.DoubleConsentCaptureDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointTypeConsent.EffectiveFrom</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointTypeConsent.EffectiveTo</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1294,6 +1419,41 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ContractLineItem.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DataUseLegalBasis.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DataUseLegalBasis.Source</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DataUsePurpose.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DataUsePurpose.IsMaintainablePerContactPoint</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DataUsePurpose.IsMaintainablePerParty</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DataUsePurpose.IsMaintainablePerType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DataUsePurpose.LegalBasisId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1528,6 +1688,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>JH_CO_2__c.When__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>JH_CO_2__c.Yes_or_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Address</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1654,6 +1824,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Website</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.email_4_delete__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1892,16 +2067,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>NCO_JH__c.When__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>NCO_JH__c.phone__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.AccountId</field>
         <readable>true</readable>
@@ -1938,6 +2103,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Discount_Percent_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Discount_Percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.ExpectedRevenue</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2004,6 +2179,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Validate_Opp_Data__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.for_FLS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.to_be_deleted_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.to_bedeleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2213,6 +2403,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Refinitiv_CO_4_Console_App__c.Custome_Email_Field__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ServiceContract.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2401,16 +2596,6 @@
         <field>VTD1_Monitoring_Visit__c.VTR2_Remote_Ons__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>slack_essential__Slack_Relationship__c.slack_essential__Record_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>slack_essential__Slack_Relationship__c.slack_essential__Slack_Channel_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account %28Support%29 Layout</layout>
         <recordType>Account.ACC_RT_NT_1</recordType>
@@ -2436,7 +2621,7 @@
         <layout>Audit__c-Audit Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CO_1__c-CO 1 Layout</layout>
+        <layout>CMT_1__mdt-CMT 1 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CO_2__c-CO 2 Layout</layout>
@@ -2510,6 +2695,22 @@
         <layout>Event-Event Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+        <recordType>Event.B_SH_Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+        <recordType>Event.Diagnostic_Lab_Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+        <recordType>Event.Diagnostic_Perinatal_Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+        <recordType>Event.Surgical_Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>FeedItem-Feed Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2528,6 +2729,9 @@
         <layout>Individual-Individual Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>JH_CO_2__c-JH CO 2 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>JobTracker-Job Tracker Layout - Winter %2716</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2535,6 +2739,14 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.RT_Picklist_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.RT_Picklist_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveAgentSession-Live Agent Session Layout</layout>
@@ -2587,10 +2799,22 @@
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.RT_Oppo_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.RT_Oppo_2</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Order-Order Layout</layout>
+        <recordType>Order.orderRT</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
@@ -2608,7 +2832,16 @@
         <layout>ProductConsumptionSchedule-Product Consumption Schedule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>QuickDataCapture__mdt-QuickDataCapture Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>QuickText-Quick Text Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>QuickText__c-QuickText Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Refinitiv_CO_4_Console_App__c-Refinitiv CO 4 Console App Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Scorecard-Scorecard Layout</layout>
@@ -2798,6 +3031,24 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>AsyncOperationEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AsyncOperationStatus</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Attachment</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -2820,22 +3071,13 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>false</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>BatchApexErrorEvent</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>false</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>CO_1__ChangeEvent</object>
-        <viewAllRecords>false</viewAllRecords>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>AuthorizationForm</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -2843,8 +3085,35 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
-        <object>CO_1__c</object>
+        <object>AuthorizationFormConsent</object>
         <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>AuthorizationFormDataUse</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>AuthorizationFormText</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>BatchApexErrorEvent</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -3104,6 +3373,15 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>ConversationContextEntry</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Custom_Object_3__ChangeEvent</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -3261,6 +3539,15 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>FlowExecutionErrorEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -3303,6 +3590,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Individual</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>JH_CO_2__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3414,13 +3710,13 @@
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>NCO_JH__c</object>
-        <viewAllRecords>true</viewAllRecords>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MacroUsage</object>
+        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
@@ -3447,6 +3743,15 @@
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>OpportunityChangeEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>OpportunityContactRole</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3527,6 +3832,33 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>OrgMetric</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>OrgMetricScanResult</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>OrgMetricScanSummary</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Partner</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -3585,6 +3917,15 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>PromptAction</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
         <allowEdit>true</allowEdit>
@@ -3608,6 +3949,24 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>QuickTextUsage</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>QuickText__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Recommendation</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -3619,6 +3978,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>RecordAction</object>
         <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Refinitiv_CO_4_Console_App__c</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
@@ -3944,34 +4312,8 @@
         <object>WorkFeedbackRequest</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-    <objectPermissions>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
-        <allowRead>false</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>slack_essential__Slack_Relationship__ChangeEvent</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>true</modifyAllRecords>
-        <object>slack_essential__Slack_Relationship__c</object>
-        <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
     <pageAccesses>
         <apexPage>VFPage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>slack_essential__Setup</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>slack_essential__SlackGlobalAction</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
@@ -4000,6 +4342,11 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Lead.RT_Picklist_1</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>false</default>
         <recordType>LiveChatTranscript.USAA_RT_1</recordType>
         <visible>true</visible>
@@ -4022,6 +4369,11 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Metric.Progress</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Opportunity.RT_Oppo_1</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -4055,7 +4407,15 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
+        <tab>Audit__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Knowledge__kav</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>QuickText__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -4069,6 +4429,22 @@
     <tabVisibilities>
         <tab>standard-Asset</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AuthorizationForm</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AuthorizationFormConsent</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AuthorizationFormDataUse</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AuthorizationFormText</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Campaign</tab>
@@ -4220,6 +4596,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Order</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-OrgMetric</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -4925,6 +5305,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ViewArchivedArticles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ViewDataAssessment</name>
     </userPermissions>
     <userPermissions>
@@ -4934,6 +5318,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewDataLeakageEvents</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewDraftArticles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
