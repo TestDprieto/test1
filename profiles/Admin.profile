@@ -2373,10 +2373,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account %28Support%29 Layout</layout>
-        <recordType>Account.RT_KAR_1</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
