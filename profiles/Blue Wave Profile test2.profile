@@ -4865,10 +4865,6 @@
         <name>ViewDataLeakageEvents</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewDraftArticles</name>
-    </userPermissions>
-    <userPermissions>
         <enabled>false</enabled>
         <name>ViewEncryptedData</name>
     </userPermissions>
