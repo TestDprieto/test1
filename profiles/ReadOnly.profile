@@ -4852,10 +4852,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
-        <name>ViewArchivedArticles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>false</enabled>
         <name>ViewContent</name>
     </userPermissions>
     <userPermissions>
