@@ -1,48 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>AccountContactRole</members>
-        <members>AccountOwnership</members>
-        <members>AccountRating</members>
-        <members>AccountRating</members>
-        <members>AccountType</members>
-        <members>AssetStatus</members>
-        <members>CampaignMemberStatus</members>
-        <members>CampaignStatus</members>
-        <members>CampaignType</members>
-        <members>CaseOrigin</members>
-        <members>CasePriority</members>
-        <members>CaseReason</members>
-        <members>CaseStatus</members>
-        <members>CaseType</members>
-        <members>ContactRole</members>
-        <members>ContractContactRole</members>
-        <members>ContractStatus</members>
-        <members>EventSubject</members>
-        <members>IdeaMultiCategory</members>
-        <members>IdeaStatus</members>
-        <members>Industry</members>
-        <members>Industry</members>
-        <members>LeadSource</members>
-        <members>LeadSource</members>
-        <members>LeadStatus</members>
-        <members>OpportunityCompetitor</members>
-        <members>OpportunityStage</members>
-        <members>OpportunityType</members>
-        <members>OrderStatus</members>
-        <members>OrderType</members>
-        <members>PartnerRole</members>
-        <members>Product2Family</members>
-        <members>QuantityUnitOfMeasure</members>
-        <members>QuickTextCategory</members>
-        <members>QuickTextChannel</members>
-        <members>Salutation</members>
-        <members>Salutation</members>
-        <members>SolutionStatus</members>
-        <members>TaskPriority</members>
-        <members>TaskStatus</members>
-        <members>TaskSubject</members>
-        <name>StandardValueSet</name>
+        <members>AppleWatch</members>
+        <members>AppleWatchTest</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>AppleWatch</members>
+        <name>ApexTrigger</name>
     </types>
     <version>45.0</version>
 </Package>
