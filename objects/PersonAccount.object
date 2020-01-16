@@ -30,32 +30,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Active__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -187,21 +161,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Level__pc</picklist>
-            <values>
-                <fullName>Primary</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Secondary</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tertiary</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Ownership</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -232,25 +191,6 @@
             </values>
             <values>
                 <fullName>Warm</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>SLA__c</picklist>
-            <values>
-                <fullName>Bronze</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Platinum</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Silver</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -286,17 +226,41 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>UpsellOpportunity__c</picklist>
+            <picklist>prefix__c</picklist>
             <values>
-                <fullName>Maybe</fullName>
+                <fullName>%2B00</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>No</fullName>
+                <fullName>%2B1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>%2B22</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%2B34</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%2B41</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%2B73</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%2B911</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>%2B92</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>three</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
