@@ -1,0 +1,1 @@
+Public with sharing Class EmptyClass2{}
