@@ -2707,7 +2707,14 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
         <recordType>Event.Diagnostic_Lab_Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+        <recordType>Event.B_SH_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
@@ -2716,13 +2723,6 @@
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
         <recordType>Event.Surgical_Event</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
-        <recordType>Event.B_SH_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>FeedItem-Feed Item Layout</layout>
@@ -2753,6 +2753,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.RT_Picklist_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
@@ -2760,25 +2761,24 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead-Lead Layout</layout>
-        <recordType>Lead.RT_Picklist_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveAgentSession-Live Agent Session Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
         <recordType>LiveChatTranscript.USAA_RT_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>LiveChatTranscript-new layout</layout>
-        <recordType>LiveChatTranscript.USAA_RT_3</recordType>
+        <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-new layout</layout>
         <recordType>LiveChatTranscript.USAA_RT_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LiveChatTranscript-new layout</layout>
+        <recordType>LiveChatTranscript.USAA_RT_3</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscriptActive-Live Chat Transcript %28In Progress%29 Layout</layout>
@@ -2801,10 +2801,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
-        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
+        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>MetricDataLink-Metric Data Link Layout</layout>
@@ -2825,10 +2825,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
-        <recordType>Order.orderRT</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
+        <recordType>Order.orderRT</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
@@ -2891,10 +2891,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_3__c-Subscription Change Request %28ELISA%29 3 Layout</layout>
+        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_3__c-Subscription Change Request %28ELISA%29 3 Layout</layout>
-        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Change Offer Service</layout>
@@ -5059,10 +5059,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageEntitlements</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageExchangeConfig</name>
     </userPermissions>
     <userPermissions>
@@ -5207,6 +5203,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>Packaging2PromoteVersion</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>PrivacyDataAccess</name>
     </userPermissions>
     <userPermissions>
@@ -5319,10 +5319,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ViewArchivedArticles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ViewDataAssessment</name>
     </userPermissions>
     <userPermissions>
@@ -5332,10 +5328,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewDataLeakageEvents</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewDraftArticles</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
