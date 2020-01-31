@@ -1418,10 +1418,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
+        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
-        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>MetricDataLink-Metric Data Link Layout</layout>
@@ -1756,10 +1756,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ApexRestServices</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ApiEnabled</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

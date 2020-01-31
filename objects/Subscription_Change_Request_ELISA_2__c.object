@@ -154,11 +154,21 @@
     <enableStreamingApi>true</enableStreamingApi>
     <label>Subscription Change Request (ELISA) 2</label>
     <nameField>
-        <label>Subscription Change Request (ELISA) 2 Name</label>
+        <label>Subscription Change Request (ELISA) 2 Na</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Subscription Change Request (ELISA) 2</pluralLabel>
-    <searchLayouts />
+    <recordTypes>
+        <fullName>Change_Offer</fullName>
+        <active>true</active>
+        <label>Change Offer</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Change_Phone</fullName>
+        <active>true</active>
+        <label>Change Phone</label>
+    </recordTypes>
+    <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

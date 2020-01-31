@@ -1418,10 +1418,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
+        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
-        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>MetricDataLink-Metric Data Link Layout</layout>
@@ -1470,6 +1470,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</layout>
+        <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</layout>
@@ -1477,7 +1478,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</layout>
-        <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Layout</layout>
@@ -1756,10 +1756,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ApexRestServices</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ApiEnabled</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
