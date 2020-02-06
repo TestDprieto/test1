@@ -2003,16 +2003,17 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
+        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
-        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>MetricDataLink-Metric Data Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.RT_Oppo_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
@@ -2020,7 +2021,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.RT_Oppo_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
@@ -2069,21 +2069,21 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_2__c-Change Offer%2FService</layout>
-        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Offer</recordType>
+        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Phone</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_2__c-Change Offer%2FService</layout>
-        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Phone</recordType>
+        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_2__c-Subscription Change Request %28ELISA%29 2 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_3__c-Change Offer%2FService</layout>
+        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_3__c-Change Offer%2FService</layout>
-        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</layout>
@@ -3334,10 +3334,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageTranslation</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageUnlistedGroups</name>
     </userPermissions>
     <userPermissions>
@@ -3375,10 +3371,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>Packaging2</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>Packaging2PromoteVersion</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
