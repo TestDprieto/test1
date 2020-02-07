@@ -1,6 +1,8 @@
 Public with sharing Class AppleWatch{
- Public Static void appleWatchmethod(list<Opportunity> lopt ){
+ Public Static void appleWatchmethod(list<Opportunity> lopt )
+ {
     for (Opportunity opp : lopt) {
+    
         Task t        = new Task();
         t.Subject     = 'Apple Watch Promo';
         t.Description = 'Send them one ASAP';
@@ -8,6 +10,9 @@ Public with sharing Class AppleWatch{
         t.WhatId      = opp.Id;
         insert t;
      }
+     
   }
-  /* comment 4*/
+  
+  /* comment 6*/
+  
  }
