@@ -1545,7 +1545,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</layout>
-        <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</layout>
@@ -1553,6 +1552,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</layout>
+        <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Layout</layout>
