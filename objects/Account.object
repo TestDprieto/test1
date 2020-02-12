@@ -108,17 +108,6 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
-        <fullName>CF_Account_test_Jan_14__c</fullName>
-        <externalId>false</externalId>
-        <label>CF Account test Jan 14</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>CF_test1__c</fullName>
         <description>Description 1</description>
         <externalId>false</externalId>
@@ -685,6 +674,7 @@
         <filterScope>Everything</filterScope>
         <label>Platinum and Gold SLA Customers</label>
     </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>ACC_RT_NT_1</fullName>
         <active>true</active>
