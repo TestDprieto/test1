@@ -166,11 +166,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.CF_Account_test_Jan_14__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.CSTM_Field_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
