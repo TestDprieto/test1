@@ -2162,10 +2162,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account %28Sales%29 Layout</layout>
-        <recordType>Account.RT_KAR_1</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account-Account %28Support%29 Layout</layout>
         <recordType>Account.ACC_RT_NT_1</recordType>
     </layoutAssignments>
@@ -3457,11 +3453,6 @@
         <default>false</default>
         <recordType>Account.ACC_RT_NT_1</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Account.RT_KAR_1</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
