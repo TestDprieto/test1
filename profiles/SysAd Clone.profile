@@ -318,11 +318,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.new_testdate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.v14_phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
