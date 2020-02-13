@@ -2373,10 +2373,10 @@
     </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
-        <recordType>Account.RT_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
+        <recordType>Account.RT_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
@@ -2447,6 +2447,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
+        <recordType>Event.B_SH_Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
         <recordType>Event.Diagnostic_Lab_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -2456,10 +2460,6 @@
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
         <recordType>Event.Diagnostic_Perinatal_Event</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
-        <recordType>Event.B_SH_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
@@ -2528,14 +2528,14 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
-        <recordType>Opportunity.RT_Oppo_2</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
         <recordType>Opportunity.RT_Oppo_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.RT_Oppo_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
