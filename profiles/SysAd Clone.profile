@@ -1998,10 +1998,6 @@
         <layout>Event-Event Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Event-Event Layout</layout>
-        <recordType>Event.Diagnostic_Lab_Event</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>FeedItem-Feed Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
