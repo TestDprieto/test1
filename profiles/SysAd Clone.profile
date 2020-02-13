@@ -1983,9 +1983,6 @@
         <layout>EmailMessage-Email Message Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>EntityMilestone-Object Milestone Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Event-Event Layout</layout>
         <recordType>Event.Surgical_Event</recordType>
     </layoutAssignments>
