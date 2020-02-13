@@ -2062,9 +2062,6 @@
         <layout>QuickText-Quick Text Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>QuickText__c-QuickText Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Refinitiv_CO_4_Console_App__c-Refinitiv CO 4 Console App Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
