@@ -313,11 +313,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.brand_new__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.destructive_test_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
