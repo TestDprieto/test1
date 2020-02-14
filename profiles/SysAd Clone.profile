@@ -2770,10 +2770,6 @@
         <layout>Order-Order Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Order-Order Layout</layout>
-        <recordType>Order.orderRT</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -4004,11 +4000,6 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Opportunity.RT_Oppo_1</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Order.orderRT</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
