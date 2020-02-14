@@ -132,10 +132,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>classNum1</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>classNum1Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -262,11 +258,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Endesa_test__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Fax</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -356,11 +347,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Reusable_Promotion_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Reusable_Promotion_2_1__c</field>
         <readable>true</readable>
@@ -373,16 +359,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Reusable_Promotion_2_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Reusable_Promotion_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Reusable_Promotion_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -528,11 +504,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.test_vueling_BP_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.v14_phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
