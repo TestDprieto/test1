@@ -97,10 +97,6 @@
         <apexClass>AppleWatchTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>classNum1Test</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
