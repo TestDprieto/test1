@@ -253,11 +253,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Reusable_Promotion_2_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Reusable_Promotion_2_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
