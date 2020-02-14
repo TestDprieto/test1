@@ -2034,9 +2034,6 @@
         <layout>ProductConsumptionSchedule-Product Consumption Schedule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>QuickDataCapture__mdt-QuickDataCapture Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>QuickText-Quick Text Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
