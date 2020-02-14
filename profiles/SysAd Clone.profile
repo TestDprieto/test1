@@ -223,11 +223,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Noor_test_CF2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Noor_test_CF3__c</field>
         <readable>true</readable>
     </fieldPermissions>
