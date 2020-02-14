@@ -1976,9 +1976,6 @@
         <layout>Individual-Individual Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>JH_CO_2__c-JH CO 2 Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>JobTracker-Job Tracker Layout - Winter %2716</layout>
     </layoutAssignments>
     <layoutAssignments>
