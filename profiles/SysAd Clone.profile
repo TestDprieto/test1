@@ -773,11 +773,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.field_for_FLS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>ConsumptionRate.Description</field>
         <readable>true</readable>
     </fieldPermissions>
