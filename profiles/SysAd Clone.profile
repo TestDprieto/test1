@@ -1915,9 +1915,6 @@
         <layout>CMT_1__mdt-CMT 1 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CO_2__c-CO 2 Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Campaign-Campaign Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
