@@ -212,11 +212,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Medicare_status__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Account.NaicsCode</field>
         <readable>true</readable>
