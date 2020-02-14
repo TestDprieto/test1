@@ -2674,10 +2674,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
-        <recordType>Event.B_SH_Event</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
         <recordType>Event.Diagnostic_Perinatal_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -4004,11 +4000,6 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Contact.Contact_RT_NT_1</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Event.B_SH_Event</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
