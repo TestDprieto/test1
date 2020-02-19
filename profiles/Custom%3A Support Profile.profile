@@ -97,6 +97,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
+    <description>This is the Support Profile</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>

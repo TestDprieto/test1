@@ -10,4 +10,5 @@ Public with sharing Class AppleWatch{
      }
      //Comment 1
   }
+  /* comment 4*/
  }
