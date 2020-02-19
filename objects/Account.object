@@ -417,7 +417,7 @@
     </fields>
     <fields>
         <fullName>SLA__c</fullName>
-        <businessOwnerUser>dev2@copado.test</businessOwnerUser>
+        <businessOwnerUser>{!Environment.Data_Class_1}</businessOwnerUser>
         <description>desc1</description>
         <externalId>false</externalId>
         <label>SLA</label>
