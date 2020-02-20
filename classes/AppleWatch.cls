@@ -12,7 +12,5 @@ Public with sharing Class AppleWatch{
      }
      
   }
-  
-  /* comment 6*/
-  
+  /* New Comment made from CLI*/
  }
