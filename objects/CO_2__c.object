@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>picklist_for_translation_ELISA__c</fullName>
+        <externalId>false</externalId>
+        <label>picklist for translation ELISA</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>uno</fullName>
+                    <default>false</default>
+                    <label>uno</label>
+                </value>
+                <value>
+                    <fullName>dos</fullName>
+                    <default>false</default>
+                    <label>dos</label>
+                </value>
+                <value>
+                    <fullName>tres</fullName>
+                    <default>false</default>
+                    <label>tres</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+</CustomObject>
