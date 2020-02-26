@@ -73,6 +73,34 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>picklist_for_translation_ELISA__c</fullName>
+        <externalId>false</externalId>
+        <label>picklist for translation ELISA</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>uno</fullName>
+                    <default>false</default>
+                    <label>uno</label>
+                </value>
+                <value>
+                    <fullName>dos</fullName>
+                    <default>false</default>
+                    <label>dos</label>
+                </value>
+                <value>
+                    <fullName>tres</fullName>
+                    <default>false</default>
+                    <label>tres</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <label>CusObj 2</label>
     <nameField>
         <label>CO 2 Name</label>
