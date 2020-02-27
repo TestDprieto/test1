@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CusObj 2</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>COs 2</value>
+    </caseValues>
+    <fields>
+        <label>picklist trans</label>
+        <name>picklist_for_translation_ELISA__c</name>
+        <picklistValues>
+            <masterLabel>dos</masterLabel>
+            <translation>one</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>tres</masterLabel>
+            <translation>two</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>uno</masterLabel>
+            <translation><!-- uno --></translation>
+        </picklistValues>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
