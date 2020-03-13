@@ -103,6 +103,7 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>CustomerPriority__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -116,6 +117,16 @@
                     <label>Yes</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>High</controllingFieldValue>
+                <controllingFieldValue>Low</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>High</controllingFieldValue>
+                <controllingFieldValue>Medium</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
