@@ -242,8 +242,10 @@
         <label>Active</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>CustomerPriority__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -257,6 +259,18 @@
                     <label>Yes</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>High</controllingFieldValue>
+                <controllingFieldValue>Low</controllingFieldValue>
+                <controllingFieldValue>Medium</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>High</controllingFieldValue>
+                <controllingFieldValue>Low</controllingFieldValue>
+                <controllingFieldValue>Medium</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -294,10 +308,12 @@
     </fields>
     <fields>
         <fullName>CustomerPriority__c</fullName>
+        <description>descp1</description>
         <externalId>false</externalId>
         <label>Customer Priority</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
