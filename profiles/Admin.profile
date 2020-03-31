@@ -285,6 +285,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.test_backend_March_31_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.test_backend_March_31_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Asset.AccountId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2978,6 +2988,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ConsentApiUpdate</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ContentAdministrator</name>
     </userPermissions>
     <userPermissions>
@@ -3178,6 +3192,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManageCMS</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ManageCallCenters</name>
     </userPermissions>
     <userPermissions>
@@ -3239,6 +3257,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageHealthCheck</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ManageHubConnections</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -3334,10 +3356,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageTranslation</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageUnlistedGroups</name>
     </userPermissions>
     <userPermissions>
@@ -3375,10 +3393,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>Packaging2</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>Packaging2PromoteVersion</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -3510,6 +3524,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ViewFlowUsageAndFlowEventData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ViewHealthCheck</name>
     </userPermissions>
     <userPermissions>
@@ -3535,6 +3553,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewSetup</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewUserPII</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
