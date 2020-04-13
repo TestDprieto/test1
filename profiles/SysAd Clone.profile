@@ -783,11 +783,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.field_for_FLS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Case.test_backend_March_31_NEW_Validation__c</field>
         <readable>true</readable>
     </fieldPermissions>
