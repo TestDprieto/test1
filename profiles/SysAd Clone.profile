@@ -3790,11 +3790,6 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>LiveChatTranscript.USAA_RT_2</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <default>true</default>
         <recordType>LiveChatTranscript.USAA_RT_3</recordType>
         <visible>true</visible>
