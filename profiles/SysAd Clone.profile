@@ -443,11 +443,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Audit__c.custom_phone__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Audit__c.to_be_deleted_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
