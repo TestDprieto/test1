@@ -328,11 +328,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.volvo_recommit_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.volvo_recommit_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
