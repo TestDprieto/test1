@@ -2253,10 +2253,6 @@
         <layout>MetricDataLink-Metric Data Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Opportunity-Opportunity %28Sales%29 Layout</layout>
-        <recordType>Opportunity.New_RT_for_SnapshotDiff</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
