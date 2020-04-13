@@ -443,11 +443,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Audit__c.custom_percentage__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Audit__c.custom_phone__c</field>
         <readable>true</readable>
     </fieldPermissions>
