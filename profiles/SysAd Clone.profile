@@ -2600,10 +2600,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA_2__c-Change Offer%2FService</layout>
-        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Offer</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Subscription_Change_Request_ELISA_2__c-Change Offer%2FService</layout>
         <recordType>Subscription_Change_Request_ELISA_2__c.Change_Phone</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -3798,11 +3794,6 @@
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Opportunity.RT_Oppo_1</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Offer</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
