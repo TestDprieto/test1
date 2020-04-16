@@ -2097,9 +2097,14 @@
         <layout>WorkPerformanceCycle-Performance Cycle Layout - Winter %2716</layout>
     </layoutAssignments>
     <loginIpRanges>
-        <description>test April 16th</description>
-        <endAddress>255.255.255.255</endAddress>
-        <startAddress>0.0.0.0</startAddress>
+        <description>test</description>
+        <endAddress>92.191.140.129</endAddress>
+        <startAddress>92.191.140.129</startAddress>
+    </loginIpRanges>
+    <loginIpRanges>
+        <description>test 2</description>
+        <endAddress>92.191.140.130</endAddress>
+        <startAddress>92.191.140.130</startAddress>
     </loginIpRanges>
     <objectPermissions>
         <allowCreate>false</allowCreate>
