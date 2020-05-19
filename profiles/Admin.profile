@@ -125,6 +125,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Business_Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Business_Segment_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -786,6 +791,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Birthdate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Business_Segment__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
