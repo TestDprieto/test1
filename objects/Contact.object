@@ -566,6 +566,25 @@
         <active>true</active>
         <label>Contact RT NT 1</label>
         <picklistValues>
+            <picklist>Business_Segment__c</picklist>
+            <values>
+                <fullName>Business Segment a</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment b</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment c</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment d</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>LeadSource</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -600,29 +619,6 @@
             </values>
             <values>
                 <fullName>Tertiary</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Name</picklist>
-            <values>
-                <fullName>Dr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ms%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prof%2E</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
