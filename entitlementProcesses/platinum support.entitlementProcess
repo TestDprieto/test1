@@ -6,7 +6,7 @@
     <entryStartDateField>Case.CreatedDate</entryStartDateField>
     <exitCriteriaFilterItems>
         <field>Case.IsClosed</field>
-        <operation>equals</operation>
+        <operation>notEqual</operation>
         <value>true</value>
     </exitCriteriaFilterItems>
     <milestones>
