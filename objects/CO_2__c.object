@@ -82,6 +82,12 @@
     <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>
+    <validationRules>
+        <fullName>ValidationRule_PTC_1</fullName>
+        <active>true</active>
+        <errorConditionFormula>$User.IsActive</errorConditionFormula>
+        <errorMessage>Error!</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
     <webLinks>
         <fullName>Repo_Recovary_Approval</fullName>
