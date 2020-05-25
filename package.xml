@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>CO_2__c.picklist_for_translation_ELISA__c</members>
-        <name>CustomField</name>
+        <members>AppleWatch</members>
+        <members>AppleWatchTest</members>
+        <name>ApexClass</name>
     </types>
     <types>
-        <members>CO_2__c-en_US</members>
-        <name>CustomObjectTranslation</name>
+        <members>AppleWatch</members>
+        <name>ApexTrigger</name>
     </types>
     <version>47.0</version>
 </Package>
