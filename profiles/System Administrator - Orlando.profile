@@ -169,7 +169,7 @@
         <name>DistributeFromPersWksp</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>EditActivatedOrders</name>
     </userPermissions>
     <userPermissions>
