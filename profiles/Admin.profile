@@ -285,12 +285,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.test_backend_March_31_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.test_backend_March_31_2__c</field>
+        <field>Account.test_backend_March_31_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
