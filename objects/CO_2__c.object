@@ -52,14 +52,69 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Error_Lien_Holder_Repo__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Lien Holder Repo</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Error_Under_2500__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Under 2500</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <label>CusObj 2</label>
     <nameField>
         <label>CO 2 Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>COs 2</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>
     <visibility>Public</visibility>
+    <webLinks>
+        <fullName>Repo_Recovary_Approval</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Repo Recovary Approval</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>public void WebLinkSample(String name) throws Exception {
+    WebLink WebLink = new WebLink();
+    // name variable represents the full name of the object 
+    // on which to create the WebLink, for example, customObject__c
+    WebLink.setFullName(name + &quot;.googleButton&quot;);
+    WebLink.setUrl(&quot;http://www.google.com&quot;);
+    WebLink.setAvailability(WebLinkAvailability.online);
+    WebLink.setLinkType(WebLinkType.url);
+    WebLink.setEncodingKey(Encoding.fromString(&quot;UTF-8&quot;));
+    WebLink.setOpenType(WebLinkWindowType.newWindow);
+    WebLink.setHeight(600);
+    WebLink.setWidth(600);
+    WebLink.setShowsLocation(false);
+    WebLink.setHasScrollbars(true);
+    WebLink.setHasToolbar(false);
+    WebLink.setHasMenubar(false);
+    WebLink.setShowsStatus(false);
+    WebLink.setIsResizable(true);
+    WebLink.setPosition(WebLinkPosition.none);
+    WebLink.setMasterLabel(&quot;google&quot;);
+    WebLink.setDisplayType(WebLinkDisplayType.link);
+
+    AsyncResult[] asyncResults = metadataConnection.create(new WebLink[]{WebLink});
+    // After the create() call completes, we must poll the results of checkStatus() 
+    // 
+
+}</url>
+    </webLinks>
 </CustomObject>
