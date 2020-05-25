@@ -158,7 +158,17 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Subscriptions Changes Requests (ELISA)</pluralLabel>
-    <searchLayouts/>
+    <recordTypes>
+        <fullName>Change_Offer</fullName>
+        <active>true</active>
+        <label>Change Offer</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Change_Phone</fullName>
+        <active>true</active>
+        <label>Change Phone</label>
+    </recordTypes>
+    <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
