@@ -618,17 +618,13 @@
         <businessProcess>Sales process 1</businessProcess>
         <label>RT Oppo 2</label>
         <picklistValues>
-            <picklist>DeliveryInstallationStatus__c</picklist>
+            <picklist>Discount_Percent_Status__c</picklist>
             <values>
-                <fullName>Completed</fullName>
+                <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>In progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yet to begin</fullName>
+                <fullName>Not Approved</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -652,6 +648,21 @@
             </values>
             <values>
                 <fullName>Pipeline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>DeliveryInstallationStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
