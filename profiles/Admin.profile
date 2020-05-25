@@ -1078,6 +1078,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.OE_Expected_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.OrderNumber__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1099,6 +1104,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Validate_Opp_Data__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1838,7 +1848,7 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ActivateOrder</name>
+        <name>ActivitiesAccess</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -1891,10 +1901,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>CanVerifyComment</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChangeDashboardColors</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -1999,10 +2005,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditActivatedOrders</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditBillingInfo</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
