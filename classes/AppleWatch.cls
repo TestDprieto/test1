@@ -8,7 +8,6 @@ Public with sharing Class AppleWatch{
         t.WhatId      = opp.Id;
         insert t;
      }
-     //Comment 1
   }
-  /* comment 4*/
+  /* comment 1*/
  }
