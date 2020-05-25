@@ -1,0 +1,22 @@
+.THIS .logoContainer {
+background-image: t('url(' + brandLogoImage  + ')');
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+z-index: 99;
+cursor: pointer;
+position: relative;
+max-width: 100%;
+max-height: 52px;
+display: block;
+outline: 0;
+height: 50px;
+margin-top: 10px;
+}
+.THIS .slds-col .ui-widget {
+   margin: 16px 0;
+}
+ 
+.THIS .slds-col.content {
+   width: 1140px;
+}
