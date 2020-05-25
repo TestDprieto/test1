@@ -224,6 +224,26 @@
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
-    <searchLayouts/>
+    <recordTypes>
+        <fullName>B_SH_Event</fullName>
+        <active>true</active>
+        <label>B&amp;SH Event</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Diagnostic_Lab_Event</fullName>
+        <active>false</active>
+        <label>Diagnostic Lab Event</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Diagnostic_Perinatal_Event</fullName>
+        <active>false</active>
+        <label>Diagnostic Perinatal Event</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Surgical_Event</fullName>
+        <active>false</active>
+        <label>Surgical Event</label>
+    </recordTypes>
+    <searchLayouts />
     <sharingModel>Private</sharingModel>
 </CustomObject>
