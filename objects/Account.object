@@ -437,6 +437,17 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Medicare_status2__c</fullName>
+        <externalId>false</externalId>
+        <label>Medicare status2</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Medicare_status__c</fullName>
         <externalId>false</externalId>
         <label>Medicare status</label>
