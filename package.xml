@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Account.Business_Segment__c</members>
-        <members>Contact.Business_Segment__c</members>
-        <name>CustomField</name>
+        <members>condensedThemeLayout</members>
+        <members>verticalNav</members>
+        <name>AuraDefinitionBundle</name>
     </types>
     <types>
-        <members>Account.RT_1</members>
-        <members>Contact.Contact_RT_NT_1</members>
-        <name>RecordType</name>
+        <members>DiegoSite2</members>
+        <members>diegoCommunity</members>
+        <name>CustomSite</name>
+    </types>
+    <types>
+        <members>DiegoSite2.Banned</members>
+        <members>diegoCommunity.Banned</members>
+        <name>KeywordList</name>
+    </types>
+    <types>
+        <members>DiegoSite2</members>
+        <members>diegoCommunity</members>
+        <name>ManagedTopics</name>
+    </types>
+    <types>
+        <members>Default_Navigation</members>
+        <members>Default_Navigation1</members>
+        <name>NavigationMenu</name>
+    </types>
+    <types>
+        <members>DiegoSite2</members>
+        <members>diegoCommunity</members>
+        <name>Network</name>
+    </types>
+    <types>
+        <members>cbDiegoSite2</members>
+        <members>cbdiegoCommunity</members>
+        <name>NetworkBranding</name>
+    </types>
+    <types>
+        <members>DiegoSite2 Profile</members>
+        <members>diegoCommunity Profile</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>DiegoSite21</members>
+        <members>diegoCommunity1</members>
+        <name>SiteDotCom</name>
+    </types>
+    <types>
+        <members>DiegoSite2.Customer_Members</members>
+        <members>DiegoSite2.Members_without_contribution</members>
+        <members>DiegoSite2.Partner_and_Customer_members</members>
+        <name>UserCriteria</name>
     </types>
     <version>48.0</version>
 </Package>
