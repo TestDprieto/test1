@@ -1469,10 +1469,6 @@
         <layout>Solution-Solution Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Subscription_Change_Request_ELISA__c-Change Offer Service</layout>
-        <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Task-Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -1725,11 +1721,6 @@
         <default>true</default>
         <recordType>Subscription_Change_Request_ELISA__c.Change_Offer</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
-        <visible>false</visible>
     </recordTypeVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
