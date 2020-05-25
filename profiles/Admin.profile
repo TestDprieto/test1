@@ -125,6 +125,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Business_Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Business_Segment_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -286,11 +291,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.destructive_test_1__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.test_backend_March_31_5__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -745,11 +745,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.test_backend_March_31_NEW__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>ConsumptionRate.Description</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -796,6 +791,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Birthdate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Business_Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Business_Segment_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
