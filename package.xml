@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Account.Business_Segment__c</members>
-        <members>Contact.Business_Segment__c</members>
+        <members>Account.CF_test1__c</members>
         <name>CustomField</name>
     </types>
     <types>
-        <members>Account.RT_1</members>
-        <members>Contact.Contact_RT_NT_1</members>
-        <name>RecordType</name>
+        <members>Admin</members>
+        <name>Profile</name>
     </types>
     <version>48.0</version>
 </Package>
