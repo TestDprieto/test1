@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <enableFeeds>false</enableFeeds>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>AddressType</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
+    <searchLayouts>
+        <customTabListAdditionalFields>Parent</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ActiveFromDate</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ActiveToDate</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IsPrimary</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IsDefault</customTabListAdditionalFields>
+        <searchResultsAdditionalFields>Parent</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ActiveFromDate</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ActiveToDate</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsPrimary</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsDefault</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
