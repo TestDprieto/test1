@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>AppleWatch</members>
-        <members>AppleWatchTest</members>
-        <name>ApexClass</name>
+        <members>Opportunity_Product__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Opportunity_Product__c.MultiAdd</members>
+        <name>WebLink</name>
     </types>
     <version>49.0</version>
 </Package>
