@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Account.Billing</members>
-        <members>Account.Billing_2</members>
-        <name>WebLink</name>
+        <members>Opportunity.new_checkbox_aug24__c</members>
+        <members>OpportunityLineItem__c.newdate_aug_24__c</members>
+        <name>CustomField</name>
     </types>
-    <version>48.0</version>
+    <types>
+        <members>Opportunity</members>
+        <members>OpportunityLineItem__c</members>
+        <name>CustomObject</name>
+    </types>
+    <version>49.0</version>
 </Package>
