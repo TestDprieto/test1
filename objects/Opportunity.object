@@ -89,6 +89,7 @@
     <description n1:nil="true" />
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
         <inlineHelpText>The Account Name goes here</inlineHelpText>
@@ -330,6 +331,15 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Validate Opp Data</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>new_checkbox_aug24__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>new checkbox aug24</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
