@@ -194,6 +194,30 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>CF_test1__c</fullName>
+        <description>Description 1</description>
+        <externalId>false</externalId>
+        <label>CF_test1</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CF_test1__c</fullName>
+        <description>Description 1</description>
+        <externalId>false</externalId>
+        <label>CF_test1</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CF_test2__c</fullName>
         <description>Description 2</description>
         <externalId>false</externalId>
@@ -239,6 +263,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>CSTM_Field_1__c</fullName>
+        <externalId>false</externalId>
+        <label>CSTM Field 1</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CSTM_Field_2__c</fullName>
         <externalId>false</externalId>
         <label>CSTM Field 2</label>
@@ -253,41 +288,6 @@
         <fullName>CSTM_Field_3__c</fullName>
         <externalId>false</externalId>
         <label>CSTM Field 3</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CF_test1__c</fullName>
-        <description>Description 1</description>
-        <externalId>false</externalId>
-        <label>CF_test1</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CSTM_Field_1__c</fullName>
-        <externalId>false</externalId>
-        <label>CSTM Field 1</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>CF_test1__c</fullName>
-        <description>Description 1</description>
-        <externalId>false</externalId>
-        <label>CF_test1</label>
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -419,36 +419,6 @@
         <trackHistory>true</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Medicare_status__c</fullName>
-        <externalId>false</externalId>
-        <label>Medicare status</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <restricted>true</restricted>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>status 1</fullName>
-                    <default>false</default>
-                    <label>status 1</label>
-                </value>
-                <value>
-                    <fullName>staus 2</fullName>
-                    <default>false</default>
-                    <label>staus 2</label>
-                </value>
-                <value>
-                    <fullName>status 3</fullName>
-                    <default>false</default>
-                    <label>status 3</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>NaicsCode</fullName>
@@ -666,6 +636,7 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>Active__c</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -685,6 +656,18 @@
                     <label>Silver</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>No</controllingFieldValue>
+                <valueName>Platinum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>No</controllingFieldValue>
+                <valueName>Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Gold</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -1854,6 +1837,33 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SiemensRT1</fullName>
+        <active>true</active>
+        <label>SiemensRT1</label>
+        <picklistValues>
+            <picklist>Medicare_status__c</picklist>
+            <values>
+                <fullName>status 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>staus 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Support_Level__c</picklist>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
