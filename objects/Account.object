@@ -566,6 +566,7 @@
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>Active__c</controllingField>
             <restricted>true</restricted>
             <valueSetDefinition>
                 <sorted>false</sorted>
@@ -585,6 +586,18 @@
                     <label>Silver</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>No</controllingFieldValue>
+                <valueName>Platinum</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>No</controllingFieldValue>
+                <valueName>Silver</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>Yes</controllingFieldValue>
+                <valueName>Gold</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
@@ -732,6 +745,15 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>test_backend_March_31_5__c</fullName>
+        <externalId>false</externalId>
+        <label>test backend March 31 5</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
         <fullName>test_vueling_BP_1__c</fullName>
         <description>new change 11,30</description>
         <externalId>false</externalId>
@@ -742,15 +764,6 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>test_backend_March_31_5__c</fullName>
-        <externalId>false</externalId>
-        <label>test backend March 31 5</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Phone</type>
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
@@ -1376,6 +1389,33 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>SiemensRT1</fullName>
+        <active>true</active>
+        <label>SiemensRT1</label>
+        <picklistValues>
+            <picklist>Medicare_status__c</picklist>
+            <values>
+                <fullName>status 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>staus 2</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Support_Level__c</picklist>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
