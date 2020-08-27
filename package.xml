@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Account.Billing</members>
-        <members>Account.Billing_2</members>
-        <name>WebLink</name>
+        <members>Account.Medicare_status__c</members>
+        <members>Account.Support_Level__c</members>
+        <name>CustomField</name>
     </types>
-    <version>48.0</version>
+    <types>
+        <members>Account.SiemensRT1</members>
+        <name>RecordType</name>
+    </types>
+    <version>49.0</version>
 </Package>
