@@ -141,7 +141,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>true</custom>
-    <description>Descp source 3</description>
+    <description>Descp source 2</description>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
