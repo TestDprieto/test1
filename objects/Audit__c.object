@@ -47,7 +47,7 @@
     <customSettingsType n1:nil="true" />
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description n1:nil="true" />
+    <description>Description to not be deployed</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableChangeDataCapture>false</enableChangeDataCapture>
@@ -57,11 +57,11 @@
     <enableHistory>false</enableHistory>
     <enableLicensing>false</enableLicensing>
     <enableReports>false</enableReports>
-    <enableSearch>false</enableSearch>
+    <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <eventType n1:nil="true" />
-    <externalSharingModel n1:nil="true" />
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>To_Be_Deleted__c</fullName>
         <defaultValue>false</defaultValue>
