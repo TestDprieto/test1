@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Audit__c</members>
-        <members>Opportunity</members>
-        <name>CustomObject</name>
+        <members>Event.Description</members>
+        <name>CustomField</name>
     </types>
     <types>
-        <members>Admin</members>
-        <members>SysAd Clone</members>
-        <name>Profile</name>
+        <members>Activity-en_US</members>
+        <name>CustomObjectTranslation</name>
     </types>
     <version>49.0</version>
 </Package>
