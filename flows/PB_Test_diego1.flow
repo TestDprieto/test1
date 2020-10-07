@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Flow xmlns="http://soap.sforce.com/2006/04/metadata">
     <assignments>
-        <name>myVariable_waitStartTimeAssignment</name>
-        <label>myVariable_waitStartTimeAssignment</label>
-        <locationX>0</locationX>
-        <locationY>0</locationY>
-        <assignmentItems>
-            <assignToReference>myVariable_waitStartTimeVariable</assignToReference>
-            <operator>Assign</operator>
-            <value>
-                <elementReference>$Flow.CurrentDateTime</elementReference>
-            </value>
-        </assignmentItems>
-        <connector>
-            <targetReference>myPreWaitDecision_myWait_myRule_1</targetReference>
-        </connector>
-    </assignments>
-    <assignments>
         <name>myWaitAssignment_myWait_myRule_1</name>
         <label>myWaitAssignment_myWait_myRule_1</label>
         <locationX>0</locationX>
@@ -328,7 +312,7 @@
             <label>Previously Met - Prev</label>
         </rules>
     </decisions>
-    <interviewLabel>PB_Test_diego1-4_InterviewLabel</interviewLabel>
+    <interviewLabel>PB_Test_diego1-5_InterviewLabel</interviewLabel>
     <label>PB Test diego1</label>
     <processMetadataValues>
         <name>ObjectType</name>
@@ -525,8 +509,8 @@
         </inputAssignments>
         <object>Task</object>
     </recordCreates>
-    <startElementReference>myVariable_waitStartTimeAssignment</startElementReference>
-    <status>Obsolete</status>
+    <startElementReference>myPreWaitDecision_myWait_myRule_1</startElementReference>
+    <status>Draft</status>
     <variables>
         <name>cancelWaits</name>
         <dataType>String</dataType>
@@ -549,16 +533,6 @@
         <isInput>true</isInput>
         <isOutput>false</isOutput>
         <objectType>Opportunity</objectType>
-    </variables>
-    <variables>
-        <name>myVariable_waitStartTimeVariable</name>
-        <dataType>DateTime</dataType>
-        <isCollection>false</isCollection>
-        <isInput>false</isInput>
-        <isOutput>false</isOutput>
-        <value>
-            <elementReference>$Flow.CurrentDateTime</elementReference>
-        </value>
     </variables>
     <variables>
         <name>myWaitEvent_myWait_myRule_1_event_0_postActionExecutionVariable</name>
