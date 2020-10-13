@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>test</name>
+        <label>test</label>
+        <locationX>713</locationX>
+        <locationY>168</locationY>
+        <actionName>Task.Defer</actionName>
+        <actionType>quickAction</actionType>
+        <inputParameters>
+            <name>contextId</name>
+            <value>
+                <stringValue></stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <interviewLabel>FlowTest(Oct 20&apos;) {!$Flow.CurrentDateTime}</interviewLabel>
+    <isAdditionalPermissionRequiredToRun>true</isAdditionalPermissionRequiredToRun>
+    <label>FlowTest(Oct 20&apos;)</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>test</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+</Flow>
