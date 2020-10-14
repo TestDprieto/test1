@@ -784,6 +784,90 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>SiemensPicklist_1__c</fullName>
+        <externalId>false</externalId>
+        <label>SiemensPicklist 1</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>one</fullName>
+                    <default>false</default>
+                    <label>one</label>
+                </value>
+                <value>
+                    <fullName>two</fullName>
+                    <default>false</default>
+                    <label>two</label>
+                </value>
+                <value>
+                    <fullName>three</fullName>
+                    <default>false</default>
+                    <label>three</label>
+                </value>
+                <value>
+                    <fullName>five</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>five</label>
+                </value>
+                <value>
+                    <fullName>four</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>four</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>SiemensPicklist_2__c</fullName>
+        <externalId>false</externalId>
+        <label>SiemensPicklist 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>uno</fullName>
+                    <default>false</default>
+                    <label>uno</label>
+                </value>
+                <value>
+                    <fullName>dos</fullName>
+                    <default>false</default>
+                    <label>dos</label>
+                </value>
+                <value>
+                    <fullName>tres</fullName>
+                    <default>false</default>
+                    <label>tres</label>
+                </value>
+                <value>
+                    <fullName>cinco</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>cinco</label>
+                </value>
+                <value>
+                    <fullName>cuatro</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>cuatro</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Site</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
