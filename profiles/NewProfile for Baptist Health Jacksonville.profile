@@ -2813,10 +2813,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
-        <recordType>Account.RT_KAR_1</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Account Layout</layout>
         <recordType>Account.SiemensRT1</recordType>
     </layoutAssignments>
     <layoutAssignments>
