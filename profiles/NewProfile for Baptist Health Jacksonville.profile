@@ -4606,7 +4606,7 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.ACC_RT_NT_1</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
