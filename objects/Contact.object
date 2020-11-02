@@ -343,6 +343,51 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Business_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Segment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Business Segment a</fullName>
+                    <default>false</default>
+                    <label>Business Segment a</label>
+                </value>
+                <value>
+                    <fullName>Business Segment b</fullName>
+                    <default>false</default>
+                    <label>Business Segment b</label>
+                </value>
+                <value>
+                    <fullName>Business Segment c</fullName>
+                    <default>false</default>
+                    <label>Business Segment c</label>
+                </value>
+                <value>
+                    <fullName>Business Segment d</fullName>
+                    <default>false</default>
+                    <label>Business Segment d</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Segment_c__c</fullName>
+        <externalId>false</externalId>
+        <label>Business_Segment__c</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CleanStatus</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -544,6 +589,25 @@
         <active>true</active>
         <label>Contact RT NT 1</label>
         <picklistValues>
+            <picklist>Business_Segment__c</picklist>
+            <values>
+                <fullName>Business Segment a</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment b</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment c</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment d</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>LeadSource</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -578,29 +642,6 @@
             </values>
             <values>
                 <fullName>Tertiary</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Name</picklist>
-            <values>
-                <fullName>Dr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mr%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ms%2E</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prof%2E</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
