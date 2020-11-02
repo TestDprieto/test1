@@ -268,6 +268,52 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Business_Segment__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Segment</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Business Segment a</fullName>
+                    <default>false</default>
+                    <label>Business Segment a</label>
+                </value>
+                <value>
+                    <fullName>Business Segment b</fullName>
+                    <default>false</default>
+                    <label>Business Segment b</label>
+                </value>
+                <value>
+                    <fullName>Business Segment c</fullName>
+                    <default>false</default>
+                    <label>Business Segment c</label>
+                </value>
+                <value>
+                    <fullName>Business Segment d</fullName>
+                    <default>false</default>
+                    <label>Business Segment d</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Business_Segment_c__c</fullName>
+        <externalId>false</externalId>
+        <label>Business_Segment__c</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CF_Account_test_Jan_14__c</fullName>
         <externalId>false</externalId>
         <label>CF Account test Jan 14</label>
@@ -609,6 +655,25 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Business_Segment__c</picklist>
+            <values>
+                <fullName>Business Segment a</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment b</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment c</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment d</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -865,5 +930,24 @@
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
         <url>http://www.genwatt.com/genwatt/billing.htm?actname={!Account_Name}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Billing_2</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Billing 2</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.genwatt.com/genwatt/billing.htm?actname={!Account.Name}</url>
     </webLinks>
 </CustomObject>
