@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WaveXmd xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dataset>APdist3</dataset>
+    <dates>
+        <alias>Order_Date</alias>
+        <dateFieldDay>Order_Date_Day</dateFieldDay>
+        <dateFieldEpochDay>Order_Date_day_epoch</dateFieldEpochDay>
+        <dateFieldEpochSecond>Order_Date_sec_epoch</dateFieldEpochSecond>
+        <dateFieldFullYear>Order_Date</dateFieldFullYear>
+        <dateFieldHour>Order_Date_Hour</dateFieldHour>
+        <dateFieldMinute>Order_Date_Minute</dateFieldMinute>
+        <dateFieldMonth>Order_Date_Month</dateFieldMonth>
+        <dateFieldQuarter>Order_Date_Quarter</dateFieldQuarter>
+        <dateFieldSecond>Order_Date_Second</dateFieldSecond>
+        <dateFieldWeek>Order_Date_Week</dateFieldWeek>
+        <dateFieldYear>Order_Date_Year</dateFieldYear>
+        <firstDayOfWeek>-1</firstDayOfWeek>
+        <fiscalMonthOffset>0</fiscalMonthOffset>
+        <label>Order Date</label>
+        <sortIndex>0</sortIndex>
+        <type xsi:nil="true"/>
+    </dates>
+    <dates>
+        <alias>Ship_Date</alias>
+        <dateFieldDay>Ship_Date_Day</dateFieldDay>
+        <dateFieldEpochDay>Ship_Date_day_epoch</dateFieldEpochDay>
+        <dateFieldEpochSecond>Ship_Date_sec_epoch</dateFieldEpochSecond>
+        <dateFieldFullYear>Ship_Date</dateFieldFullYear>
+        <dateFieldHour>Ship_Date_Hour</dateFieldHour>
+        <dateFieldMinute>Ship_Date_Minute</dateFieldMinute>
+        <dateFieldMonth>Ship_Date_Month</dateFieldMonth>
+        <dateFieldQuarter>Ship_Date_Quarter</dateFieldQuarter>
+        <dateFieldSecond>Ship_Date_Second</dateFieldSecond>
+        <dateFieldWeek>Ship_Date_Week</dateFieldWeek>
+        <dateFieldYear>Ship_Date_Year</dateFieldYear>
+        <firstDayOfWeek>-1</firstDayOfWeek>
+        <fiscalMonthOffset>0</fiscalMonthOffset>
+        <label>Ship Date 22222</label>
+        <sortIndex>1</sortIndex>
+        <type xsi:nil="true"/>
+    </dates>
+    <organizations>
+        <instanceUrl>https://westregion.my.salesforce.com</instanceUrl>
+        <label>West Region Org</label>
+        <organizationIdentifier>00DB00000003brX</organizationIdentifier>
+        <sortIndex>0</sortIndex>
+    </organizations>
+    <organizations>
+        <instanceUrl>https://eastregion.my.salesforce.com</instanceUrl>
+        <label>East Region Org</label>
+        <organizationIdentifier>00DB0000000pqd1</organizationIdentifier>
+        <sortIndex>1</sortIndex>
+    </organizations>
+    <organizations>
+        <instanceUrl>https://southregion.my.salesforce.com</instanceUrl>
+        <label>South Region Org</label>
+        <organizationIdentifier>00DB0000000paac</organizationIdentifier>
+        <sortIndex>2</sortIndex>
+    </organizations>
+    <organizations>
+        <instanceUrl>https://northregion.my.salesforce.com</instanceUrl>
+        <label>North Region Org</label>
+        <organizationIdentifier>00DB00000001234</organizationIdentifier>
+        <sortIndex>3</sortIndex>
+    </organizations>
+</WaveXmd>
