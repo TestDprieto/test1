@@ -1,0 +1,35 @@
+<div class="cpq-discount-list">
+    <!-- CARDS -->
+    <div class="slds-grid cpq-discount-grid cpq-discount-list-vertical cpq-discount-list-col-stretch"
+        ng-if="!importedScope.$parent.$parent.filters.show">
+        <div class="slds-spinner_container" ng-hide="isLoaded">
+            <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+
+        <vloc-card ng-repeat="card in cards |filter: searchFunc(card)" 
+            ctrl="CPQDiscountsItemController" 
+            ng-model="card" data="card" records="records" 
+            index="{{$index}}" session-id="{{sessionId}}" 
+            ng-if="isLoaded">
+        </vloc-card>
+
+        <div class="slds-text-align_center slds-m-vertical_medium cpq-no-discount-msg" ng-show="!records && isLoaded">
+            {{::importedScope.customLabels.CPQDiscountsNotAvailable}}
+        </div>
+
+        <div class="cpq-next-product slds-col slds-text-align_center slds-m-vertical_medium"  ng-if="session.nextDiscounts">
+            <div class="slds-spinner_container" ng-show="loadingMore">
+                <div class="slds-spinner_brand slds-spinner slds-spinner_small" aria-hidden="false" role="alert">
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+            <a ng-click="importedScope.nextPageDiscounts()" ng-hide="loadingMore || !isLoaded">
+              {{::importedScope.customLabels.CPQLoadMore}}
+            </a>
+        </div>
+    </div>
+</div>

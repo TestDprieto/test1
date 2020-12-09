@@ -1,0 +1,26 @@
+[
+    {
+        "%vlocity_namespace%__Action__c": "Add",
+        "%vlocity_namespace%__ConditionData__c": "",
+        "%vlocity_namespace%__GlobalKey__c": "cc718035-afa4-766d-ed47-22317f8d8c60",
+        "%vlocity_namespace%__OrchestrationPlanDefinitionId__c": {
+            "Name": "ADSL2 E2E Fulfilment",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationPlanDefinition__c/ADSL2 E2E Fulfilment",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationPlanDefinition__c"
+        },
+        "%vlocity_namespace%__OrchestrationPlanId__c": "",
+        "%vlocity_namespace%__Product2Id__c": {
+            "%vlocity_namespace%__GlobalKey__c": "db554525-ce3b-df36-624b-5f5047909cc1",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "Product2/db554525-ce3b-df36-624b-5f5047909cc1",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "%vlocity_namespace%__Product2Id__r.%vlocity_namespace%__GlobalKey__c": "db554525-ce3b-df36-624b-5f5047909cc1",
+        "%vlocity_namespace%__SubAction__c": "",
+        "Name": "ADSL2 Scenario",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationScenario__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__OrchestrationScenario__c/ADSL2 Scenario/Product2/db554525-ce3b-df36-624b-5f5047909cc1"
+    }
+]

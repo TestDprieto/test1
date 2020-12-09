@@ -1,0 +1,742 @@
+<apex:page showHeader="true" sidebar="true" controller="vlocity_cmt.XOMOffPlatformAccessConfigController" standardStylesheets="false" docType="html-5.0" >
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ng="http://angularjs.org" ng-app="changeKeysApp">
+        <head>
+          <base href="/"/>
+          <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+
+          <script type="text/javascript" src="{!URLFOR($Resource.JQUERYJS)}"></script>
+          <script type="text/javascript" src="/support/console/31.0/integration.js"></script>
+          <script type="text/javascript" src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+          <script type="text/javascript" src="{!URLFOR($Resource.SldsAngular)}"></script>
+          <script type="text/javascript" src="{!URLFOR($Resource.XomThorIntegration)}"></script>
+          <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__bootstrap, '/bootstrap-3.2.0-dist/css/bootstrap.min.css')}"/>
+          <script src="{!$Resource.ANGULARBOOT}"></script>
+          <script src="{!URLFOR($Resource.AngularStrapJS_2_3_6)}"></script>
+          <script src="{!URLFOR($Resource.AngularStrapTplJS_2_3_6)}"></script>
+
+          <style>
+            .slds-form-element .ng-invalid
+            {
+              outline: 1px solid red;
+              border: 1px solid red;
+            }
+            .slds-form-element .ng-valid
+            {
+              outline: 1px solid green;
+              border: 1px solid green;
+            }
+            #contentWrapper .via-slds .slds-form-element__label
+            {
+              font-size:13px;
+              font-weight: 100;
+              display: initial;
+            }
+            .via-slds .slds-text-color_error,.via-slds .slds-text-heading--small,.via-slds button,.via-slds .slds-form-element__control button
+            {
+                  font-size:12px;
+            }
+            .via-slds button
+            {
+                  font-size:10px;
+            }
+            .via-slds .slds-progress-bar-Date,.via-slds input,.via-slds:not(html)
+            {
+                font-size:13px;
+            }
+            .via-slds input::placeholder
+            {
+                font-size:11px;
+            }
+
+            .sidebarCell, #sidebarDiv
+            {
+                width: 220px;
+            }
+            #contentWrapper #sidebarDiv label
+            {
+                font-weight: 100;
+            }
+            #contentWrapper h2
+            {
+                font-size:100%;
+                margin-top:0px;
+                margin-bottom:0px;
+            }
+            body
+            {
+                font-size:12px;
+            }
+            #contentWrapper #sidebarDiv a
+            {
+                color:#333435;
+                text-decoration:underline;
+            }
+            #contentWrapper .slds-panel h2
+            {
+                font-weight:100;
+                font-size:22px;
+                padding:10px;
+            }
+            .recycleBinModule a span
+            {
+                vertical-align:0px;
+            }
+            .sidebarModuleBody .sidebarModuleBodyNoHeader a
+            {
+                text-decoration: none;
+            }
+            .via-slds .slds-form-element__control button
+            {
+                padding:5px 16px 5px;
+            }
+          </style>
+          <script>
+                
+            var app = angular.module('changeKeysApp', ["vlocity", "ngSanitize", 'thorIntegration','ui.bootstrap', 'ngMessages']);
+            
+            var uiServicesUrl = '{!JSENCODE(HTMLENCODE(encryptUIServicesUrl))}';
+            
+            var remoteActions = {
+                saveXOMSetupCustomSettings: "{!$RemoteAction.XOMOffPlatformAccessConfigController.saveXOMSetupCustomSettings}",
+                rotateAccessKeys: "{!$RemoteAction.XOMOffPlatformAccessConfigController.rotateAccessKeys}"
+            };
+
+            app.config(function (remoteActionsProvider) {
+                remoteActionsProvider.setRemoteActions(remoteActions);
+            });
+            
+            app.service('encryptionService', ['$http', function ($http) {
+                this.dek = function(payload) {
+                   return $http.post(uiServicesUrl + '/keymanager/v1/dek', payload, {withCredentials: true});
+                };
+                this.dit = function(payload) {
+                   return $http.post(uiServicesUrl + '/keymanager/v1/dit', payload, {withCredentials: true});
+                };
+                this.cmk = function(payload) {
+                   return $http.post(uiServicesUrl + '/keymanager/v1/cmk', payload, {withCredentials: true});
+                };
+                this.pkc = function(payload) {
+                   return $http.post(uiServicesUrl + '/security/v1/certificate', payload, {withCredentials: true, responseType: 'arraybuffer'});
+                };
+                this.monitorBatch = function(payload) {
+                   console.log(uiServicesUrl + '/encryption/v1/update/status/'+ payload);
+                   return $http.get(uiServicesUrl + '/encryption/v1/update/status/'+ payload, {withCredentials: true}); //TBD url {id}
+                };
+                this.isReady = function(){
+                   return $http.get(uiServicesUrl + '/keymanager/v1/dek/latest', {withCredentials: true});
+                };
+
+                // ping is used to check if session is authenticated and initiate authorization if not
+                this.validateSession = function () {
+                    console.log('GET VALIDATE SESSION');
+                    return $http.get(uiServicesUrl + '/security/v1/auth/openid/session/validate/ui', {withCredentials: true});
+                };
+
+            }]);
+            
+            app.controller ('changeKeysController', function ($scope, $timeout, $window, $interval, remoteActions, thorIntegrationService, encryptionService, $modal) {
+
+                $scope.currentKey = 'Data Encryption';
+                
+                $scope.isKeyGenComplete = false;
+                
+                $scope.enableCMK = true;
+                
+                $scope.enableDIT = true;
+                
+                $scope.enablePKC = true;
+
+                $scope.batchMonitor = null;
+                
+                $scope.timestamp = null;
+                
+                $scope.accessKey = null; 
+                
+                $scope.nsPrefix = '{!nsPrefix}';
+                
+                $scope.info = {};
+                /*$scope.info={
+                	country:'au',
+                	state:'vic',
+                	locality:'southbank',
+                	org_name:'vlocity',
+                	org_unit_name: 'engg',
+                	common_name:'test',
+                	email:'abc@gmail.com'
+                };*/
+                
+                $scope.batchInfo = {
+                    progress:0,
+                    startDateTime:'',
+                    estimatedTimeRemaining:'',
+                    estimatedTotalRecords:'', 
+                    expectedDatetime:'',
+                    status:'',
+                    updatedRecords :''
+                };
+                
+                $scope.disableBack = function() {
+                    if (document.referrer.indexOf('salesforce')!=-1){
+                        window.history.forward();
+                    }
+                };
+                
+                $scope.prepareKeyCSPairStr = function(){
+                    console.log('Preparing json for remote action');
+                    var keyCSObjs = {};
+                    
+                    if ($scope.existingCustomSettings!="" && $scope.existingCustomSettings!="Exception"){
+                        keyCSObjs['ThorCalloutAccessKey'] = $scope.existingCustomSettings['ThorCalloutAccessKey'];
+                        keyCSObjs['ThorCalloutSecretKey'] = $scope.existingCustomSettings['ThorCalloutSecretKey'];
+                        keyCSObjs['ThorCalloutAccessKey']['Name'] = 'ThorCalloutAccessKey';
+                        keyCSObjs['ThorCalloutSecretKey']['Name'] = 'ThorCalloutSecretKey';
+                        keyCSObjs['ThorCalloutAccessKey'][$scope.nsPrefix+'Value__c'] = $scope.accessKey;
+                        keyCSObjs['ThorCalloutSecretKey'][$scope.nsPrefix+'Value__c'] = $scope.secretAccessKey;
+                        return JSON.stringify(keyCSObjs);
+                    }  
+                    else{ 
+                        return '';
+                    }
+                };
+                $scope.notifyUser = function(flag, message){
+                    if(flag == 'error'){
+                        $scope.errorMessage = message;
+                        console.log($scope.errorMessage);
+                        $scope.alertUserError = true;
+                        $scope.alertMessageType = 'error';
+                        $timeout(function(){
+                            $scope.alertUserError = false;
+                            $scope.alertMessageType = '';
+                        }, 5000);
+                    }
+                    else{
+                        $scope.infoMessage = message;
+                        console.log($scope.infoMessage);
+                        $scope.alertUser = true;
+                        $scope.alertMessageType = 'success';
+                        $timeout(function(){
+                            $scope.alertUser = false;
+                            $scope.alertMessageType = '';
+                        }, 5000);
+                    }
+                };
+                
+                $scope.initApp = function(){
+                    $scope.disableBack();
+                    $scope.existingCustomSettings = '{!JSENCODE(XOMSetupCustomSettings)}';
+                    try {
+                        $scope.existingCustomSettings = JSON.parse($scope.existingCustomSettings);
+                        console.log($scope.existingCustomSettings['ThorOrchestrationPlan']);
+                        
+                        if($scope.existingCustomSettings['ThorOrchestrationPlan'][$scope.nsPrefix+'Value__c']!=="true"){
+                            $scope.setSFDCMode();
+                            return;
+                        }
+                        $scope.accessKey = $scope.existingCustomSettings['ThorCalloutAccessKey']!=null? 
+                                                $scope.existingCustomSettings['ThorCalloutAccessKey'][$scope.nsPrefix+'Value__c']:null;
+                    } 
+                    catch (e){
+                        $scope.existingCustomSettings = "";
+                    }
+
+                    // validate session:
+                    thorIntegrationService.retryOperationInCaseAuthenticationError(
+                        function(){
+                            console.log('validation session in OMplus', uiServicesUrl);
+                            return encryptionService.validateSession()
+                                .then(
+                                    function()
+                                    {
+                                        console.log('Session is valid!');
+                                        $scope.isSessionValid = true;
+                                        return encryptionService.isReady().then(function success(response) 
+                                        {
+                                           console.log('response timestamp: '+response.data);
+                                           if (response.data.initial === true || response.data.status === 'Finished' || response.data.status=='Failed') {
+                                               $scope.isKeyGenComplete = true;
+                                               if (response.data.status=='Failed') {
+                                                   $scope.notifyUser('error', 'The latest PII key updation/generation failed.');
+                                               }
+                                           } else if (response.data.status === 'Ready' || response.data.status === 'In Progress') {
+                                               $scope.monitorBatch(response.data.id);
+                                               $scope.notifyUser('info', 'The latest PII key updation is in progress.');
+                                           }
+                                        }, function error(errorResponse) {
+                                           $scope.notifyUser('error', 'Unable to retrieve latest version of PII key. Reason: ' + errorResponse.data.message);
+                                        });                                  
+                                    })
+                        }, uiServicesUrl, 3
+                        );                    
+                };
+                
+                $scope.setSFDCMode = function(){
+                    $scope.isKeyGenComplete = false;
+                    $scope.enableDIT = false;
+                    $scope.enablePKC = false;
+                    $scope.enableCMK = false;
+                    $scope.errorMessage = 'Key management is applicable to OM plus mode. Please configure the same and retry.';
+                    $scope.alertUserError = true;
+                    $scope.alertMessageType = 'error';
+                    $scope.showNotification = true;
+                };
+                
+                $scope.postKeyChange = function (response, invoker) {
+                    $scope.isSessionValid = true;
+                    var id, keyCSPairStr;
+                    $scope.timestamp = response.timestamp; // TODO: why timestamp?
+
+                    var keyName;
+                    switch (invoker) 
+                    {
+                        case "cmk" : keyName="Customer Master Key"; 
+                                     break;
+                        case "dek" : keyName="PII Key"; 
+                                     break;
+                        case "dit" : keyName="Data In Transit Key"; 
+                                     break;                 
+                    }
+
+                    if (response.data.status === 'In Progress' || response.data.status === 'Ready' ) 
+                    {
+                        console.log('response:key gen in progress..');
+
+                        if (invoker == 'dek' && response.data.id!=null){
+                            $scope.notifyUser('info', 'Submitted PII Key change request');
+                            $scope.monitorBatch(response.data.id);
+                        }
+                        if (invoker == 'dit'){
+                            $scope.accessKey = response.data.access_key_id;
+                            $scope.secretAccessKey = response.data.secret_access_key;
+                            keyCSPairStr = $scope.prepareKeyCSPairStr();
+                            $scope.notifyUser('info', 'Data In Transit key changed successfully!');
+                            /*$scope.alertUser = true;
+                            $timeout(function(){
+                                $scope.alertUser = false;
+                            }, 5000);*/
+                            if (keyCSPairStr!=''){
+                                remoteActions.saveXOMSetupCustomSettings(keyCSPairStr).then(function (response) {
+                                    console.log('remote response: '+response);
+                                });
+                            }
+                        }
+                        if (invoker == 'cmk'){
+                            $scope.notifyUser('info', 'Customer Master Key changed successfully!');
+                            /*
+                            $scope.alertUser = true;
+                            $timeout(function(){
+                                $scope.alertUser = false;
+                            }, 5000);*/
+                            $scope.errorMessage = response.message;
+                        }
+                    } else if(response.status=="401")
+                    {
+                        $scope.notifyUser('error', 'Unable to change ' + keyName + '. Reason: ' + response.data.message);
+                        /*$scope.alertUser = true;
+                        $timeout(function(){
+                            $scope.alertUser = false;
+                        }, 5000);*/
+                    } 
+                    else {
+                        console.log('response not ready..'+response);
+                        console.log('errorMessage: '+response.data.message);
+                        console.log('response: '+response.data);
+                        $scope.notifyUser('error', 'Unable to change ' + keyName + '. Reason: ' + response.data.message);
+                    }
+                }
+                
+                $scope.changeCustomerMasterKey = function(){
+                    $scope.enableCMK = false;
+                    thorIntegrationService.retryOperationInCaseAuthenticationError(
+                        function(){
+                            $scope.isSessionValid = true;
+                            return encryptionService.cmk().then(function success(response) {
+                                $scope.postKeyChange(response, 'cmk');
+                                $scope.enableCMK = true;
+                            }, function error(errorResponse){
+                                $scope.postKeyChange(errorResponse, 'cmk');
+                                $scope.enableCMK = true;
+                            });//
+                        },uiServicesUrl, 3);
+                };
+                
+                $scope.changeDataInTransitKey = function(){
+                    $scope.enableDIT = false;
+                    remoteActions.rotateAccessKeys().then(function(json)
+                    {
+                        $scope.enableDIT = true;
+                        console.log('Rotate Keys JSON: ', json);
+                        $scope.notifyUser('info', 'Data In Transit key changed successfully!');
+                    }).catch(function(err)
+                    {
+                        $scope.enableDIT = true;
+                        let errorObj =  JSON.parse(JSON.stringify(err));
+                        $scope.notifyUser('error', 'Unable to change data transit, Reason: unable to access rotateAccessKeys. Error Code:' + errorObj.statusCode);
+                        console.error(err);
+                    });
+
+                };
+                
+                $scope.changePrivateKeyAndCertificate = function(){
+                    $scope.enablePKC = false;
+                    $scope.openMyDialog();
+                };
+                
+                $scope.openMyDialog = function(){
+                    var modalInstance = $modal.open({
+                        templateUrl: 'form.html',
+                        controller: myModalInstanceCtrl,
+                        resolve: {
+                            items: function () {
+                                return [$scope.info];
+                            }
+                        }
+                    });
+                    modalInstance.result.then(function (info) {
+                        console.log('in success....' + info);
+                        $scope.info = info;
+                        if (info!="cancel"){
+                        thorIntegrationService.retryOperationInCaseAuthenticationError(
+                          function(){
+                            $scope.isSessionValid = true;
+                            console.log('Passing the payload for priv key..'+JSON.stringify($scope.info));
+                            return encryptionService.pkc($scope.info).then(
+                            function success(response) {
+                                $scope.alertUser = true;
+                                $scope.enablePKC =true;
+                                $scope.notifyUser('info', 'Private Key changed successfully!');
+                                /*$timeout(function(){
+                                        $scope.alertUser = false;
+                                }, 5000);*/
+                                //download the certificate 
+                                var headers=response.headers;
+                                var data=response.data;
+                                var filename = 'certificate_private_key.zip';
+                                var contentType = headers['content-type'];
+                                var linkElement = document.createElement('a');
+                                try {
+                                    var blob = new Blob([data], { type: contentType });
+                                    var url = window.URL.createObjectURL(blob);
+                                    linkElement.setAttribute('href', url);
+                                    linkElement.setAttribute('download', filename);
+                                    
+                                    var clickEvent = new MouseEvent('click', {
+                                        'view': window,
+                                        'bubbles': true,
+                                        'cancelable': false
+                                    });
+                                    linkElement.dispatchEvent(clickEvent);
+                                } 
+                                catch (ex) {
+                                    console.log(ex);
+                                }
+                            }, function error(errorResponse){
+                                console.log('Error occurred in generating Private key and Certificate..'+errorResponse);
+                                //$scope.infoMessage = "Error changing Private key. Reason: "+errorResponse.data.message;
+                                $scope.enablePKC =true;
+                                $scope.errorMessage = "Error changing Private key. Reason: "+(errorResponse.data.message!=null?errorResponse.data.message:'Unknown');
+                                /*$scope.alertUser = true;
+                                $timeout(function(){
+                                    $scope.alertUser = false;
+                                }, 5000);*/
+                                $scope.notifyUser('error', 'Error changing Private key. Reason: ' + (errorResponse.data.message!=null?errorResponse.data.message:'Unknown'));
+                            });//pkc
+                        },uiServicesUrl, 3);
+                        }
+                        else{
+                        	$scope.enablePKC =true;
+                        }
+                        
+                    }, function (error) {
+                        console.log('error'+error);
+                        $scope.enablePKC =true;
+                    });
+                };
+                
+                var myModalInstanceCtrl = function ($scope, $modalInstance, items) {
+                    $scope.info = items[0];
+                    $scope.isValid = false;
+                    $scope.emailPattern    = new RegExp('^[^\s@]+@[^\s@]+\.[^\s@]{2,}$');
+                    $scope.countryPattern  = new RegExp('^[a-zA-Z]+$');
+                    $scope.alphaNumPattern = new RegExp('^[a-zA-Z0-9]+$');
+                    $scope.commonNamePattern = new RegExp('^[A-Za-z0-9]+(?:.[A-Za-z0-9]+)*$');
+                    
+                    $scope.submit = function (info) {
+                    	$modalInstance.close(info);
+                    };
+
+                    $scope.cancel = function () {
+                        $modalInstance.close('cancel');
+                    };
+                };
+                
+                $scope.changeDataEncryptionKey = function(){
+                    $scope.isKeyGenComplete = false;
+                    thorIntegrationService.retryOperationInCaseAuthenticationError(
+                        function(){
+                            $scope.isSessionValid = true;
+                            return encryptionService.dek().then(function success(response) {
+                              $scope.postKeyChange(response, 'dek');
+                            }, function error(errorResponse){
+                                $scope.postKeyChange(errorResponse, 'dek');
+                                $scope.isKeyGenComplete = true;
+                            });//
+                        },uiServicesUrl, 3);
+                };
+                
+                $scope.resetBatchMonitor = function(){
+                    $scope.batchInfo = {
+                        progress:0,
+                        startDateTime:'',
+                        estimatedTimeRemaining:'',
+                        expectedDatetime:'',
+                        estimatedTotalRecords :'',
+                        status:'',
+                        updatedRecords :''
+                    };
+                    $scope.isKeyGenComplete = true;
+                };
+                
+                $scope.monitorBatch = function(id){
+                    $scope.id = id;
+                    return encryptionService.monitorBatch($scope.id).then(function success(response) {
+                              if (response.data.status === 'Ready'){
+                                  $timeout($scope.monitorBatch, 1000, true, $scope.id);
+                              } else if (response.data.status === 'In Progress') {
+                                  $scope.batchInfo = response.data;
+                                  $timeout($scope.monitorBatch, 1000, true, $scope.id);
+                              } else if (response.data.status === 'Finished'){
+                                  $scope.batchInfo = response.data;
+                                  if ($scope.batchInfo.progress>=100) {
+                                      $scope.batchInfo.progress = 100;
+                                  }
+                                  $scope.notifyUser('info', 'PII Key changed successfully!');
+                                  $scope.resetBatchMonitor();
+                              } else if(response.data.status === 'Failed') {
+                                  console.log('Failed!! monitor batch '+JSON.stringify(response.data));
+                                  $scope.batchInfo = response.data;
+                                  $scope.notifyUser('error', 'PII Key changed failed!');
+                                  $scope.resetBatchMonitor();
+                              } else {
+                                  console.log('Bad response: monitor batch'+JSON.stringify(response.data));
+                                  $scope.notifyUser('error', 'Some problem occurred in fetching progress information for batch');
+                                  $scope.resetBatchMonitor();
+                              }
+                            }, function error(errorResponse){
+                                console.log('Error!! '+JSON.stringify(errorResponse));
+                                $scope.notifyUser('error', 'Unable to get the status of PII key generation progress. Reason: ' + errorResponse.data.message);
+                                $scope.resetBatchMonitor();
+                            });
+                	
+                };//monitorBatch function
+             
+            });
+
+          </script>
+
+        </head>
+        <body class="ng-cloak" ng-controller="changeKeysController" ng-init="$scope.isSessionValid=false; initApp();">
+          <div class="via-slds">
+            <div ng-show="isSessionValid !=null && !isSessionValid" class=" ng-cloak via-slds slds-box slds-theme_shade ng-hide">
+               <h3 class="slds-m-around--medium slds-text-heading_small slds-text-color_error">Invalid session. Please authenticate and retry</h3>
+            </div>
+           
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_{{alertMessageType}}" role="alert" ng-show="alertUserError || alertUser">
+                <span class="slds-icon_container slds-icon-utility-{{alertMessageType}} slds-m-right_x-small" title="">
+                      <svg class="slds-icon slds-icon_x-small" aria-hidden="true" ng-show="alertMessageType == 'error'">
+                        <use xlink:href="{!URLFOR($Resource.slds, '/assets/icons/utility-sprite/svg/symbols.svg#error')}"></use>
+                      </svg>
+                      <svg class="slds-icon slds-icon_x-small" aria-hidden="true" ng-show="alertMessageType == 'success'">
+                        <use xlink:href="{!URLFOR($Resource.slds, '/assets/icons/utility-sprite/svg/symbols.svg#success')}"></use>
+                      </svg>
+                </span>
+                <h2 class="ng-cloak" ng-if="alertMessageType=='success'">{{infoMessage}}</h2>
+                <h2 class="ng-cloak" ng-if="alertMessageType=='error'">{{errorMessage}}</h2>
+            </div>
+           
+            <div ng-include="'notification.html'" ng-if="showNotification"></div>
+            <div class="slds-panel">
+              <h2>Change Encryption Keys</h2>
+              <div class="slds-grid slds-wrap">
+                <div class="slds-size_2-of-7"></div>
+                <div class="slds-size_4-of-7">
+                  <div class="slds-panel">
+                    <form class="slds-form--horizontal _slds-align--absolute-center slds-p-around--small">
+                      <div class="slds-form-element slds-p-bottom--large">
+                        <label class="slds-form-element__label" for="name">Change Customer Master Key</label>
+                        <div class="slds-form-element__control slds-p-left--large">
+                          <button ng-disabled="!enableCMK" type="button" class="slds-button slds-button--brand" ng-click="changeCustomerMasterKey()">Change</button>
+                        </div>
+                      </div>
+                      <div class="slds-form-element slds-p-bottom--large">
+                        <label class="slds-form-element__label" for="name">Change Data In Transit Key</label>
+                        <div class="slds-form-element__control slds-p-left--large">
+                          <button ng-disabled="!enableDIT" type="button" 
+                                  class="slds-button slds-button--brand" ng-click="changeDataInTransitKey()">Change</button>
+                        </div>
+                      </div>
+                      <div class="slds-form-element slds-p-bottom--large">
+                        <label class="slds-form-element__label" for="name">Change PII Encryption Key</label>
+                        <div class="slds-form-element__control slds-p-left--large">
+                          <button ng-disabled="!isKeyGenComplete" type="button" 
+                                  class="slds-button slds-button--brand" ng-click="changeDataEncryptionKey()">Change</button>
+                        </div>
+                      </div>
+                      
+                      <div class="slds-form-element slds-p-bottom--large">
+                        <label class="slds-form-element__label" for="name">Change Private Key and Certificate</label>
+                        <div class="slds-form-element__control slds-p-left--large">
+                          <button ng-disabled="!enablePKC" type="button" 
+                                  class="slds-button slds-button--brand" ng-click="changePrivateKeyAndCertificate()">Change</button>
+                        </div>
+                      </div>
+                      
+                    </form>
+                  </div> 
+                </div>
+              </div>
+            </div>
+            <div class="slds-panel slds-grid ">
+              <div class="slds-size_1-of-4"></div>
+              <div class="slds-panel__section slds-p-around--xx-large">
+                <h3 class="slds-text-heading--large slds-m-around--medium">PII Encryption Key Change Monitor </h3>
+                <div class="progressbar">
+                    <div class="slds-progress-bar slds-progress-bar_large slds-progress-bar_circular" 
+                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{batchInfo.progress}}" role="progressbar">
+                      <span class="slds-progress-bar__value" style="width: {{batchInfo.progress}}%;">
+                        <span class="slds-assistive-text">Progress: {{batchInfo.progress}}%</span>
+                      </span>
+                    </div><br/>
+                    <div class="slds-progress-bar-Date"> Start Date/Time: {{batchInfo.startDateTime}}</div>
+                    <div class="slds-progress-bar-Date"> Expected Completion Date/Time: {{batchInfo.expectedDatetime}}</div>
+                </div>
+              </div>
+            </div>
+           </div> <!-- via-slds -->
+           
+           
+           <script type="text/ng-template" id="form.html">
+            <!-- forms -->
+            <div class="via-slds">
+            <div class="slds-panel">
+            <h4 class="slds-m-around--large slds-text-heading_small slds-text-color_error" id="validationMessage" >{{validationMessage}}</h4>
+            
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size_2-of-7"></div>
+                <div class="slds-size_5-of-7">
+                    <div class="slds-panel">
+                        <form class="slds-form--horizontal _slds-align--absolute-center slds-p-around--small" name="userForm" novalidate>
+                            
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-box--small slds-text-align--left slds-p-top--none">Country Name:
+                                    <div class="slds-form-element">
+                                         <span class="slds-form-element__control">
+                                              <input type="text" class="slds-input" ng-model="info.country" required="true"
+                                                     ng-pattern="countryPattern" ng-minlength="2" ng-maxlength="2" ng-required="true" 
+                                                     name="country" placeholder="Please provide a two letter Country Code"/>
+                                          </span>
+                                          <div class="help-block slds-text-color_error" ng-messages="userForm.country.$error">
+                                            <p ng-message="pattern || minlength || maxlength">Invalid Country Code</p>
+                                            <p ng-message="required">Please provide a two letter Country Code</p>
+                                        </div>
+                                     </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-box--small slds-text-align--left slds-p-top--none">State or Province Name:
+                                    <div class="slds-form-element"><span class="slds-form-element__control">
+                                        <input type="text" class="slds-input" ng-model="info.state" required="true"
+                                               ng-pattern="alphaNumPattern" name="state" placeholder="Please enter State" ng-required="true" ng-maxlength="255"/></span>
+                                          <div class="help-block slds-text-color_error" ng-messages="userForm.state.$error">
+                                            <p ng-message="pattern || maxlength">Invalid State</p>
+                                            <p ng-message="required">Please enter a State</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-box--small slds-text-align--left slds-p-top--none">Locality Name:
+                                    <div class="slds-form-element"><span class="slds-form-element__control">
+                                        <input type="text" class="slds-input" ng-model="info.locality" required="true"
+                                               ng-pattern="alphaNumPattern" name="locality" placeholder="Please enter a Locality Name" ng-required="true"/></span>
+                                          <div class="help-block slds-text-color_error" ng-messages="userForm.locality.$error">
+                                            <p ng-message="pattern || maxlength">Invalid Locality Name</p>
+                                            <p ng-message="required">Please provide a Locality Name</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-box--small slds-text-align--left slds-p-top--none">Organization Name:
+                                    <div class="slds-form-element"><span class="slds-form-element__control">
+                                        <input type="text" class="slds-input" ng-model="info.org_name" required="true"
+                                               ng-pattern="alphaNumPattern" 
+                                               ng-maxlength="255" name="orgName" placeholder="Please provide an Organization Name" ng-required="true"/></span>
+                                          <div class="help-block slds-text-color_error" ng-messages="userForm.orgName.$error">
+                                            <p ng-message="pattern || maxlength">Invalid Organization Name</p>
+                                            <p ng-message="required">Please provide an Organization Name</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-box--small slds-text-align--left slds-p-top--none">Organization Unit Name:
+                                    <div class="slds-form-element"><span class="slds-form-element__control">
+                                        <input type="text" class="slds-input" ng-model="info.org_unit_name" required="true"
+                                               ng-pattern="alphaNumPattern" 
+                                               ng-maxlength="255" name="orgUnitName" placeholder="Please provide an Organization Unit Name" ng-required="true"/></span>
+                                          <div class="help-block slds-text-color_error" ng-messages="userForm.orgUnitName.$error">
+                                            <p ng-message="pattern || maxlength">Invalid Organization Unit Name</p>
+                                            <p ng-message="required">Please provide an Organization Unit Name</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-box--small slds-text-align--left slds-p-top--none">Common Name:
+                                    <div class="slds-form-element"><span class="slds-form-element__control">
+                                        <input type="text" class="slds-input" ng-model="info.common_name" required="true"
+                                               ng-pattern="commonNamePattern" 
+                                               ng-maxlength="255" name="commonName" placeholder="Please enter a Common Name" ng-required="true"/></span>
+                                          <div class="help-block slds-text-color_error" ng-messages="userForm.commonName.$error">
+                                            <p ng-message="pattern || maxlength">Invalid Common Name</p>
+                                            <p ng-message="required">Please enter a Common Name</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-box--small slds-text-align--left slds-p-top--none">Email Address:
+                                    <div class="slds-form-element"><span class="slds-form-element__control">
+                                        <input type="text" class="slds-input" ng-model="info.email" required="true"
+                                        ng-required="true" name="email"
+                                        ng-pattern="emailPattern" placeholder="Please provide an Email address"/></span>
+                                        <div class="help-block slds-text-color_error" ng-messages="userForm.email.$error">
+                                            <p ng-message="email || pattern">Invalid Email</p>
+                                            <p ng-message="required">Please provide an Email address</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="slds-form-element slds-p-bottom--small">
+                                <div class="slds-form-element__control slds-p-left--large">
+                                    <button  type="button" class="slds-button slds-button--brand" ng-click="submit(info)" ng-disabled="userForm.$invalid">Submit</button>
+                                    <button  type="button" class="slds-button slds-button--brand" ng-click="cancel()">Cancel</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> <!-- slds-5-of-7 -->
+            </div><!-- slds-wrap-->
+        </div><!-- slds-wrap-->
+        </div>
+        <!-- forme -->
+           </script>
+           
+          <script type="text/javascript">
+            j$ = jQuery.noConflict();
+          </script>
+
+        </body>
+    </html>
+</apex:page>

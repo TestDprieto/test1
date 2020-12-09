@@ -1,0 +1,6 @@
+<apex:page standardcontroller="Opportunity" extensions="vlocity_cmt.CardCanvasController" standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+    <script type="text/javascript">
+        var nsp = '{!nsPrefix}';
+        window.location.href = 'apex/' + nsp + 'OmniScriptUniversalPage?id={!Opportunity.Id}&parentId={!Opportunity.Id}&layout=lightning#/OmniScriptType/MultiService/OmniScriptSubType/CPQConfiguration/OmniScriptLang/English/ContextId/{!Opportunity.Id}/PrefillDataRaptorBundle//true';
+    </script>
+</apex:page>

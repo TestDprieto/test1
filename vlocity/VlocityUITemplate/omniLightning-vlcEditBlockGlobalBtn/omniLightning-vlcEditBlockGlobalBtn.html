@@ -1,0 +1,37 @@
+<div class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{action.propSetMap.controlWidth}}-of-12 vlc-slds-edit-block__gaction" 
+    ng-if='!(action.propSetMap.svgSprite && action.propSetMap.svgIcon)'>
+    <div class='slds-col--padded slds-size--1-of-1'>
+
+        <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-form-group vlc-slds-remote-action--button'>
+
+            <div class="slds-form-element__control">
+
+                <div class="vlc-control-wrapper">
+
+                     <div id='{{::action.name}}'
+                         class='slds-box'
+                         title='{{::action.propSetMap.label}}'
+                         ng-click='buttonClick(this.bpTree.response, action, this)'>
+                        <p>{{::action.propSetMap.label}}</p>
+                    </div>
+
+                </div>
+
+                <div class='vlc-sub-block'></div>
+
+            </div> 
+
+        </ng-form>
+
+    </div>
+</div>
+
+<div class="vlc-slds-edit-block__gaction_btn" ng-if='(action.propSetMap.svgSprite && action.propSetMap.svgIcon)'>
+    <slds-svg-icon sprite="action.propSetMap.svgSprite" icon="action.propSetMap.svgIcon" size="'small'" ng-click='buttonClick(this.bpTree.response, action, this)'></slds-svg-icon>
+    <div class="slds-popover slds-popover--tooltip slds-nubbin--top-left vlc-slds--tooltip" role="tooltip">
+        <div class="slds-popover__body">
+            {{action.propSetMap.label}}
+        </div>
+    </div>
+</div>

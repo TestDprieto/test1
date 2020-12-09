@@ -1,0 +1,369 @@
+<div class="manage-group slds-grid--align-center slds-container--fluid slds-p-horizontal_large" ng-controller="manageGroupController" ng-init="init();">
+    <!-- header section -->
+    <div class="slds-size_1-of-1 header-section">
+        <div class="slds-grid slds-size_1-of-1 slds-p-vertical_medium">
+            <div class="slds-size_1-of-2">
+                <span class="slds-text-heading_medium slds-border_bottom service-point-text-border-color">{{bpTree.selectedQuote.masterQuoteName}}</span>
+            </div>
+            <div class="slds-size_1-of-2">
+                <div class="slds-float_right">
+                    <span class="slds-p-right_small"> {{customLabelsMap.MSGroupLabel}}:</span>
+                    <div class="slds-button-group" role="group">
+                        <button class="slds-button slds-button_neutral" ng-click="groupShowHideFlag = !groupShowHideFlag" ng-class="{'slds-button_brand': groupShowHideFlag, '': !groupShowHideFlag}">{{customLabelsMap.MSShowLabel}}</button>
+                        <button class="slds-button slds-button_neutral" ng-click="groupShowHideFlag = !groupShowHideFlag" ng-class="{'slds-button_brand': !groupShowHideFlag, '': groupShowHideFlag}">{{customLabelsMap.MSHideLabel}}</button>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <div class="slds-grid slds-size_1-of-1 slds-p-bottom_medium">
+            <div class="slds-size_1-of-2">
+                <span>{{unGroupedServiceTotalCount}} {{customLabelsMap.MSServiceLabel}}</span>
+                <button class="slds-button slds-button_neutral slds-m-left_x-small" ng-click="filterFlag = !filterFlag">{{customLabelsMap.MSFilterLabel}}</button>
+                <button class="slds-button slds-p-left_small" ng-click="clearFilters()" ng-if="enableClearFiltersButton()">{{customLabelsMap.MSClearFilterLabel}}</button>
+                <span class="slds-m-left_small" ng-if="numberOfFiltersApplied > 0">{{numberOfFiltersApplied}} {{customLabelsMap.MSFiltersAppliedLabel}}</span>
+            </div>
+
+            <div class="slds-size_1-of-2">
+                
+                <button class="slds-button slds-button_neutral slds-float_right" ng-if="ungroupedItemSelected == 0 && groupedItemSelected === 0 && groupSelected === 0" 
+                    ng-click="createNewGroup()">+ {{customLabelsMap.MSCreateNewGroupLabel}}</button>
+                <button class="slds-button slds-button_neutral slds-float_right" ng-if="groupedItemSelected > 0" 
+                    ng-click="removeFromGroup()">{{customLabelsMap.MSRemoveFromGroupLabel}}</button>
+                <button class="slds-button slds-button_neutral slds-m-right_x-small slds-float_right" ng-if="groupSelected === 1" 
+                    ng-click="renameGroup()">{{customLabelsMap.MSRenameGroupLabel}}</button>
+                
+                <!-- 
+                <button class="slds-button slds-button_neutral slds-float_right slds-m-right_x-small" ng-if="groupSelected > 0" 
+                    ng-click="deleteGroups()">Delete Group(s)</button> -->
+                <div class="slds-float_right" ng-if="ungroupedItemSelected > 0">
+                    <span class="slds-p-right_x-small" ng-if="ungroupedItemSelected > 0 && groupedItemSelected === 0">{{ungroupedItemSelected}} {{customLabelsMap.MSItemsSelectedLabel}}</span>
+                    
+
+                    <div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-button_last slds-m-right_x-small" 
+                        ng-class="{'slds-is-open': showGropDropdown}">
+                        <button class="slds-button slds-button_neutral slds-button_brand" 
+                            ng-click="showGropDropdown = !showGropDropdown">{{customLabelsMap.MSAddToGroupLabel}}
+                            <slds-svg-icon size="'small'" extra-classes="'slds-input__icon slds-icon-text-default slds-m-left_x-small add-to-group-icon'" 
+                                sprite="'utility'" icon="'chevrondown'"></slds-svg-icon>
+                            <span class="slds-assistive-text">More options</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown_right slds-dropdown_actions">
+                            <ul class="slds-dropdown__list" role="menu">
+                                <li class="slds-dropdown__item" role="presentation" ng-click="addToGroup(group)" ng-repeat="group in groupList">
+                                    <a href="javascript:void(0);" role="menuitem" tabindex="0">
+                                        <span class="slds-truncate" title="{{group.name}}">{{group.groupName}}</span>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item" role="presentation" ng-click="createNewGroup()">
+                                    <a href="javascript:void(0);" role="menuitem" tabindex="0">
+                                        <span class="slds-truncate" title="Add New Group">+ {{customLabelsMap.MSAddNewGroupLabel}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    
+                    </div>
+                </div>
+                <span class="slds-p-right_x-small slds-float_right slds-p-top_xx-small" ng-if="groupedItemSelected > 0">{{groupedItemSelected}} {{customLabelsMap.MSGroupedItemsSelectedLabel}}</span>
+            </div>
+        </div>
+        <!-- Filter section --> 
+        <div ng-if="filterFlag" class="slds-size_1-of-1 slds-p-vertical_medium service-point-filter-section">
+            <div class="slds-grid slds-p-around_small">
+                <div class="slds-size_1-of-1">
+                    <div class="slds-float_right slds-form-element">
+                        <label class="slds-checkbox_toggle slds-grid">{{customLabelsMap.MSApplyFiltersGroupedLabel}}
+                            <input type="checkbox" name="checkbox" aria-describedby="toggle-desc" ng-model="filterApplicable.group"/>
+                            <span id="toggle-desc" class="slds-checkbox_faux_container slds-p-left_x-small" aria-live="assertive">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-checkbox_on"></span>
+                                <span class="slds-checkbox_off"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid slds-wrap slds-p-around_small">
+                <div ng-repeat="filterField in filterFieldList| orderBy: 'displaySequence' " class="slds-col slds-size_1-of-3 slds-p-around_x-small slds-form-element" ng-init="fieldInfo = objectNameToFields[filterField.objectAPIName][filterField.fieldAPIName]">
+                    <div ng-switch="fieldInfo.type">
+                        <div ng-switch-when="picklist">
+                            <label class="slds-form-element__label" for="filter-for-id-{{filterField.fieldName}}">{{fieldInfo.label}}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select class="slds-select" id="filter-for-id-{{filterField.fieldName}}" ng-model="filters[filterField.fieldName]">
+                                        <option value="">{{customLabels.selectDefaultOption}}</option>
+                                        <option ng-repeat="picklist in fieldInfo.picklistValues" value="{{picklist.value}}">{{picklist.label}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-switch-when="multipicklist">
+                            <label class="slds-form-element__label" for="filter-for-id-{{filterField.fieldName}}">{{fieldInfo.label}}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select class="slds-select" id="filter-for-id-{{filterField.fieldName}}" ng-model="filters[filterField.fieldName]">
+                                        <option value="">{{customLabels.selectDefaultOption}}</option>
+                                        <option ng-repeat="picklist in fieldInfo.picklistValues" value="{{picklist.value}}">{{picklist.label}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div ng-switch-when="date">
+                            <label class="slds-form-element__label" for="filter-for-id-{{filterField.fieldName}}">{{fieldInfo.label}}</label>
+                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right">
+                                <input type="text" class="slds-input"
+                                    id="filter-for-id-{{filterField.fieldName}}"
+                                    ng-model="filters[filterField.fieldName]"
+                                    slds-date-picker="true"
+                                    data-date-format="M/d/yyyy"
+                                    data-date-type="number" />
+                                <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Select a date">
+                                    <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'event'" extra-class="'slds-input__icon_right'"></slds-svg-icon>
+                                </button>
+                                
+                            </div>
+                        </div>
+
+                        <div ng-switch-when="datetime">
+                            <label class="slds-form-element__label" for="filter-for-id-{{filterField.fieldName}}">{{fieldInfo.label}}</label>
+                            <div class="slds-form-element__control datetime-input">
+                                <div class="slds-input-has-icon slds-input-has-icon_right date">
+                                    <input type="text" class="slds-input"
+                                        id="filter-for-id-{{filterField.fieldName}}"
+                                        ng-model="filters[filterField.fieldName]"
+                                        slds-date-picker="true"
+                                        data-date-format="M/d/yyyy"
+                                        data-date-type="number" />
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Select a date">
+                                        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'event'" extra-class="'slds-input__icon_right'"></slds-svg-icon>
+                                    </button>
+                                </div>
+                                <div class="slds-input-has-icon slds-input-has-icon_right time">
+                                    <input type="text" class="slds-input"
+                                        id="filter-for-time-id-{{filterField.fieldName}}"
+                                        ng-model="filters[filterField.fieldName]"
+                                        slds-time-picker="true"
+                                        data-time-format="h:mm a"
+                                        data-time-type="number" />
+                                    <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Select a date">
+                                        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'clock'" extra-class="'slds-input__icon_right'"></slds-svg-icon>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-switch-when="boolean" class="slds-form-element">
+                            <label class="slds-form-element__label" for="filter-for-id-{{filterField.fieldName}}">{{fieldInfo.label}}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select class="slds-select" id="filter-for-id-{{filterField.fieldName}}" ng-model="filters[filterField.fieldName]">
+                                        <option value="">{{customLabels.selectDefaultOption}}</option>
+                                        <option ng-repeat="picklist in booleanPicklists" value="{{picklist.value}}">{{picklist.label}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-switch-default>
+                            <label class="slds-form-element__label" for="filter-for-id-{{filterField.fieldName}}">{{fieldInfo.label}}</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="filter-for-id-{{filterField.fieldName}}" placeholder="{{fieldInfo.label}}" class="slds-input" ng-model="filters[filterField.fieldName]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid slds-p-around_small">
+                <div class="slds-size_1-of-1 slds-float_right">
+                    <button class="slds-button slds-button_brand slds-float_right" ng-click="applyFilters();">{{customLabelsMap.MSApplyFilterLabel}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table section -->
+    <div class="table-section slds-is-relative">
+        <table aria-multiselectable="true" class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" role="grid">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th class="slds-text-align_left" scope="col">
+                        <span id="column-group-header" class="slds-assistive-text">Choose a row</span>
+                        
+                        <div class="slds-checkbox">
+                            <input type="checkbox" name="select-all-ungrouped-item" id="select-all-ungrouped-checkbox" 
+                            tabindex="0" aria-labelledby="select-all-ungrouped-item column-group-header" ng-model="selectAllUngroupedItem"
+                            ng-change="selecAllUngroupedItem(selectAllUngroupedItem)" />
+                            <label class="slds-checkbox__label" for="select-all-ungrouped-checkbox" id="select-all-ungrouped-item">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-form-element__label slds-assistive-text">Select All</span>
+                            </label>
+                        </div>
+                    </th>
+                    <th aria-label="{{field.fieldLabel}}" aria-sort="ascending" class="sortable-column slds-is-resizable slds-is-sortable" 
+                        scope="col" ng-repeat="field in fieldList | orderBy: 'displaySequence'" 
+                        ng-class="{'slds-is-sorted slds-is-sorted_asc': field.clickedPos === 'up', 'slds-is-sorted slds-is-sorted_desc': field.clickedPos === 'down'}"
+                        ng-click="sortByColumn(field);">
+                        <a class="slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="0">
+                            <span class="slds-assistive-text">Sort by: </span>
+                            <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                                <span class="slds-truncate" title="{{field.fieldLabel}}">{{field.fieldLabel}}</span>
+                                <span class="slds-icon_container slds-icon-utility-arrowdown">
+                                    <slds-svg-icon sprite="'utility'" icon="'arrowdown'" size="'x-small'" extra-classes="'slds-icon-text-default slds-is-sortable__icon'"></slds-svg-icon>
+                                </span>
+                            </div>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat-start="group in groupList" class="group-row" ng-if="groupShowHideFlag" ng-init="group.limit = 20;">
+                    <td colspan="{{fieldList.length + 1}}">
+                        <slds-svg-icon sprite="'utility'" icon="'drag_and_drop'" size="'x-small'" extra-classes="'slds-icon-text-default'"></slds-svg-icon>
+                        <div class="slds-checkbox">
+                            <input type="checkbox" name="group-select-{{group.groupId}}" id="group-select-{{group.groupId}}" tabindex="0" 
+                            aria-labelledby="group-select-label-{{group.groupId}}" ng-model="group.isSelected" ng-change="groupSelectionChange(group)"/>
+                            <label class="slds-checkbox__label" for="group-select-{{group.groupId}}" id="group-select-label-{{group.groupId}}">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-form-element__label slds-assistive-text">Select group</span>
+                            </label>
+                        </div>
+                        <slds-svg-icon sprite="'utility'" icon="'chevronright'" size="'x-small'" 
+                            extra-classes="'slds-icon-text-default group-name-icon'" 
+                            ng-click="getGroupedServices(group)"
+                            ng-if="!group.showItems">
+                        </slds-svg-icon>
+                        <slds-svg-icon sprite="'utility'" icon="'chevrondown'" size="'x-small'" 
+                            extra-classes="' slds-icon-text-default group-name-icon'" 
+                            ng-click="group.showItems = !group.showItems"
+                            ng-if="group.showItems">
+                        </slds-svg-icon>
+                        <span>{{group.groupName}} ({{group.itemsCount ? group.itemsCount: 0}})</span>
+                    </td>
+                </tr>
+                <tr class="grouped-item-row" ng-if="group.showItems && (!group.services || group.services.length === 0) && !group.isLoading">
+                    <td colspan="{{fieldList.length + 1}}"class="slds-text-align_center">
+                        {{customLabelsMap.MSNoRecordsFoundLabel}}
+                    </td>
+                </tr>
+                <tr ng-repeat="groupedItem in group.services" class="grouped-item-row" 
+                    ng-if="groupShowHideFlag && group.showItems">
+                    <td class="slds-text-align_right" role="gridcell">
+                        <div class="slds-checkbox slds-p-left_medium">
+                            <input type="checkbox" name="groupedItem-select-{{groupedItem.Id.value}}" id="groupedItem-select-{{groupedItem.Id.value}}" tabindex="0" 
+                            aria-labelledby="groupedItem-select-label-{{groupedItem.Id.value}}" ng-model="groupedItem.isSelected" ng-change="groupedItemSelectionChange(groupedItem)"/>
+                            <label class="slds-checkbox__label" for="groupedItem-select-{{groupedItem.Id.value}}" id="item-select-label-{{groupedItem.Id.value}}">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                            </label>
+                        </div>
+                    </td>
+                    <td ng-repeat="field in fieldList | orderBy: 'displaySequence'">
+                        {{groupedItem[field.fieldName].value}}
+                    </td>
+                </tr>
+                <tr class="" ng-if="group.showItems && group.isLoading">
+                    <td colspan="{{fieldList.length + 1}}"class="slds-text-align_center loading-top-padding">
+                        <div class="slds-spinner_brand slds-spinner slds-spinner_x-small" aria-hidden="false" role="alert">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </td>
+                </tr>
+                <!-- load more button -->
+                <tr ng-repeat-end ng-if="groupShowHideFlag && group.showItems && !group.isLoading && group.services.length < group.itemsCount && group.actions.getGroupedServices">
+                    <td colspan="{{fieldList.length + 1}}"class="slds-text-align_center loadmore-padding">
+                        <button class="slds-button slds-button_neutral" ng-click="getMoreGroupedServices(group)">
+                            {{customLabelsMap.MSLoadMoreLabel}}
+                        </button>
+                    </td>
+                </tr>
+                <tr ng-if="groupShowHideFlag && groupTotalCount > groupList.length && nextGroupsAction && !isGroupsLoading ">
+                    <td colspan="{{fieldList.length + 1}}"class="slds-text-align_center loadmore-padding">
+                        <button class="slds-button slds-button_neutral" ng-click="getMoreGroups(nextGroupsAction)">
+                            {{customLabelsMap.MSLoadMoreGroupsLabel}}
+                        </button>
+                    </td>
+                </tr>
+                <tr class="" ng-if="groupShowHideFlag && isGroupsLoading && !showTableLoading">
+                    <td colspan="{{fieldList.length + 1}}"class="slds-text-align_center loading-top-padding">
+                        <div class="slds-spinner_brand slds-spinner slds-spinner_x-small" aria-hidden="false" role="alert">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </td>
+                </tr>
+
+                <!--<tr ng-repeat-end ng-show="false"></tr>-->
+
+                <tr class="" ng-repeat="item in ungroupedItemList" ng-class="{'slds-is-selected': item.isSelected}">
+                    <td class="slds-text-align_left" role="gridcell">
+                        
+                        <div class="slds-checkbox">
+                            <input type="checkbox" name="item-select-{{item.Id.value}}" id="item-select-{{item.Id.value}}" tabindex="0" 
+                            aria-labelledby="item-select-label-{{item.Id.value}} column-group-header" ng-model="item.isSelected" ng-change="ungroupedItemSelectionChange(item)" />
+                            <label class="slds-checkbox__label" for="item-select-{{item.Id.value}}" id="item-select-label-{{item.Id.value}}">
+                                <span class="slds-checkbox_faux"></span>
+                                <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                            </label>
+                        </div>
+                    </td>
+                    <td ng-repeat="field in fieldList | orderBy: 'displaySequence'">
+                        {{item[field.fieldName].value}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="!ungroupedItemList || ungroupedItemList.length === 0" class="">{{customLabelsMap.MSNoRecordsGroupsLabel}}</div>
+        <div class="slds-grid slds-m-top_small" ng-show="!showTableLoading">
+            <div class="slds-size_1-of-2">
+                <button class="slds-button slds-button_neutral slds-float_right" ng-click="nextServicePoints()" ng-disabled="!ungroupedItemList || ungroupedItemList.length < unGroupedServicePagination.pageSize">{{customLabelsMap.MSNextLabel}}</button>
+                <button class="slds-button slds-button_neutral slds-float_right slds-m-right_small" ng-click="previousServicePoints()" ng-disabled="unGroupedServicePagination.offset === 0">{{customLabelsMap.MSPreviousLabel}}</button>
+            </div>
+        </div>
+        <div class="slds-spinner_container" ng-if="showTableLoading">
+            <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/ng-template" id="groupPopup.html">
+    <div class="manage-group-popup slds-modal slds-fade-in-open" aria-hidden="false" role="dialog">
+        <div class="slds-modal__container" ng-form name="groupForm">
+            <div class="slds-modal__header">
+                <button class="slds-button slds-button_icon-inverse slds-modal__close" ng-click="$hide()">
+                    <slds-svg-icon sprite="'utility'" size="'small'" icon="'close'" extra-classes="'slds-button__icon slds-button__icon_large'" ></slds-svg-icon>
+                    <span class="slds-assistive-text">{{closeLabel}}</span>
+                </button>
+                <h2 class="slds-text-heading_medium">{{confirmationTitle}}</h2>
+            </div>
+
+            <div class="slds-modal__content slds-p-around_medium" >
+                <div class="slds-form-element slds-m-around_small">
+                    <label class="slds-form-element__label" for="name-input-id">{{customLabelsMap.MSGroupNameLabel}}<abbr class="slds-required" title="required">*</abbr></label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="name-input-id" placeholder="Group Name" class="slds-input" ng-model="group.name" ng-required="true" />
+                    </div>
+                </div>      
+
+                <div class="slds-form-element slds-m-around_small">
+                    <label class="slds-form-element__label" for="description-input-id" ng-model="group.description">{{customLabelsMap.MSGroupDescLabel}}</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="description-input-id" placeholder="Group Description" class="slds-input" ng-model="group.description" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="slds-modal__footer">
+                <button type="button" class="slds-button slds-button_neutral" ng-click="$hide()">{{cancelActionLbl}}</button>
+                <button type="button" class="slds-button slds-button_neutral slds-button_brand" ng-click="confirmationAction()" ng-disabled="groupForm.$invalid">{{confirmActionLbl}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</script>

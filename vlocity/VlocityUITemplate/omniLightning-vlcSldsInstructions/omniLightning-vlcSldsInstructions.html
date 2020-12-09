@@ -1,0 +1,8 @@
+<div class="vlc-slds-instruction--container vlc-slds-rte"
+     ng-if='bpTree.asIndex !== null &&
+            bpTree.children[bpTree.asIndex].propSetMap.instructionDisplay'>
+
+    <!-- instructions for the step if any -->
+    <p ng-bind-html='bpTree.children[bpTree.asIndex].propSetMap.instructionDisplay'></p>
+
+</div>

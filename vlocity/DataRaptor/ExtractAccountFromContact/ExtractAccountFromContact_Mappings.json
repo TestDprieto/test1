@@ -1,0 +1,36 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 0,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "AssetParty",
+        "%vlocity_namespace%__FilterGroup__c": 0,
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__FilterValue__c": "ContactId",
+        "%vlocity_namespace%__GlobalKey__c": "4b016007-4be1-385e-498c-6d3b3deb48ae",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ContactId",
+        "%vlocity_namespace%__InterfaceObjectLookupOrder__c": 1,
+        "%vlocity_namespace%__InterfaceObjectName__c": "AccountContactRelation",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "ExtractAccountFromContactCustom9131",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "ExtractAccountFromContact",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "AccountId",
+        "%vlocity_namespace%__GlobalKey__c": "dcbb46c0-b466-1ef3-ed25-f07923151e88",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "AssetParty:AccountId",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "ExtractAccountFromContactCustoma0L46000000B5VVEA0Item1",
+        "%vlocity_namespace%__TransformValuesMap__c": "{}",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "ExtractAccountFromContact",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

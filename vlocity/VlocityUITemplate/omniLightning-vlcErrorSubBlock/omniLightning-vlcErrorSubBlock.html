@@ -1,0 +1,19 @@
+<div class="vlc-slds-error-block">
+
+    <div class='error' ng-show='control.srvErr'>
+        <small class='description'>{{control.srvErr}}</small>
+    </div>
+
+    <div class='error' ng-if='loopform.loopname.$error && loopform.loopname.$dirty'>
+        <small ng-show='loopform.loopname.$error.minlength' class='description'>{{::customLabels.OmniMinLength}} {{::control.propSetMap.minLength}}</small>
+        <small ng-show='loopform.loopname.$error.maxlength' class='description'>{{::customLabels.OmniMaxLength}} {{::control.propSetMap.maxLength}}</small>
+        <small ng-show='(loopform.loopname.$error.min && control.propSetMap.minTime) || (loopform.loopname.$error.max && control.propSetMap.maxTime)' class='description'>
+        {{::customLabels.OmniTimeMinMax}} {{::control.propSetMap.minTime}} - {{::control.propSetMap.maxTime}}</small>
+        <small ng-show='loopform.loopname.$error.min && !control.propSetMap.minTime' class='description'>{{::customLabels.OmniMinValue}} {{::control.propSetMap.min}}</small>
+        <small ng-show='loopform.loopname.$error.max && !control.propSetMap.maxTime' class='description'>{{::customLabels.OmniMinValue}} {{::control.propSetMap.max}}</small>
+        <small ng-show='loopform.loopname.$error.minInt' class='description'>{{::customLabels.OmniMinInt}}</small>
+        <small ng-show='loopform.loopname.$error.maxInt' class='description'>{{::customLabels.OmniMaxInt}}</small>
+        <small ng-show='loopform.loopname.$error.required' class='description'>{{::customLabels.OmniRequired}}</small>
+        <small ng-show='loopform.loopname.$error.pattern' class='description'>{{::control.propSetMap.ptrnErrText}}</small>
+    </div>
+</div>

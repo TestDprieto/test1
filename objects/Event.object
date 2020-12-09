@@ -156,6 +156,41 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <fieldSets>
+        <fullName>vlocity_cmt__StoryFieldSet</fullName>
+        <description>Story board</description>
+        <displayedFields>
+            <field>Subject</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Location</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__EventStatus__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>DurationInMinutes</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StartDateTime</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>StoryFieldSet</label>
+    </fieldSets>
     <fields>
         <fullName>ActivityDate</fullName>
     </fields>
@@ -193,6 +228,9 @@
         <fullName>IsReminderSet</fullName>
     </fields>
     <fields>
+        <fullName>IsVisibleInSelfService</fullName>
+    </fields>
+    <fields>
         <fullName>Location</fullName>
     </fields>
     <fields>
@@ -224,6 +262,69 @@
         <fullName>WhoId</fullName>
         <type>Lookup</type>
     </fields>
+    <recordTypes>
+        <fullName>vlocity_cmt__MobilePhoneEvent</fullName>
+        <active>true</active>
+        <description>Mobile Phone Event</description>
+        <label>MobilePhoneEvent</label>
+        <picklistValues>
+            <picklist>Subject</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter%2FQuote</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__EventStatus__c</picklist>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Shared</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>Private</sharingModel>
 </CustomObject>

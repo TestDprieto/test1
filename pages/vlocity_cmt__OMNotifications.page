@@ -1,0 +1,74 @@
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.OrderEventsController" title="{!$Label.vlocity_cmt__omnotifications}">
+    <html xmlns:ng="http://angularjs.org" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="OMNotifications" class="ng-cloak">
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+            <script type="text/javascript" src="/support/console/31.0/integration.js"></script>
+            <script type="text/javascript" src="/soap/ajax/31.0/connection.js"></script>
+            <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.SldsAngular)}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.OMNotifications)}"></script>
+            <style>
+                .slds-input.page-number {
+                    padding: 0 .2rem 0 .3rem;
+                    width: 40px;
+                }
+                .slds-input.input__field-container {
+                    width: 350px;
+                }
+                .om-notifications-long-text-wrap {
+                    word-break:break-all;
+                }
+                .schedule-submit .slds-page-header__detail-block {
+                    max-width: 26%;
+                }
+            </style>
+        </head>
+        <body ng-controller="OMNotificationsController" ng-init="init()">
+            <div class="via-slds">
+                <div class="slds-p-around_medium">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-has-flexi-truncate">
+                            <h1 class="slds-page-header__title slds-truncate" title="{{pageTitle}}">{{labels.OMNotifications}}</h1>
+                        </div>
+                        <div class="slds-col slds-no-flex slds-align-bottom">
+                            <div class="slds-grid">
+                                <div class="slds-button-space-left">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control slds-input-has-icon  custom-slds-icon--modified">
+                                            <slds-svg-icon size="'small'" extra-classes="'slds-input__icon slds-icon-text-default slds-m-left--small'" sprite="'utility'" icon="'search'"></slds-svg-icon>
+                                            <input class="slds-input slds-p-left--x-large input__field-container" autofocus="true" ng-change="getOMNotifications(searchParam)" ng-model="searchParam" ng-model-options="{debounce: 1000}"
+                                            placeholder="Order Id / Account Name / Order Item Id"></input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <ng-include src="'OMNotificationsTable.tpl.html'"></ng-include>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var remoteActions = {
+                    getDisplayFields: {
+                        action: "{!$RemoteAction.OrderEventsController.getDisplayFields}",
+                        config: {escape: false}
+                    },
+                    searchOrderEvents: {
+                        action: "{!$RemoteAction.OrderEventsController.searchOrderEvents}",
+                        config: {escape: false}
+                    }
+                };
+                var labels = {
+                    OMNotifications: "{!$Label.vlocity_cmt__omnotifications}",
+                    NoOrderManagementNotification: "{!$Label.NoOrderManagementNotification}"
+                };
+                 var configData = {
+                    nsPrefix: "{!nsp}"
+                };
+            </script>
+        </body>
+    </html>
+</apex:page>

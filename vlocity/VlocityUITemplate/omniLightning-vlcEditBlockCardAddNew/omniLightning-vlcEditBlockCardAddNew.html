@@ -1,0 +1,16 @@
+<div ng-class="{'vlc-slds-edit-block--Long-cards':isLongCard, 'vlc-slds-edit-block--cards': isShortCard}" 
+     ng-init="ctrlLength=0; set.length > 3 ? ctrlLength = 3 :ctrlLength = ctrlLength=set.length"
+     ng-if='child.eleArray[0].propSetMap.allowNew && set.length > 0' ng-click="openEditModal(null, child, this, 'new', null, $event)">
+    <div ng-if='child.eleArray[0].propSetMap.allowNew && set.length > 0'
+         ng-class="{'vlc-slds-edit-block--Long-cards_container vlc-slds-item--addbutton-container_Long': isLongCard, 'vlc-slds-edit-block--cards_container vlc-slds-item--addbutton-container': isShortCard}">
+        <div class="vlc-slds-item--image" style="left: 2px;" ng-if="isShortCard">
+            <span class="slds-icon_container slds-icon_container--circle">
+            <slds-svg-icon sprite="child.eleArray[0].propSetMap.svgSprite" icon="child.eleArray[0].propSetMap.svgIcon" size="'large'"></slds-svg-icon>
+            </span>	
+        </div>
+        <div ng-class="{'vlc-slds-item--addbutton-Long': isLongCard, 'vlc-slds-item--addbutton': isShortCard}">
+            <slds-button-svg-icon sprite="'utility'" size="'large'" icon="'add'"></slds-button-svg-icon>
+            <span>{{::((child.eleArray[0].propSetMap.newAction) ? (child.eleArray[0].propSetMap.newAction.propSetMap.label) : (child.eleArray[0].propSetMap.newLabel))}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Digital Cacheable APIs (v3): Specifies the number of days an API cache record is effective after its start datetime. If NULL, the default is 30.",
+    "%vlocity_namespace%__SetupValue__c": "30",
+    "Name": "CacheAPI.TimeToLiveInDays",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/CacheAPI.TimeToLiveInDays"
+}

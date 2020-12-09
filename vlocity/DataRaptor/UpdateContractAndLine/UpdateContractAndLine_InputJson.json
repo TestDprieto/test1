@@ -1,0 +1,154 @@
+{
+    "ContextId": "80036000000DD4e",
+    "Contract": {
+        "AccountId": "00136000002KYEoAAO",
+        "ContractTerm": 36,
+        "EndDate": "2019-01-19",
+        "Id": "80036000000DD4eAAG",
+        "Lines": [
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0001",
+                "Name": "ProductParent1",
+                "OneTimeTotal": 200,
+                "PricebookEntryId": "01u36000000P72WAAS",
+                "Product2Id": "01t360000005dXmAAI",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0001.0001",
+                "Name": "ProductChild11",
+                "OneTimeTotal": 200,
+                "PricebookEntryId": "01u36000000P72gAAC",
+                "Product2Id": "01t360000005dY6AAI",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0001.0002",
+                "Name": "ProductChild12",
+                "OneTimeTotal": 200,
+                "PricebookEntryId": "01u36000000P72qAAC",
+                "Product2Id": "01t360000005dYBAAY",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0002",
+                "Name": "ProductParent2",
+                "OneTimeTotal": 200,
+                "PricebookEntryId": "01u36000000P735AAC",
+                "Product2Id": "01t360000005dYLAAY",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0002.0001",
+                "Name": "ProductChild21",
+                "OneTimeTotal": 300,
+                "PricebookEntryId": "01u36000000P73PAAS",
+                "Product2Id": "01t360000005dYVAAY",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0002.0002",
+                "Name": "ProductChild22",
+                "OneTimeTotal": 300,
+                "PricebookEntryId": "01u36000000P73oAAC",
+                "Product2Id": "01t360000005dYuAAI",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0003",
+                "Name": "GenWatt Diesel 10kW",
+                "OneTimeTotal": 5000,
+                "PricebookEntryId": "01u36000000bhx7AAA",
+                "Product2Id": "01t36000000Hsj8AAC",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0003.0001",
+                "Name": "SLA: Bronze",
+                "OneTimeTotal": 10000,
+                "PricebookEntryId": "01u36000000bhxFAAQ",
+                "Product2Id": "01t36000000HsjGAAS",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0003.0002",
+                "Name": "SLA: Gold",
+                "OneTimeTotal": 30000,
+                "PricebookEntryId": "01u36000000bhxIAAQ",
+                "Product2Id": "01t36000000HsjJAAS",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0003.0003",
+                "Name": "SLA: Platinum",
+                "OneTimeTotal": 40000,
+                "PricebookEntryId": "01u36000000bhxBAAQ",
+                "Product2Id": "01t36000000HsjCAAS",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            },
+            {
+                "ContractId": "80036000000DD4eAAG",
+                "LineNumber": "0004",
+                "Name": "GenWatt Gasoline 300kW",
+                "OneTimeTotal": 35000,
+                "PricebookEntryId": "01u36000000bhxJAAQ",
+                "Product2Id": "01t36000000HsjKAAS",
+                "Quantity": 1,
+                "RecurringTotal": 0,
+                "Status": "Active"
+            }
+        ],
+        "Name": "Test2",
+        "StartDate": "2016-01-20"
+    },
+    "CreateNew": {
+        "CalcalatedRenewTermByDate": null,
+        "CalculatedRenewTerm": null,
+        "RenewByMonths": null,
+        "RenewChoice": null,
+        "RenewDate": null,
+        "RenewTerm": 0
+    },
+    "ExtendOrRenew": {
+        "SelectOption": "CreateNew"
+    },
+    "timeStamp": "2016-01-21T01:25:21.490Z",
+    "userName": "qlu_contract_test2@vlocity.com",
+    "userProfile": "System Administrator",
+    "vlcPersistentComponent": {
+    },
+    "vlcTimeTracking": {
+        "ExtendOrRenew": 6347,
+        "GetContractAndLineItems": 411
+    }
+}

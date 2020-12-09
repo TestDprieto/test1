@@ -1,0 +1,35 @@
+{
+    "Cards": [
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.parentId",
+                "val": "0062E00001FHgE6QAL"
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "contextId": "{{params.contextId}}",
+                "fields": "Name,%vlocity_namespace%__PremisesId__r.Name",
+                "offset": "0",
+                "pageSize": "{{params.groupPageSize}}",
+                "parentId": "{{params.parentId}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.MultiServicePointsService"
+            },
+            "remoteClass": "MultiServiceAppHandler",
+            "remoteMethod": "getGroups",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": ""
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "multiservice-cpq-group-list"
+        }
+    }
+}

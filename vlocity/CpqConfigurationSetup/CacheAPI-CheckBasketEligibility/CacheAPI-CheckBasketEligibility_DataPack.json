@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Checks for the basket eligiblity in Create Cart API. If set to TRUE, the API checks for cartContextKey eligiblity against the context of the user passed in the input. If set to FALSE, the eligiblity of the Basket is not checked.",
+    "%vlocity_namespace%__SetupValue__c": "false",
+    "Name": "CacheAPI.CheckBasketEligibility",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/CacheAPI.CheckBasketEligibility"
+}

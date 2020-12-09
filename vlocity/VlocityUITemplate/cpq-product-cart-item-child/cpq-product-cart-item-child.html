@@ -1,0 +1,460 @@
+<div class="cpq-product-cart-item-child" post-render is-item-details={{attrs.lineItemModal}}>
+    <div ng-repeat="childProd in importedScope.viewModelRecords | orderBy: 'sequenceNumber'">
+        <!-- Line Item -->
+        <div class="slds-is-relative" ng-if="(childProd.itemType === 'lineItem')">
+            <div class="cpq-item-product-messages">
+                <ul ng-if="childProd.messages.length > 0" class="cpq-item-product-child-level-{{(attrs.ariaLevel)}} cpq-item-child-product-name-wrapper">
+                    <li ng-repeat="msg in childProd.messages" class="slds-p-vertical_xx-small">
+                        <span class="cpq-error-msg" ng-class="{'js-error-msg-{{msg.messageId}}':msg.bundleId}" ng-if="msg.severity === 'ERROR'">
+                            {{msg.message}}
+                            <i ng-init="data.hasError = true"></i>
+                        </span>
+                        <span class="cpq-warning-msg" ng-if="msg.severity !== 'ERROR'">
+                            {{msg.message}}
+                        </span>
+                    </li>
+                </ul>
+                <ul ng-if="childProd.fieldValidationMessageList.length > 0" class="cpq-item-product-child-level-{{(attrs.ariaLevel)}} cpq-item-child-product-name-wrapper">
+                    <li ng-repeat="fieldValidationMessage in childProd.fieldValidationMessageList" class="slds-p-vertical_xx-small">
+                        <span class="cpq-error-msg js-error-msg">{{fieldValidationMessage}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="cpq-item-base-product" ng-class="{'cpq-item-selected':importedScope.isSelected && importedScope.isSelectedItemObjId.value === childProd.Id.value && !attrs.lineItemModal}"
+                ng-init="childProdState.show = importedScope.expandMode">
+
+                <div ng-repeat="customField in $root.customViews.cpqCustomViews[$root.customViews.currentCustomView].fields" class="cpq-item-base-product-{{customField.data.classSuffix}}"
+                    ng-class="{'cpq-item-currency-value': customField.type === 'currency'||customField.type === 'currency5', 
+                'cpq-item-text-value': customField.type === 'string' || customField.type === 'lookup', 'cpq-item-percentage-value': customField.type === 'percentage',
+                'cpq-item-loyalty-value': customField.type === 'loyalty', 'cpq-item-product-title': customField.name === 'Name'}">
+                    <!-- Name -->
+                    <div ng-if="customField.name === 'Name'" class="cpq-product-name-block cpq-item-child-product-name-wrapper">
+                        <button title="{{importedScope.getProductInformation(childProd)}}"
+                            ng-click="childProdState.show = importedScope.determineChildProdOpenOrCloseAfterClick(childProd, childProdState.show); importedScope.fullScreen(attrs.ariaLevel, childProdState.show)"
+                            class="slds-button cpq-item-has-children" aria-controls="tree0-node1" ng-hide="importedScope.determineIfChildProdOpenOrCloseIconShouldBeHidden(childProd)"
+                            ng-init="childProdState.show = importedScope.determineChildProdOpenOrCloseInitially(childProd)" ng-disabled="childProd.processingLine || attrs.processingLine === 'true'">
+                            <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'switch'" extra-classes="'slds-button__icon_left slds-float_left'"
+                                ng-class="{'cpq-fix-slds-close-switch' : !childProdState.show}"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">Toggle</span>
+                            <span class="cpq-product-name cpq-large-name-text-wrap js-cpq-cart-product-hierarchy-path-{{childProd.productHierarchyPath}}"
+                                cpq-translate="Product2.Name">{{(childProd.PricebookEntry.Product2.Name || childProd.Product2.Name)}}</span>
+                        </button>
+                        <span class="cpq-item-no-children cpq-large-name-text-wrap" ng-show="!importedScope.checkIfChildProdHasChildren(childProd)"
+                            cpq-translate="Product2.Name" title="{{importedScope.getProductInformation(childProd)}}">
+                            {{(childProd.PricebookEntry.Product2.Name || childProd.Product2.Name)}}
+                        </span>
+                        <!-- Icons -->
+                        <span ng-show="childProd.SellingPeriod.toLowerCase() === 'past' || childProd.SellingPeriod.toLowerCase() === 'future' || childProd.SellingPeriod.toLowerCase() === 'endoflife'">
+                            <span slds-popover data-container="{{attrs.tooltipContainer ? attrs.tooltipContainer : '.via-slds'}}" tooltip="true" nubbin-direction="bottom"
+                                data-title="{{importedScope.generateSellingPeriodMsg(childProd.Product2, childProd.SellingPeriod.toLowerCase())}}">
+                                <slds-button-svg-icon sprite="'standard'" size="'large'" icon="'business_hours'" class="cpq-product-item-selling-period-{{childProd['SellingPeriod'].toLowerCase()}}"></slds-button-svg-icon>
+                            </span>
+                        </span>
+                    </div>
+
+                    <!-- Text -->
+                    <div ng-if="customField.type === 'string'">
+                        <span ng-class="{'cpq-cancel-item': importedScope.isSupplementalActionCancel(childProd)}">
+                            {{childProd[customField.fieldName]['value']}}
+                        </span>
+                    </div>
+                    <div ng-if="customField.type === 'lookup'">
+                        <span ng-class="{'cpq-cancel-item': importedScope.isSupplementalActionCancel(childProd)}">
+                            {{childProd[customField.fieldName]['Name']}}
+                        </span>
+                    </div>
+                    <!-- Loyalty-->
+                    <div ng-if="customField.type === 'loyalty'">
+                        <div cpq-dropdown-handler="showPopover = false">
+                            <div class="cpq-loyalty-points">
+                                <div>
+                                    <strike> {{childProd[customField.fieldName]['originalValue']}} {{childProd[customField.fieldName]['originalValue']?childProd.LoyaltyCode:''}}</strike>
+                                </div>
+                                <span ng-class="{'hovered': showPopover, 'cpq-underline' : childProd[customField.fieldName]['actions']['switchpaymentmode'], 'cpq-item-discount-price' : (childProd[customField.fieldName]['originalValue'] || childProd[customField.fieldName]['originalValue'] === 0)}"
+                                    ng-click="showPopover = !showPopover">
+                                    <span ng-class="{'cpq-cancel-item': importedScope.isSupplementalActionCancel(childProd)}">
+                                        {{childProd[customField.fieldName]['value']}}
+                                        <!-- Loyalty Code-->
+                                        {{childProd.LoyaltyCode}}
+                                    <span>
+                                </span>
+                            </div>
+                            <div class="slds-popover slds-nubbin_bottom-left cpq-price-actions-popover" role="dialog" ng-show="showPopover && (childProd[customField.fieldName]['actions']['switchpaymentmode'])">
+                                <div class="slds-popover__body cpq-price-actions-popover__body">
+                                    <div class="slds-button-group" role="group">
+                                        <button class="slds-button slds-button_icon-border" aria-haspopup="true" title="{{::importedScope.customLabels.CPQPaymentChoice}}"
+                                            ng-if="childProd[customField.fieldName]['actions']['switchpaymentmode']" ng-disabled="obj.orderActive"
+                                            ng-click="importedScope.openAdjustmentModal(childProd[customField.fieldName], 'switchpayment', childProd, obj)">
+                                            <slds-button-svg-icon sprite="'utility'" icon="'moneybag'"></slds-button-svg-icon>
+                                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQPaymentChoice}}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input -->
+                    <div class="slds-form-element" ng-if="customField.type === 'input'">
+                        <div class="slds-form-element__control" ng-class="{'slds-has-error': importedScope[customField.data.validation].indexOf(childProd.Id.value) > -1 }">
+                            <input type="{{ customField.data.customInputType ? customField.data.customInputType: 'text' }}" min="{{customField.data.minimum}}"
+                                step="any" class="slds-input cpq-item-input" ng-model="childProd[customField.fieldName].value"
+                                ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 800, 'blur': 0 } }" ng-change="importedScope.updateLineField(obj, childProd)"
+                                ng-disabled="importedScope.isChangesNotAllowed(childProd) || importedScope.isSupplementalActionCancel(childProd) || importedScope.isAsset(childProd,customField.fieldName,attrs.actionStatus) || !importedScope.isQuantityEditable(childProd,customField.fieldName)"
+                                ng-required="{{customField.data.required}}" ng-keydown="importedScope.checkQuantityField(customField.fieldName, $event.key)"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Price -->
+                    <div ng-if="customField.type === 'currency' || customField.type === 'currency5'">
+                        <div cpq-dropdown-handler="showPopover = false">
+                            <div ng-if="customField.type === 'currency'">
+                                <strike> {{childProd[customField.fieldName]['originalValue'] | currency}}</strike>
+                            </div>
+                            <div ng-if="customField.type === 'currency5'">
+                                <strike> {{childProd[customField.fieldName]['originalValue'] | currency5}}</strike>
+                            </div>
+                            <span ng-class="{'hovered': showPopover, 'cpq-underline' : childProd[customField.fieldName]['actions']['applyadjustment'] || childProd[customField.fieldName]['actions']['pricedetail'] || childProd[customField.fieldName]['actions']['switchpaymentmode']}"
+                                ng-click="showPopover = !showPopover">
+                                <span ng-if="customField.type === 'currency'" ng-class="{'cpq-item-discount-price' : childProd[customField.fieldName]['originalValue'] || childProd[customField.fieldName]['originalValue'] === 0 }">
+                                    <span ng-class="{'cpq-cancel-item': importedScope.isSupplementalActionCancel(childProd)}">
+                                        {{childProd[customField.fieldName]['value'] | currency}}
+                                    </span>
+                                </span>
+                                <span ng-if="customField.type === 'currency5'" ng-class="{'cpq-item-discount-price' : childProd[customField.fieldName]['originalValue'] || childProd[customField.fieldName]['originalValue'] === 0 }">
+                                    <span ng-class="{'cpq-cancel-item': importedScope.isSupplementalActionCancel(childProd)}">
+                                        {{childProd[customField.fieldName]['value'] | currency5}}
+                                    </span>
+                                </span>
+                            </span>
+
+                            <div class="slds-popover slds-nubbin_bottom-left cpq-price-actions-popover" role="dialog" ng-show="showPopover && (childProd[customField.fieldName]['actions']['applyadjustment'] || childProd[customField.fieldName]['actions']['pricedetail'] || childProd[customField.fieldName]['actions']['switchpaymentmode'])">
+
+                                <div class="slds-popover__body cpq-price-actions-popover__body">
+                                    <div class="slds-button-group" role="group">
+                                        <button class="slds-button slds-button_icon-border" title="{{::importedScope.customLabels.CPQChangePrice}}" ng-if="childProd[customField.fieldName]['actions']['applyadjustment']"
+                                            ng-disabled="obj.orderActive" ng-click="importedScope.openAdjustmentModal(childProd[customField.fieldName], 'applyadjustment', childProd)">
+                                            <slds-button-svg-icon sprite="'utility'" icon="'edit'"></slds-button-svg-icon>
+                                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQChangePrice}}</span>
+                                        </button>
+                                        <button class="slds-button slds-button_icon-border" aria-haspopup="true" title="{{::importedScope.customLabels.CPQPriceDetails}}"
+                                            ng-if="childProd[customField.fieldName]['actions']['pricedetail']" ng-click="importedScope.openAdjustmentModal(childProd[customField.fieldName], 'pricedetail', childProd)">
+                                            <slds-button-svg-icon sprite="'utility'" icon="'info'"></slds-button-svg-icon>
+                                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQPriceDetails}}</span>
+                                        </button>
+                                        <button class="slds-button slds-button_icon-border" aria-haspopup="true" title="{{::importedScope.customLabels.CPQPaymentChoice}}"
+                                            ng-if="childProd[customField.fieldName]['actions']['switchpaymentmode']" ng-disabled="obj.orderActive"
+                                            ng-click="importedScope.openAdjustmentModal(childProd[customField.fieldName], 'switchpayment', childProd, obj)">
+                                            <slds-button-svg-icon sprite="'utility'" icon="'moneybag'"></slds-button-svg-icon>
+                                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQPaymentChoice}}</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Promotions -->
+                    <div ng-if="customField.type === 'promo'">
+                        <div ng-repeat="promoItem in childProd[customField.fieldName].records" ng-attr-title="{{promoItem.Name | CPQTranslateFilter: 'Promotion.Name'}}"
+                            class="cpq-promo-text-wrap" ng-class="{'cpq-promo-name-strike': importedScope.isPromoActionDisconnect(promoItem) || importedScope.isSupplementalActionCancel(childProd)}">
+                            <span cpq-translate="Promotion.Name">{{promoItem.Name}}</span>{{$last ? '' : ', '}}
+                        </div>
+                    </div>
+
+                    <!-- Percantage -->
+                    <div ng-if="customField.type === 'percentage'">
+                        {{childProd| getter: customField | picker: customField.type}}
+                    </div>
+                </div>
+                <div class="cpq-item-base-product-actions slds-text-align_right" ng-class="{'compacted': !$root.customViews.productListHidden}"
+                    ng-show="childProd.processingLine || attrs.processingLine === 'true'">
+                    <div class="slds-spinner_brand slds-spinner slds-spinner_small button-spinner" aria-hidden="false" role="alert">
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+                <div class="cpq-item-base-product-actions slds-text-align_right" ng-class="{'compacted': !$root.customViews.productListHidden}"
+                    ng-hide="childProd.processingLine || attrs.processingLine === 'true'">
+                    <div ng-if="!importedScope.isProductItemActionsHide(childProd,attrs.actionStatus)" ng-show="$root.customViews.productListHidden" ng-class="{'slds-button-group slds-float_right': importedScope.isMobileTablet}"
+                        role="group">
+                        <button class="slds-button slds-p-horizontal_xx-small" ng-class="{'slds-button_icon-border': importedScope.isMobileTablet}"
+                            title="{{::importedScope.customLabels.CPQAddItem}}" ng-click="importedScope.addToCart(obj, childProd)"
+                            ng-if="item[$rootScope.nsPrefix + 'SupplementalAction__c'].value === 'Cancel'|| item[$rootScope.nsPrefix + 'IsChangesAllowed__c'].value === false || (importedScope.isActionDisconnect(childProd) && childProd.actions.addtocart && importedScope.checkCardinalityForAdd(obj, childProd))">
+                            <slds-button-svg-icon sprite="'utility'" icon="'add'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQAddToCart}}</span>
+                        </button>
+
+                        <button class="slds-button slds-p-horizontal_xx-small" ng-class="{'slds-button_icon-border': importedScope.isMobileTablet}"
+                            title="{{::importedScope.customLabels.CPQClone}}" ng-click="importedScope.clone(obj, childProd, $event)"
+                            ng-if="importedScope.isActionDisconnect(childProd) && childProd.actions.cloneitem && importedScope.checkCardinalityForClone(obj, childProd)">
+                            <slds-button-svg-icon sprite="'utility'" icon="'copy'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQClone}}</span>
+                        </button>
+
+                        <button class="slds-button slds-p-horizontal_xx-small" ng-class="{'slds-button_icon-border': importedScope.isMobileTablet}"
+                            title="{{::importedScope.customLabels.CPQSettings}}" ng-click="importedScope.config(obj, childProd)"
+                            ng-if="importedScope.isActionDisconnect(childProd) && childProd.actions.updateitems && !attrs.lineItemModal" ng-disabled="childProd.processingLine || attrs.processingLine === 'true'">
+                            <slds-button-svg-icon sprite="'utility'" icon="'settings'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQSettings}}</span>
+                        </button>
+
+                        <button class="slds-button slds-p-horizontal_xx-small" ng-class="{'slds-button_icon-border': importedScope.isMobileTablet}"
+                            title="{{::importedScope.customLabels.CPQDeleteItem}}" ng-click="importedScope.delete(obj, childProd)"
+                            ng-if="importedScope.isActionDisconnect(childProd) && importedScope.checkCardinalityForDelete(obj, childProd) && childProd.actions.deleteitem" ng-disabled="childProd.processingLine || attrs.processingLine === 'true'">
+                            <slds-button-svg-icon sprite="'utility'" icon="'delete'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQDelete}}</span>
+                        </button>
+                        <button class="slds-button slds-p-horizontal_xx-small" ng-class="{'slds-button_icon-border': importedScope.isMobileTablet}"
+                            title="{{::importedScope.customLabels.Cancel}}" 
+                            ng-click="importedScope.cancel(obj, childProd)"
+                            ng-if="childProd.actions.cancelcartitem" ng-disabled="childProd.processingLine || attrs.processingLine === 'true'">
+                            <slds-button-svg-icon sprite="'utility'" icon="'close'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.Cancel}}</span>
+                        </button>
+                    </div>
+                    <div class="cpq-actions-dropdown-menu-dropdown slds-dropdown-trigger_click cpq-item-actions-dropdown-trigger" ng-if="!$root.customViews.productListHidden"
+                        ng-show="!importedScope.isProductItemActionsHide(childProd,attrs.actionStatus)" ng-class="{'slds-is-open': lineActions.show}"
+                        ng-click="lineActions.show = !lineActions.show">
+                        <button cpq-dropdown-handler="lineActions.show = false" aria-haspopup="true" class="slds-button slds-button_icon-border-filled cpq-item-actions-dropdown-button"
+                            title="{{::importedScope.customLabels.CPQShowActions}}" ng-if="importedScope.checkActionsAndCardinality(obj, childProd, attrs.lineItemModal)"
+                            ng-show="childProd.actions">
+                            <slds-button-svg-icon sprite="'utility'" icon="'down'" extra-classes="'slds-icon-text-default'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQShowActions}}</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown_right cpq-item-actions-dropdown">
+                            <ul class="slds-dropdown__list cpq-item-actions-dropdown__list" role="menu">
+                                <li ng-hide="childProd.SellingPeriod.toLowerCase() === 'endoflife' || childProd.SellingPeriod.toLowerCase() === 'past'" class="slds-dropdown__item cpq-item-actions-dropdown__item"
+                                    role="presentation">
+                                    <a href="javascript:void(0);" role="menuitemcheckbox" aria-checked="true" tabindex="0" ng-click="importedScope.addToCart(obj, childProd)"
+                                        ng-if="importedScope.isActionDisconnect(childProd) && childProd.actions.addtocart && importedScope.checkCardinalityForAdd(obj, childProd)">
+                                        <span class="slds-truncate cpq-action-item-label">
+                                            <slds-svg-icon sprite="'utility'" icon="'add'" size="'x-small'"></slds-svg-icon>
+                                            {{::importedScope.customLabels.CPQAddItem}}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-hide="childProd.SellingPeriod.toLowerCase() === 'endoflife' || childProd.SellingPeriod.toLowerCase() === 'past'" class="slds-dropdown__item cpq-item-actions-dropdown__item"
+                                    role="presentation">
+                                    <a href="javascript:void(0);" role="menuitemcheckbox" aria-checked="true" tabindex="0" ng-click="importedScope.clone(obj, childProd, $event)"
+                                        ng-if="importedScope.isActionDisconnect(childProd) && childProd.actions.cloneitem && importedScope.checkCardinalityForClone(obj, childProd)">
+                                        <span class="slds-truncate cpq-action-item-label">
+                                            <slds-svg-icon sprite="'utility'" icon="'copy'" size="'x-small'"></slds-svg-icon>
+                                            {{::importedScope.customLabels.CPQClone}}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li ng-hide="childProd.SellingPeriod.toLowerCase() === 'endoflife'" class="slds-dropdown__item cpq-item-actions-dropdown__item"
+                                    role="presentation">
+                                    <a href="javascript:void(0);" role="menuitemcheckbox" aria-checked="true" tabindex="0" ng-click="importedScope.config(obj, childProd)"
+                                        ng-if="importedScope.isActionDisconnect(childProd) && childProd.actions.updateitems && !attrs.lineItemModal" ng-hide="childProd.processingLine || attrs.processingLine === 'true'">
+                                        <span class="slds-truncate cpq-action-item-label">
+                                            <slds-svg-icon sprite="'utility'" icon="'settings'" size="'x-small'"></slds-svg-icon>
+                                            {{::importedScope.customLabels.CPQConfigure}}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item cpq-item-actions-dropdown__item" role="presentation">
+                                    <a href="javascript:void(0);" role="menuitemcheckbox" aria-checked="true" tabindex="0" ng-click="importedScope.delete(obj, childProd)"
+                                        ng-if="importedScope.isActionDisconnect(childProd) && importedScope.checkCardinalityForDelete(obj, childProd) && childProd.actions.deleteitem"
+                                        ng-hide="childProd.processingLine || attrs.processingLine === 'true'">
+                                        <span class="slds-truncate cpq-action-item-label">
+                                            <slds-svg-icon sprite="'utility'" icon="'delete'" size="'x-small'"></slds-svg-icon>
+                                            {{::importedScope.customLabels.CPQDelete}}
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item cpq-item-actions-dropdown__item" role="presentation">
+                                    <a href="javascript:void(0);" role="menuitemcheckbox" aria-checked="true" tabindex="0" ng-click="importedScope.cancel(obj, childProd)"
+                                        ng-if="childProd.actions.cancelcartitem"
+                                        ng-hide="childProd.processingLine || attrs.processingLine === 'true'">
+                                        <span class="slds-truncate cpq-action-item-label">
+                                            <slds-svg-icon sprite="'utility'" icon="'close'" size="'x-small'"></slds-svg-icon>
+                                            {{::importedScope.customLabels.Cancel}}
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cpq-item-base-product-details">
+                <div class="cpq-item-base-product-cfg-attr" ng-if="childProd.attributeCategories.records.length > 0 && childProdState.show && attrs.lineItemModal">
+                    <div class="slds-section" ng-class="{'slds-is-open': productLineItemToggle}">
+                        <div class="cpq-item-product-child-level-{{(attrs.ariaLevel)}} cpq-item-child-product-name-wrapper">
+                            <div class="slds-section__title">
+                                <a href="javascript:void(0);" ng-click="productLineItemToggle = !productLineItemToggle" ng-init="productLineItemToggle = importedScope.expandMode">
+                                    <button class="slds-button slds-button_icon-container">
+                                        <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'switch'" ng-class="{'cpq-fix-slds-close-switch' : !productLineItemToggle}"></slds-button-svg-icon>
+                                    </button>{{::importedScope.customLabels.CPQProductConfig}}</a>
+                                </span>
+                            </div>
+                            <div class="slds-section__content slds-p-left_large slds-m-bottom_small" ng-show="productLineItemToggle">
+                                <div ng-if="!importedScope.reRenderAttributesForm">
+                                    <vlocity-dynamic-form class="cpq-item-attributes-form slds-form_stacked" tooltip-container=".slds-modal" form-on-change="importedScope.saveUpdates(e, formValidation, childProd)"
+                                        name="productconfig{{attrs.lineItemModal?'modal':''}}{{childProd.Id.value}}" ng-model="childProd.attributeCategories.records"
+                                        map-object="{{importedScope.mapObject()}}" form-auto-save="{{attrs.lineItemModal}}">
+                                    </vlocity-dynamic-form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- The reason for the following checks involving getproducts (which implies field is configured as collapsable) is to make sure the search bar is shown even if there is no children under the collapsable field, as long as childProdState.show is true (expanded) -->
+                <div ng-show="childProdState.show" ng-if="(childProd.lineItems.records || childProd.childProducts.records || childProd.productGroups.records || childProd.actions.getproducts)">
+                    <vloc-layout layout-name="cpq-cart-item-product-children" ctrl="" ng-model="card" data="card" records="childProd" nested="true"
+                        line-item-modal="{{attrs.lineItemModal}}" aria-level="{{(attrs.ariaLevel - 0) + 0}}" processing-line="{{childProd.processingLine || attrs.processingLine === 'true'}}"
+                        action-status="{{importedScope.isReadOnly(childProd,attrs.actionStatus)}}" show-product-list="{{attrs.showProductList}}"
+                        show-config-panel="{{attrs.showConfigPanel}}">
+                    </vloc-layout>
+                </div>
+            </div>
+        </div>
+        <!-- Child Product Eg: Add-on-->
+        <div ng-if="(childProd.itemType === 'childProduct')">
+            <div class="cpq-item-product-messages">
+                <ul ng-if="childProd.messages.length > 0" class="cpq-item-product-child-level-{{(attrs.ariaLevel)}} cpq-item-child-product-name-wrapper">
+                    <li ng-repeat="msg in childProd.messages" class="slds-p-vertical_xx-small">
+                        <span class="cpq-error-msg js-error-msg-{{msg.messageId}}" ng-if="msg.severity === 'ERROR'">
+                            {{msg.message}}
+                            <i ng-init="data.hasError = true"></i>
+                        </span>
+                        <span class="cpq-warning-msg" ng-if="msg.severity !== 'ERROR'">
+                            {{msg.message}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="cpq-item-base-product" ng-class="{'cpq-item-selected':importedScope.isSelected && importedScope.isSelectedItemObjId.value === childProd.Id.value && !attrs.lineItemModal}"
+                ng-init="childProdState.show = importedScope.expandMode">
+
+                <div ng-repeat="customField in $root.customViews.cpqCustomViews[$root.customViews.currentCustomView].fields" class="cpq-item-base-product-{{customField.data.classSuffix}}"
+                    ng-class="{'cpq-item-currency-value': customField.type === 'currency', 'cpq-item-text-value': customField.type === 'string', 'cpq-item-product-title': customField.name === 'Name'}">
+
+                    <!-- Name -->
+                    <div ng-if="customField.name === 'Name'" class="cpq-item-child-product-name-wrapper cpq-text-name-wrap">
+                        <button ng-click="childProdState.show = !childProdState.show; importedScope.fullScreen(attrs.ariaLevel, childProdState.show)"
+                            class="slds-button cpq-item-has-children" aria-controls="tree0-node1" ng-hide="!(childProd.lineItems.records || childProd.childProducts.records || childProd.productGroups.records)">
+                            <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'switch'" extra-classes="'slds-button__icon_left'" ng-class="{'cpq-fix-slds-close-switch' : !childProdState.show}"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">Toggle</span>
+                            <span class="cpq-product-name cpq-large-name-text-wrap" cpq-translate="Product2.Name" title="{{importedScope.getProductInformation(childProd)}}">{{(childProd.PricebookEntry.Product2.Name || childProd.Product2.Name)}}</span>
+                        </button>
+                        <span class="cpq-item-no-children cpq-large-name-text-wrap" ng-show="!(childProd.lineItems.records || childProd.childProducts.records || childProd.productGroups.records)"
+                            cpq-translate="Product2.Name" title="{{importedScope.getProductInformation(childProd)}}">
+                            {{(childProd.PricebookEntry.Product2.Name || childProd.Product2.Name)}}
+                        </span>
+                        <!-- Icons -->
+                        <span ng-show="childProd.SellingPeriod.toLowerCase() === 'past' || childProd.SellingPeriod.toLowerCase() === 'future' || childProd.SellingPeriod.toLowerCase() === 'endoflife'">
+                            <span slds-popover data-container="{{attrs.tooltipContainer ? attrs.tooltipContainer : '.via-slds'}}" tooltip="true" nubbin-direction="bottom"
+                                data-title="{{importedScope.generateSellingPeriodMsg(childProd.Product2, childProd.SellingPeriod.toLowerCase())}}">
+                                <slds-button-svg-icon sprite="'standard'" size="'large'" icon="'business_hours'" class="cpq-product-item-selling-period-{{childProd['SellingPeriod'].toLowerCase()}}"></slds-button-svg-icon>
+                            </span>
+                        </span>
+                    </div>
+                    <!-- Text -->
+                    <div ng-if="customField.type === 'string' && customField.name !== 'Name'">
+                        {{childProd[customField.fieldName]['value']}}
+                    </div>
+                    <!-- Input -->
+                    <div class="slds-form-element" ng-if="customField.type === 'input'">
+
+                        <div class="slds-form-element__control " ng-class="{'slds-has-error': importedScope[customField.data.validation].indexOf(childProd.Id.value) > -1 }"
+                            ng-if="childProd[customField.fieldName].value">
+                            <input type="{{ customField.data.customInputType ? customField.data.customInputType: 'text' }}" min="{{customField.data.minimum}}"
+                                step="any" class="slds-input cpq-item-input" ng-model="childProd[customField.fieldName].value"
+                                ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 800, 'blur': 0 } }" ng-change="importedScope.updateLineField(obj, childProd)"
+                                ng-disabled="importedScope.isAsset(childProd, customField.fieldName, attrs.actionStatus)" ng-required="{{customField.data.required}}"
+                                ng-keydown="importedScope.checkQuantityField(customField.fieldName, $event.key)" />
+                        </div>
+                    </div>
+                    <!-- Price -->
+                    <div ng-if="customField.type === 'currency'">
+                        {{childProd[customField.fieldName]['value'] | currency: $root.vlocity.userCurrency}}
+                    </div>
+                </div>
+                <div class="cpq-item-base-product-actions slds-text-align_right" ng-class="{'compacted': !$root.customViews.productListHidden}"
+                    ng-show="childProd.processingLine || attrs.processingLine === 'true'">
+                    <div class="slds-spinner_brand slds-spinner slds-spinner_small button-spinner" aria-hidden="false" role="alert">
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+                <div class="cpq-item-base-product-actions slds-text-align_right" ng-hide="childProd.processingLine || attrs.processingLine === 'true' || importedScope.isReadOnly(childProd, attrs.actionStatus)">
+                    <button class="slds-button slds-button_neutral" ng-if="childProd.actions.addtocart && importedScope.checkCardinalityForAddon(obj, childProd)"
+                        ng-click="importedScope.addToCart(obj, childProd)">
+                        {{::importedScope.customLabels.CPQAddToCart}}
+                    </button>
+                </div>
+            </div>
+            <div class="cpq-item-base-product-details">
+                <div ng-show="childProdState.show" ng-if="(childProd.lineItems.records || childProd.childProducts.records || childProd.productGroups.records)">
+                    <vloc-layout layout-name="cpq-cart-item-product-children" ctrl="" ng-model="card" data="card" records="childProd" nested="true"
+                        line-item-modal="{{attrs.lineItemModal}}" aria-level="{{(attrs.ariaLevel - 0) + 0}}" processing-line="{{childProd.processingLine || attrs.processingLine === 'true'}}"
+                        action-status="{{importedScope.isReadOnly(childProd, attrs.actionStatus)}}" show-product-list="{{attrs.showProductList}}"
+                        show-config-panel="{{attrs.showConfigPanel}}">
+                    </vloc-layout>
+                </div>
+            </div>
+        </div>
+        <!-- Product Group -->
+        <div ng-if="(childProd.itemType === 'productGroup')">
+            <div class="cpq-item-product-messages">
+                <ul ng-if="childProd.messages.length > 0" class="cpq-item-product-child-level-{{(attrs.ariaLevel)}} cpq-item-child-product-name-wrapper">
+                    <li ng-repeat="msg in childProd.messages" class="slds-p-vertical_xx-small">
+                        <span class="cpq-error-msg js-error-msg-{{msg.messageId}}" ng-if="msg.severity === 'ERROR'">
+                            {{msg.message}}
+                            <i ng-init="data.hasError = true"></i>
+                        </span>
+                        <span class="cpq-warning-msg" ng-if="msg.severity !== 'ERROR'">
+                            {{msg.message}}
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="cpq-item-base-product">
+                <div class="cpq-item-base-product-name cpq-item-product-group js-cpq-cart-product-hierarchy-path-{{childProd.productHierarchyPath}}">
+                    <span class="cpq-item-product-child-level-{{(attrs.ariaLevel)}} cpq-item-child-product-name-wrapper">
+                        <button class="slds-button slds-button_icon-small" aria-controls="tree0-node1" ng-click="childProdState.show = importedScope.determineChildProdOpenOrCloseAfterClick(childProd, childProdState.show)"
+                            ng-hide="importedScope.determineIfChildProdOpenOrCloseIconShouldBeHidden(childProd)" ng-init="childProdState.show = importedScope.determineChildProdOpenOrCloseInitially(childProd)" ng-disabled="childProd.processingLine || attrs.processingLine === 'true'">
+                            <slds-button-svg-icon sprite="'utility'" icon="'switch'" ng-class="{'cpq-fix-slds-close-switch' : !childProdState.show}"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">Toggle</span>
+                        </button>
+                        <span class="cpq-large-name-text-wrap" ng-class="{'cpq-item-no-children' : !importedScope.checkIfChildProdHasChildren(childProd)}"
+                            cpq-translate="Product2.Name" title="{{importedScope.getProductInformation(childProd)}}">{{::(childProd.PricebookEntry.Product2.Name || childProd.Product2.Name)}}</span>
+                        <!-- Icons -->
+                        <span ng-show="childProd.SellingPeriod.toLowerCase() === 'past' || childProd.SellingPeriod.toLowerCase() === 'future' || childProd.SellingPeriod.toLowerCase() === 'endoflife'">
+                            <span slds-popover data-container="{{attrs.tooltipContainer ? attrs.tooltipContainer : '.via-slds'}}" tooltip="true" nubbin-direction="bottom"
+                                data-title="{{importedScope.generateSellingPeriodMsg(childProd.Product2, childProd.SellingPeriod.toLowerCase())}}">
+                                <slds-button-svg-icon sprite="'standard'" size="'large'" icon="'business_hours'" class="cpq-product-item-selling-period-{{childProd['SellingPeriod'].toLowerCase()}}"></slds-button-svg-icon>
+                            </span>
+                        </span>
+                    </span>
+                </div>
+                <div class="cpq-item-base-product-input"></div>
+                <div class="cpq-item-base-product-currency cpq-item-currency-value"></div>
+                <div class="cpq-item-base-product-currency cpq-item-currency-value"></div>
+                <div class="cpq-item-base-product-input"></div>
+                <div class="cpq-item-base-product-input"></div>
+                <div class="cpq-item-base-product-actions slds-text-align_right"></div>
+            </div>
+            <div class="cpq-item-base-product-details">
+                <!-- The reason for the following checks involving getproducts (which implies field is configured as collapsable) is to make sure the search bar is shown even if there is no children under the collapsable field, as long as childProdState.show is true (expanded) -->
+                <div ng-show="childProdState.show" ng-if="(childProd.lineItems.records || childProd.childProducts.records || childProd.productGroups.records || childProd.actions.getproducts)">
+                    <vloc-layout layout-name="cpq-cart-item-product-children" ctrl="" ng-model="card" data="card" records="childProd" nested="true"
+                        line-item-modal="{{attrs.lineItemModal}}" aria-level="{{(attrs.ariaLevel - 0) + 0}}" processing-line="{{childProd.processingLine || attrs.processingLine === 'true'}}"
+                        action-status="{{importedScope.isReadOnly(childProd, attrs.actionStatus)}}" show-product-list="{{attrs.showProductList}}"
+                        show-config-panel="{{attrs.showConfigPanel}}">
+                    </vloc-layout>
+                </div>
+            </div>
+        </div>
+        <!-- Load More -->
+        <div ng-if="childProd.actions.nextitems">
+            <a class="cpq-product-cart-item-child-load-more-level-{{(attrs.ariaLevel)}}" ng-click="importedScope.loadMoreChildren(childProd)">
+                {{::importedScope.customLabels.CPQLoadMore}}
+            </a>
+        </div>
+    </div>
+</div>

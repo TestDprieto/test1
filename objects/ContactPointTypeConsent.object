@@ -128,6 +128,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>CaptureContactPointType</fullName>
         <trackHistory>false</trackHistory>
@@ -160,6 +161,11 @@
     <fields>
         <fullName>EffectiveTo</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EngagementChannelTypeId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Name</fullName>

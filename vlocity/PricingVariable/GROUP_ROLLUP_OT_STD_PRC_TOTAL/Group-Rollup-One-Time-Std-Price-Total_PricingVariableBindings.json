@@ -1,0 +1,28 @@
+[
+    {
+        "%vlocity_namespace%__DestinationFieldApiName__c": "%vlocity_namespace%__OneTimeTotal__c",
+        "%vlocity_namespace%__DestinationSObjectType__c": "%vlocity_namespace%__OrderGroup__c",
+        "%vlocity_namespace%__PricingVariableId__c": {
+            "%vlocity_namespace%__Code__c": "GROUP_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__PricingVariable__c/GROUP_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariable__c"
+        },
+        "Name": "Group Rollup One Time Std Price Total - OrderGroup",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariableBinding__c"
+    },
+    {
+        "%vlocity_namespace%__DestinationFieldApiName__c": "%vlocity_namespace%__OneTimeTotal__c",
+        "%vlocity_namespace%__DestinationSObjectType__c": "%vlocity_namespace%__QuoteGroup__c",
+        "%vlocity_namespace%__PricingVariableId__c": {
+            "%vlocity_namespace%__Code__c": "GROUP_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__PricingVariable__c/GROUP_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariable__c"
+        },
+        "Name": "Group Rollup One Time Std Price Total - QuoteGroup",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariableBinding__c"
+    }
+]

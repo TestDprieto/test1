@@ -1,0 +1,29 @@
+{
+    "%vlocity_namespace%__DependencyItemDefinitionId__c": {
+        "%vlocity_namespace%__OrchestrationPlanDefinitionId__r.Name": "FLEX Streaming Fulfilment",
+        "Name": "Activate FLEX Streaming",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationItemDefinition__c/Activate FLEX Streaming/%vlocity_namespace%__OrchestrationPlanDefinition__c/FLEX Streaming Fulfilment",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationItemDefinition__c"
+    },
+    "%vlocity_namespace%__DependencyPlanDefinitionId__c": {
+        "Name": "FLEX Streaming Fulfilment",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationPlanDefinition__c/FLEX Streaming Fulfilment",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationPlanDefinition__c"
+    },
+    "%vlocity_namespace%__DependencyType__c": "Depends On",
+    "%vlocity_namespace%__GlobalKey__c": "2d244fc8-9ecd-0405-0014-d48b13eff4fe",
+    "%vlocity_namespace%__OrchestrationItemDefinitionId__c": {
+        "%vlocity_namespace%__OrchestrationPlanDefinitionId__r.Name": "FLEX Service Orchestration",
+        "Name": "Update Billing",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationItemDefinition__c/Update Billing/%vlocity_namespace%__OrchestrationPlanDefinition__c/FLEX Service Orchestration",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationItemDefinition__c"
+    },
+    "%vlocity_namespace%__Scope__c": "",
+    "Name": "Activate FLEX Streaming Dependency",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationDependencyDefinition__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__OrchestrationDependencyDefinition__c/2d244fc8-9ecd-0405-0014-d48b13eff4fe"
+}

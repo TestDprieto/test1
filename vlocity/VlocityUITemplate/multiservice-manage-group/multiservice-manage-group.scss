@@ -1,0 +1,91 @@
+.via-slds {
+    .vlc-slds-page--header {
+        display: none !important;
+    }
+   .manage-group {
+       .table-section {
+           overflow-x: scroll;
+           .sortable-column {
+               padding: 1rem .5rem;
+
+                &:focus {
+                    box-shadow: none;
+                }
+               .slds-icon_container {
+                   background: inherit;
+                   svg {
+                       fill: #006dcc;
+                   }
+               }
+               a {
+                   &:focus {
+                       outline: none;
+                   }
+               }
+           }
+
+       }
+       .loading-top-padding {
+           padding-top: 50px;
+       }
+       .loadmore-padding {
+            padding-top: 15px;
+            padding-bottom: 15px;
+       }
+       .service-point-text-border-color {
+           border-color: #0070d2;
+           border-bottom-width: 1.5px;
+       }
+       .service-point-filter-section {
+            border: 1.5px solid #0070d2;
+            .datetime-input {
+                .date {
+                    width: 50%;
+                    display: inline-block;
+                }
+                .time {
+                    width: 30%;
+                    display: inline-block;
+                }
+            }
+       }
+       .slds-input {
+           min-height: 2rem;
+           height: 2rem;
+       }
+       .add-to-group-icon {
+           fill: #FFFFFF;
+       }
+       .group-name-icon {
+           fill: #0070d2;
+       }
+       .group-row {
+           td {
+            background-color: #F8F8FE;
+           }
+       }
+       .grouped-item-row {
+            td {
+                background-color: #DFE5EF;
+            }
+       }
+       .grouped-item-selected-row {
+            td {
+                background-color: #0070d2;
+            }
+       }
+   }
+   .manage-group-popup {
+       .slds-input {
+           min-height: 2rem;
+           height: 2rem;
+       }
+   }
+   .slds-notify {
+       .slds-notify__content {
+           .slds-icon {
+               fill: #fff;
+           }
+       }
+   }
+}

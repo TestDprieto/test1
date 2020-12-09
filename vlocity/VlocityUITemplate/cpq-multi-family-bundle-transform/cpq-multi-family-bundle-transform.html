@@ -1,0 +1,156 @@
+<div class="cpq-multi-family-bundle-transform">
+    <div class="slds-modal__content slds-p-bottom_x-large cpq-modal-content">
+        <div ng-if="!records" class="slds-align_absolute-center">
+            {{::importedScope.customLabels.CPQNoResultsFound}}
+        </div>
+        <div ng-if="importedScope.isSelectionListShown && records">
+            <div class="slds-p-bottom_medium">
+                <div class="cpq-multi-family-bundle-heading"><b>{{::importedScope.customLabels.CPQSelectExistingOfferToReplace}}</b></div>
+            </div>
+            <div>
+                <fieldset class="slds-form-element">
+                    <div class="slds-form-element__control">
+                        <div class="slds-checkbox cpq-replace-options-checkbox" ng-repeat="item in records">
+                            <input id="{{item.itemId}}" ng-value="item.productId" type="checkbox" ng-click="importedScope.selectedMultiBundleList(item)" />
+                            <label class="slds-checkbox__label" for="{{item.itemId}}">
+                            <span class="slds-checkbox_faux"></span>
+                            <span class="slds-form-element__label cpq-large-name-text-wrap"  ng-attr-title="{{importedScope.getProductTitle(item)}}" cpq-translate="Product2.Name">{{item.productName}}</span>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <!--Screen 3-->
+        <div ng-show="!importedScope.isSelectionListShown && !importedScope.selectBundleTransformSection">
+            <div class="slds-p-bottom_medium">
+                <div class="cpq-multi-family-bundle-heading">{{::importedScope.customLabels.CPQChooseActionToReplaceKeepOrDisconnect}}</div>
+            </div>
+            <!--Group Input-->
+            <div class="slds-grid slds-gutters slds-scrollable_x" ng-class="{'cpq-multiplay-flex-container': importedScope.arrayOfMultiplayComponents.length <=3}">
+                <div ng-repeat="transformItem in importedScope.arrayOfMultiplayComponents" class="slds-col slds-size_3-of-12 cpq-multiplay-flex-container-section" ng-class="{'slds-border_right':!$last}">
+                <!--Existing Product-->
+                <div class="slds-p-bottom_small cpq-multiplay-text-wrap">
+                    <div ng-if="transformItem.record.info.parentName" cpq-translate="Product2.Name" ng-attr-title="{{importedScope.getProductTitle(transformItem.record.info)}}" class="cpq-multiplay-parent-bundle cpq-large-name-text-wrap cpq-block-element">{{transformItem.record.info.parentName}}</div>
+                    <div class="cpq-large-name-text-wrap cpq-block-element" ng-class="{'cpq-multiplay-child-bundle':!transformItem.record.info.parentName}"> <span cpq-translate="Product2.Name" ng-attr-title="{{importedScope.getProductTitle(transformItem.record.info)}}">{{transformItem.record.info.productName}}</div>
+                </div>
+                <!--Action dropdown -->
+                    <div class="slds-form-element cpq-pricing-picklist" ng-init="actionSelected = transformItem.record.info.Action.selectedActionType">
+                        <label class="slds-form-element__label cpq-discount-label" for="cpq-merge-split-action-button">{{transformItem.record.info.Action.label}}</label>
+                        <div class="slds-picklist slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open cpq-dropdown-right">
+                            <button cpq-dropdown-handler="actionsDropDown = false" id="cpq-merge-split-action-button" class="slds-button slds-button_neutral cpq-pricing-picklist__label" aria-haspopup="true" ng-click="actionsDropDown = !actionsDropDown;">
+                                <slds-button-svg-icon sprite="'utility'" icon="'down'" extra-classes="'slds-m-top_x-small slds-float_right'"></slds-button-svg-icon>
+                                {{transformItem.record.info.Action.selectedActionType.name}}
+                            </button>
+                            <div class="slds-dropdown slds-dropdown_left cpq-pricing-picklist-dropdown" ng-if="actionsDropDown">
+                                <ul class="slds-dropdown__list slds-dropdown_length-5" role="menu">
+                                    <li class="slds-dropdown__item" role="presentation" ng-repeat="type in transformItem.record.info.Action.types"
+                                        ng-click="transformItem.record.info.Action.selectedActionType = type; importedScope.checkComponentsAction(importedScope.arrayOfMultiplayComponents)">
+                                        <a href="javascript:void(0);" tabindex="0" ng-show="transformItem.record.info.Action.selectedActionType.name !== type.name" role="menuitemcheckbox">
+                                            <span class="slds-truncate">{{type.name}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="transformItem.record.info.Action.selectedActionType.value !='Disconnect'" class="slds-form-element cpq-clearfix slds-p-top_small">
+                            <label class="slds-form-element__label cpq-discount-label"><abbr ng-if="!transformItem.record.info.Group.value" class="slds-required" title="required">* </abbr>{{transformItem.record.info.Group.label}}</label>
+                            <div class="slds-form-element__control cpq-discount-month-input">
+                                <input type="number" min="1"  ng-model="transformItem.record.info.Group.value" class="slds-input ng-pristine ng-untouched ng-valid ng-empty ng-valid-min">
+                            </div>
+                            <div ng-if="!transformItem.record.info.Group.value" class="slds-form-element slds-has-error">
+                                <div class="slds-form-element__help">{{::importedScope.customLabels.RequiredField}}</div>
+                            </div>
+                        </div>
+                    <hr>
+                    <!--Replacable Offer products radio buttons-->
+                    <div ng-show="transformItem.record.info.Action.selectedActionType.value =='Replace'" class="cpq-multiplay-radio-btn-container">
+                        <div class="slds-p-bottom_small"><b>{{::importedScope.customLabels.CPQReplaceableOffer}}</b></div>
+                        <div ng-if="!transformItem.record.response.records">
+                            {{::importedScope.customLabels.CPQNoneAvailable}}
+                        </div>
+                        <div class="slds-p-bottom_x-small" ng-repeat="targetProducts in transformItem.record.response.records" ng-show="targetProducts.category === 'Qualified'">
+                        <input  class="slds-m-left_xx-small" type="radio" name="multiplay+{{$parent.$index}}" ng-click="importedScope.toggleSelection(targetProducts,transformItem,true)"/>
+                          <span class="slds-p-left_xxx-small cpq-replacable-offer-products-radio cpq-large-name-text-wrap" ng-attr-title="{{importedScope.getProductTitle(targetProducts)}}" cpq-translate="Product2.Name"> {{targetProducts.Name.value}} </span>
+                          <div class="cpq-pricing-field">{{targetProducts.UnitPrice.label}} : {{::importedScope.getPriceValue(targetProducts, 'UnitPrice')}}</div>
+                          <div class="cpq-pricing-field">{{targetProducts[$root.nsPrefix + 'RecurringPrice__c'].label}} : {{::importedScope.getPriceValue(targetProducts, importedScope.nsPrefix+'RecurringPrice__c')}}</div>
+                            <div ng-if="::(targetProducts[$root.nsPrefix + 'OneTimeLoyaltyPrice__c'].value || targetProducts.LoyaltyCode)">
+                                <span class="slds-text-body_small cpq-loyalty-points" cpq-translate="PriceListEntry.DisplayText">
+                                    {{::(targetProducts[$root.nsPrefix + 'OneTimeLoyaltyPrice__c'].value || targetProducts.LoyaltyCode) }} 
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-show="transformItem.record.info.Action.selectedActionType.value =='Replace'" class="cpq-next-product slds-col slds-m-vertical_medium slds-text-align_center" ng-if="transformItem.record.response.actions.nextproducts">
+                        <div class="slds-spinner_container" ng-show="loadingMore">
+                            <div class="slds-spinner_brand slds-spinner slds-spinner_small" aria-hidden="false" role="alert">
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                        <a ng-click="importedScope.nextPage(transformItem)" ng-hide="loadingMore || !isLoaded">
+                            {{::importedScope.customLabels.CPQLoadMore}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Screen 4-->
+        <div ng-if="importedScope.selectBundleTransformSection" class="slds-is-relative">
+            <div class="slds-p-bottom_xx-small">
+                {{::importedScope.customLabels.CPQCurrentSelection}} : 
+            </div>
+            <div class="slds-p-vertical_small">
+                <b>{{::importedScope.customLabels.CPQAvailableMultiplayBundlesChoices}} : </b>
+            </div>
+            <div ng-if="!importedScope.multibundleRecordArray || !importedScope.isItemAvailable" class="slds-align_absolute-center">
+                {{::importedScope.customLabels.CPQNoneAvailable}}
+            </div>
+            <div class="slds-grid slds-gutters slds-scrollable_x" ng-class="{'cpq-multiplay-flex-container': importedScope.multibundleRecordArray.length <=3}">
+                <div ng-if="importedScope.multibundleRecordArray" ng-repeat="targetMultiPlayProducts in importedScope.multibundleRecordArray" class="slds-col slds-size_4-of-12 cpq-multiplay-flex-container-section cpq-multiplay-radio-btn-container" ng-class="{'slds-border_right':!$last}">
+                    <div class="slds-p-bottom_xx-small">
+                       {{::importedScope.customLabels.CPQGroup}} : {{targetMultiPlayProducts.record.infoPayLoad.FilterGroup}}
+                    </div>
+                <div class="slds-p-bottom_medium">
+                    <div ng-repeat="groupInfo in targetMultiPlayProducts.record.parentInfo" >
+                        <span class="cpq-multiplay-action"> {{groupInfo.actionLabel}} </span>  <span class="cpq-multiplay-group-info" cpq-translate="Product2.Name"> {{groupInfo.sourceProduct}}  </span>  <span ng-if="groupInfo.targetProduct" class="cpq-multiplay-group-info"> ---> </span>
+                        <span class="cpq-multiplay-group-info" cpq-translate="Product2.Name"> {{groupInfo.targetProduct}} </span>
+                    </div>
+                </div>
+                    <div ng-if="!targetMultiPlayProducts.record.response.records" class="slds-align_absolute-center">
+                        {{::importedScope.customLabels.CPQNoneAvailable}}
+                    </div>
+                    <div class="slds-p-bottom_x-small" ng-repeat="targetMultiPlayProduct in targetMultiPlayProducts.record.response.records" ng-show="targetMultiPlayProduct.category === 'Qualified'">
+                        <input class="slds-m-left_xx-small" type="radio" name="multiplayChoices+{{$parent.$index}}" ng-click="importedScope.toggleSelectionProduct(targetMultiPlayProduct,targetMultiPlayProducts,true)"/>
+                        <span class="slds-p-left_xx-small cpq-replacable-offer-products-radio cpq-large-name-text-wrap" ng-attr-title="{{importedScope.getProductTitle(targetMultiPlayProduct)}}" cpq-translate="Product2.Name" >{{targetMultiPlayProduct.Name.value}}</span>
+                        <div class="cpq-pricing-field">{{targetMultiPlayProduct.UnitPrice.label}} : {{::importedScope.getPriceValue(targetMultiPlayProduct, 'UnitPrice')}}</div>
+                        <div class="cpq-pricing-field">{{targetMultiPlayProduct[$root.nsPrefix + 'RecurringPrice__c'].label}} : {{::importedScope.getPriceValue(targetMultiPlayProduct, importedScope.nsPrefix+'RecurringPrice__c')}}</div>
+                        <div ng-if="::(targetMultiPlayProduct[$root.nsPrefix + 'OneTimeLoyaltyPrice__c'].value || targetMultiPlayProduct.LoyaltyCode)">
+                            <span class="slds-text-body_small cpq-loyalty-points" cpq-translate="PriceListEntry.DisplayText">
+                                {{::(targetMultiPlayProduct[$root.nsPrefix + 'OneTimeLoyaltyPrice__c'].value || targetMultiPlayProduct.LoyaltyCode) }} 
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cpq-next-product slds-col slds-m-vertical_medium slds-text-align_center" ng-if="targetMultiPlayProducts.record.response.actions.nextproducts">
+                        <div class="slds-spinner_container" ng-show="loadingMore">
+                            <div class="slds-spinner_brand slds-spinner slds-spinner_small" aria-hidden="false" role="alert">
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                        <a ng-click="importedScope.nextPage(targetMultiPlayProducts)" ng-hide="loadingMore || !isLoaded">
+                            {{::importedScope.customLabels.CPQLoadMore}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-spinner_container" ng-show="importedScope.transformDoneSpinner">
+                <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="slds-col--padded slds-size--1-of-1">
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-text-block vlc-slds-rte'
+             ng-repeat='control in child.eleArray' id='{{::control.name}}'>
+
+        <label class='slds-form-element__label'>
+        </label>
+
+        <div class="slds-form-element__control">
+            <p vlc-bind-html='::control.propSetMap.value'></p>
+        </div>
+
+    </ng-form>
+
+</div>

@@ -1,0 +1,635 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>An entry point for services to a premises. The service provided to each service point is separately metered (or measured). Useful for fixed line services including energy and utility services.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>vlocity_cmt__ActivationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Activation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AverageMonthlyUsage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Average monthly usage for the service point</description>
+        <externalId>false</externalId>
+        <label>Average Monthly Usage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FieldServiceClass__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Classification of field activity.</description>
+        <externalId>false</externalId>
+        <label>Field Service Class</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Class A</fullName>
+                    <default>false</default>
+                    <label>Class A</label>
+                </value>
+                <value>
+                    <fullName>Class B</fullName>
+                    <default>false</default>
+                    <label>Class B</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__InstallationType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of meter installation</description>
+        <externalId>false</externalId>
+        <label>Installation Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsKeyAtPremises__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates that a key is available at the premises to access the meter.</description>
+        <externalId>false</externalId>
+        <label>Key at Premises</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsOkToEnter__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates a field service rep has permission to enter the premises for meter read or other field activities</description>
+        <externalId>false</externalId>
+        <label>Ok to Enter</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsPremisesInfoOverridden__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates the details on the premises are overridden by the details on the service point.</description>
+        <externalId>false</externalId>
+        <label>Override Premises Information</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LoadProfile__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Load Profile</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Residential Low</fullName>
+                    <default>false</default>
+                    <label>Residential Low</label>
+                </value>
+                <value>
+                    <fullName>Residential Med</fullName>
+                    <default>false</default>
+                    <label>Residential Med</label>
+                </value>
+                <value>
+                    <fullName>Residential High</fullName>
+                    <default>false</default>
+                    <label>Residential High</label>
+                </value>
+                <value>
+                    <fullName>SMB Low</fullName>
+                    <default>false</default>
+                    <label>SMB Low</label>
+                </value>
+                <value>
+                    <fullName>SMB Med</fullName>
+                    <default>false</default>
+                    <label>SMB Med</label>
+                </value>
+                <value>
+                    <fullName>SMB High</fullName>
+                    <default>false</default>
+                    <label>SMB High</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MarketIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Market Identifier value from external system.</description>
+        <externalId>true</externalId>
+        <label>Market Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Meter</label>
+        <referenceTo>vlocity_cmt__InventoryItem__c</referenceTo>
+        <relationshipLabel>Service Points</relationshipLabel>
+        <relationshipName>ServicePoints</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Meter number from the backend system.</description>
+        <externalId>true</externalId>
+        <label>Meter Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterReadHold__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Temporarily prevent meter reading for this service point</description>
+        <externalId>false</externalId>
+        <label>Meter Read Hold</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Access Hold</fullName>
+                    <default>false</default>
+                    <label>Access Hold</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterReadInstructions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Provides additional meter read instructions required to access difficult meters.</description>
+        <externalId>false</externalId>
+        <label>Meter Read Instructions</label>
+        <length>32786</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterReadRoute__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Grouping of Meters so that meters in the same route are read together.</description>
+        <externalId>false</externalId>
+        <label>Meter Read Cycle / Route</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterReadWarning__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Provides warnings to the meter reader.</description>
+        <externalId>false</externalId>
+        <label>Meter Read Warning</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of the meter.</description>
+        <externalId>false</externalId>
+        <label>Meter Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Connected</fullName>
+                    <default>false</default>
+                    <label>Connected</label>
+                </value>
+                <value>
+                    <fullName>Disconnected</fullName>
+                    <default>false</default>
+                    <label>Disconnected</label>
+                </value>
+                <value>
+                    <fullName>Offline</fullName>
+                    <default>false</default>
+                    <label>Offline</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of meter installed at the Service Point.</description>
+        <externalId>false</externalId>
+        <label>Meter Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Smart Meter</fullName>
+                    <default>false</default>
+                    <label>Smart Meter</label>
+                </value>
+                <value>
+                    <fullName>Prepay Meter</fullName>
+                    <default>false</default>
+                    <label>Prepay Meter</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OperationArea__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Groups service point within a field service operation territory/area.</description>
+        <externalId>false</externalId>
+        <label>Operation Area</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PremisesId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Premises</label>
+        <referenceTo>vlocity_cmt__Premises__c</referenceTo>
+        <relationshipLabel>Service Points</relationshipLabel>
+        <relationshipName>ServicePoints</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServicePointNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Service Point Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServiceType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Service Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Electricity</fullName>
+                    <default>false</default>
+                    <label>Electricity</label>
+                </value>
+                <value>
+                    <fullName>Gas</fullName>
+                    <default>false</default>
+                    <label>Gas</label>
+                </value>
+                <value>
+                    <fullName>Water</fullName>
+                    <default>false</default>
+                    <label>Water</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Connected</fullName>
+                    <default>true</default>
+                    <label>Connected</label>
+                </value>
+                <value>
+                    <fullName>Vacant</fullName>
+                    <default>false</default>
+                    <label>Vacant</label>
+                </value>
+                <value>
+                    <fullName>Install in Progress</fullName>
+                    <default>false</default>
+                    <label>Install in Progress</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TemperatureArea__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Grouping of service points within a region with similar air temperatures</description>
+        <externalId>false</externalId>
+        <label>Temperature Area</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__UtilityProvider__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Utility provider supplying service to the premises.</description>
+        <externalId>false</externalId>
+        <label>Utility Provider</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__VoltageLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Level of voltage supplied to a service point through the installed electric meter</description>
+        <externalId>false</externalId>
+        <label>Voltage Level</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Service Point</label>
+    <listViews>
+        <fullName>vlocity_cmt__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Service Point Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Service Points</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

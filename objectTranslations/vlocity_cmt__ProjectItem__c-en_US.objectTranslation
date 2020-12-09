@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Item Global Key --></label>
+        <name>vlocity_cmt__ItemGlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Item --></label>
+        <name>vlocity_cmt__ItemId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>vlocity_cmt__ItemType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Item Version --></label>
+        <name>vlocity_cmt__ItemVersion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Item --></label>
+        <name>vlocity_cmt__ParentItemId__c</name>
+        <relationshipLabel><!-- Project Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Project --></label>
+        <name>vlocity_cmt__ProjectId__c</name>
+        <relationshipLabel><!-- Project Items --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

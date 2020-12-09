@@ -184,11 +184,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Case</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -196,8 +199,81 @@
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
+    <businessProcesses>
+        <fullName>vlocity_cmt__Billing</fullName>
+        <description>There is a complaint about billing. This has to do with money.</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>vlocity_cmt__Service Problem</fullName>
+        <description>There is something wrong with the service. This does not include Billing issues.</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>vlocity_cmt__Vlocity Support Process</fullName>
+        <description>Vlocity Support Process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>On Hold</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
+    <fieldSets>
+        <fullName>vlocity_cmt__StoryFieldSet</fullName>
+        <description>Story board</description>
+        <displayedFields>
+            <field>Subject</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Origin</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>StoryFieldSet</label>
+    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -257,18 +333,6 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>EngineeringReqNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>Engineering Req Number</label>
-        <length>12</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>IsClosedOnCreate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -279,16 +343,6 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-    </fields>
-    <fields>
-        <fullName>Last_Support_Comunication__c</fullName>
-        <externalId>false</externalId>
-        <label>Last Support Comunication</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Origin</fullName>
@@ -312,31 +366,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>PotentialLiability__c</fullName>
-        <externalId>false</externalId>
-        <label>Potential Liability</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>No</fullName>
-                    <default>false</default>
-                    <label>No</label>
-                </value>
-                <value>
-                    <fullName>Yes</fullName>
-                    <default>false</default>
-                    <label>Yes</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Priority</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -344,96 +373,11 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Product__c</fullName>
-        <externalId>false</externalId>
-        <label>Product</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>GC1040</fullName>
-                    <default>false</default>
-                    <label>GC1040</label>
-                </value>
-                <value>
-                    <fullName>GC1060</fullName>
-                    <default>false</default>
-                    <label>GC1060</label>
-                </value>
-                <value>
-                    <fullName>GC3020</fullName>
-                    <default>false</default>
-                    <label>GC3020</label>
-                </value>
-                <value>
-                    <fullName>GC3040</fullName>
-                    <default>false</default>
-                    <label>GC3040</label>
-                </value>
-                <value>
-                    <fullName>GC3060</fullName>
-                    <default>false</default>
-                    <label>GC3060</label>
-                </value>
-                <value>
-                    <fullName>GC5020</fullName>
-                    <default>false</default>
-                    <label>GC5020</label>
-                </value>
-                <value>
-                    <fullName>GC5040</fullName>
-                    <default>false</default>
-                    <label>GC5040</label>
-                </value>
-                <value>
-                    <fullName>GC5060</fullName>
-                    <default>false</default>
-                    <label>GC5060</label>
-                </value>
-                <value>
-                    <fullName>GC1020</fullName>
-                    <default>false</default>
-                    <label>GC1020</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Reason</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>SLAViolation__c</fullName>
-        <externalId>false</externalId>
-        <label>SLA Violation</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>No</fullName>
-                    <default>false</default>
-                    <label>No</label>
-                </value>
-                <value>
-                    <fullName>Yes</fullName>
-                    <default>false</default>
-                    <label>Yes</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>SourceId</fullName>
@@ -478,23 +422,232 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <listViews>
-        <fullName>AllClosedCases</fullName>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>NAME</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.PRIORITY</columns>
-        <columns>CASES.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>CASES.CLOSED</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>All Closed Cases</label>
-    </listViews>
+    <fields>
+        <fullName>vlocity_cmt__Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DisputeId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>DisputeId</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Dispute_ID__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Dispute ID</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FollowUpTo__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If this activity is a follow up to a previous activity.</description>
+        <externalId>false</externalId>
+        <label>Follow Up To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IndicatorImageName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Calculated &quot;indicator&quot; image name based on the priority and status of this Case. Used to display an indicator image on this case when shown in the user interface.</description>
+        <externalId>false</externalId>
+        <formula>IF(TEXT(Priority)==&apos;High&apos; &amp;&amp; TEXT(Status)!= &apos;Closed&apos;, &apos;highpriorityopen&apos;, (IF(TEXT(Priority)==&apos;High&apos; &amp;&amp; TEXT(Status)==&apos;Closed&apos;, &apos;highpriorityclose&apos;, (IF(TEXT(Priority)==&apos;Medium&apos; &amp;&amp; TEXT(Status)!= &apos;Closed&apos;, &apos;mediumpriorityopen&apos;, (IF(TEXT(Priority)==&apos;Medium&apos; &amp;&amp; TEXT(Status) == &apos;Closed&apos;, &apos;mediumpriorityclose&apos;, (IF(TEXT(Priority)==&apos;Low&apos; &amp;&amp; TEXT(Status)!=&apos;Closed&apos;, &apos;lowpriorityopen&apos;, IF(TEXT(Priority)==&apos;Low&apos; &amp;&amp; TEXT(Status) ==&apos;Closed&apos;, &apos;lowpriorityclose&apos;,&apos;&apos; ))) )))))))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Indicator Image Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PremisesId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Premises</label>
+        <referenceTo>vlocity_cmt__Premises__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PriorityImageName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Calculated &quot;priority&quot; image name based on the priority of this Case. Used to display a priority image on this case when shown in the user interface.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Priority)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Priority Image Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServiceId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the service Asset which is the subject of this Case.</description>
+        <externalId>false</externalId>
+        <label>Service ID</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>1 OR 2 OR 3</booleanFilter>
+            <filterItems>
+                <field>$Source.AccountId</field>
+                <operation>equals</operation>
+                <valueField>Asset.AccountId</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Source.AccountId</field>
+                <operation>equals</operation>
+                <valueField>Asset.vlocity_cmt__BillingAccountId__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Source.AccountId</field>
+                <operation>equals</operation>
+                <valueField>Asset.vlocity_cmt__ServiceAccountId__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__StatementId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Statement</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.AccountId</field>
+                <operation>equals</operation>
+                <valueField>vlocity_cmt__Statement__c.vlocity_cmt__AccountId__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>vlocity_cmt__Statement__c</referenceTo>
+        <relationshipLabel>Disputes</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__StatementLineItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Statement Line Item</label>
+        <lookupFilter>
+            <active>true</active>
+            <booleanFilter>(1 AND 2) OR (3 AND 4)</booleanFilter>
+            <filterItems>
+                <field>$Source.AccountId</field>
+                <operation>equals</operation>
+                <valueField>vlocity_cmt__StatementLineItem__c.vlocity_cmt__StatementId__r.vlocity_cmt__AccountId__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Source.vlocity_cmt__StatementId__c</field>
+                <operation>equals</operation>
+                <value></value>
+            </filterItems>
+            <filterItems>
+                <field>$Source.vlocity_cmt__StatementId__c</field>
+                <operation>equals</operation>
+                <valueField>vlocity_cmt__StatementLineItem__c.vlocity_cmt__StatementId__c</valueField>
+            </filterItems>
+            <filterItems>
+                <field>$Source.vlocity_cmt__StatementId__c</field>
+                <operation>notEqual</operation>
+                <value></value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>vlocity_cmt__StatementLineItem__c</referenceTo>
+        <relationshipLabel>Disputes</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__StatusImageName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Calculated &quot;status&quot; image name based on the status of this Case. Used to display a status image on this case when shown in the user interface.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Status)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status Image Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SubscriptionId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Subscription which is the subject of this Case.</description>
+        <externalId>false</externalId>
+        <label>Subscription</label>
+        <referenceTo>vlocity_cmt__Subscription__c</referenceTo>
+        <relationshipLabel>Cases</relationshipLabel>
+        <relationshipName>Cases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
     <listViews>
         <fullName>AllOpenCases</fullName>
         <filterScope>Everything</filterScope>
@@ -520,6 +673,233 @@
         </filters>
         <label>My Open Cases</label>
     </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>vlocity_cmt__Billing</fullName>
+        <active>true</active>
+        <businessProcess>vlocity_cmt__Billing</businessProcess>
+        <description>Billing complaint.</description>
+        <label>Billing</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__MobilePhoneCase</fullName>
+        <active>true</active>
+        <businessProcess>vlocity_cmt__Vlocity Support Process</businessProcess>
+        <description>Mobile Phone Case</description>
+        <label>MobilePhoneCase</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__Service</fullName>
+        <active>true</active>
+        <businessProcess>vlocity_cmt__Service Problem</businessProcess>
+        <description>There is something wrong with the service provided or a product associated with that service.</description>
+        <label>Service</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Complex functionality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instructions not clear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>User didn%27t attend training</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Feature Request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
@@ -542,23 +922,4 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWriteTransfer</sharingModel>
-    <webLinks>
-        <fullName>UpsellCrosssellOpportunity</fullName>
-        <availability>online</availability>
-        <displayType>link</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>true</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>true</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Up-sell / Cross-sell Opportunity</masterLabel>
-        <openType>newWindow</openType>
-        <position>none</position>
-        <protected>false</protected>
-        <showsLocation>true</showsLocation>
-        <showsStatus>true</showsStatus>
-        <url>https://na1.salesforce.com/opp/oppedit.jsp?accid={!Account_ID}&amp;opp3=Up-sell+/+Cross-sell&amp;opp5=Existing+Customer&amp;opp6=Customer+Support</url>
-    </webLinks>
 </CustomObject>

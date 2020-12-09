@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Context Id --></label>
+        <name>vlocity_cmt__ContextId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vlocity Interaction --></label>
+        <name>vlocity_cmt__CustomerInteractionId__c</name>
+        <relationshipLabel><!-- Vlocity Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Interaction Token --></label>
+        <name>vlocity_cmt__CustomerInteractionToken__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data --></label>
+        <name>vlocity_cmt__Data__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vlocity Acuity Resource --></label>
+        <name>vlocity_cmt__ResourceId__c</name>
+        <relationshipLabel><!-- Vlocity Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Timestamp --></label>
+        <name>vlocity_cmt__Timestamp__c</name>
+    </fields>
+    <fields>
+        <label><!-- TrackingService --></label>
+        <name>vlocity_cmt__TrackingService__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vlocity Interaction Token --></label>
+        <name>vlocity_cmt__VlocityInteractionToken__c</name>
+    </fields>
+</CustomObjectTranslation>

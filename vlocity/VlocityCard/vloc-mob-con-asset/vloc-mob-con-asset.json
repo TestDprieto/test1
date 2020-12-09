@@ -1,0 +1,68 @@
+{
+    "dataSource": {
+        "type": "Query",
+        "value": {
+            "endpoint": "",
+            "jsonMap": "{\"$root.currentUser.Account.attributes.url.substring(38)\":\"{{$root.currentUser.Account.attributes.url.substring(38)}}\"}",
+            "methodType": "GET",
+            "resultVar": ""
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "actionCtxId": "['Id']",
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Mobile Action Edit Device Name",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Mobile Action Call Forwarding",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Mobile Action Cloud Back Up",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Mobile Action Advanced Details",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "fields": [
+            ],
+            "name": "Asset",
+            "placeholders": [
+            ],
+            "sObjectType": "Asset",
+            "templateUrl": "vloc-mob-con-asset"
+        }
+    ],
+    "title": "Asset"
+}

@@ -1,0 +1,167 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "Beats-Studio3-Wireless-Headphones_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+        "ATT_DT_AT": "Audio"
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ACAT_ACC",
+                "Name": "Accessories",
+                "displaySequence": 50,
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "cloneable": true,
+                            "code": "ATT_DT_AT",
+                            "dataType": "text",
+                            "disabled": true,
+                            "displaySequence": 1,
+                            "filterable": true,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Accessory Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": true,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "id": "10",
+                                    "label": "Chargers",
+                                    "readonly": false,
+                                    "value": "Chargers"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "20",
+                                    "label": "Cases",
+                                    "readonly": false,
+                                    "value": "Cases"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "30",
+                                    "label": "Audio",
+                                    "readonly": false,
+                                    "value": "Audio"
+                                }
+                            ]
+                        },
+                        {
+                            "cloneable": true,
+                            "code": "ATT_DURATION",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 10,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Duration",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": null
+                        }
+                    ],
+                    "totalSize": 2
+                }
+            }
+        ],
+        "totalSize": 1
+    },
+    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__CategoryData__c": "",
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "2017-10-01",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__GlobalGroupKey__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "8dedd0cc-0dc6-d1ba-923e-ee46358a867f",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": true,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "f4e6eed7d6e0238df98b1913de6a901d",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/f4e6eed7d6e0238df98b1913de6a901d",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__ProductChildItem__c": "Beats-Studio3-Wireless-Headphones_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Product",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "None",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "None",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "With up to 40 hours of battery life, Beats Solo3 Wireless are your perfect everyday headphones. Get the most out of your music with an award-winning, emotionally charged Beats listening experience.",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "Beats Studio3 Wireless Headphones",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "PricebookEntry": "Beats-Studio3-Wireless-Headphones_PricebookEntries.json",
+    "ProductCode": "C-ACC-001",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/8dedd0cc-0dc6-d1ba-923e-ee46358a867f"
+}

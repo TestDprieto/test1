@@ -1,0 +1,50 @@
+{
+    "filter": {
+        "['RecordType.DeveloperName']": "Producer"
+    },
+    "states": [
+        {
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Name",
+                    "name": "['Name']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Phone",
+                    "name": "['Phone']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Email",
+                    "name": "['Email']",
+                    "type": "string"
+                }
+            ],
+            "name": "Contact",
+            "sObjectType": "Contact",
+            "templateUrl": "left-profile-slds"
+        }
+    ],
+    "title": "Profile"
+}

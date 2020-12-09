@@ -1,0 +1,15 @@
+<div class="slds-col--padded slds-size--1-of-1">
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-rte'
+             id="{{::control.name}}"
+             ng-repeat='control in child.eleArray' >
+
+        <div vlc-slds-include="vlcLabelController.html"></div>
+
+        <div class="slds-form-element__control">
+            <div vlc-bind-html='control.propSetMap.value' ng-if='refresh(control)'></div>
+        </div>
+
+    </ng-form>
+
+</div>

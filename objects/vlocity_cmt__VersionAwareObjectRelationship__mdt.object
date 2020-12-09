@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>vlocity_cmt__DestinationIdKey__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This key is used with Many to Many Relationship to query on junction objects.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Destination Identifier Key</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DestinationObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the destination object of the relationship query.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Destination Object</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__InterfaceKey__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This key identifies relationship objects to be retrieved as part of query execution.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Interface Key</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__JunctionObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field contains the junction object name in case of a Many to Many relationship and is required for this relationship type.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Junction Object</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RelationshipName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This key specifies the relationship name in case of One to Many and Many to One relationship and is required for these relationship types.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Relationship Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RelationshipType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This picklist contains relationship types, e.g. One to Many, Many to One and Many to Many.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Relationship Type</label>
+        <required>true</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>One to Many</fullName>
+                    <default>true</default>
+                    <label>One to Many</label>
+                </value>
+                <value>
+                    <fullName>Many to One</fullName>
+                    <default>false</default>
+                    <label>Many to One</label>
+                </value>
+                <value>
+                    <fullName>Many to Many</fullName>
+                    <default>false</default>
+                    <label>Many to Many</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SourceIdKey__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This key is used in Many to Many Relationship to query on junction objects.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Source Identifier Key</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SourceObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is the source object of the relationship query.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Source Object</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__VersionFilter__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field contains version filter key i.e. attribute and operator as key to filter records.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Version Filter</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <label>VersionAwareObjectRelationship</label>
+    <pluralLabel>VersionAwareObjectRelationship</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

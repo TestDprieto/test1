@@ -1,0 +1,45 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__QuoteDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "%vlocity_namespace%__EffectiveEndDate__c",
+        "%vlocity_namespace%__GlobalKey__c": "dc338aeb-1ed7-130d-4648-efa138ee1cc3",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "EffectiveEndDate",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "UpdateQuoteDiscountDateCustom718",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "UpdateQuoteDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__QuoteDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__GlobalKey__c": "1a136631-c54f-6cd9-a928-604f80b4f146",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Quote:DeactivatedDiscounts:Id",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": true,
+        "%vlocity_namespace%__MapId__c": "UpdateQuoteDiscountDateCustom2448",
+        "%vlocity_namespace%__UpsertKey__c": true,
+        "Name": "UpdateQuoteDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__ConfigurationValue__c": "FAKEMAPPING",
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__QuoteDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__GlobalKey__c": "e30787f7-1784-fe8a-a8d1-a0c27299d2ba",
+        "%vlocity_namespace%__IsDisabled__c": true,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "UpdateQuoteDiscountDateCustom5491",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "UpdateQuoteDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

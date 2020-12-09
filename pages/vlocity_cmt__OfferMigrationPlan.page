@@ -1,0 +1,52 @@
+<apex:page controller="vlocity_cmt.ProductConsoleController" title="Vlocity Industry Console Search" showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" cache="true" expires="86400">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ng="http://angularjs.org" ng-app="consoleadmin">
+        <head>
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.ConsoleAdminCss)}" />
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.ConsoleAdminSearchCss)}" />
+
+            <script type="text/javascript" src="{!URLFOR($Resource.JQUERYJS)}"></script>
+            <script type="text/javascript" src="/support/console/31.0/integration.js"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.angular_strap_bundle_1_6)}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.SldsAngular)}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.ConsoleAdmin)}"></script>
+        </head>
+        <body>
+            <div class="via-slds vlocity">
+                <div id="console-admin" ng-controller="ConsoleAdminController">
+                    <iframe src="/apex/EPCAdmin?id={!$CurrentPage.parameters.id}&name=Offer Migration Plan&objAPILabel=Offer Migration Plan&objAPIName={!nsp}OfferMigrationPlan__c" id="consoletab_{!$CurrentPage.parameters.id}" class="object-tab" height="550px" width="100%"></iframe>
+                </div>
+            </div>
+        </body>
+        <script type="text/javascript">
+                j$ = jQuery.noConflict();
+
+                var remoteActions = {
+                    invokeMethod: {
+                        action: "{!$RemoteAction.ProductConsoleController.invokeMethod}",
+                        config: {escape: false}
+                    }
+                };
+
+                function resizeTabContent() {
+                    //Console error if we remove this method as part of old pc code is used
+                }
+
+                function updateActiveTab(tabName) {
+                    //Console error if we remove this method as part of old pc code is used
+                }
+
+                function bindIframeEvents(action, data) {
+                    var scope = angular.element(j$('#console-admin')).scope();
+                    scope.$apply(function() {
+                        scope.evalIframeEvents(action, data);
+                    });
+                }
+
+                window.showProductImage = {!showProductImage};
+                window.userTimezoneOffset = 0 - {!userTimezoneOffset};
+                window.sfBaseUrl = '{!sfBaseUrl}';
+            </script>
+    </html>
+</apex:page>

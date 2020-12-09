@@ -1,0 +1,38 @@
+<div class="vlc-slds-knowledge--container" ng-if='child.articleTitle' ng-init="visible=true"><!-- article when embedded in omniscript -->
+
+    <h3 class='vlc-slds-knowledge--header' ng-click="visible = !visible" visible="{{visible}}">
+
+        <a href="{{child.articleLink}}" target="_blank">{{child.articleTitle}}</a>
+
+        <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'chevrondown'"
+                           size="'small'"
+                           extra-classes="'vlc-slds-collapse slds-button__icon slds-button__icon--large'">
+        </slds-svg-icon>
+
+        <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'chevronup'"
+                           size="'small'"
+                           extra-classes="'vlc-slds-expand slds-button__icon slds-button__icon--large'">
+        </slds-svg-icon>
+
+    </h3>
+
+    <div class='vlc-slds-knowledge--body' ng-show="visible">
+        <p ng-bind-html='child.articleBody'></p>
+    </div>
+
+    <div ng-click="child.articleTitle='';child.articleBody='';child.articleLink=''">
+
+        <slds-svg-icon aria-hidden="true"
+                           sprite="'action'"
+                           icon="'remove'"
+                           size="'small'"
+                           extra-classes="'slds-icon_container slds-button__icon slds-button__icon--large'">
+        </slds-svg-icon>
+
+    </div>
+
+</div>

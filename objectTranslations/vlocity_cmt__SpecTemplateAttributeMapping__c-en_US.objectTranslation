@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Mapped Attribute --></label>
+        <name>vlocity_cmt__MappedAttributeId__c</name>
+        <relationshipLabel><!-- Spec Template Attribute Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mapped Pricing Variable --></label>
+        <name>vlocity_cmt__MappedPricingVariableId__c</name>
+        <relationshipLabel><!-- Spec Template Attribute Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Represents a spec template atrribute imported from a technical, rating or billing engine catalog. --></help>
+        <label><!-- Spec Template Attribute --></label>
+        <name>vlocity_cmt__SpecTemplateAttributeId__c</name>
+        <relationshipLabel><!-- Spec Template Attribute Mappings (Spec Template Attribute) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Spec Template Mapping --></label>
+        <name>vlocity_cmt__SpecTemplateMappingId__c</name>
+        <relationshipLabel><!-- Spec Template Attribute Mappings --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

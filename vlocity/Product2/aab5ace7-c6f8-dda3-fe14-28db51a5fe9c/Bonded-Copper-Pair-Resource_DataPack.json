@@ -1,0 +1,129 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "Bonded-Copper-Pair-Resource_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+        "ATT_DC_TC": null
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ACAT_TECH",
+                "Name": "Technical Attributes",
+                "displaySequence": 100,
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "cloneable": true,
+                            "code": "ATT_DC_TC",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 2,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "text",
+                            "isNotTranslatable": false,
+                            "label": "Traffic Code",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 1
+                }
+            }
+        ],
+        "totalSize": 1
+    },
+    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__CategoryData__c": "",
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "2017-10-01",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__GlobalGroupKey__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "aab5ace7-c6f8-dda3-fe14-28db51a5fe9c",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": false,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "a328617ec01f34958c2275eeb2648e80",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/a328617ec01f34958c2275eeb2648e80",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__ProductChildItem__c": "Bonded-Copper-Pair-Resource_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "Order Item",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Resource",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "Bonded Copper Pair Resource",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "ProductCode": "T-DSL-007",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/aab5ace7-c6f8-dda3-fe14-28db51a5fe9c"
+}

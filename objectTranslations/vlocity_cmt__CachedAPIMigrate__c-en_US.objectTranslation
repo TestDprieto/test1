@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- ExternalJobId --></label>
+        <name>vlocity_cmt__ExternalJobId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>vlocity_cmt__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>completed</masterLabel>
+            <translation><!-- completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>errored</masterLabel>
+            <translation><!-- errored --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>failed</masterLabel>
+            <translation><!-- failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>queued</masterLabel>
+            <translation><!-- queued --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>running</masterLabel>
+            <translation><!-- running --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>success</masterLabel>
+            <translation><!-- success --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

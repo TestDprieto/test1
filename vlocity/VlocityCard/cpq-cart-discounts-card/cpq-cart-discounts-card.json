@@ -1,0 +1,146 @@
+{
+    "dataSource": {
+        "type": null,
+        "value": {
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "blankStateCheck": false,
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Discount Name']['label']",
+                    "name": "['Discount Name']['value']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Category']['label']",
+                    "name": "['Category']['value']",
+                    "type": "Category"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Product']['label']",
+                    "name": "['Product']['value']",
+                    "type": "Product"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Discount']['label']",
+                    "name": "['Discount']['value']",
+                    "type": "Discount"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Status']['label']",
+                    "name": "['Status']['value']",
+                    "type": "string"
+                }
+            ],
+            "name": "CustomView_Basic",
+            "templateUrl": "cpq-card-blank"
+        },
+        {
+            "blankStateCheck": false,
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Discount Name']['label']",
+                    "name": "['Discount Name']['value']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Category']['label']",
+                    "name": "['Category']['value']",
+                    "type": "Category"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Product']['label']",
+                    "name": "['Product']['value']",
+                    "type": "Product"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Discount']['label']",
+                    "name": "['Discount']['value']",
+                    "type": "Discount"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['Status']['label']",
+                    "name": "['Status']['value']",
+                    "type": "string"
+                }
+            ],
+            "name": "BasicView_Basic",
+            "templateUrl": "cpq-card-blank"
+        }
+    ],
+    "title": "Cpq Applied Discounts Card"
+}

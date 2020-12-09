@@ -1,0 +1,45 @@
+<div class="cpq-cart-item-lookup slds-grid slds-wrap slds-grid_pull-padded">
+    <div class="slds-col_padded slds-size_1-of-1">
+        <div class="slds-section">
+            <div class="slds-section__title">
+                <span>{{::importedScope.customLabels.CPQCartItemServicePointSelectLabel}}</span>
+            </div>
+            <div class="slds-form_stacked" ng-init="importedScope.selectPremises()">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="select-premises-input-01">
+                        <abbr class="slds-required" title="required">* {{::importedScope.customLabels.CPQCartItemPremisesLabel}}</abbr>
+                    </label>
+                    <div class="slds-form-element__control">
+                        <!--<select class="slds-select" ng-change="importedScope.getServicePoints($root.selectedPremises)" 
+                                ng-options="record as record.Name.value for record in records.records track by record.Id.value" 
+                                ng-model="$root.selectedPremises"
+                                ng-init="importedScope.selectPremises(records.records)">
+                                ng-change="importedScope.selectionChanged(importedScope.typeaheadPremises, $root.selectedPremises)"
+                            <option value="" ng-if="false"></option>
+                        </select>-->
+                        <input ng-model="$root.selectedPremises" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }" type="text" data-min-length="0" data-limit="10"
+                        slds-options="premises as premises.Name.value for premises in importedScope.getPremises($viewValue)"
+                        class="slds-input slds-input-padding" slds-typeahead>
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="select-service-point-input-01">
+                        <abbr class="slds-required" title="required">* {{::importedScope.customLabels.CPQCartItemServicePointLabel}}</abbr>
+                    </label>
+                    <div class="slds-form-element__control">
+                        <!--<select class="slds-select" ng-options="record as record.Name.value for record in importedScope.servicePointList  track by record.Id.value" 
+                            ng-model="$root.selectedServicePoint"
+                            ng-init="importedScope.getServicePoints($root.selectedPremises)">
+                            <option value="" ng-if="false"></option>
+                        </select>-->
+                        <input ng-model="$root.selectedServicePoint" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"
+                        type="text" data-min-length="0" data-limit="10" 
+                        ng-disabled="!$root.selectedPremises.actions.getservicepoints"
+                        slds-options="servicePoint as servicePoint.Name.value for servicePoint in importedScope.getServicePoints($viewValue, $root.selectedPremises)"
+                        class="slds-input slds-input-padding" slds-typeahead>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

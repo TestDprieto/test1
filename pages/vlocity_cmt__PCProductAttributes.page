@@ -1,0 +1,4 @@
+<apex:page standardController="Product2" showHeader="false" sidebar="false" cache="true" expires="86400">
+    <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__bootstrap, '/bootstrap-3.2.0-dist/css/sfboot.min.css')}"/>
+    <c:ProductAttributes showRulesSection="false"  showConfigurationsTab="true" hideAttributeSetupTab="true"/>      
+</apex:page>

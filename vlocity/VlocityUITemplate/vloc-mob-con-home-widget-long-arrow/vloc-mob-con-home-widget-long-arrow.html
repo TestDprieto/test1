@@ -1,0 +1,17 @@
+<div class="con-home-widget-action" ng-controller="widgetLongArrowController as wla" ng-click="wla.viewDetail('' + placeholder.NavigationPage.value)">
+    <div class="con-home-widget-action-title">
+        {{placeholder.DisplayTitle.label}}
+    </div>
+    <div class="con-home-widget-action-subtitle">
+        {{placeholder.DisplayDate.label}} {{placeholder.DisplayDate.value | date:'MM/dd'}}
+        {{placeholder.DisplayCurrency.label}} {{placeholder.DisplayCurrency.value | currency}}
+        {{placeholder.DisplayString.label}} {{placeholder.DisplayString.value}}<br/>
+        <span ng-if="placeholder.DisplayConditional.value == 'true'">{{placeholder.DisplayConditionalTrue.value | currency}}{{placeholder.DisplayConditionalTrue.label}}</span>
+        <span ng-if="placeholder.DisplayConditional.value == 'false'">{{placeholder.DisplayConditionalFalse.value | currency}}{{placeholder.DisplayConditionalFalse.label}}</span>
+    </div>
+    <div class="con-home-widget-action-arrow">
+        
+    </div>
+</div>
+<div class="con-home-border" ng-if="placeholder.IsLast.value != 'true'">
+</div>

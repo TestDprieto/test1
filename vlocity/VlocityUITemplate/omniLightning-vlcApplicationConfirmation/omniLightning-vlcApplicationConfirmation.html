@@ -1,0 +1,37 @@
+<div class='slds-grid slds-wrap slds-grid--pull-padded slds-col--padded'>
+
+    <div class="slds-col--padded">
+
+        <div class="slds-size--1-of-1">
+            <json-tree json='bpTree.response' skipnodes='bpTree.skipElements' collapsed-level='2' labelmap="bpTree.labelMap"></json-tree>
+        </div>
+
+        <div class="slds-grid slds-wrap slds-grid--pull-padded slds-col--padded">
+
+            <div class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--3-of-12"
+                 style="margin:auto 0">
+                <div class='vlc-slds-button--tertiary'
+                     ng-click='goBack(bpTree, bpTree.submitButton)' >
+                    {{::bpTree.submitButton.propSetMap.reviseLabel}}
+                </div>
+            </div>
+
+            <div class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{::bpTree.submitButton.propSetMap.submitWidth}}-of-12"
+                 style="padding-right:10px;margin:5px 0">
+                <button style="flex: 0 0 100%" class="slds-button vlc-slds-button--primary"
+                        ng-click='apexrest(bpTree, bpTree.submitButton)' >
+                    {{::bpTree.submitButton.propSetMap.submitLabel}}
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class='slds-size--1-of-1' ng-if="bpTree.previewMode">
+            <div class='slds-form-element__label'>{{::customLabels.OmniDataJSON}}</div>
+            <json-formatter json="bpTree.response" class="slds-box"></json-formatter>
+        </div>
+
+    </div>
+
+</div>

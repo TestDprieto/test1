@@ -1,0 +1,94 @@
+.via-slds {
+    .multiservice-group-list{
+        .highlight-group {
+            background-color: #d8edff;
+            border-left: solid 2px #0070d2;
+        }
+        .fill-success {
+            fill: #027e46;
+        }
+        .fill-warning {
+            fill: #ffb75d;
+        }
+        .fill-blue {
+            fill: #005fb2;
+        }
+        .group-validation-success-badage {
+            background-color: #027e46;
+            color: white;
+            font-size: .200rem;
+            padding: 5px;
+            float: right;
+        }
+        .circle-container {
+            border-radius: 50%;
+            padding: 1px 4px 3px 4px;
+            float: right;
+            svg {
+                fill: white;
+            }
+        }
+        .circle-container-error {
+            background-color: #d42727;
+            &:hover {
+                background-color: #d42727;
+            }
+            &:active {
+                background-color: #d42727;
+            }
+        }
+        .circle-container-success {
+            background-color: #027e46;
+            &:hover {
+                background-color: #027e46;
+            }
+            &:active {
+                background-color: #027e46;
+            }
+        }
+        .circle-container-warning {
+            background-color: #ffb75d;
+            &:hover {
+                background-color: #ffb75d;
+            }
+            &:active {
+                background-color: #ffb75d;
+            }
+        }
+        .service-name-wrapper {
+            display: inline-block;
+            max-width: 9.5vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        section.less-right-padding {
+            padding-right: 2px;
+        }
+        .summary-action {
+            display: inline-block;
+            width: 100%;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+        .summary-action-icon {
+            vertical-align: top;
+            margin-top: 5px;
+        }
+        .status-icon {
+            vertical-align: top;
+            float: right;
+            margin-top: 5px;
+            margin-right: 2px;
+        }
+        .group-name-wrapper {
+            display: inline-block;
+            max-width: 9.5vw;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+    }
+}

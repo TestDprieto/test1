@@ -1,0 +1,297 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-base-grid {
+            background-color: $cpq-page-bg-color;
+        }
+        .#{$namespace}-container {
+            padding: $cpq-padding-large-horizontal $cpq-padding-large-horizontal/2;
+        }
+        .#{$namespace}-left-sidebar-wrapper {
+            transition: width 250ms ease-in;
+
+            &.hide-cpq-left-sidebar {
+                transition: width 250ms ease-out;
+                width: 0%;
+                visibility: hidden;
+            }
+        }
+        
+        .grouplist-sidebar-wrapper {
+            transition: width 250ms ease-in;
+
+            &.hide-grouplist-sidebar {
+                transition: width 250ms ease-out;
+                width: 0%;
+                visibility: hidden;
+            }
+        }
+        .#{$namespace}-cart-container-wrapper {
+            transition: width 250ms ease-in;
+        }
+        .#{$namespace}-attribute-config-panel-hide {
+            transition: margin-right 250ms ease-in;
+            margin-right: -33.5%;
+        }
+        .#{$namespace}-attribute-config-panel-show {
+            transition: margin-right 250ms ease-in;
+            margin-right: 0%;
+        }
+
+        .#{$namespace}-show-hide-button {
+            margin-left: -9px;
+            width: 10px;
+            height: auto; /* IE */
+            height: initial;
+            border-radius:0px;
+            border: none;
+            color: $black;
+            opacity: 0.6;
+            font-weight: 600;
+            font-size: 40px;
+
+            &:focus {
+                box-shadow: none;
+            }
+            &:hover {
+                opacity: 1;
+            }
+            &.cursor-point-west {
+                cursor: w-resize;
+            }
+            &.cursor-point-east {
+                cursor: e-resize;
+            }
+            .hide-show-icon {
+                fill: $black;
+            }
+        }
+        .button-divider {
+            background: white;
+            padding: 0px 5px;
+            margin: 0px 8px;
+        }
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+            .#{$namespace}-cart-container {
+                height: calc(100vh - 80px);
+            }
+        }
+        // 64rem
+        @media screen and (max-width: $bp-large) {
+            .#{$namespace}-base-grid {
+                input {
+                    -webkit-appearance: none;
+                }
+            }
+
+            .#{$namespace}-container {
+                padding: 1rem 0 0;
+                position: absolute;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                overflow: hidden;
+
+                .#{$namespace}-tablet-overlay.slds-backdrop {
+                    z-index: 990;
+                    transition: opacity 250ms ease-in,
+                                visibility 0ms linear 250ms;
+                }
+                &.#{$namespace}-outer-col-visible {
+                    .#{$namespace}-tablet-overlay.slds-backdrop--open {
+                        transition: opacity 250ms ease-in;
+                    }
+                }
+            }
+            
+            .#{$namespace}-left-sidebar-wrapper {
+                transition-property: left;
+                position: fixed;
+                z-index: 999;
+                margin-left: 0;
+                left: -33.33%;
+                top: 0;
+                height: 100%;
+                background-color: $cards-gray;
+
+                ng-include {
+                    display: block;
+                }
+
+                .#{$namespace}-left-sidebar-container {
+                    width: 100%;
+                    position: relative;
+
+                    button.#{$namespace}-show-hide-button {
+                        position: absolute;
+                        right: -10px;
+                        z-index: 9999;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 2.75rem;
+                        height: 2.75rem;
+                        right: -2.75rem;
+                        background-color: rgba(0,0,0,0.5);
+                        border-top-right-radius: .25rem;
+                        border-bottom-right-radius: .25rem;
+
+                        > .slds-button__icon.#{$namespace}-show-hide-button-icon {
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            transform: translateY(-50%) translateX(-50%);
+                            fill: #fff;
+                            width: 1.25rem;
+                            height: 1.25rem;
+                            transition: transform 500ms ease-in;
+                        } 
+                    }
+                }
+
+                &.#{$namespace}-left-sidebar-visible {
+                    margin-left: 0;
+                    left: 0;
+                    box-shadow: 1px 0 5px rgba(0,0,0,0.3);
+
+                    .#{$namespace}-left-sidebar-container {
+                        button.#{$namespace}-show-hide-button {
+                            > .slds-button__icon.#{$namespace}-show-hide-button-icon {
+                                transform: translateY(-50%) translateX(-50%) rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .#{$namespace}-cart-container-wrapper {
+
+            }
+
+            .#{$namespace}-product-container-wrapper {
+                transition-property: right;
+                position: fixed;
+                z-index: 999;
+                margin-right: 0;
+                right: -33.33%;
+                top: 0;
+                height: 100%;
+                overflow-y: auto;
+                background-color: #fff;
+
+                ng-include {
+                    display: block;
+                }
+
+                &.#{$namespace}-product-container-visible {
+                    margin-right: 0;
+                    right: 0;
+                    box-shadow: 0 1px 5px rgba(0,0,0,0.3);
+                }
+            }
+        }
+
+        // 48rem
+        @media screen and (max-width: $bp-medium) {
+
+        }
+
+        // 30rem
+        @media screen and (max-width: $bp-small) {
+
+        }
+    }
+}
+
+[dir=rtl] .vlocity {
+    &.via-slds {
+        &.via-omni {
+            form[stepForm] {
+                margin: 0px;
+                padding: 0px;
+                border: none;
+            }
+            ng-form {
+                padding-right: 0px;
+            }
+        }
+        .#{$namespace}-left-sidebar-wrapper {
+            transition-property: margin-right;
+            margin-right: -25%;
+            margin-left: 0;
+
+            &.#{$namespace}-left-sidebar-visible {
+                margin-right: 0;
+            }
+        }
+        .#{$namespace}-product-container-wrapper {
+            transition-property: margin-left;
+            margin-left: -25%;
+            margin-right: 0;
+
+            &.#{$namespace}-product-container-visible {
+                margin-left: 0;
+            }
+        }
+        .#{$namespace}-show-hide-button {
+            margin-left: 0;
+            position: relative;
+            left: 8px;
+            margin-right:0;
+        }
+
+        // 64rem
+        @media screen and (max-width: $bp-large) {
+            .#{$namespace}-left-sidebar-wrapper {
+                transition-property: right;
+                right: -25%;
+                left: auto;
+                margin-right: 0;
+
+                .#{$namespace}-left-sidebar-container {
+                    button.#{$namespace}-show-hide-button {
+                        left: -2.75rem;
+                        right: auto;
+                        border-radius: 0.25rem 0 0 0.25rem;
+
+                        > .slds-button__icon.#{$namespace}-show-hide-button-icon {
+                            transform: translateY(-50%) translateX(-50%) rotate(180deg);
+                        }
+                    }
+                }
+
+                &.#{$namespace}-left-sidebar-visible {
+                    right: 0;
+                    left: auto;
+
+                    .#{$namespace}-left-sidebar-container {
+                        button.#{$namespace}-show-hide-button {
+                            > .slds-button__icon.#{$namespace}-show-hide-button-icon {
+                                transform: translateY(-50%) translateX(-50%);
+                            }
+                        }
+                    }
+                }
+            }
+            .#{$namespace}-product-container-wrapper {
+                transition-property: left;
+                left: -25%;
+                right: auto;
+                margin-left: 0;
+
+                &.#{$namespace}-product-container-visible {
+                    left: 0;
+                    right: auto;
+                }
+            }
+        }
+    }
+}

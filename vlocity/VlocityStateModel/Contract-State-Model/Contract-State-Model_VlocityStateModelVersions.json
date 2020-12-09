@@ -1,0 +1,577 @@
+[
+    {
+        "%vlocity_namespace%__CurrentStatus__c": "Active",
+        "%vlocity_namespace%__EndDateTime__c": "",
+        "%vlocity_namespace%__Priority__c": 1,
+        "%vlocity_namespace%__StartDateTime__c": "2016-01-02T02:21:00.000Z",
+        "%vlocity_namespace%__StateModelId__c": {
+            "%vlocity_namespace%__FieldAPIName__c": "Status",
+            "%vlocity_namespace%__ObjectAPIName__c": "Contract",
+            "%vlocity_namespace%__TypeFieldName__c": null,
+            "%vlocity_namespace%__TypeFieldValue__c": null,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModel__c/Generated-380570933",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModel__c"
+        },
+        "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+        "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+        "%vlocity_namespace%__VersionNumber__c": 1,
+        "%vlocity_namespace%__VlocityStateTransition__c": [
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Activated",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Activated/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Expired",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Expired/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Activated to Expired",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-418024358"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Activated",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Activated/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Terminated",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Terminated/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Activated to Terminated",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-2141565494"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Approval",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Approval/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Draft",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Draft/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Awaiting Approval to Draft",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated1503836540"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Approval",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Approval/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Negotiating",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Negotiating/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Awaiting Approval to Negotiating",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-2145923498"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Approval",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Approval/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Rejected Internally",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Rejected Internally/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Awaiting Approval to Rejected Internally",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-37842201"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Signature",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Signature/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Cancelled",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Cancelled/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Awaiting Signature to Cancelled",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated191368111"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Signature",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Signature/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Negotiating",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Negotiating/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Awaiting Signature to Negotiating",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-381630823"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Signature",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Signature/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Signature Declined",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Signature Declined/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Awaiting Signature to Signature Declined",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-336737964"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Signature",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Signature/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Signed",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Signed/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Awaiting Signature to Signed",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated110853434"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Draft",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Draft/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Approval",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Approval/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Draft to Waiting Approval",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated839020156"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Draft",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Draft/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Cancelled",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Cancelled/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Draft to Cancelled",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated1966692886"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Negotiating",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Negotiating/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Awaiting Signature",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Awaiting Signature/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Negotiating to Waiting Signature",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-1805745855"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Negotiating",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Negotiating/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Cancelled",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Cancelled/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Negotiating to Cancelled",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-719964176"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Negotiating",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Negotiating/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Draft",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Draft/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Negotiating to Draft",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-2108140352"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Rejected Internally",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Rejected Internally/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Cancelled",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Cancelled/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Rejected Internally to Cancelled",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated982191105"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Rejected Internally",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Rejected Internally/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Draft",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Draft/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Rejected Internally to Draft",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-2127308463"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Signature Declined",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Signature Declined/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Cancelled",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Cancelled/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Signature Declined to Cancelled",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-917502047"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Signature Declined",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Signature Declined/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Draft",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Draft/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Signature Declined to Draft",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated2080875761"
+            },
+            {
+                "%vlocity_namespace%__Description__c": "",
+                "%vlocity_namespace%__From__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Signed",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Signed/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "%vlocity_namespace%__StateModelVersionId__c": {
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__FieldAPIName__c": "Status",
+                    "%vlocity_namespace%__StateModelId__r.%vlocity_namespace%__ObjectAPIName__c": "Contract",
+                    "%vlocity_namespace%__VersionNumber__c": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c"
+                },
+                "%vlocity_namespace%__To__c": {
+                    "%vlocity_namespace%__DTPStateModelName__c": "Contract State Model",
+                    "Name": "Activated",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocityState__c/Activated/Contract State Model",
+                    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityState__c"
+                },
+                "Name": "Contract Signed to Activated",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateTransition__c",
+                "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateTransition__c/Generated-117608057"
+            }
+        ],
+        "Name": "Version 1",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityStateModelVersion__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityStateModelVersion__c/%vlocity_namespace%__VlocityStateModel__c/Generated-380570933/1"
+    }
+]

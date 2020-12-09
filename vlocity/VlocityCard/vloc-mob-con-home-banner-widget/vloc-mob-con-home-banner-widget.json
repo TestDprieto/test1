@@ -1,0 +1,75 @@
+{
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0013600000FBB67"
+            }
+        ],
+        "type": "ApexRest",
+        "value": {
+            "endpoint": "/services/apexrest/%vlocity_namespace%/v1/acuity/mobilebanner?contextId={{$root.currentUser.Account.attributes.url.substring(38)}}&pageSize=1"
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "blankStateCheck": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+            ],
+            "name": "Active",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayButton",
+                    "type": "string",
+                    "value": "['info']['%vlocity_namespace%__DisplayLabel__c']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayTitle",
+                    "type": "string",
+                    "value": "['resource']['Name']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplaySubtitle",
+                    "type": "string",
+                    "value": "['resource']['%vlocity_namespace%__Description__c']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "NavigationPage",
+                    "type": "string",
+                    "value": "['info']['%vlocity_namespace%__URL__c']"
+                }
+            ],
+            "templateUrl": "vloc-mob-con-home-widget-banner"
+        }
+    ],
+    "title": "Banner"
+}

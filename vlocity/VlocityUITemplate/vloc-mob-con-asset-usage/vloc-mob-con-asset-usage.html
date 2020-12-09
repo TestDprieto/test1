@@ -1,0 +1,14 @@
+<div class="con-device-details-section-title">
+    Usage
+    <div class="con-device-details-section-subtitle">
+        For {{payload[0].%vlocity_namespace%__ServiceEndDate__c | date:'MMM'}} 01 through {{payload[0].%vlocity_namespace%__ServiceEndDate__c | date:'MMM dd'}}
+    </div>
+</div>
+
+<!-- Bar Graphs -->
+<div vloc-card ng-repeat="card in data.zones.bars.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type></div>
+
+<!-- Donut Graphs -->
+<div class="con-device-details-donut-graph">
+    <div vloc-card ng-repeat="card in data.zones.donuts.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type></div>
+</div>

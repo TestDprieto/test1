@@ -1,0 +1,38 @@
+<div tabindex="{{::isTableView?-1:0}}"
+     ng-click="onClickEditBlockRecord(control, set.checkboxInd, $event, child.eleArray, $index)" 
+     ng-class="{'vlc-slds-edit-block--Long-cards_container': isLongCard, 'vlc-slds-edit-block--cards_container': isShortCard}">
+    <div class="vlc-slds-edit-block--cards_images" ng-if="isLongCard">
+       <slds-svg-icon sprite="control.propSetMap.svgSprite" extra-classes="'vlc-slds-edit-block--Long-icon'" icon="control.propSetMap.svgIcon" size="'large'" ng-if="showDefaultEditBlockImage(control)"></slds-svg-icon>
+       <slds-svg-icon sprite="icon.svgSprite" icon="icon.svgIcon" size="'large'" extra-classes="'vlc-slds-edit-block--Long-icon'" ng-repeat='icon in control.propSetMap.valueSvgMap' ng-if="control.propSetMap.elementName !=='' && control.response[control.propSetMap.elementName] == icon.value"> </slds-svg-icon>
+    </div>
+
+    <div class="vlc-slds-item--image" ng-if="isShortCard">
+        <span class="slds-icon_container vlc-slds-user-icon slds-icon_container--circle">
+            <slds-svg-icon sprite="control.propSetMap.svgSprite" extra-classes="'vlc-slds-edit-block--Long-icon'" icon="control.propSetMap.svgIcon" size="'large'" ng-if="showDefaultEditBlockImage(control)"></slds-svg-icon>
+            <slds-svg-icon sprite="icon.svgSprite" icon="icon.svgIcon" size="'large'" extra-classes="'vlc-slds-edit-block--Long-icon'" ng-repeat='icon in control.propSetMap.valueSvgMap' ng-if="control.propSetMap.elementName !=='' && control.response[control.propSetMap.elementName] == icon.value"> </slds-svg-icon>
+        </span>
+    </div>
+
+    <div class="vlc-slds-edit-block--cards_controls-container" ng-if="!isTableView">
+        <div class="vlc-slds-edit-block--cards_controls" ng-repeat='child in children = control.children' ng-if='child.eleArray[0].propSetMap.hide||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'
+            ng-init="child.blockIndex = control.index">
+            <ng-form name="editblockform" class="vlc-slds-edit-block__form"
+                ng-include="'vlcEditBlockInnerForm.html'">
+            </ng-form>
+        </div>
+    </div>
+
+    <div ng-if="isTableView" class="vlc-wrap"
+         ng-include="'vlcEditBlockInnerForm.html'">
+    </div>
+
+    <span class="vlc-asterix icon-v-asterix vlc-editblock-asterix" ng-if="!isTableView && isEditBlockRecordInvalid($index, this)"></span>
+    <div class="vlc-slds-edit-block--button-menu" ng-if="!isTableView">
+        <slds-dropdown content="[]" template-url="vlcEditBlockDropdown.html"></slds-dropdown>
+    </div>
+</div>
+<div class="vlc-slds-item--added" vlc-slds-edit-add="{{set.checkboxInd >= 0 ? control.children[set.checkboxInd].eleArray[0].response : false}}" ng-if="!isTableView">
+    <span class="slds-icon_container slds-icon_container--circle">
+        <slds-svg-icon sprite="'action'" icon="'approval'" size="'small'"></slds-svg-icon>
+    </span>
+</div>

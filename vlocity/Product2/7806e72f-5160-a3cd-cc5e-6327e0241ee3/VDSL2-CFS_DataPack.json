@@ -1,0 +1,207 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "VDSL2-CFS_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+        "ATT_DC_DP": null,
+        "ATT_DC_TC": null,
+        "ATT_DT_CON": null
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ATT_CODE_IS",
+                "Name": "Internet Services",
+                "displaySequence": 30,
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "cloneable": true,
+                            "code": "ATT_DT_CON",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 3,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Connection Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 1,
+                                    "id": "3c5b4465-e6ea-5d01-6e6e-d67cdd6152cc",
+                                    "label": "Static",
+                                    "readonly": false,
+                                    "value": "Static IP"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 2,
+                                    "id": "b0db3fd7-62d7-d1c7-de33-349a036fe063",
+                                    "label": "Dynamic",
+                                    "readonly": false,
+                                    "value": "Dynamic"
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 1
+                }
+            },
+            {
+                "Code__c": "ACAT_TECH",
+                "Name": "Technical Attributes",
+                "displaySequence": 100,
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "cloneable": true,
+                            "code": "ATT_DC_DP",
+                            "dataType": "number",
+                            "disabled": false,
+                            "displaySequence": 1,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "number",
+                            "isNotTranslatable": false,
+                            "label": "DSLAM Port",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
+                        },
+                        {
+                            "cloneable": true,
+                            "code": "ATT_DC_TC",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 2,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "text",
+                            "isNotTranslatable": false,
+                            "label": "Traffic Code",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 2
+                }
+            }
+        ],
+        "totalSize": 2
+    },
+    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__CategoryData__c": "",
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "2017-10-01",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__GlobalGroupKey__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "7806e72f-5160-a3cd-cc5e-6327e0241ee3",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": false,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "e713094d6e4a01c3e91e582f5c5a8683",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/e713094d6e4a01c3e91e582f5c5a8683",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__ProductChildItem__c": "VDSL2-CFS_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "Order Item",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Service",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "VDSL2 CFS",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "ProductCode": "T-DSL-003",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/7806e72f-5160-a3cd-cc5e-6327e0241ee3"
+}

@@ -1,0 +1,32 @@
+[
+    {
+        "%vlocity_namespace%__FloorPrice__c": "",
+        "%vlocity_namespace%__OverageCharge__c": "",
+        "%vlocity_namespace%__OverageUOM__c": "",
+        "%vlocity_namespace%__RecurringPrice__c": 0,
+        "%vlocity_namespace%__RecurringUOM__c": "Monthly",
+        "IsActive": true,
+        "IsArchived": false,
+        "Name": "DSL Service",
+        "Pricebook2.Name": "Standard Price Book",
+        "Pricebook2Id": {
+            "Name": "Standard Price Book",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "Pricebook2/Standard Price Book",
+            "VlocityRecordSObjectType": "Pricebook2"
+        },
+        "Product2.%vlocity_namespace%__GlobalKey__c": "480583df-62ec-e951-e6c4-e95529d694ea",
+        "Product2Id": {
+            "%vlocity_namespace%__GlobalKey__c": "480583df-62ec-e951-e6c4-e95529d694ea",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "Product2/480583df-62ec-e951-e6c4-e95529d694ea",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "ProductCode": "C-DSL-001",
+        "UnitPrice": 0,
+        "UseStandardPrice": false,
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "PricebookEntry",
+        "VlocityRecordSourceKey": "PricebookEntry/Pricebook2/Standard Price Book/Product2/480583df-62ec-e951-e6c4-e95529d694ea"
+    }
+]

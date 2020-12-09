@@ -1,0 +1,45 @@
+<div ng-repeat='file in control.response' class='slds-m-top--small vlc-image-preview'>
+
+    <div class="slds-m-bottom--small">
+    
+        <img ng-if="bpTree.filesMap[file.data] && bpTree.filesMap[file.data].substring(0,4) === 'data' && !control.propSetMap.uploadContDoc"
+             class="vlc-thumb"
+             ng-src="{{bpTree.filesMap[file.data]}}" />
+
+        <img ng-if="(!bpTree.filesMap[file.data] || bpTree.filesMap[file.data].substring(0,4) !== 'data')  && !control.propSetMap.uploadContDoc"
+             class="vlc-thumb"
+             ng-src="{{::instanceHost}}/servlet/servlet.FileDownload?file={{bpTree.filesMap[file.data]}}"/>
+
+        <img ng-if="(!bpTree.filesMap[file.data] || bpTree.filesMap[file.data].substring(0,4) !== 'data') && control.propSetMap.uploadContDoc"
+             class="vlc-thumb"
+             ng-src="{{::instanceHost}}/sfc/servlet.shepherd/version/download/{{bpTree.contentVersions[file.data]}}"/>
+
+    </div>
+
+    <div ng-show='isFileRemovable(this, control, $index)'
+         class="slds-box vlc-slds-box__italic slds-input-has-icon slds-input-has-icon--right">
+        
+        <span class="vlc-slds-box__max-width-80">{{file.webkitRelativePath || file.filename}}
+
+            &nbsp;(
+
+            <span ng-switch='file.size > 1024*1024'>
+                <span ng-switch-when='true'>{{file.size / 1024 / 1024 | number:2}} MB</span>
+                <span ng-switch-default>{{file.size / 1024 | number:2}} kB</span>
+            </span>
+
+            )
+
+        </span>
+
+        <slds-svg-icon ng-click='removeFile(this, control, $index);$event.preventDefault();'
+                       sprite="'utility'"
+                       icon="'delete'"
+                       size="'small'"
+                       extra-classes="'slds-button__icon slds-button__icon--large'">
+        </slds-svg-icon>
+
+
+    </div>
+
+</div>

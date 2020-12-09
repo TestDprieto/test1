@@ -1,0 +1,16 @@
+<ul class="slds-form-element" horizontalMode='{{false !== control.propSetMap.horizontalMode}}'>
+    <li class="slds-form-element__control" ng-repeat='option in getOptions(control, this.$parent) track by option.name'>
+        <label class="slds-checkbox" ng-class="{'itemSelected': option.selected}" >
+            <input id='{{::control.name}}'
+                   ng-disabled='control.ro'
+                   type='checkbox'
+                   ng-model='option.selected'
+                   vlc-slds-mu-val-checker="response"
+                   ng-change='onMultiSelect(this, control, option)'/> 
+
+            <span ng-if='control.propSetMap.horizontalMode != "image"' class="slds-checkbox--faux"></span>
+            <span ng-if='control.propSetMap.horizontalMode != "image"' class="slds-form-element__label">{{option.value}}</span>
+            <span ng-if='control.propSetMap.horizontalMode == "image"' ng-include="'vlcDisplayOption.html'" class="slds-checkbox--faux_container"></span>
+        </label>
+    </li>
+</ul>

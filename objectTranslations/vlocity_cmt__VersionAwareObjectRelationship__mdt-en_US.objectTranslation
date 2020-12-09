@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Destination Identifier Key --></label>
+        <name>vlocity_cmt__DestinationIdKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Destination Object --></label>
+        <name>vlocity_cmt__DestinationObject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Interface Key --></label>
+        <name>vlocity_cmt__InterfaceKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Junction Object --></label>
+        <name>vlocity_cmt__JunctionObject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship Name --></label>
+        <name>vlocity_cmt__RelationshipName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Relationship Type --></label>
+        <name>vlocity_cmt__RelationshipType__c</name>
+        <picklistValues>
+            <masterLabel>Many to Many</masterLabel>
+            <translation><!-- Many to Many --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Many to One</masterLabel>
+            <translation><!-- Many to One --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One to Many</masterLabel>
+            <translation><!-- One to Many --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source Identifier Key --></label>
+        <name>vlocity_cmt__SourceIdKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Object --></label>
+        <name>vlocity_cmt__SourceObject__c</name>
+    </fields>
+    <fields>
+        <label><!-- Version Filter --></label>
+        <name>vlocity_cmt__VersionFilter__c</name>
+    </fields>
+</CustomObjectTranslation>

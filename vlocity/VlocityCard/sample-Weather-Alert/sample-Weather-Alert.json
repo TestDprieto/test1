@@ -1,0 +1,202 @@
+{
+    "GlobalKey__c": "sample Weather Alert/vlocityDev/1/1594264149741",
+    "dataSource": {
+        "type": "IntegrationProcedures",
+        "value": {
+            "inputMap": {
+                "AccountId": "{{params.id}}",
+                "Days": "5"
+            },
+            "ipMethod": "team_getWeatherForecast",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            }
+        }
+    },
+    "enableLwc": true,
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "img",
+            "val": "https://cdn.dribbble.com/users/915711/screenshots/5827243/weather_icon3.png"
+        }
+    ],
+    "states": [
+        {
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['Current']['Condition']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "Heavy Snow"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "Web Page": {
+                            "targetName": "https://weather.com",
+                            "targetType": "Web Page"
+                        },
+                        "collapse": true,
+                        "displayName": "Weather.com",
+                        "hasExtraParams": false,
+                        "id": "Weather Website",
+                        "isCustomAction": true,
+                        "openUrlIn": "New Tab / Window",
+                        "targetType": "Web Page",
+                        "type": "Custom",
+                        "url": "/apex/",
+                        "vlocityIcon": "action:share_link"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "",
+                    "name": "",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Current']['CityState']",
+                    "editing": false,
+                    "group": "Custom Properties",
+                    "label": "Hazardous Weather Alert for:",
+                    "name": "['Current']['CityState']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Current']['Condition']",
+                    "editing": false,
+                    "group": "Custom Properties",
+                    "label": "Condition",
+                    "name": "['Current']['Condition']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Current']['TempF']",
+                    "editing": false,
+                    "group": "Custom Properties",
+                    "label": "Temp °F",
+                    "name": "['Current']['TempF']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['Current']['Condition'] == 'Heavy Snow'",
+            "flyout": {
+                "lwc": {
+                    "DeveloperName": "cfSampleWeatherForecast",
+                    "Id": "0Rb1I0000008VjaSAE",
+                    "MasterLabel": "sample-weather-forecast",
+                    "name": "cfSampleWeatherForecast"
+                }
+            },
+            "flyoutAttributes": [
+                {
+                    "name": "records",
+                    "val": "['Forecast']"
+                }
+            ],
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "wideCard",
+                "Id": "0Rb1I000000L0k5SAC",
+                "MasterLabel": "wideCard",
+                "name": "wideCard"
+            },
+            "name": "Alert",
+            "smartAction": {
+            }
+        },
+        {
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['Current']['CityState']",
+                    "editing": false,
+                    "group": "Custom Properties",
+                    "label": "",
+                    "name": "['Current']['CityState']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Current']['Condition']",
+                    "editing": false,
+                    "group": "Custom Properties",
+                    "label": "Condition",
+                    "name": "['Current']['Condition']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Current']['TempF']",
+                    "editing": false,
+                    "group": "Custom Properties",
+                    "label": "Temp °F",
+                    "name": "['Current']['TempF']",
+                    "type": "string"
+                }
+            ],
+            "flyout": {
+                "lwc": {
+                    "DeveloperName": "cfSampleWeatherForecast",
+                    "Id": "0Rb1I0000008VjaSAE",
+                    "MasterLabel": "sample-weather-forecast",
+                    "name": "cfSampleWeatherForecast"
+                }
+            },
+            "flyoutAttributes": [
+                {
+                    "name": "records",
+                    "val": "['Forecast']"
+                }
+            ],
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "wideCard",
+                "Id": "0Rb1I000000L0k5SAC",
+                "MasterLabel": "wideCard",
+                "name": "wideCard"
+            },
+            "name": "Active",
+            "smartAction": {
+            }
+        }
+    ],
+    "title": "Weather"
+}

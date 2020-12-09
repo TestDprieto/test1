@@ -1,0 +1,2 @@
+<div ng-if="baseCtrl.setIPScope(this)"></div>
+<iframe ng-if="bpTree.response.docId" ng-show="src = bpTree.response.urlPrefix + '/apex/' + baseCtrl.$scope.nsPrefix + 'ObjectDocumentCreationNew?id='+bpTree.response.docId+'&templateId='+bpTree.response.templateId+'&documentName='+bpTree.response.documentName+'&contextId='+bpTree.response.contextId" id="obj-doc-creation-os-iframe" ng-src="{{src}}" style="width: 100%; border: none;" height="0" onload="this.height = '200';" vloc-prop-set="{{control.propSetMap}}"></iframe>

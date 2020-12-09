@@ -1,0 +1,29 @@
+{
+    "%vlocity_namespace%__DependencyItemDefinitionId__c": {
+        "%vlocity_namespace%__OrchestrationPlanDefinitionId__r.Name": "FLEX Service Orchestration",
+        "Name": "Consumer Credit Check",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationItemDefinition__c/Consumer Credit Check/%vlocity_namespace%__OrchestrationPlanDefinition__c/FLEX Service Orchestration",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationItemDefinition__c"
+    },
+    "%vlocity_namespace%__DependencyPlanDefinitionId__c": {
+        "Name": "FLEX Service Orchestration",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationPlanDefinition__c/FLEX Service Orchestration",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationPlanDefinition__c"
+    },
+    "%vlocity_namespace%__DependencyType__c": "Depends On",
+    "%vlocity_namespace%__GlobalKey__c": "33f5ed51-f3d4-53ee-bd68-413529e12f0f",
+    "%vlocity_namespace%__OrchestrationItemDefinitionId__c": {
+        "%vlocity_namespace%__OrchestrationPlanDefinitionId__r.Name": "DSL Modem Delivery",
+        "Name": "Dispatch Equipment",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationItemDefinition__c/Dispatch Equipment/%vlocity_namespace%__OrchestrationPlanDefinition__c/DSL Modem Delivery",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationItemDefinition__c"
+    },
+    "%vlocity_namespace%__Scope__c": "",
+    "Name": "After Consumer Credit Check",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationDependencyDefinition__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__OrchestrationDependencyDefinition__c/33f5ed51-f3d4-53ee-bd68-413529e12f0f"
+}

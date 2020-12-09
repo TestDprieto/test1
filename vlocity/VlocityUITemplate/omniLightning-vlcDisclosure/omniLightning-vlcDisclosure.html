@@ -1,0 +1,47 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex  vlc-disclosure'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-form-element__control">
+
+            <!-- safely binds the html content in the editor to the element  -->
+            <div class="slds-box vlc-slds-box__no-border">
+                <div class="slds-box">
+                    {{::control.propSetMap.label | uppercase }}
+                    <span class='vlc-asterix icon-v-asterix' ng-if='validateRequired(this, control) && control.req'>
+                    </span>
+                </div>
+                <div class="slds-box">
+                    <p vlc-bind-html="::control.propSetMap.text"></p>
+                </div>
+                <div class="slds-box">
+                    <!-- checkbox at the bottom -->
+                    <label class="slds-checkbox">
+                        <input id='{{::control.name}}'
+                               ng-disabled='control.ro'
+                               ng-required='control.req'
+                               type='checkbox'
+                               name='loopname'
+                               ng-model='control.response'
+                               ng-init='init(this, control)'
+                               vlc-slds-val-checker="response"
+                               ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'/>
+
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-form-element__label">{{::control.propSetMap.checkLabel | uppercase}}</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- generic error block styling needs to be done -->
+            <div ng-include="::errHTMLId"></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

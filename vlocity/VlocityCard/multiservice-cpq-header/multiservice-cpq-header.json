@@ -1,0 +1,65 @@
+{
+    "dataSource": {
+        "contextVariables": [
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "cartId": "{{params.id}}",
+                "price": "false",
+                "validate": "false"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.CpqAppHandler"
+            },
+            "remoteClass": "CpqAppHandler",
+            "remoteMethod": "getCarts",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "records[0].details.records"
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Quote'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['QuoteNumber']['label']",
+                    "name": "['QuoteNumber']['value']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Quote'",
+            "name": "Active Quote",
+            "templateUrl": "multiservice-cpq-base-header-card"
+        }
+    ],
+    "title": "Multiservice CPQ Header"
+}

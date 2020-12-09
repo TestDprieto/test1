@@ -1,0 +1,39 @@
+<apex:page docType="html-5.0" applyBodyTag="false"  standardController="Order" extensions="vlocity_cmt.SimpleDecompositionController">
+<html ng-app="decomposeApp">
+    <head>
+        <title>Decompose Order</title>
+        <apex:includeScript value="/soap/ajax/31.0/connection.js" />
+        <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/javascripts/vlocity.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/bower_components/forceng/forceng.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/bower_components/ForceTK/forcetk.js')}"/>
+        
+        <script type="text/javascript">
+            var remoteActions = {
+                    decomposeOrder : {action: '{!$RemoteAction.SimpleDecompositionController.decomposeOrder}', config: {escape: false}},
+                };
+
+                var app = angular.module('decomposeApp', ["vlocity", "ngSanitize", "forceng"]);
+
+                //config data...
+                app.value('configData',{
+                    orderId : '{!LEFT($CurrentPage.parameters.Id, 15)}'
+                });
+                
+                app.config(["remoteActionsProvider", function(remoteActionsProvider){
+                    remoteActionsProvider.setRemoteActions(remoteActions); // configure the remoteActionsProvider
+                }]);
+                
+                app.controller('SimpleDecompositionController', function($scope,$rootScope, remoteActions, configData, $location) {
+                    remoteActions.decomposeOrder(configData.orderId).then(function()
+                    {
+                        window.location = '{!$Page.vlocity_cmt__XOMViewOrderDecomposition}?id=' + configData.orderId;
+                    });
+                });
+        </script>
+    </head>
+    <body>
+        <div ng-controller="SimpleDecompositionController"/>
+    </body>
+</html>
+</apex:page>

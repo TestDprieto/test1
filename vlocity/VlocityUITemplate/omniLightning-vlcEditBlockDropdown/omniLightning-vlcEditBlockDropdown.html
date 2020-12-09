@@ -1,0 +1,29 @@
+<div class="slds-dropdown-trigger slds-dropdown-trigger--click"  ng-class="{'slds-is-open': isOpen}" vlc-bubble-canceller>
+    <button type="button" role="button" class="slds-button slds-button--icon-border-filled" aria-haspopup="true" aria-label="Show More" ng-click="toggleDropdown()">
+        <slds-svg-icon sprite="'utility'" icon="'down'" size="'small'"></slds-svg-icon>
+    </button>
+    {{ebCtrl = (($parent.$parent.child.eleArray[0]));""}}
+    <div class="slds-dropdown slds-dropdown--right" aria-hidden="{{!isOpen}}">
+        <ul class="slds-dropdown__list" role="menu">
+            <li id='{{::((ebCtrl.propSetMap.editAction)?(ebCtrl.propSetMap.editAction.name):("foo"))}}'
+                class="slds-dropdown__item" role="presentation" ng-click="$parent.$parent.openEditModal($parent.$parent.control, null, $parent.$parent, 'edit', $parent.$parent.$index, $event); toggleDropdown();" ng-if='ebCtrl.propSetMap.allowEdit'>
+                <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                    <span class="slds-truncate">{{::((ebCtrl.propSetMap.editAction) ? (ebCtrl.propSetMap.editAction.propSetMap.label) : (ebCtrl.propSetMap.editLabel))}}</span>
+               </a>
+            </li>
+            <li id='{{::action.name}}'
+                class="slds-dropdown__item" role="presentation" ng-repeat="action in $parent.$parent.control.propSetMap.actions" ng-click='$parent.$parent.buttonClick($parent.$parent.bpTree.response, action, $parent.$parent, null, "vlcEBOperation"); toggleDropdown();'>
+                <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                    <span class="slds-truncate">{{action.propSetMap.label}}</span>
+                </a>
+            </li>
+            <li class="slds-has-divider--top-space" role="separator"></li>
+            <li id='{{::((ebCtrl.propSetMap.delAction)?(ebCtrl.propSetMap.delAction.name):("foo"))}}'
+                class="slds-dropdown__item" role="presentation" ng-click="$parent.$parent.removeItemEditBlock($parent.$parent.child, $parent.$parent.$index, $parent.$parent); toggleDropdown();" ng-if='ebCtrl.propSetMap.allowDelete'>
+                <a href="javascript:void(0);" role="menuitem" tabindex="-1">
+                    <span class="slds-truncate">{{::((ebCtrl.propSetMap.delAction) ? (ebCtrl.propSetMap.delAction.propSetMap.label) : (ebCtrl.propSetMap.deleteLabel))}}</span>
+               </a>
+            </li>
+        </ul>
+    </div>
+</div>

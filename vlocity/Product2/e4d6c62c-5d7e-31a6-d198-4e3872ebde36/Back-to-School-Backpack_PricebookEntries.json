@@ -1,0 +1,32 @@
+[
+    {
+        "%vlocity_namespace%__FloorPrice__c": "",
+        "%vlocity_namespace%__OverageCharge__c": "",
+        "%vlocity_namespace%__OverageUOM__c": "",
+        "%vlocity_namespace%__RecurringPrice__c": 0,
+        "%vlocity_namespace%__RecurringUOM__c": "Monthly",
+        "IsActive": true,
+        "IsArchived": false,
+        "Name": "Back to School Backpack",
+        "Pricebook2.Name": "Standard Price Book",
+        "Pricebook2Id": {
+            "Name": "Standard Price Book",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "Pricebook2/Standard Price Book",
+            "VlocityRecordSObjectType": "Pricebook2"
+        },
+        "Product2.%vlocity_namespace%__GlobalKey__c": "e4d6c62c-5d7e-31a6-d198-4e3872ebde36",
+        "Product2Id": {
+            "%vlocity_namespace%__GlobalKey__c": "e4d6c62c-5d7e-31a6-d198-4e3872ebde36",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "Product2/e4d6c62c-5d7e-31a6-d198-4e3872ebde36",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "ProductCode": "C-PRO-001",
+        "UnitPrice": 0,
+        "UseStandardPrice": false,
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "PricebookEntry",
+        "VlocityRecordSourceKey": "PricebookEntry/Pricebook2/Standard Price Book/Product2/e4d6c62c-5d7e-31a6-d198-4e3872ebde36"
+    }
+]

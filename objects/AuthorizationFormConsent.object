@@ -128,6 +128,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>AuthorizationFormTextId</fullName>
         <trackHistory>false</trackHistory>
@@ -158,6 +159,11 @@
     <fields>
         <fullName>Name</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>RelatedRecordId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Status</fullName>

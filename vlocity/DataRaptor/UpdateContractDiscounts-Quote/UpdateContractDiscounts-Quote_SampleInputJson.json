@@ -1,0 +1,45 @@
+{
+    "Quote": {
+        "AccountId": "001f400000R8I3eAAF",
+        "FrameContract": {
+            "Discount": [
+                {
+                    "DiscountItem": {
+                        "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                        "Name": "Discount Item 1-1",
+                        "ProductId": "01tf4000001opAuAAI",
+                        "QuoteDiscountId": "a3uf4000000ImFsAAK"
+                    },
+                    "DiscountPricing": {
+                        "AdjustmentValue": 400,
+                        "Amount": 10,
+                        "Name": "Discount Pricing1-1",
+                        "PricingVariableId": "a2rf4000000Qwz7AAC",
+                        "QuoteDiscountId": "a3uf4000000ImFsAAK",
+                        "TimePlanId": "a39f4000000R2vhAAC",
+                        "TimePolicyId": "a3Af40000009YaJEAU"
+                    },
+                    "EffectiveEndDate": "2020-01-28T23:40:00.000Z",
+                    "EffectiveStartDate": "2019-01-28T23:29:00.000Z",
+                    "Name": "QuoteDiscount1",
+                    "ReferenceNumber": "111111"
+                },
+                {
+                    "EffectiveStartDate": "2019-01-29T00:48:00.000Z",
+                    "Name": "QuoteDiscount3",
+                    "ReferenceNumber": "3333333"
+                },
+                {
+                    "EffectiveEndDate": "2019-01-29T23:38:00.000Z",
+                    "EffectiveStartDate": "2019-01-29T23:38:00.000Z",
+                    "Name": "New Quote4",
+                    "ReferenceNumber": "34444444"
+                }
+            ],
+            "Id": "800f4000000wMGlAAM",
+            "Status": "Draft"
+        },
+        "FrameContractCount": 1,
+        "Name": "NewQuote3"
+    }
+}

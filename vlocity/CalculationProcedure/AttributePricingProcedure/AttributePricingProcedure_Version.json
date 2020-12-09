@@ -1,0 +1,32 @@
+{
+    "%vlocity_namespace%__ApplicableObject__c": "",
+    "%vlocity_namespace%__CalculationProcedureId__c": {
+        "Name": "AttributePricingProcedure",
+        "VlocityDataPackType": "VlocityMatchingKeyObject",
+        "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__CalculationProcedure__c/AttributePricingProcedure",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedure__c"
+    },
+    "%vlocity_namespace%__CalculationProcedureId__r.Name": "AttributePricingProcedure",
+    "%vlocity_namespace%__CalculationProcedureStep__c": "AttributePricingProcedure_Version_Steps.json",
+    "%vlocity_namespace%__CalculationProcedureVariable__c": "AttributePricingProcedure_Version_Variables.json",
+    "%vlocity_namespace%__Constants__c": [
+    ],
+    "%vlocity_namespace%__CurrentStatus__c": "Active",
+    "%vlocity_namespace%__EnableLooping__c": false,
+    "%vlocity_namespace%__EndDateTime__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "AttributePricingProcedure v1",
+    "%vlocity_namespace%__InputBundleId__c": "",
+    "%vlocity_namespace%__LastSimulationInput__c": "{\"Characteristic Value\":\"20 Mbps;2 Mbps\",\"Characteristic Name\":\"Download Speed;Upload Speed\",\"Source Product Name\":\"DSL Service\",\"Source Product Code\":\"C-DSL-001\"}",
+    "%vlocity_namespace%__LoopingSpecification__c": "",
+    "%vlocity_namespace%__OutputBundleId__c": "",
+    "%vlocity_namespace%__PostProcessorClass__c": "",
+    "%vlocity_namespace%__PreProcessorClass__c": "",
+    "%vlocity_namespace%__Priority__c": 1,
+    "%vlocity_namespace%__StartDateTime__c": "2018-07-12T23:20:00.000Z",
+    "%vlocity_namespace%__Variables__c": "",
+    "%vlocity_namespace%__VersionNumber__c": 1,
+    "Name": "AttributePricingProcedure v1",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureVersion__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CalculationProcedureVersion__c/1/%vlocity_namespace%__CalculationProcedure__c/AttributePricingProcedure"
+}

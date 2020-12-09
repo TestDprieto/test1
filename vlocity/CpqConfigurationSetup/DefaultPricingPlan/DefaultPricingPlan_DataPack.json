@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Pricing Plan Service: Specifies the code of the default pricing plan used for the org. Used only when PricingPlanService is the active implementation for the Pricing Interface. If using the out-of-the-box plan, enter DEFAULT_PRICING_PLAN.",
+    "%vlocity_namespace%__SetupValue__c": "DEFAULT_PRICING_PLAN",
+    "Name": "DefaultPricingPlan",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/DefaultPricingPlan"
+}

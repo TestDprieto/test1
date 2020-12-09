@@ -1,0 +1,50 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-omniscript-currency'
+             ng-repeat='control in child.eleArray'>
+
+        <div vlc-slds-include="vlcLabelController.html"></div>
+
+        <!-- should put an icon in the text field -->
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+
+            <div data-content="{{::(bpTree.oSCurrencySymbol || control.propSetMap.currencySymbol)}}" class="vlc-control-wrapper" help="{{::control.propSetMap.help}}">
+                <input id='{{::control.name}}'
+                       type='tel'
+                       ng-blur='aggregate(this, control.index, control.indexInParent, true, -1)'
+                       ng-disabled='control.ro'
+                       ng-required="control.req"
+                       ui-currency-setting="::bpTree.oSCurrencySetting"
+                       ui-number-mask='::control.propSetMap.mask'
+                       ui-negative-number='{{::control.propSetMap.allowNegative}}'
+                       ui-hide-group-sep='{{::control.propSetMap.hideGroupSep}}'
+                       min='::control.propSetMap.min'
+                       max='::control.propSetMap.max'
+                       name='loopname'
+                       ng-model='control.response'
+                       ng-model-options="{ updateOn: 'default focusout blur', debounce: { 'default': control.propSetMap.debounceValue, 'focusout': 0, 'blur': 0 } }"
+                       class='slds-input'
+                       ng-init='init(this, control)'
+                       vlc-slds-val-check-currency="response"
+                       vlc-slds-val-checker="response" />
+
+                <label for="{{::control.name}}" class='slds-form-element__label'>{{::control.propSetMap.label}}
+                    <span class='vlc-asterix icon-v-asterix'
+                          ng-if='control.req'>
+                    </span>
+                </label>
+
+                <!-- tooltip template -->
+                <a vlc-slds-tool-tip="test" ng-show="{{control.propSetMap.help}}"> i </a>
+            
+            </div>
+
+            <div ng-include="::errHTMLId"></div>            
+
+        </div>
+
+        <span class='vlc-slds-currency-symbol' ng-class="{'vlc-slds-currency-symbol__readonly': control.ro === true}" >{{::(bpTree.oSCurrencySymbol || control.propSetMap.currencySymbol)}}</span>
+
+    </ng-form>
+</div>

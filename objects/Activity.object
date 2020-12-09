@@ -113,28 +113,92 @@
         <type>Default</type>
     </actionOverrides>
     <enableFeeds>false</enableFeeds>
-    <listViews>
-        <fullName>AllActivities</fullName>
-        <filterScope>Team</filterScope>
-        <label>All Activities</label>
-    </listViews>
+    <fields>
+        <fullName>vlocity_cmt__CompletedDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Completed Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DueInDays__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is used by Activity Templates to set the Due Date for an Activity. It should be blank for all manually-created Activities.</inlineHelpText>
+        <label>Due in (days)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EventStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Event Status</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Started</fullName>
+                    <default>true</default>
+                    <label>Not Started</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Shared</fullName>
+                    <default>false</default>
+                    <label>Shared</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FollowUpTo__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Identifies the type of object that should be created when a user creates a &quot;follow up&quot; item for this event or task. Values must be one of “Log Call”, “Case”, “Event”, “Opportunity”, “Task”, “Order”.</description>
+        <externalId>false</externalId>
+        <label>Follow Up To</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>MyActivities</fullName>
         <filterScope>Mine</filterScope>
         <label>My Activities</label>
     </listViews>
     <listViews>
+        <fullName>MyDelegatedActivities</fullName>
+        <filterScope>Delegated</filterScope>
+        <label>My Delegated Activities</label>
+    </listViews>
+    <listViews>
+        <fullName>MyTeamsActivities</fullName>
+        <filterScope>Team</filterScope>
+        <label>My Team&apos;s Activities</label>
+    </listViews>
+    <listViews>
         <fullName>TodaysTasks</fullName>
         <filterScope>Mine</filterScope>
-        <filters>
-            <field>ACTIVITY.TASK</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
         <filters>
             <field>TASK.CLOSED</field>
             <operation>equals</operation>
             <value>0</value>
+        </filters>
+        <filters>
+            <field>ACTIVITY.TASK</field>
+            <operation>equals</operation>
+            <value>1</value>
         </filters>
         <filters>
             <field>TASK.DUE_DATE</field>

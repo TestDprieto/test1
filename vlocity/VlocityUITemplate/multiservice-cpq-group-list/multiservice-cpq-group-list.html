@@ -1,0 +1,112 @@
+<div class="slds-spinner_container" ng-hide="isLoaded">
+    <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+    </div>
+</div>
+<div class="multiservice-group-list slds-size_1-of-1" ng-controller="CPQGroupController">
+    <div class="slds-size_1-of-1">
+        <div ng-if="!groupList || groupList.length === 0" class="slds-text-align_center slds-p-top_medium">
+            No Records found.
+        </div>
+    </div>
+    <div class="slds-size_1-of-1">
+        <ul class="slds-accordion" ng-if="groupList.length > 0">
+            <li class="slds-accordion__list-item" ng-repeat="group in groupList" 
+            ng-class="($root.cartId === group.groupCartId) ? 'highlight-group' : ''">
+                <section class="slds-accordion__section less-right-padding" ng-class="{'slds-is-open': group.$toggle}">
+                    <div class="slds-accordion__summary">
+                        <button aria-controls="accordion-details-{{group.groupId}}" aria-expanded="{{group.$toggle}}"
+                        class="slds-button slds-button_reset slds-accordion__summary-action summary-action"
+                        ng-click="group.$toggle = !group.$toggle; getGroupedServices(group)">
+                            <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'switch'" 
+                            extra-classes="'slds-accordion__summary-action-icon summary-action-icon slds-button__icon slds-button__icon_left'"></slds-button-svg-icon>
+                            <!--<span class="" ng-attr-title="{{group.groupName}}({{group.itemsCount ? group.itemsCount : 0}})">-->
+                            <a class="group-name-wrapper" ng-attr-title="{{group.groupName}}({{group.itemsCount ? group.itemsCount : 0}})" href="{{group.groupCartURL}}">{{group.groupName}} ({{group.itemsCount ? group.itemsCount : 0}})</a>
+                            <!--</span>-->
+
+                            <slds-svg-icon ng-if="group.applyToGroup" sprite="'utility'" size="'xx-small'" icon="'dash'" 
+                            extra-classes="'status-icon slds-icon-text-warning'"></slds-svg-icon>
+                            <slds-svg-icon ng-if="!group.applyToGroup && !group.priceValidate && !group.hasUnappliedGroupItems && (!group.groupCart[$root.nsPrefix + 'IsPriced__c'] && !group.groupCart[$root.nsPrefix + 'IsValidated__c'])"
+                            sprite="'utility'" size="'xx-small'" icon="'check'" extra-classes="'status-icon fill-blue'"></slds-svg-icon>
+
+                            <span ng-if="!group.priceValidate && !group.hasUnappliedGroupItems && group.groupCart[$root.nsPrefix + 'IsPriced__c'] && group.groupCart[$root.nsPrefix + 'IsValidated__c']" 
+                                    class="slds-badge group-validation-success-badage">Complete
+                            </span>
+                            <span ng-if="!group.priceValidate && !group.hasUnappliedGroupItems && group.groupCart[$root.nsPrefix + 'IsPriced__c'] && !group.groupCart[$root.nsPrefix + 'IsValidated__c']" 
+                                    class="circle-container circle-container-error">
+                                <slds-svg-icon sprite="'utility'" size="'xx-small'" icon="'error'" extra-classes="''"></slds-svg-icon>
+                            </span>
+                            <span ng-if="group.priceValidate" class="circle-container circle-container-warning">
+                                <slds-svg-icon sprite="'utility'" size="'xx-small'" icon="'dash'" extra-classes="''"></slds-svg-icon>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="slds-accordion__content" id="accordion-details-{{group.groupId}}">
+                        <ul class="slds-accordion" >
+                            <li class="slds-accordion__list-item" ng-repeat="groupedItem in group.services"
+                                ng-class="$root.cartId === groupedItem.quoteId ? 'highlight-group' : ''">
+                                <section class="slds-accordion__section less-right-padding" ng-class="{'slds-is-open': groupedItem.$toggle}">
+                                    <div class="slds-accordion__summary">
+                                        <button aria-controls="accordion-details-{{groupedItem.Id.value}}" aria-expanded="{{groupedItem.$toggle}}"
+                                        class="slds-button slds-button_reset slds-accordion__summary-action summary-action"
+                                        ng-click="groupedItem.$toggle = !groupedItem.$toggle">
+                                            <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'switch'" 
+                                            extra-classes="'slds-accordion__summary-action-icon summary-action-icon slds-button__icon slds-button__icon_left'"></slds-button-svg-icon>
+                                            <!--<span class="slds-truncate" title="{{groupedItem.Name.value}}">-->
+                                            <a href="{{groupedItem.quoteURL}}" title="{{groupedItem.Name.value}}" class="service-name-wrapper">{{groupedItem[$root.nsPrefix + 'MarketIdentifier__c'].value}}</a>
+                                            <!--</span>-->
+                                            <slds-svg-icon ng-if="!groupedItem.applyToGroup && !groupedItem.priceValidate && groupedItem.quoteId && !groupedItem.quote[$root.nsPrefix + 'IsPriced__c'] && !groupedItem.quote[$root.nsPrefix + 'IsValidated__c']" 
+                                            sprite="'utility'" size="'xx-small'" icon="'check'" extra-classes="'status-icon fill-blue'"></slds-svg-icon>
+                                            <slds-svg-icon ng-if="groupedItem.applyToGroup" sprite="'utility'" size="'xx-small'" icon="'dash'" 
+                                            extra-classes="'status-icon slds-icon-text-warning'"></slds-svg-icon>
+
+                                            <span ng-if="groupedItem.priceValidate" class="circle-container circle-container-warning">
+                                                <slds-svg-icon sprite="'utility'" size="'xx-small'" icon="'dash'" extra-classes="''"></slds-svg-icon>
+                                            </span>
+                                            <span ng-if="!groupedItem.priceValidate && !groupedItem.applyToGroup && groupedItem.quote[$root.nsPrefix + 'IsPriced__c'] && groupedItem.quote[$root.nsPrefix + 'IsValidated__c']" class="circle-container circle-container-success">
+                                                <slds-svg-icon sprite="'utility'" size="'xx-small'" icon="'check'" extra-classes="''"></slds-svg-icon>
+                                            </span>
+                                            <span ng-if="!groupedItem.priceValidate && !groupedItem.applyToGroup && groupedItem.quote[$root.nsPrefix + 'IsPriced__c'] && !groupedItem.quote[$root.nsPrefix + 'IsValidated__c']" class="circle-container circle-container-error">
+                                                <slds-svg-icon sprite="'utility'" size="'xx-small'" icon="'error'" extra-classes="''"></slds-svg-icon>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="slds-accordion__content" id="accordion-details-{{groupedItem.Id.value}}">
+                                        {{groupedItem[$root.nsPrefix + 'PremisesId__r.Name'].value}}
+                                    </div>
+                                </section>
+                            </li>
+                            <li class="slds-accordion__list-item" ng-if="group.isLoading">
+                                <div class="slds-spinner_brand slds-spinner slds-spinner_x-small" aria-hidden="false" role="alert">
+                                    <div class="slds-spinner__dot-a"></div>
+                                    <div class="slds-spinner__dot-b"></div>
+                                </div>
+                            </li>
+                            <li class="slds-accordion__list-item" ng-if="!group.isLoading && group.services.length < group.itemsCount && group.actions.getGroupedServices">
+                                <div class="slds-grid slds-grid_align-center slds-m-top_x-small">
+                                    <button class="slds-button slds-button_neutral" ng-click="getMoreGroupedServices(group)">
+                                        Load More
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </li>
+            <li class="slds-accordion__list-item" ng-if="groupTotalCount > groupList.length && records.actions.nextGroups && !isGroupsLoading">
+                <div class="slds-grid slds-grid_align-center slds-m-top_x-small">
+                    <button class="slds-button slds-button_neutral" ng-click="getMoreGroups(records.actions.nextGroups)">
+                        Load More
+                    </button>
+                </div>
+            </li>
+            <li class="slds-accordion__list-item" ng-if="isGroupsLoading">
+                <div class="slds-spinner_brand slds-spinner slds-spinner_x-small" aria-hidden="false" role="alert">
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

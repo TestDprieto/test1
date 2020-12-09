@@ -1,0 +1,33 @@
+<!-- Donut Graphs -->
+<div ng-controller="donutChartController as dc">
+    <div class="con-device-details-donut-graph-chart" ng-if="placeholder.DisplayThreshold.value == '0'">
+        <div class="con-device-details-donut-graph-title">
+            {{placeholder.DisplayName.value}}
+        </div>
+        <div class="con-device-details-donut-graph-data con-icon-infinity"></div>
+        <svg width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <circle id="circle" class="circle_animation circle_empty" r="30" cy="35" cx="35" stroke-width="8" stroke-dashoffset="0" fill="none"/>
+            </g>
+        </svg>
+        <div class="con-device-details-donut-graph-subtitle">
+            {{placeholder.DisplayAmount.value}} {{placeholder.DisplayAmount.label}}
+        </div>
+    </div>
+    <div class="con-device-details-donut-graph-chart con-donut-chart-{{data.cardIndex}}" ng-if="placeholder.DisplayThreshold.value != '0'">
+        <div class="con-device-details-donut-graph-title">
+            {{placeholder.DisplayName.value}}
+        </div>
+        <div class="con-device-details-donut-graph-data"></div>
+        <svg width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <circle id="circle" r="30" cy="35" cx="35" stroke-width="8" stroke="#e9ecfe" fill="none"/>
+                <circle id="circle" class="circle_animation" r="30" cy="35" cx="35" stroke-width="8" stroke-dashoffset="190" fill="none"/>
+            </g>
+        </svg>
+        <div class="con-device-details-donut-graph-subtitle">
+            {{placeholder.DisplayAmount.value}}/{{placeholder.DisplayThreshold.value}} {{placeholder.DisplayAmount.label}}
+        </div>
+        {{drawGraph(data)}}
+    </div>
+</div>

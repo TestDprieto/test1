@@ -1,0 +1,46 @@
+<div class='slds-col--padded slds-size--1-of-1 alt-vlc-slds--control'>
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-time-picker-control'
+             ng-repeat='control in child.eleArray'>
+
+        <div vlc-slds-include="altVlcLabelController.html"></div>
+
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{control.propSetMap.inputWidth}}-of-12">
+
+            <div class="vlc-control-wrapper" help="{{::control.propSetMap.help}}">
+
+                <input id='{{::control.name}}'
+                       ng-disabled='control.ro'
+                       ng-required='control.req'
+                       type='text'
+                       placement='none'
+                       name='loopname'
+                       ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'
+                       class='slds-input vlc-slds-time-picker'
+                       ng-model='control.response'
+                       ng-init='init(this, control)'
+                       slds-time-picker
+                       data-time-format ="{{::control.propSetMap.timeFormat}}"
+                       data-min-time="{{::control.propSetMap.minTime}}"
+                       data-max-time="{{::control.propSetMap.maxTime}}"
+                       vlc-slds-val-checker="response" />
+
+                <!-- tooltip template -->
+                <a vlc-slds-tool-tip="test" ng-show="{{control.propSetMap.help}}"> i </a>
+
+            </div>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'clock'"
+                           size="'small'"
+                           extra-classes="'slds-button__icon slds-button__icon--large'">
+            </slds-svg-icon>
+
+            <div ng-include="::errHTMLId"></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

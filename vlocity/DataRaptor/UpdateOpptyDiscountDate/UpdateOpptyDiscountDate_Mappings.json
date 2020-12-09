@@ -1,0 +1,45 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__OpportunityDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "%vlocity_namespace%__EffectiveEndDate__c",
+        "%vlocity_namespace%__GlobalKey__c": "32231893-d0e4-eeb5-47b8-5510f44bbe7b",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "EffectiveEndDate",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "UpdateOpptyDiscountDateCustom9137",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "UpdateOpptyDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__OpportunityDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__GlobalKey__c": "7f8e4d01-b058-1303-d4d6-7648e6320593",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Oppty:DeactivatedDiscounts:Id",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": true,
+        "%vlocity_namespace%__MapId__c": "UpdateOpptyDiscountDateCustom3979",
+        "%vlocity_namespace%__UpsertKey__c": true,
+        "Name": "UpdateOpptyDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__ConfigurationValue__c": "FAKEMAPPING",
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__OpportunityDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__GlobalKey__c": "ad6596cc-5882-7b1b-484a-8985a34f3060",
+        "%vlocity_namespace%__IsDisabled__c": true,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "UpdateOpptyDiscountDateCustom7620",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "UpdateOpptyDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

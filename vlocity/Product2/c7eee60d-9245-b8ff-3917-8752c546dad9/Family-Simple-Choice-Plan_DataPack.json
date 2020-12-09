@@ -1,0 +1,166 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "Family-Simple-Choice-Plan_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+        "ATT_DT_MPT": "Family",
+        "ATT_RT_NL": 2
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ACAT_Plans",
+                "Name": "Mobile Plans",
+                "displaySequence": 10,
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "cloneable": true,
+                            "code": "ATT_DT_MPT",
+                            "dataType": "text",
+                            "disabled": true,
+                            "displaySequence": 20,
+                            "filterable": true,
+                            "hasRules": false,
+                            "hidden": true,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Mobile Plan Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": true,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "id": "10",
+                                    "label": "Individual",
+                                    "readonly": false,
+                                    "value": "Individual"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "20",
+                                    "label": "Family",
+                                    "readonly": false,
+                                    "value": "Family"
+                                }
+                            ]
+                        },
+                        {
+                            "cloneable": true,
+                            "code": "ATT_RT_NL",
+                            "dataType": "number",
+                            "disabled": false,
+                            "displaySequence": 30,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "number",
+                            "isNotTranslatable": false,
+                            "label": "Number of Lines",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 2
+                }
+            }
+        ],
+        "totalSize": 1
+    },
+    "%vlocity_namespace%__AttributeRules__c": "{}",
+    "%vlocity_namespace%__CategoryData__c": "",
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "2017-10-01",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__GlobalGroupKey__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "c7eee60d-9245-b8ff-3917-8752c546dad9",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": true,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "7b2e9ae52e44993ed4f83d51f3faf146",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/7b2e9ae52e44993ed4f83d51f3faf146",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__ProductChildItem__c": "Family-Simple-Choice-Plan_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Product",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "None",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "None",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "The more, the merrier! Everything you need to keep your family humming.",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "Family Simple Choice Plan",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "PricebookEntry": "Family-Simple-Choice-Plan_PricebookEntries.json",
+    "ProductCode": "C-MPP-003",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/c7eee60d-9245-b8ff-3917-8752c546dad9"
+}

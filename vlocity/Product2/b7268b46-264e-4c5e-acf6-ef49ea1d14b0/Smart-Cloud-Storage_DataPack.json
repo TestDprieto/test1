@@ -1,0 +1,124 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "Smart-Cloud-Storage_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ATT_CODE_IS",
+                "Name": "Internet Services",
+                "displaySequence": 30,
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "cloneable": true,
+                            "code": "ATT_STORAGE",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 10,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Storage Limit",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": null
+                        }
+                    ],
+                    "totalSize": 1
+                }
+            }
+        ],
+        "totalSize": 1
+    },
+    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__CategoryData__c": "",
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "2018-04-30",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "2018-04-30T07:00:00.000Z",
+    "%vlocity_namespace%__GlobalGroupKey__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "b7268b46-264e-4c5e-acf6-ef49ea1d14b0",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": true,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "Seconds",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "92cfd7a9c3638f11ae1f0c56c604eb4c",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/92cfd7a9c3638f11ae1f0c56c604eb4c",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__ProductChildItem__c": "Smart-Cloud-Storage_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "2018-04-30T07:00:00.000Z",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Product",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "None",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "None",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "Smart Cloud Storage",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "PricebookEntry": "Smart-Cloud-Storage_PricebookEntries.json",
+    "ProductCode": "C-CSP-001",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/b7268b46-264e-4c5e-acf6-ef49ea1d14b0"
+}

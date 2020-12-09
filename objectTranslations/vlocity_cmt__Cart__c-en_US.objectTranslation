@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Customer Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Cart --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Cart Created --></label>
+        <name>vlocity_cmt__CartCreatedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cart Last Modified --></label>
+        <name>vlocity_cmt__CartLastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cart URL --></label>
+        <name>vlocity_cmt__CartUrl__c</name>
+    </fields>
+    <fields>
+        <label><!-- Channel --></label>
+        <name>vlocity_cmt__Channel__c</name>
+        <picklistValues>
+            <masterLabel>Call Center</masterLabel>
+            <translation><!-- Call Center --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail</masterLabel>
+            <translation><!-- Retail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Checkout Completed --></label>
+        <name>vlocity_cmt__CheckoutCompletedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contact --></label>
+        <name>vlocity_cmt__ContactId__c</name>
+        <relationshipLabel><!-- Cart --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Lead --></label>
+        <name>vlocity_cmt__LeadId__c</name>
+        <relationshipLabel><!-- Cart --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Total: One Time Charges --></label>
+        <name>vlocity_cmt__OneTimeTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Progress --></label>
+        <name>vlocity_cmt__ProgressPercentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total: Monthly Charges --></label>
+        <name>vlocity_cmt__RecurringTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Shopper IP --></label>
+        <name>vlocity_cmt__ShopperIpAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source System --></label>
+        <name>vlocity_cmt__SourceSystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Abandoned</masterLabel>
+            <translation><!-- Abandoned --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

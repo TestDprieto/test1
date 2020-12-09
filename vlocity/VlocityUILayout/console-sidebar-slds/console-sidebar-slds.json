@@ -1,0 +1,38 @@
+{
+    "Cards": [
+        "profile-account-slds",
+        "profile-account-info-slds"
+    ],
+    "GlobalKey__c": "console-sidebar-slds/1/Vlocity/1495043708218",
+    "componentName": "cfConsoleSidebarSlds",
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "001f400000Odl3cAAB"
+            }
+        ],
+        "type": "Query",
+        "value": {
+            "jsonMap": "{\"params.id\":\"{{params.id}}\"}"
+        }
+    },
+    "enableLwc": false,
+    "lwc": {
+        "DeveloperName": "cardCanvas1x",
+        "Id": "0Rbf4000000Xax1CAC",
+        "MasterLabel": "cardCanvas1x",
+        "name": "cardCanvas1x"
+    },
+    "previewType": "runTime",
+    "repeatCards": false,
+    "templates": {
+        "0": {
+            "templateUrl": "console-sidebar-slds"
+        }
+    },
+    "workspace": [
+        "profile-account-slds/Vlocity/1495043462804",
+        "profile-account-info-slds/Vlocity/1495043462802"
+    ]
+}

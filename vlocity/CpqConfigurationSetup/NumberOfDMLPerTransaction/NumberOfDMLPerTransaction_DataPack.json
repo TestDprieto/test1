@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "This setting is used when the MTSEnabled is set to true. This is used to set the value against which current DML count should be compared to decide whether the transaction has to be split or not.",
+    "%vlocity_namespace%__SetupValue__c": "125",
+    "Name": "NumberOfDMLPerTransaction",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/NumberOfDMLPerTransaction"
+}

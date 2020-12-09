@@ -1,0 +1,87 @@
+<script>
+        $(document).ready(function(){
+   
+	        //Page finished loading so show navbar
+    	    showPage();
+    		
+	    });
+	    
+        function showPage(){
+            if($('.con-navbar-shop').length){
+        	    $('.con-navbar-shop').css('opacity', '1');
+    	        $('.con-shop-details').css('opacity', '1');
+            }else{
+                setTimeout(function(){showPage();},500);
+            }
+        }
+</script>
+<div class="con-shop-details">
+        <div class="con-shop-tab-content con-shop-tab-content-active" id="con-products-1">
+            <div class="con-device-details-section">
+                <div class="con-device-details-section-title">
+                    Recommended for you
+                </div>
+                <!--Product Suggestions-->
+                <div class="con-shop-browse">
+                    
+                    <div vloc-card ng-repeat="card in data.zones.Recommended.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="con-shop-browse-product con-opacity-fade-in"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="con-device-details-section">
+                <div class="con-device-details-section-title">
+                    Top sellers
+                </div>
+                
+                <!--Top Selling Products-->
+                <div class="con-shop-browse">
+                    
+                    <div vloc-card ng-repeat="card in data.zones.Top.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="con-shop-browse-product con-opacity-fade-in"></div>
+                    
+                </div>
+            </div>
+            
+            <div class="con-device-details-section">
+                <div class="con-device-details-section-title">
+                    Quick Links
+                </div>
+                
+                <!--Actions-->
+                <div vloc-card ng-repeat="card in data.zones.Actions.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="con-opacity-fade-in"></div>
+                
+            </div>  
+        </div>
+        
+        <div class="con-shop-tab-content" id="con-products-2">
+            <div class="con-device-details-section">
+
+                <!--Products-->
+                <div class="con-shop-browse" >
+                    
+                    <div vloc-card ng-repeat="card in data.zones.Phones.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="con-shop-browse-product con-opacity-fade-in"></div>
+                    
+                </div>
+                
+            </div>
+    
+        </div>
+        
+        <div class="con-shop-tab-content" id="con-products-3">
+            <div class="con-device-details-section">
+                
+                <div vloc-card ng-repeat="card in data.zones.Tablets.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="con-shop-browse-product con-opacity-fade-in"></div>
+                
+            </div>
+        </div>
+        
+        <div class="con-shop-tab-content" id="con-products-4">
+            <div class="con-device-details-section">
+
+                <div vloc-card ng-repeat="card in data.zones.Accessories.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="con-shop-browse-product con-opacity-fade-in"></div>
+
+            </div>
+    
+        </div>
+
+    </div>

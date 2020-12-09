@@ -1,0 +1,229 @@
+<div class="cpq-product-cart-item-create-discount">
+    <div class="cpq-new-discount-container">
+        <div class="slds-size_1-of-1 slds-m-bottom_small">
+            <div class="cpq-custom-discount-title">{{::importedScope.customLabels.CPQDefinition}}</div>
+        </div>
+        <div  class="slds-size_1-of-1">
+            <div class="slds-form-element__control slds-p-bottom_small">
+                <div class="slds-form slds-form_stacked">
+                    <div class="slds-form slds-form_horizontal">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label cpq-discount-label"> <abbr title="required">* </abbr>{{::importedScope.customLabels.CPQName}}</label>
+                            <div class="slds-form-element__control">
+                              <input type="text" ng-model="records['Discount Name'].value" class="slds-input" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label cpq-discount-label">{{::importedScope.customLabels.CPQDescription}}</label>
+                            <div class="slds-form-element__control">
+                              <input type="text" ng-model="records.Description.value" class="slds-input" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Discount Amount -->
+    <div class="cpq-new-discount-container">
+        <div class="slds-size_1-of-1 slds-m-bottom_small">
+            <div class="cpq-custom-discount-title">{{::importedScope.customLabels.CPQDiscountAmount}}</div>
+        </div>
+        <div  class="slds-size_1-of-1">
+            <div class="slds-form-element__control slds-p-bottom_small">
+                <div class="slds-form slds-form_stacked">
+                    <div class="slds-form slds-form_horizontal cpq-discount-form_horizontal">
+                        <div ng-repeat="discountType in records.Discount.discounts | orderBy : discountType.chargeType : true" class="slds-m-top_x-small">
+                            <div ng-if="discountType.chargeType === 'One-time'">
+                                <div class="slds-form-element cpq-pricing-picklist" >
+                                    <label class="slds-form-element__label cpq-discount-label" for="cpq-custom-discount-one-time-view-button">{{::importedScope.customLabels.CPQDiscountOnetimeCharges}}</label>
+                                    <span class="cpq-discount-negative-mark"> - </span>
+                                    <div class="slds-form-element__control cpq-discount-input-filed">
+                                        <input type="number" ng-model="discountType.value" class="slds-input" />
+                                    </div>
+                                    <div class="slds-picklist slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                                        <button cpq-dropdown-handler="dropdownPaymentOneTimeTypeOpen = false" id="cpq-custom-discount-one-time-view-button" class="slds-button slds-button_neutral slds-picklist__label cpq-pricing-picklist-value__label slds-p-right_small" aria-haspopup="true" ng-click="dropdownPaymentOneTimeTypeOpen  = !dropdownPaymentOneTimeTypeOpen">
+                                        <slds-button-svg-icon sprite="'utility'" icon="'down'" extra-classes="'slds-m-top_x-small slds-float_right'"></slds-button-svg-icon>
+                                            {{discountType.selectedAdjustmentMethod.value}}
+                                        </button>
+                                        <div class="slds-dropdown slds-dropdown_left cpq-pricing-picklist-value__label" ng-if="dropdownPaymentOneTimeTypeOpen">
+                                            <ul class="slds-dropdown__list slds-dropdown_length-5" role="menu">
+                                                <li class="slds-dropdown__item" role="presentation" ng-repeat="type in discountType.types"
+                                                ng-click="discountType.selectedAdjustmentMethod = type">
+                                                    <a href="javascript:void(0);" ng-show="discountType.selectedAdjustmentMethod.value !== type.value" role="menuitemcheckbox" tabindex="0">
+                                                    <span class="slds-truncate">{{type.value}}</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-form-element cpq-pricing-picklist" ng-if="discountType.chargeType ==='Recurring'">
+                                <label class="slds-form-element__label cpq-discount-label" for="cpq-custom-discount-recurring-view-button">{{::importedScope.customLabels.CPQDiscountRecurringCharges}}</label>
+                                <span class="cpq-discount-negative-mark"> - </span>
+                                <div class="slds-form-element__control cpq-discount-input-filed">
+                                    <input type="number" ng-model="discountType.value" class="slds-input" />
+                                </div>
+                                <div class="slds-picklist slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                                    <button cpq-dropdown-handler="dropdownRecurringPaymentTypeOpen = false" id="cpq-custom-discount-recurring-view-button" class="slds-button slds-button_neutral slds-picklist__label cpq-pricing-picklist-value__label slds-p-right_small" aria-haspopup="true" ng-click="dropdownRecurringPaymentTypeOpen = !dropdownRecurringPaymentTypeOpen">
+                                    <slds-button-svg-icon sprite="'utility'" icon="'down'" extra-classes="'slds-m-top_x-small slds-float_right'"></slds-button-svg-icon>
+                                       {{discountType.selectedAdjustmentMethod.value}}
+                                     </button>
+                                    <div class="slds-dropdown slds-dropdown_left cpq-pricing-picklist-value__label" ng-if="dropdownRecurringPaymentTypeOpen">
+                                        <ul class="slds-dropdown__list slds-dropdown_length-5" role="menu">
+                                            <li class="slds-dropdown__item" role="presentation" ng-repeat="type in discountType.types"
+                                              ng-click="discountType.selectedAdjustmentMethod = type">
+                                                <a href="javascript:void(0);" ng-show="discountType.selectedAdjustmentMethod.value !== type.value" role="menuitemcheckbox" tabindex="0">
+                                                  <span class="slds-truncate">{{type.value}}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="slds-picklist slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                                    <button cpq-dropdown-handler="dropdownTimePlanTypeOpen = false" id="cpq-custom-discount-time-plan-view-button" class="slds-truncate slds-button slds-button_neutral slds-picklist__label cpq-time-plan-picklist-value__label slds-p-right_small" aria-haspopup="true" ng-click="dropdownTimePlanTypeOpen = !dropdownTimePlanTypeOpen">
+                                    <slds-button-svg-icon sprite="'utility'" icon="'down'" extra-classes="'slds-m-top_x-small slds-float_right'"></slds-button-svg-icon>
+                                       {{discountType.selectedTimePlan.label}}
+                                    </button>
+                                    <div class="slds-dropdown slds-dropdown_left cpq-time-plan-picklist-value__label" ng-if="dropdownTimePlanTypeOpen">
+                                        <ul class="slds-dropdown__list slds-dropdown_length-5" role="menu">
+                                            <li class="slds-dropdown__item" role="presentation" ng-repeat="type in records['timePlanList']"
+                                              ng-click="discountType.selectedTimePlan = type">
+                                                <a href="javascript:void(0);" ng-show="discountType.selectedTimePlan.label !== type.label" role="menuitemcheckbox" tabindex="0">
+                                                  <span class="slds-truncate">{{type.label}}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Discount Amount-->
+
+    <!--Start duration to apply discount-->
+    <div class="cpq-new-discount-container">
+        <div class="slds-size_1-of-1 slds-m-bottom_small">
+            <div class="cpq-custom-discount-title">{{::importedScope.customLabels.CPQDiscountApplicable}}</div>
+        </div>
+        <div  class="slds-size_1-of-1">
+            <div class="slds-form-element__control slds-p-bottom_small">
+                <div class="slds-form slds-form_stacked">
+                    <div class="slds-form slds-form_horizontal cpq-discount-form_horizontal">
+                        <div class="slds-form-element cpq-pricing-picklist">
+                            <label class="slds-form-element__label cpq-discount-label" for="cpq-custom-adjustment-view-button">* {{::importedScope.customLabels.CPQDiscountAllocation}}</label>
+                            <div class="slds-picklist slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+                                <button cpq-dropdown-handler="dropdownAdjustmentOpen = false" id="cpq-custom-adjustment-view-button" class="slds-button slds-button_neutral slds-picklist__label cpq-pricing-picklist__label slds-p-right_small" aria-haspopup="true" ng-click="dropdownAdjustmentOpen = !dropdownAdjustmentOpen">
+                                  <slds-button-svg-icon sprite="'utility'" icon="'down'" extra-classes="'slds-m-top_x-small slds-float_right'"></slds-button-svg-icon>
+                                    {{records.Allocation.selectedDiscountType.name}}
+                                </button>
+                                <div class="slds-dropdown slds-dropdown_left cpq-pricing-picklist-dropdown" ng-if="dropdownAdjustmentOpen">
+                                    <ul class="slds-dropdown__list slds-dropdown_length-5" role="menu">
+                                        <li class="slds-dropdown__item" role="presentation" ng-repeat="type in records.Allocation.types"
+                                          ng-click="records.Allocation.selectedDiscountType = type">
+                                            <a href="javascript:void(0);" ng-show="records.Allocation.selectedDiscountType.name !== type.name" role="menuitemcheckbox" tabindex="0">
+                                              <span class="slds-truncate">{{type.name}}</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form-element" ng-hide="records.Allocation.selectedDiscountType.value === 'Order'">
+                            <label class="slds-form-element__label cpq-discount-label">{{::importedScope.customLabels.CPQDiscountActivePeriod}}</label>
+                            <div class="slds-form-element__control cpq-discount-month-input">
+                              <input type="number" min="0" ng-model="records['Active period'].value" class="slds-input" />
+                            </div>
+                            <span>{{::importedScope.customLabels.CPQDiscountMonths}}</span>
+                        </div>
+                        <div class="slds-form-element" ng-hide="records.Allocation.selectedDiscountType.value === 'Order'">
+                            <label class="slds-form-element__label cpq-discount-label">{{::importedScope.customLabels.CPQDiscountEndDate}}</label>
+                            <div class="slds-p-horizontal_small slds-form-element slds-m-top_small">
+                                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_right cpq-discount-date-input">
+                                    <slds-input-svg-icon sprite="'utility'" icon="'dayview'" extra-classes="'slds-float_right'"></slds-input-svg-icon>
+                                    <input type="text" class="slds-input" ng-model="records['End date'].value" data-date-format="yyyy-MM-dd" slds-date-picker data-container=".slds-modal"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End duration to apply discount -->
+
+    <!-- Start Scope -->
+    <div class="cpq-new-discount-container">
+        <div class="slds-size_1-of-1 slds-m-bottom_small">
+            <div class="cpq-custom-discount-title">{{::importedScope.customLabels.CPQDiscountCriteria}}</div>
+        </div>
+        <fieldset class="slds-form-element slds-form-element_stacked  slds-m-bottom_small">
+            <legend class="slds-form-element__legend slds-form-element__label">{{::importedScope.customLabels.CPQApplyDiscountToItems}}</legend>
+            <span class="slds-radio cpq-discount-slds-radio">
+                <input type="radio" id="cpq-total-Specific-offer" ng-model="records['All items in cart'].value" ng-value="false"/>
+                <label class="slds-radio__label" for="cpq-total-Specific-offer">
+                <span class="slds-radio_faux"></span>
+                <span class="slds-form-element__label">{{::importedScope.customLabels.CPQMatchingCriteriaBelow}}</span>
+                </label>
+            </span>
+            <span class="slds-radio">
+                <input type="radio" id="cpq-total-all-cart-offer" ng-model="records['All items in cart'].value" ng-value="true"/>
+                <label class="slds-radio__label" for="cpq-total-all-cart-offer">
+                <span class="slds-radio_faux"></span>
+                <span class="slds-form-element__label">{{records['All items in cart'].label}}</span>
+                </label>
+            </span>
+        </fieldset>
+        <div  ng-if="!records['All items in cart'].value" class="slds-size_1-of-1">
+            <div class="slds-form-element__control slds-p-bottom_small">
+                <div class="slds-form slds-form_stacked">
+                    <div class="slds-form slds-form_horizontal" ng-controller="searchItemsDiscountTplController">
+                        <div class="slds-form-element cpq-discount-search-container">
+                            <label class="slds-form-element__label slds-m-bottom_small cpq-discount-label" for="cpq-custom-adjustment-view-button">{{::importedScope.customLabels.CPQCategory}}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-input-has-icon slds-input-has-icon_right slds-m-bottom_xx-small">
+                                    <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'search'" extra-classes="'slds-input__icon slds-icon-text-default'"></slds-svg-icon>
+                                    <input class="slds-lookup__search-input slds-input" type="search" placeholder="{{::customLabels.CPQSearch}}" role="combobox" aria-activedescendent="" aria-expanded="true" aria-autocomplete="list" ng-model="searchItemCategory" slds-options="item.Name for item in getSearchItems(records.Category, $viewValue, tempScope)" data-template="{{typeaheadTemplate}}" data-trigger="focus" data-limit="100" slds-typeahead/>
+                                </div>
+                                <span ng-repeat="catlogItem in arrayOfCatlogs track by $index">
+                                    <span ng-click="deleteSelectedCatlog($index)" class="slds-m-bottom_xx-small slds-badge cpq-discount-badge">{{catlogItem.Name}}
+                                      <span class="slds-badge__icon slds-badge__icon_right">
+                                        <span class="slds-icon_container slds-m-left_small cpq-discount-close-icon-color" title="close">
+                                        <slds-button-svg-icon sprite="'utility'" icon="'close'"></slds-button-svg-icon>
+                                        </span>
+                                      </span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="slds-form-element cpq-discount-search-container">
+                            <label class="slds-form-element__label cpq-discount-label" for="cpq-custom-adjustment-view-button">{{::importedScope.customLabels.CPQProduct}}</label>
+                            <div class="slds-form-element__control">
+                                <div class="slds-input-has-icon slds-input-has-icon_right slds-m-bottom_xx-small">
+                                    <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'search'" extra-classes="'slds-input__icon slds-icon-text-default'"></slds-svg-icon>
+                                    <input class="slds-lookup__search-input slds-input" type="search" placeholder="{{::customLabels.CPQSearch}}" role="combobox" aria-activedescendent="" ng-model="searchItemproducts" aria-expanded="true" aria-autocomplete="list"  slds-options="item.UnitPrice.value  as item.Name.value for item in getSearchItems(records.Product, $viewValue, tempScope)" data-template="{{typeaheadTemplate}}" data-trigger="focus" data-limit="100" slds-typeahead/>
+                                </div>
+                                <span ng-repeat="products in arrayOfProducts track by $index">
+                                    <span ng-click="deleteSelectedItem($index)" class="slds-m-bottom_xx-small slds-badge cpq-discount-badge">{{products.name}}
+                                      <span class="slds-badge__icon slds-badge__icon_right">
+                                        <span class="slds-icon_container slds-m-left_small cpq-discount-close-icon-color" title="close">
+                                        <slds-button-svg-icon sprite="'utility'" icon="'close'"></slds-button-svg-icon>
+                                        </span>
+                                      </span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Scope -->
+</div>

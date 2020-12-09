@@ -1,0 +1,49 @@
+{
+    "CreateInteraction": {
+        "%vlocity_namespace%__CustomerInteraction__c_1": [
+            {
+                "%vlocity_namespace%__AccountId__c": "001o000000w7A8tAAE",
+                "Id": "a3U1J000000Gtr7UAC",
+                "UpsertSuccess": true
+            }
+        ],
+        "debugLog": [
+            "2017-06-01T17:54:56.171Z: Query - SELECT Id,Name,%vlocity_namespace%__AssetId__c,%vlocity_namespace%__PartyAccountId__c FROM %vlocity_namespace%__AssetPartyRelationship__c WHERE (%vlocity_namespace%__PartyAccountId__c = '001o000000w7A8tAAE') LIMIT 50000",
+            "2017-06-01T17:54:56.176Z: Query Results Found: 3"
+        ],
+        "error": false,
+        "responseType": "SObject"
+    },
+    "CreateInteractionStatus": true,
+    "ExtractAssetBasedOnAccount": [
+        {
+            "AssetAccountId": "00146000003lOOKAA2",
+            "AssetId": "02i46000000mmafAAA",
+            "Name": "GenWatt Diesel 1000kW"
+        },
+        {
+            "AssetAccountId": "00146000003lOOKAA2",
+            "AssetId": "02i46000000mmbiAAA",
+            "Name": "GenWatt Diesel 10kW"
+        },
+        {
+            "AssetAccountId": "00146000003lOOKAA2",
+            "AssetId": "02i46000000mmakAAA",
+            "Name": "GenWatt Diesel 1000kW"
+        }
+    ],
+    "ExtractAssetBasedOnAccountStatus": true,
+    "TransformNewInteraction": {
+        "NewInteraction": {
+            "AccountId": "001o000000w7A8tAAE",
+            "Id": "a3U1J000000Gtr7UAC"
+        }
+    },
+    "TransformNewInteractionStatus": true,
+    "options": {
+        "isDebug": true
+    },
+    "recordId": "001o000000w7A8t",
+    "response": {
+    }
+}

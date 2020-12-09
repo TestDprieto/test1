@@ -1,0 +1,42 @@
+<div ng-controller="ShopProductController as spc" ng-click="spc.viewDetail(obj)">
+    <div class="con-shop-browse-product-background">
+        <div class="con-shop-browse-product-image">
+            <img src="{{$root.customDefinedValue.CommunityURL + placeholder.ProductImage.value | trusted}}" class="con-opacity-fade-in"/>
+        </div>
+    </div>
+    <div class="con-shop-browse-product-discount-percentage">
+        <span ng-if="placeholder.ProductDiscount.value != ''">{{placeholder.ProductDiscount.value}}% off</span>
+    </div>
+    <div class="con-shop-browse-product-name">
+        {{placeholder.ProductName.value}}
+    </div>
+    <!-- Monthly Cost-->
+    <div class="con-shop-browse-product-price con-shop-browse-product-price-monthly" ng-if="placeholder.ProductPrice.label != ''">
+        {{placeholder.ProductPrice.value | currency}} {{placeholder.ProductPrice.label}}
+    </div>
+    <!-- One Time Cost No Discount -->
+    <div class="con-shop-browse-product-price con-shop-browse-product-price-monthly" ng-if="placeholder.ProductPrice.label == '' && placeholder.ProductDiscount.value == ''">
+        {{placeholder.ProductPrice.value | currency}}
+    </div>
+    <!-- One Time Cost Discount -->
+    <div class="con-shop-browse-product-price" ng-if="placeholder.ProductPrice.label == '' && placeholder.ProductDiscount.value != ''">
+        {{placeholder.ProductPrice.value * (1-(placeholder.ProductDiscount.value/100)) | currency}} {{placeholder.ProductPrice.label}}
+    </div>
+    <div ng-if="placeholder.ProductDiscount.value != ''" class="con-shop-browse-product-discount-price">
+        {{placeholder.ProductPrice.value | currency}}
+    </div>
+    <div class="con-shop-browse-product-attribute">
+        
+        <div ng-repeat="attr in obj.attributeCategories.records[0].productAttributes.records">
+            <div ng-if="attr.label == 'Device Colour'">
+                <div ng-repeat="colours in attr.values">
+                    <span ng-if="$index < 3 && colours.label != 'White - #ffffff'" class="con-shop-browse-product-attribute-colour" style="background:{{colours.label.substring(colours.label.indexOf('#'))}};"></span>
+                    <span ng-if="$index < 3 && colours.label == 'White - #ffffff'" class="con-shop-browse-product-attribute-colour con-shop-browse-product-attribute-colour-border" style="background:{{colours.label.substring(colours.label.indexOf('#'))}};"></span>
+                </div>
+                <div class="con-shop-browse-product-attribute-more" ng-if="attr.values.length > 3">+ {{attr.values.length - 3}} more
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

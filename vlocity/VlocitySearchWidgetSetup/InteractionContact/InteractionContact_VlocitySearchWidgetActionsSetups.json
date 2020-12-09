@@ -1,0 +1,29 @@
+[
+    {
+        "%vlocity_namespace%__ActionName__c": "VerifyActionProcessService",
+        "%vlocity_namespace%__ActionType__c": "Launch",
+        "%vlocity_namespace%__ApplicableCondition__c": "All",
+        "%vlocity_namespace%__DisplayLabel__c": "Verify",
+        "%vlocity_namespace%__DisplaySequence__c": "",
+        "%vlocity_namespace%__InvokeClassName__c": "InteractionActionProcessService",
+        "%vlocity_namespace%__InvokeMethodName__c": "createInteractionThroughIP",
+        "%vlocity_namespace%__VlocityActionId__c": {
+            "Name": "VerifyActionProcessService",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__VlocityAction__c/VerifyActionProcessService",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityAction__c"
+        },
+        "%vlocity_namespace%__VlocityActionId__r.Name": "VerifyActionProcessService",
+        "%vlocity_namespace%__VlocitySearchWidgetSetupId__c": {
+            "Name": "InteractionContact",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__VlocitySearchWidgetSetup__c/InteractionContact",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__VlocitySearchWidgetSetup__c"
+        },
+        "%vlocity_namespace%__VlocitySearchWidgetSetupId__r.Name": "InteractionContact",
+        "Name": "Launch",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__VlocitySearchWidgetActionsSetup__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__VlocitySearchWidgetActionsSetup__c/Generated1854116599"
+    }
+]

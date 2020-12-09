@@ -255,6 +255,87 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
+    <fieldSets>
+        <fullName>vlocity_cmt__ListMember</fullName>
+        <availableFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>DoNotCall</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Fax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>HasOptedOutOfEmail</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>HasOptedOutOfFax</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>LeadSource</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Lead fields displayed in campaign member list.</description>
+        <displayedFields>
+            <field>Company</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>FirstName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Salutation</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Email</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Title</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>OwnerId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ListMember</label>
+    </fieldSets>
     <fields>
         <fullName>Address</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -268,31 +349,8 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>CleanStatus</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-    </fields>
-    <fields>
         <fullName>Company</fullName>
         <trackFeedHistory>false</trackFeedHistory>
-    </fields>
-    <fields>
-        <fullName>CompanyDunsNumber</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-    </fields>
-    <fields>
-        <fullName>CurrentGenerators__c</fullName>
-        <externalId>false</externalId>
-        <label>Current Generator(s)</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>DandbCompanyId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
@@ -353,7 +411,40 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
-        <fullName>NumberofLocations__c</fullName>
+        <fullName>OwnerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PartnerAccountId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Phone</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Title</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Website</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__NumberofLocations__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Number of Locations</label>
         <precision>3</precision>
@@ -364,39 +455,33 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>OwnerId</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
+        <fullName>vlocity_cmt__PremisesId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Premises</label>
+        <referenceTo>vlocity_cmt__Premises__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Phone</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-    </fields>
-    <fields>
-        <fullName>Primary__c</fullName>
+        <fullName>vlocity_cmt__ProductInterestData__c</fullName>
+        <deprecated>false</deprecated>
+        <description>JSON (or similar) structured data describing the set of, or types of, products in which this lead is interested.</description>
         <externalId>false</externalId>
-        <label>Primary</label>
-        <required>false</required>
+        <label>Product Interest Data</label>
+        <length>131072</length>
         <trackFeedHistory>false</trackFeedHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>No</fullName>
-                    <default>false</default>
-                    <label>No</label>
-                </value>
-                <value>
-                    <fullName>Yes</fullName>
-                    <default>false</default>
-                    <label>Yes</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>ProductInterest__c</fullName>
+        <fullName>vlocity_cmt__ProductInterest__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Picklist outlining the category of this lead&apos;s primary product interest. Customize as desired.</description>
         <externalId>false</externalId>
         <label>Product Interest</label>
         <required>false</required>
@@ -423,55 +508,34 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
-    <fields>
-        <fullName>Rating</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>SICCode__c</fullName>
-        <externalId>false</externalId>
-        <label>SIC Code</label>
-        <length>15</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Status</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Title</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-    </fields>
-    <fields>
-        <fullName>Website</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-    </fields>
-    <fields>
-        <fullName>email_4_delete__c</fullName>
-        <externalId>false</externalId>
-        <label>email 4 delete</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Email</type>
-        <unique>false</unique>
-    </fields>
     <listViews>
         <fullName>AllOpenLeads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>LEAD.STATUS</field>
-            <operation>notContain</operation>
-            <value>closed</value>
+            <operation>notEqual</operation>
+            <value>Qualified</value>
         </filters>
         <label>All Open Leads</label>
     </listViews>
     <listViews>
         <fullName>MyUnreadLeads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.RATING</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.STATUS</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>LEAD.UNREAD</field>
@@ -482,6 +546,14 @@
     </listViews>
     <listViews>
         <fullName>TodaysLeads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>LEAD.CREATED_DATE</field>
@@ -489,33 +561,6 @@
             <value>TODAY</value>
         </filters>
         <label>Today&apos;s Leads</label>
-    </listViews>
-    <listViews>
-        <fullName>ViewCustom1</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>LEAD.COMPANY</columns>
-        <columns>LEAD.STATE</columns>
-        <columns>LEAD.EMAIL</columns>
-        <columns>LEAD.STATUS</columns>
-        <columns>LEAD.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>LEAD.UNREAD</columns>
-        <filterScope>Everything</filterScope>
-        <label>View - Custom 1</label>
-    </listViews>
-    <listViews>
-        <fullName>ViewCustom2</fullName>
-        <columns>FULL_NAME</columns>
-        <columns>LEAD.COMPANY</columns>
-        <columns>LEAD.STATE</columns>
-        <columns>LEAD.EMAIL</columns>
-        <columns>LEAD.STATUS</columns>
-        <columns>LEAD.CREATED_DATE</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>LEAD.UNREAD</columns>
-        <columns>LEAD.LEAD_SOURCE</columns>
-        <filterScope>Everything</filterScope>
-        <label>View - Custom 2</label>
     </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
@@ -537,4 +582,137 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWriteTransfer</sharingModel>
+    <webLinks>
+        <fullName>AltavistaNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Altavista News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://news.altavista.com/search?nc=0&amp;q={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Lead_Street}+{!Lead_City}+{!Lead_State}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/news?&amp;q={!Lead_Company}&amp;btnG=Search+News</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>HooversProfile</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Hoovers Profile</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://search.hoovers.com/cgi-bin/hol_search?which=company&amp;query_string={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SendGmail</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Send Gmail</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://mail.google.com/mail?view=cm&amp;tf=0&amp;to={!Lead_Email}&lt;{!Lead_LastName}, {!Lead_FirstName}&gt;&amp;tf=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>YahooMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Yahoo Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://maps.yahoo.com/py/maps.py?cn={!Lead_Country}&amp;csz={!Lead_City}+{!Lead_State}+{!Lead_PostalCode}+&amp;addr={!Lead_Address}</url>
+    </webLinks>
 </CustomObject>

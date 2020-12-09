@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Has Unapplied Group Items --></label>
+        <name>vlocity_cmt__HasUnappliedGroupItems__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group One Time Cost Total --></label>
+        <name>vlocity_cmt__OneTimeCostTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- One Time Margin Total --></label>
+        <name>vlocity_cmt__OneTimeMarginTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group One Time Total --></label>
+        <name>vlocity_cmt__OneTimeTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Group Margin Total --></label>
+        <name>vlocity_cmt__QuoteGroupMarginTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote --></label>
+        <name>vlocity_cmt__QuoteId__c</name>
+        <relationshipLabel><!-- Quote Groups --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Group Recurring Cost Total --></label>
+        <name>vlocity_cmt__RecurringCostTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recurring Margin Total --></label>
+        <name>vlocity_cmt__RecurringMarginTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Recurring Total --></label>
+        <name>vlocity_cmt__RecurringTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Usage Cost Total --></label>
+        <name>vlocity_cmt__UsageCostTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Usage Margin Total --></label>
+        <name>vlocity_cmt__UsageMarginTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Group Usage Price Total --></label>
+        <name>vlocity_cmt__UsagePriceTotal__c</name>
+    </fields>
+</CustomObjectTranslation>

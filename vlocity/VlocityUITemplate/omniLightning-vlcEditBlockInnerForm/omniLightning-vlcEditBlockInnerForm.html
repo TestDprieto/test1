@@ -1,0 +1,11 @@
+<child class="slds-truncate vlc-slds-edit-block--child" noformattereb="true" style="display:none" ng-hide='child.eleArray[0].propSetMap.hide'></child>
+<span ng-hide='!child.displayInView' ng-if="child.eleArray[0].type !== 'Password'">
+
+    <span ng-if="((child.eleArray[0].type === 'Currency') || ((child.eleArray[0].type === 'Formula' || child.eleArray[0].type === 'Aggregate') && (child.eleArray[0].propSetMap.dataType === 'Currency'))) && !(child.response===null || child.response==='')">
+        {{::(bpTree.oSCurrencySymbol || child.eleArray[0].propSetMap.currencySymbol)}}
+    </span>
+    {{editBlockDisplayValue(child, this)}}
+</span>
+<input type="password" class="vlc-slds-edit-block__form--password" ng-hide='!child.displayInView' ng-if="child.eleArray[0].type === 'Password'" value="{{child.response}}" readonly>
+<span  ng-hide='!child.displayInView' ng-if="child.eleArray[0].type === 'Headline' || child.eleArray[0].type === 'Text Block'" ng-bind-html='child.eleArray[0].propSetMap.value'></span>
+{{((child.eleArray[0].type === 'Checkbox' && child.eleArray[0].name == control.selectCheckBox)?set.checkboxInd=$index:null);""}}

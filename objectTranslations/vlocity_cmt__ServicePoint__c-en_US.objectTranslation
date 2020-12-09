@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Activation Date --></label>
+        <name>vlocity_cmt__ActivationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Monthly Usage --></label>
+        <name>vlocity_cmt__AverageMonthlyUsage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Service Class --></label>
+        <name>vlocity_cmt__FieldServiceClass__c</name>
+        <picklistValues>
+            <masterLabel>Class A</masterLabel>
+            <translation><!-- Class A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Class B</masterLabel>
+            <translation><!-- Class B --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Installation Type --></label>
+        <name>vlocity_cmt__InstallationType__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Key at Premises --></label>
+        <name>vlocity_cmt__IsKeyAtPremises__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ok to Enter --></label>
+        <name>vlocity_cmt__IsOkToEnter__c</name>
+    </fields>
+    <fields>
+        <label><!-- Override Premises Information --></label>
+        <name>vlocity_cmt__IsPremisesInfoOverridden__c</name>
+    </fields>
+    <fields>
+        <label><!-- Load Profile --></label>
+        <name>vlocity_cmt__LoadProfile__c</name>
+        <picklistValues>
+            <masterLabel>Residential High</masterLabel>
+            <translation><!-- Residential High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Residential Low</masterLabel>
+            <translation><!-- Residential Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Residential Med</masterLabel>
+            <translation><!-- Residential Med --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMB High</masterLabel>
+            <translation><!-- SMB High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMB Low</masterLabel>
+            <translation><!-- SMB Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMB Med</masterLabel>
+            <translation><!-- SMB Med --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Market Identifier --></label>
+        <name>vlocity_cmt__MarketIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meter --></label>
+        <name>vlocity_cmt__MeterId__c</name>
+        <relationshipLabel><!-- Service Points --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Meter Number --></label>
+        <name>vlocity_cmt__MeterNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meter Read Hold --></label>
+        <name>vlocity_cmt__MeterReadHold__c</name>
+        <picklistValues>
+            <masterLabel>Access Hold</masterLabel>
+            <translation><!-- Access Hold --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meter Read Instructions --></label>
+        <name>vlocity_cmt__MeterReadInstructions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meter Read Cycle / Route --></label>
+        <name>vlocity_cmt__MeterReadRoute__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3</masterLabel>
+            <translation><!-- 3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4</masterLabel>
+            <translation><!-- 4 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meter Read Warning --></label>
+        <name>vlocity_cmt__MeterReadWarning__c</name>
+    </fields>
+    <fields>
+        <label><!-- Meter Status --></label>
+        <name>vlocity_cmt__MeterStatus__c</name>
+        <picklistValues>
+            <masterLabel>Connected</masterLabel>
+            <translation><!-- Connected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disconnected</masterLabel>
+            <translation><!-- Disconnected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Offline</masterLabel>
+            <translation><!-- Offline --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Meter Type --></label>
+        <name>vlocity_cmt__MeterType__c</name>
+        <picklistValues>
+            <masterLabel>Prepay Meter</masterLabel>
+            <translation><!-- Prepay Meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smart Meter</masterLabel>
+            <translation><!-- Smart Meter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Operation Area --></label>
+        <name>vlocity_cmt__OperationArea__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Premises --></label>
+        <name>vlocity_cmt__PremisesId__c</name>
+        <relationshipLabel><!-- Service Points --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Point Number --></label>
+        <name>vlocity_cmt__ServicePointNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Type --></label>
+        <name>vlocity_cmt__ServiceType__c</name>
+        <picklistValues>
+            <masterLabel>Electricity</masterLabel>
+            <translation><!-- Electricity --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gas</masterLabel>
+            <translation><!-- Gas --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Water</masterLabel>
+            <translation><!-- Water --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Connected</masterLabel>
+            <translation><!-- Connected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Install in Progress</masterLabel>
+            <translation><!-- Install in Progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vacant</masterLabel>
+            <translation><!-- Vacant --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Temperature Area --></label>
+        <name>vlocity_cmt__TemperatureArea__c</name>
+    </fields>
+    <fields>
+        <label><!-- Utility Provider --></label>
+        <name>vlocity_cmt__UtilityProvider__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Voltage Level --></label>
+        <name>vlocity_cmt__VoltageLevel__c</name>
+    </fields>
+</CustomObjectTranslation>

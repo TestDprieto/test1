@@ -1,0 +1,101 @@
+<div ng-controller="CPQDiscountsController" class="cpq-cart-discounts">
+
+    <!-- Discounts Tab Content -->
+    <div  class="slds-tabs_default__content cpq-discounts-items-tab-content" role="tabpanel">
+        <!-- DATA -->
+        <!-- New Custom Discount   -->
+        <div class="slds-col slds-no-flex cpq-create-discount-container">
+            <section class="slds-clearfix slds-text-body_small">
+                <div class="slds-float_right">
+                    <button ng-show="{{isCreateNewDiscountActionAvailable}}" class="slds-button slds-button_neutral cpq-add-button" ng-click="createCustomDiscount()">
+                        {{::customLabels.CPQNewCustomDiscount}}
+                    </button>
+                </div>
+            </section>
+        </div>
+        <!-- END of Create New Custom Discount  -->
+        <div ng-if="records" ng-init="getCustomViewStateData(cards)">
+        
+            <div class="cpq-base-discounts cpq-discounts-header">
+                <div ng-repeat="field in $root.customViews.cpqCustomViews[currentCustomViewIndex].fields" class="slds-p-right_medium cpq-discounts-name">
+                    {{records[0] | getter: field: 'label'}}
+                </div>
+                <div class="cpq-item-base-product-actions" ng-class="{'compacted': !$root.customViews.productListHidden}"></div>
+            </div>
+            <div class="cpq-base-discounts cpq-discounts-item" ng-repeat="record in records | orderBy: sortBySequenceValue">
+                <div ng-repeat="field in $root.customViews.cpqCustomViews[currentCustomViewIndex].fields"  class="slds-p-right_medium cpq-discounts-name">
+                    <!-- Custom fields -->
+                    <div ng-show="field.type === 'string'" class="slds-m-bottom_x-small cpq-promo-text-wrap" ng-class="{'cpq-discount-name': $first}">
+                        <div ng-if="$first" class="slds-m-bottom_xx-small cpq-discount-level" ng-class="{'cpq-discount-list-margin-top': $first}">{{record['Allocation'].selectedDiscountType.value}}</div>
+                        <div class="slds-m-bottom_xx-small">
+                            <span ng-class="{'cpq-discount-status-border-bottom': record[field.fieldName].label ==='Status'}">{{record[field.fieldName].value}}</span>
+                            <span ng-if="record[field.fieldName].label ==='Status' && getDiscountStatus(record) !=='New'">
+                                <span slds-popover data-container="{{attrs.tooltipContainer ? attrs.tooltipContainer : '.via-slds'}}"
+                                    tooltip="true" ng-class="shouldShowDiscountStatus(record) ? 'cpq-discount-item-status-color-yellow' : 'cpq-discount-item-status-color'" nubbin-direction="bottom" data-title="{{getDiscountStatus(record)}}">
+                                    <slds-button-svg-icon sprite="'standard'" size="'large'" icon="'task2'"></slds-button-svg-icon>
+                                </span>
+                            </span>
+                        </div>
+                        <div class="slds-grid" ng-if="$first">
+                            <div class="slds-col slds-small-size_4-of-12 slds-medium-size_5-of-12 slds-large-size_4-of-12 slds-text-align_left cpq-product-actions">
+                                <div  ng-show="$first && !shouldShowDiscountStatus(record)" class="slds-m-bottom_x-small cpq-discount-status">{{::customLabels.CPQActive}}</div>
+                                <div  ng-show="$first && shouldShowDiscountStatus(record)" class="slds-m-bottom_x-small cpq-discount-status-new">{{::customLabels.CPQNew}}</div>
+                            </div>
+                            <!-- <div class="slds-col slds-small-size_8-of-12 slds-medium-size_7-of-12 slds-large-size_8-of-12 slds-text-align_right cpq-product-price">
+                                <div  class="slds-m-bottom_xx-small cpq-discount-status"> Effective Untill</div>
+                                <div  class="cpq-discount-status">{{importedScope.convertToLocalDate(record['End date'].value)}}</div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div ng-if="field.type === 'Category'">
+                        <span ng-if="record[$root.nsPrefix +'AppliesToAllItems__c'].value">{{record[$root.nsPrefix +'AppliesToAllItems__c'].label}}</span>
+                        <div ng-repeat="categoriesItem in record[field.fieldName].categories" class="slds-m-bottom_x-small cpq-promo-text-wrap">
+                            {{::categoriesItem.value}}
+                        </div>
+                    </div> 
+                    <div ng-if="field.type === 'Product'">
+                        <span ng-if="record[$root.nsPrefix +'AppliesToAllItems__c'].value">{{record[$root.nsPrefix +'AppliesToAllItems__c'].label}}</span>
+                        <div ng-repeat="productItem in record[field.fieldName].products" class="slds-m-bottom_x-small cpq-promo-text-wrap">
+                            {{productItem.Name}}
+                        </div>
+                    </div> 
+                    <div ng-if="field.type === 'Discount'">
+                        <div ng-repeat="productDiscount in record[field.fieldName].discounts | orderBy :'chargeType'" class="slds-m-bottom_x-small cpq-promo-text-wrap">
+                            <span ng-if="productDiscount.value || productDiscount.value === 0"class="slds-m-right_small cpq-discount-charges">{{productDiscount.value}} {{productDiscount.selectedAdjustmentMethod.value}} </span>
+                            <div class="cpq-discount-charges-label"> {{productDiscount.label}}</div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="cpq-item-base-product-actions slds-text-align_right" ng-class="{'compacted': !$root.customViews.productListHidden}">
+                    <div  ng-class="{'slds-button-group slds-float_right': importedScope.isMobileTablet}" role="group">
+                        <button class="slds-button slds-p-horizontal_xx-small" 
+                            ng-class="{'cpq-error-msg' : data.hasError, 'slds-button_icon-border': importedScope.isMobileTablet}" 
+                            title="{{::importedScope.customLabels.CPQDetails}}"
+                            ng-click="openDiscountEditModal(record)"
+                            ng-disabled="!record.actions.configureDiscounts">
+                            <slds-button-svg-icon sprite="'utility'" icon="'edit'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQDetails}}</span>
+                        </button>
+                        <button class="slds-button" 
+                            ng-class="{'slds-button_icon-border': importedScope.isMobileTablet}"
+                            ng-disabled="!record.actions.deleteDiscount"
+                            title="{{::importedScope.customLabels.CPQDeleteItem}}" 
+                            ng-click="deleteAppliedDiscounts(record)">
+                            <slds-button-svg-icon sprite="'utility'" icon="'close'"></slds-button-svg-icon>
+                            <span class="slds-assistive-text">{{::importedScope.customLabels.CPQDelete}}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END of DATA -->
+        <div class="slds-grid slds-grid_align-center slds-is-relative slds-m-top_xx-large">
+            <!-- NO DATA -->
+            <div class="cpq-no-cart-items-msg slds-p-vertical_xx-large" ng-show="(!records || records.length === 0) && isLoaded">
+                {{::customLabels.CPQNoResultsFound}}
+            </div>
+            <!-- END of NO DATA -->
+        </div>
+    </div>
+    <!-- END of Discount Tab Content -->
+</div>

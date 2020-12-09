@@ -1,0 +1,81 @@
+<script>
+
+        $(document).ready(function(){
+            
+	        //Change active shop tab
+    	    $('.con-shop-tab').on('click',function(event){
+    	        
+    	        //Remove current active tabs
+    	        $('.con-shop-tab').removeClass('con-shop-tab-active');
+    	        $('.con-shop-tab-content').removeClass('con-shop-tab-content-active');
+    	        $(event.target).addClass('con-shop-tab-active');
+    	        
+    	        //Delay adding new tab to force scroll area to top
+    	        setTimeout(function(){
+    	            $('#con-products-' + event.target.id.substring(8)).addClass('con-shop-tab-content-active');
+    	            //$('.scroll-content').scrollTop(0);
+    	        },500);
+    	        
+    	        //Display banner image
+    	        if(event.target.id.substring(8) != '1'){
+    	            $('.con-shop-details').addClass('con-shop-details-expanded');
+    	            $('.con-navbar-shop').addClass('con-navbar-shop-alt');
+    	        }else{
+    	            $('.con-shop-details').removeClass('con-shop-details-expanded');
+    	            $('.con-navbar-shop').removeClass('con-navbar-shop-alt');
+    	        }
+    	        
+    		});
+    		
+	    });
+</script>
+<div class="navbar-template con-navbar-shop" ng-controller="shopController as sc">
+	<div class="con-shop-header">
+        <button ng-click="vm.goBack()" class="button button-clear header-item nav-left-button" ng-disabled="vm.isSavingInProgress" ng-style="{'color':$root.appTheme.NavBarItemColor}">
+    		<span ng-show="vm.isEditingDetailPage && vm.isDetailTabSelected == true">
+    			Cancel
+    		</span>
+    		<span ng-show="!vm.isEditingDetailPage && vm.canGoBack">
+    			<i class="icon ion-ios-arrow-back"></i>
+    		</span>
+    		<span ng-show="!vm.canGoBack">
+    			<i class="icon ion-navicon"></i>
+    		</span>
+    	</button>
+    	
+    	<div class="title title-left header-item">
+    		{{ pageTitle }}
+    	</div>
+    	
+    	<div class="con-home-shop" ng-click="sc.viewDetail('')">
+            
+        </div>
+	</div>
+
+    <!-- Custom Content-->
+    <!-- Shop Banner -->
+    <div class="con-shop-banner">
+        <img src="{{$root.customDefinedValue.CommunityURL + '/resource/VLOCMOBCON/images/img_PixelAd@2x.png' | trusted}}"/>
+        <div class="con-shop-banner-title">
+            Google Pixel 2 XL sale
+            <span></span>
+        </div>
+    </div>
+    
+    <!-- Shop Tabs-->
+    <div class="con-shop-tabs">
+        <div class="con-shop-tab con-shop-tab-active" id="con-tab-1">
+            For You
+        </div>
+        <div class="con-shop-tab" id="con-tab-2">
+            Phones
+        </div>
+        <div class="con-shop-tab" id="con-tab-3">
+            Equipment
+        </div>
+        <div class="con-shop-tab" id="con-tab-4">
+            Accessories
+        </div>
+    </div>
+
+</div>

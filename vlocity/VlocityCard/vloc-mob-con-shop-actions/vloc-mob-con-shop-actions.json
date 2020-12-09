@@ -1,0 +1,60 @@
+{
+    "dataSource": {
+        "type": "Custom",
+        "value": {
+            "body": "{}"
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "blankCardState": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'non-existent'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Mobile Action Redeem Gift Card",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Mobile Action Send Gift",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Mobile Action Check Balance",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+            ],
+            "filter": "$scope.data.status === 'non-existent'",
+            "name": "Actions",
+            "placeholders": [
+            ],
+            "sObjectType": "Account",
+            "templateUrl": "vloc-mob-con-actions"
+        }
+    ],
+    "title": "Actions"
+}

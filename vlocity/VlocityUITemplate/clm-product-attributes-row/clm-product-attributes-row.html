@@ -1,0 +1,30 @@
+<div class="vloc-attr-row slds-row" data-card="card-{{cardIndex}}" ng-class="{selected: (importedScope.row.Id ===  $root.config.attr.Id)}"  ng-click="$root.config.show = true; importedScope.setAttr(importedScope.row, cardIndex)" ng-init="importedScope.setRowData(records, cardIndex)">
+   <div class="slds-col slds-grid slds-wrap slds-grid_align-spread">
+      <div class="slds-small-show vloc-attr-cell slds-size_1-of-{{ $root.rowFields.length}}" ng-repeat="field in $root.rowFields" ng-show="key != 'attributes'">
+         <div class="vloc-attr-data-cell slds-truncate slds-p-around_x-small">
+            <span class="vloc-attr-index slds-m-right_small" ng-if="$index < 1"> {{importedScope.getIndex(cardIndex)}} </span> 
+            <span ng-if="field.label !== 'Value' && field.type !== 'boolean'"> {{importedScope.row | getter: field | picker: field.type}}</span>
+            <span ng-if="field.label === 'Value'"> 
+            <span ng-if="importedScope.row.valueType !== 'percent' && importedScope.row.valueType !== 'datetime' && importedScope.row.valueType !== 'date'"> 
+            {{importedScope.row | getter: field | picker: importedScope.row.valueType}}
+            </span>
+            <span ng-if="importedScope.row.valueType === 'date'">
+            {{importedScope.row[$root.nsPrefix + 'Value__c'] | date : 'MM/dd/yyyy'}}
+            </span>
+            <span ng-if="importedScope.row.valueType === 'datetime'">
+            {{importedScope.row[$root.nsPrefix + 'Value__c'] | date : 'MM/dd/yyyy h:mma'}}
+            </span>
+            <span ng-if="importedScope.row.valueType === 'percent'"> {{importedScope.row[$root.nsPrefix + 'Value__c']}}<span ng-if="importedScope.row[$root.nsPrefix + 'Value__c']">%</span></span>
+            </span>
+            <div class="slds-form-element__control slds-text-align_left slds-text-align_center" ng-if="field.type === 'boolean'">
+               <span class="slds-checkbox">
+               <input type="checkbox" name="attrs-{{$index}}" id="attrs-{{$index}}" ng-model="importedScope.row[$root.nsPrefix + 'IsRatingAttribute__c']" ng-disabled="true"/>
+               <label class="slds-checkbox__label slds-m-around_none" for="attrs-{{$index}}">
+               <span class="slds-checkbox_faux vloc-check"></span>
+               </label>
+               </span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

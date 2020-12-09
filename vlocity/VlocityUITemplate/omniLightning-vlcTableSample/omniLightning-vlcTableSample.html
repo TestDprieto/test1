@@ -1,0 +1,38 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+    <div class="vlc-slds-table-heading">
+        <label>{{::control.propSetMap.label}}</label>
+    </div>
+    <table class="slds-table slds-table--bordered slds-table--cell-buffer vlc-slds-table">
+       <thead>
+            <tr class="slds-text-heading--label">
+                <th scope="col">
+                    <div class="slds-truncate">field1</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate">field2</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate">field3</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat='p in control.vlcInputBlock.fieldArray' >
+                <td>
+                    <div class="slds-truncate"><input type='text' ng-model='p.field1'/></div>
+                </td>
+                <td>
+                    <div class="slds-truncate"><input type='text' ng-model='p.field2'/></div>
+                </td>
+                <td>
+                    <div class="slds-truncate"><input type='text' ng-model='p.field3'/></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="vlc-slds-upgrade-btn">
+        <button id="save&next" class="slds-button vlc-slds-button--primary" title="Save & Next" ng-click="buttonClick(bpTree.response, control, this, control.vlcInputBlock, 'Save', callBackNextStep)">
+            Save &amp; Next
+        </button>
+    </div>
+</div>

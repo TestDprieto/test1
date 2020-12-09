@@ -1,0 +1,45 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__OrderDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "%vlocity_namespace%__EffectiveEndDate__c",
+        "%vlocity_namespace%__GlobalKey__c": "8c32cc1f-63e1-950c-e4d5-b43a488e48ae",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "EffectiveEndDate",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "UpdateOrderDiscountDateCustom5232",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "UpdateOrderDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__OrderDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__GlobalKey__c": "21a86d36-6037-039a-888d-b731cdbcbef6",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Order:DeactivatedDiscounts:Id",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": true,
+        "%vlocity_namespace%__MapId__c": "UpdateOrderDiscountDateCustom5569",
+        "%vlocity_namespace%__UpsertKey__c": true,
+        "Name": "UpdateOrderDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__ConfigurationValue__c": "FAKEMAPPING",
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__OrderDiscount__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__GlobalKey__c": "783d74ee-0810-61d1-4ee0-c33f4a62be21",
+        "%vlocity_namespace%__IsDisabled__c": true,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "UpdateOrderDiscountDateCustom7177",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "UpdateOrderDiscountDate",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

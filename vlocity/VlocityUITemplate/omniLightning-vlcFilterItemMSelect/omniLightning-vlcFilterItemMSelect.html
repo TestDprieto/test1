@@ -1,0 +1,59 @@
+<div class="slds-col--padded slds-size--1-of-1">
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-multiSelect-control vlc-slds-multiSelect--filter-control'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-form-element__control">
+
+            <div>
+
+                <!-- always horizontal -->
+                <ul class="slds-form-element" horizontalMode='true'>
+                    <li class="slds-form-element__control" ng-repeat='option in control.propSetMap.options track by option.name'>
+                        <label class="slds-checkbox">
+                            <input id='{{::control.name}}'
+                                   type='checkbox'
+                                   ng-model='option.selected'
+                                   ng-init='init(this, control)'
+                                   ng-if='ngInitValidation(this, control)'
+                                   ng-change='onMultiSelect(this, control, option)' />
+
+                            <span class="slds-checkbox--faux"></span>
+                            <span class="slds-form-element__label">{{::option.value}}</span>
+
+                        </label>
+
+                    </li>
+                </ul>
+
+            </div>
+
+            <small class='helpText description'>{{::control.propSetMap.helpText}}</small>
+
+
+            <div class='vlc-slds-error-block'>
+                <div class='error' ng-show='loopform.$error' ng-hide='loopform.$pristine'>
+                    <small ng-show='loopform.$error.required' class='description'>{{::customLabels.OmniRequired}}</small>
+                </div>
+                
+                <div class='error' ng-show='control.srvErr'>
+                    <small ng-show='control.srvErr' class='description'>{{control.srvErr}}</small>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <label class='slds-form-element__label vlc-slds-label__flex'>{{::control.propSetMap.label}}
+
+            <span class='vlc-asterix icon-v-asterix'
+                  ng-show='control.req'>
+            </span>
+            <div vlc-slds-include="vlcLabelController.html"></div>
+            
+        </label>
+
+    </ng-form>
+
+</div>

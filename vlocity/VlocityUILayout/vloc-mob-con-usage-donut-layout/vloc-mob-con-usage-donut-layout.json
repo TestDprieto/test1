@@ -1,0 +1,39 @@
+{
+    "Cards": [
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "attrs.type",
+                "val": "Text"
+            },
+            {
+                "name": "attrs.sid",
+                "val": "a1vf4000001Ej1qAAC"
+            }
+        ],
+        "type": "IntegrationProcedures",
+        "value": {
+            "endpoint": "",
+            "inputMap": {
+                "sliType": "{{attrs.type}}",
+                "statementId": "{{attrs.sid}}"
+            },
+            "ipMethod": "Mobile_UsageDonut",
+            "jsonMap": "{\"attrs.sid\":\"{{attrs.sid}}\",\"attrs.type\":\"{{attrs.type}}\"}",
+            "methodType": "GET",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": ""
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "vloc-mob-con-usage-donut"
+        }
+    },
+    "workspace": [
+    ]
+}

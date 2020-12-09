@@ -1,0 +1,38 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-form-group vlc-slds-remote-action--button'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-form-element__control">
+
+            <div class="vlc-control-wrapper">
+
+                <div id='{{::control.name}}'
+                     class='slds-box'
+                     title='{{::control.propSetMap.label}}'
+                     ng-click='buttonClick(this.bpTree.response, control, this)'
+                     ng-if='!control.propSetMap.confirm'>
+                    <p tabindex="-1">{{::control.propSetMap.label}}</p>
+                </div>
+
+                <div id='{{::control.name}}'
+                     class='slds-box'
+                     title='{{::control.propSetMap.label}}'
+                     ng-confirm-click='{{::control.propSetMap.remoteConfirmMsg}}'
+                     confirmed-click='buttonClick(this.bpTree.response, control, this)'
+                     submit-label='{{::control.propSetMap.subLabel}}'
+                     cancel-label='{{::control.propSetMap.cancelLabel}}'
+                     ng-if='control.propSetMap.confirm'>
+                    <p tabindex="-1">{{::control.propSetMap.label}}</p>
+                </div>
+
+            </div>
+
+            <div class='vlc-sub-block'></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

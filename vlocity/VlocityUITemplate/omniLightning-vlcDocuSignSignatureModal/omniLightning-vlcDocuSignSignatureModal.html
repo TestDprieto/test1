@@ -1,0 +1,26 @@
+<!-- vlcDocuSignSignatureModal.html -->
+<div modalmove class='slds-modal slds-fade-in-open slds-modal--large via-slds via-omni' ng-init='initDocuSignModal()'>
+    <div class='mask' ng-show='loading'>
+        <div vlc-slds-spinner='test' class='center-block spinner'></div>
+    </div>
+    <div class='slds-modal__container'>
+        <div class='slds-modal__header'>
+            <h1 class='modal-title'>{{::OmniDocuSignModalTitle}}</h1>
+        </div>
+        <div class='slds-modal__content slds-p-around--medium'>
+            <div id='docusign-frame'>
+                <iframe ng-src='{{redirectUri}}'></iframe>
+            </div>
+            <div id='docusign-pdf'>
+                <embed ng-src='{{pdfDocUrl}}' type='application/pdf' class='vlcPDFEmbed' />
+            </div>
+        </div>
+        <div class='slds-modal__footer'>
+            <div class='vlc-button-pull-right'>
+                <button class='slds-button slds-button--neutral' ng-click='ViewPDF()' ng-show='viewPdf' ng-disabled='disableViewPdf' >{{::OmniDocuSignModalViewPdf}}</button>
+                <button class='slds-button slds-button--neutral' ng-click='closeModal()'>{{::OmniDocuSignModalClose}}</button>
+            </div>
+            <div modalresize class='vlc-expand-docusign-modal'  prop='min-height'></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="via-slds slds-p-around_medium cards-container">
+        <div data-zone="header">
+            <div  ng-class="{'np-zone-header' : session.showSearch==='false'}">
+            <vloc-card ng-repeat="card in  data.zones['header'].cards |limitTo: 1 | orderBy:order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" class="slds-p-around_small" use-existing-element-type>
+            </vloc-card>
+            </div>  
+        </div>
+        <div data-zone="alert">
+            <vloc-card ng-repeat="card in  data.zones['alert'].cards |limitTo: 1 |orderBy:order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" class="slds-p-around_small" use-existing-element-type></vloc-card>
+        </div>
+        <div data-zone="body">
+         <div class="slds-grid slds-wrap"> 
+        
+         <!--<div ng-repeat="record in records">-->
+             <!--<div>AccountId : {{record.AccountId}}</div>-->
+            <div ng-repeat="card in data.zones['body'].cards  |orderBy: ['obj','order'] |filter: searchFunc(card, searchTerm)" vloc-card ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" class="slds-p-around_small slds-size_1-of-1 slds-medium-size_3-of-6 slds-large-size_4-of-12" use-existing-element-type></div>
+              </div> 
+            <!--</div>  -->
+        </div>
+        <div data-zone="footer">
+            <vloc-card ng-repeat="card in  data.zones['footer'].cards |limitTo: 1 |orderBy: order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" class="slds-p-around_small" use-existing-element-type></vloc-card>
+        </div>
+        <span id="flyout" class="slds-p-around_small slds-size-1-of-1"></span>
+</div>

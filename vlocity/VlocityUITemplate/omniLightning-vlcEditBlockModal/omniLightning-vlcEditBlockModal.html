@@ -1,0 +1,23 @@
+<form modalmove name='loopform' class="slds-modal slds-fade-in-open slds-modal--medium vloc-modal vloc-modal-slds-slide-up vlc-slds-edit-block--modal {{vlocSlideCustomClass}} vlc-slds-edit-block--modal_bottom" ng-init="isModalLoaded = !isModalLoaded" vlc-slds-edit-block-modal vlc-slds-disable-auto-complete="testing">
+    <div class="slds-modal__container vloc-modal-container {{vlocSlideCustomClass}}-container" role='dialog' aria-labelledby='modalLabelId'>
+        <header class="slds-modal__header slds-is-relative" ng-show="vlocSlideHeader">
+            <h1 id='modalLabelId' class='modal-title'>{{::OmniEditBlockModalTitle}}</h1>
+        </header>
+        <div class="slds-modal__content slds-p-around--medium vloc-modal-content slds-is-relative">
+            <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                <child vlc-slds-change-inline-templates="::child.eleArray[0].propSetMap.showInputWidth" noformatterebmodal="true" ng-repeat='child in ::children = control.children'
+                    class="slds-size--1-of-1 slds-medium-size--{{child.eleArray[0].propSetMap.controlWidth}}-of-12"
+                    ng-show='::!child.eleArray[0].propSetMap.hide'                 
+                    ng-if='(child.eleArray[0].propSetMap.hide && child.eleArray[0].type!=="Formula")||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                </child>
+            </div>
+        </div>
+        <footer class="slds-modal__footer" ng-show="vlocSlideFooter">
+            <div class='vlc-button-pull-right'>
+                <button type="button" class='slds-button slds-button--neutral' ng-click='closeModal($event)'>{{::OmniConfigProdModalCancel}}</button>
+                <button type="button" class='slds-button slds-button--neutral' ng-click='saveEditChanges($event)' ng-disabled="loopform.$invalid">{{::OmniConfigProdModalOk}}</button>
+            </div>
+            <div modalresize class='vlc-expand-editblock-modal'  prop='min-height'></div>
+        </footer>
+    </div>
+</form>

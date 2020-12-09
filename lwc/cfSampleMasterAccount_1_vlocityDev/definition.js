@@ -1,0 +1,3 @@
+let definition = 
+                {"Cards":[],"dataSource":{"type":null},"enableLwc":true,"repeatCards":false,"lwc":{"MasterLabel":"cardCanvasLayout","DeveloperName":"cardCanvasLayout","Id":"0Rb4x000000TQ39SAC","name":"cardCanvasLayout"},"previewType":"designTime","componentName":"cfSampleMasterAccount_1_vlocityDev","workspace":["sample Account Details/vlocityDev/1/1594252426118","team Contact Details/vlocityDev/1/1594253035487","team Case Details/vlocityDev/1/1594254629980","custom LWC Case List/vlocityDev/1/1594255352759"],"GlobalKey__c":"sample-master-account/1/vlocityDev/1594252283935"}; 
+            export default definition

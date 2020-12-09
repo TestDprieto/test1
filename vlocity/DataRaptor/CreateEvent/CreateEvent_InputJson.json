@@ -1,0 +1,75 @@
+{
+    "drBundleName": "CreateEvent",
+    "interactionObjName": "Event",
+    "recordId": "a2R36000000WCnVEAW",
+    "request": {
+        "continueSearch": false,
+        "displaySequence": 4,
+        "referenceObjectName": "%vlocity_namespace%__Policy__c",
+        "requestUniqueName": "Policy",
+        "searchFieldList": [
+            "%vlocity_namespace%__PolicyNumber__c"
+        ],
+        "searchFieldsLabelTypeMap": {
+            "%vlocity_namespace%__PolicyNumber__c": {
+                "datatype": "text",
+                "label": "Policy Number"
+            }
+        },
+        "searchObjectLabel": "Policy",
+        "searchObjectName": "%vlocity_namespace%__PolicyPartyRelationship__c",
+        "searchType": "Related Party",
+        "searchValueMap": {
+            "%vlocity_namespace%__PolicyNumber__c": "BO-20932058"
+        }
+    },
+    "resultFieldList": [
+        "%vlocity_namespace%__RelatedParty__c",
+        "%vlocity_namespace%__Role__c"
+    ],
+    "resultFieldsLabelTypeMap": {
+        "%vlocity_namespace%__AccountId__c": {
+            "datatype": "text",
+            "label": "Account Id"
+        },
+        "%vlocity_namespace%__ContactId__c": {
+            "datatype": "text",
+            "label": "Contact Id"
+        },
+        "%vlocity_namespace%__PolicyId__c": {
+            "label": "Policy"
+        },
+        "%vlocity_namespace%__RelatedParty__c": {
+            "datatype": "text",
+            "label": "Related Party"
+        },
+        "%vlocity_namespace%__Role__c": {
+            "datatype": "text",
+            "label": "Role"
+        }
+    },
+    "resultValueMap": {
+        "%vlocity_namespace%__ContactId__c": "0033600000KT1D0",
+        "%vlocity_namespace%__PolicyId__c": "a2U36000000kWDaEAM",
+        "%vlocity_namespace%__PolicyNumber__c": "BO-20932058",
+        "%vlocity_namespace%__RelatedParty__c": "ContractTest3 ContractTest3",
+        "%vlocity_namespace%__Role__c": "Agency"
+    },
+    "uniqueRequestName": "Policy",
+    "verificationFieldList": [
+        "%vlocity_namespace%__AccountId__c",
+        "%vlocity_namespace%__ContactId__c",
+        "%vlocity_namespace%__PolicyId__c"
+    ],
+    "verificationResult": {
+        "fields": {
+            "%vlocity_namespace%__AccountId__c": true,
+            "%vlocity_namespace%__ContactId__c": true,
+            "%vlocity_namespace%__PolicyId__c": true
+        },
+        "note": "Test",
+        "status": true,
+        "timestamp": "2016-07-26T17:38:04.052Z",
+        "username": "%vlocity_namespace%@vlocity.com"
+    }
+}

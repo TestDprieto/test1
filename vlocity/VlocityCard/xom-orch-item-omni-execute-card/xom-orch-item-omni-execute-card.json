@@ -1,0 +1,51 @@
+{
+    "dataSource": {
+        "type": "Custom",
+        "value": {
+            "body": "{\"id\":\"\"}"
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "actionCtxId": "id",
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "XOMExecuteCustomOmniscript",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "id",
+                    "name": "<<Custom Field>>",
+                    "type": "string"
+                }
+            ],
+            "name": "execute",
+            "sObjectType": "%vlocity_namespace%__OrchestrationItem__c",
+            "templateUrl": "xom-orch-item-omni-execute-card-template"
+        }
+    ],
+    "title": "xom-orch-item-omni-execute-card"
+}

@@ -1,0 +1,67 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-discount-detail-container {
+            width: 60%;
+            max-width: 60rem;
+        }
+        .#{$namespace}-discount-code-label {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        .#{$namespace}-discount-item-details {
+            /*table styles*/
+            .#{$namespace}-discount-item-table {
+                display: flex;
+                flex-flow: column nowrap;
+                box-pack: justify;
+                justify-content: space-between;
+            }
+            .#{$namespace}-discount-item-table-row {
+              display: flex;
+              flex-flow: row nowrap;
+              flex: 1 1 auto;
+            }
+            .#{$namespace}-discount-item-table-header {
+                text-transform: uppercase;
+            }
+            .#{$namespace}-discount-item-list {
+                white-space: normal;
+            }
+            .#{$namespace}-discount-cell-shrink {
+                padding-top: 8px;
+                padding-bottom: 8px;
+                padding-left: 0px;
+                padding-right: 4.5rem;
+            }
+            .#{$namespace}-discount-item-table-row-item {
+              display: flex;
+              flex-flow: row nowrap;
+              flex: 1 0 20%;
+              word-wrap: break-word;
+              overflow-wrap: break-word;
+                .#{$namespace}-price-label {
+                  font-size: $cpq-cart-item-attr-label-font-size;
+                }
+            }
+            .#{$namespace}-discount-item-flex-product {
+              flex: 1 1 300px;
+            }
+            .slds-tree_container {
+                max-width: 100%; //overwrite Salesforce tree max width 400px
+            }
+            .slds-grid {
+                width: 100%;
+            }
+        }
+    }
+}

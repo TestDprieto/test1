@@ -1,0 +1,33 @@
+<div class="via-slds" ng-init="searchTerm = {value:''}" ng-controller="auraLwcController">
+	<div class="slds-m-around--medium">
+        <div class="slds-page-header__name-title">
+            <span class="slds-page-header__title slds-truncate" title="">To reload page press 'Reload Page' button in LWC</span>
+        </div>
+	</div>
+    <div class="slds-m-around--medium">
+        <div class="slds-page-header__name-title">
+            <span class="slds-page-header__title slds-truncate" title="">Search here to filter LWC list</span>
+        </div>
+	</div>
+	<form class="slds-grid slds-m-around--small slds-wrap slds-grid--pull-padded">
+		<div class="slds-col slds-col--padded slds-size--1-of-1 slds-medium-size--1-of-1 slds-large-size--12-of-12 slds-form-element">
+			<div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--left">
+				<slds-svg-icon sprite="'utility'" icon="'search'" extra-classes="'slds-input__icon'"></slds-svg-icon>
+				<input class="slds-input" ng-model="searchTerm.value" type="text" placeholder="{{::$root.vlocity.getCustomLabel('SearchCards', 'Search Cards')}}"
+				 ng-change="filterLwcList()" />
+			</div>
+		</div>
+	</form>
+    <div class="slds-m-around--medium">
+        <div class="slds-page-header__name-title">
+            <span class="slds-page-header__title slds-truncate" title="">To execute reload layout event press 'Reload' button in LWC</span>
+        </div>
+	</div>
+    <slds-svg-icon sprite="'utility'" icon="'spinner'" size="'x-small'" ng-if="loading"></slds-svg-icon>
+	<div class="slds-grid slds-wrap slds-m-around--small slds-grid--pull-padded cards-container">
+		<div ng-repeat="card in cards |orderBy:order|filter: searchFunc(card, searchTerm.value)" vloc-card ctrl="{{ctrl}}" ng-model="card"
+		 data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" class="slds-p-around--small slds-size--1-of-1 slds-medium-size--3-of-6 slds-large-size--4-of-12"
+		 use-existing-element-type></div>
+		<span id="flyout" class="slds-p-around--small slds-size-1-of-1"></span>
+	</div>
+</div>

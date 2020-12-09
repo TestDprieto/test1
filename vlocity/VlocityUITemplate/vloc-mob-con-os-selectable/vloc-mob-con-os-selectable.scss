@@ -1,0 +1,65 @@
+@font-face{
+    font-family: Brown-Regular;
+    src: url('https://vdo-cmt-site.secure.force.com/resource/VLOCMOBCON/fonts/Brown-Regular.woff');
+}
+html, body, .vlocity{
+font-family:Brown-Regular !important;
+}
+
+.con-os-details{
+    margin-bottom: 25px;
+    display: table;
+}
+
+.con-shop-browse-product-background{
+    background: #dadbdf;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    padding-top: 10px;
+    margin-bottom: 25px;
+    float:left;
+}
+
+.con-os-image img{
+    height: 160px !important;
+    margin: auto;
+    display: block;
+    width: auto;
+}
+
+.con-os-title{
+    float:left;
+    width: calc(100vw - 220px);
+    margin-left:25px;
+    font-size: 16px;
+    color: #0081f9;
+    min-height: 20px;
+    margin-bottom: 10px;
+}
+
+.con-os-title label{
+    font-size: 16px;
+    color: #0081f9 !important;
+    min-height: 20px;
+    max-height: 40px;
+    font-weight:bold;
+}
+.con-os-cost{
+    margin-bottom:5px;
+}
+.con-os-cost label{
+    color:#000 !important;
+}
+.con-os-cost label.con-os-cost-subtitle{
+    font-weight:normal;
+}
+span.slds-icon_container.slds-icon-action-approval.slds-icon_container--circle {
+    position: relative;
+    top: 30px;
+    left: -35px;
+    background: #0081f9 !important;
+}
+.con-os-details-os:nth-child(odd) .con-shop-browse-product-background{
+    background: #7fbffc;
+}

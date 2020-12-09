@@ -1,0 +1,44 @@
+{
+    "Cards": [
+        "clm-product-attributes-config-card"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "01t0b00000FwjANAAZ"
+            },
+            {
+                "name": "attrs.categoryCode",
+                "val": "Terms"
+            }
+        ],
+        "type": "Inherit",
+        "value": {
+            "body": "",
+            "inputMap": {
+                "categoryCode": "{{attrs.categoryCode}}",
+                "productId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.ContractProductAdminHandler"
+            },
+            "query": "",
+            "remoteClass": "ContractProductAdminHandler",
+            "remoteMethod": "getCategoryAttributes",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "",
+            "vlocityAsync": false
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "clm-product-attributes-config-container"
+        }
+    },
+    "workspace": [
+        "clm-product-attributes-config-card/vlocityDev/1/1543389772739",
+        "test/vlocityDev/1/1543388493749"
+    ]
+}
