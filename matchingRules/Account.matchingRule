@@ -1,3 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MatchingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
+<MatchingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <matchingRules>
+        <fullName>Test_rule_1_Grifols</fullName>
+        <label>Test rule 1 (Grifols)</label>
+        <matchingRuleItems>
+            <blankValueBehavior>MatchBlanks</blankValueBehavior>
+            <fieldName>Name</fieldName>
+            <matchingMethod>CompanyName</matchingMethod>
+        </matchingRuleItems>
+        <ruleStatus>Active</ruleStatus>
+    </matchingRules>
+</MatchingRules>
