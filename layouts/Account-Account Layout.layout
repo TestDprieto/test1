@@ -283,6 +283,26 @@
                 <behavior>Edit</behavior>
                 <field>Business_Segment__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>newest_to_be_deleted__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SiemensPicklist_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>SiemensPicklist_2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Support_Plan_Start_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Commission_Administrator_Notes__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -675,6 +695,7 @@
         <fields>UnitPrice</fields>
         <fields>ServiceDate</fields>
         <fields>Description</fields>
+        <fields>Opportunity</fields>
         <relatedList>OpportunityLineItem.Account__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
