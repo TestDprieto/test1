@@ -399,11 +399,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Audit__c.AgreementPartnerCommission__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Audit__c.To_Be_Deleted__c</field>
         <readable>false</readable>
