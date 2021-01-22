@@ -400,11 +400,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Audit__c.AgreementPartnerCommission2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Audit__c.AgreementPartnerCommission__c</field>
         <readable>true</readable>
     </fieldPermissions>
