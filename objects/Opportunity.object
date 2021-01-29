@@ -214,6 +214,46 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Cisco_Test_Jan_29__c</fullName>
+        <externalId>false</externalId>
+        <label>Cisco Test Jan 29</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cisco test 1</fullName>
+                    <default>false</default>
+                    <label>Cisco test 1</label>
+                </value>
+                <value>
+                    <fullName>Cisco test 2</fullName>
+                    <default>false</default>
+                    <label>Cisco test 2</label>
+                </value>
+                <value>
+                    <fullName>Cisco test 3</fullName>
+                    <default>false</default>
+                    <label>Cisco test 3</label>
+                </value>
+                <value>
+                    <fullName>Cisco test 4</fullName>
+                    <default>false</default>
+                    <label>Cisco test 4</label>
+                </value>
+                <value>
+                    <fullName>Cisco test 5</fullName>
+                    <default>false</default>
+                    <label>Cisco test 5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>CloseDate</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackTrending>false</trackTrending>
