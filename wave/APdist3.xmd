@@ -35,10 +35,22 @@
         <dateFieldYear>Ship_Date_Year</dateFieldYear>
         <firstDayOfWeek>-1</firstDayOfWeek>
         <fiscalMonthOffset>0</fiscalMonthOffset>
-        <label>Ship Date 111 (NEW)</label>
+        <label>Ship Date 22222</label>
         <sortIndex>1</sortIndex>
         <type xsi:nil="true"/>
     </dates>
+    <dimensions>
+        <field>Distributor</field>
+        <isDerived>false</isDerived>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Product</field>
+        <isDerived>false</isDerived>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>1</sortIndex>
+    </dimensions>
     <organizations>
         <instanceUrl>https://westregion.my.salesforce.com</instanceUrl>
         <label>West Region Org</label>
