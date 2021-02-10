@@ -42,14 +42,20 @@
     <dimensions>
         <field>Distributor</field>
         <isDerived>false</isDerived>
-        <showInExplorer>false</showInExplorer>
+        <showInExplorer>true</showInExplorer>
         <sortIndex>0</sortIndex>
     </dimensions>
     <dimensions>
         <field>Product</field>
         <isDerived>false</isDerived>
-        <showInExplorer>false</showInExplorer>
+        <showInExplorer>true</showInExplorer>
         <sortIndex>1</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Region</field>
+        <isDerived>false</isDerived>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>2</sortIndex>
     </dimensions>
     <organizations>
         <instanceUrl>https://westregion.my.salesforce.com</instanceUrl>
