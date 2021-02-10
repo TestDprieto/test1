@@ -39,6 +39,18 @@
         <sortIndex>1</sortIndex>
         <type xsi:nil="true"/>
     </dates>
+    <dimensions>
+        <field>Distributor</field>
+        <isDerived>false</isDerived>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>0</sortIndex>
+    </dimensions>
+    <dimensions>
+        <field>Product</field>
+        <isDerived>false</isDerived>
+        <showInExplorer>false</showInExplorer>
+        <sortIndex>1</sortIndex>
+    </dimensions>
     <organizations>
         <instanceUrl>https://westregion.my.salesforce.com</instanceUrl>
         <label>West Region Org</label>
