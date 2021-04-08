@@ -146,6 +146,18 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>Topics_Discussed__c</fullName>
+        <externalId>false</externalId>
+        <label>Topics Discussed</label>
+        <required>false</required>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Topics_Discussed</valueSetName>
+        </valueSet>
+        <visibleLines>6</visibleLines>
+    </fields>
     <listViews>
         <fullName>AllActivities</fullName>
         <filterScope>Team</filterScope>

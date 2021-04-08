@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata"
+      xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -141,11 +142,16 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
+    <articleTypeChannelDisplay n1:nil="true" />
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <customSettingsType n1:nil="true" />
     <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
     <description>Description to not be deployed 1</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
     <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
@@ -154,21 +160,12 @@
     <enableSearch>true</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <eventType n1:nil="true" />
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>AgreementPartnerCommission2__c</fullName>
         <externalId>false</externalId>
         <label>AgreementPartnerCommission2</label>
-        <length>15</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>AgreementPartnerCommission__c</fullName>
-        <externalId>false</externalId>
-        <label>AgreementPartnerCommission</label>
         <length>15</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -183,12 +180,16 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <gender n1:nil="true" />
+    <household>false</household>
     <label>Audit</label>
     <nameField>
         <label>Audit Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Audits</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <startsWith>Vowel</startsWith>
