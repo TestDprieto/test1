@@ -1,52 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>AccountOperationsTest</members>
-        <members>AppleWatch</members>
-        <members>AppleWatchTest</members>
-        <members>clas1_emptyTest</members>
-        <members>clas1_empy</members>
-        <name>ApexClass</name>
-    </types>
-    <types>
-        <members>Account.Active__c</members>
-        <members>Account.Business_Segment__c</members>
-        <members>Account.Business_Segment_c__c</members>
-        <members>Account.CF_Account_test_Jan_14__c</members>
+        <members>AssetActionSource.ActualTax</members>
+        <members>AssetActionSource.EndDate</members>
+        <members>AssetActionSource.EstimatedTax</members>
+        <members>AssetActionSource.Quantity</members>
         <name>CustomField</name>
     </types>
     <types>
-        <members>Custom_Label_1</members>
-        <members>Custom_Label_Intel</members>
-        <name>CustomLabel</name>
-    </types>
-    <types>
-        <members>CustomLabels</members>
-        <name>CustomLabels</name>
-    </types>
-    <types>
-        <members>Activity</members>
-        <members>ActivityRecurrence2Exception</members>
-        <members>AgentWork</members>
-        <members>CMT_1__mdt</members>
-        <members>CMT_2_April_20__mdt</members>
-        <members>CO_2__c</members>
-        <members>Campaign</members>
+        <members>Entitlement</members>
+        <members>Event</members>
+        <members>F5__c</members>
+        <members>FeedItem</members>
+        <members>JH_CO_2__c</members>
+        <members>Knowledge__kav</members>
         <name>CustomObject</name>
-    </types>
-    <types>
-        <members>standard-AssetAction</members>
-        <members>standard-AssetActionSource</members>
-        <members>standard-AuthorizationForm</members>
-        <members>standard-AuthorizationFormConsent</members>
-        <name>CustomTab</name>
-    </types>
-    <types>
-        <members>Admin</members>
-        <members>New Partner Community Profile</members>
-        <members>NewProfile for Baptist Health Jacksonville</members>
-        <members>System Administrator - Orlando</members>
-        <name>Profile</name>
     </types>
     <version>51.0</version>
 </Package>
