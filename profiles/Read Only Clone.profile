@@ -2339,10 +2339,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
-        <recordType>Account.RT_KAR_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
+        <recordType>Account.RT_KAR_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
@@ -2419,10 +2419,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
-        <recordType>Event.Surgical_Event</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
@@ -2435,6 +2431,10 @@
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
         <recordType>Event.Diagnostic_Perinatal_Event</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+        <recordType>Event.Surgical_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>FeedItem-Feed Item Layout</layout>
@@ -2468,7 +2468,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
-        <recordType>LiveChatTranscript.USAA_RT_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
@@ -2476,10 +2475,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
-        <recordType>LiveChatTranscript.USAA_RT_3</recordType>
+        <recordType>LiveChatTranscript.USAA_RT_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
+        <recordType>LiveChatTranscript.USAA_RT_3</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscriptActive-Live Chat Transcript %28In Progress%29 Layout</layout>
@@ -2518,10 +2518,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
-        <recordType>Order.orderRT</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
+        <recordType>Order.orderRT</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OrderItem-Order Product Layout</layout>
