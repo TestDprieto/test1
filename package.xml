@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>classNum1</members>
-        <members>classNum1Test</members>
-        <name>ApexClass</name>
+        <members>Case</members>
+        <members>Subscription_Change_Request_ELISA_3__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Case-Case Layout</members>
+        <name>Layout</name>
     </types>
     <types>
         <members>Custom_PermSet_Nov_19</members>
