@@ -152,9 +152,10 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <label>Subscription Change Request (ELISA) 3</label>
     <nameField>
-        <label>Subscription Change Request (ELISA) 3 Na</label>
+        <label>Subscription Change Request (ELISA) 3 Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Subscriptions Change Request (ELISA) 2</pluralLabel>
@@ -163,7 +164,7 @@
         <active>true</active>
         <label>Change Offer</label>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
