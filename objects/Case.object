@@ -238,6 +238,7 @@
     </fields>
     <fields>
         <fullName>ContactId</fullName>
+        <description>#test1</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -280,6 +281,17 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>Last_Status_Change__c</fullName>
+        <description>Stores the last time the status changed -- used by the Case Business Hours Tools package.</description>
+        <externalId>false</externalId>
+        <label>Last Status Change</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Last_Support_Comunication__c</fullName>
@@ -490,6 +502,34 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>test_backend_March_31_NEW_Validation__c</fullName>
+        <externalId>false</externalId>
+        <label>test backend March-31 #NEW Validation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Topics_Discussed</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>test_backend_March_31_NEW__c</fullName>
+        <externalId>false</externalId>
+        <label>test backend March-31 #NEW</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>prefix</valueSetName>
+        </valueSet>
     </fields>
     <listViews>
         <fullName>AllClosedCases</fullName>

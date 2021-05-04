@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>Case.AccountId</members>
+        <members>Case.AssetId</members>
+        <members>Case.ClosedDate</members>
+        <members>Case.Comments</members>
+        <members>Case.ContactEmail</members>
+        <members>Case.ContactFax</members>
+        <members>Case.ContactId</members>
+        <members>Case.ContactMobile</members>
+        <members>Case.ContactPhone</members>
+        <members>Case.Description</members>
+        <members>Case.EngineeringReqNumber__c</members>
+        <members>Case.IsClosed</members>
+        <members>Case.IsEscalated</members>
+        <members>Case.Last_Status_Change__c</members>
+        <members>Case.Last_Support_Comunication__c</members>
+        <members>Case.MasterRecordId</members>
+        <members>Case.Origin</members>
+        <members>Case.OwnerId</members>
+        <members>Case.ParentId</members>
+        <members>Case.PotentialLiability__c</members>
+        <members>Case.Priority</members>
+        <members>Case.Product__c</members>
+        <members>Case.Reason</members>
+        <members>Case.SLAViolation__c</members>
+        <members>Case.SourceId</members>
+        <members>Case.Status</members>
+        <members>Case.Subject</members>
+        <members>Case.SuppliedCompany</members>
+        <members>Case.SuppliedEmail</members>
+        <members>Case.SuppliedName</members>
+        <members>Case.SuppliedPhone</members>
+        <members>Case.Type</members>
         <members>Case.field_for_FLS__c</members>
+        <members>Case.test_backend_March_31_NEW_Validation__c</members>
+        <members>Case.test_backend_March_31_NEW__c</members>
         <name>CustomField</name>
-    </types>
-    <types>
-        <members>Case</members>
-        <members>Subscription_Change_Request_ELISA_3__c</members>
-        <name>CustomObject</name>
-    </types>
-    <types>
-        <members>Case-Case Layout</members>
-        <name>Layout</name>
     </types>
     <version>51.0</version>
 </Package>
