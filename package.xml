@@ -1,9 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>classNum1</members>
-        <members>classNum1Test</members>
-        <name>ApexClass</name>
+        <members>CO_2__c.picklist_for_translation_ELISA__c</members>
+        <members>Subscription_Change_Request_ELISA__c.field_1__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Subscription_Change_Request_ELISA_2__c</members>
+        <members>Subscription_Change_Request_ELISA_3__c</members>
+        <members>Subscription_Change_Request_ELISA__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Subscription_Change_Request_ELISA_2__c-en_US</members>
+        <members>Subscription_Change_Request_ELISA_3__c-en_US</members>
+        <members>Subscription_Change_Request_ELISA__c-en_US</members>
+        <name>CustomObjectTranslation</name>
+    </types>
+    <types>
+        <members>Subscription_Change_Request_ELISA_2__c-Change Offer%2FService</members>
+        <members>Subscription_Change_Request_ELISA_2__c-Subscription Change Request %28ELISA%29 2 Layout</members>
+        <members>Subscription_Change_Request_ELISA_3__c-Change Offer%2FService</members>
+        <members>Subscription_Change_Request_ELISA_3__c-Subscription Change Request %28ELISA%29 3 Layout</members>
+        <members>Subscription_Change_Request_ELISA__c-Change Offer Service</members>
+        <members>Subscription_Change_Request_ELISA__c-Change Offer%2FService</members>
+        <members>Subscription_Change_Request_ELISA__c-Subscription Change Request %28ELISA%29 Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Subscription_Change_Request_ELISA_2__c.Change_Offer</members>
+        <members>Subscription_Change_Request_ELISA_2__c.Change_Phone</members>
+        <members>Subscription_Change_Request_ELISA_3__c.Change_Offer</members>
+        <members>Subscription_Change_Request_ELISA__c.Change_Offer</members>
+        <members>Subscription_Change_Request_ELISA__c.Change_Phone</members>
+        <name>RecordType</name>
+    </types>
+    <types>
+        <members>Subscription_Change_Request_ELISA_2__c</members>
+        <members>Subscription_Change_Request_ELISA_3__c</members>
+        <members>Subscription_Change_Request_ELISA__c</members>
+        <name>TopicsForObjects</name>
     </types>
     <types>
         <members>Custom_PermSet_Nov_19</members>

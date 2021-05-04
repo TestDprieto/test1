@@ -199,6 +199,7 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableChangeDataCapture>true</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
+    <externalSharingModel>ReadWriteTransfer</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -285,7 +286,6 @@
     <fields>
         <fullName>Last_Status_Change__c</fullName>
         <description>Stores the last time the status changed -- used by the Case Business Hours Tools package.</description>
-        <encrypted>true</encrypted>
         <externalId>false</externalId>
         <label>Last Status Change</label>
         <required>false</required>
@@ -493,6 +493,32 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>field_for_FLS__c</fullName>
+        <externalId>false</externalId>
+        <label>field for FLS</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>test_backend_March_31_NEW_Validation__c</fullName>
+        <externalId>false</externalId>
+        <label>test backend March-31 #NEW Validation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>Topics_Discussed</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>test_backend_March_31_NEW__c</fullName>
         <externalId>false</externalId>
         <label>test backend March-31 #NEW</label>
@@ -560,6 +586,8 @@
         <label>list view cases 2</label>
         <language>en_US</language>
     </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
