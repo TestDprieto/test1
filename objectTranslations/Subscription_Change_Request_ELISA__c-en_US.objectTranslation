@@ -8,5 +8,24 @@
         <plural>true</plural>
         <value>Subscriptions Changes Requests (ELISA)</value>
     </caseValues>
+    <fields>
+        <label></label>
+        <name>field_1__c</name>
+    </fields>
+    <layouts>
+        <layout>Change Offer Service</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label></label>
+        <name>Change_Offer</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Change_Phone</name>
+    </recordTypes>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

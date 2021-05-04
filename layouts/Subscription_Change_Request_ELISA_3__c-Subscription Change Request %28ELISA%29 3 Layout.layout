@@ -10,10 +10,6 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>field_1__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -51,6 +47,13 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>CASES.CASE_NUMBER</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.CREATED_DATE</fields>
+        <fields>CASES.PRIORITY</fields>
+        <relatedList>Case.Subscription_Change_Request_ELISA_3__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>

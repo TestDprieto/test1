@@ -152,13 +152,32 @@
     <enableSearch>false</enableSearch>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>field_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>field 1</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <label>Subscription Change Request (ELISA)</label>
     <nameField>
         <label>Subscription Change Request (ELISA) Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Subscriptions Changes Requests (ELISA)</pluralLabel>
-    <searchLayouts/>
+    <recordTypes>
+        <fullName>Change_Offer</fullName>
+        <active>true</active>
+        <label>Change Offer</label>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Change_Phone</fullName>
+        <active>true</active>
+        <label>Change Phone</label>
+    </recordTypes>
+    <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
