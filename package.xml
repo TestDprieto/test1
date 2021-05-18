@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Order.DiageoMay__c</members>
-        <name>CustomField</name>
-    </types>
-    <types>
-        <members>DiageoMay__c</members>
+        <members>May18__c</members>
         <name>CustomObject</name>
     </types>
     <types>
-        <members>DiageoMay__c-en_US</members>
+        <members>May18__c-en_US</members>
         <name>CustomObjectTranslation</name>
     </types>
     <types>
-        <members>DiageoMay__c-DiageoMay Layout</members>
-        <members>Order-Order Layout</members>
+        <members>May18__c-May18 Layout</members>
+        <members>May18__c-May18 Layout2</members>
         <name>Layout</name>
     </types>
     <types>
-        <members>DiageoMay__c</members>
+        <members>Admin</members>
+        <members>Standard</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>May18__c</members>
         <name>SharingRules</name>
     </types>
     <types>
-        <members>DiageoMay__c</members>
+        <members>May18__c</members>
         <name>TopicsForObjects</name>
     </types>
     <version>51.0</version>
