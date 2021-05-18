@@ -138,11 +138,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>classNum1Test</apexClass>
+        <apexClass>classNum1</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>classNum1</apexClass>
+        <apexClass>classNum1Test</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -3101,6 +3101,9 @@
         <layout>Macro-Macro Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>May18__c-May18 Layout2</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Metric-Completion Metric Layout</layout>
         <recordType>Metric.Completion</recordType>
     </layoutAssignments>
@@ -3971,6 +3974,15 @@
         <modifyAllRecords>false</modifyAllRecords>
         <object>MacroUsage</object>
         <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>May18__c</object>
+        <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
