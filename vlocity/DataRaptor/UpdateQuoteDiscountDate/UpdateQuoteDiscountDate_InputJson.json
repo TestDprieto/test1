@@ -1,0 +1,136 @@
+{
+    "AccountId": "001f400000R8I3eAAF",
+    "ContractId": "",
+    "ContractStatus": "Draft",
+    "EffectiveEndDate": "2019-02-25",
+    "FrameContractCount": 1,
+    "Quote": {
+        "AccountId": "001f400000R8I3eAAF",
+        "DeactivatedDiscounts": {
+            "Id": "a3uf4000000InZDAA0"
+        },
+        "FrameContract": {
+            "EndDate": "2020-02-20",
+            "Id": "800f4000000daoeAAA",
+            "StartDate": "2019-02-21",
+            "Status": "Draft",
+            "Version": {
+                "CreationSource": "Generate",
+                "Discount": [
+                    {
+                        "AppliesToAllItems": false,
+                        "EffectiveEndDate": "2020-02-12T22:37:00.000Z",
+                        "Name": "Quote Discount4",
+                        "ReferenceNumber": "7777777777"
+                    },
+                    {
+                        "AppliesToAllItems": false,
+                        "DiscountItem": {
+                            "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                            "Name": "sadads",
+                            "ProductId": "01tf4000003hmOdAAI",
+                            "QuoteDiscountId": "a3uf4000000Imd6AAC"
+                        },
+                        "DiscountPricing": {
+                            "AdjustmentValue": 600,
+                            "Name": "sadawad",
+                            "PricingVariableId": "a2rf4000000Qwz7AAC",
+                            "QuoteDiscountId": "a3uf4000000Imd6AAC",
+                            "TimePlanId": "a39f4000000R2vhAAC",
+                            "TimePolicyId": "a3Af40000009YaJEAU"
+                        },
+                        "Name": "Test123344",
+                        "ReferenceNumber": "555555555"
+                    },
+                    {
+                        "AppliesToAllItems": true,
+                        "DiscountItem": [
+                            {
+                                "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                                "Name": "Discount PRicing33",
+                                "ProductId": "01tf4000001opAuAAI",
+                                "QuoteDiscountId": "a3uf4000000ImcwAAC"
+                            },
+                            {
+                                "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                                "Name": "Discount PRicing",
+                                "ProductId": "01tf4000001opAuAAI",
+                                "QuoteDiscountId": "a3uf4000000ImcwAAC"
+                            }
+                        ],
+                        "DiscountPricing": [
+                            {
+                                "AdjustmentValue": 200,
+                                "Name": "DiscountItem2",
+                                "PricingVariableId": "a2rf4000000Qwz7AAC",
+                                "QuoteDiscountId": "a3uf4000000ImcwAAC",
+                                "TimePlanId": "a39f4000000R2vhAAC",
+                                "TimePolicyId": "a3Af40000009YaJEAU"
+                            },
+                            {
+                                "AdjustmentValue": 400,
+                                "Name": "DiscountItem1",
+                                "PricingVariableId": "a2rf4000000Qwz7AAC",
+                                "QuoteDiscountId": "a3uf4000000ImcwAAC",
+                                "TimePlanId": "a39f4000000R2vhAAC",
+                                "TimePolicyId": "a3Af40000009YaJEAU"
+                            }
+                        ],
+                        "EffectiveEndDate": "2019-02-27T21:38:00.000Z",
+                        "EffectiveStartDate": "2019-02-01T17:57:00.000Z",
+                        "Name": "Discount111",
+                        "ReferenceNumber": "111111111"
+                    },
+                    {
+                        "AppliesToAllItems": false,
+                        "DiscountItem": [
+                            {
+                                "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                                "Name": "Item444",
+                                "ProductId": "01tf4000003hWubAAE",
+                                "QuoteDiscountId": "a3uf4000000Imd1AAC"
+                            },
+                            {
+                                "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                                "Name": "Item22",
+                                "ProductId": "01tf4000003hmOdAAI",
+                                "QuoteDiscountId": "a3uf4000000Imd1AAC"
+                            }
+                        ],
+                        "DiscountPricing": [
+                            {
+                                "AdjustmentValue": 600,
+                                "Name": "DiscountPricng3",
+                                "PricingVariableId": "a2rf4000000Qwz7AAC",
+                                "QuoteDiscountId": "a3uf4000000Imd1AAC",
+                                "TimePlanId": "a39f4000000R2vhAAC",
+                                "TimePolicyId": "a3Af40000009YaJEAU"
+                            },
+                            {
+                                "AdjustmentValue": 600,
+                                "Name": "DiscountPricng11",
+                                "PricingVariableId": "a2rf4000000Qwz7AAC",
+                                "QuoteDiscountId": "a3uf4000000Imd1AAC",
+                                "TimePlanId": "a39f4000000R2vhAAC",
+                                "TimePolicyId": "a3Af40000009YaJEAU"
+                            }
+                        ],
+                        "EffectiveEndDate": "2020-02-11T20:40:00.000Z",
+                        "EffectiveStartDate": "2019-02-01T17:57:00.000Z",
+                        "Name": "Discount2222",
+                        "ReferenceNumber": "2222222"
+                    }
+                ],
+                "TemplateId": "a0Xf4000002K2CIEA0"
+            }
+        },
+        "FrameContractCount": 1,
+        "Name": "New Quote4"
+    },
+    "QuoteId": "0Q0f4000000ujY0",
+    "VersionStatus": "Active",
+    "errorDetails": "",
+    "errorInfo": "",
+    "errorOK": "",
+    "isFrameContract": true
+}

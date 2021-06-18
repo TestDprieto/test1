@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>vlocity_cmt__ChildObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Child object(s) being cloned.</description>
+        <externalId>false</externalId>
+        <label>Child Object</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ClassName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Class to call for the special logic.</description>
+        <externalId>false</externalId>
+        <label>Class Name</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Order__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sequence of operation if there are multiple special pieces of code to run for the same Root / Child combination.</description>
+        <externalId>false</externalId>
+        <label>Order</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RootObject__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The parent object type that is being cloned</description>
+        <externalId>false</externalId>
+        <label>Root Object</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Graph Clone Special</label>
+    <visibility>Public</visibility>
+</CustomObject>

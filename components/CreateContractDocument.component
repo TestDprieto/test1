@@ -1,0 +1,109 @@
+<apex:component >
+  <apex:includeScript value="{!$Resource.vlocity_cmt__docxtemplater}"/>
+  <apex:includeScript value="{!$Resource.vlocity_cmt__JSZip}"/> 
+  <apex:includeScript value="{!$Resource.vlocity_cmt__FileSaver}"/> 
+  <script type="text/javascript">
+  
+  /*
+      This directive can only be attacheto a button and in doing so will create and ng-click directive on that element
+      with the value pointing to the navigate method
+      @ input : a javascript object when attached to the scope will send the data to the server 
+      
+  */
+    bpModule.directive('createDocument', ['bpService','$compile', '$window', function(bpService, $compile, $window){
+        console.log('inside directive');
+        return{
+            restrict: 'A',
+            priority: '10001',
+            compile: function(element, attrs){   
+                element.removeAttr('create-document');
+                element.attr('ng-click', 'navigate()');                       
+                var fn = $compile(element);
+                return function(scope,$rootScope) {
+                    var newScope = scope.$new();
+                    newScope.navigate = function(){
+                        var inputJSON = angular.toJson(newScope.bpTree.response);
+                        var optionJSON = angular.toJson(newScope.control.propSetMap.remoteOptions || {});
+                        newScope.$root.loading = true;
+                        
+                        bpService.GenericInvoke('CreateAmendmentDocument',
+                                                'getDocxTemplate',inputJSON,
+                                                 optionJSON).then(function(result){
+                                                   var relXml = angular.fromJson(result).relXml;
+                                                   var zip = new JSZip(relXml.templateEncoded, {base64: true});
+                                                   var file = zip.file('word/_rels/document.xml.rels');
+                                                   if (file != null) {
+                                                        var fileText= file.asText();
+                                                        var copyInputJSON = angular.copy(inputJSON); 
+                                                        var jsonObj = JSON.parse(copyInputJSON);                                                    
+                                                        jsonObj["relXml"]=fileText;    
+                                                                                                        
+                                                        console.log("before createdoc" +jsonObj);
+                                                        bpService.GenericInvoke('CreateAmendmentDocument',
+                                                                                'createWordDoc',angular.toJson(jsonObj),
+                                                                                optionJSON).then(function(result){
+                                                            var dataDoc = angular.fromJson(result).doc
+                                                            var out = generateDocx(dataDoc, 'base64', zip);
+                                                            var copyInputJSON2 = angular.copy(inputJSON);
+                                                            var jsonObj2 = JSON.parse(copyInputJSON2);
+                                                            jsonObj2["contractData"]=out;  
+                                                            console.log("before attach" +jsonObj2);
+                                                            bpService.GenericInvoke('CreateAmendmentDocument',
+                                                                                    'attachDocx',angular.toJson(jsonObj2),
+                                                                                    optionJSON).then(function(result){
+                                                                 newScope.$root.loading = false;
+                                                                                                                                                 
+                                                        },function(error){
+                                                            newScope.$root.loading = false;
+                                                            console.log('something went wrong in attachdoc');
+                                                            console.log(error);
+                                                        });
+                                                   },function(error){
+                                                     newScope.$root.loading = false;
+                                                      console.log('something went wrong in createwordDoc');
+                                                      console.log(error);
+                                                   }); 
+                                                  }  
+                                                    
+                                                }, function(error){
+                                                    newScope.$root.loading = false;
+                                                    console.log('something went wrong in getTemplate');
+                                                    console.log(error);
+                                                });
+                    };
+
+                    fn(newScope);
+                    
+                    function generateDocx(result, type, zip) {
+                            var contractData = result.contractData;
+                            var imageCount = result.imageData.numImages;
+                            for (var i = 0; i < imageCount; i++) {
+                                if (typeof result.imageData['imageData'+i] !== 'undefined' && result.imageData['imageData'+i] !== null) {
+                                    zip.file('word/media/imageData'+i+'.png', result.imageData['imageData'+i], {base64:true});
+                                }    
+                            }
+                            if (typeof result.contractData['DocxRels'] !== 'undefined' && result.contractData['DocxRels'] !== null) {
+                                zip.remove('word/_rels/document.xml.rels');
+                                zip.file('word/_rels/document.xml.rels', result.contractData['DocxRels'], {});
+                            }    
+                            var doc = new Docxgen(zip);
+                            doc.setData(contractData);                            
+                            doc.render(); 
+            
+                            var out;
+                            if (type === 'blob') {
+                                out = doc.getZip().generate({type:"blob"});    
+                            }
+                            else {
+                                out = doc.getZip().generate({type:"base64"});
+                            }
+                            
+                            return out;
+                    }                                       
+                };
+            }                       
+        };
+    }]);
+    
+  </script>
+</apex:component>

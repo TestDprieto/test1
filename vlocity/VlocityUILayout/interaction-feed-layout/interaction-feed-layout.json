@@ -1,0 +1,37 @@
+{
+    "Cards": [
+        "interaction-feed"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "a3L1N0000009lqz"
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "body": "",
+            "inputMap": {
+                "interactionId": "{{params.id}}"
+            },
+            "interval": 4000,
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.InteractionSummaryController"
+            },
+            "remoteClass": "InteractionSummaryController",
+            "remoteMethod": "getTrackingEntries",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "result"
+        }
+    },
+    "previewType": "designTime",
+    "templates": {
+        "0": {
+            "templateUrl": "interaction-feed-canvas"
+        }
+    },
+    "workspace": [
+        "interaction-feed/Vlocity/1506665729950"
+    ]
+}

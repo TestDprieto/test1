@@ -1,0 +1,43 @@
+{
+    "Cards": [
+        "multiservice-cpq-group-total-bar"
+    ],
+    "componentName": "cfMultiserviceCpqGroupTotalBar",
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0Q02E000004kkBFSAY"
+            },
+            {
+                "name": "",
+                "val": ""
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "cartId": "{{params.id}}",
+                "groupCart": "true",
+                "price": "false",
+                "validate": "false"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.CpqAppHandler"
+            },
+            "remoteClass": "CpqAppHandler",
+            "remoteMethod": "getCarts",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "records[0].details.records[0]"
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "cpq-total-bar"
+        }
+    },
+    "workspace": [
+        "multiservice-cpq-group-total-bar/Vlocity/2/1597664562386"
+    ]
+}

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Sample_Configuration_Rule_Action</name>
+        <label>Sample Configuration Rule Action</label>
+        <locationX>560</locationX>
+        <locationY>213</locationY>
+        <actionName>vlocity_cmt__RuleAction</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>ruleType</name>
+            <value>
+                <stringValue>Configuration</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ruleName</name>
+            <value>
+                <stringValue>CHANGE_ME (should be changed to the correct rule name)</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Step_1</name>
+        <label>Step 1</label>
+        <locationX>396</locationX>
+        <locationY>210</locationY>
+        <actionName>vlocity_cmt__RuleAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Step_1_0</targetReference>
+        </connector>
+        <inputParameters>
+            <name>ruleType</name>
+            <value>
+                <stringValue>Configuration</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ruleName</name>
+            <value>
+                <stringValue>Recommend Package based on Opportunity Contents</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <name>Step_1_0</name>
+        <label>Step 1</label>
+        <locationX>398</locationX>
+        <locationY>380</locationY>
+        <actionName>vlocity_cmt__RuleAction</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>ruleType</name>
+            <value>
+                <stringValue>Configuration</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ruleName</name>
+            <value>
+                <stringValue>configuration rule</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>doCommit</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>Validation Rules Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Validation Rules Flow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Step_1</startElementReference>
+    <status>Draft</status>
+</Flow>

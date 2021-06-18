@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Applied Datetime --></label>
+        <name>vlocity_cmt__AppliedDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- End State --></label>
+        <name>vlocity_cmt__EndState__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Transition Success --></label>
+        <name>vlocity_cmt__IsTransitionSuccess__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Default State --></label>
+        <name>vlocity_cmt__LastDefaultState__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Id --></label>
+        <name>vlocity_cmt__RecordId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Result --></label>
+        <name>vlocity_cmt__Result__c</name>
+    </fields>
+    <fields>
+        <label><!-- State Transition --></label>
+        <name>vlocity_cmt__StateTransitionId__c</name>
+        <relationshipLabel><!-- Object Applied Results --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- State Transition Name --></label>
+        <name>vlocity_cmt__StateTransitionName__c</name>
+    </fields>
+</CustomObjectTranslation>

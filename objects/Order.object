@@ -184,11 +184,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Order_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -198,6 +201,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
         <trackHistory>false</trackHistory>
@@ -258,18 +262,6 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
-        <fullName>DiageoMay__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>DiageoMay</label>
-        <referenceTo>DiageoMay__c</referenceTo>
-        <relationshipLabel>Orders</relationshipLabel>
-        <relationshipName>Orders</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>EffectiveDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>
@@ -311,6 +303,16 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>Pricebook2Id</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>QuoteId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>ShipToContactId</fullName>
         <trackHistory>true</trackHistory>
         <type>Lookup</type>
@@ -326,11 +328,1446 @@
     </fields>
     <fields>
         <fullName>TotalAmount</fullName>
+        <trackHistory>true</trackHistory>
     </fields>
     <fields>
         <fullName>Type</fullName>
         <trackHistory>true</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AccountId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Value of the AccountId field.</description>
+        <externalId>false</externalId>
+        <formula>AccountId</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Id</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AccountRecordType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Account.RecordType.DeveloperName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Record Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AccountSLA__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(Account.vlocity_cmt__vSLA__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account SLA</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BillingName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Text to enter billing contact</description>
+        <externalId>false</externalId>
+        <label>Billing Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CampaignId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CartIdentifier__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Cart Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CreatedByAPI__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Created By API</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DefaultBillingAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Billing Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Billing Account Orders</relationshipLabel>
+        <relationshipName>BillingAccountOrders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DefaultCurrencyPaymentMode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Currency Payment Mode</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Currency</fullName>
+                    <default>true</default>
+                    <label>Currency</label>
+                </value>
+                <value>
+                    <fullName>Loyalty</fullName>
+                    <default>false</default>
+                    <label>Loyalty</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DefaultPremisesId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The default Premises associated with this order</description>
+        <externalId>false</externalId>
+        <label>Premises</label>
+        <referenceTo>vlocity_cmt__Premises__c</referenceTo>
+        <relationshipLabel>Premises Orders</relationshipLabel>
+        <relationshipName>PremisesOrders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DefaultServiceAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Service Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Service Account Orders</relationshipLabel>
+        <relationshipName>ServiceAccountOrders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DefaultServicePointId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The default Service Point associated with this order</description>
+        <externalId>false</externalId>
+        <label>Service Point</label>
+        <referenceTo>vlocity_cmt__ServicePoint__c</referenceTo>
+        <relationshipLabel>Service Point Orders</relationshipLabel>
+        <relationshipName>ServicePointOrders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Delivery_Installation_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Delivery Installation Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>In progress</fullName>
+                    <default>false</default>
+                    <label>In progress</label>
+                </value>
+                <value>
+                    <fullName>Yet to begin</fullName>
+                    <default>false</default>
+                    <label>Yet to begin</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Discount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Manual discount for entire order</description>
+        <externalId>false</externalId>
+        <label>Discount</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DueDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Due Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOneTimeCostTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: One Time Costs</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOneTimeLoyaltyTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: One Time Loyalty</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: One Time Charges</label>
+        <summarizedField>OrderItem.vlocity_cmt__EffectiveOneTimeTotal__c</summarizedField>
+        <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOrderTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__EffectiveOneTimeTotal__c +  vlocity_cmt__Tax__c  +( vlocity_cmt__EffectiveRecurringTotal__c *  vlocity_cmt__NumberOfContractedMonths__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Effective Order Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveRecurringCostTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: Recurring Costs</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveRecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: Monthly Charges</label>
+        <summarizedField>OrderItem.vlocity_cmt__EffectiveRecurringTotal__c</summarizedField>
+        <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveUsageCostTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective Usage Cost Total</description>
+        <externalId>false</externalId>
+        <label>Usage Cost Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveUsagePriceTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective Usage Price Total</description>
+        <externalId>false</externalId>
+        <label>Usage Price Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Email__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Expiration Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ExternalPricingStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is to keep track of external pricing status.</description>
+        <externalId>false</externalId>
+        <label>External Pricing Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not Ready</fullName>
+                    <default>true</default>
+                    <label>Not Ready</label>
+                </value>
+                <value>
+                    <fullName>Ready</fullName>
+                    <default>false</default>
+                    <label>Ready</label>
+                </value>
+                <value>
+                    <fullName>Requested</fullName>
+                    <default>false</default>
+                    <label>Requested</label>
+                </value>
+                <value>
+                    <fullName>Request Confirmed</fullName>
+                    <default>false</default>
+                    <label>Request Confirmed</label>
+                </value>
+                <value>
+                    <fullName>Invalidated</fullName>
+                    <default>false</default>
+                    <label>Invalidated</label>
+                </value>
+                <value>
+                    <fullName>Expired</fullName>
+                    <default>false</default>
+                    <label>Expired</label>
+                </value>
+                <value>
+                    <fullName>Completed</fullName>
+                    <default>false</default>
+                    <label>Completed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Fax__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fax</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FirstSubmitAttemptTs__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date of First Submission to Order Management</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of First Submission to Order Management</inlineHelpText>
+        <label>First Submitted Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FirstVersionOrderIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Original Order Id</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FrameContractId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Frame contract linked to this order</description>
+        <externalId>false</externalId>
+        <label>Frame Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FulfilmentStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The summary fulfilment status of this order. Populated and updated by order management processes for submitted orders.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fulfilment Status</inlineHelpText>
+        <label>Fulfilment Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Draft</fullName>
+                    <default>true</default>
+                    <label>Draft</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Activated</fullName>
+                    <default>false</default>
+                    <label>Activated</label>
+                </value>
+                <value>
+                    <fullName>Superseded</fullName>
+                    <default>false</default>
+                    <label>Superseded</label>
+                </value>
+                <value>
+                    <fullName>Queued</fullName>
+                    <default>false</default>
+                    <label>Queued</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsActiveOrderVersion__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if the current order is the one that is active in Order Management System.</description>
+        <externalId>false</externalId>
+        <label>Active Order Version</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsChangesAccepted__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Changes Accepted</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsChangesAllowed__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Changes Allowed</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsContractRequired__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Denotes if order requires a contract</description>
+        <externalId>false</externalId>
+        <label>Require Contract</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsPriced__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>NOT(ISNULL(vlocity_cmt__LastPricedAt__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Priced</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsSyncing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Syncing</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsValidated__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>NOT(ISNULL(vlocity_cmt__ValidationDate__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Is Validated</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__JeopardySafetyIntervalUnit__c</fullName>
+        <defaultValue>&quot;Seconds&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Jeopardy Safety Interval Unit</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Seconds</fullName>
+                    <default>true</default>
+                    <label>Seconds</label>
+                </value>
+                <value>
+                    <fullName>Business Hours</fullName>
+                    <default>false</default>
+                    <label>Business Hours</label>
+                </value>
+                <value>
+                    <fullName>Business Days</fullName>
+                    <default>false</default>
+                    <label>Business Days</label>
+                </value>
+                <value>
+                    <fullName>Calendar Hours</fullName>
+                    <default>false</default>
+                    <label>Calendar Hours</label>
+                </value>
+                <value>
+                    <fullName>Calendar Days</fullName>
+                    <default>false</default>
+                    <label>Calendar Days</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__JeopardySafetyInterval__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Jeopardy Safety Interval</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__JeopardyStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF((ISBLANK(vlocity_cmt__RequestedCompletionDate__c) || ISNULL(vlocity_cmt__RequestedCompletionDate__c)) || (ISBLANK(vlocity_cmt__DueDate__c) || ISNULL(vlocity_cmt__DueDate__c)), &apos;Green&apos;,
+            IF(vlocity_cmt__DueDate__c &gt;= vlocity_cmt__RequestedCompletionDate__c, &apos;Red&apos;,
+            CASE(vlocity_cmt__JeopardySafetyIntervalUnit__c,
+            &apos;Seconds&apos;, IF(vlocity_cmt__DueDate__c + vlocity_cmt__JeopardySafetyInterval__c/(24*60*60) &lt;= vlocity_cmt__RequestedCompletionDate__c, &apos;Green&apos;, &apos;Yellow&apos;),
+            &apos;Calendar Hours&apos;, IF(vlocity_cmt__DueDate__c + vlocity_cmt__JeopardySafetyInterval__c/24 &lt;= vlocity_cmt__RequestedCompletionDate__c, &apos;Green&apos;, &apos;Yellow&apos;),
+            &apos;Calendar Days&apos;, IF(vlocity_cmt__DueDate__c + vlocity_cmt__JeopardySafetyInterval__c &lt;= vlocity_cmt__RequestedCompletionDate__c, &apos;Green&apos;, &apos;Yellow&apos;),
+            /* TODO: Gap - business intervals doesn&apos;t support business calendar */
+            &apos;Business Hours&apos;, IF(vlocity_cmt__DueDate__c + vlocity_cmt__JeopardySafetyInterval__c/24 &lt;= vlocity_cmt__RequestedCompletionDate__c, &apos;Green&apos;, &apos;Yellow&apos;),
+            &apos;Business Days&apos;, IF(vlocity_cmt__DueDate__c + vlocity_cmt__JeopardySafetyInterval__c &lt;= vlocity_cmt__RequestedCompletionDate__c, &apos;Green&apos;, &apos;Yellow&apos;),
+            &apos;Green&apos;)
+            ))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Jeopardy Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LastPricedAt__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Priced At</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LeadSource__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Lead Source</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Web</fullName>
+                    <default>false</default>
+                    <label>Web</label>
+                </value>
+                <value>
+                    <fullName>Phone Inquiry</fullName>
+                    <default>false</default>
+                    <label>Phone Inquiry</label>
+                </value>
+                <value>
+                    <fullName>Partner Referral</fullName>
+                    <default>false</default>
+                    <label>Partner Referral</label>
+                </value>
+                <value>
+                    <fullName>Purchased List</fullName>
+                    <default>false</default>
+                    <label>Purchased List</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MasterOrderName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of a master order under which multi-site orders are managed.</description>
+        <externalId>false</externalId>
+        <label>Master Order Name</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MaxCatalogueDeltaObjectIndex__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum Sync Delta Object Index / Name. Populated by order management during order submit in case if catalogue is out of sync with OMplus.</description>
+        <externalId>false</externalId>
+        <label>Maximum Catalogue Delta Object Index</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MultiServiceMessageData__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field stores messages that are generated and displayed in a MultiService feature.</description>
+        <externalId>false</externalId>
+        <label>Multi Service Message Data</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__NumberOfContractedMonths__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number of Contract Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OneTimeLoyaltyTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total: One Time Loyalty</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OneTimeMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>One Time Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OneTimeTotal2__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Sum of one time totals of orders for which this order is a parent order.</description>
+        <externalId>false</externalId>
+        <label>Parent Order One Time Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total: One Time Charges</label>
+        <summarizedField>OrderItem.vlocity_cmt__OneTimeTotal__c</summarizedField>
+        <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OpportunityId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>DEPRECATED. Use the standard OpportunityId field.</description>
+        <externalId>false</externalId>
+        <label>Opportunity</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrchestrationPlanId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Orchestration Plan</label>
+        <referenceTo>vlocity_cmt__OrchestrationPlan__c</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrchestrationPlanReferenceId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Orchestration Plan Reference Id</label>
+        <length>19</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderGroupId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The Group to which the service point associated with this order is linked</description>
+        <externalId>false</externalId>
+        <label>Order Group</label>
+        <referenceTo>vlocity_cmt__OrderGroup__c</referenceTo>
+        <relationshipLabel>Group Orders</relationshipLabel>
+        <relationshipName>GroupOrders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderGroup__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Order Group Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Order Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Order Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Ready To Submit</fullName>
+                    <default>false</default>
+                    <label>Ready To Submit</label>
+                </value>
+                <value>
+                    <fullName>In Progress</fullName>
+                    <default>false</default>
+                    <label>In Progress</label>
+                </value>
+                <value>
+                    <fullName>Activated</fullName>
+                    <default>false</default>
+                    <label>Activated</label>
+                </value>
+                <value>
+                    <fullName>Cancel Requested</fullName>
+                    <default>false</default>
+                    <label>Cancel Requested</label>
+                </value>
+                <value>
+                    <fullName>Cancelled</fullName>
+                    <default>false</default>
+                    <label>Cancelled</label>
+                </value>
+                <value>
+                    <fullName>Complete</fullName>
+                    <default>false</default>
+                    <label>Complete</label>
+                </value>
+                <value>
+                    <fullName>Queued</fullName>
+                    <default>false</default>
+                    <label>Queued</label>
+                </value>
+                <value>
+                    <fullName>Amend Requested</fullName>
+                    <default>false</default>
+                    <label>Amend Requested</label>
+                </value>
+                <value>
+                    <fullName>Cancel In Progress</fullName>
+                    <default>false</default>
+                    <label>Cancel In Progress</label>
+                </value>
+                <value>
+                    <fullName>Superseded</fullName>
+                    <default>false</default>
+                    <label>Superseded</label>
+                </value>
+                <value>
+                    <fullName>Submitted</fullName>
+                    <default>false</default>
+                    <label>Submitted</label>
+                </value>
+                <value>
+                    <fullName>Rejected</fullName>
+                    <default>false</default>
+                    <label>Rejected</label>
+                </value>
+                <value>
+                    <fullName>Frozen</fullName>
+                    <default>false</default>
+                    <label>Frozen</label>
+                </value>
+                <value>
+                    <fullName>Discarded</fullName>
+                    <default>false</default>
+                    <label>Discarded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__OneTimeTotal__c +  vlocity_cmt__Tax__c  +( vlocity_cmt__RecurringTotal__c *  vlocity_cmt__NumberOfContractedMonths__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Order Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OriginatingChannel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Channel can be used to drive Eligibility/Compatibility/Recommendations/Pricing/Other implementations, e.g. Certain Product Bundles are only available on the Web or Call Center channel but not via the Retail and Dealer channels OR A product may have a different price when sold via the Web than sold via the Retail channel, etc.</description>
+        <externalId>false</externalId>
+        <label>Originating Channel</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Web</fullName>
+                    <default>false</default>
+                    <label>Web</label>
+                </value>
+                <value>
+                    <fullName>Call Center</fullName>
+                    <default>true</default>
+                    <label>Call Center</label>
+                </value>
+                <value>
+                    <fullName>Retail</fullName>
+                    <default>false</default>
+                    <label>Retail</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OriginatingContractId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Points to the contract from which this order was created</description>
+        <externalId>false</externalId>
+        <label>Originating Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ParentOrderId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field indicates if this has parent order. Parent order here also refers to a master order.</description>
+        <externalId>false</externalId>
+        <label>Parent Order</label>
+        <referenceTo>Order</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Phone__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PriceListId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Price List</label>
+        <referenceTo>vlocity_cmt__PriceList__c</referenceTo>
+        <relationshipLabel>Orders Using This Price List</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Pricebook__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Pricebook2.Name</formula>
+        <label>Pricebook</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProcessingLog__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Order processing log. Populated by order management during order submit.</description>
+        <externalId>false</externalId>
+        <label>Processing Log</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>20</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QueuedTs__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Timestamp when Order Submission is Queued</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Timestamp when Order Submission is Queued</inlineHelpText>
+        <label>Queued Timestamp</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>DEPRECATED. Use the standard QuoteId field.</description>
+        <externalId>false</externalId>
+        <label>Quote</label>
+        <referenceTo>Quote</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteToCity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote To City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteToCountry__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote To Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteToName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote To Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteToPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote To Zip/Postal Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteToState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote To State/Province</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteToStreet__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote To Street</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RecurringMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RecurringTotal2__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Sum of recurring time totals of orders for which this order is a parent order.</description>
+        <externalId>false</externalId>
+        <label>Parent Order Recurring Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total: Monthly Charges</label>
+        <summarizedField>OrderItem.vlocity_cmt__RecurringTotal__c</summarizedField>
+        <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RequestDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Request Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RequestedCompletionDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Requested Completion Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RequestedStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Request for OM to Start Order, this is also the Requested Date/Time when CPQ will send the Order to Vlocity OM</description>
+        <externalId>false</externalId>
+        <label>Requested Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ShippingName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Shipping Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ShippingPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>ShippingPostalCode</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Shipping Postal Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ShippingState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>ShippingState</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Shipping State</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__StatusImageName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(Status)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status Image Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SubmittedToOmDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date of Successful Submission to Order Management</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of Submission to Order Management</inlineHelpText>
+        <label>Submitted to OM</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SupersededOrderId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Superseded Order</description>
+        <externalId>false</externalId>
+        <label>Superseded Order</label>
+        <referenceTo>Order</referenceTo>
+        <relationshipLabel>Superseding Order</relationshipLabel>
+        <relationshipName>SupersededOrder</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SupplementalAction__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If this is a supplemental order, this field represents the type of action that is requested on the superseded order.</description>
+        <externalId>false</externalId>
+        <label>Supplemental Action</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Amend</fullName>
+                    <default>false</default>
+                    <label>Amend</label>
+                </value>
+                <value>
+                    <fullName>Cancel</fullName>
+                    <default>false</default>
+                    <label>Cancel</label>
+                </value>
+                <value>
+                    <fullName>Follow On</fullName>
+                    <default>false</default>
+                    <label>Follow On</label>
+                </value>
+                <value>
+                    <fullName>Original</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Original</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Tax__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ThorJeopardyStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Jeopardy Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Green</fullName>
+                    <default>false</default>
+                    <label>Green</label>
+                </value>
+                <value>
+                    <fullName>Yellow</fullName>
+                    <default>false</default>
+                    <label>Yellow</label>
+                </value>
+                <value>
+                    <fullName>Red</fullName>
+                    <default>false</default>
+                    <label>Red</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TotalMonthlyDiscount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total : Monthly Discount</label>
+        <summarizedField>OrderItem.vlocity_cmt__RecurringDiscountPrice__c</summarizedField>
+        <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TotalOneTimeDiscount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Total : One Time Discount</label>
+        <summarizedField>OrderItem.vlocity_cmt__OneTimeDiscountPrice__c</summarizedField>
+        <summaryForeignKey>OrderItem.OrderId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TrackingNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Tracking Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__UsageMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Usage Margin Total</description>
+        <externalId>false</externalId>
+        <label>Usage Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ValidationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date of last validation run</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of last validation run</inlineHelpText>
+        <label>Validation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ValidationMessage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Message from last validation run</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Message from last validation run</inlineHelpText>
+        <label>Validation Message</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ValidationStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of last validation run</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Status of last validation run</inlineHelpText>
+        <label>Validation Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not yet run</fullName>
+                    <default>false</default>
+                    <label>Not yet run</label>
+                </value>
+                <value>
+                    <fullName>Passed</fullName>
+                    <default>false</default>
+                    <label>Passed</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <listViews>
         <fullName>AllActivatedOrders</fullName>
@@ -354,19 +1791,1714 @@
     </listViews>
     <listViews>
         <fullName>AllOrders</fullName>
+        <columns>ORDERS.ORDER_NUMBER</columns>
+        <columns>SALES.ACCOUNT.NAME</columns>
+        <columns>ORDER.NAME</columns>
+        <columns>ORDERS.STATUS</columns>
+        <columns>vlocity_cmt__OrderStatus__c</columns>
+        <columns>ORDERS.EFFECTIVE_DATE</columns>
+        <columns>vlocity_cmt__OrderTotal__c</columns>
+        <columns>vlocity_cmt__EffectiveRecurringTotal__c</columns>
+        <columns>vlocity_cmt__SupersededOrderId__c</columns>
+        <columns>CONTRACT.CONTRACT_NUMBER</columns>
         <filterScope>Everything</filterScope>
         <label>All Orders</label>
     </listViews>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>vlocity_cmt__EnterpriseOrder</fullName>
+        <active>true</active>
+        <description>Use enterprise order for large multi-site or multi-subscriber orders when you want one single large order.</description>
+        <label>Enterprise Order</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Delivery_Installation_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__FulfilmentStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__JeopardySafetyIntervalUnit__c</picklist>
+            <values>
+                <fullName>Business Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seconds</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OrderStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Amend Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discarded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Frozen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready To Submit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SupplementalAction__c</picklist>
+            <values>
+                <fullName>Amend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow On</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ThorJeopardyStatus__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__GroupCart</fullName>
+        <active>true</active>
+        <description>A group cart holds the configured offers designed to be applied to all of the members of the associated group.</description>
+        <label>Group Cart</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Delivery_Installation_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__FulfilmentStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__JeopardySafetyIntervalUnit__c</picklist>
+            <values>
+                <fullName>Business Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seconds</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OrderStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready To Submit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SupplementalAction__c</picklist>
+            <values>
+                <fullName>Amend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow On</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ThorJeopardyStatus__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__MasterOrder</fullName>
+        <active>true</active>
+        <description>Use master order for large multi-service point, multi-site or multi-subscriber orders when you need to break the large order into a collection of sub-orders.</description>
+        <label>Master Order</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Delivery_Installation_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__FulfilmentStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__JeopardySafetyIntervalUnit__c</picklist>
+            <values>
+                <fullName>Business Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seconds</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OrderStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready To Submit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SupplementalAction__c</picklist>
+            <values>
+                <fullName>Amend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow On</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ThorJeopardyStatus__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__MobilePhoneOrder</fullName>
+        <active>true</active>
+        <label>MobilePhoneOrder</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Delivery_Installation_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__FulfilmentStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OrderStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready To Submit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SupplementalAction__c</picklist>
+            <values>
+                <fullName>Amend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow On</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__StandardOrder</fullName>
+        <active>true</active>
+        <description>Use a standard order for consumer and small to medium-sized business orders when the number of line items is not large (~200 or less).</description>
+        <label>Standard Order</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Delivery_Installation_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__FulfilmentStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__JeopardySafetyIntervalUnit__c</picklist>
+            <values>
+                <fullName>Business Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seconds</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OrderStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Amend Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discarded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Frozen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready To Submit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SupplementalAction__c</picklist>
+            <values>
+                <fullName>Amend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow On</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ThorJeopardyStatus__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__SubOrder</fullName>
+        <active>true</active>
+        <description>A sub-order is an order that is part of a large master order. Each sub-order is often targeted to a single service point, site or subscriber.</description>
+        <label>Sub Order</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Delivery_Installation_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__FulfilmentStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__JeopardySafetyIntervalUnit__c</picklist>
+            <values>
+                <fullName>Business Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seconds</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OrderStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready To Submit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SupplementalAction__c</picklist>
+            <values>
+                <fullName>Amend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow On</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ThorJeopardyStatus__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__WorkingCart</fullName>
+        <active>true</active>
+        <description>A working cart is a temporary cart used by CPQ processes to calculate validity and pricing for a subset of line items from a large order.</description>
+        <label>Working Cart</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Delivery_Installation_Status__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__FulfilmentStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__JeopardySafetyIntervalUnit__c</picklist>
+            <values>
+                <fullName>Business Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Days</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Calendar Hours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seconds</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OrderStatus__c</picklist>
+            <values>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Amend Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel Requested</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Complete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Discarded</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Frozen</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queued</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ready To Submit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superseded</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SupplementalAction__c</picklist>
+            <values>
+                <fullName>Amend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow On</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ThorJeopardyStatus__c</picklist>
+            <values>
+                <fullName>Green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ORDERS.ORDER_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>SALES.ACCOUNT.NAME</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ORDER.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>ORDERS.STATUS</customTabListAdditionalFields>
         <customTabListAdditionalFields>ORDERS.TOTAL_AMOUNT</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>ORDERS.ORDER_NUMBER</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>CONTRACT.OWNERALIAS</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ORDERS.ORDER_NUMBER</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CONTRACT.OWNERALIAS</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>vlocity_cmt__Fax__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>vlocity_cmt__Phone__c</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ORDERS.ORDER_NUMBER</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ORDER.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>SALES.ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ORDERS.TOTAL_AMOUNT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ORDERS.EFFECTIVE_DATE</searchResultsAdditionalFields>
@@ -374,4 +3506,1194 @@
         <searchResultsAdditionalFields>CONTRACT.CONTRACT_NUMBER</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <webLinks>
+        <fullName>Configure</fullName>
+        <availability>online</availability>
+        <description>Invokes Vlocity Cart</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Configure</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/vlocity_cmt__hybridcpq?id={!Order.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__Amend</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Amend</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OrderAmend</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__AmendmentHistory</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Amendment History</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OrderRelationshipVisualization</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__CPQ</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>CPQ</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/support/console/31.0/integration.js&quot;)} 
+var namespace_prefix = &apos;&apos;; 
+var result = sforce.connection.describeGlobal(); 
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+for(var i=0; i&lt;sobjects.length; i++) { 
+var sobjName = sobjects[i].name; 
+var str = sobjName.split(&quot;__&quot;); 
+//if there are 3 values there is a namespace 
+if (str.length == 3){ 
+var sobj = str[1].valueOf() +&apos;__c&apos;; 
+if(sobj == TOKEN_OBJ) { 
+namespace_prefix = str[0].valueOf(); 
+} 
+} 
+} 
+var target_url = &apos;/apex/&apos;+namespace_prefix+&apos;__hybridcpq?id=&apos;+&apos;{!Order.Id}&apos;;
+window.location.href = target_url;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__Cancel</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Cancel</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OrderCancel</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__Configure</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Order page to invoke Hybrid CPQ.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Configure</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OrderLaunchHybridCPQ</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ConfigureForNamespace</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Order page to invoke CPQ in Lightning Experience for Managed Package</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>ConfigureForNamespace</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/vlocity_cmt__hybridcpq?id={!Order.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ConfigureWithNamespace</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Order page to invoke CPQ in Lightning Experience for Managed Package</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>ConfigureWithNamespace</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/vlocity_cmt__hybridcpq?id={!Order.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__CreateContract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+var namespace_prefix = &apos;&apos;; 
+
+var result = sforce.connection.describeGlobal();
+var TOKEN_OBJ = &quot;Party__c&quot;;
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+for(var i=0; i&lt;sobjects.length; i++) {
+var sobjName = sobjects[i].name;
+var str = sobjName.split(&quot;__&quot;);
+//if there are 3 values there is a namespace
+if (str.length == 3){
+//Is it one of ours?
+var sobj = str[1].valueOf() +&apos;__c&apos;;
+if(sobj == TOKEN_OBJ) {
+namespace_prefix = str[0].valueOf();
+}
+} 
+}
+if(namespace_prefix != &quot;&quot;){
+namespace_prefix+= &apos;.&apos;;
+} 
+
+var result = sforce.apex.execute(namespace_prefix+&quot;ContractServiceResource&quot;,&quot;createContractWithTemplate&quot;, {contextId: &apos;{!Order.Id}&apos;});
+
+window.location.href = &apos;/&apos; + result + &apos;/e?retURL=%2F&apos; + result;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__CreatingContractAloha</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Contract</masterLabel>
+        <openType>sidebar</openType>
+        <page>vlocity_cmt__CreateContractFromOrder</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__DecomposeOrder</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Decompose Order</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+var namespace_prefix = &apos;&apos;;
+var result = sforce.connection.describeGlobal();
+var TOKEN_OBJ = &quot;Party__c&quot;;
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+for(var i=0; i&lt;sobjects.length; i++) {
+    var sobjName = sobjects[i].name;
+    var str = sobjName.split(&quot;__&quot;);
+
+    //if there are 3 values there is a namespace
+    if (str.length == 3) {
+        //Is it one of ours?
+        var sobj = str[1].valueOf() +&apos;__c&apos;;
+        if(sobj == TOKEN_OBJ) {
+            namespace_prefix = str[0].valueOf();
+            break;
+        }
+    }
+}
+
+var simpleDecompControllerNamespace = &apos;&apos;;
+var simpleDecompPageNamespace = &apos;&apos;;
+if(namespace_prefix != &quot;&quot;) {
+    simpleDecompControllerNamespace = namespace_prefix + &apos;.&apos;;
+    simpleDecompPageNamespace = namespace_prefix + &apos;__&apos;;
+}
+
+var result = sforce.apex.execute(simpleDecompControllerNamespace+&quot;SimpleDecompositionController&quot;,&quot;decompose&quot;, {orderId: &apos;{!Order.Id}&apos;}, false);
+if(result == &apos;OK&apos;) {
+    // trim ID because we&apos;re sending Order IDs to thor in 15-length
+    window.location.href = &apos;/apex/&apos; + simpleDecompPageNamespace + &apos;XOMViewOrderDecomposition?id={!LEFT(Order.Id, 15)}&apos;;
+} else {
+    console.error(result);
+    alert(result);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__Discard</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Discard</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OrderDiscard</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__GenerateDocumentPDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Generate Document PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__OrderDocumentPdf</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__Multi_Site_Order</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Multi Site Order</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__MultiSiteOrder</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__OrderPDF</fullName>
+        <availability>online</availability>
+        <description>Create PDF of current Order</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Display PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__OrderPDF</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__PickFrameContract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Pick Frame Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal();
+
+var TOKEN_OBJ = &quot;Party__c&quot;;
+
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) {
+
+var sobjName = sobjects[i].name;
+
+var str = sobjName.split(&quot;__&quot;);
+
+//if there are 3 values there is a namespace
+
+if (str.length == 3){
+
+//Is it one of ours?
+
+var sobj = str[1].valueOf() +&apos;__c&apos;;
+
+if(sobj == TOKEN_OBJ) {
+
+namespace_prefix = str[0].valueOf();
+
+}
+
+} 
+
+}
+
+
+
+if(namespace_prefix == &quot;&quot;){ 
+
+
+
+var acctId = &apos;{!Order.vlocity_cmt__AccountId__c}&apos;; 
+
+if(acctId!=&apos;&apos;) 
+
+window.location = &apos;apex/FrameContractPage?accountValue=&apos; + &apos;{!Order.vlocity_cmt__AccountId__c}&apos;+&apos;&amp;Id=&apos; +&apos;{!Order.Id}&apos;; 
+
+} 
+
+else { 
+
+var acctId = &apos;{!Order.vlocity_cmt__AccountId__c}&apos;; 
+
+if(acctId!=&apos;&apos;) 
+
+window.location = &apos;apex/&apos;+namespace_prefix+&apos;__FrameContractPage?accountValue=&apos; + &apos;{!Order.vlocity_cmt__AccountId__c}&apos;+&apos;&amp;Id=&apos; +&apos;{!Order.Id}&apos;; 
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__PreviewOrder</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Preview Order</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js&apos;)}
+{!REQUIRESCRIPT(&apos;//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js&apos;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+try{
+  jQuery(function() {
+    /*Append the jQuery CSS CDN Link to the Head tag.*/
+    jQuery(&apos;head&apos;).append(&apos;&lt;link rel=&quot;stylesheet&quot; href=&quot;//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/start/jquery-ui.css&quot; type=&quot;text/css&quot; /&gt;&apos;);
+    /*Create the HTML(DIV Tag) for the Dialog.*/
+
+    var namespace_prefix = &apos;&apos;;
+    var result = sforce.connection.describeGlobal();
+    var sobjects = result.getArray(&quot;sobjects&quot;);
+    for(var i=0; i&lt;sobjects.length; i++) {
+    var sobjName = sobjects[i].name;
+    var str = sobjName.split(&quot;__&quot;);
+    //if there are 3 values there is a namespace
+    if (str.length == 3){
+    namespace_prefix = str[0].valueOf();
+    }
+    }
+
+    var html = 
+      &apos;&lt;div style=&quot;display:none;&quot; id=&quot;dialog&quot;&gt;&lt;iframe style=&quot;border: 0px;&quot; width=&quot;600px&quot; height=&quot;800px&quot; src=&quot;/apex/&apos;+namespace_prefix+&apos;__OrderPDF?id={!Order.Id}&quot;&gt;&lt;/iframe&gt;&lt;/div&gt;&apos;;
+    /*Check if the Dialog(DIV Tag) already exists if not then Append the same to the Body tag.*/
+    jQuery(&apos;body&apos;).append(html);
+    /*Open the jQuery Dialog.*/ 
+    jQuery( &quot;#dialog&quot; ).dialog({
+      autoOpen: true,
+      modal: true,
+      width: 650,
+      buttons: [
+        {
+          text: &quot;OK&quot;,
+          click: function() {
+            $( this ).dialog( &quot;close&quot; );
+          }
+        }
+      ],
+      open: function (event, ui) {
+        jQuery(&apos;.ui-dialog&apos;).css(&apos;z-index&apos;,103);
+        jQuery(&apos;.ui-widget-overlay&apos;).css(&apos;z-index&apos;,102);
+      },
+    });
+  }); 
+}
+catch(e){
+  alert(&apos;An Error has Occured. Error: &apos; + e);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__RevokeSignature</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Revoke eSignature</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+
+
+
+
+
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal(); 
+
+
+
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+
+
+
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+
+
+
+
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) 
+
+
+
+{ 
+
+
+
+var sobjName = sobjects[i].name; 
+
+
+
+var str = sobjName.split(&quot;__&quot;); 
+
+
+
+
+
+
+
+//if there are 3 values there is a namespace 
+
+
+
+if (str.length == 3) 
+
+
+
+{ 
+
+
+
+//Is it one of ours? 
+
+
+
+var sobj = str[1].valueOf() +&apos;__c&apos;; 
+
+
+
+if(sobj == TOKEN_OBJ) 
+
+
+
+{ 
+
+
+
+namespace_prefix = str[0].valueOf(); 
+
+
+
+break; 
+
+
+
+} 
+
+
+
+} 
+
+
+
+} 
+
+
+
+
+
+
+
+if(namespace_prefix != &quot;&quot;) 
+
+
+
+{ 
+
+
+
+namespace_prefix += &apos;.&apos;; 
+
+
+
+} 
+
+
+
+
+
+
+
+if(&apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == null || &apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == &quot;&quot;) 
+
+
+
+{ 
+
+
+
+alert(&apos;Login user does not have valid DocuSign account.&apos;); 
+
+
+
+} 
+
+
+
+else { 
+
+
+
+var result = sforce.apex.execute(namespace_prefix+&quot;ContractDocuSignResource&quot;,&quot;voidEnvelopes&quot;, {objectId: &apos;{!Order.Id}&apos;, senderEmail:&apos;{!$User.vlocity_cmt__DocuSignEmail__c }&apos;}); 
+
+
+
+if(result == &apos;OK&apos;)
+
+
+
+{
+
+
+
+window.location.reload();
+
+
+
+}
+
+
+
+else
+
+
+
+{
+
+
+
+alert(result);
+
+
+
+} 
+
+
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__SavePDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Save PDF</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OrderPdfSave</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__SendForSignature</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send for eSignature</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal(); 
+
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) { 
+
+var sobjName = sobjects[i].name; 
+
+var str = sobjName.split(&quot;__&quot;); 
+
+//if there are 3 values there is a namespace 
+
+if (str.length == 3){ 
+
+//Is it one of ours? 
+
+var sobj = str[1].valueOf() +&apos;__c&apos;; 
+
+if(sobj == TOKEN_OBJ) { 
+
+namespace_prefix = str[0].valueOf(); 
+
+} 
+
+} 
+
+} 
+
+if(namespace_prefix != &quot;&quot;){ 
+
+namespace_prefix+= &apos;__&apos;; 
+
+} 
+
+
+
+
+
+if(&apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == null || &apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == &quot;&quot;) 
+
+{ 
+
+alert(&apos;Login user does not have valid DocuSign account.&apos;); 
+
+} 
+
+else { 
+
+window.location = &apos;apex/&apos;+namespace_prefix+&apos;OrderDocuSignEnvelope?Id=&apos; +&apos;{!Order.Id}&apos;+&apos;&amp;senderDocuSignEmail=&apos; +&apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos;; 
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__StatusNotifications</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Status Notifications</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OMNotifications</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__SubmitOrderForInsurance</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Submit Order For Insurance</masterLabel>
+        <openType>sidebar</openType>
+        <page>vlocity_cmt__XOMSubmitOrderForInsurance</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__UpdateContract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Update Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal(); 
+
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) { 
+
+var sobjName = sobjects[i].name; 
+
+var str = sobjName.split(&quot;__&quot;); 
+
+//if there are 3 values there is a namespace 
+
+if (str.length == 3){ 
+
+//Is it one of ours? 
+
+var sobj = str[1].valueOf() +&apos;__c&apos;; 
+
+if(sobj == TOKEN_OBJ) { 
+
+namespace_prefix = str[0].valueOf(); 
+
+} 
+
+} 
+
+} 
+
+if(namespace_prefix != &quot;&quot;){ 
+
+namespace_prefix+= &apos;.&apos;; 
+
+} 
+
+var result = sforce.apex.execute(namespace_prefix+&quot;ContractServiceResource&quot;,&quot;updateContract&quot;, {contextId: &apos;{!Order.Id}&apos;}); 
+alert(result);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__UpdateEnvelopeStatus</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Update Envelope Status</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+
+
+
+
+
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal(); 
+
+
+
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+
+
+
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+
+
+
+
+
+
+
+
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) 
+
+
+
+{ 
+
+
+
+ var sobjName = sobjects[i].name; 
+
+
+
+ var str = sobjName.split(&quot;__&quot;); 
+
+
+
+
+
+
+
+ //if there are 3 values there is a namespace 
+
+
+
+ if (str.length == 3)
+
+
+
+ { 
+
+
+
+  //Is it one of ours? 
+
+
+
+  var sobj = str[1].valueOf() +&apos;__c&apos;; 
+
+
+
+  if(sobj == TOKEN_OBJ) 
+
+
+
+  { 
+
+
+
+    namespace_prefix = str[0].valueOf();
+
+
+
+    break;
+
+
+
+  } 
+
+
+
+ } 
+
+
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+if(namespace_prefix != &quot;&quot;)
+
+
+
+{ 
+
+
+
+  namespace_prefix += &apos;.&apos;;
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+  var result = sforce.apex.execute(namespace_prefix+&quot;ContractDocuSignResource&quot;,&quot;updateEnvelopeStatus&quot;, {objectId: &apos;{!Order.Id}&apos;});
+
+if(result == &apos;OK&apos;) 
+
+{ 
+
+window.location.reload(); 
+
+} 
+
+else 
+
+{ 
+
+alert(result); 
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ViewDecomposedOrder</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View Decomposition</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+var namespace_prefix = &apos;&apos;;
+var result = sforce.connection.describeGlobal();
+var TOKEN_OBJ = &quot;Party__c&quot;;
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+for(var i=0; i&lt;sobjects.length; i++) {
+    var sobjName = sobjects[i].name;
+    var str = sobjName.split(&quot;__&quot;);
+
+    //if there are 3 values there is a namespace
+    if (str.length == 3) {
+        //Is it one of ours?
+        var sobj = str[1].valueOf() +&apos;__c&apos;;
+        if(sobj == TOKEN_OBJ) {
+            namespace_prefix = str[0].valueOf();
+            break;
+        }
+    }
+}
+
+var simpleDecompControllerNamespace = &apos;&apos;;
+var simpleDecompPageNamespace = &apos;&apos;;
+if(namespace_prefix != &quot;&quot;) {
+    simpleDecompControllerNamespace = namespace_prefix + &apos;.&apos;;
+    simpleDecompPageNamespace = namespace_prefix + &apos;__&apos;;
+}
+
+var result = sforce.apex.execute(simpleDecompControllerNamespace+&quot;SimpleDecompositionController&quot;,&quot;viewDecomposition&quot;, {orderId: &apos;{!Order.Id}&apos;});
+if(result == &apos;OK&apos;) {
+    // trim ID because we&apos;re sending Order IDs to thor in 15-length
+    window.location.href = &apos;/apex/&apos; + simpleDecompPageNamespace + &apos;XOMViewOrderDecomposition?id={!LEFT(Order.Id, 15)}&apos;;
+} else {
+    alert(result);
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ViewOrchestrationPlan</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>View Orchestration Plan</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}
+            {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+            var namespace_prefix = &apos;&apos;;
+            var result = sforce.connection.describeGlobal();
+            var TOKEN_OBJ = &quot;Party__c&quot;;
+            var sobjects = result.getArray(&quot;sobjects&quot;);
+
+            for(var i=0; i&lt;sobjects.length; i++) {
+                var sobjName = sobjects[i].name;
+                var str = sobjName.split(&quot;__&quot;);
+
+                //if there are 3 values there is a namespace
+                if (str.length == 3) {
+                    //Is it one of ours?
+                    var sobj = str[1].valueOf() +&apos;__c&apos;;
+                    if (sobj == TOKEN_OBJ) {
+                        namespace_prefix = str[0].valueOf();
+                        break;
+                    }
+                }
+            }
+
+            var simpleDecompControllerNamespace = &apos;&apos;;
+            var simpleDecompPageNamespace = &apos;&apos;;
+            if(namespace_prefix != &quot;&quot;) {
+                simpleDecompControllerNamespace = namespace_prefix + &apos;.&apos;;
+                simpleDecompPageNamespace = namespace_prefix + &apos;__&apos;;
+            }
+
+var orderId = &apos;{!Order.Id }&apos;;
+var planId = &apos;{!Order.vlocity_cmt__OrchestrationPlanIdId__c}&apos;;
+var thorPlanId = &apos;{!Order.vlocity_cmt__OrchestrationPlanReferenceId__c}&apos;;
+var fulfilmentStatus = &apos;{!Order.vlocity_cmt__FulfilmentStatus__c}&apos;;
+if(planId !== null &amp;&amp; planId !== &apos;&apos;)
+{
+    parent.location.href = parent.location.origin+&apos;/&apos;+planId;
+} else if (thorPlanId !== null &amp;&amp; thorPlanId !== &apos;&apos;)
+{
+   parent.location.href =  &apos;/apex/&apos; + simpleDecompPageNamespace +&apos;OrchestrationPlanViewCommon?id=&apos; + thorPlanId;
+} else if(fulfilmentStatus ==&apos;Draft&apos;)
+{
+    alert(&apos;Order is not associated with any Orchestration Plan!&apos;);
+} else
+{
+    parent.location.href =  &apos;/apex/&apos; + simpleDecompPageNamespace +&apos;OrchestrationPlanViewCommon?id=&apos; + orderId;
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__XOMOnSubmitOrder</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Submit Order</masterLabel>
+        <openType>sidebar</openType>
+        <page>vlocity_cmt__XOMSubmitOrder</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__XOMSubmitOrder</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Submit Order</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+function showDialog(title, message, width, largerText) {
+    //set up the vars
+    var dialogTitle = title,
+        dialogHTML = message,
+        dialogWidth,
+        modalBlocker = document.createElement(&quot;div&quot;),
+        modalBox = document.createElement(&quot;div&quot;),
+        modalBoxInner = document.createElement(&quot;div&quot;),
+        modalBoxTitle = document.createElement(&quot;h3&quot;),
+        modalBoxClose = document.createElement(&quot;span&quot;);
+ 
+    if (width) {
+        dialogWidth = width;
+    }
+    else {
+        dialogWidth = &apos;800&apos;;
+    }
+ 
+    //debug info
+    console.log(&apos;title&apos;, title);
+    console.log(&apos;message&apos;, message);
+    console.log(&apos;width&apos;, width);
+    console.log(&apos;largerText&apos;, largerText);
+ 
+    
+ 
+    //Get the document size
+    var w = 0; var h = 0;
+    if (!window.innerWidth) {
+        if (!(document.documentElement.clientWidth == 0)) {
+            w = document.documentElement.clientWidth;
+            h = document.documentElement.clientHeight;
+        } else {
+            w = document.body.clientWidth;
+            h = document.body.clientHeight;
+        }
+    } else {
+        w = window.innerWidth;
+        h = window.innerHeight;
+    }
+ 
+    //Set up the modal blocker
+    modalBlocker.setAttribute(&apos;Id&apos;, &apos;__modalBlocker&apos;);
+    modalBlocker.style.width = w + &apos;px&apos;;
+    modalBlocker.style.height = document.body.scrollHeight + &apos;px&apos;;
+    modalBlocker.style.position = &apos;absolute&apos;;
+    modalBlocker.style.zIndex = &apos;20000&apos;;
+    modalBlocker.style.opacity = &apos;.5&apos;;
+    modalBlocker.style.filter = &apos;alpha(opacity=50)&apos;;
+    modalBlocker.style.backgroundColor = &apos;#000&apos;;
+    modalBlocker.style.top = 0;
+    modalBlocker.style.left = 0;
+ 
+    //set up the modal box...
+    modalBox.setAttribute(&apos;id&apos;, &apos;__modalBox&apos;);
+    modalBox.style.backgroundColor = &apos;#fff&apos;;
+    modalBox.style.width = dialogWidth + &apos;px&apos;;
+    modalBox.style.zIndex = &apos;20001&apos;;
+    modalBox.style.position = &apos;fixed&apos;;
+    modalBox.style.top = &apos;200px&apos;;
+    modalBox.style.left = ((w / 2) - (dialogWidth / 2)) + &apos;px&apos;;
+    modalBox.style.borderRadius = &apos;4px&apos;;
+    modalBox.style.boxShadow = &apos;1px 1px 10px #000&apos;;
+ 
+    //...and the inner div
+    modalBoxInner.style.position = &apos;relative&apos;;
+    modalBoxInner.style.padding = &apos;20px&apos;;
+    if (largerText) modalBoxInner.style.fontSize = &apos;1.6em&apos;;
+    modalBoxInner.innerHTML = dialogHTML;
+ 
+ 
+    //set up the close button
+    modalBoxClose.innerHTML = &apos;X&apos;;
+    modalBoxClose.title = &apos;Close&apos;;
+    modalBoxClose.style.fontSize = &apos;12px&apos;;
+    modalBoxClose.style.backgroundColor = &apos;rgb(224, 7, 7)&apos;;
+    modalBoxClose.style.color = &apos;#fff&apos;;
+    modalBoxClose.style.position = &apos;absolute&apos;;
+    modalBoxClose.style.top = &apos;0&apos;;
+    modalBoxClose.style.right = &apos;10px&apos;;
+    modalBoxClose.style.display = &apos;block&apos;;
+    modalBoxClose.style.width = &apos;26px&apos;;
+    modalBoxClose.style.padding = &apos;5px&apos;;
+    modalBoxClose.style.textAlign = &apos;center&apos;;
+    modalBoxClose.style.cursor = &apos;pointer&apos;;
+    modalBoxClose.style.borderBottomLeftRadius = &apos;4px&apos;;
+    modalBoxClose.style.borderBottomRightRadius = &apos;4px&apos;;
+    modalBoxClose.setAttribute(&apos;onclick&apos;, &apos;document.body.removeChild(document.getElementById(\&apos;__modalBlocker\&apos;));document.body.removeChild(document.getElementById(\&apos;__modalBox\&apos;));&apos;);
+ 
+    //set up the dialog box title
+    modalBoxTitle.innerHTML = dialogTitle;
+    modalBoxTitle.style.display = &apos;block&apos;;
+    modalBoxTitle.style.fontSize = &apos;1.6em&apos;;
+    modalBoxTitle.style.color = &apos;#1797c0&apos;;
+    modalBoxTitle.style.margin = &apos;8px 0 0 8px&apos;;
+ 
+    //Add the close button and the title to the modal box
+    modalBox.appendChild(modalBoxClose);
+    modalBox.appendChild(modalBoxTitle);
+    modalBox.appendChild(modalBoxInner);
+ 
+    //finally, add the modal box and the modal blocker to the page
+    document.body.appendChild(modalBlocker);
+    document.body.appendChild(modalBox);
+}
+
+var namespace_prefix = &apos;&apos;;
+var result = sforce.connection.describeGlobal();
+var TOKEN_OBJ = &quot;Party__c&quot;;
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+for(var i=0; i&lt;sobjects.length; i++) {
+    var sobjName = sobjects[i].name;
+    var str = sobjName.split(&quot;__&quot;);
+
+    //if there are 3 values there is a namespace
+    if (str.length == 3) {
+        //Is it one of ours?
+        var sobj = str[1].valueOf() +&apos;__c&apos;;
+        if(sobj == TOKEN_OBJ) {
+            namespace_prefix = str[0].valueOf();
+            break;
+        }
+    }
+}
+
+function processResponse(result) {
+  console.log(&apos;processing order submit result:&apos;, result);
+  var deserializedResult = JSON.parse(result);
+  if (!deserializedResult.planId){
+    deserializedResult.planId = &apos;{!Order.Id}&apos;
+  }
+  if (deserializedResult.isOk === true &amp;&amp; deserializedResult.isOff === true) {
+    parent.location.href = &apos;/apex/&apos; + simpleDecompPageNamespace + &apos;OrchestrationPlanViewCommon?id=&apos; + deserializedResult.planId;
+  } else if (deserializedResult.isOk === true &amp;&amp; deserializedResult.isOff !== true) {
+    parent.location.href = parent.location.origin + &apos;/&apos; + deserializedResult.planId;
+  } else {
+    console.error(&apos;error is occurred on order submit:&apos;, deserializedResult.errorMsg);
+    showDialog(&apos;Error&apos;, deserializedResult.errorMsg);
+  }
+}
+
+function errorHandler(error) {
+  console.error(error);
+  alert(error);
+}
+
+var simpleDecompControllerNamespace = &apos;&apos;;
+var simpleDecompPageNamespace = &apos;&apos;;
+if(namespace_prefix != &quot;&quot;) {
+    simpleDecompControllerNamespace = namespace_prefix + &apos;.&apos;;
+    simpleDecompPageNamespace = namespace_prefix + &apos;__&apos;;
+}
+
+var result = sforce.apex.execute(simpleDecompControllerNamespace + &quot;SimpleDecompositionController&quot;, &quot;decomposeAndCreatePlanEx&quot;, {
+  orderId: &apos;{!Order.Id}&apos;
+}, {
+  onSuccess: processResponse,
+  onFailure: errorHandler,
+  timeout: 120000
+});</url>
+    </webLinks>
 </CustomObject>

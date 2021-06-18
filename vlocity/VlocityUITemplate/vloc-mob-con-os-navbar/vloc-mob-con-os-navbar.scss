@@ -1,0 +1,103 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+.vlocity {
+
+    & .title {
+        
+    }
+
+    .navbar-template {
+        .title {
+            text-align: center;
+            padding: 0 40px;
+            width: auto;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            left: 0 !important;
+            margin: auto;
+            height: 60px;
+            line-height: 60px;
+
+
+            img {
+                max-height: 40px;
+                vertical-align: middle;
+            }
+        }
+
+        .nav-right-button {
+            float:right;
+        }
+
+        .icon-custom-edit {
+            background: url(https://mobile-ins102--c.na59.content.force.com/servlet/servlet.ImageServer?id=015f4000001nszP&oid=00Df40000023GKu&lastMod=1527139337000) no-repeat center;
+            background-size: contain;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-indent: -999em;
+            font-size: 0;
+            line-height: 0;
+        }
+    }
+}
+
+
+.navbar-template.con-navbar-os {
+    pointer-events: all;
+    background: #FFFFFF !important;
+    transition:opacity 1s linear;
+    position: relative;
+    opacity:1;
+    padding-bottom: 15px;
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.05);
+    display:inline-block;
+    width: 100%;
+    height:80px;
+    padding-top:20px;
+    
+    .con-shop-header {
+        margin-top: env(safe-area-inset-top);
+        position: relative;
+    }
+    
+    .con-home-shop {
+        padding-top: 0;
+        margin-top: 12px;
+    }
+}
+
+.con-navbar-os .title.title-left.header-item {
+    color:#000 !important;
+    font-size: 20px;
+    transition:color 0.4s linear;
+    font-family: Brown-Bold;
+}
+.con-navbar-os .nav-left-button {
+    margin-left: 25px;
+    margin-top:12.5px;
+    transition:color 0.4s linear;
+    color: #000 !important;
+}
+
+.con-navbar-os .con-home-shop{
+    color:#000;
+}
+
+.con-navbar-os .con-device-chat-icon-lines {
+    float: right;
+    position: relative;
+    top: 4px;
+    right: 25px;
+}
+
+.con-navbar-os .con-device-chat-icon-lines > div{
+    background:#000;
+}
+
+.con-navbar-os .con-device-chat-icon-lines:after {
+    content:'';
+    display:none;
+}

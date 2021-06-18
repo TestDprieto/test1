@@ -1,0 +1,50 @@
+<apex:page standardcontroller="Opportunity" extensions="vlocity_cmt.CardCanvasController" standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ng="http://angularjs.org" ng-app="RedirectApp">
+        <head>
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+            <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.SldsAngular)}"></script>
+            <script type="text/javascript">
+                var remoteActions = {
+                    getActionDetailsByName: {
+                        action: "{!$RemoteAction.CardCanvasController.getActionDetailsByName}",
+                        config: {escape: false}
+                    }
+                };
+                var nsp = '{!JSENCODE(nsPrefix)}';
+                var oldUrl = nsp + 'OmniScriptUniversalPage?id={!Opportunity.Id}&parentId={!Opportunity.Id}&cartType=Quote&layout=lightning#/OmniScriptType/MultiService/OmniScriptSubType/CPQConfiguration/OmniScriptLang/English/ContextId/{!Opportunity.Id}/PrefillDataRaptorBundle//true';
+
+                var app = angular.module('RedirectApp', ['vlocity']);
+                app.config(['remoteActionsProvider', function(remoteActionsProvider) {
+                    remoteActionsProvider.setRemoteActions(remoteActions || {});
+                }]);
+                app.controller('RedirectController', ['$scope', 'remoteActions', function($scope, remoteActions){
+
+                    function getURL() {
+                        remoteActions.getActionDetailsByName('Opportunity', 
+                            '{!Opportunity.Id}', null, null, 
+                            ['Launch Multi-Site Quote']).then(function(result){
+                                result = angular.fromJson(result);
+                                var url = oldUrl;
+                                if(result && result[0] && result[0].url) {
+                                   url = result[0].url;
+                                }
+                                window.location.href = url;
+                        });
+                    }
+                    $scope.init = function(){
+                        getURL();
+                    };
+                }]);
+            </script>
+        </head>
+        <body ng-controller="RedirectController" ng-init="init()" class="via-slds">
+            <div class="slds-spinner_container">
+                <div class="slds-spinner_brand slds-spinner slds-spinner_large" aria-hidden="false" role="alert">
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

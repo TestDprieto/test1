@@ -1,0 +1,54 @@
+{
+    "%vlocity_namespace%__Author__c": "vlocityDev",
+    "%vlocity_namespace%__Datasource__c": {
+        "Cards": [
+        ],
+        "customPreviewPages": [
+            {
+                "group": "Custom Pages",
+                "label": "",
+                "namespacePrefix": "",
+                "page": ""
+            }
+        ],
+        "dataSource": {
+            "contextVariables": [
+            ],
+            "orderBy": {
+                "isReverse": ""
+            },
+            "type": "ApexRemote",
+            "value": {
+                "inputMap": {
+                    "productId": "{{params.id}}"
+                },
+                "optionsMap": {
+                    "vlcClass": "ContractProductAdminHandler"
+                },
+                "remoteClass": "ContractProductAdminHandler",
+                "remoteMethod": "getProductDetails",
+                "remoteNSPrefix": "%vlocity_namespace%",
+                "resultVar": ""
+            }
+        },
+        "previewType": "runTime",
+        "templates": {
+            "0": {
+                "templateUrl": "clm-product-attributes-header-template"
+            }
+        },
+        "workspace": [
+        ]
+    },
+    "%vlocity_namespace%__Definition__c": "clm-product-attributes-header-container.json",
+    "%vlocity_namespace%__Description__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "clm-product-attributes-header-container/1/vlocityDev/1546628698193",
+    "%vlocity_namespace%__ParentID__c": "clm-product-header-container/1/vlocityDev/1545074611420",
+    "%vlocity_namespace%__RequiredPermission__c": "",
+    "%vlocity_namespace%__Type__c": "Layout",
+    "%vlocity_namespace%__Version__c": 1,
+    "Name": "clm-product-attributes-header-container",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityUILayout__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityUILayout__c/clm-product-attributes-header-container"
+}

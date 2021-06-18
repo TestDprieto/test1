@@ -1,0 +1,15 @@
+<apex:page showHeader="false" sidebar="false" standardcontroller="vlocity_cmt__Catalog__c" extensions="vlocity_cmt.CatalogController"
+    action="{!startUpdateCategoryDataBatch}">
+    <apex:form >
+        <apex:outputLabel value="Starting Update Catalog Data Batch Job"/>
+    </apex:form>
+    <script>
+        function init() {
+            setTimeout(function(){
+                alert("Update Catalog Data Batch Job Started.");
+                window.close();
+            }, 1000);
+        };
+        window.onload = init;
+    </script>
+</apex:page>

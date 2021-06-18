@@ -1,0 +1,29 @@
+{
+    "%vlocity_namespace%__Author__c": "Vlocity Demo Org",
+    "%vlocity_namespace%__Datasource__c": {
+        "contextVariables": [
+            {
+                "name": "$root.vlocity.userAccountId",
+                "val": "0013600000KvU5Z"
+            }
+        ],
+        "type": "Query",
+        "value": {
+            "endpoint": "",
+            "methodType": "GET",
+            "query": "SELECT id FROM Product2 WHERE id = {{params.id || params.Id}} LIMIT 1",
+            "resultVar": ""
+        }
+    },
+    "%vlocity_namespace%__Definition__c": "vloc-mob-con-product-layout.json",
+    "%vlocity_namespace%__Description__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "vloc-mob-con-product-layout/1/Vlocity Demo Org/1535106700159",
+    "%vlocity_namespace%__ParentID__c": "vloc-mob-con-shop-layout/1/Vlocity Demo Org/1535023557040",
+    "%vlocity_namespace%__RequiredPermission__c": "",
+    "%vlocity_namespace%__Type__c": "Layout",
+    "%vlocity_namespace%__Version__c": 1,
+    "Name": "vloc-mob-con-product-layout",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityUILayout__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityUILayout__c/vloc-mob-con-product-layout"
+}

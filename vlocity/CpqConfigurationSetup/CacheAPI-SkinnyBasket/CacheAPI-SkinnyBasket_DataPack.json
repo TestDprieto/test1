@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "If set to false(default value), the assettobasket api will return the basket as earlier(backward compatible). If it is set to true, the assettobasket api will return a skinny basket.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "CacheAPI.SkinnyBasket",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/CacheAPI.SkinnyBasket"
+}

@@ -1,0 +1,66 @@
+{
+    "Discount": [
+        {
+            "%vlocity_namespace%__AppliesToAllItems__c": false,
+            "%vlocity_namespace%__ApprovalStatus__c": "Approved",
+            "%vlocity_namespace%__DiscountType__c": "Contract",
+            "%vlocity_namespace%__QuoteDiscountItems__r": {
+                "done": true,
+                "records": [
+                    {
+                        "%vlocity_namespace%__QuoteDiscountId__c": "a4W6g0000006PVgEAM",
+                        "CreatedById": "0056g000005IietAAC",
+                        "CreatedDate": "2020-09-22T02:24:49.000+0000",
+                        "Id": "a4U6g000001pljHEAQ",
+                        "IsDeleted": false,
+                        "LastModifiedById": "0056g000005IietAAC",
+                        "LastModifiedDate": "2020-09-22T02:24:49.000+0000",
+                        "Name": "123",
+                        "SystemModstamp": "2020-09-22T02:24:49.000+0000",
+                        "attributes": {
+                            "type": "%vlocity_namespace%__QuoteDiscountItem__c",
+                            "url": "/services/data/v49.0/sobjects/%vlocity_namespace%__QuoteDiscountItem__c/a4U6g000001pljHEAQ"
+                        }
+                    }
+                ],
+                "totalSize": 1
+            },
+            "%vlocity_namespace%__QuoteDiscountPricing__r": {
+                "done": true,
+                "records": [
+                    {
+                        "%vlocity_namespace%__QuoteDiscountId__c": "a4W6g0000006PVgEAM",
+                        "CreatedById": "0056g000005IietAAC",
+                        "CreatedDate": "2020-09-22T02:24:55.000+0000",
+                        "Id": "a4V6g000000IJvJEAW",
+                        "IsDeleted": false,
+                        "LastModifiedById": "0056g000005IietAAC",
+                        "LastModifiedDate": "2020-09-22T02:24:55.000+0000",
+                        "Name": "234",
+                        "SystemModstamp": "2020-09-22T02:24:55.000+0000",
+                        "attributes": {
+                            "type": "%vlocity_namespace%__QuoteDiscountPricing__c",
+                            "url": "/services/data/v49.0/sobjects/%vlocity_namespace%__QuoteDiscountPricing__c/a4V6g000000IJvJEAW"
+                        }
+                    }
+                ],
+                "totalSize": 1
+            },
+            "%vlocity_namespace%__QuoteId__c": "a3k6g000000AXMZAA4",
+            "%vlocity_namespace%__ReferenceNumber__c": "bc8c1d77-d74c-028a-96a1-f24b7482224c",
+            "%vlocity_namespace%__Status__c": "Activated",
+            "CreatedById": "0056g000005IietAAC",
+            "CreatedDate": "2020-09-22T02:24:21.000+0000",
+            "Id": "a4W6g0000006PVgEAM",
+            "IsDeleted": false,
+            "LastModifiedById": "0056g000005IietAAC",
+            "LastModifiedDate": "2020-09-22T03:58:52.000+0000",
+            "Name": "sub discount1",
+            "SystemModstamp": "2020-09-22T03:58:52.000+0000",
+            "attributes": {
+                "type": "%vlocity_namespace%__QuoteDiscount__c",
+                "url": "/services/data/v49.0/sobjects/%vlocity_namespace%__QuoteDiscount__c/a4W6g0000006PVgEAM"
+            }
+        }
+    ]
+}

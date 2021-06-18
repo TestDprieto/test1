@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Eligibility rule placeholder. Change the ruleName to refer to the eligibility rule definition.</description>
+        <name>EligibilityStep1</name>
+        <label>Eligibility Step 1</label>
+        <locationX>287</locationX>
+        <locationY>162</locationY>
+        <actionName>vlocity_cmt__RuleAction</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>EligibilityStep2</targetReference>
+        </connector>
+        <inputParameters>
+            <name>ruleName</name>
+            <value>
+                <stringValue>CHANGE_ME</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ruleType</name>
+            <value>
+                <stringValue>Eligibility</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Eligibility rule placeholder. Change the ruleName to refer to the eligibility rule definition. The doCommit flag must be set to True for the last step in the flow.</description>
+        <name>EligibilityStep2</name>
+        <label>Eligibility Step 2</label>
+        <locationX>285</locationX>
+        <locationY>289</locationY>
+        <actionName>vlocity_cmt__RuleAction</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>ruleName</name>
+            <value>
+                <stringValue>CHANGE_ME</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ruleType</name>
+            <value>
+                <stringValue>Eligibility</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>doCommit</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <label>Eligibility Rules Flow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>EligibilityStep1</startElementReference>
+    <status>Draft</status>
+</Flow>

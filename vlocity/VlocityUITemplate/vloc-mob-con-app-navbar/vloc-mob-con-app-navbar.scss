@@ -1,0 +1,93 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+.vlocity {
+
+    & .title {
+        
+    }
+
+    .navbar-template {
+        .title {
+            text-align: center;
+            padding: 0 40px;
+            width: auto;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            left: 0 !important;
+            margin: auto;
+            height: 60px;
+            line-height: 60px;
+
+            img {
+                max-height: 40px;
+                vertical-align: middle;
+            }
+        }
+
+        .nav-right-button {
+            float:right;
+        }
+
+        .icon-custom-edit {
+            background: url(https://mobile-ins102--c.na59.content.force.com/servlet/servlet.ImageServer?id=015f4000001nszP&oid=00Df40000023GKu&lastMod=1527139337000) no-repeat center;
+            background-size: contain;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-indent: -999em;
+            font-size: 0;
+            line-height: 0;
+        }
+    }
+}
+
+
+.navbar-template.con-navbar-app {
+    pointer-events: all;
+    background: transparent !important;
+    transition:opacity 1s linear;
+    position: relative;
+    opacity:0;
+    box-shadow: 0px 0px 25px rgba(0,0,0,0.05);
+    height:80px;
+    padding-top:20px;
+    display:inline-block;
+    width: 100%;
+    
+    .con-shop-header {
+        margin-top: env(safe-area-inset-top);
+        position: relative;
+    }
+    
+    .con-home-shop {
+        padding-top: 0;
+        margin-top: 12px;
+    }
+}
+.navbar-template.con-navbar-app.con-loaded {
+    background: #FFFFFF !important;
+    opacity:1;
+}
+.con-navbar-app .title.title-left.header-item {
+    color:#000 !important;
+    font-size: 20px;
+    // margin-top:15px;
+    transition:color 0.4s linear;
+    font-family: Brown-Bold;
+}
+.con-navbar-app .nav-left-button {
+    margin-left: 25px;
+    margin-top: 12.5px;
+    transition:color 0.4s linear;
+    color: #000 !important;
+}
+
+.con-navbar-app .con-home-shop{
+    color:#000;
+}
+
+.navbar-custom-template.bar.bar-header > div {
+    margin-top: 0 !important;
+}

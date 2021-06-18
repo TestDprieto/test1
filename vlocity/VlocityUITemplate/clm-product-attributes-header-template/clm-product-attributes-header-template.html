@@ -1,0 +1,64 @@
+<div role="banner" class="forceHighlightsPanel">
+    <div class="spinnerWrapper hideSpinner hideEl forceComponentSpinner">
+        <div class="indicator  hideEl forceInlineSpinner" aria-hidden="true" role="alert"><!--render facet: 1359:0--></div>
+    </div><!--render facet: 1556:0-->
+    <div class="slds-page-header slds-page-header_record-home forceHighlightsStencilDesktop forceRecordLayout" ng-init="importedScope.initData(params.id, records.prodDetails)" style="height: 156px; left: 12px; right: 12px; padding-left: 16px; padding-right: 16px; border-radius: 4px;">
+        <div class="slds-grid primaryFieldRow" style="transform: translate3d(0px, 0px, 0px);">
+            <div class="slds-grid slds-col slds-has-flexi-truncate slds-media--center">
+                <div class="profilePicWrapper slds-media slds-no-space" style="transform: scale3d(1, 1, 1) translate3d(0px, 0px, 0px);">
+                    <div class="slds-media__figure slds-icon forceEntityIcon">
+                        <slds-svg-icon id="document-creation-icon" sprite="'standard'" icon="'product'" size="'medium'" extra-classes="'slds-icon-standard-contract'"></slds-svg-icon>
+                    </div>
+                </div>
+                <div class="slds-media__body">
+                    <h1 class="slds-page-header__title slds-m-right--small slds-truncate slds-align-middle" title="importedScope.prodData.name">
+                        <input type="text" class="slds-input prodName" id="form-prodName" style="width:50%" ng-model="importedScope.prodData.name"/>
+                    </h1>
+                </div>
+            </div>
+             <div class="slds-col slds-no-flex slds-grid slds-align-middle actionsContainer" role="group" data-aura-rendered-by="1577:0"><!-- workaround for W-2413659, remove once that bug is fixed --><!--render facet: 1581:0--><!-- workaround for W-2413659, remove once that bug is fixed -->
+                <ul class="branding-actions slds-button-group slds-m-left--xx-small oneActionsRibbon forceActionsContainer" data-aura-rendered-by="1622:0" data-aura-class="oneActionsRibbon forceActionsContainer">
+                    <button class="slds-button slds-button_neutral" ng-click="importedScope.returnHomePage()">
+                        <slds-button-svg-icon id="back-to-contract" sprite="'utility'" icon="'back'" size="'small'" extra-classes="'slds-button__icon_left'"></slds-button-svg-icon>
+                        {{importedScope.modalLabels.CLMTemplateBackToList}}
+                    </button>
+                    <button class="slds-button slds-button_neutral" ng-click="importedScope.saveProduct()">{{importedScope.modalLabels.CLMTermSave}}</button>
+                    <button class="slds-button slds-button_neutral" ng-click="importedScope.deleteProduct()">{{importedScope.modalLabels.CLMTermDelete}}</button>
+                </ul>
+             </div>
+        </div>
+        <ul class="slds-form slds-form_stacked slds-grid slds-page-header__detail-row" role="list" style="transform: translate3d(0px, 0px, 0px); opacity: 1; visibility: visible;">
+            <li class="slds-page-header__detail-block forceHighlightsDesktopListRecordItem" role="listitem">
+                <div class="slds-form-element slds-form-element_readonly slds-hint-parent" >
+                    <span class="slds-form-element__label slds-truncate" title="Code" > {{importedScope.modalLabels.CLMContractTermCodeLabel}} </span>
+                    <div class="slds-form-element__control">
+                        <div class="slds-form-element__static slds-truncate" >
+                            <input type="text" class="slds-input prodCode" id="form-prodCode"  ng-model="importedScope.prodData.code"/>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-page-header__detail-block forceHighlightsDesktopListRecordItem" role="listitem">
+                <div class="slds-form-element slds-form-element_readonly slds-hint-parent" >
+                    <span class="slds-form-element__label slds-truncate" title="Description" >{{importedScope.modalLabels.CLMContractTermDescLabel}}</span>
+                    <div class="slds-form-element__control" >
+                        <div class="slds-form-element__static slds-truncate" >
+                             <input type="text" class="slds-input prodDesc" id="form-prodDesc"  ng-model="importedScope.prodData.description"/>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="slds-page-header__detail-block forceHighlightsDesktopListRecordItem" role="listitem">
+                <div class="slds-form-element slds-form-element_readonly slds-hint-parent" >
+                    <span class="slds-form-element__label slds-truncate" title="isActive" >{{importedScope.modalLabels.CLMContractTermActive}}</span>
+                    <div class="slds-form-element__control" >
+                        <label class="slds-checkbox isActive">
+                            <input type="checkbox" name="IsActive" id="IsActive"  ng-model="importedScope.prodData.isActive"/>
+                            <span class="slds-checkbox_faux activeCheckbox"></span>
+                        </label>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

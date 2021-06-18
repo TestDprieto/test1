@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Determines the behavior of the Create Cart API. If set to TRUE, the API uses the cartContextKey passed in the input to create the cart. If set to FALSE, the JSON result from the Basket API must be passed in the request body of the API to create the cart.",
+    "%vlocity_namespace%__SetupValue__c": "true",
+    "Name": "CacheAPI.CreateCartFromContextKey",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/CacheAPI.CreateCartFromContextKey"
+}

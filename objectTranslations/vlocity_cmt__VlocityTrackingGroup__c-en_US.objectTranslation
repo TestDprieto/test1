@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Description --></help>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date on which the tracking will stop. Null implies no limit. --></help>
+        <label><!-- End Date --></label>
+        <name>vlocity_cmt__EffectiveEndDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date from which the tracking will start. Null implies no limit. --></help>
+        <label><!-- Start Date --></label>
+        <name>vlocity_cmt__EffectiveStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- GlobalKey --></label>
+        <name>vlocity_cmt__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <help><!-- Denotes if the current Tracking Group is active. --></help>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__IsActive__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of days, the event data from this tracking group will be persisted in the Reporting SObject. Applicable only when Tracking Group Type is Internal. --></help>
+        <label><!-- Max Age In Days --></label>
+        <name>vlocity_cmt__MaxAgeInDays__c</name>
+    </fields>
+    <fields>
+        <help><!-- This denotes the tracking data endpoint for the current group. --></help>
+        <label><!-- Tracking Group Type --></label>
+        <name>vlocity_cmt__Type__c</name>
+        <picklistValues>
+            <masterLabel>Internal</masterLabel>
+            <translation><!-- Internal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Reference to the Tracking Configuration that will dictate how information is sent to the tracker. --></help>
+        <label><!-- Vlocity Web Tracking Configuration --></label>
+        <name>vlocity_cmt__VlocityWebTrackingConfigurationId__c</name>
+        <relationshipLabel><!-- Vlocity Tracking Groups --></relationshipLabel>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- Only active Web Tracking Configuration records are allowed to be selected with Tracking Group. --></errorMessage>
+        <name>vlocity_cmt__Active_Web_TrackingConfiguration</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- End Date can not be older than Start Date. --></errorMessage>
+        <name>vlocity_cmt__Effective_Start_Date_and_End_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Max Age In Days entry should be greater than zero. --></errorMessage>
+        <name>vlocity_cmt__Max_Age_Greater_Than_Zero</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- End date can not be older that Jan 2020. --></errorMessage>
+        <name>vlocity_cmt__Oldest_EffectiveEndDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Start date can not be older that Jan 2020. --></errorMessage>
+        <name>vlocity_cmt__Oldest_EffectiveStartDate</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Vlocity Web Tracking Configuration with Tracking Group type Internal is invalid. --></errorMessage>
+        <name>vlocity_cmt__TrackingConfig_With_Internal_Type</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please select a Web Tracking Configuration. --></errorMessage>
+        <name>vlocity_cmt__Type_Validation</name>
+    </validationRules>
+</CustomObjectTranslation>

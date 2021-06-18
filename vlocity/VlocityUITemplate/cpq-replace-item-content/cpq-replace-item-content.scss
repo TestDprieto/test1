@@ -1,0 +1,26 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-card-mixin";
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+@include cardMixin($namespace);
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-replace-item-content{
+            .#{$namespace}-replace-heading-text{
+                text-align: center;
+                font-weight: 100;
+                font-size: 14px;
+            }
+            .#{$namespace}-replace-options-checkbox{
+                padding: 7px;
+            }
+        }
+    }
+}

@@ -1,0 +1,750 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" controller="vlocity_cmt.ContractDocumentCreationController" >  
+<html xmlns:ng="http://angularjs.org" lang="en">
+        <apex:includeScript value="/support/console/31.0/integration.js"/>
+        <apex:includeScript value="/soap/ajax/37.0/connection.js"/>
+        <apex:includeScript value="/xdomain/xdomain.js"/>  
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}"/>
+        <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}"/>           
+        <apex:includeScript value="{!$Resource.vlocity_cmt__ANGULARBOOT}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__docxtemplater_bundle, '/jszip/jszip.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__docxtemplater_bundle, '/vendor/jszip-utils.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__docxtemplater_bundle, '/vendor/file-saver.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__docxtemplater_bundle, '/build/docxtemplater.v3.5.0.min.js')}"/>
+        <apex:includeScript value="{!$Resource.vlocity_cmt__DocXContentTypes}"/>
+
+        <!-- PDFTRON Libraries for salesforce side implementation-->
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdfconversion_iframe, '/pdf-conversion.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/webviewer.min.js')}"/>
+    <style>       
+        .svg-wrapper {
+            width: 100%;
+            position: relative;
+            padding: 50px 0;
+        }
+        .svg-wrapper svg {
+            width: 40px;
+            position: absolute;
+            left: 50%;
+            margin-left: -14px;
+        }
+        .svg-wrapper span.finishing {
+            display: block;
+            text-align: center;
+            padding-top: 50px;
+            color: #8c8c8c;
+        }
+    </style>
+    <script type="text/javascript">
+        (function() {
+            'use strict';
+            function CustomEvent(event, params) {
+                var evt;
+                params = params || {bubbles: false, cancelable: false, detail: undefined};
+                evt = document.createEvent('CustomEvent');
+                evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+                return evt;
+            }
+
+            CustomEvent.prototype = window.Event.prototype;
+
+            window.CustomEvent = CustomEvent;
+        })();
+
+        function savePdf(objId, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.savePdf}', objId, callback, {buffer: false, escape: false});
+        }
+
+        function attachDocx(objId, doc, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.saveDocx}', objId, doc, callback, {buffer: false, escape: false});
+        }
+
+        function downloadDocx(objId, rels, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.getContractVersionDocument}', objId, rels, callback, {buffer: false, escape: false});
+        }
+
+        function getDocxTemplate(objId, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.getDocTemplateForContractType}', objId, callback, {buffer: false, escape: false});
+        }
+        function getContentVersionInfo(objId, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.getContentVersionInfo}', objId, callback, {buffer: false, escape: false});
+        }
+
+        /**
+         * 
+         */
+        function updateLinkContentVersionFromContractVersion(inputMap, callback) {
+             'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.updateLinkContentVersionFromContractVersion}', inputMap, callback, {buffer: false, escape: false});
+        }
+        
+        function linkContentVersionToContractVersion(inputMap, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.linkContentVersionToContractVersionNew}', inputMap, callback, {buffer: false, escape: false});
+        }
+        
+        function downloadPdf(parentId, docName, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.downloadPdf}', parentId, docName, callback, {buffer: false, escape: false});
+        }
+        function getClientSidePdfLibraries(parentId, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.getClientSidePdfLibraries}', parentId, callback, {buffer: false, escape: false});
+        }
+        function getPDFIntegrationConfig(parentId, callback) {
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.getPDFIntegrationConfig}', parentId, callback, {buffer: false, escape: false});
+        }
+        function getActiveVersion(contractId, callback){
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.getActiveVersion}', contractId, callback, {buffer: false, escape: false});
+        }
+        function resolveDocumentGenerationMethods(inputMap, callback){
+            'use strict';
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.ContractDocumentCreationController.resolveDocumentGenerationMethods}', inputMap, callback, {buffer: false, escape: false});
+        }
+        function getTemplateZip(result) {
+            'use strict';
+            var zip = new JSZip(result.templateEncoded, {base64: true});
+            return zip;
+        }
+
+        function getRelsFile(zip) {
+            'use strict';
+            var file = zip.file('word/_rels/document.xml.rels');
+            if (file !== null) {
+                return file.asText();
+            }
+            return '';
+        }
+
+        function generateDocx(result, type, zip) {
+            'use strict';
+            var i, doc, out;
+            var contractData = result.contractData;
+            var imageCount = result.imageData.numImages;
+            
+            for (i = 0; i < imageCount; i++) {
+                if (typeof result.imageData['imageData' + i] !== 'undefined' && result.imageData['imageData' + i] !== null) {
+                    zip.file('word/media/imageData' + i + '.png', result.imageData['imageData' + i], {base64: true});
+                }
+            }
+            if (result.contractData.numberingXML !== null && result.contractData.numberingXML !== '') {
+                zip.remove('word/numbering.xml');
+                zip.file('word/numbering.xml',result.contractData.numberingXML,{});
+            }
+            if (typeof result.contractData.DocxRels !== 'undefined' && result.contractData.DocxRels !== null) {
+                zip.remove('word/_rels/document.xml.rels');
+                zip.file('word/_rels/document.xml.rels', result.contractData.DocxRels, {});
+            }
+            doc = new Docxtemplater();
+            doc.loadZip(zip);
+            doc.setData(contractData);
+            doc.render();
+
+            if (type === 'blob') {
+                out = doc.getZip().generate({type: 'blob'});
+            } else {
+                out = doc.getZip().generate({type: 'base64'});
+            }
+            return out;
+        }
+
+        var contractVersionPdfApp = angular.module('contractVersionPdfApp', []);
+        contractVersionPdfApp.factory('contractVersionPdfService', function($q, $rootScope) {
+            'use strict';
+            var factory = {};
+            factory.savePdf = function(objId) {
+                var deferred = $q.defer();
+                savePdf(objId, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            };
+
+            factory.downloadPdf = function(objId, docName) {
+                var deferred = $q.defer();
+                downloadPdf(objId, docName, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            };
+
+            factory.downloadDocx = function(objId, rels) {
+                var deferred = $q.defer();
+                downloadDocx(objId, rels, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            };
+
+            factory.attachDocx = function(objId, data) {
+                var deferred = $q.defer();
+                attachDocx(objId, data, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            };
+
+            factory.getDocxTemplate = function(objId) {
+                var deferred = $q.defer();
+                getDocxTemplate(objId, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            };
+
+            factory.updateLinkContentVersionFromContractVersion = function(objId) {
+                var deferred = $q.defer();
+                updateLinkContentVersionFromContractVersion(objId, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            }
+            
+            factory.getContentVersionInfo = function(objId) {
+                var deferred = $q.defer();
+                getContentVersionInfo(objId, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            } 
+            factory.linkContentVersionToContractVersion = function(inputMap) {
+                var deferred = $q.defer();
+                linkContentVersionToContractVersion(inputMap, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            }
+            
+            factory.getActiveVersion = function(contractId) {
+                var deferred = $q.defer();
+                getActiveVersion(contractId, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            }
+            factory.getPDFIntegrationConfig = function() {
+                var deferred = $q.defer();
+                getPDFIntegrationConfig(function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            }
+            
+            factory.getClientSidePdfLibraries = function() {
+                var deferred = $q.defer();
+                getClientSidePdfLibraries(function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            }
+
+            factory.resolveDocumentGenerationMethods = function(inputMap) {
+                var deferred = $q.defer();
+                resolveDocumentGenerationMethods(inputMap, function(result) {
+                    $rootScope.$apply(function() {
+                        deferred.resolve(result);
+                    });
+                });
+                return deferred.promise;
+            }
+            return factory;
+        });
+
+        contractVersionPdfApp.controller('contractVersionPdfController', function($scope, contractVersionPdfService, $q) {
+            'use strict';
+            $scope.parentId = '{!parentId}';
+            $scope.sourceId = '{!sourceId}';
+            $scope.nameSpacePrefix = '{!nameSpacePrefix}';
+            $scope.isSforce = (typeof sforce !== 'undefined' && typeof sforce.one !== 'undefined') ? (true) : (false);
+            $scope.docName = '{!JSENCODE(documentName)}';
+            $scope.docType = '{!JSENCODE(attachDocType)}';
+            $scope.containsRedlines = '{!containsRedlines}';
+            $scope.templateType = '{!templateType}';
+            $scope.sessionId = '{!$Api.Session_ID}';
+            $scope.sitePrefix = '{!$Site.prefix}';
+            $scope.pdfGenerationSource = '{!JSENCODE(pdfGenerationSource)}';
+            $scope.VlocityClientSide = 'vlocityclientside';
+            $scope.clientSidePdfGenerationConfig = {};
+            $scope.isPdftronInitialized = false;
+            $scope.labels = { 
+                'VlocityPDFTronNoSystemUserMsg':'{!$label.VlocityPDFTronNoSystemUserMsg}'
+            };
+            $scope.validationMessage = {
+                'type': 'alert-success',
+                'content': '',
+                'error': false
+            };
+
+			if ( $scope.sitePrefix !== undefined ) {
+				sforce.connection.serverUrl = $scope.sitePrefix + sforce.connection.serverUrl;
+			}
+
+            console.log('$scope.docType ' + $scope.docType);
+
+            $scope.generateDocumentsForWebTemplate = function () {
+                return new Promise(function (resolve, reject) {
+                    $scope.generateDocxFromWebTemplate().then(function (response) {
+                        $scope.saveContent($scope.docName + '.docx', response).then(function (response) {
+                            $scope.generatedContentVersion = {
+                                'Id': response['Id'],
+                                'Title': response['Title'],
+                                'VersionData': response['VersionData']
+                            };
+                            $scope.linkContentVersionToContractVersion(response['Id'], 'Docx', null).then(function () {
+                                if ($scope.docType.search(/WORD/i) > -1) {
+                                    $scope.attachDocxDocument();
+                                }
+                                resolve();
+                            });
+                        });
+                    }).catch(function (error) {
+                        console.log('### generateDocxFromWebTemplate() error: ', error);
+                        $scope.validationErrorHandler(error);
+                        reject(error);
+                    });
+                });
+            };
+
+
+            $scope.generateDocxFromWebTemplate = function() {
+                return new Promise(function (resolve, reject) {
+                    contractVersionPdfService.getDocxTemplate($scope.parentId).then(function(result) {
+                        var zip, gendocx;
+                        if (result.errorString !== undefined) {
+                            alert(result.errorString);
+                        } else {
+                            zip = getTemplateZip(result);
+                            parseContentTypes(zip); // parse the document content to convert all jpeg/jpg images to png
+                            
+                            contractVersionPdfService.downloadDocx($scope.parentId, getRelsFile(zip)).then(function(result) {
+                                if (result.errorString !== undefined) {
+                                    alert(result.errorString);
+                                } else {
+                                    resolve(generateDocx(result, 'base64', zip));
+                                }
+                            }, function(error) {
+                                $scope.validationErrorHandler(error);
+                            });
+                        }
+                    }, function(error) {
+                        $scope.validationErrorHandler(error);
+                    }).catch(function (error) {
+                        $scope.validationErrorHandler(error);
+                        reject(error);
+                    });
+                });
+            };
+
+            $scope.resolveDocumentGenerationMethods = function() {
+                return new Promise(function(resolve, reject) {
+                    let inputMap = {
+                        'templateId' : $scope.documentTemplateId,
+                        'parentId': $scope.parentId,
+                        'sourceId': $scope.sourceId
+                    };
+                    console.log('### resolveDocumentGenerationMethods() inputMap: ', inputMap)
+                    contractVersionPdfService.resolveDocumentGenerationMethods(inputMap)
+                        .then(function(result) {
+                            console.log('### resolveDocumentGenerationMethods() result: ', result);
+                            $scope.pdfGenerationSource = result.pdfGenerationSource;
+
+                            if (!$scope.isPdftronInitialized && (isPdfGenerationViaClientSide())) {
+                                $scope.initializePdftron()
+                                    .then(function() {      
+                                        $scope.isPdftronInitialized = true;                          
+                                        resolve();
+                                    });
+                            } else {
+                                resolve();
+                            }
+                        })
+                        .catch(function(error) {
+                            console.log('error: ', error);  
+                            reject(error);              
+                        });
+                });
+            };
+
+            $scope.generatePDFDocument = function () {
+                var inputMap = {
+                    'pdfIntegrationConfig': $scope.pdfIntegrationConfig,
+                    'contractId': $scope.contractId,
+                    'docName': $scope.docName,
+                    'generatedContentVersion': $scope.generatedContentVersion,
+                    'isDownload': false
+                };
+                return new Promise(function (resolve, reject) {
+                    let pdfGenerationMethod = $scope.getResolvedPdfGenerationMethod();
+                    pdfGenerationMethod(inputMap)
+                        .then(function (response) {
+                            console.log('### response: ', response);
+                            $scope.generatedPDFContentVersion = {
+                                'Id': response['Id'],
+                                'Title': response['Title'],
+                                'VersionData': response['VersionData']
+                            };
+                            return $scope.linkContentVersionToContractVersion($scope.generatedPDFContentVersion.Id, 'PDF', $scope.contractDocumentCollectionId);
+                        })
+                        .then(function () {
+                            resolve();
+                        })
+                        .catch(function (error) {
+                            console.log('### error: ', error);
+                            $scope.validationErrorHandler(error);
+                            reject(error);
+                        })
+                        .finally(function () {
+                            $scope.vlcLoading = false;
+                            $scope.$apply();
+                    });
+                });
+            };
+            $scope.getResolvedPdfGenerationMethod = function () {
+                if (isPdfGenerationViaClientSide()) {
+                    return $scope.generatePdfViaClientSide;
+                } else {
+                    return $scope.generatePdfViaSalesforce;
+                }
+            };
+            
+            $scope.generatePdfViaSalesforce = function (inputMap) {
+                return new Promise(function (resolve, reject) {
+                    console.log('### generatePdfViaSalesforce() inputMap: ', inputMap);
+                    contractVersionPdfService.downloadPdf($scope.parentId, inputMap['docName'])
+                        .then(function (response) {
+                            console.log('### salesforce pdf generation completed...');
+                            resolve($scope.saveContent(inputMap['docName'] + '.pdf', response));
+                        })
+                        .catch(function (error) {
+                            $scope.vlcLoading = false;
+                            $scope.validationErrorHandler(error);
+                            reject(error);
+                    });
+                });
+            }
+            /**
+             * 
+             */
+            $scope.generatePdfViaClientSide = function (inputMap) {
+                return new Promise(function (resolve, reject) {
+                    generatePDFDocument(inputMap)
+                        .then(function (response) {
+                            console.log('### client side pdf generation completed...');
+                            resolve($scope.saveContent(inputMap['docName'] + '.pdf', response));
+                        }).catch(function (error) {
+                            console.log('### generatePdfViaClientSide() error: ', error);
+                            reject(error);
+                    });
+                });
+            }
+            $scope.linkContentVersionToContractVersion = function (contentVersionId, fileFormat, parentDocumentId) {
+                var deferred = $q.defer();
+                var inputData = {
+                    'contractVersionId': $scope.parentId,
+                    'contentVersionId': contentVersionId,
+                    'templateId': $scope.documentTemplateId,
+                    'fileFormat': fileFormat,
+                    'parentDocumentId': parentDocumentId
+                };
+                contractVersionPdfService.linkContentVersionToContractVersion(inputData).then(function (result) {
+                    console.log('contractDocumentCollectionId:', result);
+                    var fileTitle = result.Title && result.Title.split('.');
+                    var fileExtention = fileTitle && fileTitle[fileTitle.length - 1];
+
+                    if (fileFormat == 'Docx' || (fileFormat == null && fileExtention === 'docx')) {
+                        console.log("### Linking docx...")
+                        $scope.generatedContentVersion = {
+                            'Id': contentVersionId,
+                            'Title': result.Title,
+                            'contractDocumentCollectionId': result.docCollectionId,
+                            'contentDocxCheckedIn': result.isCheckedIn,
+                            'fileFormat': fileFormat,
+                            'VersionData': $scope.generatedContentVersion.VersionData
+                        };
+                        console.log("### result.docCollectionId: " + result.docCollectionId);
+                        $scope.contractDocumentCollectionId = result.docCollectionId;
+                        $scope.$emit('linkContentVersionfForDOCXComplete');
+                    } else if (fileFormat == 'PDF') {
+                        console.log("### Linking pdf...")
+                        $scope.generatedPDFContentVersion = {
+                            'Id': contentVersionId,
+                            'Title': result.Title,
+                            'collectionId': result.docCollectionId,
+                            'contentPDFCheckedIn': result.isCheckedIn,
+                            'fileFormat': fileFormat,
+                            'parentDocumentId': parentDocumentId,
+                            'VersionData': $scope.generatedPDFContentVersion.VersionData
+                        }
+                    }
+                    deferred.resolve();
+                }, function (error) {
+                    $scope.vlcLoading = false;
+                    $scope.validationErrorHandler(error);
+                    deferred.reject(error);
+                });
+                return deferred.promise;
+            };
+                // Error handling helper
+            $scope.validationErrorHandler = function(error) {
+                if (!error.message) {
+                    error.message = 'No error message.';
+                }
+                if (typeof error.type === 'string') {
+                    error.type = error.type.capitalizeFirstLetter();
+                }
+                $scope.validationMessage.type = 'alert-danger';
+                $scope.validationMessage.content = error.type + ' (' + error.statusCode + '): ' + error.message;
+                $scope.validationMessage.error = true;
+                $scope.vlcLoading = false;
+            };
+
+            $scope.attachWebPdfDocument = function () {
+                var savePdf = function () {
+                    return $scope.saveAttachment(
+                        $scope.generatedPDFContentVersion.Title,
+                        $scope.generatedPDFContentVersion.VersionData,
+                        'application/pdf',
+                        $scope.parentId
+                    );
+                }
+                savePdf().then(function (response) {
+                    console.log('done saving pdf attachment...');
+                    return response
+                }).catch(function(error) {
+                    console.log(error)
+                });
+            }
+            
+            $scope.attachDocxDocument = function () {
+                var saveDocx = function () {
+                    return $scope.saveAttachment(
+                        $scope.generatedContentVersion.Title,
+                        $scope.generatedContentVersion.VersionData,
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                        $scope.parentId
+                    );
+                }
+                saveDocx().then(function (response) {
+                    console.log('done saving docx attachment...');
+                    return response
+                }).catch(function(error) {
+                    console.log(error)
+                });
+            }
+            
+            $scope.saveContent = function (fileName, fileContent) {
+                var deferred = $q.defer();
+
+                var contentVersionSObj = new sforce.SObject('ContentVersion');
+                contentVersionSObj.Title = fileName;
+                contentVersionSObj.PathOnClient = fileName;
+                contentVersionSObj.VersionData = fileContent;
+
+                sforce.connection.sessionId = $scope.sessionId;
+                sforce.connection.create([contentVersionSObj], {
+                    onSuccess: function (result) {
+                        //$scope.vlcLoading = false;
+                        var status = result[0].getBoolean('success');
+                        var generatedContentVersionId = result[0].id;
+                        console.log('generatedContentVersionId: ', generatedContentVersionId);
+                        var generatedContentVersion = {
+                            'Id': generatedContentVersionId,
+                            'Title': fileName,
+                            'VersionData': fileContent
+                        }
+                        deferred.resolve(generatedContentVersion);
+                    },
+                    onFailure: function (result) {
+                        deferred.reject(result.faultstring);
+                    }
+                });
+
+                return deferred.promise;
+            };
+            /**
+             * Save the document as an attachment.
+             */
+            $scope.saveAttachment = function(filename, fileContents, fileType, contractVersionId) {
+                return new Promise(function(resolve, reject) {
+                    var attachmentSObj = new sforce.SObject('Attachment');
+                    attachmentSObj.Body = fileContents;
+                    attachmentSObj.IsPrivate = false;
+                    attachmentSObj.Name = filename;
+                    attachmentSObj.ParentId = contractVersionId;
+                    attachmentSObj.ContentType = fileType;
+
+                    sforce.connection.sessionId = $scope.sessionId;
+                    sforce.connection.create([attachmentSObj], {
+                        onSuccess: function(result) {
+                            console.log('Attachment created:', result);
+                            resolve(result);
+                        },
+                        onFailure: function(error) {
+                            console.error('error: ', error);
+                            reject(error.faultstring);
+                        }
+                    });
+                });
+            };
+            $scope.generateFile = function() {
+                if ($scope.docType.search(/NONE/i) > -1) {
+                   $scope.dispatchEvent();
+                } else {
+                    contractVersionPdfService.getActiveVersion($scope.sourceId).then(function(result){
+                         $scope.documentTemplateId = result[$scope.nameSpacePrefix + 'DocumentTemplateId__c'];
+                        $scope.generateDocumentsForWebTemplate().then(function () {
+                            //document generation is done.
+                            //generate pdf document
+                            if($scope.docType.search(/PDF/i) > -1) {
+                                 $scope.resolveDocumentGenerationMethods().then(function() {
+                                    $scope.generatePDFDocument().then(function() {
+                                        $scope.attachWebPdfDocument();
+                                        $scope.dispatchEvent();
+                                    });
+                                 }).catch(function (error) {
+                                     console.error('### resolveDocumentGenerationMethods() error: ', error);
+                                     reject(error);
+                                 });
+                            } else {
+                                $scope.dispatchEvent();
+                            }
+                        });
+                    })
+                }
+            };
+
+            $scope.onPageLoad = function() {
+                // Set resource path in coreControls
+                if ($scope.pdfGenerationSource && isPdfGenerationViaClientSide()) {
+                    pdfSetResourcePath(contractVersionPdfService, $scope.clientSidePdfGenerationConfig).then(function (result) {
+                        if ($scope.labels.VlocityPDFTronNoSystemUserMsg === result) {
+                            $scope.validationErrorHandler($scope.labels.VlocityPDFTronNoSystemUserMsg);
+                        } else {
+                            $scope.clientSidePdfGenerationConfig = result.clientSidePdfGenerationConfig;
+                            $scope.pdfIntegrationConfig = JSON.parse(result.license);
+                            $scope.workerTransport = result.workerTransport;
+                        }
+                        $scope.isPdftronInitialized = true;
+                        $scope.generateDocument();
+                    });
+                } else {
+                    $scope.generateDocument();
+                }
+            }
+            
+            $scope.generateDocument = function() {
+                if ($scope.templateType === 'Vlocity Web Template') {
+                    $scope.generateFile();
+                } else {
+                    console.log('### docx');
+                    var inputMap = {
+                        'parentId' : $scope.parentId,
+                        'attachmentType' : $scope.docType
+                    };
+
+                    contractVersionPdfService.updateLinkContentVersionFromContractVersion(inputMap).then(function() {
+                        $scope.dispatchEvent();
+                    });
+                }
+            }
+            
+            $scope.dispatchEvent = function() {
+                 var event = new CustomEvent('ContractDocumentAttachDone', {
+                        detail: true
+                    });
+                window.parent.dispatchEvent(event);
+                window.close();
+            }
+            
+            $scope.loading = true;
+            $scope.onPageLoad();
+
+
+        /**
+         * 
+         */
+        function isPdfGenerationViaClientSide() {
+            return ($scope.pdfGenerationSource.toLowerCase() === $scope.VlocityClientSide)
+        }
+
+
+        /**
+         * 
+         */
+        $scope.initializePdftron = function() {
+            return new Promise(function(resolve, reject) {
+                pdfSetResourcePath(contractVersionPdfService, $scope.clientSidePdfGenerationConfig)
+                    .then(function(result){
+                        if ($scope.labels.VlocityPDFTronNoSystemUserMsg === result) {
+                            $scope.validationErrorHandler.throwError($scope.labels.VlocityPDFTronNoSystemUserMsg);
+                            reject(result);
+                        } else {
+                            $scope.clientSidePdfGenerationConfig = result.clientSidePdfGenerationConfig
+                            $scope.pdfIntegrationConfig = JSON.parse(result.license);
+                            resolve(true);
+                        }
+                    });
+            });
+        }; 
+    });
+
+
+    </script>
+    <body>
+        <div class="vlocity" ng-app="contractVersionPdfApp" ng-controller="contractVersionPdfController">          
+            <div class="svg-wrapper">
+                <svg x="0px" y="0px" width="40" height="40" viewBox="0 0 48 48">
+                    <g width="48" height="48">
+                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 24 24" to="360 24 24" dur="0.75s" repeatCount="indefinite"/>
+                         <path fill="#dedede" d="M24,45C12.4,45,3,35.6,3,24S12.4,3,24,3V0l0,0C10.7,0,0,10.7,0,24c0,13.3,10.7,24,24,24V45z"/>
+                         <path fill="#05a6df" d="M24,3c11.6,0,21,9.4,21,21s-9.4,21-21,21v3l0,0c13.3,0,24-10.7,24-24C48,10.7,37.3,0,24,0V3z"/>
+                    </g>
+                </svg>
+                <span class="finishing">Creating Contract...</span>
+            </div>
+        </div> 
+    </body>
+</html>
+</apex:page>

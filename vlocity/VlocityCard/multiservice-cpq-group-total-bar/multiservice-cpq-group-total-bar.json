@@ -1,0 +1,1552 @@
+{
+    "dataSource": {
+        "type": null
+    },
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "memberPageSize",
+            "val": "importedScope.params.memberPageSize"
+        },
+        {
+            "name": "groupPageSize",
+            "val": "importedScope.params.groupPageSize"
+        },
+        {
+            "name": "contextId",
+            "val": "importedScope.params.contextId"
+        },
+        {
+            "name": "enableUsage",
+            "val": "$root.enableUsage"
+        },
+        {
+            "name": "enableCostAndMargin",
+            "val": "$root.enableCostAndMargin"
+        },
+        {
+            "name": "groupId",
+            "val": "importedScope.params.groupId"
+        },
+        {
+            "name": "cartType",
+            "val": "importedScope.params.cartType"
+        }
+    ],
+    "states": [
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Quote'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceQuoteCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Quote' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false'",
+            "isSmartAction": false,
+            "name": "Advance Pricing (Quote)",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Quote'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceQuoteCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Margin Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__OneTimeMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Margin Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Quote' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'false'",
+            "isSmartAction": false,
+            "name": "Advance Pricing  + CostAndMargin (Quote)",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Quote'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "groupedServicePageSize": "$scope.session.groupedServicePageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceQuoteCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Usage Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__UsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Quote' && $scope.session.enableUsage == 'true' && $scope.session.enableCostAndMargin == 'false'",
+            "isSmartAction": false,
+            "name": "Usage Pricing (Quote)",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Quote'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceQuoteCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Usage Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__UsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Usage Margin Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__UsageMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Recurring Margin Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "One Time Margin Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__OneTimeMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Margin Total",
+                    "name": "['%vlocity_namespace%__QuoteGroupId__r.%vlocity_namespace%__QuoteGroupMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Quote' && $scope.session.enableUsage == 'true' && $scope.session.enableCostAndMargin == 'true'",
+            "isSmartAction": false,
+            "name": "Usage Pricing + CostAndMargin (Quote)",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Order'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "groupedServicePageSize": "$scope.session.groupedServicePageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceOrderCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Order' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false'",
+            "isSmartAction": false,
+            "name": "Advance Pricing (Order)",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Order'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceOrderCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Margin Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__OneTimeMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Margin Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Order' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'false'",
+            "isSmartAction": false,
+            "name": "Advance Pricing  + CostAndMargin (Order)",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Order'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'false'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceOrderCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Usage Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__UsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Order' && $scope.session.enableUsage == 'true' && $scope.session.enableCostAndMargin == 'false'",
+            "isSmartAction": false,
+            "name": "Usage Pricing (Order)",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['ObjectType']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'Order'"
+                    },
+                    {
+                        "field": "$scope.session.enableUsage",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    },
+                    {
+                        "field": "$scope.session.enableCostAndMargin",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "'true'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "Apply To Group V2",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "||",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId",
+                            "groupPageSize": "$scope.session.groupPageSize",
+                            "memberPageSize": "$scope.session.memberPageSize"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == false || $scope.obj['%vlocity_namespace%__IsValidated__c'] == false",
+                        "hasExtraParams": true,
+                        "id": "Price And Validate",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "conditions": {
+                            "group": [
+                                {
+                                    "field": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c']",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "false"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsPriced__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                },
+                                {
+                                    "field": "['%vlocity_namespace%__IsValidated__c']",
+                                    "logicalOperator": "&&",
+                                    "operator": "==",
+                                    "type": "custom",
+                                    "value": "true"
+                                }
+                            ]
+                        },
+                        "disableAddCondition": false,
+                        "extraParams": {
+                            "cartType": "$scope.session.cartType",
+                            "contextId": "$scope.session.contextId",
+                            "groupId": "$scope.session.groupId"
+                        },
+                        "filter": "$scope.obj['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__HasUnappliedGroupItems__c'] == false && $scope.obj['%vlocity_namespace%__IsPriced__c'] == true && $scope.obj['%vlocity_namespace%__IsValidated__c'] == true",
+                        "hasExtraParams": true,
+                        "id": "MultiServiceOrderCheckout",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Usage Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__UsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Usage Margin Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__UsageMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Recurring Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__RecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Recurring Margin Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group One Time Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__OneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "One Time Margin Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__OneTimeMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Group Margin Total",
+                    "name": "['%vlocity_namespace%__OrderGroupId__r.%vlocity_namespace%__OrderGroupMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['ObjectType'] == 'Order' && $scope.session.enableUsage == 'true' && $scope.session.enableCostAndMargin == 'true'",
+            "isSmartAction": false,
+            "name": "Usage Pricing + CostAndMargin (Order)",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "multiservice-cpq-total-card"
+        }
+    ],
+    "title": "Multiservice Group Total Card"
+}

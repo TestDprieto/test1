@@ -1,0 +1,63 @@
+<div class="clm-contract-discounts" ng-init="importedScope.getContractPricingTerms(params.id);importedScope.getCustomViewStateData(cards)">
+
+    <!-- Discounts Tab Content -->
+    <div  class="slds-tabs_default__content clm-discounts-items-tab-content" role="tabpanel">
+        <!-- DATA -->
+        
+        <!-- END of Create New Custom Discount  -->
+          <!-- END of Create New Custom Discount  -->
+        <div ng-if="records">
+            <div class="clm-base-discounts clm-discounts-header">
+                <div ng-repeat="field in $root.customViews.clmCustomViews[0].fields" class="slds-p-right_medium clm-discounts-name">
+                    
+                    {{field.fieldName}}
+                </div>
+            </div>
+            <div ng-if="records && !records.result.length" class="slds-text-align_center slds-text-heading_small slds-p-around_medium"> No Terms to Display </div>
+            <div class="clm-base-discounts clm-discounts-item" ng-repeat="record in records.result">
+                <div ng-repeat="field in $root.customViews.clmCustomViews[0].fields"  class="slds-p-right_medium clm-discounts-name">
+                    <!-- Custom fields -->
+                    <div ng-show="field.type === 'string'" class="slds-m-bottom_x-small clm-promo-text-wrap">
+                        <div ng-if="$first" class="slds-m-bottom_x-small clm-text-break">{{record['childDiscounts'].Name}}</div>
+                                               
+                        <!-- <div  ng-show="$first && (record[$root.nsPrefix + 'ApprovalStatus__c'].value !== 'Not Submitted')" class="slds-m-bottom_x-small clm-discount-status">ACTIVE</div>
+                        <div  ng-show="$first && (record[$root.nsPrefix + 'ApprovalStatus__c'].value === 'Not Submitted')" class="slds-m-bottom_x-small clm-discount-status-new">NEW</div> -->
+                    </div>
+                    <div ng-if="field.type === 'Category'">
+                        <div ng-repeat="categoriesItem in record['childDiscounts'][$root.nsPrefix + 'ContractVersionDiscountItems__r'].records" class="slds-m-bottom_x-small clm-promo-text-wrap">
+                            {{categoriesItem[$root.nsPrefix +'CatalogCategoryId__r'].Name}}
+                        </div>
+                    </div> 
+                    <div ng-if="field.type === 'Product'">
+                        <div ng-repeat="productItem in record['childDiscounts'][$root.nsPrefix + 'ContractVersionDiscountItems__r'].records" class="slds-m-bottom_x-small clm-promo-text-wrap">
+                            {{productItem[$root.nsPrefix +'ProductId__r'].Name}}
+                        </div>
+                    </div> 
+                    <div ng-if="field.type === 'Discount'">
+                        <div ng-repeat="productDiscount in record['childDiscounts'][$root.nsPrefix + 'ContractVersionDiscountPricing__r'].records" class="slds-m-bottom_x-small clm-promo-text-wrap" ng-init=" discountItem = importedScope.prodDiscountCharge(productDiscount)">
+                            <div class="slds-m-right_small clm-discount-charges" ng-if="productDiscount[$root.nsPrefix + 'AdjustmentValue__c']" > {{discountItem.adjustmentValue}} <span class="clm-discount-charges-label"> {{discountItem.label}}  </span> </div>                            
+                        </div>
+         
+                    </div> 
+                    <div ng-if="field.type === 'StartDate'">
+                        <div class="slds-m-right_small clm-discount-charges">{{record['childDiscounts'][$root.nsPrefix + 'EffectiveStartDate__c'] | date : 'MM/dd/yyyy'}} </div>
+                    </div> 
+                    <div ng-if="field.type === 'EndDate'">
+                        <div class="slds-m-right_small clm-discount-charges">{{record['childDiscounts'][$root.nsPrefix + 'EffectiveEndDate__c'] | date : 'MM/dd/yyyy'}} </div>
+                    </div> 
+                </div>
+         
+            </div>
+        </div>
+
+        <!-- END of DATA -->
+        <div class="slds-grid slds-grid_align-center slds-is-relative slds-m-top_xx-large">
+            <!-- NO DATA -->
+            <div class="clm-no-cart-items-msg slds-p-vertical_xx-large" ng-show="(!records || records.length === 0) && isLoaded">
+                 "No Results Found"
+            </div>
+            <!-- END of NO DATA -->
+        </div>
+    </div>
+    <!-- END of Discount Tab Content -->
+</div>

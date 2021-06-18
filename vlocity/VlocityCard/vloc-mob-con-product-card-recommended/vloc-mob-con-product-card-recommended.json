@@ -1,0 +1,83 @@
+{
+    "dataSource": {
+        "orderBy": {
+            "isReverse": "true",
+            "name": "['name']"
+        },
+        "type": "IntegrationProcedures",
+        "value": {
+            "inputMap": {
+                "AccountId": "{{$root.currentUser.Account.attributes.url.substring(38)}}",
+                "CatalogName": "Mobile Catalog Recommended"
+            },
+            "ipMethod": "VlocityMobileConsumer_GetProductsFromCatalog",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": "products",
+            "vlocityAsync": false
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "actionCtxId": "Id",
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+            ],
+            "name": "Product",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "ProductName",
+                    "type": "string",
+                    "value": "['name']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "ProductImage",
+                    "type": "string",
+                    "value": "['Attachments'][0]['url']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "ProductPrice",
+                    "type": "currency",
+                    "value": "['UnitPrice']['value']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "ProductDiscount",
+                    "type": "string",
+                    "value": "['Product2']['Discount__c']"
+                }
+            ],
+            "sObjectType": "Product2",
+            "templateUrl": "vloc-mob-con-shop-product"
+        }
+    ],
+    "title": "Product"
+}

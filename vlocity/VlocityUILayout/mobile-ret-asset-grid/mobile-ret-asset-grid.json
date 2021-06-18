@@ -1,0 +1,27 @@
+{
+    "Cards": [
+        "mobile-ret-asset-card"
+    ],
+    "bypassSave": true,
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0011N00001Ek9j3QAB"
+            }
+        ],
+        "type": "Query",
+        "value": {
+            "query": "SELECT Id, Name, Account.Name, Product_Image__c,InstallDate,Status, %vlocity_namespace%__RecurringTotal__c,Description,  %vlocity_namespace%__OneTimeTotal__c FROM Asset WHERE AccountId = '{{params.id}}'"
+        }
+    },
+    "templates": {
+        "0": {
+            "templateUrl": "mobile-ret-card-canvas"
+        }
+    },
+    "workspace": [
+        "mobile-ret-asset-card/Vlocity/1505895821468",
+        "mobile-ret-asset-card/Vlocity/1/1505895821468"
+    ]
+}

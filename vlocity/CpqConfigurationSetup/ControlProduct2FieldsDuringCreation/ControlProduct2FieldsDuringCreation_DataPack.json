@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "This setting should be set when a large number of custom field has been created in product2 and resulting very slow performance. Once this flag is set picklist(REFERENCE) field will not populate entire fields except name field.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "ControlProduct2FieldsDuringCreation",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/ControlProduct2FieldsDuringCreation"
+}

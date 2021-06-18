@@ -155,8 +155,43 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>vlocity_cmt__HighlightPanel</fullName>
+        <fields>Name</fields>
+        <fields>Type</fields>
+        <fields>Status</fields>
+        <fields>EndDate</fields>
+        <fields>StartDate</fields>
+        <label>Highlight Panel</label>
+    </compactLayouts>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
+    <fieldSets>
+        <fullName>vlocity_cmt__StoryFieldSet</fullName>
+        <description>Story board</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>IsActive</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>StoryFieldSet</label>
+    </fieldSets>
     <fields>
         <fullName>ActualCost</fullName>
     </fields>
@@ -168,6 +203,10 @@
     </fields>
     <fields>
         <fullName>BudgetedCost</fullName>
+    </fields>
+    <fields>
+        <fullName>CampaignImageId</fullName>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>CampaignMemberRecordTypeId</fullName>
@@ -267,8 +306,139 @@
         <fullName>Type</fullName>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>vlocity_cmt__CampaignContentDocumentId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the primary document (or other content) that is the subject of the campaign. Could be content being promoted in the campaign or a script to be used when talking to campaign targets. Points to the child Campaign Content Document (CampaignContentDocument__c) record that associates a Salesforce File with a Campaign.</description>
+        <externalId>false</externalId>
+        <label>Campaign Content Document</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>vlocity_cmt__CampaignContentDocument__c.vlocity_cmt__CampaignId__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Id</valueField>
+            </filterItems>
+            <filterItems>
+                <field>vlocity_cmt__CampaignContentDocument__c.vlocity_cmt__IsPrimary__c</field>
+                <operation>equals</operation>
+                <value>True</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>vlocity_cmt__CampaignContentDocument__c</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ContentDocumentTitle__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Title as defined on the campaign content document association record.</description>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__CampaignContentDocumentId__r.vlocity_cmt__ContentTitle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Content Document Title</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EmailTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Name of the email template to send to campaign members. Matches the Template Unique Name (DeveloperName) of a Salesforce Email Template (EmailTemplate object).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Email template used to send email to campaign member.</inlineHelpText>
+        <label>Email Template</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FollowUpTo__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Identifies the type of object that should be created when a user creates a &quot;follow up&quot; item for this campaign. Values must be one of “Log Call”, “Case”, “Event”, “Opportunity”, “Task”, “Order”.</description>
+        <externalId>false</externalId>
+        <label>Follow Up To</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MassEmailContent__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Email Content</label>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MassEmailSubject__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Email Subject</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProcessLanguage__c</fullName>
+        <defaultValue>&apos;English&apos;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Used to associate a Vlocity OmniScript to run when executing the campaign for each target. Process Language specifies the Language value of the OmniScript.</description>
+        <externalId>false</externalId>
+        <label>Process Language</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProcessPrefillBundle__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used when executing the campaign for each target via a Vlocity OmniScript. The Process Prefill Bundle specifies the prefill DataRaptor mapping bundle to use when launching the OmniScript.</description>
+        <externalId>false</externalId>
+        <label>Process Prefill Bundle</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProcessSubType__c</fullName>
+        <defaultValue>&apos;Default&apos;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Used to associate a Vlocity OmniScript to run when executing the campaign for each target. Process Sub Type specifies the Sub Type value of the OmniScript.</description>
+        <externalId>false</externalId>
+        <label>Process Sub Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProcessType__c</fullName>
+        <defaultValue>&apos;Campaign&apos;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Used to associate a Vlocity OmniScript to run when executing the campaign for each target. Process Type specifies the Type value of the OmniScript.</description>
+        <externalId>false</externalId>
+        <label>Process Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CAMPAIGN.ACTIVE</field>
@@ -279,6 +449,11 @@
     </listViews>
     <listViews>
         <fullName>MyActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CAMPAIGN.ACTIVE</field>
@@ -287,6 +462,70 @@
         </filters>
         <label>My Active Campaigns</label>
     </listViews>
+    <recordTypes>
+        <fullName>vlocity_cmt__MobilePhoneCampaign</fullName>
+        <active>true</active>
+        <description>Mobile Phone Campaign</description>
+        <label>MobilePhoneCampaign</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Advertisement</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Banner Ads</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public Relations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Referral Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Seminar %2F Conference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telemarketing</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>CAMPAIGN.STATUS</customTabListAdditionalFields>
@@ -303,6 +542,26 @@
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>FullAccess</sharingModel>
+    <webLinks>
+        <fullName>ViewAllCampaignMembers</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View All Campaign Members</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/camp/rptcmpgncalldown.jsp?scope=1&amp;scopeid={!Campaign_Name}</url>
+        <width>500</width>
+    </webLinks>
     <webLinks>
         <fullName>ViewCampaignInfluenceReport</fullName>
         <availability>online</availability>

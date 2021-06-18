@@ -1,0 +1,47 @@
+{
+    "dataSource": {
+        "type": null
+    },
+    "filter": {
+        "['objAPIName']": "%vlocity_namespace%__NonHeldPolicy__c"
+    },
+    "states": [
+        {
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Policy Type",
+                    "name": "['highlight']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "LOB",
+                    "name": "['subtitle']",
+                    "type": "string"
+                }
+            ],
+            "name": "Non Held Policy",
+            "sObjectType": "%vlocity_namespace%__NonHeldPolicy__c",
+            "templateUrl": "story-card"
+        }
+    ],
+    "title": "Non Held Policies"
+}

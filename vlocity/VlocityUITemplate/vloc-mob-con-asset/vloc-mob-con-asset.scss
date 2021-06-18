@@ -1,0 +1,622 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+
+
+/*Device Details*/
+.con-device-details{
+    width:100%;
+    height:auto;
+    background:#FFF;
+    position:relative;
+    z-index:1;
+    box-shadow:0px -60px 200px rgba(0,0,0,1);
+    border-radius: 20px 20px 0px 0px;
+}   
+.con-device-details-wrapper{
+    transition:transform 0.5s linear;
+    transform:translateY(60vh);
+    position: relative;
+    z-index: 1;
+}
+.con-device-details-expanded{
+    transform:translateY(0) !important;
+}
+.con-device-details-border{
+    border-bottom:1px solid #e9ecfe; 
+    width:calc(100vw - 50px);
+    margin:auto;
+}
+.con-device-details-title{
+    text-align:center;
+    font-size:20px;
+    font-family:Brown-Bold;
+    width:100%;
+    padding:0px 25px 0px 25px;
+    position: relative;
+    overflow:hidden;
+    box-sizing:border-box;
+    height:0px;
+    transition:height 0.25s linear, opacity 1s linear, margin-bottom 0.25s linear;
+    opacity:0;
+    margin-bottom:-25px;
+}
+.con-device-details-title span{
+    font-family:fontello;
+    position: absolute;
+    left: 25px;
+}
+.con-device-details-expanded .con-device-details-title{
+    height:30px;
+    opacity:1;
+    margin-bottom:0px;
+}
+
+/*Device Details Section*/
+.con-device-details-section{
+    padding: 25px;
+    text-align:left; 
+}
+.con-device-details-section-title{
+    font-size:24px;
+    color:#000;
+    margin-bottom:25px;
+    font-weight:bold;
+    min-height: 28px;
+}
+.con-device-details-section-subtitle{
+    color: $subtitle-colour;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 10px;
+    font-family: Brown-Light;
+}
+.con-device-details-section-button{
+    color: #ffffff;
+    font-size: 14px;
+    background: $theme-colour;
+    border-radius: 5px;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    display: table;
+    padding: 0px 25px;
+    text-align:center;
+    margin-top:25px;
+}
+
+/*Device Graphs*/
+
+/*Bar Graphs*/
+.con-device-details-bar-graph{
+    width:100%;
+    display:table;
+    margin-bottom:15px;
+}
+.con-device-details-bar-graph-title{
+    float:left;
+    width:65%;
+}
+.con-device-details-bar-graph-subtitle{
+    float:right;
+    width:35%;
+    text-align:right;
+}
+.con-device-details-bar-graph-chart{
+    width:100%;
+    height:10px;
+    float:left;
+    margin-top:10px;
+    background:#e9ecfe;
+}
+.con-device-details-bar-graph-chart-fill{
+    height:10px;
+    background: $theme-colour;
+    transition:width 1s linear;
+}
+.swiper-container:not(.swiper-container-active) .con-device-details-bar-graph-chart-fill{
+    width:0% !important;
+}
+
+/*Donut Graphs*/
+.con-device-details-donut-graph{
+    display:table;
+    width:100%;
+}
+.con-device-details-donut-graph-chart{
+    width:33%;
+    float:left;
+    text-align:center;
+    position:relative;
+}
+.con-device-details-donut-graph svg{
+    transform: rotate(-90deg);
+    margin: auto;
+    display: block;
+}
+.con-device-details-donut-graph .circle_animation {
+    stroke-dasharray: 190;
+    stroke: $theme-colour;
+    transition: stroke-dashoffset 1s linear;
+}
+.con-device-details-donut-graph .circle_empty{
+    stroke: #e9ecfe !important;
+}
+.swiper-container:not(.swiper-container-active) .con-device-details-donut-graph .circle_animation{
+    stroke-dashoffset: 190;
+}
+.con-device-details-donut-graph-title{
+    color: $subtitle-colour;
+    margin-bottom:5px;
+    font-family:Brown-Light;
+}
+.con-device-details-donut-graph-subtitle{
+    margin-top:5px;
+    font-family: Brown-Light;
+}
+.con-device-details-donut-graph-data{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -20px;
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+.con-icon-infinity{
+    color:#e9ecfe;
+    font-family: fontello;
+    font-size: 26px;
+}
+
+/*Device Perks*/
+.con-device-details-perk{
+    text-align:left;
+}
+.con-device-details-perk-icon{
+    color:$theme-colour;
+    font-family: fontello;
+    font-size: 28px;  
+    width:50px;
+    float:left;
+    line-height: 45px;
+}
+.con-device-details-perk-title{
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-left: 50px;
+    font-family: Brown-Bold;
+}
+.con-device-details-perk-subtitle{
+    font-size:14px;
+    margin-bottom:15px;
+    margin-left:50px;
+    color:$subtitle-colour;
+    font-family: Brown-Light;
+}
+
+/*Device Actions*/
+.con-device-details-action{
+  font-size:16px;  
+  color:$theme-colour;
+  padding:25px 0px;
+  font-family: Brown-Bold;
+}
+.con-device-details-action span{
+    float:right;
+    font-size:18px;
+    line-height:20px;
+    font-family: fontello;
+}
+
+/*Device Notifications*/
+.con-device-details-notification{
+    width:100vw;
+    height:90px;
+    box-shadow:0px 0px 25px rgba(0,0,0,0.15);
+    margin-top: 25px;
+    position:relative;
+    margin-left:-25px;
+    padding:0px 25px;
+    box-sizing:border-box;
+}
+.con-device-details-notification-icon{
+    width: 35px;
+    height: 35px;
+    float: left;
+    border-radius: 40px;
+    border: 1.5px solid $theme-colour;
+    box-shadow: 0px 0px 13px $theme-colour;
+    margin: 16px 15px 25px 0px;
+}
+.con-device-details-notification-title{
+    margin-bottom: 5px;
+    margin-left: 50px;
+    padding-top: 11px;
+}
+.con-device-details-notification-action{
+    color: $theme-colour;
+    font-family:Brown-Bold;
+}
+.con-device-details-notification-action span{
+    font-family:fontello;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.con-device-details-notification-icon-lines{
+    margin:12px auto;
+    display:table;
+}
+.con-device-details-notification-icon-lines > div{
+    float: left;
+    width: 1px;
+    background: $theme-colour;
+    border-radius: 10px;
+}
+.con-device-details-notification-icon-line1, .con-device-details-notification-icon-line5{
+    height: 3px;
+    margin: 2.5px 1px;
+    opacity: 0.6;
+}
+.swiper-slide-active .con-device-details-notification-icon-line1, .swiper-slide-active .con-device-details-notification-icon-line5{
+    animation: growlarge 4s 1s infinite;
+}
+.swiper-slide-active .con-device-details-notification-icon-line5{
+    animation-delay:4s;
+}
+.con-device-details-notification-icon-line2, .con-device-details-notification-icon-line4{
+    height: 5px;
+    margin: 1.5px 1px;
+    opacity: 0.7;
+}
+.swiper-slide-active .con-device-details-notification-icon-line2, .swiper-slide-active .con-device-details-notification-icon-line4{
+    animation: growmedium 4s 3s infinite;    
+}
+.swiper-slide-active .con-device-details-notification-icon-line2{
+    animation-delay:5s;
+}
+.con-device-details-notification-icon-line3{
+    height: 7px;
+    margin: 0.5px 1px;
+    opacity: 0.8;
+    
+}
+.swiper-slide-active .con-device-details-notification-icon-line3{
+    animation: growsmall 4s 2s infinite;
+}
+
+/*Device Grabber*/
+.con-device-grabber{
+    width:100%;
+    height:40px;
+    float:left;
+    background:#FFF;
+    border-radius:15px;
+    transition:border-radius 0.5s linear;
+}
+.con-device-grabber-bar{
+    margin:auto;
+    width:40px;
+    height:4px;
+    background:#e9ecfe; /*#D9D9D9*/
+    border-radius:10px;
+    top:10px;
+    position:relative;
+    transition:opacity 0.5s linear;
+}
+.con-opacity-hidden{
+    opacity:0;
+    pointer-events:none !important;
+}
+.grabberup{
+    border-radius:0px
+}
+.grabberup .con-device-grabber-bar{
+    opacity:0;
+}
+
+/*Device Title*/
+.con-device-title{
+    color: $white-text-colour;
+    font-size: 30px;
+    position: absolute;
+    top: calc(60vh - 65px);
+    left: 25px;
+    z-index: 2;
+    height: 40px;
+    line-height: 40PX;
+}
+
+/*Device Image*/
+.con-device-image{
+    top:80px;
+    width:100%;
+    padding:40px 30px 30px 30px;
+    box-sizing:border-box;
+    position:absolute;
+    left:0px;
+    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,#ffffff 100%);
+    transition: opacity 0.5s linear;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+
+}
+.con-device-image-small{
+    opacity:0;
+}
+.con-device-image-small img{
+    transform: translate3d(-65px, 30vh, 0) scale(0.4) skew(0deg,-5deg);
+}
+.con-device-image img{
+    margin:auto;
+    display:block;
+    transition:transform 0.5s linear;
+}
+
+/*Device Shadow*/
+.con-device-shadow{
+    width:100%;
+    height:50vh;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 1%, rgba(0,0,0,0.85) 50%, #000000 100%); 
+    position:absolute;
+    top:50vh;
+    left:0px;
+}
+
+/*Device Chat */
+.con-device-chat{
+    width:100%;
+    padding-top:100px;
+    padding-bottom:50px;
+    display:none;
+}
+.con-device-details-expanded .con-device-chat{
+    display:block;
+}
+.con-device-chat-icon{
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: 1.5px solid $theme-colour;
+    box-shadow: 0px 0px 13px $theme-colour;
+    margin: 0px auto 15px auto;
+    background:#FFFFFF;
+    position:relative;
+}
+.con-device-chat-icon-lines{
+    margin:20px auto;
+    display:table;
+}
+.con-device-chat-icon-lines > div{
+    float: left;
+    width: 2px;
+    background: $theme-colour;
+    border-radius: 10px;
+}
+.con-device-chat-icon-line1, .con-device-chat-icon-line5{
+    height: 5px;
+    margin: 5px 1.5px;
+    opacity: 0.6;
+    animation: growlarge 4s 1s infinite;
+}
+.con-device-chat-icon-line5{
+    animation-delay:4s;
+}
+.con-device-chat-icon-line2, .con-device-chat-icon-line4{
+    height: 9px;
+    margin: 3px 1.5px;
+    opacity: 0.7;
+    animation: growmedium 4s 3s infinite;
+}
+.con-device-chat-icon-line2{
+    animation-delay:5s;
+}
+.con-device-chat-icon-line3{
+    height: 13px;
+    margin: 1px 1.5px;
+    opacity: 0.8;
+    animation: growsmall 4s 2s infinite;
+}
+.con-device-chat-icon-lines:after{
+    content:' ';
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    background: $theme-colour;
+    position: absolute;
+    top: -1.5px;
+    left: -1.5px;
+    z-index:-1;
+    animation: spin 6s linear infinite;
+    opacity: 0.5;
+}
+.con-device-chat-subtitle{
+    color:$theme-colour;
+    text-align:center;
+    width:100%;
+}
+.con-device-chat-title{
+    color:$theme-colour;
+    font-family:Brown-Bold;
+    text-align:center;
+    width:100%;
+}
+
+/*Chat Bot Icon Animations*/
+@keyframes growlarge {
+    0% {transform:scaleY(1);}
+    15% {transform:scaleY(1.75);}
+    30% {transform:scaleY(0.6);}
+    45% {transform:scaleY(1.5);}
+    60% {transform:scaleY(0.7);}
+    75% {transform:scaleY(2);}
+    90%,100% {transform:scaleY(1);}
+}
+@keyframes growmedium {
+    0% {transform:scaleY(1);}
+    15% {transform:scaleY(1.3);}
+    30% {transform:scaleY(0.85);}
+    45% {transform:scaleY(1.15);}
+    60% {transform:scaleY(0.7);}
+    75% {transform:scaleY(1.45);}
+    90%,100% {transform:scaleY(1);}
+}
+@keyframes growsmall {
+    0% {transform:scaleY(1);}
+    15% {transform:scaleY(1.25);}
+    30% {transform:scaleY(0.9);}
+    45% {transform:scaleY(1.1);}
+    60% {transform:scaleY(0.85);}
+    75% {transform:scaleY(1.4);}
+    90%,100% {transform:scaleY(1);}
+}
+@keyframes spin {
+    0% {transform:rotate(0deg) scale(1, 1);}
+    5% {transform:rotate(180deg) scale(1.06, 1.1);}
+    10% {transform:rotate(360deg) scale(1.02, 1);}
+    15% {transform:rotate(540deg) scale(1, 1);}
+    20% {transform:rotate(720deg) scale(1, 1);}
+    25% {transform:rotate(900deg) scale(1.09, 1.15);}
+    30% {transform:rotate(1080deg) scale(1.02, 1);}
+    35% {transform:rotate(1260deg) scale(1, 1);}
+    40% {transform:rotate(1440deg) scale(1, 1);}
+    45% {transform:rotate(1620deg) scale(1.12, 1.19);}
+    50% {transform:rotate(1800deg) scale(1.02, 1);}
+    55% {transform:rotate(1980deg) scale(1, 1);}
+    100% {transform:rotate(0deg) scale(1, 1);}
+}
+
+/*Product Browse*/
+.con-shop-browse{
+    display:table;
+    min-height: 500px;
+}
+.con-shop-browse-product{
+    width:calc(50% - 12.5px);
+    display:table;
+    float:left;
+    margin-bottom: 25px;
+}
+.con-shop-browse-product:nth-child(odd){
+    margin-right:25px;
+}
+.con-shop-browse-product-background{
+    background:$circle-colour-2;
+    height:150px;
+    width:150px;
+    border-radius:100%;
+    padding-top: 10px;
+    margin-bottom: 25px;
+}
+.con-shop-browse-product:nth-child(4n+1) .con-shop-browse-product-background, .con-shop-browse-product:nth-child(4n+4) .con-shop-browse-product-background {
+    background: $circle-colour-1;
+}
+.con-shop-browse-product-image img {
+    height: 160px;
+    margin: auto;
+    display: block;
+    width: auto;
+}
+.con-shop-browse-product-discount-percentage {
+    color: $discount-colour;
+    min-height:20px;
+    min-width:20px;
+}
+.con-shop-browse-product-name {
+    font-size: 16px;
+    color: $theme-colour;
+    font-family: Brown-Bold;
+    min-height: 20px;
+    max-height: 40px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    /* white-space: nowrap; */
+    /* text-overflow: ellipsis; */
+}
+.con-shop-browse-product-price {
+    font-size: 16px;
+    width: 50%;
+    float: left;
+    margin-bottom: 10px;
+    font-family: Brown-Bold;
+}
+.con-shop-browse-product-discount-price {
+    text-decoration: line-through;
+    color: $subtitle-colour;
+    float: right;
+    width: 50%;
+    height: 20px;
+    margin-bottom: 10px;
+}
+.con-shop-browse-product-attribute-more {
+    width: 50%;
+    float: right;
+    font-size: 12px;
+    font-family: Brown-Light;
+    line-height:18px;
+    height: 18px;
+}
+.con-shop-browse-product-attribute-colour {
+    width: 18px;
+    height: 18px;
+    float: left;
+    border-radius: 20px;
+    margin-right: 5px;
+}
+.con-shop-browse-product-attribute-colour-border {
+    border: 1px solid #e9ecfe;
+}
+
+/*Device Specific Styling*/
+/*iPhone 5/SE*/
+@media only screen 
+    and (max-device-height : 640px) {
+    .con-device-details-donut-graph{
+        display:none;   
+    }
+    .con-device-details-wrapper {
+        transform: translateY(calc(100vh - 250px));
+    }
+    .con-device-title {
+        top: calc(100vh - 310px);
+    }
+}
+/*iPhone 6/7/8*/
+@media only screen 
+    and (min-device-height : 641px) and (max-device-height : 667px) {
+    .con-device-details-bar-graph{
+        display:none;   
+    }
+    .con-device-details-wrapper {
+        transform: translateY(calc(100vh - 260px));
+    }
+    .con-device-title {
+        top: calc(100vh - 320px);
+    }
+}
+/*iPhone 6/7/8 Plus*/
+@media only screen 
+    and (min-device-height : 668px) and (max-device-height : 737px) {
+    .con-device-details-donut-graph{
+        display:none;   
+    }
+    .con-device-details-wrapper {
+        transform: translateY(calc(100vh - 340px));
+    }
+    .con-device-title {
+        top: calc(100vh - 405px);
+    }
+}
+/*iPhone X*/
+@media only screen 
+    and (min-device-height : 738px) {
+    .con-device-details-donut-graph{
+        display:none;   
+    }
+    .con-device-details-wrapper {
+        transform: translateY(calc(100vh - 340px));
+    }
+    .con-device-title {
+        top: calc(100vh - 405px);
+    }
+}

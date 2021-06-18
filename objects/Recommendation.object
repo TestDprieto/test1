@@ -128,6 +128,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>AcceptanceLabel</fullName>
     </fields>
@@ -151,6 +152,26 @@
     <fields>
         <fullName>RejectionLabel</fullName>
     </fields>
+    <fields>
+        <fullName>vlocity_cmt__VlocityActionId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Vlocity Action</label>
+        <referenceTo>vlocity_cmt__VlocityAction__c</referenceTo>
+        <relationshipLabel>Recommendations</relationshipLabel>
+        <relationshipName>Recommendations</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <listViews>
+        <fullName>vlocity_cmt__All_Recommendations</fullName>
+        <columns>Name</columns>
+        <columns>Description</columns>
+        <columns>vlocity_cmt__VlocityActionId__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Recommendations</label>
+    </listViews>
     <searchLayouts>
         <customTabListAdditionalFields>Description</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Description</lookupDialogsAdditionalFields>

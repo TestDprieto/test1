@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__DestinationFieldName__c": "%vlocity_namespace%__RelatedOrderItemId__c",
+    "%vlocity_namespace%__DestinationSObjectType__c": "%vlocity_namespace%__OrderItemRelationship__c",
+    "%vlocity_namespace%__SourceFieldName__c": "%vlocity_namespace%__RelatedQuoteLineItemId__c",
+    "%vlocity_namespace%__SourceFieldSObjectType__c": "QuoteLineItem",
+    "%vlocity_namespace%__SourceFieldType__c": "reference",
+    "%vlocity_namespace%__SourceSObjectType__c": "%vlocity_namespace%__QuoteLineItemRelationship__c",
+    "Name": "QLIRel>OIRel2",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CustomFieldMap__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CustomFieldMap__c/QLIRel>OIRel2"
+}

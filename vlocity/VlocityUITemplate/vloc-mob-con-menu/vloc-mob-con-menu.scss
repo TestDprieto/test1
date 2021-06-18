@@ -1,0 +1,101 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+.menu{
+    width: 100vw !important; 
+}
+.con-menu-profile {
+    width: 100%;
+    padding-top: 55px;
+    padding-left: 25px;
+}
+.con-menu-close{
+    position:absolute;
+    top:20px;
+    left:0px;
+    font-family:fontello;
+    font-size: 20px;
+    pointer-events: all;
+    padding: 25px;
+}
+.con-menu-settings{
+    float:right;
+    font-family:fontello;
+    font-size: 20px;
+    position: relative;
+    right: 25px;
+    top: 15px;
+}
+.con-menu{
+    background:$theme-colour !important;
+    color:$white-text-colour !important;
+    font-family:Brown-Regular;
+    font-size:18px;
+    position: initial;
+    display: table;
+    width: 100vw;
+    height: 100%;
+    margin-top: 0 !important;
+}
+ion-side-menu > ion-header-bar.bar.menu-bar.con-menu-header{
+    min-height:150px !important;
+    background-image:url('https://vdo-cmt-site.secure.force.com/resource/VLOCMOBCON/images/bgtransparecny_Vlocity.png') !important;
+    background-color:$theme-colour !important;
+    color:$white-text-colour !important;
+    background-size:100% auto !important;
+    box-shadow:0px 0px 25px rgba(0,0,0,0.5);
+    margin: 0px;
+    padding: 0px;
+    position: initial !important;
+}
+.list {
+    padding-top: 12.5px;
+}
+.con-menu .item{
+    border:0px;
+    background:none;
+    color:$white-text-colour;
+    font-size:20px;
+    font-family:Brown-Light;
+    font-weight:300 !important;
+    padding: 12.5px 25px 12.5px 25px;
+    height: 50px;
+}
+.con-menu-profile-picture {
+    float: left;
+}
+.vlocity .menu .con-menu-avatar{
+    margin:0px;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #FFF;
+    border-radius: 30px;
+}
+.con-menu-name {
+    color: #FFF !important;
+    font-family: Brown-Regular;
+    margin-left:25px;
+    float:left;
+    font-size:24px;
+    margin-top: 15px;
+}
+.con-menu-name span{
+    display:block;
+    font-size:16px;
+    margin-top: 5px;
+    font-family: Brown-Light;
+}
+.menu-open ion-side-menu-content.menu-content.pane.menu-animated {
+    transform: translate3d(100vw, 0px, 0px) !important;
+}
+.con-menu-icon{
+    width: 25px;
+    font-family: fontello;
+    font-size: 20px;
+    display: block;
+    float: left;
+    text-align: center;
+}
+.vlocity .menu .menu-item-name {
+    margin-left: 25px !important;
+}

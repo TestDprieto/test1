@@ -1,0 +1,26 @@
+{
+    "Cards": [
+    ],
+    "componentName": "cfCpqCartItemAttachGroup",
+    "dataSource": {
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "cartType": "{{params.cartType}}",
+                "contextId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.MultiServiceAppHandler"
+            },
+            "remoteClass": "MultiServiceAppHandler",
+            "remoteMethod": "getGroups",
+            "remoteNSPrefix": "%vlocity_namespace%"
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "cpq-cart-item-attach-group"
+        }
+    }
+}

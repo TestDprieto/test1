@@ -1,0 +1,46 @@
+<!--LOADER: -->
+<div class="slds-spinner_container" ng-show="!$root.isLoaded">
+   <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+      <div class="slds-spinner__dot-a"></div>
+      <div class="slds-spinner__dot-b"></div>
+   </div>
+</div>
+<div class="via-slds" ng-init="importedScope.contractTypeId = attrs.contractTypeId">
+    <div class="slds-notify_container" ng-if="$root.notification.active">
+      <div class="slds-notify slds-notify_toast" role="alert" ng-class="{'slds-theme_success' : $root.notification.type === 'success', 'slds-theme_error' : $root.notification.type === 'error'}">
+         <span class="slds-assistive-text">Info</span>
+         <button class="slds-button slds-notify__close" title="Close" ng-click="$root.notification.active = false">
+            <slds-svg-icon sprite="'utility'" icon="'close'" extra-classes="'slds-button__icon_left'"></slds-svg-icon>
+         </button>
+         <div class="slds-notify__content">
+            <h2 class="slds-text-heading_small">{{$root.notification.message}}</h2>
+         </div>
+      </div>
+    </div>
+   <form class="slds-p-around_medium"> 
+      <div class="slds-grid slds-grid_vertical-align-center">
+        <div class="slds-size_1-of-3">
+          <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+            <slds-svg-icon sprite="'utility'" icon="'search'" extra-classes="'slds-icon_small slds-input__icon'"></slds-svg-icon>
+            <input ng-model="$root.searchTerm" class="slds-input" type="text" placeholder="Search" />
+          </div>
+        </div>
+        <div class="slds-size_2-of-3" >
+          <div class="slds-float_right slds-m-left_small">
+            <button class="slds-button slds-button--icon-border" ng-click="importedScope.refreshList('TermSpec')" >
+              <slds-button-svg-icon sprite="'utility'" icon="'refresh'"></slds-button-svg-icon>
+            </button>
+          </div>
+          <div class="slds-button-group slds-float_right" role="group">
+            <button class="slds-button  slds-button_neutral" ng-class="{'slds-size_1-of-1 slds-text-align_center':importedScope.obj.length < 1}" ng-click="importedScope.launchContractTypeTermModal()">{{importedScope.modalLabels.CLMAddExistingTerms}}</button>
+            <button class="slds-button  slds-button_neutral"  ng-click="importedScope.deleteContractTypeTerms(records.records, records.type)" ng-if="records.records">{{importedScope.modalLabels.CLMDeleteTerms}}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+   <div class="slds-grid slds-wrap cards-container">
+      <div vloc-card ng-repeat="card in cards | orderBy:order" ctrl="ClmContractTypeTermController" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}"
+         class="slds-size_1-of-1 slds-border_bottom" use-existing-element-type>
+      </div>
+   </div>
+</div>

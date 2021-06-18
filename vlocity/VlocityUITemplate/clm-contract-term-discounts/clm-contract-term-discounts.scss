@@ -1,0 +1,94 @@
+.vlocity {
+    &.via-slds {
+        .clm-contract-discounts {
+            .clm-discounts-items-tab-content {
+                padding-top: 0px; /* slds override */
+            }
+            .clm-create-discount-container{
+                padding:10px 10px;
+            }
+            .clm-promotion-item-border {
+                padding: 10px 0px;
+                margin: 0px 16px;
+                border-bottom: 1px solid #D8DDE6;
+            }
+            .clm-discount-status-border-bottom{
+                border-bottom:1px solid #D8DDE6;
+            }
+            .clm-base-discounts {
+                .clm-item-base-product-actions {
+                    flex: 3;
+                }
+                .clm-item-base-product-actions.compacted {
+                    padding: 0px 6px 0px;
+                }
+                .clm-action-item-label{
+                    font-size: 11px;
+                    color: #005FB2;
+                }
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-end;
+                .clm-discounts-editable-field {
+                    border-bottom: 1px dotted;
+                    input{
+                        border: none;
+                    }
+                }
+                &.clm-discounts-header {
+                    font-size: 11px;
+                   @extend .clm-promotion-item-border;
+                }
+                &.clm-discounts-item {
+                    .clm-promo-text-wrap {
+                        .clm-text-break {
+                            word-break: break-word;
+                        }
+                        .clm-discount-charges {
+                           color: #7D7E7F
+                        }
+                        font-size: 12px;
+                        line-height: 1;
+                        .clm-discount-charges-label {
+                              font-size: 11px;
+                              line-height: 1.33;
+                              color: black;
+                        }
+                    }
+                    .clm-discount-name {
+                        .clm-discount-level {
+                            text-transform: uppercase;
+                            background: #9b9b9b;
+                            font-size: 11px;
+                            color: #FFFFFF;
+                            padding: 6px 10px;
+                            width: 50%;
+                            letter-spacing: 1px;
+                        }
+                        .clm-discount-status {
+                            font-weight: 300;
+                            font-size: 10px;
+                        }
+                        .clm-discount-status-new {
+                            color: #13834D;
+                            font-weight: 500;
+                            font-size: 10px;
+                        }
+                       font-weight:  600;
+                    }
+                    @extend .clm-promotion-item-border;
+                    .clm-underline {
+                            border-bottom: dashed 1px;
+                            &:hover, &.hovered {
+                            color: #0070d2;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .clm-discounts-name {
+                    flex: 5;
+                }
+            }
+        }
+    }
+}

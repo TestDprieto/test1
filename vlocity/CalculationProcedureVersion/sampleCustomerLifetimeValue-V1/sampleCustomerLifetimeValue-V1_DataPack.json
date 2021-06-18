@@ -1,0 +1,52 @@
+{
+    "%vlocity_namespace%__ApplicableObject__c": "",
+    "%vlocity_namespace%__CalculationProcedureId__c": {
+        "Name": "sampleCustomerLifetimeValue",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__CalculationProcedure__c/sampleCustomerLifetimeValue",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedure__c"
+    },
+    "%vlocity_namespace%__CalculationProcedureId__r.Name": "sampleCustomerLifetimeValue",
+    "%vlocity_namespace%__CalculationProcedureStep__c": "sampleCustomerLifetimeValue-V1_Steps.json",
+    "%vlocity_namespace%__CalculationProcedureVariable__c": "sampleCustomerLifetimeValue-V1_Variables.json",
+    "%vlocity_namespace%__Constants__c": [
+        {
+            "alias": "DiscountRate",
+            "dataType": "Percent",
+            "isEditable": false,
+            "name": "Discount Rate",
+            "precision": "",
+            "userDefined": true,
+            "value": "3",
+            "valuePlaceHolder": "Enter a Value"
+        },
+        {
+            "alias": "One",
+            "dataType": "Number",
+            "isEditable": true,
+            "name": "One",
+            "precision": "",
+            "userDefined": true,
+            "value": "1",
+            "valuePlaceHolder": "Enter a Value"
+        }
+    ],
+    "%vlocity_namespace%__CurrentStatus__c": "Active",
+    "%vlocity_namespace%__EnableLooping__c": false,
+    "%vlocity_namespace%__EndDateTime__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "2fc8a100-cb98-226b-c068-879925e19ac4",
+    "%vlocity_namespace%__InputBundleId__c": "",
+    "%vlocity_namespace%__LastSimulationInput__c": "{\"Annual Income\":\"100000\",\"SLA\":\"Bronze\"}",
+    "%vlocity_namespace%__LoopingSpecification__c": "",
+    "%vlocity_namespace%__OutputBundleId__c": "",
+    "%vlocity_namespace%__PostProcessorClass__c": "",
+    "%vlocity_namespace%__PreProcessorClass__c": "",
+    "%vlocity_namespace%__Priority__c": 1,
+    "%vlocity_namespace%__StartDateTime__c": "2019-11-05T22:17:26.000Z",
+    "%vlocity_namespace%__Variables__c": "",
+    "%vlocity_namespace%__VersionNumber__c": 1,
+    "Name": "sampleCustomerLifetimeValue V1",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureVersion__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CalculationProcedureVersion__c/1/%vlocity_namespace%__CalculationProcedure__c/sampleCustomerLifetimeValue"
+}

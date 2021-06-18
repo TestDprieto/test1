@@ -1,0 +1,202 @@
+<apex:page sidebar="false" showHeader="false" standardStylesheets="false" showQuickActionVfHeader="false"
+     showChat="false">
+     <script>
+       //Custom Logger class to manage logs
+        class Logger{
+                constructor(debugMode){
+                    this.debugMode = debugMode === 'true' || debugMode === true ? true: false;
+                }
+                log(msg, ...details){
+                    this.emitLogMessage('log', msg, details);
+                }
+                info(msg, ...details){
+                    this.emitLogMessage('info', msg, details);
+                }
+                warn(msg, ...details){
+                    this.emitLogMessage('warn', msg, details);
+                }
+                error(msg, ...details){
+                    this.emitLogMessage('error', msg, details);
+                }
+                emitLogMessage(type, msg, details){
+                    if(this.debugMode){
+                        if(details.length > 0){
+                            console[type](msg, ...details);
+                        }else{
+                            console[type](msg);
+                        }
+                    }
+                }
+                group(label){
+                    if(this.debugMode){
+                        console.group(label);
+                    }
+                }
+                groupEnd(){
+                    console.groupEnd();
+                }
+            }
+
+            //Custom DataLayer to store all the events in queue when the page is loading
+            class OaDataLayer{
+                constructor(){
+                    this._dataLayer = [];
+                }
+
+                addEvent(eventData){
+                    this._dataLayer.push(eventData);
+                }
+
+                isEmpty(){
+                    return this._dataLayer.length === 0;
+                }
+
+                getFirstEvent(){
+                    if(this._dataLayer.length > 0){
+                        return this._dataLayer.shift();
+                    }
+                    return null;
+                }
+
+                peak() {
+                    if (this._dataLayer.length > 0) {
+                        return this._dataLayer[0];
+                    }
+                    return null;
+                }
+
+                eventAt(index) {
+                    return this._dataLayer[index];
+                }
+
+                size() {
+                    return this._dataLayer.length;
+                }
+
+            }
+     </script>
+
+    <script>
+        const debugMode = getDebugMode();
+        const logger = new Logger(debugMode);
+        const oaDataLayer = new OaDataLayer();
+        trackingVendorDetails = null;
+        isAnalyticsScriptLoaded = false;
+        //Google Tag Manager dataLayer
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer = [
+            {
+                "gtm.start": new Date().getTime(),
+                "event":"gtm.js"
+            }
+        ];
+        
+        //Subscriber for the track calls 
+        //Receive all the events from tracking manager
+        window.addEventListener('message', (message) => {
+            const eventData = message.data;
+            if(typeof(eventData) === 'object'){
+                //1st handshake to know the tracking vendor details
+                if(eventData.type === 'config'){
+                    trackingVendorDetails = eventData.value;
+                    loadAnalyticsScript();
+                }
+                //Event handshakes
+                if(eventData.event && eventData.value) {
+                    oaDataLayer.addEvent(eventData);
+                    if (isAnalyticsScriptLoaded) {
+                        processPendingEvents();
+                    }
+                }
+            }
+        });
+
+        function loadAnalyticsScript(){
+            const replacementValues = {};
+            trackingVendorDetails.replacementFields.forEach(field => {
+                replacementValues[field.key] = field.value;
+            });
+            const parsedScriptUrl = templateParser(trackingVendorDetails.scriptUrl, replacementValues);
+            logger.log('Tracking vendor name: ', trackingVendorDetails.trackingVendor);
+            if(parsedScriptUrl){
+                logger.log('Loading script url: ', parsedScriptUrl);
+                loadScript(parsedScriptUrl, ()=> {
+                    logger.log('Analytics script loaded!');
+                    isAnalyticsScriptLoaded = true;
+                    processPendingEvents();
+                });
+            }else{
+                isAnalyticsScriptLoaded = true;
+                processPendingEvents();
+            }
+        }
+
+        function processPendingEvents() {
+            while (!oaDataLayer.isEmpty()) {
+                const eventData = oaDataLayer.getFirstEvent();
+                if (eventData) {
+                    if(trackingVendorDetails.trackingVendor === 'Google'){
+                        handleGoogleTagManager(eventData);
+                    }else{
+                        handleOtherAnalytics(eventData);
+                    }
+                }
+            }
+        }
+
+        function handleGoogleTagManager(eventData) {
+            const googlePayload = {
+                "event" : eventData.event,
+                "action" : eventData.event,
+                "category": eventData.payload.category || "general",
+                "label" : eventData.payload.label || '',
+                "value": eventData.payload.value || 0,
+                ...eventData.payload
+            }
+            logger.log(`Event name: "${eventData.event}"`);
+            logger.log('Google Tag Manager payload generated: ', googlePayload);
+            window.dataLayer.push(googlePayload);
+            logger.log('Tracking event data saved successfully to the Google Tag Manager!');
+        }
+
+        function handleOtherAnalytics(eventData){
+            //Support for new analytics vendor
+            //Can be implemented by customer
+        }
+
+        function loadScript(url, callback) {
+            const script = document.createElement("script");
+            script.type = "text/javascript";
+            script.async = true;
+            script.onload = () => {
+                callback();
+            };
+            script.src = url;
+            document.getElementsByTagName("body")[0].appendChild(script);
+        }
+
+        /* 
+        // templateParser
+        // Parses the template string by replacing the actual values
+        // eg: templateString = "https://www.googletagmanager.com/gtm.js?id=${id}",
+        //     values = {"id": "testId"}
+        // Result: https://www.googletagmanager.com/gtm.js?id=testId
+        */
+        function templateParser(templateString, values){
+            let output = templateString;
+            Object.keys(values)
+                .forEach(key => {
+                output = output.replace(new RegExp('\\\$' + `{${key}}`, 'g'), values[key]);
+            });
+            return output;
+        };
+
+        function getDebugMode() {
+            const urlParams = new URL(window.location.href).searchParams;
+            if (urlParams.has('debugMode')) {
+                return urlParams.get('debugMode');
+            }
+            return null;
+        }
+    </script>
+</apex:page>

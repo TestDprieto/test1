@@ -1,0 +1,59 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "Contact",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Email",
+        "%vlocity_namespace%__GlobalKey__c": "07b270a8-1074-ace0-d958-d52a998eadb6",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "StepContact:ContactEmail",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "SAMPLELoadContactDetailsCustoma173i000000ZZt0AAGItem2",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "sampleSaveContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "Contact",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__GlobalKey__c": "291e1ae1-eb92-09cf-bf88-18b557281c33",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ContactId",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": true,
+        "%vlocity_namespace%__MapId__c": "SAMPLELoadContactDetailsCustoma173i000000ZZt0AAGItem1",
+        "%vlocity_namespace%__UpsertKey__c": true,
+        "Name": "sampleSaveContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__ConfigurationValue__c": "FAKEMAPPING",
+        "%vlocity_namespace%__DomainObjectAPIName__c": "Contact",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__GlobalKey__c": "e4e1e210-7952-ed25-da06-61e085e69240",
+        "%vlocity_namespace%__IsDisabled__c": true,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "SAMPLELoadContactDetailsCustoma173i000000ZZt0AAGItem0",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "sampleSaveContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "Contact",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Phone",
+        "%vlocity_namespace%__GlobalKey__c": "53a89861-5cf7-1223-8325-46a35199b7f6",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "StepContact:ContactPhone",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "SAMPLELoadContactDetailsCustoma173i000000ZZt0AAGItem3",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "sampleSaveContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

@@ -1,0 +1,35 @@
+{
+    "Cards": [
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "8011I000002Kluv"
+            }
+        ],
+        "type": "Dual",
+        "value": {
+            "apexRemoteResultVar": "records",
+            "apexRestResultVar": "records",
+            "endpoint": "/v2/cpq/carts/{cartId}/targetoffersitems",
+            "inputMap": {
+                "cartId": "{{params.id}}",
+                "fields": "IsActive,Id,Name,UnitPrice,ProductCode,%vlocity_namespace%__RecurringPrice__c",
+                "localeCode": "{{attrs.cpqUserLocale}}",
+                "offsetSize": "0",
+                "pagesize": "5"
+            },
+            "methodType": "GET",
+            "remoteClass": "CpqAppHandler",
+            "remoteMethod": "getCartsTargetOffersItems",
+            "remoteNSPrefix": "%vlocity_namespace%"
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "cpq-multi-family-bundle-transform"
+        }
+    }
+}

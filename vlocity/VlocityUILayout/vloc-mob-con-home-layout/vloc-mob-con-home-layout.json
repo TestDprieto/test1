@@ -1,0 +1,101 @@
+{
+    "Cards": [
+        "vloc-mob-con-asset"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "$root.vlocity.userAccountId",
+                "val": "0013600000FBB67"
+            }
+        ],
+        "type": "ApexRest",
+        "value": {
+            "body": "{{$root.vlocity}}",
+            "endpoint": "/services/apexrest/%vlocity_namespace%/v2/accounts/{{$root.currentUser.Account.attributes.url.substring(38)}}/assets/?fields=Product2Id,%vlocity_namespace%__JSONAttribute__c,Mobile_Number__c,Product_Family_Image__c,Product_Image__c,%vlocity_namespace%__LineNumber__c,%vlocity_namespace%__ProvisioningStatus__c",
+            "methodType": "GET",
+            "resultVar": "records"
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "vloc-mob-con-home"
+        }
+    },
+    "workspace": [
+        "vloc-mob-con-asset/Vlocity Demo Org/1/1533952365548"
+    ],
+    "zones": {
+        "images": {
+            "cardNames": [
+            ],
+            "label": "images",
+            "layouts": [
+            ],
+            "name": "images",
+            "zoneCards": [
+            ]
+        },
+        "swiper": {
+            "cardNames": [
+            ],
+            "label": "swiper",
+            "layouts": [
+            ],
+            "name": "swiper",
+            "zoneCards": [
+            ]
+        },
+        "widgets1": {
+            "cardNames": [
+            ],
+            "label": "widgets1",
+            "layouts": [
+            ],
+            "name": "widgets1",
+            "zoneCards": [
+            ]
+        },
+        "widgets2": {
+            "cardNames": [
+            ],
+            "label": "widgets2",
+            "layouts": [
+            ],
+            "name": "widgets2",
+            "zoneCards": [
+            ]
+        },
+        "widgets3": {
+            "cardNames": [
+            ],
+            "label": "widgets3",
+            "layouts": [
+            ],
+            "name": "widgets3",
+            "zoneCards": [
+            ]
+        },
+        "widgets4": {
+            "cardNames": [
+            ],
+            "label": "widgets4",
+            "layouts": [
+            ],
+            "name": "widgets4",
+            "zoneCards": [
+            ]
+        },
+        "widgets5": {
+            "cardNames": [
+            ],
+            "label": "widgets5",
+            "layouts": [
+            ],
+            "name": "widgets5",
+            "zoneCards": [
+            ]
+        }
+    }
+}

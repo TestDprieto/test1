@@ -1,0 +1,159 @@
+.via-slds {
+    .vlc-slds-page--header {
+        display: none !important;
+    }
+   .manage-group {
+       height: 83vh;
+       .tab-content-wrapper {
+            overflow: scroll;
+            height: 68vh;
+            .table-section {
+                .sortable-column {
+                    padding: 1rem .5rem;
+
+                        &:focus {
+                            box-shadow: none;
+                        }
+                    .slds-icon_container {
+                        background: inherit;
+                        svg {
+                            fill: #006dcc;
+                        }
+                    }
+                    a {
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+                .status-icon {
+                    vertical-align: top;
+                    margin-top: 5px;
+                    margin-right: 2px;
+                }
+
+            }
+            .loading-top-padding {
+                padding-top: 50px;
+            }
+            .loadmore-padding {
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+            }
+            .service-point-text-border-color {
+                border-color: #0070d2;
+                border-bottom-width: 1.5px;
+            }
+            .service-point-filter-section {
+                    border: 1.5px solid #0070d2;
+                    .datetime-input {
+                        .date {
+                            width: 50%;
+                            display: inline-block;
+                        }
+                        .time {
+                            width: 30%;
+                            display: inline-block;
+                        }
+                    }
+            }
+            .slds-input {
+                min-height: 2rem;
+                height: 2rem;
+            }
+            .add-to-group-icon {
+                fill: #FFFFFF;
+            }
+            .group-name-icon {
+                fill: #0070d2;
+            }
+            .group-row {
+                td {
+                    background-color: #F8F8FE;
+                }
+            }
+            .grouped-item-row {
+                    td {
+                        background-color: #DFE5EF;
+                    }
+            }
+            .grouped-item-selected-row {
+                    td {
+                        background-color: #0070d2;
+                    }
+            }
+            .select-group-object {
+                display: inline-block;
+                position: relative;
+                margin: 0px 10px;
+                max-width: 50%;
+                min-width: 30%;
+            }
+        }
+   }
+   .manage-group-popup {
+       .slds-input {
+           min-height: 2rem;
+           height: 2rem;
+       }
+   }
+   .slds-icon-text-warning {
+        fill: #ffb75d !important;
+    }
+   .slds-icon-text-error {
+       fill: #c23934 !important;
+   }
+   .slds-icon-text-success {
+       fill: #027e46 !important;
+   }
+   .slds-icon-text-active {
+       fill: #005fb2 !important;
+   }
+   .group-validation-success-badage {
+        background-color: #027e46;
+        color: white;
+        font-size: .500rem;
+        vertical-align: middle;
+    }
+   .circle-container {
+        border-radius: 50%;
+        padding: 1px 3px 3px 3px;
+        svg {
+            fill: white !important;
+        }
+    }
+    .circle-container-error {
+        background-color: #d42727;
+        &:hover {
+            background-color: #d42727;
+        }
+        &:active {
+            background-color: #d42727;
+        }
+    }
+    .circle-container-success {
+        background-color: #027e46;
+        &:hover {
+            background-color: #027e46;
+        }
+        &:active {
+            background-color: #027e46;
+        }
+    }
+    .circle-container-warning {
+        background-color: #ffb75d;
+        &:hover {
+            background-color: #ffb75d;
+        }
+        &:active {
+            background-color: #ffb75d;
+        }
+    }
+   .slds-notify {
+       .slds-notify__content {
+           .slds-icon {
+               fill: #fff;
+           }
+       }
+   }
+}

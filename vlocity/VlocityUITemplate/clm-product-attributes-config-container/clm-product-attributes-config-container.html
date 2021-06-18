@@ -1,0 +1,8 @@
+<vloc-card ng-repeat="card in cards"
+    ng-model="card" 
+    data="card" 
+    records="records" 
+    index="{{$index}}" 
+    session-id="{{sessionId}}"
+    ctrl="ClmProductAttributesConfigController" ng-if="attrs.type === card.sessionVars[0].val">
+</vloc-card>

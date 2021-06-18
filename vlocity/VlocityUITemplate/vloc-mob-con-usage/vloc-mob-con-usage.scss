@@ -1,0 +1,332 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+
+/*Usage Details*/
+.con-usage{
+    width:100%;
+    height:100%;
+    background:#FFF;
+    padding-top: 140px;
+    box-sizing:border-box;
+    transition:opacity 1s linear;
+}
+.con-usage-tab-content {
+    padding: 0px 15px;
+}
+.con-usage-details-title {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    min-height: 28px;
+}
+.con-usage-details-total{
+    font-size:48px;
+    color:$theme-colour;
+    font-family: Brown-Bold;
+    line-height: 48px;
+    margin-bottom: 15px;
+}
+.con-usage-details-subtotal{
+    color:$subtitle-colour;
+    line-height:20px;
+}
+.con-usage-details-subtotal img{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+.con-usage-details-manage{
+    color:$theme-colour;
+    font-family: Brown-Bold;
+    margin-top:5px;
+}
+.con-usage-details-manage span{
+    font-family:fontello;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.con-usage-details-section{
+    padding:25px 0px;
+    text-align:left;
+    position: relative;
+}
+
+/*Usage Donut Table*/
+.con-usage-donut-wrapper{
+    min-height:550px;
+}
+.con-usage-details-table-header{
+    font-family:Brown-Bold;
+    width:100%;
+    border-bottom:1px solid #000;
+    height:50px;
+    line-height:50px;
+    font-size:16px;
+}
+.con-usage-details-table-row{
+    width:100%;
+    border-bottom:1px solid #e9ecfe;
+    height:50px;
+    line-height:50px;
+}
+.con-usage-details-table-label{
+    width:60%;
+    color:$subtitle-colour;
+    float:left;
+    pointer-events:none;
+}
+.con-usage-details-table-value{
+    width:40%;
+    float:right;
+    text-align:right;
+    height: 50px;
+    font-family: Brown-Bold;
+    pointer-events:none;
+}
+.con-usage-details-table-value span{
+    font-family:fontello;
+    color:$theme-colour;
+    margin-left:10px;
+    pointer-events:none;
+}
+.con-usage-details-table-value .slds-icon-text-default {
+    fill: $theme-colour;
+}
+.con-usage-details-table-row:last-child{
+    border-bottom:0px;
+    margin-bottom:20px;
+}
+.con-usage-dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 12px;
+    margin-right: 25px;
+    display: block;
+    float: left;
+    position: relative;
+    top: 22px;
+}
+.circle_usage{
+    display:block;
+    margin:auto;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.circle_usage_animation{
+    transition: stroke-dasharray .5s linear, stroke-dashoffset .5s linear, stroke-width .5s linear;
+}
+.circle_usage_animation_active{
+    stroke-dashoffset: 503 !important;
+    stroke-dasharray: 503px !important;    
+}
+.circle_usage_animation-selected{
+    stroke-width:20px !important;
+}
+.con-usage-circle-title{
+    position: absolute;
+    top: 125px;
+    font-size: 34px;
+    font-family: Brown-Bold;
+    width: calc(100vw - 30px);
+    text-align: center;
+}
+.con-usage-circle-title span{
+    font-size:16px;
+}
+.con-usage-circle-title span.con-usage-circle-subtitle{
+    font-size:12px;
+    color:$subtitle-colour;
+    display:block;
+    font-family:Brown-Light;
+}
+.con-usage-details-seciton{
+    position:relative;
+}
+
+/*Usage Notification*/
+.con-device-details-notification {
+    width: 100vw;
+    height: 90px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    margin-top: 25px;
+    position: relative;
+    margin-left: -25px;
+    padding: 0px 25px;
+    box-sizing: border-box;
+}
+
+.con-device-details-notification-icon {
+    width: 35px;
+    height: 35px;
+    float: left;
+    border-radius: 40px;
+    border: 1.5px solid #0081f9;
+    box-shadow: 0px 0px 13px #0081f9;
+    margin: 16px 15px 25px 0px; 
+}
+
+.con-device-details-notification-title {
+    margin-bottom: 5px;
+    margin-left: 50px;
+    padding-top: 11px;
+}
+
+.con-device-details-notification-action {
+    color: #0081f9;
+    font-family: Brown-Bold;
+}
+
+.con-device-details-notification-action span {
+    font-family: fontello;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.con-device-details-notification-icon-lines {
+    margin: 12px auto;
+    display: table; 
+}
+
+.con-device-details-notification-icon-lines > div {
+    float: left;
+    width: 1px;
+    background: #0081f9;
+    border-radius: 10px;
+}
+
+.con-device-details-notification-icon-line1, .con-device-details-notification-icon-line5 {
+    height: 3px;
+    margin: 2.5px 1px;
+    opacity: 0.6;
+}
+
+.swiper-slide-active .con-device-details-notification-icon-line1, .swiper-slide-active .con-device-details-notification-icon-line5 {
+    animation: growlarge 4s 1s infinite;
+}
+.con-device-details-notification-icon-line3 {
+    height: 7px;
+    margin: 0.5px 1px;
+    opacity: 0.8;
+}
+.con-device-details-notification-icon-line2, .con-device-details-notification-icon-line4 {
+    height: 5px;
+    margin: 1.5px 1px;
+    opacity: 0.7;
+}
+
+/*Usage Graph*/
+.con-usage-graph{
+    height:370px;
+    width:100%;
+    padding-top:50px;
+    pointer-events:none;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+    position:relative;
+}
+.con-usage-graph-bar-wrapper{
+    width:calc(100% / 6);
+    height:230px;
+    float:left;
+    position:relative;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-usage-graph-bar{
+    width:12px;
+    position:absolute;
+    bottom:30px;
+    left: 50%;
+    margin-left: -7.5px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-usage-graph-bar-segment{
+    width:12px;
+    background:#e9ecfe;
+    margin-top:2px;
+    transition:height 0.5s linear;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-usage-graph-small .con-usage-graph-bar-segment{
+    height:0px !important;
+}
+.con-usage-graph-bar-segment-overage{
+    background:#ff2953;
+}
+.con-usage-graph-bar-axis{
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #e9ecfe;
+    font-weight: bold;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-usage-graph-legend{
+    width: 100%;
+    height: 20px;
+    font-family: Brown-Bold;
+    margin-bottom: 5px;
+    float: left;
+    margin-top:25px;
+}
+.con-usage-graph-legend-bar{
+    width: 25px;
+    height: 10px;
+    float: left;
+    margin-right: 15px;
+    background: #ff2953;
+    margin-top: 6px;
+    margin-left: 15px;
+}
+.con-usage-graph-bar-overage{
+    width: 100%;
+    border-bottom: 1px dashed $subtitle-colour;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    color: $subtitle-colour;
+    line-height: 20px;
+    font-family: Brown-Light;
+    padding-bottom: 4px;
+    padding-left: 10px;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+    font-size:12px;
+    z-index: 1;
+}
+
+.con-usage-tab-content {
+    .con-device-details-section {
+        padding: 10px 0px 0px 0px;
+    }
+}
+/*Device Specific Styling*/
+/*iPhone 5/SE*/
+@media only screen 
+    and (max-device-height : 640px) {
+ 
+}
+/*iPhone 6/7/8*/
+@media only screen 
+    and (max-device-height : 667px) {
+
+}
+/*iPhone 6/7/8 Plus*/
+@media only screen 
+    and (min-device-height : 668px) and (max-device-height : 737px) {
+
+}
+/*iPhone X*/
+@media only screen 
+    and (min-device-height : 738px) {
+
+}

@@ -1,0 +1,31 @@
+{
+    "Cards": [
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.accountId",
+                "val": "0014600001Xb6OcAAJ"
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "accountId": "{{params.accountId}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.CpqAppHandler"
+            },
+            "remoteClass": "CpqAppHandler",
+            "remoteMethod": "getPremises",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "records"
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "cpq-cart-item-service-point-lookup"
+        }
+    }
+}

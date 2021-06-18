@@ -1,0 +1,198 @@
+<div class="con-usage" ng-controller="usageController as uc" ng-init="uc.init(payload.result);">
+    <div class="con-usage-tab-content" ng-if="uc.selectedTab === 1" id="con-usage-1">
+        <!-- Usage Overview -->
+        <div class="con-device-details-section">
+            <div class="con-usage-details-title">
+                Your data usage is at
+            </div>
+            
+            <div class="con-usage-details-total" ng-repeat="bar in payload.result | limitTo:3" ng-if="bar.%vlocity_namespace%__Type__c == 'Data'">
+                {{(bar.expr0 / thresholdData) * 100 | number: 0}}%
+            </div>
+            
+            <div class="con-usage-details-subtotal" ng-repeat="bar in payload.result | limitTo:3" ng-if="bar.%vlocity_namespace%__Type__c == 'Data'">
+                You only have {{thresholdData - bar.expr0 | number: 2}} GB left for this month.
+            </div>
+        </div>
+        
+        <!-- Usage Donut -->
+        <div class="con-usage-donut-wrapper">
+            <vloc-layout layout-name="vloc-mob-con-usage-donut-layout" type="Data" sid="{{payload.result[0].%vlocity_namespace%__StatementId__c}}"></vloc-layout>
+        </div>
+        
+        <!-- Bill Graph -->
+        <div class="con-device-details-section">
+            <div class="con-usage-details-title">
+                Last 6 months
+            </div>
+            <div class="con-usage-graph con-usage-graph-small">
+                <div class="con-usage-graph-bar-overage" ng-if="thresholdData > 0" style="top: {{225 - ((thresholdData / topData) * 200)}}px !important">
+                    {{thresholdData}} GB Limit
+                </div>
+                
+                <div ng-repeat="bar in payload.result | orderBy:'%vlocity_namespace%__ServiceEndDate__c':false" class="con-usage-graph-bar-wrapper" ng-if="bar.%vlocity_namespace%__Type__c == 'Data'">
+                    <div class="con-usage-graph-bar">
+                        <div class="con-usage-graph-bar-segment con-usage-graph-bar-segment-overage" style="height:{{(bar.expr0 / topData) * 200}}px;" ng-if="bar.expr0 >= bar.expr1 && bar.expr1 != 0">
+                        </div>
+                        <div class="con-usage-graph-bar-segment" style="height:{{(bar.expr0 / topData) * 200}}px;" ng-if="bar.expr0 < bar.expr1 || bar1.expr1 == 0">
+                        </div>
+                    </div>
+                    <div class="con-usage-graph-bar-axis">
+                        {{bar.%vlocity_namespace%__ServiceEndDate__c | date : 'MMM'}}
+                    </div>
+                </div>
+
+                <div class="con-usage-graph-legend">
+                    <div class="con-usage-graph-legend-bar">
+                    </div>
+                    Overage
+                </div>
+                
+            </div>
+
+            <div class="con-usage-details-table-row" ng-repeat="bar in payload.result" ng-if="bar.%vlocity_namespace%__Type__c == 'Data'">
+                <div class="con-usage-details-table-label">
+                    {{bar.%vlocity_namespace%__ServiceEndDate__c | date : 'MMMM yyyy'}}
+                </div>
+                <div class="con-usage-details-table-value">
+                    {{bar.expr0}} GB
+                    <!--<span></span>-->
+                    <span class="slds-icon_container">
+                        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'chevronright'" extra-classes="'slds-icon-text-default'" ></slds-svg-icon>
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="con-usage-tab-content" ng-if="uc.selectedTab === 2" id="con-usage-2">
+        <!-- Usage Overview -->
+        <div class="con-device-details-section">
+            <div class="con-usage-details-title">
+                You've used
+            </div>
+            
+            <div class="con-usage-details-total" ng-repeat="bar in payload.result | limitTo:3" ng-if="bar.%vlocity_namespace%__Type__c == 'Talk'">
+                {{bar.expr0}} minutes
+            </div>
+            
+            <div class="con-usage-details-subtotal">
+                You're on our unlimited minutes plan so you can talk as much as you like.
+            </div>
+        </div>
+        
+        <!-- Usage Donut -->
+        <div class="con-usage-donut-wrapper">
+            <vloc-layout layout-name="vloc-mob-con-usage-donut-layout" type="Talk" sid="{{payload.result[0].%vlocity_namespace%__StatementId__c}}"></vloc-layout>
+        </div>
+        
+        <!-- Bill Graph -->
+        <div class="con-device-details-section">
+            <div class="con-usage-details-title">
+                Last 6 months
+            </div>
+            <div class="con-usage-graph con-usage-graph-small">
+                <div class="con-usage-graph-bar-overage" ng-if="thresholdTalk > 0" style="top: {{225 - ((thresholdTalk / topData) * 200)}}px !important">
+                    {{thresholdTalk}} Minutes Limit
+                </div>
+                
+                <div ng-repeat="bar in payload.result | orderBy:'%vlocity_namespace%__ServiceEndDate__c':false" class="con-usage-graph-bar-wrapper" ng-if="bar.%vlocity_namespace%__Type__c == 'Talk'">
+                    <div class="con-usage-graph-bar">
+                        <div class="con-usage-graph-bar-segment con-usage-graph-bar-segment-overage" style="height:{{(bar.expr0 / topTalk) * 200}}px;" ng-if="bar.expr0 >= bar.expr1 && bar.expr1 != 0">
+                        </div>
+                        <div class="con-usage-graph-bar-segment" style="height:{{(bar.expr0 / topTalk) * 200}}px;" ng-if="bar.expr0 < bar.expr1 || bar.expr1 == 0">
+                        </div>
+                    </div>
+                    <div class="con-usage-graph-bar-axis">
+                        {{bar.%vlocity_namespace%__ServiceEndDate__c | date : 'MMM'}}
+                    </div>
+                </div>
+
+                <div class="con-usage-graph-legend">
+                    <div class="con-usage-graph-legend-bar">
+                    </div>
+                    Overage
+                </div>
+                
+            </div>
+
+            <div class="con-usage-details-table-row" ng-repeat="bar in payload.result" ng-if="bar.%vlocity_namespace%__Type__c == 'Talk'">
+                <div class="con-usage-details-table-label">
+                    {{bar.%vlocity_namespace%__ServiceEndDate__c | date : 'MMMM yyyy'}}
+                </div>
+                <div class="con-usage-details-table-value">
+                    {{bar.expr0}} Minutes
+                    <span class="slds-icon_container">
+                        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'chevronright'" extra-classes="'slds-icon-text-default'" ></slds-svg-icon>
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="con-usage-tab-content" ng-if="uc.selectedTab === 3" id="con-usage-3">
+        <!-- Usage Overview -->
+        <div class="con-device-details-section">
+            <div class="con-usage-details-title">
+                You've sent
+            </div>
+            
+            <div class="con-usage-details-total" ng-repeat="bar in payload.result | limitTo:1" ng-if="bar.%vlocity_namespace%__Type__c == 'Text'">
+                {{bar.expr0}} texts
+            </div>
+            
+            <div class="con-usage-details-subtotal">
+                You're on our unlimited messages plan so you can text as much as you like.
+            </div>
+        </div>
+        
+        <!-- Usage Donut -->
+        <div class="con-usage-donut-wrapper">
+            <vloc-layout layout-name="vloc-mob-con-usage-donut-layout" type="Text" sid="{{payload.result[0].%vlocity_namespace%__StatementId__c}}"></vloc-layout>
+        </div>
+        
+        <!-- Bill Graph -->
+        <div class="con-device-details-section">
+            <div class="con-usage-details-title">
+                Last 6 months
+            </div>
+            <div class="con-usage-graph con-usage-graph-small">
+                <div class="con-usage-graph-bar-overage" ng-if="thresholdText > 0" style="top: {{225 - ((thresholdText / topText) * 200)}}px !important">
+                    {{thresholdData}} Text Limit
+                </div>
+                
+                <div ng-repeat="bar in payload.result | orderBy:'%vlocity_namespace%__ServiceEndDate__c':false" class="con-usage-graph-bar-wrapper" ng-if="bar.%vlocity_namespace%__Type__c == 'Text'">
+                    <div class="con-usage-graph-bar">
+                        <div class="con-usage-graph-bar-segment con-usage-graph-bar-segment-overage" style="height:{{(bar.expr0 / topText) * 200}}px;" ng-if="bar.expr0 >= bar.expr1 && bar.expr1 != 0">
+                        </div>
+                        <div class="con-usage-graph-bar-segment" style="height:{{(bar.expr0 / topText) * 200}}px;" ng-if="bar.expr0 < bar.expr1 || bar.expr1 == 0">
+                        </div>
+                    </div>
+                    <div class="con-usage-graph-bar-axis">
+                        {{bar.%vlocity_namespace%__ServiceEndDate__c | date : 'MMM'}}
+                    </div>
+                </div>
+
+                <div class="con-usage-graph-legend">
+                    <div class="con-usage-graph-legend-bar">
+                    </div>
+                    Overage
+                </div>
+                
+            </div>
+
+            <div class="con-usage-details-table-row" ng-repeat="bar in payload.result" ng-if="bar.%vlocity_namespace%__Type__c == 'Text'">
+                <div class="con-usage-details-table-label">
+                    {{bar.%vlocity_namespace%__ServiceEndDate__c | date : 'MMMM yyyy'}}
+                </div>
+                <div class="con-usage-details-table-value">
+                    {{bar.expr0}} Texts
+                    <span class="slds-icon_container">
+                        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'chevronright'" extra-classes="'slds-icon-text-default'" ></slds-svg-icon>
+                    </span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

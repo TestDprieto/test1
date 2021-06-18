@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Vlocity Cart: If TRUE, child products with a cardinality of 0,0,0 can be configured or deleted in a MACD order that is being updated. If FALSE, line items with child products having a cardinality of 0,0,0 can't be deleted or configured.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "AllowOperationsOnDiscProducts",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/AllowOperationsOnDiscProducts"
+}

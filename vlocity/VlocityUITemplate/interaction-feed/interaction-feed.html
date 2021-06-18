@@ -1,0 +1,19 @@
+<div class="slds-media">
+    <div class="slds-media slds-media_timeline slds-timeline__media_{{cardIcon.sprite}}-{{cardIcon.icon}}">
+        <div class="slds-media__figure slds-timeline__icon">
+            <div class="slds-icon_container">
+                <slds-svg-icon size="'small'" sprite="'utility'" icon="data.obj.Icon" extra-classes="'slds-icon-standard-task'"></slds-svg-icon>
+            </div>
+          </div>
+          <div class="slds-media__body">
+            <ul class="slds-list_horizontal slds-wrap">
+              <li class="slds-m-right_large" ng-repeat="field in data.fields" ng-show="(obj | getter: field)">
+                <span class="tile__label slds-text-heading_label-normal" ng-if="field.label">{{obj[field.relationshipTypeField] || field.label}}:</span>
+                <span class="slds-text-body_small" ng-if="field.relationshipType !== '_sobjects'">
+                    <a ng-if="!(obj[field.relationshipTypeField] || field.relationshipType || obj[field.relationshipName].attributes.type)" class="slds-text-link_reset">{{obj | getter: field | picker: field.type}}</a>
+                </span>
+              </li>
+            </ul>
+        </div>
+    </div>
+</div>

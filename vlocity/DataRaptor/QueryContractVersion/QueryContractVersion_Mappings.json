@@ -1,0 +1,35 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 0,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "ContractVersion",
+        "%vlocity_namespace%__FilterGroup__c": 0,
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__FilterValue__c": "QuotLineItems:parentContractId",
+        "%vlocity_namespace%__GlobalKey__c": "591614e0-b811-e179-bf00-6d28bcf80245",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "%vlocity_namespace%__ContractId__c",
+        "%vlocity_namespace%__InterfaceObjectLookupOrder__c": 1,
+        "%vlocity_namespace%__InterfaceObjectName__c": "%vlocity_namespace%__ContractVersion__c",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "QueryContractVersionCustom1111",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "QueryContractVersion",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "ContractVersion:Id",
+        "%vlocity_namespace%__GlobalKey__c": "68a86b51-d33b-40e4-7266-535feb8c0a27",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ContractVersion:Id",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "QueryContractVersionCustom2986",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "QueryContractVersion",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

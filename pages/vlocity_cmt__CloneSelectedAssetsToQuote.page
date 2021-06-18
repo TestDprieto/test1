@@ -1,0 +1,18 @@
+<apex:page standardController="Asset" recordSetVar="Assets" tabStyle="Asset" extensions="vlocity_cmt.CloneSelectedLineItemsWrapperController">
+	<script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+	<apex:form id="idForm">
+		<apex:pageMessages id="idErrorMessages"/>
+		<script>
+			j$ = jQuery.noConflict();
+			j$(document).ready(function(){
+				doCreateQuote();
+			
+			})
+			
+		</script> 
+		<apex:actionFunction name="doCreateQuote"
+						action="{!doCreateQuote}"
+						rerender="idErrorMessages">
+		</apex:actionFunction>
+	</apex:form>	
+</apex:page>

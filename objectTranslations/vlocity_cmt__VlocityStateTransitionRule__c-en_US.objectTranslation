@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Conditions --></label>
+        <name>vlocity_cmt__Conditions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Execution Sequence --></label>
+        <name>vlocity_cmt__ExecutionSequence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Failure Message --></label>
+        <name>vlocity_cmt__FailureMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Success Message --></label>
+        <name>vlocity_cmt__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- False Action --></label>
+        <name>vlocity_cmt__RuleEvaluationFalseVlocityActionId__c</name>
+        <relationshipLabel><!-- Vlocity State Transition Rules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- True Action --></label>
+        <name>vlocity_cmt__RuleVlocityActionId__c</name>
+        <relationshipLabel><!-- Vlocity State Transition Rules --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- State Transition --></label>
+        <name>vlocity_cmt__StateTransitionId__c</name>
+        <relationshipLabel><!-- Vlocity State Transition Rules --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>
