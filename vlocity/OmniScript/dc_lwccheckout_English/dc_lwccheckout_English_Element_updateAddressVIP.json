@@ -1,0 +1,90 @@
+{
+    "%vlocity_namespace%__Active__c": true,
+    "%vlocity_namespace%__OmniScriptId__c": {
+        "Name": "Digital Commerce LWC Checkout",
+        "VlocityDataPackType": "VlocityMatchingKeyObject",
+        "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__OmniScript__c/dc/lwccheckout/English",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OmniScript__c"
+    },
+    "%vlocity_namespace%__PropertySet__c": {
+        "HTMLTemplateId": "",
+        "controlWidth": 12,
+        "disOnTplt": false,
+        "enableActionMessage": false,
+        "enableDefaultAbort": false,
+        "errorMessage": {
+            "custom": [
+            ],
+            "default": null
+        },
+        "extraPayload": {
+            "AccountId": "%accountInfo:AccountId%",
+            "BillingAddress": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:billing:address%",
+            "BillingCity": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:billing:city%",
+            "BillingState": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:billing:state%",
+            "BillingZipCode": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:billing:zip%",
+            "ShippingAddress": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:shipping:address%",
+            "ShippingCity": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:shipping:city%",
+            "ShippingState": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:shipping:state%",
+            "ShippingZipCode": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:shipping:zip%"
+        },
+        "failureAbortLabel": "Abort",
+        "failureAbortMessage": "Are you sure?",
+        "failureGoBackLabel": "Go Back",
+        "failureNextLabel": "Continue",
+        "inProgressMessage": "In Progress",
+        "integrationProcedureKey": "dc_updateBillingDetails",
+        "label": "updateAddressVIP",
+        "message": {
+        },
+        "postMessage": "Done",
+        "postTransformBundle": "",
+        "preTransformBundle": "",
+        "pubsub": false,
+        "redirectNextLabel": "Next",
+        "redirectNextWidth": 3,
+        "redirectPageName": "",
+        "redirectPreviousLabel": "Previous",
+        "redirectPreviousWidth": 3,
+        "redirectTemplateUrl": "vlcAcknowledge.html",
+        "remoteOptions": {
+            "chainable": false,
+            "postTransformBundle": "",
+            "preTransformBundle": "",
+            "useFuture": false
+        },
+        "remoteTimeout": 30000,
+        "responseJSONNode": "",
+        "responseJSONPath": "",
+        "sendJSONNode": "",
+        "sendJSONPath": "",
+        "show": {
+            "group": {
+                "operator": "AND",
+                "rules": [
+                    {
+                        "condition": "<>",
+                        "data": "yes",
+                        "field": "ShoppingCart:dcShoppingCart:saveCart"
+                    }
+                ]
+            }
+        },
+        "showPersistentComponent": [
+            false,
+            false
+        ],
+        "ssm": false,
+        "svgIcon": "",
+        "svgSprite": "",
+        "useContinuation": false,
+        "validationRequired": "Step",
+        "wpm": false
+    },
+    "%vlocity_namespace%__ReusableOmniScript__c": true,
+    "%vlocity_namespace%__Type__c": "Integration Procedure Action",
+    "Name": "updateAddressVIP",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__Element__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__Element__c/%vlocity_namespace%__OmniScript__c/dc/lwccheckout/English/updateAddressVIP"
+}

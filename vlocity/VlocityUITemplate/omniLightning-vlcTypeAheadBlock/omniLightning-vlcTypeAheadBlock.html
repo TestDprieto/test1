@@ -1,0 +1,22 @@
+<div class="slds-col--padded slds-size--1-of-1">
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-typeahead-block'
+             id='{{::control.name}}'
+             ng-init="control.blockIndex = child.blockIndex"
+             ng-repeat='control in child.eleArray' >
+
+        <div class="slds-form-element__control vlc-slds-p-left--none vlc-slds-p-right--none vlc-typeahead-form">
+            <div class='slds-size--1-of-1'>
+                <div  class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <child vlc-slds-change-inline-templates="::child.eleArray[0].propSetMap.showInputWidth" class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{ $index === 0 ? 12 : child.eleArray[0].propSetMap.controlWidth}}-of-12"
+                           ng-repeat='child in ::children = control.children'
+                           ng-init="($index === 0 ? child.eleArray[0].blockIndex = control.blockIndex:''); ($index === 0 ? child.eleArray[0].noformatterebmodal = control.noformatterebmodal:''); (control.propSetMap.isTypeaheadEdit = control.propSetMap.editMode)"
+                           ng-show='$index === 0 || ($index !== 0 && (control.propSetMap.isTypeaheadEdit && !control.propSetMap.enableLookup)&& !child.eleArray[0].propSetMap.hide)'>
+                    </child>
+                </div>
+            </div>
+        </div>
+
+    </ng-form>
+
+</div>

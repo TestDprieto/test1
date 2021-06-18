@@ -1,0 +1,28 @@
+<div class="slds-col--padded slds-size--1-of-1">
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-selItem'
+             id='{{::control.name}}'
+             ng-repeat='control in child.eleArray' >
+
+        <div class="slds-form-element__control">
+
+
+            <label for="{{::control.name}}"
+                   class='slds-form-element__label vlc-slds-selItem__label'>
+             {{::control.propSetMap.label}} 
+                 <span class='vlc-asterix icon-v-asterix' 
+                       ng-if='control.req'> 
+                 </span> 
+            </label> 
+            
+
+
+            <ng-include class="slds-grid slds-wrap slds-grid--pull-padded"
+                        ng-if='ngInitValidation(this, control)'
+                        src='::control.propSetMap.HTMLTemplateId' />
+        </div>
+
+    </ng-form>
+
+</div>

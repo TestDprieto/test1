@@ -1,0 +1,41 @@
+<div>
+    <div class="slds-m-around_small" ng-init="sg = importedScope.groupService.getSelectedGroup(records.records);">
+        <span class="slds-float_right">{{::importedScope.customLabels.TotalGroupsLabel}}: {{records.data.groupTotalCount}}</span>
+        <span class="slds-text-heading_small slds-border_bottom" ng-if="!sg.Id">{{::importedScope.customLabels.SelectGroupLabel}}</span>
+        <span class="slds-text-heading_small slds-border_bottom" ng-if="sg.Id">{{::importedScope.customLabels.SelectedGroupLabel}}: {{sg.Name.value}}</span>
+    </div>
+    <div class="slds-size_1-of_1 slds-m-top_small">
+        <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" ng-if="records.records">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th class="slds-text-align_left radio-selection-cell">{{::importedScope.customLabels.SelectLabel}}</th>
+                    <th>{{::importedScope.customLabels.GroupNameLabel}}</th>
+                    <th>{{::importedScope.customLabels.MemberCountLabel}}</th>
+                    <th>{{::importedScope.customLabels.DescriptionLabel}}</th>
+                    <th>{{::importedScope.customLabels.MemberTypeLabel}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="group in records.records" ng-init="sgModel = importedScope.groupService.getSelectedGroup();">
+                    <td>
+                        <div class="slds-radio">
+                            <input type="radio" name="cpq-line-group-select" id="cart-group-select-{{$index}}" tabindex="0" 
+                            aria-labelledby="cart-group-select-label-{{$index}}" ng-model="sgModel.Id" ng-value="group.Id.value"
+                            ng-change="importedScope.updateGroup(group)" required
+                            ng-disabled="group[$root.nsPrefix + 'MemberCount__c'].value === 0"/>
+                            <label class="slds-radio__label" for="cart-group-select-{{$index}}" id="cart-group-select-label-{{$index}}">
+                                <span class="slds-radio_faux"></span>
+                                <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                            </label>
+                        </div>
+                    </td>
+                    <td>{{group.Name.value}}</td>
+                    <td>{{group[$root.nsPrefix + 'MemberCount__c'].value}}</td>
+                    <td>{{group[$root.nsPrefix + 'Description__c'].value}}</td>
+                    <td>{{importedScope.groupService.getMemberTypeMap()[group[$root.nsPrefix + 'MemberType__c'].value].Label}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div ng-if="!records.records"> No Records Found.</div>
+    </div>
+</div>

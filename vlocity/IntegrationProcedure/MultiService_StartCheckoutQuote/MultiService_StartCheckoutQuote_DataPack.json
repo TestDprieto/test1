@@ -1,0 +1,25 @@
+{
+    "%vlocity_namespace%__AdditionalInformation__c": "Creates/updates Order-Group records, Master and Group Orders",
+    "%vlocity_namespace%__CustomJavaScript__c": "{}",
+    "%vlocity_namespace%__DisableMetadataCache__c": false,
+    "%vlocity_namespace%__ElementTypeToHTMLTemplateList__c": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "%vlocity_namespace%__Element__c": [
+        "MultiService_StartCheckoutQuote_Element_CreateParents.json",
+        "MultiService_StartCheckoutQuote_Element_GetDraftSubOrders.json",
+        "MultiService_StartCheckoutQuote_Element_DeleteDraftSubOrders.json",
+        "MultiService_StartCheckoutQuote_Element_SetResposne.json"
+    ],
+    "%vlocity_namespace%__IsLwcEnabled__c": false,
+    "%vlocity_namespace%__IsProcedure__c": true,
+    "%vlocity_namespace%__IsReusable__c": false,
+    "%vlocity_namespace%__IsTest__c": false,
+    "%vlocity_namespace%__Language__c": "Procedure",
+    "%vlocity_namespace%__ProcedureKey__c": "MultiService_StartCheckoutQuote",
+    "%vlocity_namespace%__PropertySet__c": "MultiService_StartCheckoutQuote_PropertySet.json",
+    "%vlocity_namespace%__SubType__c": "StartCheckoutQuote",
+    "%vlocity_namespace%__Type__c": "MultiService",
+    "Name": "StartCheckoutQuote",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__OmniScript__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__OmniScript__c/MultiService/StartCheckoutQuote/Procedure"
+}

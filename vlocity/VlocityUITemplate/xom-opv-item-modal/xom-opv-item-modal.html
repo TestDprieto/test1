@@ -1,0 +1,88 @@
+<div class="orchestration-item-modal" ng-init="modelItem=$parent.$parent.$parent.obj">
+<!--div>
+<div><h3 class="slds-text-heading--small">{{::$root.vlocity.getCustomLabel('XOMOrchestrationModalItemDetails', 'Item Details')}}</h3> </div>
+<div>Item Name               : {{modelItem.item.name}}</div>
+<div>Item Type               : {{modelItem.item.type}}</div>
+<div>Item state              : {{modelItem.item.state}}
+<div>Item additionalName     :  {{modelItem.item.additionalName}}</div>
+<div>Start Date              : {{modelItem['parameters']['Start Date']}}</div>
+<div>Due Date                : {{modelItem['parameters']['Due Date']}}</div>
+<div>Requested Start Date    : {{modelItem['parameters']['Requested Start Date']}}</div>
+<div>Expected Completion Date:{{modelItem['parameters']['Expected Completion Date']}}</div>
+<div>Jeopardy Safety Interval: {{modelItem['parameters']['Jeopardy Safety Interval']}}</div>
+<div>Skip Branch             : {{modelItem['parameters']['Skip Branch']}}</div>
+</div>
+</div -->
+
+<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+    <tbody>
+    <tr>
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{$root.vlocity.getCustomLabel('XOMModalItemName', 'Item Name')}}</th>
+        <td scope="row">{{modelItem.item.name}}</td>
+    </tr>
+     <tr ng-if="modelItem.item.transType">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemType', 'Item Type')}}</th>
+        <td scope="row">{{modelItem.item.transType}}</td>
+    </tr>
+     <tr ng-if="modelItem.item.translatedState">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{$root.vlocity.getCustomLabel('XOMModalItemState', 'Item State')}}</th>
+        <td scope="row">{{modelItem.item.translatedState}}</td>
+    </tr>
+    <tr ng-if="modelItem.item.additionalName">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemAdditionalName', 'Item Additional Name')}}</th>
+        <td scope="row">{{modelItem.item.additionalName}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Start Date']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemStartDate', 'Start Date')}}</th>
+        <td scope="row">{{modelItem['parameters']['Start Date']}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Due Date']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemDueDate', 'Due Date')}}</th>
+        <td scope="row">{{modelItem['parameters']['Due Date']}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Requested Start Date']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemRequestedStartDate', 'Requested Start Date')}}</th>
+        <td scope="row">{{modelItem['parameters']['Requested Start Date']}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Expected Completion Date']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemExpectedCompletionDate', 'Expected Completion Date')}}</th>
+        <td scope="row">{{modelItem['parameters']['Expected Completion Date']}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Jeopardy Status']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemJeopardyStatus', 'Jeopardy Status')}}</th>
+        <td scope="row">{{modelItem['parameters']['Jeopardy Status']}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Item Length']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemLength', 'Item Length')}}</th>
+        <td scope="row">{{modelItem['parameters']['Item Length']}} {{modelItem['parameters']['Length Unit']}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Jeopardy Safety Interval']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemJeopardySafetyInterval', 'Jeopardy Safety Interval')}}</th>
+        <td scope="row">{{modelItem['parameters']['Jeopardy Safety Interval']}} {{modelItem['parameters']['Jeopardy Safety Interval Unit']}}</td>
+    </tr>
+    <tr ng-if="modelItem['parameters']['Skip Branch']">
+        <th scope="row" class="slds-text-title" title="Attribute ID {{attribute.id}}">{{::$root.vlocity.getCustomLabel('XOMModalItemSkipBranch', 'Skip Branch')}}</th>
+        <td scope="row">{{modelItem['parameters']['Skip Branch']}}</td>
+    </tr>
+    </tbody>
+
+   <!--div ng-repeat="attr in modelItem['OrcAttributes']['OrcAttributeItems']">
+        <div ng-if="attr.type==modelItem.item.type && attr.attributes.length>0" ng-repeat="attrVal in attr.attributes">
+            <div ng-if="modelItem['parameters'][attrVal]">
+            {{attrVal}}       :  {{modelItem['parameters'][attrVal]}}
+            </div>
+        </div>
+    <div ng-if="attr.type==modelItem.item.type && attr.attributes.length==0">
+        
+        There is no Parameters.
+    </div>
+</div -->
+
+    <tbody ng-repeat="attr in modelItem['OrcAttributes']['OrcAttributeItems']">
+    <tr ng-if="attr.type==modelItem.item.type && attr.attributes.length>0" ng-repeat="attrVal in attr.attributes">
+        <th scope="row" class="slds-text-title" title="" ng-if="modelItem['parameters'][attrVal]">{{::importedScope.getlayoutConfigParamLabel(attrVal);}}</th>
+        <td scope="row" ng-if="modelItem['parameters'][attrVal]">{{modelItem['parameters'][attrVal]}}</td>
+    </tr>
+    </tbody>
+</table>
+</div>

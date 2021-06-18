@@ -1,0 +1,103 @@
+{
+    "GlobalKey__c": "sample Contact Details/vlocityDev/1/1594257616503",
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0011I000003UkkTQAS"
+            }
+        ],
+        "type": "IntegrationProcedures",
+        "value": {
+            "inputMap": {
+                "AccountId": "{{params.id}}"
+            },
+            "ipMethod": "sample_getMasterAccountDetails",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": "['Contact']"
+        }
+    },
+    "enableLwc": true,
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "leftIcon",
+            "val": "standard:contact"
+        }
+    ],
+    "states": [
+        {
+            "actionCtxId": "['ContactId']",
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "displayName": "Update Contact",
+                        "hasExtraParams": false,
+                        "iconName": "action:edit_groups",
+                        "id": "sample Update Contact",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['ContactName']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Name",
+                    "name": "['ContactName']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['ContactEmail']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Email",
+                    "name": "['ContactEmail']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['ContactPhone']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Phone",
+                    "name": "['ContactPhone']",
+                    "type": "phone"
+                }
+            ],
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "cardMiniActive",
+                "Id": "0Rb1I0000008VS5SAM",
+                "MasterLabel": "cardMiniActive",
+                "name": "cardMiniActive"
+            },
+            "name": "Active",
+            "sObjectType": "Contact",
+            "smartAction": {
+            }
+        }
+    ],
+    "title": "Contact Details"
+}

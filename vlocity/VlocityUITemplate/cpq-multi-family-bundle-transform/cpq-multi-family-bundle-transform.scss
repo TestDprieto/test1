@@ -1,0 +1,96 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-multi-family-bundle-transform {
+            .#{$namespace}-multi-family-bundle-heading {
+                font-size: 15px;
+            }
+            .#{$namespace}-multiplay-flex-container {
+                display: flex;
+                min-height: 170px;
+                .#{$namespace}-multiplay-flex-container-section {
+                    flex:5;
+                }
+            }
+            .#{$namespace}-large-name-text-wrap {
+                max-width: 12vw;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: inline-block;
+            }
+            .#{$namespace}-block-element {
+                display: block;
+            }                
+            .#{$namespace}-multiplay-group-info {
+                padding-left: 8px;
+                font-size: 12px;
+                font-weight: 400;
+                color: #7c7c7c;
+            }
+            .#{$namespace}-multiplay-action {
+                font-size: 400;
+            }
+            .#{$namespace}-multiplay-parent-bundle {
+                font-weight: $cpq-headings-font-weight;
+            }
+            .#{$namespace}-multiplay-child-bundle {
+                font-weight: $cpq-headings-font-weight;
+                min-height: 38px;
+            }
+            .#{$namespace}-multiplay-radio-btn-container {
+                overflow-y: scroll;
+                max-height: 335px;
+                .#{$namespace}-replacable-offer-products-radio {
+                    margin-bottom: -5px;
+                }
+            }
+            .#{$namespace}-next-product {
+                .slds-spinner_container {
+                    position: relative;
+                    padding-top: 10px;
+                }
+            }
+            .#{$namespace}-multiplay-text-wrap {
+                max-width: 17vw;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            .#{$namespace}-discount-month-input {
+                width: 4rem;
+                float: right;
+            }
+            .#{$namespace}-clearfix {
+                clear: both;
+            }
+            .#{$namespace}-pricing-picklist__label {
+                width: 9rem;
+            }
+            .#{$namespace}-pricing-picklist {
+                .#{$namespace}-dropdown-right{
+                    float: right;
+                }
+                .#{$namespace}-pricing-picklist-dropdown {
+                    width: 9rem;
+                }
+            }
+            .#{$namespace}-pricing-field{
+                padding-left: 25px;
+                font-size: 11px;
+                font-weight: 400;
+                text-transform: uppercase;
+                color: #7c7c7c;
+            }
+        }
+    }
+}

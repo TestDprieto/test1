@@ -1,0 +1,13 @@
+<div class="imgItemContainer" ng-style='{"width":"{{control.propSetMap.optionWidth}}"+"px","height":"{{control.propSetMap.optionHeight}}"+"px"}'>
+    <img 
+        ng-if='option.imgId && control.propSetMap.optionSource.type == "image"' 
+        class='imgItem' 
+        src="{{option.imgId}}"
+        alt='{{option.value}}'  
+        title='{{option.value}}' />
+    <span ng-if='!(option.imgId)' class="imgItem">{{option.value}}</span>
+    <div class="borderOverlay"></div>
+</div>
+<div class="captionOut" ng-style='{"width":"{{control.propSetMap.optionWidth}}"+"px"}' ng-if='(control.propSetMap.enableCaption)' >
+    <span class="captionOut nds-form-element__label">{{ option.imgId ? option.value : "&nbsp" }}</span> 
+</div>

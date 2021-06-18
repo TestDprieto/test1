@@ -1,0 +1,8 @@
+<div class="slds-popover {{nubbinDirection ? 'slds-nubbin--' + nubbinDirection.replace('auto ','') : ''}} {{theme ? 'slds-theme--' + theme : ''}} {{tooltip ? 'slds-popover--tooltip' : ''}} vlc-slds--tooltip"
+     role="tooltip"
+     style="position:absolute">
+    <div class="slds-popover__body">
+        {{control.propSetMap.helpText || attr.valuedescription__c }}
+    </div>
+
+</div>

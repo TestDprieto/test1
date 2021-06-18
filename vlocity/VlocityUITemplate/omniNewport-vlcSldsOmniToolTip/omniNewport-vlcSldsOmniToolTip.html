@@ -1,0 +1,6 @@
+<div class="nds-popover {{nubbinDirection ? 'nds-nubbin--' + nubbinDirection.replace('auto ','') : ''}} {{theme ? 'nds-theme--' + theme : ''}} {{tooltip ? 'nds-popover_tooltip' : ''}} vlc-slds--tooltip nds-is-absolute"
+     role="tooltip">
+    <div class="nds-popover__body">
+        {{control.propSetMap.helpText || attr.valuedescription__c }}
+    </div>
+</div>

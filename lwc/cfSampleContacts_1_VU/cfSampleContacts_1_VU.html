@@ -1,0 +1,64 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative">
+            <div if:false={cardLoaded} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: white; z-index: 99;">
+  <div>
+   <vlocity_cmt-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_cmt-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <vlocity_cmt-flex-card-state key={record.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small slds-m-bottom_small  slds-size_12-of-12  " style="     border-color:#cccccc;        box-shadow:5px 5px 5px grey;
+border 1px solid #cccccc;">
+    <vlocity_cmt-block  label="Block"  collapsible="false"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          <div class="slds-col  slds-p-around_small  slds-size_3-of-12  " style="             "><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_large%22%3E%7BContactName%7D%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " style="             "><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-title_caps%22%3E%3Cspan%20style=%22font-size:%2010pt;%22%3EEmail%3C/span%3E%3C/div%3E%0A%3Cdiv%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactEmail%7D%3C/span%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " style="             "><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-title_caps%22%3E%3Cspan%20style=%22font-size:%2010pt;%22%3EPHONE%3C/span%3E%3C/div%3E%0A%3Cdiv%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactPhone%7D%3C/span%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-p-around_small  slds-size_3-of-12  " style="             "><vlocity_cmt-action  tracking-obj={_childCardTrackingObj}   state-obj={record}  card={card}  record={record}  state-action='\{"id":"flex-action-1607651623981","type":"OmniScript","displayName":"Update Contact","vlocityIcon":"action:edit_groups","openUrlIn":"New Tab/Window","layoutType":"lightning","omniType":{"Name":"sample/editContact/English","Id":"a295e0000009hFbAAA","isLwcOs":true},"isLwcOS":true}'  context-id="\{ContactId}"  theme="slds" ></vlocity_cmt-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <vlocity_cmt-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small slds-m-bottom_small  slds-size_12-of-12  " style="     border-color:#cccccc;        box-shadow:5px 5px 5px grey;
+border 1px solid #cccccc;">
+    <vlocity_cmt-block  label="Block"  collapsible="false"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          <div class="slds-col  slds-p-around_small  slds-size_3-of-12  " style="             "><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_large%22%3E%7BContactName%7D%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " style="             "><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-title_caps%22%3E%3Cspan%20style=%22font-size:%2010pt;%22%3EEmail%3C/span%3E%3C/div%3E%0A%3Cdiv%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactEmail%7D%3C/span%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " style="             "><vlocity_cmt-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-title_caps%22%3E%3Cspan%20style=%22font-size:%2010pt;%22%3EPHONE%3C/span%3E%3C/div%3E%0A%3Cdiv%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactPhone%7D%3C/span%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-p-around_small  slds-size_3-of-12  " style="             "><vlocity_cmt-action  tracking-obj={_childCardTrackingObj}   state-obj={record}  card={card}  record={record}  state-action='\{"id":"flex-action-1607651623981","type":"OmniScript","displayName":"Update Contact","vlocityIcon":"action:edit_groups","openUrlIn":"New Tab/Window","layoutType":"lightning","omniType":{"Name":"sample/editContact/English","Id":"a295e0000009hFbAAA","isLwcOs":true},"isLwcOS":true}'  context-id="\{ContactId}"  theme="slds" ></vlocity_cmt-action>
+      </div>
+        </div></vlocity_cmt-block>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_cmt-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+      
+      </vlocity_cmt-action>
+  
+            <vlocity_cmt-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+            
+            </vlocity_cmt-action>
+            </div>
+          </template>

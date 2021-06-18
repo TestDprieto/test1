@@ -1,0 +1,40 @@
+{
+    "Cards": [
+    ],
+    "customPreviewPages": [
+        {
+            "group": "Custom Pages",
+            "label": "",
+            "namespacePrefix": "",
+            "page": ""
+        }
+    ],
+    "dataSource": {
+        "contextVariables": [
+        ],
+        "orderBy": {
+            "isReverse": ""
+        },
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "productId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "ContractProductAdminHandler"
+            },
+            "remoteClass": "ContractProductAdminHandler",
+            "remoteMethod": "getProductDetails",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": ""
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "clm-product-attributes-header-template"
+        }
+    },
+    "workspace": [
+    ]
+}

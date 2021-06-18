@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Document Identifier --></label>
+        <name>vlocity_cmt__DocumentIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Document Name --></label>
+        <name>vlocity_cmt__DocumentName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Document Source Id --></label>
+        <name>vlocity_cmt__DocumentSourceId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Document Source Type --></label>
+        <name>vlocity_cmt__DocumentSourceType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Generic Envelope --></label>
+        <name>vlocity_cmt__EnvelopeId__c</name>
+        <relationshipLabel><!-- Generic Documents --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Envelope Identifier --></label>
+        <name>vlocity_cmt__EnvelopeIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- File Extension --></label>
+        <name>vlocity_cmt__FileExtension__c</name>
+    </fields>
+</CustomObjectTranslation>

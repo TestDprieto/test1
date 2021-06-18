@@ -1,0 +1,80 @@
+{
+    "consoleCardLayout": null,
+    "drBundleName": null,
+    "integrationProcName": "CustomerInteraction_Creation",
+    "interactionObjName": "CustomerInteraction",
+    "moreRequests": null,
+    "numOfOptionalVerificationFields": null,
+    "optionalVerificationFieldList": [
+    ],
+    "parentId": null,
+    "recordId": "0014600000n4MwLAAU",
+    "request": {
+        "additionalData": null,
+        "continueSearch": false,
+        "displaySequence": 1,
+        "fieldPicklistValues": {
+        },
+        "isClassBased": false,
+        "lastRecordId": null,
+        "previousSearchResults": null,
+        "recordOffset": null,
+        "referenceObjectName": null,
+        "requestUniqueName": "InteractionAccount",
+        "searchFieldList": [
+            "Name"
+        ],
+        "searchFieldsLabelTypeMap": {
+            "Name": {
+                "datatype": "text",
+                "label": "Account Name"
+            }
+        },
+        "searchObjectLabel": "InteractionAccount",
+        "searchObjectName": "Account",
+        "searchType": "Caller Identification",
+        "searchValueMap": {
+            "Name": "*"
+        }
+    },
+    "resultFieldList": [
+        "Name",
+        "BillingStreet",
+        "BillingCity"
+    ],
+    "resultFieldsLabelTypeMap": {
+        "BillingCity": {
+            "datatype": "text",
+            "label": "Billing City"
+        },
+        "BillingStreet": {
+            "datatype": "text",
+            "label": "Billing Street"
+        },
+        "Name": {
+            "datatype": "text",
+            "label": "Account Name"
+        }
+    },
+    "resultValueMap": {
+        "BillingCity": null,
+        "BillingStreet": null,
+        "Name": "testsetest"
+    },
+    "uniqueRequestName": "InteractionAccount",
+    "verificationFieldList": [
+        "Name",
+        "BillingStreet",
+        "BillingCity"
+    ],
+    "verificationResult": {
+        "BillingCity": null,
+        "BillingStreet": null,
+        "Name": null,
+        "fields": {
+            "BillingCity": true,
+            "BillingStreet": true,
+            "Name": true
+        }
+    }
+}

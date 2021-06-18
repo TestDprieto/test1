@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Pricing: Specifies the cart line item custom field that stores the 'Change' action when a price is rolled up from a child product to its parent during an Asset to Order transition. If NULL, no 'Change' action occurs.",
+    "%vlocity_namespace%__SetupValue__c": "",
+    "Name": "RollupActionCodeField",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/RollupActionCodeField"
+}

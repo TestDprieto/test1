@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Determines the response format during a remote call. If set to TRUE, the Basket API responses will be serialized in a remote call, but will remain the same for REST calls. If set to FALSE, the output during a remote call will be in form of a Map.",
+    "%vlocity_namespace%__SetupValue__c": "false",
+    "Name": "CacheAPI.OptimizedBasketResponse",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/CacheAPI.OptimizedBasketResponse"
+}

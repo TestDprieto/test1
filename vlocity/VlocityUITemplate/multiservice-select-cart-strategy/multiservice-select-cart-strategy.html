@@ -1,0 +1,42 @@
+<div id="select-cart-strategy-container" class="slds-grid--align-center slds-container--fluid slds-p-horizontal_large" ng-controller="CartStrategyController" ng-init="init();">
+
+    <!-- content -->
+    <div class="slds-size_1-of-2 slds-p-around_medium custom-container">
+        <div class="slds-size_1-of-1">
+            <div class="slds-text-heading_medium slds-border_bottom" ng-if="cartType === 'quote'">{{::customLabelsMap.MSQuotingType}}</div>
+            <div class="slds-text-heading_medium slds-border_bottom" ng-if="cartType === 'order'">{{::customLabelsMap.MSOrderType}}</div>
+            <div class="slds-form-element__control slds-m-top_medium">
+                <div class="slds-radio custom-radio slds-m-bottom_medium">
+                    <input type="radio" name="select-cart-strategy" id="select-cart-strategy-single" tabindex="0" 
+                    aria-labelledby="cart-strategy-single" ng-model="bpTree.response.selectedCartStrategy" value="single"
+                    ng-change="selectCartStrategy(cartStrategy)" required/>
+                    <label class="slds-radio__label" for="select-cart-strategy-single" id="cart-strategy-single" ng-if="cartType === 'quote'">
+                        <span class="slds-radio_faux"></span>
+                        <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                        <strong>{{::customLabelsMap.MSSingleQuote}}</strong><small> ({{::customLabelsMap.MSSingleQuoteDesc}})</small>
+                    </label>
+                    <label class="slds-radio__label" for="select-cart-strategy-single" id="cart-strategy-single" ng-if="cartType === 'order'">
+                        <span class="slds-radio_faux"></span>
+                        <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                        <strong>{{::customLabelsMap.MSSingleOrder}}</strong><small> ({{::customLabelsMap.MSSingleOrderDesc}})</small>
+                    </label>
+                </div>
+                <div class="slds-radio custom-radio slds-m-top_medium">
+                    <input type="radio" name="select-cart-strategy" id="select-cart-strategy-multi" tabindex="0" 
+                    aria-labelledby="cart-strategy-multi" ng-model="bpTree.response.selectedCartStrategy" value="multiple"
+                    ng-change="selectCartStrategy(cartStrategy)" required/>
+                    <label class="slds-radio__label" for="select-cart-strategy-multi" id="cart-strategy-multi" ng-if="cartType === 'quote'">
+                        <span class="slds-radio_faux"></span>
+                        <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                        <strong>{{::customLabelsMap.MSMultiQuote}}</strong><small> ({{::customLabelsMap.MSMultiQuoteDesc}})</small>
+                    </label>
+                    <label class="slds-radio__label" for="select-cart-strategy-multi" id="cart-strategy-multi" ng-if="cartType === 'order'">
+                        <span class="slds-radio_faux"></span>
+                        <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                        <strong >{{::customLabelsMap.MSMultiOrder}}</strong><small> ({{::customLabelsMap.MSMultiOrderDesc}})</small>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -128,11 +128,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -141,7 +144,8 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
-        <fullName>Sales process 1</fullName>
+        <fullName>vlocity_cmt__Vlocity Sales Process</fullName>
+        <description>Vlocity Sales Process</description>
         <isActive>true</isActive>
         <values>
             <fullName>Closed Lost</fullName>
@@ -187,6 +191,32 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
+    <externalSharingModel>Private</externalSharingModel>
+    <fieldSets>
+        <fullName>vlocity_cmt__StoryFieldSet</fullName>
+        <description>Story board</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>CloseDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>StageName</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>NextStep</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>StoryFieldSet</label>
+    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -216,46 +246,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>CurrentGenerators__c</fullName>
-        <externalId>false</externalId>
-        <label>Current Generator(s)</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>DeliveryInstallationStatus__c</fullName>
-        <externalId>false</externalId>
-        <label>Delivery/Installation Status</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>In progress</fullName>
-                    <default>false</default>
-                    <label>In progress</label>
-                </value>
-                <value>
-                    <fullName>Yet to begin</fullName>
-                    <default>false</default>
-                    <label>Yet to begin</label>
-                </value>
-                <value>
-                    <fullName>Completed</fullName>
-                    <default>false</default>
-                    <label>Completed</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
-    </fields>
-    <fields>
         <fullName>Description</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
@@ -280,17 +270,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>MainCompetitors__c</fullName>
-        <externalId>false</externalId>
-        <label>Main Competitor(s)</label>
-        <length>100</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackTrending>false</trackTrending>
@@ -301,19 +280,14 @@
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>OrderNumber__c</fullName>
-        <externalId>false</externalId>
-        <label>Order Number</label>
-        <length>8</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>OwnerId</fullName>
         <trackFeedHistory>true</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PartnerAccountId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -334,12 +308,461 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>SyncedQuoteId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>TotalOpportunityQuantity</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
-        <fullName>TrackingNumber__c</fullName>
+        <fullName>Type</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AccountRecordType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Account.RecordType.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account Record Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AccountSLA__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>TEXT(Account.vlocity_cmt__vSLA__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Account SLA</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DefaultCurrencyPaymentMode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Currency Payment Mode</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Currency</fullName>
+                    <default>true</default>
+                    <label>Currency</label>
+                </value>
+                <value>
+                    <fullName>Loyalty</fullName>
+                    <default>false</default>
+                    <label>Loyalty</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOneTimeCostTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: One Time Costs</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOneTimeLoyaltyTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: One Time Loyalty</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective One Time Total</label>
+        <summarizedField>OpportunityLineItem.vlocity_cmt__EffectiveOneTimeTotal__c</summarizedField>
+        <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveOpportunityTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__EffectiveOneTimeTotal__c + ( vlocity_cmt__EffectiveRecurringTotal__c * vlocity_cmt__NumberOfContractedMonths__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Effective Opportunity Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveRecurringCostTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Total: Recurring Costs</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveRecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Effective Recurring Total</label>
+        <summarizedField>OpportunityLineItem.vlocity_cmt__EffectiveRecurringTotal__c</summarizedField>
+        <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveUsageCostTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective Usage Cost Total</description>
+        <externalId>false</externalId>
+        <label>Usage Cost Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveUsagePriceTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective Usage Price Total</description>
+        <externalId>false</externalId>
+        <label>Usage Price Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Email__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Fax__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Fax</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FollowUpTo__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If this activity is a follow up to a previous activity.</description>
+        <externalId>false</externalId>
+        <label>Follow Up To</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FrameContractId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Frame contract linked to this opportunity</description>
+        <externalId>false</externalId>
+        <label>Frame Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsContractRequired__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Denotes if opportunity requires a contract</description>
+        <externalId>false</externalId>
+        <label>Require Contract</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__NumberOfContractedMonths__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Number Of Contracted Months</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OneTimeLoyaltyTotal__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>One Time Loyalty Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OneTimeMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>One Time Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>One Time Total</label>
+        <summarizedField>OpportunityLineItem.vlocity_cmt__OneTimeTotal__c</summarizedField>
+        <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OpportunityMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Opportunity Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OpportunityTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__OneTimeTotal__c + ( vlocity_cmt__RecurringTotal__c * vlocity_cmt__NumberOfContractedMonths__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Opportunity Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Salesforce sample extension field. Use as desired (unused by Vlocity).</description>
+        <externalId>false</externalId>
+        <label>Order Number</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OriginatingChannel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Channel can be used to drive Eligibility/Compatibility/Recommendations/Pricing/Other implementations, e.g. Certain Product Bundles are only available on the Web or Call Center channel but not via the Retail and Dealer channels OR A product may have a different price when sold via the Web than sold via the Retail channel, etc.</description>
+        <externalId>false</externalId>
+        <label>Originating Channel</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Web</fullName>
+                    <default>false</default>
+                    <label>Web</label>
+                </value>
+                <value>
+                    <fullName>Call Center</fullName>
+                    <default>false</default>
+                    <label>Call Center</label>
+                </value>
+                <value>
+                    <fullName>Retail</fullName>
+                    <default>false</default>
+                    <label>Retail</label>
+                </value>
+                <value>
+                    <fullName>Dealer</fullName>
+                    <default>false</default>
+                    <label>Dealer</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OriginatingContractId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Points to the contract from which this opportunity was created</description>
+        <externalId>false</externalId>
+        <label>Originating Contract</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PartyId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The referral source of an opportunity</description>
+        <externalId>false</externalId>
+        <label>Referral Source</label>
+        <referenceTo>vlocity_cmt__Party__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Phone__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PriceListId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Price List</label>
+        <referenceTo>vlocity_cmt__PriceList__c</referenceTo>
+        <relationshipLabel>Opportunities Using This Price List</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RecurringMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__RecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Recurring Total</label>
+        <summarizedField>OpportunityLineItem.vlocity_cmt__RecurringTotal__c</summarizedField>
+        <summaryForeignKey>OpportunityLineItem.OpportunityId</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ShippingPostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Account.ShippingPostalCode</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Shipping Postal Code</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ShippingState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Account.ShippingState</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Shipping State</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TrackingNumber__c</fullName>
+        <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Tracking Number</label>
         <length>12</length>
@@ -350,10 +773,74 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Type</fullName>
+        <fullName>vlocity_cmt__UsageMarginTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Usage Margin Total</description>
+        <externalId>false</externalId>
+        <label>Usage Margin Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ValidationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date when the validation was last run</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Last validation date</inlineHelpText>
+        <label>Validation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ValidationMessage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Message from last validation run</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Message from last validation run</inlineHelpText>
+        <label>Validation Message</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ValidationStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Validation Status</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If an opportunity has been validated, it will show the status Passed or Failed. If no validation has been run yet, it will show Not yet run.</inlineHelpText>
+        <label>Validation Status</label>
+        <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Not yet run</fullName>
+                    <default>true</default>
+                    <label>Not yet run</label>
+                </value>
+                <value>
+                    <fullName>Passed</fullName>
+                    <default>false</default>
+                    <label>Passed</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <listViews>
         <fullName>AllOpportunities</fullName>
@@ -406,16 +893,6 @@
         <label>My Opportunities</label>
     </listViews>
     <listViews>
-        <fullName>NewLastWeek</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>OPPORTUNITY.CREATED_DATE</field>
-            <operation>equals</operation>
-            <value>LAST_WEEK</value>
-        </filters>
-        <label>New Last Week</label>
-    </listViews>
-    <listViews>
         <fullName>NewThisWeek</fullName>
         <filterScope>Everything</filterScope>
         <filters>
@@ -426,25 +903,15 @@
         <label>New This Week</label>
     </listViews>
     <listViews>
-        <fullName>Private</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>OPPORTUNITY.PRIVATE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>Private</label>
-    </listViews>
-    <listViews>
         <fullName>Won</fullName>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>OPPORTUNITY.CLOSED</field>
+            <field>OPPORTUNITY.WON</field>
             <operation>equals</operation>
             <value>1</value>
         </filters>
         <filters>
-            <field>OPPORTUNITY.WON</field>
+            <field>OPPORTUNITY.CLOSED</field>
             <operation>equals</operation>
             <value>1</value>
         </filters>
@@ -452,25 +919,11 @@
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
-        <fullName>RT_Oppo_1</fullName>
+        <fullName>vlocity_cmt__MobilePhoneOpportunity</fullName>
         <active>true</active>
-        <businessProcess>Sales process 1</businessProcess>
-        <label>RT Oppo 1</label>
-        <picklistValues>
-            <picklist>DeliveryInstallationStatus__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>In progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yet to begin</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        <businessProcess>vlocity_cmt__Vlocity Sales Process</businessProcess>
+        <description>Mobile Phone Opportunity</description>
+        <label>MobilePhoneOpportunity</label>
         <picklistValues>
             <picklist>ForecastCategoryName</picklist>
             <values>
@@ -501,15 +954,33 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Partner Referral</fullName>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Existing Business</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Phone Inquiry</fullName>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Purchased List</fullName>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -518,107 +989,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Type</picklist>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
             <values>
-                <fullName>Existing Customer - Downgrade</fullName>
+                <fullName>Failed</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Existing Customer - Replacement</fullName>
-                <default>false</default>
+                <fullName>Not yet run</fullName>
+                <default>true</default>
             </values>
             <values>
-                <fullName>Existing Customer - Upgrade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Customer</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-    </recordTypes>
-    <recordTypes>
-        <fullName>RT_Oppo_2</fullName>
-        <active>false</active>
-        <businessProcess>Sales process 1</businessProcess>
-        <label>RT Oppo 2</label>
-        <picklistValues>
-            <picklist>DeliveryInstallationStatus__c</picklist>
-            <values>
-                <fullName>Completed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>In progress</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yet to begin</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>ForecastCategoryName</picklist>
-            <values>
-                <fullName>Best Case</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Closed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Commit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Omitted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>LeadSource</picklist>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Partner Referral</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Phone Inquiry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchased List</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type</picklist>
-            <values>
-                <fullName>Existing Customer - Downgrade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing Customer - Replacement</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Existing Customer - Upgrade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New Customer</fullName>
+                <fullName>Passed</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -633,6 +1014,8 @@
         <lookupPhoneDialogsAdditionalFields>OPPORTUNITY.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.SITE</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>vlocity_cmt__Fax__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>vlocity_cmt__Phone__c</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>OPPORTUNITY.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.SITE</searchResultsAdditionalFields>
@@ -640,9 +1023,179 @@
         <searchResultsAdditionalFields>OPPORTUNITY.CLOSE_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Read</sharingModel>
     <webLinks>
-        <fullName>DeliveryStatus</fullName>
+        <fullName>vlocity_cmt__CPQ</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>CPQ</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+            {!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)}
+            {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+            {!REQUIRESCRIPT(&quot;/support/console/31.0/integration.js&quot;)}
+            var namespace_prefix = &apos;&apos;;
+            var result = sforce.connection.describeGlobal();
+            var TOKEN_OBJ = &quot;Party__c&quot;;
+            var sobjects = result.getArray(&quot;sobjects&quot;);
+            for(var i=0; i&lt;sobjects.length; i++) {
+                var sobjName = sobjects[i].name;
+                var str = sobjName.split(&quot;__&quot;);
+                //if there are 3 values there is a namespace
+                if (str.length == 3){
+                    var sobj = str[1].valueOf() +&apos;__c&apos;;
+                    if(sobj == TOKEN_OBJ) {
+                        namespace_prefix = str[0].valueOf();
+                    }
+                }
+            }
+            var target_url = &apos;/apex/&apos;+namespace_prefix+&apos;__hybridcpq?id=&apos;+&apos;{!Opportunity.Id}&apos;;
+            window.location.href = target_url;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__Configure</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Oppurtunity page to invoke Hybrid CPQ.</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Configure</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__OpportunityLaunchHybridCPQ</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ConfigureForNamespace</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Oppurtunity page to invoke CPQ in Lightning Experience for Managed Package</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>ConfigureForNamespace</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/vlocity_cmt__hybridcpq?id={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ConfigureMSOrder</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Opportunity page to configure multi service orders</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Multi-Site Order</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__MSOrderConfiguration</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ConfigureMultiServicePoints</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Opportunity page to configure multi service points</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Multi-Site Quote</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__MultiServiceConfiguration</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ConfigureWithNamespace</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Oppurtunity page to invoke CPQ in Lightning Experience for Managed Package</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>ConfigureWithNamespace</masterLabel>
+        <openType>noSidebar</openType>
+        <protected>false</protected>
+        <url>/apex/vlocity_cmt__hybridcpq?id={!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__CreateContract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal();
+
+var TOKEN_OBJ = &quot;Party__c&quot;;
+
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) {
+
+var sobjName = sobjects[i].name;
+
+var str = sobjName.split(&quot;__&quot;);
+
+//if there are 3 values there is a namespace
+
+if (str.length == 3){
+
+//Is it one of ours?
+
+var sobj = str[1].valueOf() +&apos;__c&apos;;
+
+if(sobj == TOKEN_OBJ) {
+
+namespace_prefix = str[0].valueOf();
+
+}
+
+} 
+
+}
+
+if(namespace_prefix != &quot;&quot;){
+
+namespace_prefix+= &apos;.&apos;;
+
+} 
+
+
+
+var result = sforce.apex.execute(namespace_prefix+&quot;ContractServiceResource&quot;,&quot;createContractWithTemplate&quot;, {contextId: &apos;{!Opportunity.Id}&apos;});
+window.location.href = &apos;/&apos; + result + &apos;/e?retURL=%2F&apos; + result;</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__CreateSchedules</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Schedules</masterLabel>
+        <openType>sidebar</openType>
+        <page>vlocity_cmt__CreateOpportunityProductSchedule</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__CreatingContractAloha</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Create Contract</masterLabel>
+        <openType>sidebar</openType>
+        <page>vlocity_cmt__CreateContractFromOpty</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__DeliveryStatus</fullName>
         <availability>online</availability>
         <displayType>link</displayType>
         <encodingKey>UTF-8</encodingKey>
@@ -658,6 +1211,449 @@
         <protected>false</protected>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
-        <url>http://www.fedex.com/cgi-bin/tracking?tracknumbers={!Opportunity_Tracking_Number}&amp;action=track&amp;language=english&amp;cntry_code=us</url>
+        <url>http://www.fedex.com/cgi-bin/tracking?tracknumbers={!Opportunity.vlocity_cmt__TrackingNumber__c}&amp;action=track&amp;language=english&amp;cntry_code=us</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__GenerateDocumentPDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Generate Document PDF</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__OpportunityDocumentPdf</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__PickFrameContract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Pick Frame Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+
+
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+
+
+
+
+var result = sforce.connection.describeGlobal();
+
+
+
+var TOKEN_OBJ = &quot;Party__c&quot;;
+
+
+
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+
+
+
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) {
+
+
+
+var sobjName = sobjects[i].name;
+
+
+
+var str = sobjName.split(&quot;__&quot;);
+
+
+
+//if there are 3 values there is a namespace
+
+
+
+if (str.length == 3){
+
+
+
+//Is it one of ours?
+
+
+
+var sobj = str[1].valueOf() +&apos;__c&apos;;
+
+
+
+if(sobj == TOKEN_OBJ) {
+
+
+
+namespace_prefix = str[0].valueOf();
+
+
+
+}
+
+
+
+} 
+
+
+
+}
+
+
+
+if(namespace_prefix == &quot;&quot;){
+
+
+
+   var acctId = &apos;{!Opportunity.AccountId}&apos;;
+
+   if(acctId!=&apos;&apos;)
+
+      window.location = &apos;apex/FrameContractPage?accountValue=&apos; +  &apos;{!Opportunity.AccountId}&apos;+&apos;&amp;Id=&apos; +&apos;{!Opportunity.Id}&apos;;
+
+}
+
+else {
+
+var acctId = &apos;{!Opportunity.AccountId}&apos;;
+
+if(acctId!=&apos;&apos;)
+
+window.location = &apos;apex/&apos;+namespace_prefix+&apos;__FrameContractPage?accountValue=&apos; + &apos;{!Opportunity.AccountId}&apos;+&apos;&amp;Id=&apos; +&apos;{!Opportunity.Id}&apos;;
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__RevokeSignature</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Revoke eSignature</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+
+
+var namespace_prefix = &apos;&apos;; 
+
+var result = sforce.connection.describeGlobal(); 
+
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) 
+
+{ 
+
+ var sobjName = sobjects[i].name; 
+
+ var str = sobjName.split(&quot;__&quot;); 
+
+ //if there are 3 values there is a namespace 
+
+ if (str.length == 3)
+
+ { 
+
+  //Is it one of ours? 
+
+  var sobj = str[1].valueOf() +&apos;__c&apos;; 
+
+  if(sobj == TOKEN_OBJ) 
+
+  { 
+
+    namespace_prefix = str[0].valueOf();
+
+    break;
+
+  } 
+
+ } 
+
+} 
+
+
+
+if(namespace_prefix != &quot;&quot;)
+
+{ 
+
+  namespace_prefix += &apos;.&apos;;
+
+}
+
+
+
+if(&apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == null || &apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == &quot;&quot;) 
+
+{ 
+
+  alert(&apos;Login user does not have valid DocuSign account.&apos;); 
+
+} 
+
+
+
+else { 
+
+  var result = sforce.apex.execute(namespace_prefix+&quot;ContractDocuSignResource&quot;,&quot;voidEnvelopes&quot;, {objectId: &apos;{!Opportunity.Id}&apos;, senderEmail:&apos;{!$User.vlocity_cmt__DocuSignEmail__c }&apos;});
+
+  if(result == &apos;OK&apos;)
+
+  {
+
+    window.location.reload();
+
+  }
+
+  else
+
+  {
+
+    alert(result);
+
+  } 
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__SendForSignature</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Send for eSignature</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal();
+
+var TOKEN_OBJ = &quot;Party__c&quot;;
+
+var sobjects = result.getArray(&quot;sobjects&quot;);
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) {
+
+     var sobjName = sobjects[i].name;
+
+     var str = sobjName.split(&quot;__&quot;);
+
+     //if there are 3 values there is a namespace
+
+     if (str.length == 3){
+
+         //Is it one of ours?
+
+         var sobj = str[1].valueOf() +&apos;__c&apos;;
+
+         if(sobj == TOKEN_OBJ) {
+
+            namespace_prefix = str[0].valueOf();
+
+         }
+
+    } 
+
+}
+
+if(namespace_prefix != &quot;&quot;){
+
+    namespace_prefix+= &apos;__&apos;;
+
+}
+
+
+
+
+
+if(&apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == null || &apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos; == &quot;&quot;)
+
+{
+
+  alert(&apos;Login user does not have valid DocuSign account.&apos;);
+
+}
+
+else {
+
+  window.location = &apos;apex/&apos;+namespace_prefix+&apos;OpportunityDocuSignEnvelope?Id=&apos; +&apos;{!Opportunity.Id}&apos;+&apos;&amp;senderDocuSignEmail=&apos; +&apos;{!$User.vlocity_cmt__DocuSignEmail__c}&apos;;
+
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__UpdateContract</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Update Contract</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+var namespace_prefix = &apos;&apos;; 
+
+
+
+var result = sforce.connection.describeGlobal(); 
+
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) { 
+
+var sobjName = sobjects[i].name; 
+
+var str = sobjName.split(&quot;__&quot;); 
+
+//if there are 3 values there is a namespace 
+
+if (str.length == 3){ 
+
+//Is it one of ours? 
+
+var sobj = str[1].valueOf() +&apos;__c&apos;; 
+
+if(sobj == TOKEN_OBJ) { 
+
+namespace_prefix = str[0].valueOf(); 
+
+} 
+
+} 
+
+} 
+
+if(namespace_prefix != &quot;&quot;){ 
+
+namespace_prefix+= &apos;.&apos;; 
+
+} 
+
+var result = sforce.apex.execute(namespace_prefix+&quot;ContractServiceResource&quot;,&quot;updateContract&quot;, {contextId: &apos;{!Opportunity.Id}&apos;}); 
+alert(result);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__UpdateEnvelopeStatus</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Update Envelope Status</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
+
+{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
+
+
+
+var namespace_prefix = &apos;&apos;; 
+
+var result = sforce.connection.describeGlobal(); 
+
+var TOKEN_OBJ = &quot;Party__c&quot;; 
+
+var sobjects = result.getArray(&quot;sobjects&quot;); 
+
+
+
+for(var i=0; i&lt;sobjects.length; i++) 
+
+{ 
+
+ var sobjName = sobjects[i].name; 
+
+ var str = sobjName.split(&quot;__&quot;); 
+
+ //if there are 3 values there is a namespace 
+
+ if (str.length == 3)
+
+ { 
+
+  //Is it one of ours? 
+
+  var sobj = str[1].valueOf() +&apos;__c&apos;; 
+
+  if(sobj == TOKEN_OBJ) 
+
+  { 
+
+    namespace_prefix = str[0].valueOf();
+
+    break;
+
+  } 
+
+ } 
+
+} 
+
+
+
+if(namespace_prefix != &quot;&quot;)
+
+{ 
+
+  namespace_prefix += &apos;.&apos;;
+
+}
+
+  var result = sforce.apex.execute(namespace_prefix+&quot;ContractDocuSignResource&quot;,&quot;updateEnvelopeStatus&quot;, {objectId: &apos;{!Opportunity.Id}&apos;});
+
+
+
+  if(result == &apos;OK&apos;) 
+
+  { 
+
+    window.location.reload(); 
+
+  } 
+
+  else 
+
+  { 
+
+    alert(result); 
+
+  }</url>
     </webLinks>
 </CustomObject>

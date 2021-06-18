@@ -1,0 +1,32 @@
+{
+    "Cards": [
+        "vlocity-interaction-acuity-sidebar-offer-card"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "a0s410000027d2N"
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "interactionId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "GetObjectFromInteraction"
+            },
+            "query": "SELECT \nId, Name, BillingAddress, Phone, PhotoURL, Type, Industry, Website, CustomerValue__c FROM Account WHERE Id = '{{params.id}}'",
+            "remoteClass": "GetObjectFromInteraction",
+            "remoteMethod": "getObjectIdFromInteractionObject",
+            "remoteNSPrefix": "",
+            "resultVar": "records"
+        }
+    },
+    "templates": {
+        "0": {
+            "templateUrl": "console-right-sidebar-slds"
+        }
+    }
+}

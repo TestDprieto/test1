@@ -1,0 +1,87 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-product-cart-item-create-discount {
+            .#{$namespace}-custom-discount-title {
+                text-transform: uppercase;
+                font-weight: 300;
+                border-bottom: 1px solid #dddbda;
+            }
+            .#{$namespace}-new-discount-container {
+                .#{$namespace}-discount-search-container {
+                    .#{$namespace}-discount-badge {
+                        display: inline-block;
+                        border : 1px solid #ecebea;
+                        color:#006fd2;
+                        background:none;
+                        .#{$namespace}-discount-close-icon-color {
+                            color:#706e6b;
+                        }
+                    }
+                }
+                .#{$namespace}-discount-month-input {
+                    width: 14%;
+                }
+                .#{$namespace}-discount-slds-radio {
+                    display: inline-block;
+                }
+                .#{$namespace}-discount-date-input {
+                    width: 30%;
+                }
+                .#{$namespace}-discount-form_horizontal {
+                    text-align: left;
+                }
+                .#{$namespace}-discount-label {
+                    text-align: left;
+                }
+            }
+            input::-webkit-input-placeholder {
+                color: $middle-dark-gray;
+            }
+            .#{$namespace}-error-msg {
+                color: $error;
+            }
+            .#{$namespace}-success-msg {
+                color: $success;
+            }
+            .#{$namespace}-cell-pricing-modal__border {
+                border-top: 2px solid #d8dde6;
+            }
+            .#{$namespace}-discount-dropdown {
+                .#{$namespace}-pricing-picklist__label  {
+                    width:20.5rem;
+                }  
+            }
+            /* Overwrite slds-picklist width */
+            .#{$namespace}-pricing-picklist {
+                .#{$namespace}-discount-negative-mark {
+                    font-weight : 700;
+                    font-size: 15px;
+                }
+                width:100%;
+                .#{$namespace}-discount-input-filed {
+                    width: 14%;
+                }
+                .#{$namespace}-pricing-picklist__label,.#{$namespace}-pricing-picklist-dropdown {
+                    width:20.5rem;
+                } 
+                .#{$namespace}-time-plan-picklist-value__label {
+                    width:8rem;
+                }
+                .#{$namespace}-pricing-picklist-value__label{
+                    width:5rem;
+                }
+            }
+            .#{$namespace}-pricing-mandatory-input {
+                border: 1px solid $error;
+            }
+            .#{$namespace}-pricing-block-center {
+                margin: auto;
+            }
+        }
+    }
+}

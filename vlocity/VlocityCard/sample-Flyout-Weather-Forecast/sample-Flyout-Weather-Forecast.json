@@ -1,0 +1,74 @@
+{
+    "GlobalKey__c": "sample Flyout Weather Forecast/vlocityDev/1/1594258471663",
+    "dataSource": {
+        "type": null
+    },
+    "enableLwc": true,
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "leftIcon",
+            "val": "standard:forecasts"
+        }
+    ],
+    "states": [
+        {
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['Date']",
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Date",
+                    "name": "['Date']",
+                    "type": "date"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Condition']",
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Condition",
+                    "name": "['Condition']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['HiLoTempF']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Hi/Lo Temp °F",
+                    "name": "['HiLoTempF']",
+                    "type": "string"
+                }
+            ],
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "cardMiniActive",
+                "Id": "0Rb1I0000008VS5SAM",
+                "MasterLabel": "cardMiniActive",
+                "name": "cardMiniActive"
+            },
+            "name": "Forecast",
+            "smartAction": {
+            }
+        }
+    ],
+    "title": "Weather Forecast"
+}

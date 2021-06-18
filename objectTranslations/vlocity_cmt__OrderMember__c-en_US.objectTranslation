@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Street Supplement 1 --></label>
+        <name>vlocity_cmt__Address1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Async Operation --></label>
+        <name>vlocity_cmt__AsyncOperation__c</name>
+        <picklistValues>
+            <masterLabel>Apply To Group</masterLabel>
+            <translation><!-- Apply To Group --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price</masterLabel>
+            <translation><!-- Price --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Price And Validate</masterLabel>
+            <translation><!-- Price And Validate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validate</masterLabel>
+            <translation><!-- Validate --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- City --></label>
+        <name>vlocity_cmt__City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>vlocity_cmt__Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>vlocity_cmt__Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Name --></label>
+        <name>vlocity_cmt__FirstName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Name --></label>
+        <name>vlocity_cmt__LastName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Locked By User --></label>
+        <name>vlocity_cmt__LockedBy__c</name>
+        <relationshipLabel><!-- Order Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Locked For --></label>
+        <name>vlocity_cmt__LockedFor__c</name>
+        <picklistValues>
+            <masterLabel>Async Operation</masterLabel>
+            <translation><!-- Async Operation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manual Edit</masterLabel>
+            <translation><!-- Manual Edit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Order Submitted</masterLabel>
+            <translation><!-- Order Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- MSISDN --></label>
+        <name>vlocity_cmt__MSISDN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Data --></label>
+        <name>vlocity_cmt__MemberData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Member Type --></label>
+        <name>vlocity_cmt__MemberType__c</name>
+        <picklistValues>
+            <masterLabel>Premises</masterLabel>
+            <translation><!-- Premises --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Account</masterLabel>
+            <translation><!-- Service Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Point</masterLabel>
+            <translation><!-- Service Point --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscriber</masterLabel>
+            <translation><!-- Subscriber --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order Group --></label>
+        <name>vlocity_cmt__OrderGroupId__c</name>
+        <relationshipLabel><!-- Order Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>vlocity_cmt__OrderId__c</name>
+        <relationshipLabel><!-- Order Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Postal Code --></label>
+        <name>vlocity_cmt__PostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Premises --></label>
+        <name>vlocity_cmt__PremisesId__c</name>
+        <relationshipLabel><!-- Order Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quote Member --></label>
+        <name>vlocity_cmt__QuoteMemberId__c</name>
+        <relationshipLabel><!-- Order Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Account --></label>
+        <name>vlocity_cmt__ServiceAccountId__c</name>
+        <relationshipLabel><!-- Order Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Point --></label>
+        <name>vlocity_cmt__ServicePointId__c</name>
+        <relationshipLabel><!-- Order Members --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Serviceability Data --></label>
+        <name>vlocity_cmt__ServiceabilityData__c</name>
+    </fields>
+    <fields>
+        <label><!-- State --></label>
+        <name>vlocity_cmt__State__c</name>
+    </fields>
+    <fields>
+        <label><!-- Street Address --></label>
+        <name>vlocity_cmt__StreetAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- Title --></label>
+        <name>vlocity_cmt__Title__c</name>
+    </fields>
+</CustomObjectTranslation>

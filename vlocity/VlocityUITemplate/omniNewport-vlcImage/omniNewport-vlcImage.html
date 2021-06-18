@@ -1,0 +1,67 @@
+<div class="nds-size_1-of-1">
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-m-bottom_large nds-p-around_small'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control nds-grid">
+
+            <div class="nds-file-selector nds-file-custom-selector nds-file-selector_files nds-file__image">
+
+                <div class="nds-file-selector__dropzone">
+
+                    <input type='file'
+                           id="{{::control.name}}"
+                           name='loopname'
+                           ng-model='control.response'
+                           class='nds-file-selector__input'
+                           vlc-slds-file-select="{{::control.propSetMap.multiple}}"
+                           app-filereader accept="image/*" />
+
+
+                    <label for="{{::control.name}}" class='nds-file-selector__body nds-form-element__control-help'>
+                        <span class="nds-file-selector__button nds-button nds-button_neutral">{{::control.propSetMap.label}}</span>
+                        <span class='nds-required'ng-if='control.req'>*</span>
+                        <span class="nds-file-icon">
+                            <slds-svg-icon sprite="'utility'" icon="'attach'" size="'large'"
+                                 class='nds-button__icon'
+                                 aria-hidden="true">
+                            </slds-svg-icon>
+                        </span>
+                    </label>
+
+                    <!-- list that populates the uploaded files -->
+                    <ul class="nds-file-list" ng-show='control.response.length'>
+                        <li ng-repeat='file in control.response'>
+
+                            <span class="nds-file-selector__button nds-button nds-button_neutral">{{file.webkitRelativePath || file.filename}}
+                                &nbsp;(
+                                <span ng-switch='file.size > 1024*1024'>
+                                    <span ng-switch-when='true'>{{file.size / 1024 / 1024 | number:2}} MB</span>
+                                    <span ng-switch-default>{{file.size / 1024 | number:2}} kB</span>
+                                </span>
+                                )
+                            </span>
+                            <span class="nds-file-icon">
+                                <slds-button-svg-icon sprite="'utility'" icon="'clear'" size="'large'"
+                                     ng-click='removeFile(this, control, $index)'
+                                     ng-show='isFileRemovable(this, control, $index)'
+                                     class='nds-button__icon'>
+                                </slds-button-svg-icon>
+                            </span>
+
+                        </li>
+                    </ul>
+                </div>
+                <div ng-if='control.response.length'>
+                   <div ng-include="'vlcImageAux.html'"></div>
+                </div>
+            </div>
+
+            <a class="nds-tooltip_container" vlc-slds-tool-tip="test" ng-if="control.propSetMap.help" ng-include="'vlcHelptextInfoIcon.html'"></a>
+        </div>
+        <div ng-include="::errHTMLId"></div>
+
+    </ng-form>
+
+</div>

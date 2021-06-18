@@ -1,0 +1,61 @@
+<div class="nds-size_1-of-1">
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control">
+
+            <button id='{{::control.name}}'
+                 class='nds-button nds-button_brand nds-button_text-font nds-size_1-of-1 nds-is-relative'
+                 title='{{::control.propSetMap.label}}'
+                 ng-click='buttonClick(this.bpTree.response, control, this)'
+                 ng-if='!control.propSetMap.confirm'
+                 ng-disabled="loading">
+                <p class="nds-truncate">{{::control.propSetMap.label}}</p>
+
+                <div class="nds-spinner_brand nds-spinner nds-spinner_x-small" aria-hidden="false" role="alert" ng-if="loading">
+                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" >
+                      <circle cx="6" cy="50">
+                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 15 ; 0 -15; 0 15" repeatCount="indefinite" begin="0.1"/> 
+                      </circle> 
+                      <circle cy="50"> 
+                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 10 ; 0 -10; 0 10" repeatCount="indefinite" begin="0.2"/> 
+                      </circle> 
+                      <circle cy="50">  
+                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3"/> 
+                      </circle>  
+                    </svg>
+                </div>
+            </button>
+            <button id='{{::control.name}}'
+                 class='nds-button nds-button_brand nds-button_text-font nds-size_1-of-1 nds-is-relative'
+                 title='{{::control.propSetMap.label}}'
+                 ng-confirm-click='{{::control.propSetMap.remoteConfirmMsg}}'
+                 confirmed-click='buttonClick(this.bpTree.response, control, this)'
+                 submit-label='{{::control.propSetMap.subLabel}}'
+                 cancel-label='{{::control.propSetMap.cancelLabel}}'
+                 ng-if='control.propSetMap.confirm'
+                 ng-disabled="loading">
+                <p class="nds-truncate">{{::control.propSetMap.label}}</p>
+
+                <div class="nds-spinner_brand nds-spinner nds-spinner_x-small" aria-hidden="false" role="alert" ng-if="loading">
+                   <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" >
+                      <circle cx="6" cy="50">
+                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 15 ; 0 -15; 0 15" repeatCount="indefinite" begin="0.1"/> 
+                      </circle> 
+                      <circle cy="50"> 
+                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 10 ; 0 -10; 0 10" repeatCount="indefinite" begin="0.2"/> 
+                      </circle> 
+                      <circle cy="50">  
+                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5" repeatCount="indefinite" begin="0.3"/> 
+                      </circle>  
+                    </svg>
+                </div>
+            </button>
+
+        </div>
+
+    </ng-form>
+
+</div>

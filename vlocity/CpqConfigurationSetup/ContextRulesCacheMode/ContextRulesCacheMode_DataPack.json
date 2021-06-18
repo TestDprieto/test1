@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "This setting caches the context rules related data. If the value is set to \"cachemode\", all the data and wrapper collections are cached using the platform cache. If the value is set to \"inmemmode\", the data is not cached and remains in memory.",
+    "%vlocity_namespace%__SetupValue__c": "inmemmode",
+    "Name": "ContextRulesCacheMode",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/ContextRulesCacheMode"
+}

@@ -1,0 +1,48 @@
+<div class="slds-card via-slds-card_active slds-m-bottom_small" data-card="card-{{cardIndex}}" ng-class="{selected:isSelected(cardIndex)}"  data-popover-flyout="true" ng-controller="trackFieldController">
+  <div class="via-slds-card__header slds-card__header slds-grid slds-grid_vertical-align-center slds-p-around_small" ng-click="performFlyout('card-'+cardIndex)">
+    <div class="slds-media slds-media_center slds-has-flexi-truncate">
+      <div class="slds-media__figure via-placeholder-image">
+            <img ng-if="placeholder.Image.value && isString(placeholder.Image)" src="{{placeholder.Image.value}}">
+            <div ng-if="placeholder.Image.value && !isString(placeholder.Image)" class="slds-icon slds-icon_medium  slds-icon-{{sprite}}-{{icon}}"><slds-svg-icon ng-init="getIconSet(placeholder.Image.value)" sprite="sprite" icon="icon"  size="'medium'"></slds-svg-icon></div>
+            <img ng-if="!placeholder.Image.value && placeholder.ImageId.value" src="/servlet/servlet.FileDownload?file={{placeholder.ImageId.value | picker:placeholder.ImageId.type}}">
+            <img ng-if="!placeholder.Image.value && !placeholder.ImageId.value" src="{{placeholder.DefaultImage.value | picker:placeholder.DefaultImage.type}}">
+      </div>
+      <div class="slds-media__body slds-truncate">
+        <a href="javascript:void(0);" class="slds-text-link_reset" tooltip-placement="bottom" title="{{placeholder.Title.label}}{{placeholder.Title.value | picker:placeholder.Title.type}}">
+          <span class="slds-text-heading_small" title="{{placeholder.Title.value| picker:placeholder.Title.type}}">{{placeholder.Title.label}} {{placeholder.Title.value| picker:placeholder.Title.type}}</span>
+        </a>
+        <br />
+        <span title="{{placeholder.SubTitle.label}} {{placeholder.SubTitle.value | picker:placeholder.SubTitle.type}}">{{placeholder.SubTitle.label}} {{placeholder.SubTitle.value | picker:placeholder.SubTitle.type}}</span>
+        
+         <span title="{{placeholder.SubTitle2.label}} {{placeholder.SubTitle2.value | picker:placeholder.SubTitle2.type}}"> | {{placeholder.SubTitle2.label}} {{placeholder.SubTitle2.value | picker:placeholder.SubTitle2.type}}</span>
+        
+      </div>
+    </div>
+    <div class="slds-no-flex" ng-init="overflowActions = data.actions.slice(data.limitActionLinksTo?data.limitActionLinksTo:5)">
+        <slds-dropdown content="overflowActions" ng-if="overflowActions.length > 0" icon-attribute="vlocityIcon" label-attribute="displayName" action-function="performAction(item)" button-size="medium"></slds-dropdown>
+    </div>
+  </div>
+  <div class="slds-card__body via-slds-card__body slds-grid slds-wrap slds-theme_default slds-p-around_medium">
+      <div class="slds-col_padded slds-size_1-of-2">
+          <div class="slds-tile slds-p-bottom_medium via-field" ng-repeat="field in data.fields" ng-show="key != 'attributes'">
+            <p class="slds-truncate slds-text-heading_label" title="{{field.label}}">{{field.label}}</p>
+            <div class="slds-tile__detail slds-text-heading_small ">
+                <p class="slds-truncate" ng-if="!obj[field.relationshipName]">{{obj | getter: field | picker: field.type}}</p>
+                <p class="slds-truncate" ng-if="obj[field.relationshipName]">{{obj[field.relationshipName]['Name']}}</p>
+            </div>
+             <div class="track-view" ng-click="trackField(field,entityName, field.label)">
+                <vloc-card-icon icon="'preview'" sprite="'utility'" size="'small'" extra-classes="'big via-action-icon slds-icon-text-default'">
+                </vloc-card-icon>
+            </div>
+        </div>
+      </div>
+      <div class="slds-col_padded slds-size_1-of-2">
+          <div class="slds-tile slds-p-top_x-small slds-p-bottom_medium slds-truncate" ng-repeat="action in data.actions | limitTo: (data.limitActionLinksTo?data.limitActionLinksTo:5)">
+              <p class="slds-truncate slds-text-heading_label"> </p>
+              <a href="javascript:void(0);" class="slds-truncate via-action-link slds-text-link_reset" ng-click="performAction(action)">
+                <vloc-card-icon data="action" obj="obj" size="'small'" extra-classes="'big via-action-icon slds-icon-text-default'"></vloc-card-icon>{{action.displayName}}
+              </a>
+          </div>
+      </div>
+  </div>
+</div>

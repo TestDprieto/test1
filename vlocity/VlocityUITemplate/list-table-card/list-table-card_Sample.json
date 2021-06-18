@@ -1,0 +1,84 @@
+{
+    "data": {
+        "actions": [
+            {
+                "displayName": "Like Action",
+                "vlocityIcon": "icon-v-heart"
+            }
+        ],
+        "fields": [
+            {
+                "collapse": true,
+                "displayLabel": "['Name']",
+                "fieldType": "standard",
+                "group": "Custom Properties",
+                "label": "Name",
+                "name": "['Name']",
+                "type": "string"
+            },
+            {
+                "collapse": true,
+                "displayLabel": "['Id']",
+                "fieldType": "standard",
+                "group": "Custom Properties",
+                "label": "Id",
+                "name": "['Id']",
+                "type": "string"
+            },
+            {
+                "collapse": true,
+                "displayLabel": "['ClaimStatus__c']",
+                "fieldType": "standard",
+                "group": "Custom Properties",
+                "label": "ClaimStatus",
+                "name": "['ClaimStatus__c']",
+                "type": "string"
+            },
+            {
+                "collapse": true,
+                "displayLabel": "['LastModifiedDate']",
+                "fieldType": "standard",
+                "group": "Custom Properties",
+                "label": "LastModifiedDate",
+                "name": "['LastModifiedDate']",
+                "type": "string"
+            }
+        ],
+        "title": "Card Title"
+    },
+    "obj": {
+        "ClaimStatus__c": "Closed1",
+        "DaysSinceStatusUpdated__c": 935,
+        "Description__c": "Driver in other car ran stop sign, hit Preston Reed's vehicle.",
+        "Id": "c0V46000000FmZOEA0",
+        "IsChargeable__c": true,
+        "IsSubrogatable__c": false,
+        "LastModifiedDate": "2017-04-26T13:27:35.000+0000",
+        "LiabilityPercentage__c": 23,
+        "LossCause__c": "Auto Accident",
+        "LossDate__c": "2014-10-01",
+        "LossType__c": "Auto",
+        "Name": "aAd-349820101-001",
+        "OwnerId": "00546000001MOIiAAO",
+        "PotentialFraudScore__c": 8,
+        "PrimaryOwnerName__c": "Tom Cuypers",
+        "PrimaryOwnerPartyId__c": "a0k460000019gcNAAQ",
+        "PrimaryPolicyAssetId__c": "02i46000000HQPgAAO",
+        "PrimaryPolicyId__c": "a0s460000013VUEAA2",
+        "PrimaryPolicyLineOfBusiness__c": "Personal Lines",
+        "PrimaryPolicyNumber__c": "PA-349820101",
+        "PrimaryPolicyType__c": "Auto",
+        "ReportedDate__c": "2014-10-04",
+        "SalvagePotential__c": 0,
+        "StatusDate__c": "2014-10-04",
+        "StatusImage__c": "closed",
+        "SubrogationScore__c": 42,
+        "TotalIncurred__c": 2000,
+        "TotalOutstanding__c": 0,
+        "TotalPaid__c": 2000,
+        "attributes": {
+            "type": "InsuranceClaim__c",
+            "url": "/services/data/v39.0/sobjects/InsuranceClaim__c/a0V46000000FmZOEA0"
+        }
+    }
+}

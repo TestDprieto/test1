@@ -156,6 +156,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Category</fullName>
         <trackHistory>false</trackHistory>
@@ -165,6 +166,10 @@
         <fullName>Channel</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>IsInsertable</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Message</fullName>
@@ -183,15 +188,19 @@
         <customTabListAdditionalFields>Message</customTabListAdditionalFields>
         <customTabListAdditionalFields>Category</customTabListAdditionalFields>
         <customTabListAdditionalFields>Channel</customTabListAdditionalFields>
+        <customTabListAdditionalFields>IsInsertable</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Message</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Category</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Channel</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>IsInsertable</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Message</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Category</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Channel</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>IsInsertable</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Message</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Category</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Channel</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>IsInsertable</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "APIs Caching (v3): Limits number of results that can be cached in a catalog by one ContextEligibilityGenerator cache job. Caching combinations that exceed the limit are cached in multiple jobs.",
+    "%vlocity_namespace%__SetupValue__c": "2000",
+    "Name": "CacheAPI.GetRelOffersCacheRecLimit",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/CacheAPI.GetRelOffersCacheRecLimit"
+}

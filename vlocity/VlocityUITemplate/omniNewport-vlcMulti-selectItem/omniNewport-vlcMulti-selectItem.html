@@ -1,0 +1,24 @@
+<div class="nds-form-element"
+     ng-repeat='option in getOptions(control, this.$parent) track by option.name'>
+
+    <!-- this div is present just to maintain the lightning component hierarchy -->
+    <div class="nds-form-element__control">
+
+        <label class='nds-checkbox'>
+
+            <input id='{{::control.name}}'
+                   ng-disabled='control.ro'
+                   ng-required='control.req'
+                   type='checkbox'
+                   ng-model='option.selected'
+                   vlc-slds-val-checker="response"
+                   ng-change='onMultiSelect(this, control, option)'/>
+
+            <span class="nds-checkbox_faux" ng-if='control.propSetMap.horizontalMode!=="image"'></span>
+            <span class="nds-form-element__label" ng-if='control.propSetMap.horizontalMode!=="image"'>{{::option.value}}</span>
+
+        </label>
+
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+<div class='nds-size_1-of-1'>
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-m-bottom_large nds-p-around_small nds-input__tooltip'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control nds-form-element__control-animated-label nds-grid">
+
+            <input id='{{::control.name}}'
+                type='text'
+                ng-disabled='control.ro'
+                ng-required='control.req'
+                name="loopname"
+                ng-model='control.response'
+                ng-blur='aggregate(this, control.index, control.indexInParent, true, -1)'
+                ng-model-options="{ updateOn: 'default focusout blur', debounce: { 'default': control.propSetMap.debounceValue, 'focusout': 0, 'blur': 0 } }"
+                class='nds-input'
+                vlc-slds-val-checker="telControl"
+                ui-mask='{{::control.propSetMap.mask}}'
+                ng-minlength='{{::control.propSetMap.minLength}}'
+                ng-maxlength='{{::control.propSetMap.maxLength}}'
+                vlc-slds-ng-pattern='{{::control.propSetMap.pattern}}'
+                vlc-slds-attr="placeholder"
+                vlc-slds-toggle-help-text />
+
+
+            <label for="{{::control.name}}" class='nds-form-element__label'>
+                {{::control.propSetMap.label}}
+                <span class='nds-required'
+                    ng-if='control.req'>*
+                </span>
+            </label>
+
+            <div vlc-slds-include="vlcLabelController.html"></div>
+
+        </div>
+        <div class="nds-form-element__control-help" ng-if="control.propSetMap.help">{{control.propSetMap.helpText}}</div>
+        <div ng-include="::errHTMLId"></div>
+
+    </ng-form>
+
+</div>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Collections Activities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Collections Activity --></label>
+        <name>vlocity_cmt__CollectionsActivity__c</name>
+        <picklistValues>
+            <masterLabel>Disconnect Notice</masterLabel>
+            <translation><!-- Disconnect Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Late Payment Assessed</masterLabel>
+            <translation><!-- Late Payment Assessed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Past Due Notice</masterLabel>
+            <translation><!-- Past Due Notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment Plan Deactivated</masterLabel>
+            <translation><!-- Payment Plan Deactivated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Write-off</masterLabel>
+            <translation><!-- Write-off --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Collections Amount --></label>
+        <name>vlocity_cmt__CollectionsAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collections Activity End Date --></label>
+        <name>vlocity_cmt__CollectionsEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Collections Activity Start Date --></label>
+        <name>vlocity_cmt__CollectionsStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Collections Activity --></label>
+        <name>vlocity_cmt__NextCollectionsActivity__c</name>
+        <picklistValues>
+            <masterLabel>Disconnect notice</masterLabel>
+            <translation><!-- Disconnect notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Late payment assessed</masterLabel>
+            <translation><!-- Late payment assessed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Past due notice</masterLabel>
+            <translation><!-- Past due notice --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment plan deactivated</masterLabel>
+            <translation><!-- Payment plan deactivated --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

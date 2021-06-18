@@ -1,0 +1,12 @@
+<div class="nds-col_padded nds-size_1-of-1">
+    <ng-form name='loopform'
+             class='nds-form-element vlc-flex vlc-slds-input_block'
+             id='{{::control.name}}'
+             ng-repeat='control in child.eleArray' >
+
+        <ng-include class='nds-size_1-of-1 nds-clearfix'
+                    ng-if='ngInitValidation(this, control)'
+                    src='::control.propSetMap.HTMLTemplateId'>
+
+    </ng-form>
+</div>

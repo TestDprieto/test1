@@ -1,0 +1,73 @@
+{
+    "AccountId": "001f400000R8I3eAAF",
+    "ContractEffectiveStartDate": "2019-02-21",
+    "ContractId": "",
+    "ContractStatus": "Draft",
+    "FrameContractCount": 1,
+    "Order": {
+        "AccountId": "001f400000R8I3eAAF",
+        "FrameContract": {
+            "Id": "800f4000000dapXAAQ",
+            "Status": "Draft",
+            "Version": {
+                "Discount": [
+                    {
+                        "AppliesToAllItems": true,
+                        "Description": "TEST ORDER DISCOUNT 1 DESCRIPTIONS",
+                        "DiscountItem": {
+                            "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                            "Description": "TEST ORDER DISCOUNT ITEM1",
+                            "Name": "TEST ORDER DISCOUNT ITEM1",
+                            "ProductId": "01tf4000003hmOdAAI"
+                        },
+                        "DiscountPricing": {
+                            "AdjustmentValue": 100,
+                            "Amount": 10,
+                            "Name": "TEST ORDER DISCOUNT PRICING1",
+                            "PricingVariableId": "a2rf4000000Qwz7AAC",
+                            "TimePlanId": "a39f4000000R2vhAAC",
+                            "TimePolicyId": "a3Af40000009YaJEAU"
+                        },
+                        "EffectiveEndDate": "2020-01-21T21:13:00.000Z",
+                        "EffectiveStartDate": "2019-01-21T21:13:00.000Z",
+                        "Name": "TestOrderDiscount1",
+                        "ReferenceNumber": "lwkdalkmsdlk",
+                        "TemplateId": "a2yf4000000unwXAAQ"
+                    },
+                    {
+                        "AppliesToAllItems": true,
+                        "Description": "TEST ORDER DISCOUNT 1 DESCRIPTIONS",
+                        "DiscountItem": {
+                            "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                            "Description": "TEST ORDER DISCOUNT ITEM2",
+                            "Name": "TEST ORDER DISCOUNT ITEM--2",
+                            "ProductId": "01tf4000003hmOdAAI"
+                        },
+                        "DiscountPricing": {
+                            "AdjustmentValue": 2000,
+                            "Amount": 99,
+                            "Name": "TEST ORDER DISCOUNT PRICING2",
+                            "PricingVariableId": "a2rf4000000Qwz7AAC",
+                            "TimePlanId": "a39f4000000R2vhAAC",
+                            "TimePolicyId": "a3Af40000009YaJEAU"
+                        },
+                        "EffectiveStartDate": "2019-01-21T21:13:00.000Z",
+                        "Name": "TestOrderDiscount2",
+                        "ReferenceNumber": "lwkdalkmsdlk"
+                    }
+                ],
+                "DocumentCeationSource": "Generate",
+                "DocumentTemplateId": "a0Xf40000013o0YEAQ"
+            }
+        },
+        "FrameContractCount": 1,
+        "Name": "New Order"
+    },
+    "OrderId": "801f4000001V6RU",
+    "StartDate": "2019-02-21",
+    "VersionStatus": "Active",
+    "errorDetails": "",
+    "errorInfo": "",
+    "errorOK": "",
+    "isFrameContract": true
+}

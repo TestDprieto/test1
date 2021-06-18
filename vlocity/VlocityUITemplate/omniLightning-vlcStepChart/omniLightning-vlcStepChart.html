@@ -1,0 +1,63 @@
+<div class="vlc-slds-wizard"
+     role="navigation" vlc-slds-toggle-element="test">
+
+    <!-- step instructions section OMNI-2008 -->
+    <vlc-slds-instruction></vlc-slds-instruction>
+
+    <label class="slds-form-element__label vlc-slds-step-chart--title">
+        {{::customLabels.OmniStepChartDesc}}
+    </label>
+
+
+    <!-- this banner is the header  in mobile -->
+    <vlc-slds-banner src="vlcSldsHeadingBanner.html"></vlc-slds-banner>
+
+    <ol class="list-group vertical-steps">
+        <li ng-repeat="step in ::children"
+            ng-if="step.type === 'Step' && step.show"
+            class="list-group-item"
+            state="{{step.bAccordionActive}}"
+            ng-click="sidebarNav(step)"
+            vlc-slds-step-styler>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'close'"
+                           size="'small'"
+                           extra-classes="'slds-icon-text-default'"
+                           ng-if="step.tInvalid">
+            </slds-svg-icon>
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'check'"
+                           size="'small'"
+                           extra-classes="'slds-icon-text-default'"
+                           ng-if="!step.tInvalid">
+            </slds-svg-icon>
+            <span class="slds-form-element__label">
+              {{::step.propSetMap.chartLabel || step.propSetMap.label}}
+            </span>
+        </li>
+    </ol>
+
+    <div class="vlc-slds-container--grippy">
+        <span class="vlc-slds--grippy" vlc-slds-expand="test">
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'chevrondown'"
+                           size="'small'"
+                           extra-classes="'slds-icon-text-default'">
+            </slds-svg-icon>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'chevronup'"
+                           size="'small'"
+                           extra-classes="'slds-icon-text-default'">
+            </slds-svg-icon>
+
+        </span>
+    </div>
+
+</div>

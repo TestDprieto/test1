@@ -1,0 +1,48 @@
+<div class='nds-size_1-of-1'>
+    <ng-form name='loopform'
+             class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control">
+
+            <!-- safely binds the html content in the editor to the element  -->
+            <div class="nds-disclosure">
+                <div class='nds-form-element__label nds-m-bottom_x-small'>
+                    {{::control.propSetMap.label}}
+                    <span class='nds-required'
+                       ng-if='validateRequired(this, control, option) && control.req'>*
+                    </span>
+                </div>
+                <div class='nds-box'>
+                    <p vlc-bind-html="::control.propSetMap.text"></p>
+                </div>
+                <div class='nds-m-top_x-small'>
+                    <!-- checkbox at the bottom -->
+                    <label class="nds-checkbox">
+                        <input id='{{::control.name}}'
+                               ng-disabled='control.ro'
+                               ng-required='control.req'
+                               type='checkbox'
+                               name='loopname'
+                               ng-model='control.response'
+                               ng-init='init(this, control)'
+                               vlc-slds-val-checker="response"
+                               ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'/>
+
+                        <span class="nds-checkbox_faux"></span>
+                        <span class="nds-form-element__label">{{::control.propSetMap.checkLabel}}</span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- generic error block styling needs to be done -->
+            <div ng-include="::errHTMLId"></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

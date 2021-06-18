@@ -1,0 +1,22 @@
+<div class="nds-col_padded nds-size_1-of-1">
+    <ng-form name='loopform'
+             class='nds-form-element'
+             id='{{::control.name}}'
+             ng-init="control.blockIndex = child.blockIndex"
+             ng-repeat='control in child.eleArray' >
+
+        <div class="nds-form-element__control">
+            <div class='nds-size_1-of-1'>
+                <div  class="nds-grid nds-wrap nds-grid_pull-padded">
+                    <child class="nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_{{ $index === 0 ? 12 : child.eleArray[0].propSetMap.controlWidth}}-of-12"
+                           ng-repeat='child in ::children = control.children'
+                           ng-init="($index === 0 ? child.eleArray[0].blockIndex = control.blockIndex:''); ($index === 0 ? child.eleArray[0].noformatterebmodal = control.noformatterebmodal:''); (control.propSetMap.isTypeaheadEdit = control.propSetMap.editMode)"
+                           ng-show='$index === 0 || ($index !== 0 && (control.propSetMap.isTypeaheadEdit && !control.propSetMap.enableLookup)&& !child.eleArray[0].propSetMap.hide)'>
+                    </child>
+                </div>
+            </div>
+        </div>
+
+    </ng-form>
+
+</div>

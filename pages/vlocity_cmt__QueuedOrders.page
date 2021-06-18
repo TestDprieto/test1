@@ -1,0 +1,118 @@
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.QueuedOrdersController" title="{!$Label.vlocity_cmt__queuedorderheaderlabel}">
+    <html xmlns:ng="http://angularjs.org" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="QueuedOrders" class="ng-cloak">
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+            <script type="text/javascript" src="/support/console/31.0/integration.js"></script>
+            <script type="text/javascript" src="/soap/ajax/31.0/connection.js"></script>
+            <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.SldsAngular)}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.QueuedOrders)}"></script>
+            <style>
+                .slds-input.page-number {
+                    padding: 0 .2rem 0 .3rem;
+                    width: 40px;
+                }
+                .schedule-submit .slds-page-header__detail-block {
+                    max-width: 26%;
+                }
+            </style>
+        </head>
+        <body ng-controller="QueuedOrdersController" ng-init="init()">
+            <div class="via-slds">
+                <div class="slds-p-around_medium">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-has-flexi-truncate">
+                            <h1 class="slds-page-header__title slds-truncate" title="{{pageTitle}}">{{labels.QueuedOrderHeaderLabel}}</h1>
+                        </div>
+                        <div class="slds-col slds-no-flex slds-align-bottom">
+                            <div class="slds-grid">
+                                <div class="slds-button-space-left">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control slds-input-has-icon  custom-slds-icon--modified">
+                                            <slds-svg-icon size="'small'" extra-classes="'slds-input__icon slds-icon-text-default slds-m-left--small'" sprite="'utility'" icon="'search'"></slds-svg-icon>
+                                            <input class="slds-input slds-p-left--x-large" autofocus="true" ng-change="getQueuedOrders(searchParam, pageSize, offset, sortField, isAsc)" ng-model="searchParam" ng-model-options="{debounce: 1000}"
+                                            placeholder="Number/Id/Account"></input>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slds-button-space-left">
+                                    <button class="slds-button slds-button--icon-border slds-not-selected" ng-click="refresh()" title="refresh">
+                                        <slds-button-svg-icon sprite="'utility'" icon="'refresh'"></slds-button-svg-icon>
+                                        <span class="slds-assistive-text">refresh</span>
+                                    </button>
+                                </div>
+                                <div class="slds-button-space-left">
+                                    <button class="slds-button slds-button_neutral" ng-click="scheduleSubmitJob()" title="refresh">
+                                        {{labels.ScheduleFDOBatchJobLabel}}
+                                    </button>
+                                    <button class="slds-button slds-button_neutral" ng-click="submitAll()" title="refresh">
+                                        {{labels.SubmitAllButtonLabel}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <ng-include src="'QueuedOrdersTable.tpl.html'"></ng-include>
+                </div>
+            </div>
+            <script type="text/javascript">
+                var remoteActions = {
+                    getQueuedOrders: {
+                        action: "{!$RemoteAction.QueuedOrdersController.getQueuedOrders}",
+                        config: {escape: false}
+                    },
+                    getDisplayFields: {
+                        action: "{!$RemoteAction.QueuedOrdersController.getDisplayFields}",
+                        config: {escape: false}
+                    },
+                    getRecordCount: {
+                        action: "{!$RemoteAction.QueuedOrdersController.getRecordCount}",
+                        config: {escape: false}
+                    },
+                    forceSubmitOrder: {
+                        action: "{!$RemoteAction.QueuedOrdersController.forceSubmitOrder}",
+                        config: {escape: false}
+                    },
+                    submitAllOrders: {
+                        action: "{!$RemoteAction.QueuedOrdersController.submitAllOrders}",
+                        config: {escape: false}
+                    },
+                    scheduleFDOSubmitBatch: {
+                        action: "{!$RemoteAction.QueuedOrdersController.scheduleFDOSubmitBatch}",
+                        config: {escape: false}
+                    },
+                    getScheduleFDOSubmitBatch: {
+                        action: "{!$RemoteAction.QueuedOrdersController.getScheduleFDOSubmitBatch}",
+                        config: {escape: false}
+                    }
+                };
+
+                var labels = {
+                    QueuedOrderHeaderLabel: "{!$Label.vlocity_cmt__queuedorderheaderlabel}",
+                    OkLabel: "{!$Label.Ok}",
+                    CancelLabel: "{!$Label.Cancel}",
+                    ForceSubmitOrderMessage: "{!$Label.ForceSubmitOrderMessage}",
+                    QueuedOrderSubmitBatchLabel: "{!$Label.QueuedOrderSubmitBatchLabel}",
+                    SubmittingLabel: "{!$Label.SubmittingLabel}",
+                    SubmittedSuccLabel: "{!$Label.SubmittedSuccLabel}",
+                    SubmitFailedLabel: "{!$Label.SubmitFailedLabel}",
+                    SubmitOrderAllMessage: "{!$Label.SubmitOrderAllMessage}",
+                    BatchSubmitMessage: "{!$Label.BatchSubmitMessage}",
+                    ForceSubmitLabel: "{!$Label.ForceSubmitLabel}",
+                    NoOrderInQueueMessage: "{!$Label.NoOrderInQueueMessage}",
+                    AccountLabel: "{!$Label.AccountLabel}",
+                    ActionLabel: "{!$Label.ActionLabel}",
+                    SubmitAllButtonLabel: "{!$Label.SubmitAllButtonLabel}",
+                    ScheduleFDOBatchJobLabel: "{!$Label.ScheduleFDOBatchJobLabel}"
+                };
+
+                 var configData = {
+                    nsPrefix: "{!nsPrefix}"
+                };
+            </script>
+        </body>
+    </html>
+</apex:page>

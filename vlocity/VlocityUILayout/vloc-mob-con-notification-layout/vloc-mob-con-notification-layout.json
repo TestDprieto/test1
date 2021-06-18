@@ -1,0 +1,20 @@
+{
+    "Cards": [
+        "vloc-mob-con-notification"
+    ],
+    "dataSource": {
+        "type": "ApexRest",
+        "value": {
+            "endpoint": "/services/apexrest/%vlocity_namespace%/v1/acuity/{{attrs.type}}?contextId={{$root.currentUser.Account.attributes.url.substring(38)}}&pageSize=1"
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "vloc-mob-con-blank-canvas"
+        }
+    },
+    "workspace": [
+        "vloc-mob-con-notification/Vlocity Demo Org/null/1535629415095"
+    ]
+}

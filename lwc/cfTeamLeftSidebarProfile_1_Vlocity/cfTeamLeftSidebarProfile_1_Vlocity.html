@@ -1,0 +1,68 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative">
+            <div if:false={cardLoaded} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: white; z-index: 99;">
+  <div>
+   <vlocity_cmt-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_cmt-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <vlocity_cmt-flex-card-state key={record.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-theme_shade slds-card slds-border_top slds-p-around_x-small slds-m-bottom_x-small " style="background-color:#FFFFFF;     border-color:#cccccc; border-width:5px; border-radius:5;      ">
+          <div class="slds-col   slds-size_6-of-12  " style=""><vlocity_cmt-output-field  placeholder=""  record={record}  field-name="Name"  label=""  card={card}  type="text"  styles='\{"value":{"textAlign":"left","color":"#000000","fontSize":"28px"},"label":{"fontSize":"16px","textAlign":"left"}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_12-of-12  " style="     border-color:#cccccc; border-width:8pxpx;       "><vlocity_cmt-output-field  placeholder=""  record={record}  type="text"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="Industry"  label="Industry"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="Type"  label="Type"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="Platinum"  record={record}  field-name=""  label="SLA"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12 " style=""><vlocity_cmt-output-field  placeholder=""  record={record}  type="text"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="11/01/2011"  record={record}  field-name="vlocity_cmt__DateFounded__c"  label="Customer Since"  card={card}  type="date"  format="M/D/YYYY"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="AnnualRevenue"  label="Annual Revenue"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  mask=""  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="NumberOfEmployees"  label="Employees"  card={card}  type="number"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12 " style=""><vlocity_cmt-output-field  placeholder=""  record={record}  type="text"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12 " style=""><c-cf-team-attribute-tags-child  tracking-obj={_childCardTrackingObj}   record-id={recordId}  parent-data={_dataNode}  is-child-card-tracking-enabled="false"  parent-record={record}  records={_records}  theme="slds"  onupdateparent={updateParentData}></c-cf-team-attribute-tags-child>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <vlocity_cmt-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12 "  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-theme_shade slds-card slds-border_top slds-p-around_x-small slds-m-bottom_x-small " style="background-color:#FFFFFF;     border-color:#cccccc; border-width:5px; border-radius:5;      ">
+          <div class="slds-col   slds-size_6-of-12  " style=""><vlocity_cmt-output-field  placeholder=""  record={record}  field-name="Name"  label=""  card={card}  type="text"  styles='\{"value":{"textAlign":"left","color":"#000000","fontSize":"28px"},"label":{"fontSize":"16px","textAlign":"left"}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col  slds-border_top  slds-size_12-of-12  " style="     border-color:#cccccc; border-width:8pxpx;       "><vlocity_cmt-output-field  placeholder=""  record={record}  type="text"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="Industry"  label="Industry"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="Type"  label="Type"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="Platinum"  record={record}  field-name=""  label="SLA"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12 " style=""><vlocity_cmt-output-field  placeholder=""  record={record}  type="text"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="11/01/2011"  record={record}  field-name="vlocity_cmt__DateFounded__c"  label="Customer Since"  card={card}  type="date"  format="M/D/YYYY"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="AnnualRevenue"  label="Annual Revenue"  card={card}  type="text"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  mask=""  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col    slds-size_4-of-12  " style="     border-color:#cccccc;        "><vlocity_cmt-output-field  placeholder="output"  record={record}  field-name="NumberOfEmployees"  label="Employees"  card={card}  type="number"  styles='\{"label":{"fontSize":"12px","textAlign":"left","color":"#000000"},"value":{"fontSize":"16px","color":"#000000","textAlign":"left","textDecoration":""}}'  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12 " style=""><vlocity_cmt-output-field  placeholder=""  record={record}  type="text"  card={card}  theme="slds" ></vlocity_cmt-output-field>
+      </div><div class="slds-col   slds-size_12-of-12 " style=""><c-cf-team-attribute-tags-child  tracking-obj={_childCardTrackingObj}   record-id={recordId}  parent-data={_dataNode}  is-child-card-tracking-enabled="false"  parent-record={record}  records={_records}  theme="slds"  onupdateparent={updateParentData}></c-cf-team-attribute-tags-child>
+    </div>
+        </div>
+      </vlocity_cmt-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_cmt-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+      
+      </vlocity_cmt-action>
+  
+            <vlocity_cmt-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+            
+            </vlocity_cmt-action>
+            </div>
+          </template>

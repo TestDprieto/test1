@@ -1,0 +1,36 @@
+{
+    "Cards": [
+        "clm-contract-term-discount-card"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "a3Nf2000001O8W4EAK"
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "versionId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.ContractTermRuntimeHandler"
+            },
+            "remoteClass": "ContractTermRuntimeHandler",
+            "remoteMethod": "getContractPricingTerms",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "",
+            "vlocityAsync": false
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "clm-contract-term-discounts"
+        }
+    },
+    "workspace": [
+        "clm-contract-term-discount-card/vlocityDev/1/1549062015452"
+    ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Event Data --></label>
+        <name>vlocity_cmt__EventData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Record --></label>
+        <name>vlocity_cmt__EventRecordId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Time --></label>
+        <name>vlocity_cmt__EventTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Event Type --></label>
+        <name>vlocity_cmt__EventType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>vlocity_cmt__OrderId__c</name>
+        <relationshipLabel><!-- Order Event Log Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order Product --></label>
+        <name>vlocity_cmt__OrderItemId__c</name>
+        <relationshipLabel><!-- Order Event Log Entries --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

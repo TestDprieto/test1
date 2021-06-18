@@ -1,0 +1,26 @@
+<div class='vlocity nds-modal nds-fade-in-open nds-modal_knowledge'>
+    <div class='nds-modal__container'>
+        <div class="nds-modal__header">
+            <h3 class="modal-title">{{step.articleTitle}}</h3>
+
+             <slds-svg-icon aria-hidden="true"
+               sprite="'utility'"
+               ng-click="cancel()"
+               icon="'close'"
+               size="'small'"
+               extra-classes="'nds-button__icon nds-button__icon_medium nds-button_close'">
+        </div>
+
+        <div class="nds-modal__content nds-p-around_medium">
+            <div class="panel panel-default">
+                <div class='vlc-textblock-text'>
+                    <p ng-bind-html='step.articleBody'></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nds-modal__footer">
+            <button class="btn btn-primary" ng-click="cancel()">{{ ::customLabels.OmnipostMessage }}</button>
+        </div>
+    </div>
+</div>

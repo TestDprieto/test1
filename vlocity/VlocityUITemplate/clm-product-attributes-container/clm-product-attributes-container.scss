@@ -1,0 +1,144 @@
+/*@import "ins-product-attributes-variables";*/
+
+.via-slds{
+
+    .clm-product-atttributes-container {
+        /*background: $cards-gray;*/
+        background: #f4f6f9;
+        .vloc-sorted-column{
+            background-color: rgb(255, 255, 255);
+            box-shadow: rgb(0, 112, 210) 0 0 0 1px inset, rgb(0, 112, 210) -0.25rem 0 0 inset;
+            color: currentColor;
+            cursor: pointer;
+        }
+        .vloc-not-sorted-column{
+            &:hover{
+                box-shadow: rgb(216, 221, 230) -0.25rem 0 0 inset;
+                background-color: rgb(255, 255, 255);
+                color: currentColor;
+                cursor: pointer;
+            }
+        }
+
+        .slds-tabs_default__nav{
+            background: white;
+        }
+
+        .vloc-attr-table {
+            background: white;
+            min-height: 45rem;
+            -webkit-transition: all 0.3s ease;                  
+            -moz-transition: all 0.3s ease;                 
+            -o-transition: all 0.3s ease;   
+            -ms-transition: all 0.3s ease;          
+            transition: all 0.3s ease;
+
+            &.newAttr{
+                width: 50%;
+            }
+            
+            .vloc-attr-table-header{
+                /*border-bottom: 1px solid  $cards-border-gray;*/
+                border-bottom: 1px solid  #d8dde6;
+                .vloc-attr-title-cell {
+                    &:hover{
+                        cursor:pointer;
+                    }
+                 }
+            }
+        }
+        .vloc-attr-config-container{
+            position: relative;
+            /*background: $cards-gray;*/
+            background: #f4f6f9;
+
+            -webkit-transition: all 0.3s ease;                  
+            -moz-transition: all 0.3s ease;                 
+            -o-transition: all 0.3s ease;   
+            -ms-transition: all 0.3s ease;          
+            transition: all 0.3s ease;
+
+            &.newAttr{
+                width: 50%;
+            }
+
+            .vloc-attr-input-title{
+                background: none;
+                border: none;
+                border-radius: 0;
+                padding: 0;
+                &:focus{
+                    box-shadow: none;
+                    /*border-bottom: 1px solid $primary-light;*/
+                    border-bottom: 1px solid #0070D2;
+                }
+            }
+
+            .vloc-attr-config-close{
+                position: absolute;
+                right: 0;
+                top: .25rem; 
+                &:hover{
+                    cursor: pointer;
+                }
+            }
+            .vloc-attr-actions-container{
+                position: absolute;
+                right: 1.1rem;
+                top: .5rem;
+                .vloc-attr-delete{
+                &:hover{
+                    cursor: pointer;
+                }
+                }
+                .vloc-attr-rules{
+                    background: #0070D2;
+                    color: white;
+                    border-radius: 1.5rem;
+                    padding: 0rem .1rem;
+                    position: relative;
+                    font-size: 1rem;
+                    top: .1rem;
+                    &:hover{
+                        cursor: pointer;
+                    }
+
+                    &.vloc-theme_error {
+                        background: #c23934;
+                    }
+
+                    .number{
+                        font-size: .75rem;
+                        padding-left: .21rem;
+                        position: relative;
+                        top: -.1rem;
+                        left: .15rem;
+                    }
+
+                    .slds-button__icon{
+                        position: relative;
+                        top: -.1rem;
+                        width: 1.2rem;
+                        height: 1.2rem;
+                    }
+
+                }
+            }
+
+            .vloc-attr-config-grid {
+                background: white;
+
+                .vloc-attrs-input{
+                    border: none;
+                    border-radius: 0;
+                    padding: 0;
+                    &:focus{
+                        box-shadow: none;
+                        /*border-bottom: 1px solid $primary-light;*/
+                        border-bottom: 1px solid #0070D2;
+                    }
+                }
+            }
+        }
+    }
+}

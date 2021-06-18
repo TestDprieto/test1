@@ -1,0 +1,112 @@
+<div class="nds-size_1-of-1">
+  <ng-form name='loopform'
+             class='nds-form-element nds-m-bottom_large nds-p-around_small'
+             id="{{::control.name + '|' + $index}}"
+             ng-required="control.req"
+             ng-repeat='control in child.eleArray'>
+
+    <div class="nds-form-element">
+      <div class="nds-form-element__legend nds-form-element__label" for="{{::control.name + '|' + $index}}">
+        <span>{{::control.propSetMap.label}}</span>
+        <span class='nds-required' ng-if='validateRequired(this, control, option) && control.req'> *
+        </span>
+        <a class="nds-tooltip_container" vlc-slds-tool-tip="test" nubbin-direction="auto top-left" ng-if="control.propSetMap.help" ng-include="'vlcHelptextInfoIcon.html'"></a>
+        <div vlc-slds-include="vlcLabelController.html"></div>
+      </div>
+
+
+      <div class="nds-form-element__control" 
+            ng-if="control.propSetMap.horizontalMode !== 'image'"
+            ng-class="{'nds-vertical_checkbox': !control.propSetMap.horizontalMode, 'nds-horizontal_checkbox': control.propSetMap.horizontalMode}"
+            ng-init='init(this, control)'>
+        <label class="nds-checkbox" 
+                  ng-repeat='option in getOptions(control, this.$parent) track by option.name'>
+                  <input id='{{::control.name}}'
+                     ng-disabled='control.ro'
+                     type='checkbox'
+                     ng-model='option.selected'
+                     vlc-slds-mu-val-checker="response"
+                     ng-change='onMultiSelect(this, control, option)'/>
+
+                  <span class="nds-checkbox__label" for="{{::control.name}}">
+                      <span class="nds-checkbox_faux"></span>
+                      <span class="nds-form-element__label">{{option.value}}</span>
+                  </span>
+        </label>
+      </div>
+
+      <div class="nds-form-element__control" ng-if="(control.propSetMap.horizontalMode === 'image' && control.propSetMap.imageCountInRow)">
+        <div class="nds-checkbox_custom-group nds-clearfix" ng-init='init(this, control)'>
+          <label class="nds-button nds-checkbox_button nds-checkbox_aspect-ratio" 
+                  ng-repeat='option in getOptions(control, this.$parent) track by option.name' 
+                  ng-class="{'nds-float_left':(false !== control.propSetMap.horizontalMode)}" 
+                  ng-style='{"width": "calc(100% /" + control.propSetMap.imageCountInRow + " - 1.25rem)", "padding-top":(control.propSetMap.optionHeight)?control.propSetMap.optionHeight: "calc(100%/"+control.propSetMap.imageCountInRow + " - 1.25rem)", "margin-bottom": (control.propSetMap.horizontalMode == "image" && option.imgId)?"1.5rem":"0.5rem"}'>
+
+            <input id='{{::control.name}}'
+                   ng-disabled='control.ro'
+                   type='checkbox'
+                   ng-model='option.selected'
+                   vlc-slds-mu-val-checker="response"
+                   ng-change='onMultiSelect(this, control, option)'/>
+
+            <span class="nds-checkbox_button__label" ng-if='control.propSetMap.horizontalMode == "image"'>
+              <img
+                ng-if='control.propSetMap.horizontalMode == "image" && option.imgId && control.propSetMap.optionSource.type == "image"'
+                class='imgItem'
+                src="{{option.imgId}}"
+                alt='{{option.value}}'
+                title='{{option.value}}' />
+              <span class="nds-checkbox_custom-faux" ng-class="{'nds-title':!(control.propSetMap.horizontalMode == 'image' && option.imgId)}" ng-if='!option.imgId || control.propSetMap.enableCaption'>{{option.value}}</span>
+            </span>
+
+            <span class="nds-checkbox_button__label" ng-if='control.propSetMap.horizontalMode != "image"'>
+              <span class="nds-checkbox_custom-faux nds-title">{{option.value}}</span>
+            </span>
+          </label>
+        </div>
+        </div>
+
+
+        <div class="nds-form-element__control" ng-if="(control.propSetMap.horizontalMode === 'image' && !control.propSetMap.imageCountInRow)">
+
+        <div class="nds-checkbox_custom-group nds-clearfix"
+              ng-init='init(this, control)'>
+          <label class="nds-button nds-checkbox_button" 
+                  ng-repeat='option in getOptions(control, this.$parent) track by option.name' 
+                  ng-class="{'nds-float_left':(false !== control.propSetMap.horizontalMode)}"
+                  ng-style="{'margin-bottom': (control.propSetMap.horizontalMode == 'image' && option.imgId)?'1.5rem':'0.5rem', 'width': control.propSetMap.optionWidth+'px','height':control.propSetMap.optionHeight+'px'}">
+            <input id='{{::control.name}}'
+                   ng-disabled='control.ro'
+                   type='checkbox'
+                   ng-model='option.selected'
+                   vlc-slds-mu-val-checker="response"
+                   ng-change='onMultiSelect(this, control, option)'/>
+
+            <span class="nds-checkbox_button__label" ng-if='control.propSetMap.horizontalMode == "image"'>
+              <img
+                ng-if='control.propSetMap.horizontalMode == "image" && option.imgId && control.propSetMap.optionSource.type == "image"'
+                class='imgItem'
+                src="{{option.imgId}}"
+                alt='{{option.value}}'
+                title='{{option.value}}' />
+              <span class="nds-checkbox_custom-faux" ng-class="{'nds-title':!(control.propSetMap.horizontalMode == 'image' && option.imgId)}" ng-if='!option.imgId || control.propSetMap.enableCaption'>{{option.value}}</span>
+            </span>
+
+            <span class="nds-checkbox_button__label" ng-if='control.propSetMap.horizontalMode != "image"'>
+              <span class="nds-checkbox_custom-faux nds-title">{{option.value}}</span>
+            </span>
+          </label>
+        </div>
+
+      </div>
+    </div>
+    <div class='nds-has-error nds-grid'>
+       <div ng-show='loopform.$error' ng-hide='loopform.$pristine'>
+           <small ng-show='loopform.$error.required' class="nds-form-element__help">{{::customLabels.OmniRequired}}</small>
+       </div>
+       <div ng-show='control.srvErr'>
+           <small ng-show='control.srvErr'  class="nds-form-element__help" ng-show='control.srvErr'>{{control.srvErr}}</small>
+       </div>
+    </div>
+  </ng-form>
+</div>

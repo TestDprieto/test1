@@ -1,0 +1,45 @@
+{
+    "Cards": [
+    ],
+    "customPreviewPages": [
+        {
+            "group": "Custom Pages",
+            "label": "",
+            "namespacePrefix": "",
+            "page": ""
+        }
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "a3Nf2000001O5x3EAC"
+            }
+        ],
+        "orderBy": {
+            "isReverse": ""
+        },
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "versionId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.ContractTermRuntimeHandler"
+            },
+            "remoteClass": "ContractTermRuntimeHandler",
+            "remoteMethod": "getVersionData",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "",
+            "timeout": null
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "clm-runtime-header-template"
+        }
+    },
+    "workspace": [
+    ]
+}

@@ -1,0 +1,6 @@
+<apex:page standardcontroller="Order" extensions="vlocity_cmt.CardCanvasController" standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+    <script type="text/javascript">
+        var nsp = '{!JSENCODE(nsPrefix)}'
+        window.location.href = nsp + 'HybridCPQ?id={!Order.Id}';
+    </script>
+</apex:page>

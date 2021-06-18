@@ -1,0 +1,56 @@
+{
+    "GlobalKey__c": "Contact/Vlocity/1495043462711",
+    "dataSource": {
+        "type": null
+    },
+    "enableLwc": false,
+    "filter": {
+    },
+    "states": [
+        {
+            "blankStateCheck": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Id",
+                    "name": "['Id']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Name",
+                    "name": "['Name']",
+                    "type": "string"
+                }
+            ],
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "cardActiveState",
+                "Id": "0Rbf4000000Xa2BCAS",
+                "MasterLabel": "card-active-state",
+                "name": "cardActiveState"
+            },
+            "name": "Active",
+            "smartAction": {
+            },
+            "templateUrl": "card-active-slds"
+        }
+    ],
+    "title": "Contact"
+}

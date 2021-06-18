@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Applies To All Items --></label>
+        <name>vlocity_cmt__AppliesToAllItems__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Document --></label>
+        <name>vlocity_cmt__ContractVersionId__c</name>
+        <relationshipLabel><!-- Contract Document Discounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Discount Template --></label>
+        <name>vlocity_cmt__DiscountTemplateId__c</name>
+        <relationshipLabel><!-- ContractDocumentDiscounts --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Effective End Date --></label>
+        <name>vlocity_cmt__EffectiveEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Start Date --></label>
+        <name>vlocity_cmt__EffectiveStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Number --></label>
+        <name>vlocity_cmt__ReferenceNumber__c</name>
+    </fields>
+</CustomObjectTranslation>

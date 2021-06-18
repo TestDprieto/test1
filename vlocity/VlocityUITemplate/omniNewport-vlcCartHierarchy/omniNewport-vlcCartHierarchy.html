@@ -1,0 +1,34 @@
+<div class="vcart-items">
+    <div class="cart-icon-pointer">
+        <span ng-if="(i.isExpanded && i.cartItems !== undefined)">
+            <a ng-click="i.isExpanded = !i.isExpanded"><span class="glyphicon icon-v-down-arrow"></span></a>
+        </span>
+        <span ng-if="(!i.isExpanded && i.cartItems !== undefined)">
+            <a ng-click="i.isExpanded = !i.isExpanded"><span class="glyphicon icon-v-right-arrow"></span></a>
+        </span>
+    </div>
+    <div class="col-md-8 vcart-label-box">
+        <label class="item-name">{{i.itemSObject.PricebookEntry.Product2.Name}}
+        </label>
+        <p><label>{{::customLabels.OmniOneTime}}</label> {{i.itemSObject[nsPrefix + 'OneTimeTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</p>
+        <p><label>{{::customLabels.OmniMonthly}}</label> {{i.itemSObject[nsPrefix + 'RecurringTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</p>
+        <span class = 'vlocity-error vlocity-error-cart' ng-repeat="e in i.errors">
+            {{e}}
+        </span>
+    </div>
+    <div class="quantity col-md-3 vcart-quantity">
+        <span>x</span>
+        <input type="number" name="quantity" class="vcart-quantity" min='0' step="1" ng-model="i.itemSObject.Quantity" ng-change="pcAction(vlcPC.pcIndex, bpTree, this, i, 'Update')"/>
+        <!--
+        <input type="number" name="quantity" min='0' step="1" ng-model="i.itemSObject.Quantity" ng-disabled="true"/>
+        -->
+       <div class="vlc-prod-conf-setting">
+            <span class="icon icon-v-trash" ng-click="pcAction(vlcPC.pcIndex, bpTree, this, i, 'Delete')"></span>
+            <span class="vlc-prod-span-setting"><span  ng-if="i.isRoot && i.isConfigurable" class="glyphicon icon-v-setting" ng-click="configureItem(bpTree, null, this, i, 'configureProdInCart', baseCtrl.customHandleSelectedItem, baseCtrl.customIsConfigurable, vlcPC.pcIndex)"></span></span>
+       </div>
+    </div>
+</div>
+<div ng-if ="i.cartItems !== undefined" class="vcart-child-items" collapse="!(i.isExpanded)">
+    <div class="item row" id="dummy"></div>
+    <div class="item row" ng-repeat="i in i.cartItems" ng-include="'vlcCartHierarchy.html'">
+</div>

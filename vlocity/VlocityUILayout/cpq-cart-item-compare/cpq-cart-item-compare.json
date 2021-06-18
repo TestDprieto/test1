@@ -1,0 +1,27 @@
+{
+    "Cards": [
+    ],
+    "dataSource": {
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "cartId": "{{params.id}}",
+                "includeAttributes": "true",
+                "itemId": "{{params.itemId}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.CpqAppHandler"
+            },
+            "remoteClass": "CpqAppHandler",
+            "remoteMethod": "compareOffers",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": ""
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "cpq-cart-item-compare"
+        }
+    }
+}

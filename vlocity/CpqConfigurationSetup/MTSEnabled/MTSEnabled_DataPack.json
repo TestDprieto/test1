@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "This setting, when set to true, is used to turn on the Multi Transactional Framework. When enabled it can be used to split the transaction, to avoid hitting the governor limits.",
+    "%vlocity_namespace%__SetupValue__c": "true",
+    "Name": "MTSEnabled",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/MTSEnabled"
+}

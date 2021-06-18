@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>CPQSubmit</name>
+        <label>CPQSubmit</label>
+        <locationX>294</locationX>
+        <locationY>90</locationY>
+        <actionName>vlocity_cmt__CPQSubmitAction</actionName>
+        <actionType>apex</actionType>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <label>CPQSubmitFlow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>CPQSubmit</startElementReference>
+    <status>Draft</status>
+</Flow>

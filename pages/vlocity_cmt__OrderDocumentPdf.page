@@ -1,0 +1,4 @@
+<apex:page standardController="Order" applyHtmlTag="false" showHeader="false" renderas="pdf">
+    <c:DocumentPdf useTemplateLocale="true" />
+    
+</apex:page>

@@ -1,0 +1,135 @@
+<form name='loopform' ng-init="isModalLoaded = !isModalLoaded" class="nds-modal_custom data-iframe-ignore data-iframe-ignore-children" vlc-slds-disable-auto-complete="testing">
+    <section modalmove role="dialog" tabindex="-1" aria-modal="true" class="nds-modal nds-fade-in-open vloc-modal vloc-modal-slds-slide-up nds-modal_custom-bottom {{vlocSlideCustomClass}}">
+        <div class="nds-modal__container vloc-modal-container {{vlocSlideCustomClass}}-container">
+            <header class="nds-modal__header" ng-show="vlocSlideHeader">
+                <h1 class="nds-text-heading_small nds-step_label">{{::OmniEditBlockModalTitle}}</h1>
+            </header>
+            <div class="nds-modal__content nds-p-around_medium">
+                <div class="nds-grid nds-wrap nds-grid_pull-padded">
+                    <child noformatterebmodal="true" ng-repeat='child in ::children = control.children'
+                        class="nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_{{child.eleArray[0].propSetMap.controlWidth}}-of-12"
+                        ng-show='::!child.eleArray[0].propSetMap.hide'
+                        ng-if='(child.eleArray[0].propSetMap.hide && child.eleArray[0].type!=="Formula")||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                    </child>
+                </div>
+            </div>
+            <footer class="nds-modal__footer nds-button_text-font" ng-show="vlocSlideFooter">
+                <button class='nds-button nds-button_neutral' ng-click='closeModal($event)'>{{::OmniConfigProdModalCancel}}</button>
+                <button class='nds-button nds-button_neutral nds-button_brand' ng-click='saveEditChanges($event)' ng-disabled="loopform.$invalid">{{::OmniConfigProdModalOk}}</button>
+                <div modalresize class='nds-editblock_expand-modal' prop='min-height'></div>
+            </footer>
+        </div>
+    </section>
+</form>
+
+<style type="text/css">
+  .pac-container {
+       z-index: 10000 !important;
+   }
+
+  .nds-modal_custom .nds-modal_custom-bottom {
+        bottom: -125%;
+        top: auto;
+        height: 100%;
+        transition: bottom 250ms ease-in;
+    }
+
+    .vloc-modal.nds-modal .nds-spinner_container {
+        opacity: 0;
+        visibility: hidden;
+        transition: visibility 0ms linear 1250ms,
+                    opacity 500ms ease-in 750ms;
+    }
+
+    .vloc-modal.nds-modal .nds-spinner_container.vloc-show-loader {
+        opacity: 1;
+        visibility: visible;
+        transition: visibility 0ms linear 0ms,
+                    opacity 500ms ease-in 0ms;
+    }
+
+    .vloc-modal.nds-modal .nds-global-header_container {
+        opacity: 0;
+        transition: opacity 200ms ease-in 200ms;
+    }
+
+    .vloc-modal.nds-modal.vloc-modal-shown {
+        bottom: 0;
+    }
+
+    .vloc-modal.nds-modal.vloc-modal-shown
+    .nds-global-header_container {
+        opacity: 1;
+    }
+
+    .vloc-modal.nds-modal
+    .vloc-product-selection-details-modal {
+        position: absolute;
+    }
+
+    .vloc-modal.nds-modal
+    .vloc-modal-container {
+	    width: 90%;
+	    min-width: 90%;
+	    max-width: 90%;
+	    padding: 0;
+	    margin: 0;
+	    position: absolute;
+	    top: 50%;
+	    left: 50%;
+	    transform: translateY(-50%) translateX(-50%);
+    }
+
+    .vloc-modal.nds-modal
+    .vloc-modal-container
+    .vloc-modal-content {
+        min-height: 17rem;
+        border-radius: 0;
+        max-height: 0;
+    }
+
+    @media screen and (max-width: 30em) {
+        .vloc-modal.nds-modal {
+            top: auto;
+            height: calc(100% - 20px); // leaving room for iPhone notification bar
+            bottom: -100%;
+        }
+        .nds-modal_custom .nds-modal .nds-modal__container .nds-modal__content {
+            min-height: 26rem !important;
+        }
+
+        .platform-android .vloc-modal.nds-modal {
+            height: 100%; // Android doesn't need the 20px of room like iPhone
+        }
+
+        .vloc-modal.nds-modal
+        .nds-modal__header {
+            border-radius: 0;
+        }
+
+        .vloc-modal.nds-modal
+        .vloc-modal-container {
+            width: 100%;
+            min-width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform: none;
+            bottom: 0;
+            transition: bottom 250ms ease-in;
+        }
+
+        .vloc-modal.nds-modal
+        .vloc-modal-container
+        .vloc-modal-content {
+           height: 100%;
+           min-height: auto;
+           max-height: 100%;
+       }
+
+        .vloc-modal.nds-modal
+        .nds-modal__footer {
+            border-radius: 0;
+        }
+    }
+</style>

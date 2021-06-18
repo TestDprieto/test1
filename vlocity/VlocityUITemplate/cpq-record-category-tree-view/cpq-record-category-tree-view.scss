@@ -1,0 +1,23 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-compare-attribute-highlight {
+            background-color: inherit;
+        }
+        .#{$namespace}-compare-text-overflow {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 90%;
+            display: inline-block;
+        }
+    }
+}

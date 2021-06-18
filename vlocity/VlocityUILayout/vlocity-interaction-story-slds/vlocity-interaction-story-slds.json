@@ -1,0 +1,43 @@
+{
+    "Cards": [
+        "Interaction Campaign Story",
+        "Interaction Case Story",
+        "Interaction Claim Story",
+        "Interaction Event Story",
+        "Interaction Non Held Policy Story",
+        "Interaction Note Story",
+        "Interaction Opportunity Story",
+        "Interaction Policy Story",
+        "Interaction Task Story",
+        "Interaction Saved OmniScript Story",
+        "Interaction Customer Interaction Story"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "attrs.contextId",
+                "val": "001o0000006wbnk"
+            }
+        ],
+        "type": "Dual",
+        "value": {
+            "apexRemoteResultVar": "Stories",
+            "apexRestResultVar": "Stories",
+            "endpoint": "/%vlocity_namespace%/v1/story/{{attrs.contextId}}?pageSize=10",
+            "inputMap": {
+                "pageSize": "10",
+                "storyId": "{{attrs.contextId}}"
+            },
+            "methodType": "GET",
+            "remoteClass": "StoryListHandler",
+            "remoteMethod": "getStories",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "Stories"
+        }
+    },
+    "templates": {
+        "0": {
+            "templateUrl": "story-card-canvas"
+        }
+    }
+}

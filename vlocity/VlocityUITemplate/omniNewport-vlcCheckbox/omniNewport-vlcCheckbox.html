@@ -1,0 +1,28 @@
+<div class='nds-size_1-of-1'>
+    <ng-form name='loopform'
+             class='nds-form-element nds-m-bottom_large nds-p-around_small'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control">
+            <label class="nds-checkbox">
+                <input id='{{::control.name}}'
+                       type='checkbox'
+                       name='loopname'
+                       ng-disabled='control.ro'
+                       ng-model='control.response'
+                       ng-init='init(this, control)'
+                       vlc-slds-check-val-checker="response"
+                       ng-change='aggregate(this, control.index, control.indexInParent, true, -1)' />
+
+                <span class="nds-checkbox_faux"></span>
+                
+                <label class="nds-checkbox__label" vlc-bubble-canceller="test">
+                    <span class="nds-form-element__label nds-form-element__control-help">{{::control.propSetMap.checkLabel}}</span>
+                    <a class="nds-tooltip_container" vlc-slds-tool-tip="test" nubbin-direction="auto top-left" ng-if="control.propSetMap.help" ng-include="'vlcHelptextInfoIcon.html'"></a>
+                    <div vlc-slds-include="vlcLabelController.html"></div>
+               </label>
+            </label>
+        </div>
+        <div ng-include="::errHTMLId"></div>
+    </ng-form>
+</div>

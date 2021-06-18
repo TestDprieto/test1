@@ -1,0 +1,40 @@
+<div class='nds-col nds-medium-size_5-of-12 nds-align_absolute-center'>
+    <div class="nds-grid nds-box nds-medium-size_12-of-12 nds-align_absolute-center">
+        <section>
+            <figure>
+                <span class="nds-icon_container nds-icon-action-close nds-icon_container_circle">
+
+                    <slds-svg-icon aria-hidden="true"
+                                   sprite="'action'"
+                                   icon="'close'"
+                                   size="'small'"
+                                   extra-classes="''">
+                    </slds-svg-icon>
+
+                </span>
+            </figure>
+        </section>
+
+        <section class="nds-m-left_medium">
+
+            <p>{{::rootCustomLabels.OmniScriptError}}:</p>
+
+            <p>{{::rootCustomLabels.OmniScriptNotFound1}}</p>
+            
+            <p ng-if='scriptNotFound1'>
+               <span class="bold">{{::rootCustomLabels.OmniScriptType}}: </span><span>{{type}}</span><br/>
+               <span class="bold">{{::rootCustomLabels.OmniScriptSubType}}: </span><span>{{subType}}</span></br>
+               <span class="bold">{{::rootCustomLabels.OmniScriptLang}}: </span><span>{{lang}}</span></br>
+            <p>
+            
+            <p ng-if='scriptNotFound2'>
+                <span class="bold">{{::rootCustomLabels.OmniScriptId}}:</span><span> {{id}}</span>
+            </p>
+            
+            <p>{{::rootCustomLabels.OmniScriptNotFound2}}</p>
+
+        </section>
+
+    </div>
+
+</div>

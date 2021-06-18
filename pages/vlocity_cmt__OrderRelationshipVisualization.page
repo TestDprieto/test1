@@ -1,0 +1,110 @@
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.OrderAmendmentHistoryController" title="{!$Label.vlocity_cmt__orderamendmenthistorytitle}">
+    <html xmlns:ng="http://angularjs.org" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="OrderRelationshipVisualization" class="ng-cloak">
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
+            <script type="text/javascript" src="/support/console/31.0/integration.js"></script>
+            <script type="text/javascript" src="/soap/ajax/31.0/connection.js"></script>
+            <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.SldsAngular)}"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.OrderRelationshipVisualization)}"></script>
+            <style>
+                thead tr th:first-child,
+                tbody tr td:first-child {
+                  width: 22em;
+                }
+                td:first-child.slds-cell-wrap.child-items.ng-scope {
+                  padding-left: 3rem;  
+                }
+                .table-header-text {
+                    font-weight: 700;
+                }
+                .via-slds .slds-table thead td {
+                    padding: 0.5rem 0.5rem;
+                }
+                .via-slds .slds-table td {
+                    padding: 0.5rem 0.5rem;
+                }
+                tbody tr td a.initial-cart-id-link {
+                    color:blue;
+                }
+            </style>
+        </head>
+        <body ng-controller="OrderRelationshipVisualizationController" ng-init="init()">
+            <div class="via-slds">
+                <div class="slds-p-around_medium">
+                    <div class="slds-grid">
+                        <div class="slds-col slds-has-flexi-truncate">
+                            <h1 class="slds-page-header__title slds-truncate" title="{{pageTitle}}">{{labels.OrderAmendmentHistoryTitle}}</h1>
+                        </div>
+                    </div>
+                </div>
+            <div>
+            <div class="slds-col slds-grid--vertical-stretch">
+                <!-- SPINNER -->
+                <div class="slds-spinner_container" ng-show="spinner.getSpinner()">
+                    <div class="slds-spinner_brand slds-spinner slds-spinner_large" aria-hidden="false" role="alert">
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+                <div ng-if="originalOrderIds && originalOrderIds.length || amendOrderIds && amendOrderIds.length">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col" data-title="{{label}}" ng-repeat="(field, label) in fieldsMap">
+                                    <div class="slds-truncate table-header-text">{{label}}</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="slds-hint-parent" ng-repeat="originalOrderId in originalOrderIds">
+                                <td  ng-repeat="(field, detail) in fieldsMap">
+                                    <div ng-if="detail ==='Order ID'"> 
+                                        <a href="#" ng-class="{'initial-cart-id-link': originalOrderId.fields[field].initialCartId}" ng-click="open(originalOrderId.fields[field].value)">{{originalOrderId.fields[field].label}}</a>
+                                    </div>
+                                    <span class="om-notifications-long-text-wrap" ng-if="detail!=='Order ID'">{{originalOrderId.fields[field].label}}</span>
+                                </td>
+                            </tr>
+                            <tr ng-repeat="amendOrderId in amendOrderIds">
+                                <td class="slds-cell-wrap child-items" ng-repeat="(field, detail) in fieldsMap">
+                                    <div ng-if="detail ==='Order ID'"> 
+                                        <a href="#" ng-class="{'initial-cart-id-link': amendOrderId.fields[field].initialCartId}" ng-click="open(amendOrderId.fields[field].value)">{{amendOrderId.fields[field].label}}</a>
+                                    </div>
+                                    <span ng-if="detail!=='Order ID'">{{amendOrderId.fields[field].label}}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="!(originalOrderIds && amendOrderIds)  || (originalOrderIds.length === 0 && amendOrderIds.length === 0)" class="slds-col slds-theme_shade">
+                    <div class="slds-m-around_medium slds-text-align_center">{{labels.NoOrderAmendmentHistory}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var remoteActions = {
+            getDisplayFields: {
+                action: "{!$RemoteAction.OrderAmendmentHistoryController.getDisplayFields}",
+                config: {escape: false}
+            },
+            getOrderAmendmentHistory: {
+                action: "{!$RemoteAction.OrderAmendmentHistoryController.getOrderAmendmentHistory}",
+                config: {escape: false}
+            }
+        };
+        var labels = {
+            OrderAmendmentHistoryTitle: "{!$Label.vlocity_cmt__orderamendmenthistorytitle}", 
+            NoOrderAmendmentHistory: "{!$Label.NoOrderAmendmentHistory}"
+        };
+        var configData = {
+            nsPrefix: "{!nsp}"
+        };
+        var amendmentOrderId = {
+            Id : "{!$CurrentPage.parameters.Id}"
+        };
+    </script>
+    </body>
+    </html>
+</apex:page>

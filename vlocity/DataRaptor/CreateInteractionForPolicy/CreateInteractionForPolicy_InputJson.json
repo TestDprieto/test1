@@ -1,0 +1,77 @@
+{
+    "drBundleName": "CreatCase",
+    "interactionObjName": "Case",
+    "parentId": "0033600000MOb4AAAT",
+    "recordId": "a2R36000000WFVxEAO",
+    "request": {
+        "continueSearch": false,
+        "displaySequence": 4,
+        "referenceObjectName": "Policy__c",
+        "requestUniqueName": "Policy",
+        "searchFieldList": [
+            "PolicyId__r.Name"
+        ],
+        "searchFieldsLabelTypeMap": {
+            "PolicyId__r.Name": {
+                "datatype": "text",
+                "label": "Policy Number"
+            }
+        },
+        "searchObjectLabel": "Policy",
+        "searchObjectName": "PolicyPartyRelationship__c",
+        "searchType": "Related Party",
+        "searchValueMap": {
+            "PolicyId__r.Name": "BO-20932058"
+        }
+    },
+    "resultFieldList": [
+        "RelatedParty__c",
+        "Role__c"
+    ],
+    "resultFieldsLabelTypeMap": {
+        "AccountId__c": {
+            "datatype": "text",
+            "label": "Account Id"
+        },
+        "ContactId__c": {
+            "datatype": "text",
+            "label": "Contact Id"
+        },
+        "PolicyId__c": {
+            "label": "Policy"
+        },
+        "RelatedParty__c": {
+            "datatype": "text",
+            "label": "Related Party"
+        },
+        "Role__c": {
+            "datatype": "text",
+            "label": "Role"
+        }
+    },
+    "resultValueMap": {
+        "ContactId__c": "0033600000MOb4AAAT",
+        "PolicyHolderId__c": "0013600000UckPOAAZ",
+        "PolicyId__c": "a2U36000000kXimEAE",
+        "PolicyId__r.Name": "BO-20932058",
+        "RelatedParty__c": "Amy Agent",
+        "Role__c": "Agency"
+    },
+    "searchTimestamp": "2016-07-27T18:37:52.006Z",
+    "uniqueRequestName": "Policy",
+    "verificationFieldList": [
+        "AccountId__c",
+        "ContactId__c",
+        "PolicyId__c"
+    ],
+    "verificationResult": {
+        "fields": {
+            "CalculatedAddress__c": true,
+            "Name": true,
+            "ProducerNumber__c": true
+        },
+        "status": true,
+        "timestamp": "2016-07-27T18:37:52.006Z",
+        "username": "@vlocity.com"
+    }
+}

@@ -1,0 +1,38 @@
+<div class='nds-size_1-of-1 nds-element_text-font nds-table_custom'>
+    <div class="nds-form-element__label nds-element_text-font nds-m-bottom_x-small">
+        <label>{{::control.propSetMap.label}}</label>
+    </div>
+    <table class="nds-table nds-table_bordered nds-table_cell-buffer nds-border_right nds-max-medium-table_stacked-horizontal" ng-init=digestOnResize()>
+       <thead>
+            <tr class="nds-text-title_caps">
+                <th scope="col" style="border-radius: 5px 5px 0 0;">
+                    <div class="nds-truncate">field1</div>
+                </th>
+                <th scope="col">
+                    <div class="nds-truncate">field2</div>
+                </th>
+                <th scope="col" style="border-radius: 5px 5px 0 0;">
+                    <div class="nds-truncate">field3</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat='p in control.vlcInputBlock.fieldArray' >
+                <td data-label='field1'>
+                    <div class="nds-truncate"><input type='text' ng-model='p.field1'/></div>
+                </td>
+                <td data-label='field2'>
+                    <div class="nds-truncate"><input type='text' ng-model='p.field2'/></div>
+                </td>
+                <td data-label='field3'>
+                    <div class="nds-truncate"><input type='text' ng-model='p.field3'/></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button id="save&next" class='nds-button nds-float_right nds-m-top_x-small nds-editblock_add-button'
+        title="Save & Next" 
+        ng-click="buttonClick(bpTree.response, control, this, control.vlcInputBlock, 'Save', callBackNextStep)">
+        Save &amp; Next
+    </button>
+</div>

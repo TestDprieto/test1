@@ -1,0 +1,14 @@
+#select-cart-strategy-container {
+    height: 83vh;
+    position: relative;
+    .custom-container {
+        position: absolute;
+        top: 40%;
+        left: 25%;
+        border: 1px solid #dddbda;
+        border-radius: 5px;
+        -moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+        -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    }
+}

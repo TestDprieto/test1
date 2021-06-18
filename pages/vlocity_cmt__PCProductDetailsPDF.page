@@ -1,0 +1,135 @@
+<apex:page applyHtmlTag="false"    
+  sidebar="false"    
+  showHeader="false"
+  controller="vlocity_cmt.UPCProductDetailsReportController"
+  renderAs="pdf"
+  applyBodyTag="false" >
+  <head>
+    <style type="text/css" media="print">
+      .odd {
+            border-bottom: 1px solid #000;
+            background-color: #efefef;
+            padding: 1px 1px 2px 2px;
+            font-size: 100%;
+        }
+        
+        .even {
+            border-bottom: 1px solid #000;
+            padding: 1px 1px 2px 2px;
+            font-size: 100%;
+        }
+        
+        @page :first {
+            @top-left {
+                content: element(header);
+            }
+            @top-right {
+                content: "{!$Label.upcProductDetailsDate} {!reportDate}";
+                font-size: 14px;
+            }
+        }
+        
+        @page {
+            size: landscape;
+            @bottom-right {
+                font-size: 14px;
+                content: "{!$Label.upcProductDetailsReportPageFooterPages} " counter(page) " {!$Label.upcProductDetailsReportPageFooterOf} " counter(pages)
+            }
+        }
+        
+        * {
+            margin: 0px;
+            padding: 0px;
+            word-break: break-all;
+            font-family: "Salesforce Sans", Arial, sans-serif;
+        }
+        
+        div.header {
+            background: url("{!URLFOR($Resource.upcAssets,'logo/salesforce-and-vlocity.png')}") no-repeat center center;
+            margin-top: 30px;
+            height: 130px;
+            width: 300px;
+            text-align: left;
+            position: running(header);
+        }
+        
+        div.content {
+            margin-top: 130px;
+        }
+        
+        div.right {
+            float: right;
+        }
+        
+        .productDetails {
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .tb-column-header {
+            font-size: 14px;
+        }
+        
+        .tb-column-data {
+            font-size: 13px;
+        }
+        
+        .sectionHeader {
+            width: 100%;
+            background-color: #eee;
+            font-size: 14px;
+            padding: 5px;
+            margin: 20px 0px;
+            font-weight: bold;
+        }
+        
+        .product-metadata-header {
+            font-size: 14px;
+        	padding-top: 5px;
+        }
+        
+        .product-metadata-data {
+            font-size: 14px;
+            width: 360px;
+            padding-left: 10px;
+        	padding-top: 5px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="header"></div>
+    <div class="reportDate"></div>
+    <div class="content">
+      <apex:pageBlock >
+        <apex:pageBlockSection columns="2">
+          <apex:repeat value="{!productInformationMap}" var="attrKey">
+            <apex:pageBlockSectionItem labelStyleClass="product-metadata-header" dataStyleClass="product-metadata-data">
+              <apex:outputLabel value="{!productKeyMap[attrKey]}: "/>
+              <apex:outputText value="{!productInformationMap[attrKey]}"/>
+            </apex:pageBlockSectionItem>
+          </apex:repeat>
+        </apex:pageBlockSection>
+      </apex:pageBlock>
+      <br/>
+      <h1 class="productDetails">{!$Label.vlocity_cmt__upcproductdetailsreportheader}</h1>
+      <br/>
+      <apex:repeat value="{!productDetails}" var="key">
+        <apex:pageBlock rendered="{!productDetails[key].response != null}">
+          <div class="sectionHeader">{!$Label["upcReportSection"+ UPPER(key)] }</div>
+          <apex:dataTable value="{!productDetails[key].response}" var="productDetailsSection"
+            rowClasses="odd,even" columnClasses="tb-column-data" headerClass="tb-column-header" cellpadding="5px" width="100%">
+            <apex:repeat value="{!productDetails[key].fieldsMetadata}" var="keyList">
+              <apex:repeat value="{!keyList}" var="fieldKey">
+                <apex:column >
+                  <apex:facet name="header">{!keyList[fieldKey]}</apex:facet>
+                  <apex:outputText value="{!productDetailsSection[fieldKey]}"/>
+                </apex:column>
+              </apex:repeat>
+            </apex:repeat>
+          </apex:dataTable>
+        </apex:pageBlock>
+      </apex:repeat>
+    </div>
+  </body>
+</apex:page>

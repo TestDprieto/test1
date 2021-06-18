@@ -1,0 +1,53 @@
+<div class='nds-size_1-of-1'>
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small nds-input__tooltip'
+             ng-repeat='control in child.eleArray'>
+
+        <!-- should put an icon in the text field -->
+        <div class="nds-form-element__control nds-form-element__control-animated-label nds-input-has-icon nds-input-has-icon_right nds-grid" data-content="{{::control.propSetMap.currencySymbol}}" >
+
+            <span class="nds-form-element__addon">{{::(bpTree.oSCurrencySymbol || control.propSetMap.currencySymbol)}}</span>
+
+            <div class="nds-cont-wrapper">
+                <input id='{{::control.name}}'
+                    type='tel'
+                    ng-blur='aggregate(this, control.index, control.indexInParent, true, -1)'
+                    ng-disabled='control.ro'
+                    ng-required="control.req"
+                    ui-number-mask='::control.propSetMap.mask'
+                    ui-currency-setting="::bpTree.oSCurrencySetting"
+                    ui-negative-number='{{::control.propSetMap.allowNegative}}'
+                    ui-hide-group-sep='{{::control.propSetMap.hideGroupSep}}'
+                    min='::control.propSetMap.min'
+                    max='::control.propSetMap.max'
+                    name='loopname'
+                    ng-model='control.response'
+                    ng-model-options="{ updateOn: 'default focusout blur', debounce: { 'default': control.propSetMap.debounceValue, 'focusout': 0, 'blur': 0 } }"
+                    class='nds-input'
+                    ng-init='init(this, control)'
+                    vlc-slds-val-check-currency="response"
+                    vlc-slds-val-checker="response"
+                    vlc-slds-toggle-help-text />
+
+                <label for="{{::control.name}}" class='nds-form-element__label'>
+                    {{::control.propSetMap.label}}
+                    <span class='nds-required'
+                        ng-if='control.req'>*
+                    </span>
+                </label>
+           </div>
+
+           <slds-svg-icon aria-hidden="true"
+               sprite="'utility'"
+               icon="'moneybag'"
+               size="'small'">
+           </slds-svg-icon>
+           <div vlc-slds-include="vlcLabelController.html"></div>
+
+       </div>
+       <div class="nds-form-element__control-help" ng-if="control.propSetMap.help">{{control.propSetMap.helpText}}</div>
+       <div ng-include="::errHTMLId"></div>
+
+    </ng-form>
+</div>

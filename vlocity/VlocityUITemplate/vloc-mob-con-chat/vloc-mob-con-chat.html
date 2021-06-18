@@ -1,0 +1,153 @@
+<script>
+    $(document).ready(function(){
+        
+        //Page finished loading so show navbar
+        showPage();
+	    
+	    $('.con-chat-button, .con-chat-input-button').one( "click", function(e) {
+	        submitButton(e);
+	    });
+	   
+    });
+    
+    function showPage(){
+        if($('.con-navbar-chat').length){
+            $('.con-chat, .con-navbar-chat').css('opacity', '1');
+	        $('.con-navbar-chat').addClass('con-loaded');
+        }else{
+            setTimeout(function(){showPage();},500);
+        }
+    }
+   
+    //Submit user text
+    function submitText(){
+       $('input').blur();
+       $('.con-chat-input-button').remove();
+       createRight($('#con-chat-input-text').val());
+       $('#con-chat-input-text').val('Ask anything...');
+    }
+    
+    //Submit user button
+    function submitButton(e){
+        $(e.target).addClass('con-chat-input-button-active');
+        createRight($(e.target).html());  
+        setTimeout(function(){
+            $('.con-chat-input-button').remove();
+        }, 500);
+
+    }
+    
+    //Create right chat content
+    function createRight(content){
+        $('.con-chat-window').append('<div class="con-chat-text-right con-chat-text-right-active"><span>' + content + '</span></div>');
+        setTimeout(function(){
+            $('.con-chat-text-right').removeClass('con-chat-text-right-active');
+        },50);
+        $('.con-chat-window').scrollTop($('.con-chat-window')[0].scrollHeight);
+
+        //Temporary responses for demo
+        setTimeout(function(){
+            getNextResponse(content);
+        }, 550);
+    }
+    
+    //Create left chat content
+    function createLeft(content){
+        if(!$('.con-chat-loading').length){
+            $('.con-chat-window').append('<div class="con-chat-loading"><span></span><span></span><span></span></div>');
+            $('.con-chat-window').scrollTop($('.con-chat-window')[0].scrollHeight);
+        }
+        setTimeout(function(){
+            $('.con-chat-loading').remove();
+            $('.con-chat-window').append('<div class="con-chat-text-left">' + content + '</div>');
+            $('.con-chat-window').scrollTop($('.con-chat-window')[0].scrollHeight);
+        }, 2500);
+    }
+    
+    //Create buttons for input
+    function createButtons(content){
+        $.each(content, function(index, value){
+            $('.con-chat-input-buttons').append('<div class="con-chat-input-button">' + value + '</div>');
+        });
+        $('.con-chat-input-button').one( "click", function(e) {
+	        submitButton(e);
+	    });
+    }
+    
+    //Temporary responses for demo
+    var responseNum = 0;
+    var responsePath = 0;
+    function getNextResponse(){
+        switch(responseNum){
+            case 0: 
+                createLeft('Right away.'); 
+                createLeft('Would you like to do it over the phone or in-person at a store?');
+                setTimeout(function(){createButtons(['Over the phone', 'In-person']);}, 2500);
+                break;
+            case 1: 
+                createLeft('Sounds good.'); 
+                createLeft('Looks like your closest store is about a mile away:');
+                createLeft('<div class="con-chat-image"><img src="https://vdo-cmt-site.secure.force.com/resource/VLOCMOBCON/images/staticmap.png"><div class="con-chat-image-title">2055 Moscone Center<span>0.8 mi</span></div></div>');
+                createLeft('Does this location work for you?');
+                setTimeout(function(){createButtons(['Yes', 'No']);}, 2500);
+                break;
+            case 2: 
+                createLeft('OK, great. Let\'s get you scheduled.'); 
+                createLeft('These are the earliest available times at this store. Select a time...');
+                setTimeout(function(){createButtons(['Fri 10:00AM', 'Fri 10:30AM']);}, 2500);
+                break;
+            case 3: 
+                createLeft('Perfect. We\'ll see you then!'); 
+                break;
+        }
+        responseNum++;
+    }
+    
+</script>
+<div class="con-chat">
+    
+    <div class="con-chat-window">
+        <!-- Usage Overview -->
+        <div class="con-chat-details-title">
+            <div class="con-device-chat">
+                <div class="con-device-chat-icon">
+                    <div class="con-device-chat-icon-lines">
+                        <div class="con-device-chat-icon-line1"></div>
+                        <div class="con-device-chat-icon-line2"></div>
+                        <div class="con-device-chat-icon-line3"></div>
+                        <div class="con-device-chat-icon-line4"></div>
+                        <div class="con-device-chat-icon-line5"></div>
+                    </div>
+                </div>
+            </div>
+            Hi Jenny, how can I help?
+        </div>
+        <div class="con-chat-text-left">
+            You can type in your question, or start with one of these popular topics:
+        </div>
+        
+        <div class="con-chat-buttons">
+            <div class="con-chat-button">
+                Pay your bill
+            </div>
+            <div class="con-chat-button">
+                Check your usage
+            </div>
+            <div class="con-chat-button">
+                Upgrade your device
+            </div>
+            <div class="con-chat-button">
+                Schedule an appointment
+            </div>
+        </div>
+    </div>
+
+    <div class="con-chat-input">
+        <div class="con-chat-input-buttons">
+        </div>
+        <form OnSubmit="submitText();">  
+          <input type="text" value="Ask anything..." id="con-chat-input-text" onfocus="this.value='';"/>
+          <input type="submit" value="Search" style="display:none;"/>
+        </form>
+    </div>
+</div>

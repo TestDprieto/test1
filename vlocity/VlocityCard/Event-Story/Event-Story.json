@@ -1,0 +1,138 @@
+{
+    "filter": {
+        "['objAPIName']": "Event"
+    },
+    "states": [
+        {
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "editing": true,
+                    "fieldType": "standard",
+                    "label": "Account",
+                    "name": "['parentName']",
+                    "relationshipId": "parentId",
+                    "relationshipTypeField": "parentObjAPIName",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": true,
+                    "fieldType": "standard",
+                    "label": "Time",
+                    "name": "['strActivityDate']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Location",
+                    "name": "['subtitle']",
+                    "relationshipType": "_map",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Type",
+                    "name": "['highlight']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Attendees",
+                    "name": "attendees",
+                    "relationshipType": "_sobjects",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.obj && (!$scope.obj.detailValueMap || !(('' + $scope.obj.detailValueMap.IsAllDayEvent).toLowerCase() == 'true' || ('' +$scope.obj.detailValueMap.isAllDayEvent).toLowerCase() == 'true'))",
+            "name": "Event",
+            "sObjectType": "Event",
+            "templateUrl": "story-card"
+        },
+        {
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "editing": true,
+                    "fieldType": "standard",
+                    "label": "Account",
+                    "name": "['parentName']",
+                    "relationshipId": "parentId",
+                    "relationshipTypeField": "parentObjAPIName",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": true,
+                    "fieldType": "standard",
+                    "label": "Date",
+                    "name": "['formatedLastActivityDate']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Location",
+                    "name": "['subtitle']",
+                    "relationshipType": "_map",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Type",
+                    "name": "['highlight']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Attendees",
+                    "name": "attendees",
+                    "relationshipType": "_sobjects",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.obj && $scope.obj.detailValueMap && (('' + $scope.obj.detailValueMap.IsAllDayEvent).toLowerCase() == 'true' || ('' +$scope.obj.detailValueMap.isAllDayEvent).toLowerCase() == 'true')",
+            "name": "All Day Event",
+            "sObjectType": "Event",
+            "templateUrl": "story-card"
+        }
+    ],
+    "title": "Events"
+}

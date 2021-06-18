@@ -1,0 +1,7 @@
+<!--Actions-->
+<div ng-repeat="action in data.actions">
+    <div class="con-device-details-action" ng-click="performAction(action)">
+        {{action.displayName}}<span></span>
+    </div>
+    <div ng-if="$index+1 < data.actions.length" class="con-device-details-border"></div>
+</div>
