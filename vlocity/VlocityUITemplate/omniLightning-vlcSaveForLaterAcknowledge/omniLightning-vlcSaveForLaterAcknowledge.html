@@ -1,0 +1,53 @@
+<div class='slds-col'>
+    <div class="slds-grid slds-box vlc-slds-save_for_later">
+
+        <div class="slds-col" ng-if="response.error==='OK'">
+
+            <figure class="vlc-slds-figure">
+                <span class="slds-icon_container slds-icon-action-check slds-icon_container--circle">
+                    <slds-svg-icon aria-hidden="true"
+                                   sprite="'utility'"
+                                   icon="'check'"
+                                   size="'small'"
+                                   extra-classes="''">
+                    </slds-svg-icon>
+                </span>
+
+                <div>
+                    <figcaption class="slds-form-element__label">{{::customLabels.OmniSaved}}</figcaption>
+                </div>
+
+            </figure>
+
+            <label class="slds-form-element__label">{{::customLabels.OmniResume}}
+                <a href='{{response.saveURL}}' target="_blank"> {{::customLabels.OmniLink}}</a>&#8228;
+            </label>
+            <br/>
+            <button class='vlc-omni-copy vlc-slds-button--link slds-button' ng-click="copyToClipboard(customLabels.OmniCopyToClipBoard, response.saveURL);$event.preventDefault()">{{::customLabels.OmniCopyLink}}</button> or
+            <a href="mailto:?&subject=&body={{::customLabels.OmniResumeLink}} %0D{{response.saveURLMailTo}}%0D%0D{{::customLabels.OmniSaveEmailBody}}">{{::customLabels.OmniEmailMe}}</a>
+
+        </div>
+
+        <div class="slds-col slds-col__error" ng-if="response.error!=='OK'">
+
+            <figure class="vlc-slds-figure">
+                <span class="slds-icon_container slds-icon-action-check slds-icon_container--circle">
+
+                    <slds-svg-icon aria-hidden="true"
+                                   sprite="'utility'"
+                                   icon="'remove'"
+                                   size="'small'"
+                                   extra-classes="''">
+                    </slds-svg-icon>
+
+                </span>
+                <figcaption class="slds-form-element__label">{{::customLabels.OmniError}}</figcaption>
+            </figure>
+
+            <label class="slds-form-element__label">{{response.error}}</label>
+
+        </div>
+
+    </div>
+
+</div>

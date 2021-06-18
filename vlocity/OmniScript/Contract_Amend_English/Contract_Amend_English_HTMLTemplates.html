@@ -1,0 +1,49 @@
+<script type="text/ng-template" id="navButton.html">
+   <fieldset>
+         <button style="margin-top:2em" create-document >Generate Document</button>
+   </fieldset>
+</script>
+<script type="text/ng-template" id="products.html">
+            <div class="panel panel-default">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th/>
+                            <th>Name</th>
+                            <th>Product Family</th>
+                        </tr>
+                    </thead>
+                    <tbody class='product'>
+                        <tr ng-repeat='p in control.vlcSI[control.itemsKey]' ng-class="{ 'vlc-selectableitem-selected' : p.vlcSelected }" >
+                            <td>
+                                <input type='checkbox' ng-model='p.vlcSelected' ng-change='baseCtrl.onSelectItemCustomized(control, p, $index, this, false)'/>
+                            </td>
+                            <td>{{p.Name}}</td>
+                            <td>{{p.Family}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+	</script>
+<script type="text/ng-template" id="templates.html">
+            <div class="panel panel-default">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th/>
+                            <th>Name</th>
+                            <th>Version Number</th>
+                        </tr>
+                    </thead>
+                    <tbody class='template'>
+                        <tr ng-repeat='p in control.vlcSI[control.itemsKey]' ng-class="{ 'vlc-selectableitem-selected' : p.vlcSelected }" >
+                            <td>
+                                <input type='checkbox' ng-model='p.vlcSelected' ng-change='baseCtrl.onSelectItemCustomized(control, p, $index, this, false)'/>
+                            </td>
+                            <td>{{p.Name}}</td>
+                            <td>{{p.VersionNumber}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+	</script>

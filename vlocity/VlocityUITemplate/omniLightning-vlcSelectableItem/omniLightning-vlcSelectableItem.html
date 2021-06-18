@@ -1,0 +1,58 @@
+<a class="slds-size--12-of-12 slds-medium-size--12-of-12 slds-large-size--12-of-12 vlc-slds-items--container"
+   vlc-slds-added="{{ p.added }}"
+   vlc-slds-prod-desc="{{ p.Description }}"
+   ng-repeat='p in control.vlcSI[control.itemsKey]'>
+
+    <div class="slds-grid slds-box vlc-slds-selectableItem">
+
+        <div class="slds-size--2-of-12 slds-box vlc-slds-item--image">
+            <img ng-if="p.Image" ng-src="{{::instanceHost}}/servlet/servlet.FileDownload?file={{p.Image}}" />
+        </div>
+
+        <div class="slds-size--6-of-12 vlc-slds-item--details">
+
+            <label class="slds-form__element__label">
+                {{p.Name}}
+            </label>
+
+            <label class="slds-form__element__label">
+                {{p.Description}}
+            </label>
+
+        </div>
+
+
+        <div class="slds-size--2-of-12 vlc-slds-item--onecost">
+
+            <label class="slds-form__element__label">
+                <span>{{p.CurrencySymbol}}</span>
+                {{p.OneTimeCost}}
+            </label>
+
+            <label class="slds-form__element__label">{{::customLabels.OmniOneTime}}</label> 
+
+        </div>
+
+        <div class="slds-size--2-of-12 vlc-slds-item--cost">
+
+            <label class="slds-form__element__label">
+                <span>{{p.CurrencySymbol}}</span>
+                {{p.MonthlyCost}}
+            </label>
+
+            <label class="slds-form__element__label">{{::customLabels.OmniMonthly}}</label>
+
+        </div>
+
+        <div class="slds-size--12-of-12 slds-medium-size--2-of-12 vlc-slds-item--add"
+             vlc-slds-added="{{ p.added }}"
+             ng-init=" p.isConfigurable == true ? operation = 'configureProd' : operation = 'Add' "
+             ng-click="buttonClick(bpTree.response, control, this, p, (p.added?'Remove':'Add'), baseCtrl.customHandleSelectedItem)">
+            <button class="slds-button slds-button--neutral" style="line-height:1.3rem">
+                {{ p.added? "Added to Cart" : "Add to Cart" }}
+            </button>
+        </div>
+
+    </div>
+
+</a>

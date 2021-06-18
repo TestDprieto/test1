@@ -1,0 +1,22 @@
+<!-- footer template  -->
+<div class='nds-grid nds-wrap nds-m-top_small nds-medium-size_6-of-12 nds-align_absolute-center'>
+
+    <div class="nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_{{::bpTree.reviewAction.propSetMap.previousWidth}}-of-12"
+         ng-if='bpTree.reviewAction.bHasPrevious'>
+
+        <button class='nds-button nds-button_brand nds-button_text-font nds-size_1-of-1'
+            ng-click='navigate(bpTree, bpTree.reviewAction, "previous")'>
+            {{::bpTree.reviewAction.propSetMap.previousLabel}}
+        </button>
+    </div>
+    <div style="width:5px"></div>
+    <div class="nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_{{::bpTree.reviewAction.propSetMap.nextWidth}}-of-12"
+         ng-if='bpTree.reviewAction.bHasNext'>
+
+        <button class='nds-button nds-button_brand nds-button_text-font nds-size_1-of-1'
+            ng-click='navigate(bpTree, bpTree.reviewAction, "next")'>
+            {{::bpTree.reviewAction.propSetMap.nextLabel}}
+        </button>
+    </div>
+
+</div>

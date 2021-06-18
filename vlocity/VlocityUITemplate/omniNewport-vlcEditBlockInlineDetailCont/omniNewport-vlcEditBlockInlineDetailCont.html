@@ -1,0 +1,29 @@
+<div class="nds-edit-block_longcards-circle">
+    <span class="nds-icon_container nds-icon_container_circle">
+        <slds-svg-icon sprite="control.propSetMap.svgSprite" icon="control.propSetMap.svgIcon" size="'large'" ng-if="showDefaultEditBlockImage(control)"></slds-svg-icon>
+        <slds-svg-icon sprite="icon.svgSprite" icon="icon.svgIcon" size="'large'" ng-repeat='icon in control.propSetMap.valueSvgMap' ng-if="control.propSetMap.elementName !=='' && control.response[control.propSetMap.elementName] == icon.value"> </slds-svg-icon>
+    </span>
+</div>
+
+<div class="nds-edit-block_longcards-controls-container">
+    <div ng-repeat='child in children = control.children' 
+            ng-if='child.eleArray[0].propSetMap.hide||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'
+            ng-hide='!child.displayInView'
+            ng-init="child.blockIndex = control.index">
+        <ng-form name="editblockform"
+            ng-include="'vlcEditBlockInnerForm.html'">
+        </ng-form>
+    </div>
+</div>
+
+
+<div class="nds-edit-block_inline-action-container">
+    <span class="nds-required" ng-if="isEditBlockRecordInvalid($index, this)">*</span>
+
+    <slds-svg-icon sprite="'utility'"
+        icon="'close'"
+        extra-classes="'nds-editblock_delete'"
+        size="'small'"
+        ng-if="control.propSetMap.allowDelete"
+        ng-click="removeItemEditBlock(child, $index, this); $event.stopPropagation();"></slds-svg-icon>
+</div>

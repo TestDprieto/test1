@@ -1,0 +1,13 @@
+<div ng-if='bpTree.resumeURL'  class="nds-medium-size_6-of-12 nds-align_absolute-center">
+    <label class="nds-form-element__label">{{::customLabels.OmniScriptResumeLink}}
+        <a class='vlc-omni-copy' ng-click="copyToClipboard(customLabels.OmniCopyToClipBoard, bpTree.resumeURL)">{{::customLabels.OmniCopyLink}}</a> or
+        <a href="mailto:?subject=&body={{::customLabels.OmniResumeLink}} %0D{{bpTree.resumeURLMailTo}}%0D%0D{{::customLabels.OmniSaveEmailBody}}">{{::customLabels.OmniEmailMe}}</a>
+    </label>
+</div>
+<div ng-if='bpTree.savingAttachments || isLoadingAttachments()'  class="nds-medium-size_6-of-12 nds-align_absolute-center">
+     <label class="nds-form-element__label"><i class="spinner" style="right: 0%; position: relative;"></i>
+        <br /> 
+       	<span ng-if="bpTree.savingAttachments">{{ ::customLabels.OmniScriptSavingAttachments }}</span>
+	    <span ng-if="!bpTree.savingAttachments">{{ ::customLabels.OmniScriptLoadingAttachments }}</span> 
+    </label>
+</div>

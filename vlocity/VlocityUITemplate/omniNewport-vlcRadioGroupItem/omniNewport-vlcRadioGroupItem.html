@@ -1,0 +1,38 @@
+<div class="nds-grid">
+    <div class='nds-col nds-size_{{control.propSetMap.radioLabelsWidth}}-of-12'>
+    </div>
+    <div class='nds-col nds-size_{{12-control.propSetMap.radioLabelsWidth}}-of-12 nds-grid'>
+        <label ng-repeat='option in getOptions(control, this.$parent) track by option.name' class='nds-col set-all'style="width:{{100/control.propSetMap.options.length}}%">
+            <div ng-if="option.setAll" class="nds-cursor-pointer" ng-click='!control.ro && setAllRadioGroup(this.$parent, option.name)'>
+              {{::customLabels.OmniRadioGroupSetAll}}
+            </div>
+        </label>
+    </div>
+</div>
+<div id='{{::label.name}}' ng-repeat="label in control.propSetMap.radioLabels track by label.name" class="nds-grid nds-form-element__control nds-p-vertical_x-small">
+
+    <div class='nds-grid nds-col nds-size_{{control.propSetMap.radioLabelsWidth}}-of-12'>
+        <label class='nds-radio nds-p-right_x-small'>
+            <span class="nds-form-element__label">
+                {{::label.value}}
+            </span>
+        </label>
+    </div>          
+    <div class=" nds-grid nds-col nds-size_{{12-control.propSetMap.radioLabelsWidth}}-of-12">
+        <label ng-repeat='option in control.propSetMap.options track by option.name' ng-class="{'itemSelected': control.response==option.name}"  class="nds-radio" style="width:{{100/control.propSetMap.options.length}}%">
+
+            <input ng-disabled='control.ro'
+                   ng-required='!control.response && control.req'
+                   type='radio'
+                   ng-init='init(this, control)'
+                   ng-value='option.name'
+                   ng-model='control.response[label.name]'
+                   ng-change='onRadioGroupSelect(this, control, option)'
+                   vlc-slds-mu-val-checker="response"
+                  />
+
+            <span class="nds-radio_faux nds-m-right_none"></span>
+            <span class="nds-form-element__label nds-m-right_none nds-hyphenate">{{option.value}}</span>
+        </label>                
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class='nds-grid nds-wrap nds-grid_pull-padded nds-medium-size_6-of-12 nds-align_absolute-center'>
+
+    <div class="nds-col_padded">
+
+        <div class="nds-size_1-of-1">
+            <json-tree json='bpTree.response' skipnodes='bpTree.skipElements' collapsed-level='2' labelmap="bpTree.labelMap"></json-tree>
+        </div>
+
+        <div class="nds-grid nds-wrap nds-grid_pull-padded nds-col_padded">
+
+            <div class="nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_3-of-12"
+                 style="margin:auto 0">
+                <div
+                     ng-click='goBack(bpTree, bpTree.submitButton)' >
+                    {{::bpTree.submitButton.propSetMap.reviseLabel}}
+                </div>
+            </div>
+
+            <div class="nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_{{::bpTree.submitButton.propSetMap.submitWidth}}-of-12"
+                 style="padding-right:10px;margin:5px 0">
+                <button style="flex: 0 0 100%" class="nds-button"
+                        ng-click='apexrest(bpTree, bpTree.submitButton)' >
+                    {{::bpTree.submitButton.propSetMap.submitLabel}}
+                </button>
+            </div>
+
+        </div>
+
+
+        <div class='nds-size_1-of-1' ng-if="bpTree.previewMode">
+            <div class='nds-form-element__label'>{{::customLabels.OmniDataJSON}}</div>
+            <json-formatter json="bpTree.response" class="nds-box"></json-formatter>
+        </div>
+
+    </div>
+
+</div>

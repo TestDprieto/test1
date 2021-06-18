@@ -1,0 +1,391 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "LG-V30_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+        "ATT_DT_BRD": "LG",
+        "ATT_DT_CAP": "64 GB",
+        "ATT_DT_SZ": "5.97 x 2.97 x 0.29",
+        "ATT_RT_CLR": null,
+        "ATT_RT_MOS": "Android"
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ACAT_Phones",
+                "Name": "Mobile Devices",
+                "displaySequence": 20,
+                "id": "a0J5e000000pggAEAQ",
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "attributeId": "a0K5e000000bEwhEAE",
+                            "cloneable": true,
+                            "code": "ATT_RT_PAY_TYPE",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 1,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Payment Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": null
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwLEAU",
+                            "cloneable": true,
+                            "code": "ATT_DT_BRD",
+                            "dataType": "text",
+                            "disabled": true,
+                            "displaySequence": 10,
+                            "filterable": true,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Brand",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": true,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "id": "40",
+                                    "label": "Google",
+                                    "readonly": false,
+                                    "value": "Google"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "30",
+                                    "label": "Samsung",
+                                    "readonly": false,
+                                    "value": "Samsung"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "10",
+                                    "label": "Apple",
+                                    "readonly": false,
+                                    "value": "Apple"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "20",
+                                    "label": "LG",
+                                    "readonly": false,
+                                    "value": "LG"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwKEAU",
+                            "cloneable": true,
+                            "code": "ATT_RT_CLR",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 20,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Color",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "id": "70",
+                                    "label": "Green",
+                                    "readonly": false,
+                                    "value": "Green"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "60",
+                                    "label": "Yellow",
+                                    "readonly": false,
+                                    "value": "Yellow"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "30",
+                                    "label": "Blue",
+                                    "readonly": false,
+                                    "value": "Blue"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "40",
+                                    "label": "Purple",
+                                    "readonly": false,
+                                    "value": "Purple"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "10",
+                                    "label": "Black",
+                                    "readonly": false,
+                                    "value": "Black"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "50",
+                                    "label": "Red",
+                                    "readonly": false,
+                                    "value": "Red"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "20",
+                                    "label": "Brown",
+                                    "readonly": false,
+                                    "value": "Brown"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwMEAU",
+                            "cloneable": true,
+                            "code": "ATT_DT_CAP",
+                            "dataType": "text",
+                            "disabled": true,
+                            "displaySequence": 30,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Capacity",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": true,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "id": "10",
+                                    "label": "32 GB",
+                                    "readonly": false,
+                                    "value": "32 GB"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "20",
+                                    "label": "64 GB",
+                                    "readonly": false,
+                                    "value": "64 GB"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "30",
+                                    "label": "128 GB",
+                                    "readonly": false,
+                                    "value": "128 GB"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwNEAU",
+                            "cloneable": true,
+                            "code": "ATT_RT_MOS",
+                            "dataType": "text",
+                            "disabled": true,
+                            "displaySequence": 40,
+                            "filterable": true,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Mobile OS",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": true,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "id": "10",
+                                    "label": "Android",
+                                    "readonly": false,
+                                    "value": "Android"
+                                },
+                                {
+                                    "disabled": false,
+                                    "id": "20",
+                                    "label": "iOS",
+                                    "readonly": false,
+                                    "value": "iOS"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwPEAU",
+                            "cloneable": true,
+                            "code": "ATT_DT_SZ",
+                            "dataType": "text",
+                            "disabled": true,
+                            "displaySequence": 50,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "text",
+                            "isNotTranslatable": false,
+                            "label": "Size",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": true,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": true,
+                                    "readonly": true
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 6
+                }
+            }
+        ],
+        "totalSize": 1
+    },
+    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__CategoryData__c": "",
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "2017-10-01",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__GlobalGroupKey__c": "cbc475ec-b8a8-e667-0917-bb5c24db8b39",
+    "%vlocity_namespace%__GlobalKey__c": "08bf6a64-e8c0-fc2d-38fa-9fb843bdb8b6",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": true,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "0dcba5d42ab6de0806123ba60dbf5817",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/0dcba5d42ab6de0806123ba60dbf5817",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ObjectTypeName__c": "SmartPhone Product Spec",
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__PriceListEntry__c": "LG-V30_PriceListEntries.json",
+    "%vlocity_namespace%__ProductChildItem__c": "LG-V30_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "2017-10-01T07:00:00.000Z",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Product",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "None",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "None",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "V1",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "Watch live and recorded TV shows on the LG V30™ 6-inch FullVision™ QHD+ OLED display. Create high-quality videos with expanded color and clarity, dramatic pinpoint zooming, and Hi-Fi audio that can be edited and shared right from your phone.",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "LG V30",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "PricebookEntry": "LG-V30_PricebookEntries.json",
+    "ProductCode": "C-PHO-007",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StandardPricebookEntry": [
+        {
+            "%vlocity_namespace%__FloorPrice__c": "",
+            "%vlocity_namespace%__OverageCharge__c": "",
+            "%vlocity_namespace%__OverageUOM__c": "",
+            "%vlocity_namespace%__RecurringPrice__c": 0,
+            "%vlocity_namespace%__RecurringUOM__c": "Monthly",
+            "IsActive": true,
+            "IsArchived": false,
+            "Name": "LG V30",
+            "Pricebook2.Name": "Standard Price Book",
+            "Pricebook2Id": {
+                "Name": "Standard Price Book",
+                "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+                "VlocityLookupRecordSourceKey": "Pricebook2/Standard Price Book",
+                "VlocityRecordSObjectType": "Pricebook2"
+            },
+            "Product2.%vlocity_namespace%__GlobalKey__c": "08bf6a64-e8c0-fc2d-38fa-9fb843bdb8b6",
+            "Product2Id": {
+                "%vlocity_namespace%__GlobalKey__c": "08bf6a64-e8c0-fc2d-38fa-9fb843bdb8b6",
+                "VlocityDataPackType": "VlocityMatchingKeyObject",
+                "VlocityMatchingRecordSourceKey": "Product2/08bf6a64-e8c0-fc2d-38fa-9fb843bdb8b6",
+                "VlocityRecordSObjectType": "Product2"
+            },
+            "ProductCode": "C-PHO-007",
+            "UnitPrice": 0,
+            "UseStandardPrice": false,
+            "VlocityDataPackType": "SObject",
+            "VlocityRecordSObjectType": "PricebookEntry",
+            "VlocityRecordSourceKey": "PricebookEntry/Pricebook2/Standard Price Book/Product2/08bf6a64-e8c0-fc2d-38fa-9fb843bdb8b6"
+        }
+    ],
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/08bf6a64-e8c0-fc2d-38fa-9fb843bdb8b6"
+}

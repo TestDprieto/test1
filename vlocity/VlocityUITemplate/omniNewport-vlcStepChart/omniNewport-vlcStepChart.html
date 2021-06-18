@@ -1,0 +1,61 @@
+<section  class="nds-page-header nds-m-top_x-small" ng-if="::!bpTree.propSetMap.hideStepChart">
+
+    <div class='nds-size_1-of-1'>
+
+        <div  class="nds-omniscript_stepform nds-size_1-of-1 nds-small-size_1-of-1 nds-medium-size_8-of-12 nds-large-size_6-of-12 nds-align_absolute-center nds-grid" >
+
+            <div class="nds-size_1-of-1">
+                <div class="nds-progress nds-size_1-of-1"  ng-init="stepsCnt=[]">
+                    <ol class="nds-progress__list">
+                        <li class="nds-progress__item nds-is-relative"
+                            ng-class="{'nds-is-active': step.bAccordionActive, 'nds-is-completed' : (!step.bAccordionActive && (step.completed || !step.tInvalid) && step.visited), 'nds-has-error' : (!step.bAccordionActive && step.tInvalid && step.visited)}"
+                            ng-repeat="step in ::children"
+                            ng-if="step.type === 'Step' && step.show && recalculateProgressWidth()"
+                            state="{{step.bAccordionActive}}"
+                            ng-click="sidebarNav(step)"
+                            ng-init="stepsCnt.push(0)"
+                            vlc-slds-step-styler>
+                            <button class="nds-button nds-progress__marker" ng-if="(step.completed || !step.tInvalid) && !step.bAccordionActive && step.visited">
+                                <slds-svg-icon aria-hidden="true"
+                                    sprite="'utility'"
+                                    icon="'success'"
+                                    size="'small'"
+                                    extra-classes="'nds-button__icon'">
+                                </slds-svg-icon>
+                            </button>
+                            <button class="nds-button nds-progress__marker" ng-if="!step.bAccordionActive && step.tInvalid && step.visited">
+                                <slds-svg-icon aria-hidden="true"
+                                    sprite="'utility'"
+                                    icon="'warning'"
+                                    size="'small'"
+                                    extra-classes="'nds-button__icon'">
+                                </slds-svg-icon>
+                            </button>
+                            <button class="nds-button nds-progress__marker" ng-if="step.bAccordionActive || (!step.bAccordionActive && !step.completed && !step.visited)"
+                                ng-hide="!step.bAccordionActive && step.tInvalid && step.visited">
+                            </button>
+                            <div  ng-if="step.bAccordionActive" class="nds-is-absolute">
+                                <div class="nds-m-top_medium nds-is-relative nds-progress__step-label">
+                                    <div>{{step.propSetMap.chartLabel || step.propSetMap.label}}</div>
+                                </div>
+                            </div>
+                            <div  ng-if="!step.bAccordionActive" class="nds-is-absolute">
+                                <div class="nds-popover nds-popover_tooltip nds-nubbin_bottom" role="tooltip">
+                                    <div class="nds-popover__body">{{step.propSetMap.chartLabel || step.propSetMap.label}}</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ol>
+                    <div class="nds-progress-bar nds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar" ng-if="stepsCnt.length > 1">
+                        <span class="nds-progress-bar__value" ng-style="{'width':calculateProgressWidth(), 'background': '#5eb4ff'}">
+                            <span class="nds-assistive-text">Progress: 0%</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

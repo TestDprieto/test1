@@ -1,0 +1,54 @@
+<a class="nds-size_12-of-12 nds-medium-size_12-of-12 nds-large-size_6-of-12 vlc-slds-items_container"
+
+   ng-click="buttonClick(bpTree.response, control, this, p, (p.added?'Remove':'Add'), baseCtrl.customHandleSelectedItem)"
+   vlc-slds-added="{{ p.added }}"
+   vlc-slds-prod-desc="{{p.Description}}"
+   ng-repeat='p in control.vlcSI[control.itemsKey]'>
+
+    <div class="nds-grid nds-box vlc-slds-selectableItem">
+
+        <div class="nds-size_2-of-12 nds-box vlc-slds-item_image">
+
+            <img ng-if="p.Image" ng-src="{{::instanceHost}}/servlet/servlet.FileDownload?file={{p.Image}}" />
+        </div>
+
+        <div class="nds-size_6-of-12 vlc-slds-item_details">
+
+            <label class="nds-form__element__label">
+                {{p.Name}}
+            </label>
+
+            <label class="nds-form__element__label">
+                {{p.Description}}
+            </label>
+
+        </div>
+
+
+        <div class="nds-size_12-of-12 nds-medium-size_4-of-12 vlc-slds-item_cost">
+
+            <div class="vlc-slds-item_cost-row-align">
+                <label class="nds-form__element__label">
+                    <span>{{p.CurrencySymbol}}</span>
+                    {{p.MonthlyCost}}
+                </label>
+
+                <label class="nds-form__element__label vlc-slds-form-element__label_last">
+                    {{::customLabels.OmniMonthly}}
+                </label>
+            </div>
+
+            <div class="vlc-slds-item_add"
+                 vlc-slds-added="{{ p.added }}"
+                 ng-init=" p.isConfigurable == true ? operation = 'configureProd' : operation = 'Add' "
+                 ng-click="buttonClick(bpTree.response, control, this, p, (p.added?'Remove':'Add'), baseCtrl.customHandleSelectedItem)">
+                <button class="nds-button nds-button_neutral">
+                    {{ p.added? "Added to Cart" : "Add to Cart" }}
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</a>

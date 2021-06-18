@@ -1,0 +1,67 @@
+<a class="slds-size--12-of-12 slds-medium-size--12-of-12 slds-large-size--12-of-12 vlc-slds-items--container"
+
+   ng-click="configureItem(bpTree.response, control, this, p, operation, baseCtrl.customHandleSelectedItem, baseCtrl.customIsConfigurable)"
+   vlc-slds-prod-desc="{{p.Description}}"
+   ng-repeat='p in control.vlcSI[control.itemsKey]'>
+
+    <div class="slds-grid slds-box vlc-slds-selectableItem">
+
+        <div class="slds-size--12-of-12 slds-medium-size--2-of-12">
+            <div class="slds-box vlc-slds-item--image">
+                <img ng-if="p.Image" ng-src="{{::instanceHost}}/servlet/servlet.FileDownload?file={{p.Image}}" />
+            </div>
+        </div>
+
+        <div class="slds-size--12-of-12 slds-medium-size--6-of-12 vlc-slds-item--details">
+
+            <label class="slds-form__element__label">
+                {{p.Name}}
+            </label>
+
+            <label class="slds-form__element__label">
+                {{p.Description}}
+            </label>
+
+        </div>
+
+
+        <div class="slds-size--12-of-12 slds-medium-size--2-of-12 vlc-slds-item--onecost">
+
+            <label class="slds-form__element__label">
+                <span>{{p.CurrencySymbol}}</span>
+                {{p.OneTimeCost}}
+            </label>
+
+            <label class=slds-form__element__label">{{::customLabels.OmniOneTime}}</label> 
+        </div>
+
+        <div class="slds-size--12-of-12 slds-medium-size--2-of-12 vlc-slds-item--cost">
+
+            <label class="slds-form__element__label">
+                <span>{{p.CurrencySymbol}}</span>
+                {{p.MonthlyCost}}
+            </label>
+
+            <label class="slds-form__element__label">{{::customLabels.OmniMonthly}}</label>
+        </div>
+
+
+        <div class="vls-slds-item--action"
+             ng-init=" p.isConfigurable == true ? operation = 'configureProd' : operation = 'Add' ">
+
+            <span class="slds-icon_container slds-icon-action-approval slds-icon_container--circle">
+                
+                <slds-svg-icon aria-hidden="true"
+                               sprite="'action'"
+                               icon="'approval'"
+                               size="'small'"
+                               extra-classes="''">
+                </slds-svg-icon>
+
+            </span>
+
+        </div>
+
+    </div>
+
+</a>

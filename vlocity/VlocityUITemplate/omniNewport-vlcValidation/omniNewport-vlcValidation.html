@@ -1,0 +1,38 @@
+<div class="nds-size_1-of-1">
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control nds-form-element__control-animated-label nds-grid" ng-init="icon={'Success':'check','Warning':'warning', 'Comment':'chat', 'Requirement':'close'}">
+
+                <div class="message description"
+                     ng-repeat='msg in ::control.propSetMap.messages'
+                     msg="{{msg.type}}"
+                     ng-if="msg.active === true && control.response !== null && control.response === msg.value">
+                     <span class="nds-icon_container nds-icon_container_circle">
+                        <slds-svg-icon sprite="'utility'" icon="icon[msg.type]"  size="'small'"></slds-svg-icon>
+                     </span>
+                     <span class="nds-m-left_small">
+                         {{control.displayMsg}}
+                     </span>
+                </div>
+
+                <input id='{{::control.name}}'
+                       type='text'
+                       name='loopname'
+                       ng-show='performValidate(this, control)'
+                       ng-model='control.response'
+                       class='nds-input'
+                       vlc-slds-val-checker="response"
+                       readonly />
+
+                <label ng-if='::!control.propSetMap.hideLabel' class='nds-form-element__label' style="top: 0">
+                    {{::control.propSetMap.label}}
+                </label>
+
+        </div>
+
+    </ng-form>
+
+</div>

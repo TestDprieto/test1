@@ -1,0 +1,68 @@
+<a class="nds-size_12-of-12 nds-medium-size_12-of-12 nds-large-size_6-of-12 vlc-slds-items_container"
+
+   ng-click="baseCtrl.addProductToCart(p, control, this)"
+   vlc-slds-prod-desc="{{p.Product2.Description}}"
+   ng-repeat='p in control.vlcSI[control.itemsKey][0].records'>
+
+    <div class="nds-grid nds-box vlc-slds-selectableItem">
+
+        <div class="nds-size_2-of-12 nds-box vlc-slds-item_image" ng-if="!p.Attachments"></div>
+        <div class="nds-size_2-of-12 nds-box vlc-slds-item_image" ng-repeat='a in p.Attachments'>
+            <img src="{{a.url}}" alt="{{a.title}}" ng-if="a.contentType === 'Image'"/>
+        </div>
+
+        <div class="nds-size_7-of-12 vlc-slds-item_details">
+
+            <label class="nds-form__element__label">
+                {{p.Name.value}}
+            </label>
+
+            <label class="nds-form__element__label">
+                {{p.Product2.Description}}
+            </label>
+
+        </div>
+
+
+        <div class="nds-size_3-of-12 vlc-slds-item_cost" ng-init="RecurringPrice__c = p[nsPrefix + 'RecurringPrice__c'].value ? p[nsPrefix + 'RecurringPrice__c'].value : 0.00">
+
+            <label class="nds-form__element__label">
+                <span>{{p.CurrencySymbol}}</span>
+                {{RecurringPrice__c | currency  | numFormatFilter}}
+            </label>
+
+            <label class="nds-form__element__label">{{::customLabels.OmniMonthly}}</label>
+        </div>
+
+
+        <div class="vls-nds-item_action"
+             ng-init=" p.isConfigurable == true ? operation = 'configureProd' : operation = 'Add' ">
+
+            <span class="nds-icon_container nds-icon-action-approval nds-icon_container_circle">
+
+                <slds-svg-icon aria-hidden="true"
+                               sprite="'action'"
+                               icon="'approval'"
+                               size="'small'"
+                               extra-classes="''">
+                </slds-svg-icon>
+
+            </span>
+
+        </div>
+
+    </div>
+
+</a>
+<div class='vlc-slds-loadmore-products-btn vlc-slds-remote-action_button' ng-if="control.vlcSI[control.itemsKey][0].actions">
+    <div class="nds-form-element__control">
+        <div class="vlc-control-wrapper">
+            <div id="loadMoreProducts"
+                 class='nds-box'
+                 title="Load More"
+                 ng-click="baseCtrl.loadMoreProducts(control, this)">
+                <p>{{::customLabels.OmniSelItemLoadMore}}</p>
+            </div>
+        </div>
+    </div>
+</div>

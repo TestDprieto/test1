@@ -1,0 +1,100 @@
+<div class="vlc-slds-item--name">
+
+    <div class="vlc-slds-item--details__product_name vlc-slds-cart-hier-level-{{i.level}}">
+        <div class="vlc-slds-item--details__product_name-group">
+            <div class="vlc-slds-item--icon-pointer">
+                <slds-svg-icon sprite="'utility'" icon="'right'" size="'small'" ng-click="i.isExpanded = !i.isExpanded" extra-classes="'vlc-slds-item--cart-right-arrow'" ng-if="(!i.isExpanded && i.cartItems !== undefined)"></slds-svg-icon>
+                <slds-svg-icon sprite="'utility'" icon="'left'" size="'small'" ng-click="i.isExpanded = !i.isExpanded" extra-classes="'vlc-slds-item--cart-left-arrow'" ng-if="(!i.isExpanded && i.cartItems !== undefined)"></slds-svg-icon>
+                <slds-svg-icon sprite="'utility'" icon="'down'" size="'small'" ng-click="i.isExpanded = !i.isExpanded" ng-if="(i.isExpanded && i.cartItems !== undefined)"></slds-svg-icon>
+            </div>
+            <label class="slds-form-element__label" ng-class="{'slds-form-element__label_no_child' : i.cartItems == undefined}" >{{i.itemSObject.PricebookEntry.Product2.Name}}</label>
+            <span class='vlc-slds-item--details__child_number' ng-if='i.cartItems'>({{i.cartItems.length}})</span>
+            <slds-svg-icon sprite="'utility'" icon="'settings'" extra-classes="'vlc-slds-item--icon-settings'" size="'small'" ng-if="!(i.orderActive || i.provisioningStatus === 'Deleted') && (i.isRoot && i.isConfigurable)" ng-click="configureItem(bpTree, null, this, i, 'configureProdInCart', baseCtrl.customHandleSelectedItem, baseCtrl.customIsConfigurable, vlcPC.pcIndex)"></slds-svg-icon>
+        </div>
+        <div class='vlc-slds-item--details__errors'>
+            <span ng-repeat="e in i.errors">
+                {{e}}
+            </span>
+        </div>
+        <div class="vlc-slds-item--details__product_price">
+            <div class="vlc-slds-item--details__product_price_label">
+                <span class="vlc-slds-item--price__label_rtl">{{::customLabels.OmniOneTime}}</span>
+                <span class="price old-price" ng-show="i.itemSObject[nsPrefix + 'OneTimeCharge__c'] > i.itemSObject[nsPrefix + 'OneTimeTotal__c']">
+                    {{i.itemSObject[nsPrefix + 'OneTimeCharge__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                </span>
+                <span class="price" ng-class="{'new-price':i.itemSObject[nsPrefix + 'OneTimeCharge__c'] > i.itemSObject[nsPrefix + 'OneTimeTotal__c']}">
+                    {{i.itemSObject[nsPrefix + 'OneTimeTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                </span>
+            </div>
+
+            <div class="vlc-slds-item--details__product_price_label vlc-slds-item--details__product_price_label_margin">
+                <span class="vlc-slds-item--price__label_rtl">{{::customLabels.OmniMonthly}}</span>
+                <span class="price old-price" ng-show="i.itemSObject[nsPrefix + 'RecurringCharge__c'] > i.itemSObject[nsPrefix + 'RecurringTotal__c']">
+                    {{i.itemSObject[nsPrefix + 'RecurringCharge__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                </span>
+                <span class="price" ng-class="{'new-price':i.itemSObject[nsPrefix + 'RecurringCharge__c'] > i.itemSObject[nsPrefix + 'RecurringTotal__c']}">
+                    {{i.itemSObject[nsPrefix + 'RecurringTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                </span>
+            </div>
+        </div>
+    </div>
+    <span class='vlc-slds-item--details__hide' ng-click="i.isExpanded = !i.isExpanded" ng-show="(!i.isExpanded && i.cartItems !== undefined)">{{::customLabels.Omnicmtcartshowchild}}</span>
+    <span class='vlc-slds-item--details__hide' ng-click="i.isExpanded = !i.isExpanded" ng-show="(i.isExpanded && i.cartItems !== undefined)">{{::customLabels.Omnicmtcarthidechild}}</span>
+
+    <div class='vlc-slds-cart--quantity-box'>
+        <div class="vlc-slds-item--details">
+            <div class="vlc-slds-item--details__product_price">
+                <div class="vlc-slds-item--details__product_price_label">
+                    <span class="price old-price" ng-show="i.itemSObject[nsPrefix + 'OneTimeCharge__c'] > i.itemSObject[nsPrefix + 'OneTimeTotal__c']">
+                        {{i.itemSObject[nsPrefix + 'OneTimeCharge__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                    </span>
+                    <span class="price" ng-class="{'new-price':i.itemSObject[nsPrefix + 'OneTimeCharge__c'] > i.itemSObject[nsPrefix + 'OneTimeTotal__c']}">
+                        {{i.itemSObject[nsPrefix + 'OneTimeTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                    </span>
+                </div>
+
+                <div class="vlc-slds-item--details__product_price_label vlc-slds-item--details__product_price_label_margin">
+                    <span class="price old-price" ng-show="i.itemSObject[nsPrefix + 'RecurringCharge__c'] > i.itemSObject[nsPrefix + 'RecurringTotal__c']">
+                        {{i.itemSObject[nsPrefix + 'RecurringCharge__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                    </span>
+                    <span class="price" ng-class="{'new-price':i.itemSObject[nsPrefix + 'RecurringCharge__c'] > i.itemSObject[nsPrefix + 'RecurringTotal__c']}">
+                        {{i.itemSObject[nsPrefix + 'RecurringTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class='vlc-slds-cart--quantity-box-quantity'>
+            <slds-svg-icon sprite="'utility'" icon="'settings'" extra-classes="'vlc-slds-quantity__settings'" size="'small'" ng-if="!(i.orderActive || i.provisioningStatus === 'Deleted') && (i.isRoot && i.isConfigurable)" ng-click="configureItem(bpTree, null, this, i, 'configureProdInCart', baseCtrl.customHandleSelectedItem, baseCtrl.customIsConfigurable, vlcPC.pcIndex)"></slds-svg-icon>
+            <div class="slds-form-element__control">
+                <input type ='number' name="quantity"
+                    min='0'
+                    step="1"
+                    pattern="\d*"
+                    ng-model="i.itemSObject.Quantity"
+                    class="slds-input vls-slds-input-quantity"
+                    ng-init="oldQty = i.itemSObject.Quantity"
+                    ng-blur="oldQty !== i.itemSObject.Quantity && pcAction(vlcPC.pcIndex, bpTree, this, i, 'Update')"/>
+            </div>
+            <slds-svg-icon sprite="'utility'" icon="'up'" extra-classes="'vlc-slds-quantity__up_arrow'" size="'small'" ng-click="onClickProductCartQuantity(vlcPC.pcIndex, bpTree, this, i, 'Update', i.itemSObject.Quantity+1)"></slds-svg-icon>
+            <slds-svg-icon sprite="'utility'" icon="'down'" extra-classes="'vlc-slds-quantity__down_arrow'" size="'small'" ng-click="onClickProductCartQuantity(vlcPC.pcIndex, bpTree, this, i, 'Update', i.itemSObject.Quantity-1)"></slds-svg-icon>
+            <div class='vlc-slds-cart--button__delete' ng-if="!(i.orderActive || i.provisioningStatus === 'Deleted')">
+                <slds-svg-icon sprite="'utility'" icon="'delete'" extra-classes="'slds-button__icon-cart'" size="'small'" ng-click="pcAction(vlcPC.pcIndex, bpTree, this, i, 'Delete')"></slds-svg-icon>
+            </div>
+
+        </div>
+    </div>
+    <div class='vlc-slds-item--details__errors_mobile'>
+        <span ng-repeat="e in i.errors">
+            {{e}}
+        </span>
+    </div>
+
+</div>
+
+<div ng-show="i.isExpanded">
+    <div class="vlc-slds-line-item"
+        ng-repeat="i in i.cartItems"
+        ng-include="'vlcTopCartHierarchy.html'">
+    </div>
+</div>

@@ -1,0 +1,186 @@
+{
+    "dataSource": {
+        "type": null,
+        "value": {
+            "jsonMap": "{\"payload.Id\":\"{{payload.Id}}\"}"
+        }
+    },
+    "filter": {
+    },
+    "sessionVars": [
+    ],
+    "states": [
+        {
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['%vlocity_namespace%__Type__c']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "Data"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['%vlocity_namespace%__Type__c'] == 'Data'",
+            "name": "Data",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayName",
+                    "type": "string",
+                    "value": "['%vlocity_namespace%__Type__c']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "GB",
+                    "name": "DisplayAmount",
+                    "type": "string",
+                    "value": "['expr0']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayThreshold",
+                    "type": "string",
+                    "value": "['expr1']"
+                }
+            ],
+            "templateUrl": "vloc-mob-con-asset-usage-donut"
+        },
+        {
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['%vlocity_namespace%__Type__c']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "Talk"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['%vlocity_namespace%__Type__c'] == 'Talk'",
+            "name": "Talk",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayName",
+                    "type": "string",
+                    "value": "['%vlocity_namespace%__Type__c']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "min",
+                    "name": "DisplayAmount",
+                    "type": "string",
+                    "value": "['expr0']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayThreshold",
+                    "type": "string",
+                    "value": "['expr1']"
+                }
+            ],
+            "templateUrl": "vloc-mob-con-asset-usage-donut"
+        },
+        {
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "['%vlocity_namespace%__Type__c']",
+                        "logicalOperator": "&&",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "Text"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+            ],
+            "filter": "$scope.data.status === 'active' && $scope.obj['%vlocity_namespace%__Type__c'] == 'Text'",
+            "name": "Text",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayName",
+                    "type": "string",
+                    "value": "['%vlocity_namespace%__Type__c']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "texts",
+                    "name": "DisplayAmount",
+                    "type": "string",
+                    "value": "['expr0']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayThreshold",
+                    "type": "string",
+                    "value": "['expr1']"
+                }
+            ],
+            "templateUrl": "vloc-mob-con-asset-usage-donut"
+        }
+    ],
+    "title": "Donut"
+}

@@ -1,0 +1,34 @@
+{
+    "dataSource": {
+        "type": null,
+        "value": {
+            "query": ""
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "blankCardState": true,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'non-existent'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+            ],
+            "filter": "$scope.data.status === 'non-existent'",
+            "name": "Campaign Member Detail",
+            "sObjectType": "CampaignMember",
+            "templateUrl": "campaign-member-detail-blank"
+        }
+    ],
+    "title": "Campaign Member Detail"
+}

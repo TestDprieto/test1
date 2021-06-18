@@ -1,0 +1,54 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-time-picker-control'
+             ng-repeat='control in child.eleArray'>
+
+        <div vlc-slds-include="vlcLabelController.html"></div>
+
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+
+            <div class="vlc-control-wrapper" help="{{::control.propSetMap.help}}">
+
+                <input id='{{::control.name}}'
+                       placement='none'
+                       ng-disabled='control.ro'
+                       ng-required='control.req'
+                       type='text'
+                       name='loopname'
+                       ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'
+                       class='slds-input slds-time-picker'
+                       ng-model='control.response'
+                       ng-init='init(this, control)'
+                       data-min-time="{{::control.propSetMap.minTime}}"
+                       data-max-time="{{::control.propSetMap.maxTime}}"
+                       time-type="{{::control.propSetMap.timeType}}"
+                       model-time-format="{{::control.propSetMap.modelTimeFormat}}"
+                       slds-time-picker
+                       data-time-format ="{{::control.propSetMap.timeFormat}}"
+                       vlc-slds-val-checker="response" />
+
+                <label for="{{::control.name}}" class='slds-form-element__label'>{{::control.propSetMap.label}}
+                    <span class='vlc-asterix icon-v-asterix'
+                          ng-if='control.req'>
+                    </span>
+                </label>
+
+                <!-- tooltip template -->
+                <a vlc-slds-tool-tip="test" ng-show="{{control.propSetMap.help}}"> i </a>
+
+            </div>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'clock'"
+                           size="'small'"
+                           extra-classes="'slds-button__icon slds-button__icon--large'">
+            </slds-svg-icon>
+
+            <div ng-include="::errHTMLId"></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

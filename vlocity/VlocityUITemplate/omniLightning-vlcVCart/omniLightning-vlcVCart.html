@@ -1,0 +1,35 @@
+<div class="horizontal-cart vlc-cart-knowledge-padding" ng-init="showCart = false;setJSDataPreprocessor(vlcPC, baseCtrl.createCartHierarchy)">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="head-item cart-toggle" ng-click="showCart = !showCart;">
+                <span class="cart-icon icon-v-cart-line"></span>
+                <h3 class="panel-title">{{::vlcPC.label}}</h3>
+                <span class="toggle-icon" ng-class="{'icon-v-up-caret':showCart, 'icon-v-down-caret': !showCart}"></span>
+            </div>
+            <div class="head-item">
+                <label>{{::customLabels.OmniOneTime}}</label>
+                <h4>{{bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].OneTimeSum | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }} &nbsp;</h4>
+            </div>
+            <div class="head-item">
+                <label>{{::customLabels.OmniMonthly}}</label>
+                <h4>{{bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].RecurringSum | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }} &nbsp;</h4>
+            </div>
+
+            <!--
+            <div class="head-item padding0">
+                <button class="btn btn-primary">Continue</button>
+            </div>
+            -->
+        </div>
+        <div class="panel-body" ng-show="showCart">
+            <section class="hcart-section">
+                <h3>{{::vlcPC.label}}</h3>
+                <div class="topcartitems" ng-repeat="i in bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]] | filterMultiple:{provisioningStatus:['New','Pending','Changed']}" ng-include="'vlcTopCartHierarchy.html'"></div>
+            </section>
+            <section class="hcart-section">
+                <h3>{{::customLabels.OmniCurrentSetup}}</h3>
+                <div class="topcartitems" ng-repeat="i in bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]] | filterMultiple:{provisioningStatus:['Active','Inactive']}" ng-include="'vlcTopCartHierarchy.html'"></div>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class='nds-col_padded nds-size_1-of-1'>
+    <table class="nds-table nds-table_bordered nds-table_cell-buffer" ng-class="[compareWindowWidth(1024,'vlc-slds-table_stacked'),compareWindowWidth(375,'vertical')]" ng-init=digestOnResize()>
+       <thead>
+            <tr class="nds-text-heading_label">
+                <th width="20px"/>
+                <th scope="col">
+                    <div class="nds-truncate">{{::customLabels.OmniAssetSerialNumber}}</div>
+                </th>
+                <th scope="col">
+                    <div class="nds-truncate">{{::customLabels.OmniAssetName}}</div>
+                </th>
+                <th scope="col">
+                    <div class="nds-truncate">{{::customLabels.OmniAssetProductName}}</div>
+                </th>
+                <th scope="col">
+                    <div class="nds-truncate">{{::customLabels.OmniAssetActivationDate}}</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat='p in control.vlcSI[control.itemsKey]' ng-class="{ 'vlc-selectableitem-selected' : p.vlcSelected }" >
+                <td class="nds-cell-shrink" data-label='Select'>
+                    <label class="nds-checkbox">
+                        <input type="checkbox" ng-model='p.vlcSelected' ng-change='onSelectItem(control, p, $index, this)'/>
+                        <span class="nds-checkbox_faux"></span>
+                        <span class="nds-assistive-text">Select</span>
+                    </label>
+                </td>
+                <td data-label='{{::customLabels.OmniAssetSerialNumber}}'>
+                    <div class="nds-truncate">{{p['Serial Number']}}</div>
+                </td>
+                <td data-label='{{::customLabels.OmniAssetName}}'>
+                    <div class="nds-truncate">{{p['Asset Name']}}</div>
+                </td>
+                <td data-label='{{::customLabels.OmniAssetProductName}}'>
+                    <div class="nds-truncate">{{p['Product Name']}}</div>
+                </td>
+                <td data-label='{{::customLabels.OmniAssetActivationDate}}'>
+                    <div class="nds-truncate">{{p['Activation Date']}}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <div class="nds-form-element__control">
+            <div>
+                <div id="upgradeAsset"
+                     class='nds-box'
+                     title="Upgrade"
+                     ng-click="buttonClick(bpTree.response, control, this, p, 'Upgrade')">
+                    <p>Upgrade</p>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

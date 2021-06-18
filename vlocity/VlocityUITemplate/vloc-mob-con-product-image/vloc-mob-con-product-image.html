@@ -1,0 +1,10 @@
+<script>
+    //Carousel Image
+    $(document).ready(function(){
+        if(typeof productSwiper !== 'undefined'){
+            startSwiper();
+        }
+    });
+</script>
+
+<img src="{{$root.customDefinedValue.CommunityURL + placeholder.ProductImage.value | trusted}}" class="con-opacity-fade-in"/>

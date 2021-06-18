@@ -1,0 +1,16 @@
+<div class="nds-edit-block_cards-add-card" ng-class="{'nds-edit-block_longcards nds-grid':isLongCard, 'nds-edit-block_shortcards': isShortCard}"
+    ng-init="ctrlLength=0; set.length > 3 ? ctrlLength = 3 :ctrlLength = ctrlLength=set.length"
+    ng-if='child.eleArray[0].propSetMap.allowNew && set.length > 0' ng-click="openEditModal(null, child, this, 'new', null, $event)">
+    <div style="height:40px" ng-if="isShortCard"></div>
+    <div ng-if='child.eleArray[0].propSetMap.allowNew && set.length > 0' ng-class="{'nds-grid nds-cont-wrapper': isLongCard}">
+        <div ng-class="{'nds-edit-block_longcards-circle': isLongCard, 'nds-edit-block_shortcards-circle': isShortCard}">
+            <span class="nds-icon_container nds-icon_container_circle">
+                <slds-svg-icon sprite="child.eleArray[0].propSetMap.svgSprite" icon="child.eleArray[0].propSetMap.svgIcon" size="'large'"></slds-svg-icon>
+            </span>
+        </div>
+        <div ng-class="{'nds-edit-block_longcards-add-icon nds-grid nds-has-flexi-truncate nds-align_absolute-center': isLongCard, 'nds-edit-block_shortcards-add-icon': isShortCard}">
+            <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'add'"></slds-button-svg-icon>
+            <span>{{::((child.eleArray[0].propSetMap.newAction) ? (child.eleArray[0].propSetMap.newAction.propSetMap.label) : (child.eleArray[0].propSetMap.newLabel))}}</span>
+        </div>
+    </div>
+</div>

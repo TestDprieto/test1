@@ -1,0 +1,62 @@
+<div class="nds-size_1-of-1">
+    <ng-form name='loopform'
+             class='nds-form-element nds-m-bottom_large nds-p-around_small'
+             ng-repeat='control in child.eleArray'
+             autocomplete="off">
+
+        <div class="nds-form-element__control nds-lookup nds-input-has-icon nds-grid nds-form-element__control-animated-label">
+
+            <div class="nds-grid nds-cont-wrapper">
+                <slds-svg-icon aria-hidden="true"
+                  sprite="'utility'"
+                  icon="'search'"
+                  size="'x-small'"
+                  class='nds-button__icon nds-m-right_xx-small nds-m-top_small'>
+                </slds-svg-icon> 
+
+                <input id='{{::control.name}}'
+                 ng-disabled='control.ro'
+                 ng-required='control.req'
+                 ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'
+                 ng-click="convertToObject(true);control.showSubList = true"
+                 name='loopname'
+                 type="text"
+                 class="nds-input"
+                 ng-model="control.response"
+                 vlc-slds-lookup-control="test"
+                 ng-init='init(this, control)'
+                 vlc-disable-auto-complete="off"/>
+
+                <label for="{{::control.name}}" class='nds-form-element__label nds-p-left_large'>
+                    {{::control.propSetMap.label}}
+                    <span class='nds-required'
+                        ng-if='control.req'>*
+                    </span>
+                </label>
+
+                <!-- list of matched items -->
+                <ul class="nds-list_vertical nds-dropdown-list"
+                    ng-click="aggregate(this, control.index, control.indexInParent, true, -1)"
+                    ng-show="control.propSetMap.options.length && control.showSubList">
+
+                    <!-- clear option-->
+                    <li ng-click="convertToObject(false);control.showSubList = false"
+                        class="nds-list__item">
+                        --
+                    </li>
+
+                    <li ng-click="setViewValue(obj)"
+                        ng-repeat="obj in control.viewObjects|orderBy:'value' "
+                        class='nds-list__item'>
+                        {{obj.value}}
+                    </li>
+
+                </ul>
+            </div>
+            <a class="nds-tooltip_container" vlc-slds-tool-tip="test" ng-if="control.propSetMap.help" ng-include="'vlcHelptextInfoIcon.html'"></a>
+            <div vlc-slds-include="vlcLabelController.html"></div>
+        </div>
+
+        <div ng-include="::errHTMLId"></div>
+    </ng-form>
+</div>

@@ -1,0 +1,26 @@
+<div class='nds-size_1-of-1'>
+    <ng-form name='loopform'
+             class='nds-form-element nds-grid nds-grid_vertical nds-m-bottom_large nds-p-around_small nds-radio_group'
+             id="{{::control.name + '|' + $index}}"
+             ng-repeat='control in child.eleArray'>
+
+        <label for="{{::control.name + '|' + $index}}" 
+              class='nds-form-element__legend nds-form-element__label nds-p-left_none nds-text-heading_small'>
+            <span>{{::control.propSetMap.label}}</span>
+            <span class='nds-required' ng-if='validateRequired(this, control, option) && control.req'> *
+            </span>
+            <a class="nds-tooltip_container" vlc-slds-tool-tip="test" ng-if="control.propSetMap.help" ng-include="'vlcHelptextInfoIcon.html'"></a>
+            <div vlc-slds-include="vlcLabelController.html"></div>
+
+        </label>
+        <div id='{{::control.name}}' ng-init='init(this, control)' ng-include="'vlcRadioGroupItem.html'"></div>
+        <div class='nds-has-error nds-grid'>
+           <div ng-show='loopform.$error' ng-hide='loopform.$pristine'>
+               <small ng-show='loopform.$error.required' class="nds-form-element__help">{{::customLabels.OmniRequired}}</small>
+           </div>
+           <div ng-show='control.srvErr'>
+               <small ng-show='control.srvErr'  class="nds-form-element__help" ng-show='control.srvErr'>{{control.srvErr}}</small>
+           </div>
+        </div>        
+    </ng-form>
+</div>

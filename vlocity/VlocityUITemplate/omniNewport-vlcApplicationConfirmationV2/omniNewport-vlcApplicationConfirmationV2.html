@@ -1,0 +1,21 @@
+<div class='nds-box nds-theme_shade nds-medium-size_6-of-12 nds-align_absolute-center'>
+    <div>
+        <div class='nds-box nds-m-top_large nds-clearfix'>
+
+            <div ng-if="::customLabels.OmniSummary" class='nds-text-heading_label'>
+                {{::customLabels.OmniSummary}}
+            </div>
+
+            <json-tree json='bpTree.responseT' skipnodes='bpTree.skipElements' collapsed-level='2' labelmap="bpTree.labelMap"></json-tree>
+
+        </div>
+
+        <div class='nds-box nds-m-top_large' ng-if="bpTree.previewMode">
+
+            <div ng-if="::customLabels.OmniDataJSON" class='nds-form-element__label'>{{::customLabels.OmniDataJSON}}</div>
+            <pre>{{bpTree.response | json}}</pre>
+
+        </div>
+    </div>
+
+</div>

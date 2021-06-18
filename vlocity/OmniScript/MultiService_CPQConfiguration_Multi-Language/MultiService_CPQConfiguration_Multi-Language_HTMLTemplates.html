@@ -1,0 +1,384 @@
+<style>
+.via-slds.via-omni  form[stepForm]{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+ }
+.via-slds.via-omni section#CPQ{
+    margin: 0px;
+    padding: 0px;
+    min-height: 90vh;
+    border: none;
+ }
+.via-slds.via-omni form[stepForm] div.slds-m-top--medium.slds-m-bottom--medium{
+  margin-top: 0.5rem;
+ margin-bottom: 0.5rem;
+}
+.via-slds.via-omni .vlc-slds-button--tertiary {
+  margin-bottom: 0px;
+}
+.via-slds.via-omni ng-form{
+   padding-right: 0px;
+}
+.via-slds.via-omni sidebar {
+    border-bottom: none;
+}
+.via-slds.via-omni #MultiServiceCPQ > label{
+   display: none;
+}
+.via-slds section.slds-page-header {
+padding: .75rem;
+border: none;
+box-shadow: none;
+background: #F4F6F9;
+padding-bottom: 2.5rem; }
+
+.via-slds .vlc-slds-right--panel {
+    display: none;
+}
+.via-slds.via-omni .vlc-slds-bpTree-step-chart__container {
+     margin-bottom: 0px;
+}
+
+.via-slds .slds-progress-bar {
+display: block;
+width: 100%;
+height: 0.5rem;
+background: #dddbda;
+border: 0;
+-webkit-appearance: none;
+-moz-appearance: none;
+appearance: none;
+position: relative;
+}
+
+.via-slds .slds-progress-bar_x-small, .via-slds .slds-progress-bar--x-small {
+height: 0.125rem; }
+
+.via-slds .slds-progress-bar_small, .via-slds .slds-progress-bar--small {
+height: 0.25rem; }
+
+.via-slds .slds-progress-bar_medium, .via-slds .slds-progress-bar--medium {
+height: 0.5rem; }
+
+.via-slds .slds-progress-bar_large, .via-slds .slds-progress-bar--large {
+height: 0.75rem; }
+
+.via-slds .slds-progress-bar_circular, .via-slds .slds-progress-bar--circular {
+border-radius: 0.5rem; }
+
+.via-slds .slds-progress-bar_circular .slds-progress-bar__value, .via-slds .slds-progress-bar--circular .slds-progress-bar__value {
+border-radius: 0.5rem; }
+
+.via-slds .slds-progress-bar__value {
+display: block;
+background: #ff6d00;
+height: 100%; }
+
+.via-slds .slds-progress-bar__value_success {
+background: #4bca81; }
+
+.via-slds .slds-progress {
+position: relative;
+max-width: 70%;
+-ms-flex: 1 1 auto;
+flex: 1 1 auto;
+margin: auto;
+}
+
+.via-slds .slds-progress_shade .slds-progress__item.slds-is-completed .slds-progress__marker,
+.via-slds .slds-progress_shade .slds-progress__item.slds-is-active .slds-progress__marker, .via-slds .slds-progress--shade .slds-progress__item.slds-is-completed .slds-progress__marker,
+.via-slds .slds-progress--shade .slds-progress__item.slds-is-active .slds-progress__marker {
+background: #fafaf9; }
+
+.via-slds .slds-progress_shade .slds-progress__item.slds-is-completed .slds-progress__marker_icon,
+.via-slds .slds-progress_shade .slds-progress__item.slds-is-completed .slds-progress__marker--icon, .via-slds .slds-progress--shade .slds-progress__item.slds-is-completed .slds-progress__marker_icon,
+.via-slds .slds-progress--shade .slds-progress__item.slds-is-completed .slds-progress__marker--icon {
+border-color: #fafaf9; }
+
+.via-slds .slds-progress_shade .slds-progress__item.slds-is-active .slds-progress__marker, .via-slds .slds-progress--shade .slds-progress__item.slds-is-active .slds-progress__marker {
+box-shadow: #fafaf9 0 0 0 4px; }
+
+.via-slds .slds-progress_shade .slds-progress__item.slds-is-active .slds-progress__marker:focus, .via-slds .slds-progress--shade .slds-progress__item.slds-is-active .slds-progress__marker:focus {
+box-shadow: #fafaf9 0 0 0 4px, 0 0 3px 4px #0070d2; }
+
+.via-slds .slds-progress_shade .slds-progress__item.slds-has-error .slds-progress__marker, .via-slds .slds-progress_shade .slds-progress__item.slds-has-error .slds-progress__marker:hover, .via-slds .slds-progress_shade .slds-progress__item.slds-has-error .slds-progress__marker:focus, .via-slds .slds-progress--shade .slds-progress__item.slds-has-error .slds-progress__marker, .via-slds .slds-progress--shade .slds-progress__item.slds-has-error .slds-progress__marker:hover, .via-slds .slds-progress--shade .slds-progress__item.slds-has-error .slds-progress__marker:focus {
+background: #fafaf9; }
+
+.via-slds .slds-progress_shade .slds-progress__item .slds-progress__marker, .via-slds .slds-progress--shade .slds-progress__item .slds-progress__marker {
+border-color: #fafaf9; }
+
+.via-slds .slds-progress .slds-progress-bar {
+position: absolute;
+top: 50%;
+margin-top: -0.0625rem;
+width: 98%;
+left: 0.05rem; }
+
+.via-slds .slds-progress__list {
+display: -ms-flexbox;
+display: flex;
+-ms-flex-pack: justify;
+justify-content: space-between;
+-ms-flex-align: center;
+align-items: center;
+margin: auto;
+position: relative;
+z-index: 1; }
+
+.via-slds .slds-progress__item {
+display: -ms-inline-flexbox;
+display: inline-flex;
+-ms-flex-item-align: center;
+align-self: center;
+}
+
+.via-slds .slds-progress__item.slds-is-completed .slds-progress__marker,
+.via-slds .slds-progress__item.slds-is-active .slds-progress__marker {
+background: white;
+border-color: #1589ee; }
+
+.via-slds .slds-progress__item.slds-is-completed .slds-progress__marker_icon,
+.via-slds .slds-progress__item.slds-is-completed .slds-progress__marker--icon {
+border-color: white;
+color: #ff6d00; }
+
+.via-slds .slds-progress__item.slds-is-active .slds-progress__marker {
+box-shadow: white 0 0 0 4px; }
+
+.via-slds .slds-progress__item.slds-is-active .slds-progress__marker:hover, .via-slds .slds-progress__item.slds-is-active .slds-progress__marker:focus {
+border-color: #0070d2; }
+
+.via-slds .slds-progress__item.slds-is-active .slds-progress__marker:focus {
+box-shadow: white 0 0 0 4px, 0 0 3px 4px #0070d2; }
+
+.via-slds .slds-progress__item.slds-has-error .slds-progress__marker, .via-slds .slds-progress__item.slds-has-error .slds-progress__marker:hover, .via-slds .slds-progress__item.slds-has-error .slds-progress__marker:focus {
+color: #c23934;
+background: white;
+border-color: transparent;
+box-shadow: none; }
+
+.via-slds .slds-progress__item.slds-has-error .slds-progress__marker:focus {
+box-shadow: 0 0 3px 0 #c23934; }
+
+.via-slds .slds-progress__marker {
+width: 1rem;
+height: 1rem;
+position: relative;
+border-radius: 50%;
+background: #dddbda;
+border: 4px solid white;
+vertical-align: middle;
+}
+
+.via-slds .slds-progress__marker_icon, .via-slds .slds-progress__marker--icon {
+width: auto;
+height: auto; }
+
+.via-slds .slds-progress-ring {
+position: relative;
+display: inline-block;
+height: 1.5rem;
+width: 1.5rem;
+border-radius: 1.5rem;
+background: #dddbda; }
+
+.via-slds .slds-progress-ring .slds-icon_container {
+line-height: 0; }
+
+.via-slds .slds-progress-ring__progress {
+transform: scale(-1, 1) rotate(-90deg); }
+
+.via-slds .slds-progress-ring__progress svg {
+width: 100%; }
+
+.via-slds .slds-progress-ring__path {
+fill: #ff6d00; }
+
+.via-slds .slds-progress-ring__content {
+position: absolute;
+top: 0.1875rem;
+right: 0.1875rem;
+bottom: 0.1875rem;
+left: 0.1875rem;
+display: -ms-flexbox;
+display: flex;
+-ms-flex-align: center;
+align-items: center;
+-ms-flex-pack: center;
+justify-content: center;
+border-radius: 1.5rem;
+background: white; }
+
+.via-slds .slds-progress-ring__content .slds-icon {
+width: 0.75rem; }
+
+.via-slds .slds-progress-ring_warning .slds-progress-ring__content {
+background: white; }
+
+.via-slds .slds-progress-ring_warning .slds-icon,
+.via-slds .slds-progress-ring_warning .slds-progress-ring__path {
+fill: #ffb75d; }
+
+.via-slds .slds-progress-ring_expired .slds-progress-ring__content {
+background: white; }
+
+.via-slds .slds-progress-ring_expired .slds-icon,
+.via-slds .slds-progress-ring_expired .slds-progress-ring__path {
+fill: #d4504c; }
+
+.via-slds .slds-progress-ring_complete .slds-icon {
+fill: white; }
+
+.via-slds .slds-progress-ring_complete .slds-progress-ring__path {
+fill: #ff6d00; }
+
+.via-slds .slds-progress-ring_complete .slds-progress-ring__content {
+background: #ff6d00; }
+
+
+
+.via-slds section.slds-page-header {
+border: none;
+box-shadow: none;
+background: white; }
+
+.via-slds section.slds-page-header .slds-progress .slds-progress__list {
+top: -1px; }
+
+.via-slds section.slds-page-header ol li button .slds-button__icon {
+width: .875rem;
+height: .875rem;
+fill: #0070d2;
+position: relative;
+top: -.35rem; }
+
+.via-slds section.slds-page-header ol li.slds-has-error button .slds-button__icon {
+top: -0.15rem;
+fill: currentColor;
+left: -0.2rem;
+position: absolute;
+background: white; }
+
+.via-slds section.slds-page-header ol li.slds-progress__item {
+cursor: pointer;
+outline: none; }
+
+.via-slds section.slds-page-header ol li.slds-has-error .slds-button {
+top: 0px !important; }
+
+.via-slds section.slds-page-header ol li.slds-has-error .slds-progress__item_label {
+top: 1.5rem; }
+
+.via-slds section.slds-page-header ol li.slds-progress__item .slds-progress__marker {
+top: 1px;
+box-shadow: unset; }
+
+.via-slds section.slds-page-header ol li.slds-is-completed .slds-button {
+border: 0;
+padding: 0;
+margin: 0px;
+position: relative;
+top: -2px; }
+
+.via-slds section.slds-page-header ol li.slds-progress__item .slds-popover--tooltip {
+display: none;
+left: calc(-50% + 8px);
+max-width: 30rem;
+white-space: nowrap;
+top: 1.7rem; }
+
+.via-slds section.slds-page-header ol li.slds-progress__item:hover .slds-popover--tooltip {
+display: block; }
+
+.via-slds section.slds-page-header .slds-progress__step-label {
+left: calc(-50% + 8px);
+max-width: 30rem;
+white-space: nowrap; 
+font-size: .8125rem;
+font-weight: 600;
+position: relative;
+top: 1rem;}
+
+</style>
+
+<script type="text/ng-template" id="vlcSideBar.html">
+	<div class="vlc-slds-cart" ng-if="bpTree.showPC">
+	<ng-include ng-repeat="vlcPC in ::bpTree.propSetMap.persistentComponent"
+	ng-if='bpTree.showPCNew[vlcPC.pcIndex] && ($index === 0 )'
+	id='{{::vlcPC.id}}'
+	class="slds-box"
+	src="::bpTree.dfHPSTmpl[vlcPC.pcIndex]"/>
+	</div>
+	<div ng-include="'vlcStepChart.html'" style="width: 100%;"></div>
+</script>
+
+<script type="text/ng-template" id="vlcStepChart.html">
+	<section class="slds-page-header slds-m-top_x-small" ng-if="::!bpTree.propSetMap.hideStepChart">
+		<div class='slds-size_1-of-1'>
+			<div class="slds-size_6-of-12 slds-align_absolute-center slds-grid" >
+				<div class="slds-size_1-of-1 slds-col_bump-right" style="width: 100%;">
+					<div class="slds-progress slds-size_1-of-1" ng-init="stepsCnt=[]">
+						<ol class="slds-progress__list">
+						<li class="slds-progress__item slds-is-relative"
+						ng-class="{'slds-is-active': step.bAccordionActive, 'slds-is-completed' : (!step.bAccordionActive && step.completed), 'slds-has-error' : (!step.bAccordionActive && step.tInvalid && step.visited)}"
+						ng-repeat="step in ::children"
+						ng-if="step.type === 'Step' && step.show"
+						state="{{step.bAccordionActive}}"
+						ng-click="sidebarNav(step)"
+						ng-init="stepsCnt.push(0)"
+						vlc-slds-step-styler>
+							<button class="slds-button slds-progress__marker" ng-if="step.completed && !step.bAccordionActive">
+								<slds-svg-icon aria-hidden="true"
+								sprite="'utility'"
+								icon="'success'"
+								size="'small'"
+								extra-classes="'slds-button__icon'">
+								</slds-svg-icon>
+							</button>
+							<button class="slds-button slds-progress__marker" ng-if="!step.bAccordionActive && step.tInvalid && step.visited">
+								<slds-svg-icon aria-hidden="true"
+								sprite="'utility'"
+								icon="'warning'"
+								size="'small'"
+								extra-classes="'slds-button__icon'">
+								</slds-svg-icon>
+							</button>
+							<button class="slds-button slds-progress__marker" ng-if="step.bAccordionActive || (!step.bAccordionActive && !step.completed)"
+							ng-hide="!step.bAccordionActive && step.tInvalid && step.visited">
+							</button>
+							<div ng-if="step.bAccordionActive" class="slds-is-absolute">
+								<div class="slds-m-top_medium slds-is-relative slds-progress__step-label">
+									<div>{{step.propSetMap.label}}</div>
+								</div>
+							</div>
+							<div ng-if="!step.bAccordionActive" class="slds-is-absolute" >
+								<div class="slds-popover slds-popover--tooltip slds-nubbin--top" role="tooltip">
+									<div class="slds-popover__body">{{step.propSetMap.label}}</div>
+								</div>
+							</div>
+						</li>
+					</ol>
+						<div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar" ng-if="stepsCnt.length > 1">
+							<span class="slds-progress-bar__value" ng-style="{'width':calculateProgressWidth(), 'background': '#5eb4ff'}">
+							<span class="slds-assistive-text">Progress: 0%</span>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</script>
+
+<script type="text/ng-template" id="vlcSldsRightPanel.html">
+	<div class="vlc-slds-right--panel" ng-if="::!bpTree.propSetMap.hideStepChart">
+		<div vlc-slds-step-chart map="StepChart" ></div>
+		<!-- knowledge component will go here -->
+		<ng-include ng-repeat="vlcPC in ::bpTree.propSetMap.persistentComponent"
+		ng-if='bpTree.showPCNew[vlcPC.pcIndex] && ($index === 1 )'
+		id='{{::vlcPC.id}}'
+		knowledge="true"
+		src="::bpTree.dfHPSTmpl[vlcPC.pcIndex]"/>
+	</div>
+</script>

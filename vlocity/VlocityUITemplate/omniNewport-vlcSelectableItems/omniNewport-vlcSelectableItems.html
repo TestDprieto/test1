@@ -1,0 +1,26 @@
+<div class="nds-size_1-of-1">
+
+    <ng-form name='loopform'
+        class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small'
+        id='{{::control.name}}'
+        ng-repeat='control in child.eleArray' >
+
+        <div class="nds-form-element__control">
+
+            <label for="{{::control.name}}"
+                class='nds-form-element__label nds-element_text-font nds-m-bottom_x-small'>
+                {{::control.propSetMap.label}} 
+                <span class='nds-required'
+                    ng-if='control.req'>*
+                </span>
+            </label>
+
+            <ng-include class="nds-grid nds-wrap nds-grid_pull-padded"
+                ng-if='ngInitValidation(this, control)'
+                src='::control.propSetMap.HTMLTemplateId' />
+
+      </div>
+
+    </ng-form>
+
+</div>

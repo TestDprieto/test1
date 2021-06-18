@@ -1,0 +1,28 @@
+[
+    {
+        "%vlocity_namespace%__DestinationFieldApiName__c": "%vlocity_namespace%__RecurringTotal__c",
+        "%vlocity_namespace%__DestinationSObjectType__c": "%vlocity_namespace%__OrderGroup__c",
+        "%vlocity_namespace%__PricingVariableId__c": {
+            "%vlocity_namespace%__Code__c": "GROUP_ROLLUP_REC_MNTH_STD_PRC_TOTAL",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__PricingVariable__c/GROUP_ROLLUP_REC_MNTH_STD_PRC_TOTAL",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariable__c"
+        },
+        "Name": "Group Rollup Recurring Std Price Total - OrderGroup",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariableBinding__c"
+    },
+    {
+        "%vlocity_namespace%__DestinationFieldApiName__c": "%vlocity_namespace%__RecurringTotal__c",
+        "%vlocity_namespace%__DestinationSObjectType__c": "%vlocity_namespace%__QuoteGroup__c",
+        "%vlocity_namespace%__PricingVariableId__c": {
+            "%vlocity_namespace%__Code__c": "GROUP_ROLLUP_REC_MNTH_STD_PRC_TOTAL",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__PricingVariable__c/GROUP_ROLLUP_REC_MNTH_STD_PRC_TOTAL",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariable__c"
+        },
+        "Name": "Group Rollup Recurring Std Price Total - QuoteGroup",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariableBinding__c"
+    }
+]

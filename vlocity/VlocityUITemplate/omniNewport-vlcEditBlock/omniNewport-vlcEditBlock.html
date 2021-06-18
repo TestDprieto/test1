@@ -1,0 +1,57 @@
+<!-- vlcEditBlock.html -->
+<div class='nds-col_padded nds-size_1-of-1 nds-element_text-font nds-table_custom' ng-init="isTableView=true;  maxLimitCountObj={maxDispCount:0}">
+    {{set = ((child.eleArray[0].children.length === 0)?(child.eleArray[0].childrenC):(child.eleArray[0].children));""}}
+    <div class="nds-size_12-of-12 nds-medium-size_12-of-12 nds-large-size_12-of-12 nds-m-bottom_x-small">
+        <div>
+            {{::child.eleArray[0].propSetMap.label}}
+        </div>
+        <div class="nds-m-around_xx-small nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_{{action.propSetMap.controlWidth}}-of-12 nds-show_inline-block" 
+            ng-style="(action.propSetMap.svgSprite && action.propSetMap.svgIcon) ? {'width' : 'auto'}:''"
+            ng-repeat="action in child.eleArray[0].propSetMap.gActions"ng-include="'vlcEditBlockGlobalBtn.html'">
+        </div>
+    </div>
+    <table class="nds-table nds-table_bordered nds-table_cell-buffer nds-border_right nds-max-medium-table_stacked-horizontal" ng-init=digestOnResize() ng-if="set.length">
+        <thead>
+            <tr class="nds-text-title_caps">
+                <th width="20px" style="padding:0px; border-radius: 5px 5px 0 0;"></th>
+                 <th scope="col" ng-repeat='ctrl in set' ng-hide='!ctrl.displayInView' ng-style="{'width':(100/maxLimitCountObj.maxDispCount)+'%'}">
+                    <div class="nds-truncate">{{::ctrl.eleArray[0].propSetMap.label}}</div>
+                </th>
+                <th width="70px" style="border-radius: 5px 5px 0 0;"/>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-form name="vlcEditBlockFormMain_{{$index}}"
+                id ='{{::control.name}}'
+                ng-repeat="control in child.eleArray"
+                ng-style="control.childrenC !== undefined && {'display':'none'}"
+                ng-if="set.length > 0"
+                ng-init="control.selectCheckBox = child.eleArray[0].propSetMap.selectCheckBox; initEditBlockControlLimit(control, 3, maxLimitCountObj);"
+                ng-click="onClickEditBlockRecord(control, set.checkboxInd, $event, child.eleArray, $index)"
+                ng-class="{'nds-table_custom-row-selected' : control.children[set.checkboxInd].eleArray[0].response == true}">
+                <td>
+                    <span class="nds-required nds-is-absolute" ng-if="isTableView && isEditBlockRecordInvalid($index, this)">*</span>
+                </td>
+                <td data-label='{{::child.eleArray[0].propSetMap.label}}' ng-repeat='child in children = control.children' ng-hide='!child.displayInView'
+                    ng-init="child.blockIndex = control.index">
+                    <form name="editblockform"
+                          ng-if='child.eleArray[0].propSetMap.hide||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'
+                          ng-include="'vlcEditBlockDetailCont.html'">
+                    </form>
+                </td>
+                <td data-label='{{::customLabels.OmniEditBlockTableMenu}}'>
+                    <div class="nds-float_right">
+                        <slds-dropdown content="[]" template-url="vlcEditBlockDropdown.html"></slds-dropdown>
+                    </div>
+                </td>
+            </tr ng-form>
+        </tbody>
+     </table>
+     <button class='nds-button nds-float_right nds-m-top_x-small nds-editblock_add-button'
+          title="Add"
+          ng-if='child.eleArray[0].propSetMap.allowNew && set.length > 0'
+          ng-click="openEditModal(null, child, this, 'new', null, $event)">
+            <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'add'"></slds-button-svg-icon>
+            <span>{{::((child.eleArray[0].propSetMap.newAction) ? (child.eleArray[0].propSetMap.newAction.propSetMap.label) : (child.eleArray[0].propSetMap.newLabel))}}</span>
+     </button>
+</div>
