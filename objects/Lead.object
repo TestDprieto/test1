@@ -694,10 +694,38 @@
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
+        <fullName>RT_Picklist_1</fullName>
+        <active>true</active>
+        <businessProcess>prueba numero 1</businessProcess>
+        <label>RT Picklist 1</label>
+        <picklistValues>
+            <picklist>Position_with_School__c</picklist>
+            <values>
+                <fullName>Head of School%2FPrincipal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>RT_Picklist_2</fullName>
         <active>false</active>
         <businessProcess>prueba numero 1</businessProcess>
         <label>RT Picklist 2</label>
+        <picklistValues>
+            <picklist>Position_with_School__c</picklist>
+            <values>
+                <fullName>Head of School%2FPrincipal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
