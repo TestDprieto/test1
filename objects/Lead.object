@@ -374,6 +374,120 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Position_with_School__c</fullName>
+        <externalId>false</externalId>
+        <label>Position with School</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Head of School/Principal</fullName>
+                    <default>false</default>
+                    <label>Head of School/Principal</label>
+                </value>
+                <value>
+                    <fullName>Teacher</fullName>
+                    <default>false</default>
+                    <label>TEACHER</label>
+                </value>
+                <value>
+                    <fullName>Department Head/Year</fullName>
+                    <default>false</default>
+                    <label>Department Head/Year</label>
+                </value>
+                <value>
+                    <fullName>Board of Governors</fullName>
+                    <default>false</default>
+                    <label>Board of Governors</label>
+                </value>
+                <value>
+                    <fullName>Independent Owners</fullName>
+                    <default>false</default>
+                    <label>Independent Owners</label>
+                </value>
+                <value>
+                    <fullName>Superintendent</fullName>
+                    <default>false</default>
+                    <label>Superintendent</label>
+                </value>
+                <value>
+                    <fullName>Education Ministry Officer</fullName>
+                    <default>false</default>
+                    <label>Education Ministry Officer</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+                <value>
+                    <fullName>Deputy Principal Primary</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Deputy Principal Primary</label>
+                </value>
+                <value>
+                    <fullName>Early Childhood music teacher</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Early Childhood music teacher</label>
+                </value>
+                <value>
+                    <fullName>Founder &amp; Managing Trustee</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Founder &amp; Managing Trustee</label>
+                </value>
+                <value>
+                    <fullName>HEAD OF EARLY &amp; PRIMARY YEARS</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>HEAD OF EARLY &amp; PRIMARY YEARS</label>
+                </value>
+                <value>
+                    <fullName>Kindergarten 2 teacher</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Kindergarten 2 teacher</label>
+                </value>
+                <value>
+                    <fullName>Kindergarten teacher</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Kindergarten teacher</label>
+                </value>
+                <value>
+                    <fullName>Per-School Principal</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Per-School Principal</label>
+                </value>
+                <value>
+                    <fullName>Senior Admissions Officer</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>Senior Admissions Officer</label>
+                </value>
+                <value>
+                    <fullName>teacher design</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>teacher design</label>
+                </value>
+                <value>
+                    <fullName>tfa_375</fullName>
+                    <default>false</default>
+                    <isActive>false</isActive>
+                    <label>tfa_375</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>Primary__c</fullName>
         <externalId>false</externalId>
         <label>Primary</label>
@@ -519,6 +633,122 @@
         <label>View - Custom 2</label>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypes>
+        <fullName>RT_Picklist_1</fullName>
+        <active>true</active>
+        <businessProcess>prueba numero 1</businessProcess>
+        <label>RT Picklist 1</label>
+        <picklistValues>
+            <picklist>Position_with_School__c</picklist>
+            <values>
+                <fullName>Head of School%2FPrincipal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>RT_Picklist_2</fullName>
+        <active>false</active>
+        <businessProcess>prueba numero 1</businessProcess>
+        <label>RT Picklist 2</label>
+        <picklistValues>
+            <picklist>Position_with_School__c</picklist>
+            <values>
+                <fullName>Head of School%2FPrincipal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>School_Lead</fullName>
+        <active>true</active>
+        <businessProcess>prueba numero 1</businessProcess>
+        <label>School Lead</label>
+        <picklistValues>
+            <picklist>Position_with_School__c</picklist>
+            <values>
+                <fullName>Board of Governors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Department Head%2FYear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Ministry Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Head of School%2FPrincipal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent Owners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superintendent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Standard_CRM</fullName>
+        <active>true</active>
+        <businessProcess>prueba numero 1</businessProcess>
+        <label>Standard CRM</label>
+        <picklistValues>
+            <picklist>Position_with_School__c</picklist>
+            <values>
+                <fullName>Board of Governors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Department Head%2FYear</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education Ministry Officer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Head of School%2FPrincipal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Independent Owners</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Superintendent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Teacher</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>FULL_NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>LEAD.COMPANY</customTabListAdditionalFields>
