@@ -478,6 +478,20 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>test_backend_March_31_NEW__c</fullName>
+        <externalId>false</externalId>
+        <label>test backend March-31 #NEW</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>prefix</valueSetName>
+        </valueSet>
+    </fields>
     <listViews>
         <fullName>AllClosedCases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
@@ -520,6 +534,20 @@
         </filters>
         <label>My Open Cases</label>
     </listViews>
+    <recordTypes>
+        <fullName>Product_Support</fullName>
+        <active>true</active>
+        <businessProcess>Product Support</businessProcess>
+        <description>Use to log customer support issues.</description>
+        <label>Product Support</label>
+        <picklistValues>
+            <picklist>test_backend_March_31_NEW__c</picklist>
+            <values>
+                <fullName>%2B21</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
