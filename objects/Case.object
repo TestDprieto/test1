@@ -611,6 +611,20 @@
     <nameField n1:nil="true" />
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Product_Support</fullName>
+        <active>true</active>
+        <businessProcess>Product Support</businessProcess>
+        <description>Use to log customer support issues.</description>
+        <label>Product Support</label>
+        <picklistValues>
+            <picklist>test_backend_March_31_NEW__c</picklist>
+            <values>
+                <fullName>%2B21</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CASES.CASE_NUMBER</customTabListAdditionalFields>
         <customTabListAdditionalFields>CASES.SUBJECT</customTabListAdditionalFields>
