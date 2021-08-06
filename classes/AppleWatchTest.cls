@@ -7,5 +7,6 @@ private class AppleWatchTest {
     opp.StageName = 'Prospecting';
     opp.CloseDate = Date.today();
     insert opp;
-  } 
+  }
+  /* Comment */ 
 }
