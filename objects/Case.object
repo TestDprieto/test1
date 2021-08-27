@@ -200,6 +200,20 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <articleTypeChannelDisplay n1:nil="true" />
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CL_COVEA</fullName>
+        <fields>CaseNumber</fields>
+        <fields>RecordTypeId</fields>
+        <fields>SourceId</fields>
+        <label>CL_COVEA</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>CL_COVEA2</fullName>
+        <fields>BusinessHoursId</fields>
+        <fields>IsClosedOnCreate</fields>
+        <fields>ContactEmail</fields>
+        <label>CL_COVEA2</label>
+    </compactLayouts>
     <customSettingsType n1:nil="true" />
     <deploymentStatus n1:nil="true" />
     <deprecated>false</deprecated>
