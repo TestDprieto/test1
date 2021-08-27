@@ -197,6 +197,20 @@
         <type>Default</type>
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>CL_COVEA</fullName>
+        <fields>CaseNumber</fields>
+        <fields>RecordTypeId</fields>
+        <fields>SourceId</fields>
+        <label>CL_COVEA</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>CL_COVEA2</fullName>
+        <fields>BusinessHoursId</fields>
+        <fields>IsClosedOnCreate</fields>
+        <fields>ContactEmail</fields>
+        <label>CL_COVEA2</label>
+    </compactLayouts>
     <enableChangeDataCapture>true</enableChangeDataCapture>
     <enableFeeds>true</enableFeeds>
     <fields>
