@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata"
+      xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
     <flowDefinitions>
         <flows>
+            <fullName n1:nil="true" />
+            <label>versión número 4</label>
             <screens>
                 <name>sc1</name>
             </screens>
