@@ -9,5 +9,5 @@ Public with sharing Class AppleWatch{
         insert t;
      }
   }
-  /* comment 6*/
+  /* New Comment made from CLI*/
  }
