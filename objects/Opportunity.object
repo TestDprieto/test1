@@ -86,9 +86,7 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <content>VFPage</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
+        <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
@@ -130,10 +128,7 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <comment>Comment 1</comment>
-        <content>VFPage</content>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Visualforce</type>
+        <type>Default</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
@@ -432,6 +427,15 @@
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Validate Opp Data</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>new_checkbox_aug24__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>new checkbox aug24</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
