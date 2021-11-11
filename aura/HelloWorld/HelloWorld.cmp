@@ -2,7 +2,7 @@
     <aura:attribute name="greeting" type="String" default="World"/>
     <div class="slds-card">
         <div class="slds-card__body slds-card__body_inner slds-p-top_medium">
-            Hello, {!v.greeting}
+            Hello May 28, {!v.greeting}
             <lightning:input aura:id="myInput" type="text" value="{!v.greeting}"/>
         </div>
     </div>
