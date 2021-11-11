@@ -9,5 +9,7 @@ Public with sharing Class AppleWatch{
         insert t;
      }
   }
-  /* New Comment Aug 18th*/
+  /* Hotfix applied*/
+  /* Hotfix applied2*/
+  /* Hotfix applied 3*/
  }
