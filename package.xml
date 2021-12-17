@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>en_US</members>
-        <name>Translations</name>
+        <members>Campaign.Comentarios__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Campaign.AllActiveCampaigns</members>
+        <members>Campaign.MyActiveCampaigns</members>
+        <name>ListView</name>
     </types>
     <version>53.0</version>
 </Package>
