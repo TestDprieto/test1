@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>HelloWorld</members>
-        <name>AuraDefinitionBundle</name>
+        <members>Campaign.Comentarios__c</members>
+        <name>CustomField</name>
     </types>
     <types>
-        <members>helloworldv2</members>
-        <name>LightningComponentBundle</name>
-    </types>
-    <types>
-        <members>Hello_World_JS</members>
-        <name>StaticResource</name>
+        <members>Campaign.AllActiveCampaigns</members>
+        <members>Campaign.MyActiveCampaigns</members>
+        <name>ListView</name>
     </types>
     <version>53.0</version>
 </Package>
