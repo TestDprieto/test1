@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <description>To be used for all public facing emails if there is no more specific template available</description>
+    <encodingKey>ISO-8859-1</encodingKey>
+    <name>Public Facing General</name>
+    <style>none</style>
+    <subject>&lt;&lt;REPLACE WITH SUBJECT&gt;&gt;</subject>
+    <type>custom</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>
