@@ -361,11 +361,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.July_Hexagon__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Medicare_status2__c</field>
         <readable>true</readable>
     </fieldPermissions>
