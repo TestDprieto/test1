@@ -3,6 +3,11 @@
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.delete_field_Chris_test_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.OIP_Comments__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15,6 +20,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ActivateOrder</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -50,6 +59,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>AssignUserToSkill</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>AuthorApex</name>
     </userPermissions>
     <userPermissions>
@@ -67,6 +80,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>CanVerifyComment</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChangeDashboardColors</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -169,8 +186,12 @@
         <name>DistributeFromPersWksp</name>
     </userPermissions>
     <userPermissions>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
         <name>EditActivatedOrders</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>EditBillingInfo</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -446,10 +467,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>ManageTranslation</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageUnlistedGroups</name>
     </userPermissions>
     <userPermissions>
@@ -606,6 +623,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ViewDataLeakageEvents</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>ViewEventLogFiles</name>
     </userPermissions>
     <userPermissions>
@@ -619,6 +640,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewMyTeamsDashboards</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ViewPlatformEvents</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
