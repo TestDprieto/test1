@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata" />
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>AV_OppClientesNoConfidenciales</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Opportunity.AV_OppClientesNoConfidenciales</description>
+        <label>AV_OppClientesNoConfidenciales</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>OrderNumber__c</field>
+            <operation>contains</operation>
+            <value>123</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>
