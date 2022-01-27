@@ -309,11 +309,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.delete_field_Chris_test_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.destructive_test_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
