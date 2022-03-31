@@ -480,6 +480,16 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>delete_field_Chris_test_3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>delete field Chris test 3</description>
+        <externalId>false</externalId>
+        <label>delete field Chris test 3</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__AccountPaymentType__c</fullName>
         <deprecated>false</deprecated>
         <description>The type of billing account such as Prepaid or Postpaid. Prepaid accounts pay up front for services and must top them up when balances are gone. Postpaid accounts are billed for services used at the end of each billing cycle. Part of the billing profile of a customer or billing account.</description>
