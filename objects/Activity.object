@@ -113,6 +113,39 @@
         <type>Default</type>
     </actionOverrides>
     <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Calling_File__c</fullName>
+        <externalId>false</externalId>
+        <label>Calling File</label>
+        <required>false</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inbound</fullName>
+                    <default>false</default>
+                    <label>Inbound</label>
+                </value>
+                <value>
+                    <fullName>Longterm Lapsed</fullName>
+                    <default>false</default>
+                    <label>Longterm Lapsed</label>
+                </value>
+                <value>
+                    <fullName>Non Maintained</fullName>
+                    <default>false</default>
+                    <label>Non Maintained</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
     <listViews>
         <fullName>AllActivities</fullName>
         <filterScope>Team</filterScope>

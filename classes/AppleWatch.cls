@@ -10,5 +10,7 @@ Public with sharing Class AppleWatch{
      }
      //Comment 1
   }
-  /* comment 4*/
+  /* Hotfix applied*/
+  /* Hotfix applied2*/
+  /* Hotfix applied 3*/
  }

@@ -258,6 +258,18 @@
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
+        <fullName>DiageoMay__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>DiageoMay</label>
+        <referenceTo>DiageoMay__c</referenceTo>
+        <relationshipLabel>Orders</relationshipLabel>
+        <relationshipName>Orders</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>EffectiveDate</fullName>
         <trackHistory>true</trackHistory>
     </fields>
