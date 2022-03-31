@@ -358,6 +358,11 @@
         </filters>
         <label>ENCODED:{!FilterNames.Task_UnscheduledTasks}</label>
     </listViews>
-    <searchLayouts/>
+    <recordTypes>
+        <fullName>General_Record_Type</fullName>
+        <active>true</active>
+        <label>General Record Type</label>
+    </recordTypes>
+    <searchLayouts />
     <sharingModel>Private</sharingModel>
 </CustomObject>
