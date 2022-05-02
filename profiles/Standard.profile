@@ -21,6 +21,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>Refinitiv_NEW_App_201</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>X0001_Refinitiv_Console</application>
         <default>false</default>
         <visible>false</visible>
@@ -31,12 +36,27 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>lighning_App_TR</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__AllTabSet</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Chatter</application>
+        <default>false</default>
+        <visible>true</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>standard__Commerce</application>
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -96,6 +116,11 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__SalesforceCMS</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Service</application>
         <default>false</default>
         <visible>true</visible>
@@ -115,11 +140,31 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountOperationsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AppleWatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AppleWatchTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OppClass1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>OppClass1Test</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>clas1_emptyTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>clas1_empy</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -153,7 +198,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Aug_27_Friday2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Aug_27_Friday__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.BillingAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Business_Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Business_Segment_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -192,8 +257,23 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.CSTM_Field_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.CleanStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Coca_Cola__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Commission_Administrator_Notes__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -209,6 +289,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Cont_Int_Text_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Cont_Int_Text_4__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Cont_Int_Text_5__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -233,6 +323,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Endesa_test__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Fax</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -249,6 +344,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Jigsaw</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.July_Hexagon_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.July_Hexagon__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -273,7 +378,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Noor_test_CF1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Noor_test_CF2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Noor_test_CF3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -284,6 +399,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.NumberofLocations__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.OperatingHoursId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.OppSec_translation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -309,6 +434,21 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Reusable_Promotion_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Reusable_Promotion_2_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Reusable_Promotion_2_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Reusable_Promotion_2_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -353,12 +493,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.SiemensPicklist_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.SiemensPicklist_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Site</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Support_Level__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Support_Plan_Start_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Test_AutoNumber_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -383,6 +543,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Test_Picklist_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.TickerSymbol</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -394,6 +559,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.USAAInf_translation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -413,7 +583,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.brand_new__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.delete_field_Chris_test_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.destructive_test_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.dev1_Custom_Field__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.dni__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.field_for_FLS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -428,13 +623,308 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.new_testdate__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.newest_to_be_deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.one_more_field__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.test_backend_March_31_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.test_backend_March_31_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.test_backend_March_31_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.test_backend_March_31_4__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.test_backend_March_31_5__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.test_vueling_BP_1__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.v14_phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_3__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_4__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_5__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_6__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_7__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_8__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.volvo_recommit_9__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.yml_test__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrDurDnscale.MaxReduction</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrDurDnscale.ToBundleMemberNumber</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.AggregationOrder</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.BundleMemberAddiFieldName</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.BundleMemberFieldName</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.ConstantValue</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.DateValue</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.DoesAllowDuplicateStrings</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.DownscaleSortDirection</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.MaxBundleDuration</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleAggrPolicy.ShouldUpdateOnCreationOnly</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleConfig.AddToBundleStatuses</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleConfig.BundleStatusesToPropagate</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleConfig.CriteriaForAutoUnbundlingId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleConfig.MemberStatusesNotToPropagate</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleConfig.RemoveFromBundleStatuses</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleConfig.StatusesNotToUpdateOnUnbundle</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.BundleEndTimeFieldName</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.BundleStartTimeFieldName</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.CanAllowSchleDepndInBundle</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.ConstantTimeValue</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.FilterCriteriaId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.IsAutomaticBundling</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.IsManualBundling</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.IsTimeCalcByBundleDurationFld</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.LimitAmountOfBundleMembers</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePolicy.LimitDurationOfBundle</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.AdditionalConstantValue</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.BundleFieldName</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.BundleMemberFieldName</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.ConstantValue</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.ShouldAddConstantValue</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.ShouldUpdateOnAdd</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.ShouldUpdateOnRemove</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundlePropagatePolicy.ShouldUpdateOnUnbundle</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleRestrictPolicy.DoesAllowEmpty</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleRestrictPolicy.DoesRestrictAutomaticMode</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleRestrictPolicy.DoesRestrictManualMode</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleRestrictPolicy.IsRestrictByDateOnly</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleRestrictPolicy.RestrictionFieldName</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ApptBundleSortPolicy.SortFieldName</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -457,13 +947,63 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.Availability</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.AverageUptimePerDay</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.ConsequenceOfFailure</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Asset.ContactId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Asset.CurrentAmount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.CurrentLifecycleEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.CurrentMrr</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.CurrentQuantity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Asset.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.DigitalAssetStatus</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.ExternalIdentifier</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.HasLifecycleManagement</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -480,6 +1020,26 @@
         <editable>true</editable>
         <field>Asset.IsInternal</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.LifecycleEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.LifecycleStartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.LocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.ManufactureDate</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -517,6 +1077,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.Reliability</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Asset.SerialNumber</field>
         <readable>true</readable>
@@ -527,9 +1092,39 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.StatusReason</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Asset.StockKeepingUnit</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.SumDowntime</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.SumUnplannedDowntime</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Asset.TotalLifecycleAmount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.UptimeRecordEnd</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.UptimeRecordStart</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -537,9 +1132,74 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Asset.Uuid</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>AssetRelationship.RelationshipType</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AssignedResource.ActualTravelTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AssignedResource.EstimatedTravelTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>AssignedResource.ServiceCrewId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.AgreementPartnerCommission2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.AgreementPartnerCommission__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.To_Be_Deleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.custom_email__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.custom_percentage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.custom_phone__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit__c.to_be_deleted_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Aug_27_CMT__mdt.cmtField_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Aug_27_CMT__mdt.cmt_field2__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -597,13 +1257,33 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>BusinessBrand.OrgId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>BusinessBrand.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>CMT_1__mdt.CMT_Field_1__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>CMT_2_April_20__mdt.CustomFields_CMT_2_April_20__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>CO_2__c.Error_Lien_Holder_Repo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>CO_2__c.picklist_for_translation_ELISA__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -783,6 +1463,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.AssetWarrantyId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.BusinessHoursId</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -837,6 +1522,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Last_Support_Comunication__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Case.MilestoneStatus</field>
         <readable>false</readable>
@@ -888,6 +1578,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.ServiceContractId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.SlaExitDate</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -909,6 +1604,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Subject</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Subscription_Change_Request_ELISA_3__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -935,6 +1635,56 @@
         <editable>true</editable>
         <field>Case.Type</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.field_for_FLS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.test_backend_March_31_NEW_Validation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.test_backend_March_31_NEW__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CommSubscription.DataUsePurposeId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CommSubscription.IsDefault</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CommSubscriptionConsent.EffectiveToDate</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CommSubscriptionTiming.Offset</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CommSubscriptionTiming.PreferredTimeEnd</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CommSubscriptionTiming.PreferredTimeStart</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>CommSubscriptionTiming.PreferredTimeZone</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -984,6 +1734,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Birthdate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Business_Segment__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Contact.Business_Segment_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1063,6 +1823,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.New_field_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.OtherAddress</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1088,6 +1853,251 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ContactPointAddress.ActiveFromDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.ActiveToDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.Address</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.AddressType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.BestTimeToContactEndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.BestTimeToContactStartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.BestTimeToContactTimezone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.ContactPointPhoneId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.IsDefault</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.IsPrimary</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.PreferenceRank</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointAddress.UsageType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointConsent.ContactPointTypeConsentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointConsent.DataUsePurposeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointConsent.DoubleConsentCaptureDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointConsent.EffectiveFrom</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointConsent.EffectiveTo</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContactPointConsent.EngagementChannelTypeId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.ActiveFromDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.ActiveToDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.BestTimeToContactEndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.BestTimeToContactStartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.BestTimeToContactTimezone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.EmailDomain</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.EmailLatestBounceDateTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.EmailLatestBounceReasonText</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.EmailMailBox</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.IsPrimary</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointEmail.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContactPointEmail.PreferenceRank</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContactPointEmail.UsageType</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.ActiveFromDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.AreaCode</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.BestTimeToContactEndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.BestTimeToContactStartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.BestTimeToContactTimezone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.ExtensionNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.FormattedInternationalPhoneNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.FormattedNationalPhoneNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.IsBusinessPhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.IsFaxCapable</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.IsPersonalPhone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.IsPrimary</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.IsSmsCapable</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.ParentId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ContactPointPhone.PhoneType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContactPointPhone.PreferenceRank</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContactPointPhone.UsageType</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>ContactPointTypeConsent.DataUsePurposeId</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1105,6 +2115,11 @@
         <editable>true</editable>
         <field>ContactPointTypeConsent.EffectiveTo</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContactPointTypeConsent.EngagementChannelTypeId</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1217,6 +2232,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>ContractLineItem.LocationId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>ContractLineItem.ParentContractLineItemId</field>
         <readable>true</readable>
@@ -1249,6 +2269,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>ContractLineItem.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Customer.CustomerStatusType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Customer.TotalLifeTimeValue</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1287,9 +2317,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>EngagementChannelType.ContactPointType</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Entitlement.AssetId</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Entitlement.AssetWarrantyId</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1317,9 +2357,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Entitlement.LocationId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Entitlement.RemainingCases</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Entitlement.RemainingWorkOrders</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1348,7 +2398,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Entitlement.SvcApptBookingWindowsId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Entitlement.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Entitlement.WorkOrdersPerEntitlement</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Calling_File__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1387,19 +2452,59 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Goal.CompletionDate</field>
+        <editable>true</editable>
+        <field>Expense.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Expense.Discount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Expense.ExpenseType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Expense.Quantity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Expense.Subtotal</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Expense.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Expense.UnitPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ExpenseReport.TotalExpenseAmount</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Goal.IsKeyCompanyGoal</field>
+        <field>F5__c.Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Goal.OrigGoalId__c</field>
-        <readable>false</readable>
+        <field>F5__c.Text_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>F5__c.available__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -1528,6 +2633,21 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>JobProfile.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Knowledge__kav.For_Pfzifer_test__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Knowledge__kav.for_pfzer_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Address</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1628,6 +2748,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead.Position_with_School__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead.Primary__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1654,6 +2779,31 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Website</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.email_4_delete__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LegalEntity.CompanyName</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LegalEntity.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LegalEntity.LegalEntityAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>LegalEntity.Status</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1887,9 +3037,189 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Metric.OrigMetricId__c</field>
-        <readable>false</readable>
+        <editable>true</editable>
+        <field>Location.CloseDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.ConstructionEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.ConstructionStartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.DrivingDirections</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.Location</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.LocationLevel</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.OpenDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.ParentLocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.PossessionDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.RemodelEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.RemodelStartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.TimeZone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Location.VisitorAddressId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenanceAsset.NextSuggestedMaintenanceDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.ContactId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.DoesAutoGenerateWorkOrders</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.DoesGenerateUponCompletion</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.GenerationHorizon</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.LocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.MaintenancePlanTitle</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.ServiceContractId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.SvcApptGenerationMethod</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.WorkOrderGenerationMethod</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenancePlan.WorkTypeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenanceWorkRule.NextSuggestedMaintenanceDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenanceWorkRule.ParentMaintenancePlanId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenanceWorkRule.ParentMaintenanceRecordId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenanceWorkRule.RecordsetFilterCriteriaId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenanceWorkRule.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>MaintenanceWorkRule.WorkTypeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>New_Feature__c.Business_Impact__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>New_Feature__c.Decision_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>New_Feature__c.Feature_Area__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>New_Feature__c.Implementation_Effort__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>New_Feature__c.Target_Deployment_Date__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -1904,6 +3234,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.CampaignId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Cisco_Test_Jan_29__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1933,12 +3268,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.Discount_Percent__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.ExpectedRevenue</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.IsPrivate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.Jan_29__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2003,7 +3348,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Opportunity.for_FLS__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.new_checkbox_aug24__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Opportunity.to_be_deleted_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Opportunity.to_bedeleted__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem.Account__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2039,6 +3404,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>OpportunityLineItem.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>OpportunityLineItem__c.newdate_aug_24__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2094,6 +3464,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Order.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Order.DiageoMay__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2167,6 +3542,21 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>PartyConsent.DoubleConsentCaptureDate</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>PartyConsent.EffectiveFrom</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>PartyConsent.EffectiveTo</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Product2.Description</field>
         <readable>true</readable>
@@ -2208,7 +3598,467 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>ProductConsumed.Discount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductConsumed.ListPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductConsumed.Subtotal</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductConsumed.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductConsumed.UnitPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequest.ShipToAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequest.ShipmentType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequest.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.DestinationLocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.NeedByDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.QuantityUnitOfMeasure</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.ShipToAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.ShipmentType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.SourceLocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.WorkOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductRequestLineItem.WorkOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaign.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaign.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaign.Priority</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaign.Product2Id</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaign.StatusCategory</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaign.WorkTypeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaignItem.AssetId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaignItem.Product2Id</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductServiceCampaignItem.StatusCategory</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductTransfer.CanUpdateIsReceived</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductTransfer.ExpectedPickupDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductTransfer.IsReceived</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductTransfer.ReturnOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductTransfer.ReturnOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ProductTransfer.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordsetFilterCriteria.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>RecordsetFilterCriteria.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Refinitiv_CO_4_Console_App__c.Custome_Email_Field__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ResourceAbsence.Address</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ResourceAbsence.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.CaseId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.ContactId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.DestinationLocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.ExpectedArrivalDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.OrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.ProductRequestId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.ProductServiceCampaignId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.ReturnedById</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.ShipFromAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.ShipmentType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.SourceLocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrder.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.AssetId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.DestinationLocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.OrderItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.ProcessingPlan</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.ProductItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.ProductRequestLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.ProductServiceCampaignId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.ProductServiceCampaignItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.QuantityUnitOfMeasure</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.ReasonForReturn</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.RepaymentMethod</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ReturnOrderLineItem.SourceLocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Seller.ActiveFromDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Seller.ActiveToDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Seller.SalesAmount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Seller.SellerTier</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Seller.SellerType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ActualDuration</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ActualEndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ActualStartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.Address</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ApptBookingInfoUrl</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ArrivalWindowEndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ArrivalWindowStartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.BundlePolicyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ContactId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.IsBundle</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.IsBundleMember</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.IsManuallyBundled</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.IsOffsiteAppointment</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.RelatedBundleId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.SchedEndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.SchedStartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ServiceNote</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.ServiceTerritoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.StatusCategory</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.Subject</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceAppointment.WorkTypeId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2318,7 +4168,242 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SocialPersona.SourceApp</field>
+        <field>ServiceCrewMember.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceCrewMember.IsLeader</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.IsCapacityBased</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.IsOptimizationCapable</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.LastKnownLocation</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.LastKnownLocationDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.LocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResource.ServiceCrewId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResourceCapacity.CapacityInHours</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResourceCapacity.CapacityInWorkItems</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResourceCapacity.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResourceCapacity.TimePeriod</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResourceSkill.EffectiveEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceResourceSkill.SkillLevel</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritory.Address</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritory.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritory.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritory.TopLevelTerritoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritory.TravelModeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritory.TypicalInTerritoryTravelTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritoryMember.Address</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritoryMember.EffectiveEndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritoryMember.OperatingHoursId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ServiceTerritoryMember.TravelModeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Shift.BackgroundColor</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shift.JobProfileId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shift.Label</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shift.RecordsetFilterCriteriaId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shift.ServiceResourceId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shift.ServiceTerritoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ShiftPattern.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>ShiftPattern.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.ActualDeliveryDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.DeliveredToId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.ExpectedDeliveryDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.Provider</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.ReturnOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.ShipFromAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.ShipToAddress</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.TrackingNumber</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Shipment.TrackingUrl</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ShipmentItem.ReturnOrderLineItemId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SkillRequirement.SkillLevel</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2338,7 +4423,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Subscription_Change_Request_ELISA__c.field_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Task.ActivityDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Calling_File__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2368,9 +4463,683 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>TimeSheet.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheet.TimeSheetEntryCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheet.TotalDurationInHours</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheet.TotalDurationInMinutes</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.DurationInMinutes</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.EndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.LocationTimeZone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.StartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.Subject</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.Type</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.WorkOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>TimeSheetEntry.WorkOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>TravelMode.CanUseTollRoads</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>TravelMode.IsTransportingHazmat</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>User.CustomLookup__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>VTD1_Monitoring_Visit__c.VTR2_Remote_Ons__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.AccountId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Address</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.AssetId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.AssetWarrantyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.BusinessHoursId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.CaseId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ContactId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Discount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Duration</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.DurationInMinutes</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.DurationType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.EntitlementId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.GrandTotal</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.IsClosed</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.IsGeneratedFromMaintenancePlan</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.IsStopped</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.LineItemCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.LocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.MaintenancePlanId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.MaintenanceWorkRuleId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.MilestoneStatus</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.MilestoneStatusIcon</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.MinimumCrewSize</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ParentWorkOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Pricebook2Id</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Priority</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ProductServiceCampaignId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ProductServiceCampaignItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.RecommendedCrewSize</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ReturnOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ReturnOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.RootWorkOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ServiceAppointmentCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ServiceContractId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ServiceReportLanguage</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.ServiceTerritoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.SlaExitDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.SlaStartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.StartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.StatusCategory</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.StopStartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Subject</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Subtotal</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.SuggestedMaintenanceDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.Tax</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrder.WorkTypeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Address</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.AssetId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.AssetWarrantyId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Discount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.EndDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.IsClosed</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.IsGeneratedFromMaintenancePlan</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ListPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.LocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.MaintenancePlanId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.MaintenanceWorkRuleId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.MinimumCrewSize</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.OrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ParentWorkOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.PricebookEntryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Priority</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Product2Id</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ProductServiceCampaignId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ProductServiceCampaignItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Quantity</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.RecommendedCrewSize</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ReturnOrderId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ReturnOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.RootWorkOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ServiceAppointmentCount</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.ServiceTerritoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.StartDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Status</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.StatusCategory</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Subject</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.Subtotal</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.SuggestedMaintenanceDate</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.TotalPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.UnitPrice</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkOrderLineItem.WorkTypeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlan.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlan.WorkOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlan.WorkPlanTemplateId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>WorkPlanSelectionRule.AccountId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.AssetId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.LocationId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.Product2Id</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.ServiceContractId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.ServiceTerritoryId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanSelectionRule.WorkTypeId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanTemplate.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanTemplate.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanTemplate.RelativeExecutionOrder</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkPlanTemplateEntry.ExecutionOrder</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.ActionDefinition</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.ActionType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.EndTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.PausedFlowInterviewId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.StartTime</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.WorkOrderLineItemId</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStep.WorkPlanExecutionOrder</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStepTemplate.ActionDefinition</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStepTemplate.ActionType</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStepTemplate.Description</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkStepTemplate.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>WorkTypeGroup.IsActive</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ZipReal_test1__mdt.RealZip_Field_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ZipReal_test1__mdt.RealZip_Field__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <layoutAssignments>
+        <layout>Account-Account %28Support%29 Layout</layout>
+        <recordType>Account.ACC_RT_NT_1</recordType>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments>
@@ -2379,22 +5148,75 @@
         <recordType>Account.RT_1</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account-Account Layout</layout>
+        <recordType>Account.RT_KAR_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Account Layout</layout>
+        <recordType>Account.SiemensRT1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-layout 2</layout>
+        <recordType>Account.new_RT_22</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Address-Address Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Asset-Asset Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AssetAction-Asset Action Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AssetActionSource-Asset Action Source Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>AssetRelationship-Asset Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AssetStatePeriod-Asset State Period Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AssignedResource-Assigned Resource Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>AssociatedLocation-Associated Location Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Audit__c-Audit Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Aug_27_CMT__mdt-Aug 27 CMT Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>BusinessBrand-Business Brand Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>CMT_1__mdt-CMT 1 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CMT_2_April_20__mdt-CMT 2 April 20 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CO_2__c-CO 2 Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CampaignMember-Campaign Member Page Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CardPaymentMethod-Card Payment Method Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Case %28Support%29 Layout</layout>
+        <recordType>Case.Billing</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Case %28Support%29 Layout</layout>
+        <recordType>Case.Product_Support</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Layout</layout>
@@ -2404,6 +5226,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseMilestone-Case Milestone Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CollaborationGroup-Group Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CommunityMemberLayout-Community Member Layout</layout>
@@ -2425,6 +5250,15 @@
         <layout>Contact-Contact Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ContactPointAddress-Contact Point Address Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContactPointEmail-Contact Point Email Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContactPointPhone-Contact Point Phone Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ContentVersion-Content Version Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -2434,7 +5268,25 @@
         <layout>ContractLineItem-Contract Line Item Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>CreditMemo-Credit Memo Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CreditMemoLine-Credit Memo Line Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Custom_Object_3__c-Custom Object 3 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Customer-Customer Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DandBCompany-D%26B Company Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DiageoMay__c-DiageoMay Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>DigitalWallet-Digital Wallet Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DuplicateRecordSet-Duplicate Record Set Layout</layout>
@@ -2443,7 +5295,20 @@
         <layout>EmailMessage-Email Message Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>EnhancedLetterhead-Enhanced Letterhead Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Entitlement-Entitlement Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>EntityMilestone-Object Milestone Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Event-Event Layout</layout>
+        <recordType>Event.B_SH_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
@@ -2455,14 +5320,28 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
-        <recordType>Event.B_SH_Event</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Event Layout</layout>
         <recordType>Event.Surgical_Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Event-Event Layout</layout>
+        <layout>Expense-Expense Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ExpenseReport-Expense Report Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ExpenseReportEntry-Expense Report Entry Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>F5__c-F5 Custo Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>FeedItem-Feed Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>FinanceBalanceSnapshot-Finance Balance Snapshot Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>FinanceTransaction-Finance Transaction Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Global-Global Layout</layout>
@@ -2480,7 +5359,16 @@
         <layout>Individual-Individual Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Invoice-Invoice Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>InvoiceLine-Invoice Line Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>JH_CO_2__c-JH CO 2 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>JobProfile-Job Profile Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>JobTracker-Job Tracker Layout - Winter %2716</layout>
@@ -2492,10 +5380,44 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.RT_Picklist_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.RT_Picklist_2</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.School_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead-Lead Layout</layout>
+        <recordType>Lead.Standard_CRM</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LegalEntity-Legal Entity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LinkedArticle-Linked Article Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>LiveAgentSession-Live Agent Session Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
+        <recordType>LiveChatTranscript.USAA_RT_1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
+        <recordType>LiveChatTranscript.USAA_RT_2</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>LiveChatTranscript-Live Chat Transcript Layout</layout>
+        <recordType>LiveChatTranscript.USAA_RT_3</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>LiveChatTranscriptActive-Live Chat Transcript %28In Progress%29 Layout</layout>
@@ -2510,7 +5432,19 @@
         <layout>LiveChatVisitor-Live Chat Visitor Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Location-Location Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Macro-Macro Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>MaintenanceAsset-Maintenance Asset Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>MaintenancePlan-Maintenance Plan Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>MaintenanceWorkRule-Maintenance Work Rule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>May18__c-May18 Layout</layout>
@@ -2521,13 +5455,23 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
-        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Metric-Metric Layout</layout>
+        <recordType>Metric.Progress</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>MetricDataLink-Metric Data Link Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>New_Feature__c-New Feature Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OperatingHours-Operating Hours Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity-Opportunity %28Sales%29 Layout</layout>
+        <recordType>Opportunity.New_RT_for_SnapshotDiff</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Opportunity-Opportunity Layout</layout>
@@ -2541,17 +5485,45 @@
         <recordType>Opportunity.RT_Oppo_2</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Opportunity-Opportunity Layout</layout>
+        <recordType>Opportunity.RT_Oppo_3</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>OpportunityLineItem-Opportunity Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>OpportunityLineItem__c-OpportunityLineItem Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Opportunity_Product__c-Opportunity Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Order-Order Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Order-Order Layout</layout>
         <recordType>Order.orderRT</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Order-Order Layout</layout>
+        <layout>OrderItem-Order Product Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>OrderItem-Order Product Layout</layout>
+        <layout>Payment-Payment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PaymentAuthorization-Payment Authorization Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PaymentGateway-Payment Gateway Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PaymentGatewayLog-Payment Gateway Log Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PaymentGroup-Payment Group Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>PaymentLineInvoice-Payment Line Invoice Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
@@ -2560,16 +5532,85 @@
         <layout>PricebookEntry-Price Book Entry Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ProcessException-Process Exception Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Product2-Product Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductConsumed-Product Consumed Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ProductConsumptionSchedule-Product Consumption Schedule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>ProductItem-Product Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductItemTransaction-Product Item Transaction Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductRequest-Product Request Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductRequestLineItem-Product Request Line Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductRequired-Product Required Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductServiceCampaign-Product Service Campaign Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductServiceCampaignItem-Product Service Campaign Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ProductTransfer-Product Transfer Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>QuickDataCapture__mdt-QuickDataCapture Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>QuickText-Quick Text Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>QuickText__c-QuickText Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RecordsetFilterCriteria-Recordset Filter Criteria Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RecordsetFilterCriteriaRule-Recordset Filter Criteria Rule Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Refinitiv_CO_4_Console_App__c-Refinitiv CO 4 Console App Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Refund-Refund Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>RefundLinePayment-Refund Line Payment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ResourceAbsence-Resource Absence Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ResourcePreference-Resource Preference Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ReturnOrder-Return Order Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ReturnOrderLineItem-Return Order Line Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SchedulingConstraint-Scheduling Constraint Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SchedulingObjective-Scheduling Objective Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SchedulingRule-Scheduling Rule Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Scorecard-Scorecard Layout</layout>
@@ -2581,13 +5622,85 @@
         <layout>ScorecardMetric-Scorecard Metric Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Seller-Seller Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceAppointment-Service Appointment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>ServiceContract-Service Contract Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceCrew-Service Crew Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceCrewMember-Service Crew Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceResource-Service Resource Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceResourceCapacity-Resource Capacity Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceResourcePreference-Service Resource Preference Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceResourceSkill-Service Resource Skill Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceTerritory-Service Territory Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ServiceTerritoryMember-Service Territory Member Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Shift-Shift Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ShiftPattern-Shift Pattern Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ShiftPatternEntry-Shift Pattern Entry Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ShiftSchedulingOperation-Shift Scheduling Operation Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ShiftTemplate-Shift Template Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Shipment-Shipment Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SkillRequirement-Skill Requirement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SocialPersona-Social Persona Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>SocialPost-Social Post Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Solution-Solution Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Subscription_Change_Request_ELISA_2__c-Change Offer%2FService</layout>
+        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Offer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Subscription_Change_Request_ELISA_2__c-Change Offer%2FService</layout>
+        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Phone</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Subscription_Change_Request_ELISA_2__c-Subscription Change Request %28ELISA%29 2 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Subscription_Change_Request_ELISA_3__c-Subscription Change Request %28ELISA%29 3 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Subscription_Change_Request_ELISA_3__c-Subscription Change Request %28ELISA%29 3 Layout</layout>
+        <recordType>Subscription_Change_Request_ELISA_3__c.Change_Offer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Subscription_Change_Request_ELISA__c-Change Offer Service</layout>
@@ -2604,7 +5717,27 @@
         <layout>Task-Task Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Task-Task Layout</layout>
+        <recordType>Task.General_Record_Type</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Task Layout</layout>
+        <recordType>Task.HealthCloudGA_CarePlanTask</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>TimeSheet-Time Sheet Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>TimeSheetEntry-Time Sheet Entry Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>TimeSlot-Time Slot Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>User-User Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>UserAlt-User Profile Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>UserProvAccount-User Provisioning Account Layout</layout>
@@ -2617,6 +5750,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>VTD1_Monitoring_Visit__c-VTD1 Monitoring Visit Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WarrantyTerm-Warranty Term Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>WorkCoaching-Coaching Layout</layout>
@@ -2637,8 +5773,62 @@
         <layout>WorkFeedbackTemplate-Feedback Template Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>WorkOrder-Work Order Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkOrderLineItem-Work Order Line Item Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>WorkPerformanceCycle-Performance Cycle Layout - Winter %2716</layout>
     </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkPlan-Work Plan Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkPlanSelectionRule-Work Plan Selection Rule Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkPlanTemplate-Work Plan Template Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkPlanTemplateEntry-Work Plan Template Entry Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkStep-Work Step Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkStepTemplate-Work Step Template Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkType-Work Type Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>WorkTypeGroup-Work Type Group Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ZipReal_test1__mdt-ZipReal test1 Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>rentabilidad__c-Formato rentabilidad</layout>
+    </layoutAssignments>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AIPredictionEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AIRecordInsight</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -2649,12 +5839,120 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Address</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AgentWork</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AgentWorkSkill</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>AppAnalyticsQueryRequest</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AppointmentTopicTimeSlot</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundleAggrDurDnscale</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundleAggrPolicy</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundleConfig</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundlePolicy</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundlePolicySvcTerr</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundlePropagatePolicy</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundleRestrictPolicy</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ApptBundleSortPolicy</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2672,7 +5970,43 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>AssetAction</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AssetActionSource</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AssetDowntimePeriod</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>AssetRelationship</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AssetStatePeriod</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2690,7 +6024,43 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>AssetWarranty</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AssignedResource</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AssociatedLocation</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>AsyncOperationEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>AsyncOperationLog</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2718,6 +6088,15 @@
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Audit__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Aug_27_CMT__mdt</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2763,6 +6142,33 @@
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>BatchApexErrorEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>BusinessBrand</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CMT_1__mdt</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CMT_2_April_20__mdt</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2857,6 +6263,42 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CommSubscription</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CommSubscriptionChannelType</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CommSubscriptionConsent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CommSubscriptionTiming</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
@@ -2889,6 +6331,42 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ContactPointAddress</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ContactPointConsent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ContactPointEmail</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ContactPointPhone</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -2976,6 +6454,51 @@
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CreditMemo</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CreditMemoInvApplication</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>CreditMemoLine</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Custom_Object_3__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Customer</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>DandBCompany</object>
@@ -3005,7 +6528,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>DatasetExportEvent</object>
+        <object>DiageoMay__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3046,6 +6569,15 @@
     </objectPermissions>
     <objectPermissions>
         <allowCreate>false</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>EngagementChannelType</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
@@ -3068,7 +6600,52 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>EntityMilestone</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Event</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Expense</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ExpenseReport</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ExpenseReportEntry</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>F5__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3095,7 +6672,7 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>FlowExecutionErrorEvent</object>
+        <object>First_CustomSetting__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3149,7 +6726,43 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>Invoice</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>InvoiceLine</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>JH_CO_2__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>JobProfile</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Knowledge__ka</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3168,6 +6781,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Lead</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>LegalEntity</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3216,12 +6838,75 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Location</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>LocationGroup</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>LocationGroupAssignment</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>LogoutEventStream</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MLModel</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MLModelFactor</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MLModelFactorComponent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MLModelMetric</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3248,7 +6933,61 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>MaintenanceAsset</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MaintenancePlan</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>MaintenanceWorkRule</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>May18__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>New_Feature__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Note</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>OperatingHours</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3276,6 +7015,24 @@
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>OpportunityLineItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>OpportunityLineItem__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Opportunity_Product__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3351,6 +7108,24 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>PartyConsent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>PendingServiceRouting</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
@@ -3372,6 +7147,24 @@
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProcessException</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProcessExceptionEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Product2</object>
@@ -3383,7 +7176,97 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductConsumed</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>ProductConsumptionSchedule</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductItemTransaction</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductRequest</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductRequestLineItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductRequired</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductServiceCampaign</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductServiceCampaignItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductTransfer</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ProductWarrantyTerm</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3401,7 +7284,25 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>PromptError</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>PushTopic</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>QuickDataCapture__mdt</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3428,6 +7329,15 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>QuickText__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>Recommendation</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
@@ -3438,6 +7348,24 @@
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>RecordAction</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>RecordsetFilterCriteria</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>RecordsetFilterCriteriaRule</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3453,9 +7381,45 @@
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>RemoteKeyCalloutEvent</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ResourceAbsence</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ResourcePreference</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>ServiceContract</object>
+        <object>ReturnOrder</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ReturnOrderLineItem</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3464,7 +7428,169 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
-        <object>SocialPersona</object>
+        <object>Seller</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceAppointment</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceContract</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceCrew</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceCrewMember</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceReport</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceResource</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceResourceCapacity</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceResourceSkill</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceTerritory</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceTerritoryLocation</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceTerritoryMember</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>SetupAssistantStep</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Shift</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ShiftPattern</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ShiftPatternEntry</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Shipment</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ShipmentItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>SkillRequirement</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3483,6 +7609,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>StreamingChannel</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Subscription_Change_Request_ELISA_2__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3513,6 +7648,33 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>TimeSheet</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>TimeSheetEntry</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>TimeSlot</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
@@ -3528,6 +7690,15 @@
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>TopicAssignment</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>TravelMode</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3590,7 +7761,25 @@
         <allowEdit>false</allowEdit>
         <allowRead>false</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
+        <object>UserServicePresence</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
         <object>VTD1_Monitoring_Visit__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WarrantyTerm</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -3638,10 +7827,143 @@
         <object>WorkFeedbackRequest</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkOrder</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkOrderLineItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkPlan</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkPlanSelectionRule</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkPlanTemplate</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkPlanTemplateEntry</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkStep</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkStepTemplate</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>WorkTypeGroup</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ZipReal_test1__mdt</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>rentabilidad__c</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
     <pageAccesses>
         <apexPage>VFPage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    <pageAccesses>
+        <apexPage>newPage1</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.ACC_RT_NT_1</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Account.RT_KAR_1</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.SiemensRT1</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.new_RT_22</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Billing</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.Product_Support</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Contact.Contact_RT_NT_1</recordType>
@@ -3655,6 +7977,36 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Lead.RT_Picklist_1</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead.School_Lead</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead.Standard_CRM</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>LiveChatTranscript.USAA_RT_1</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>LiveChatTranscript.USAA_RT_2</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>LiveChatTranscript.USAA_RT_3</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -3673,9 +8025,24 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Opportunity.RT_Oppo_3</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <default>true</default>
         <recordType>Order.orderRT</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Offer</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Subscription_Change_Request_ELISA_2__c.Change_Phone</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
@@ -3692,8 +8059,37 @@
         <recordType>Subscription_Change_Request_ELISA__c.Change_Phone</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>true</default>
+        <recordType>Task.HealthCloudGA_CarePlanTask</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <tabVisibilities>
+        <tab>Audit__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Knowledge__kav</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>New_Feature__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>New_Flexipage</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>QuickText__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ActiveScratchOrg</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -3701,8 +8097,32 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-ApptBundleConfig</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ApptBundlePolicy</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Asset</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AssetAction</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AssetActionSource</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AssetStatePeriod</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-AsyncOperationLog</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-AuthorizationForm</tab>
@@ -3721,8 +8141,16 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-BusinessBrand</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Campaign</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-CardPaymentMethod</tab>
+        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Case</tab>
@@ -3737,6 +8165,22 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-CommSubscription</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-CommSubscriptionChannelType</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-CommSubscriptionConsent</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-CommSubscriptionTiming</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Console</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -3747,6 +8191,10 @@
     <tabVisibilities>
         <tab>standard-Contact</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ContactPointConsent</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ContactPointTypeConsent</tab>
@@ -3773,6 +8221,14 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-CreditMemo</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Customer</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-DandBCompany</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -3789,12 +8245,32 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-DeleteEvent</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-DigitalWallet</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Document</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-DuplicateRecordSet</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-EmailTemplate</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-EngagementChannelType</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-EnhancedLetterhead</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Entitlement</tab>
@@ -3805,8 +8281,40 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-Expense</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ExpenseReport</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Feed</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-File</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-FinanceBalanceSnapshot</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-FinanceTransaction</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-FlowInterview</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-FlowOrchestrationInstance</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-FlowOrchestrationWorkItem</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Forecasting3</tab>
@@ -3829,8 +8337,16 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-Invoice</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-JigsawSearch</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-JobProfile</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Knowledge</tab>
@@ -3843,6 +8359,22 @@
     <tabVisibilities>
         <tab>standard-Lead</tab>
         <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-LegalEntity</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-LightningBoltHome</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-LightningInstrumentation</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-LightningQuickText</tab>
+        <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ListEmail</tab>
@@ -3861,8 +8393,40 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-Location</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-LocationGroup</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Macro</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-MaintenancePlan</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-MaintenanceWorkRule</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-MobileHome</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-NamespaceRegistry</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-OmniSupervisorLightning</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-OperatingHours</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Opportunity</tab>
@@ -3881,11 +8445,63 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-PartyConsent</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Payment</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-PaymentAuthorization</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-PaymentGateway</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-PaymentGatewayLog</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-PaymentLineInvoice</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Pricebook2</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-ProcessException</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProcessInstanceWorkitem</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Product2</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProductItem</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProductRequest</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProductRequestLineItem</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProductServiceCampaign</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ProductTransfer</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -3905,7 +8521,43 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-RecordsetFilterCriteria</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Refund</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-RefundLinePayment</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ReturnOrder</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-Scorecard</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ScratchOrgInfo</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-SecurityCenterNotification</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-SecurityCenterPolicies</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Seller</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ServiceAppointment</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -3913,16 +8565,36 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-ServiceCrew</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ServiceCrewMember</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-ServiceResource</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ServiceTerritory</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Shift</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-ShiftPattern</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Shipment</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Sites</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-SocialPersona</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Solution</tab>
@@ -3937,6 +8609,18 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-TimeSheet</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-Today</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-TravelMode</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-UserProfile</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -3945,7 +8629,35 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>standard-WarrantyTerm</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>standard-WorkFeedbackRequest</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkOrder</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkPlan</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkPlanSelectionRule</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkPlanTemplate</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkStepTemplate</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-WorkTypeGroup</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
@@ -3961,180 +8673,4 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ActivitiesAccess</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AddDirectMessageMembers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowUniversalSearch</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowViewKnowledge</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ApexRestServices</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ApiEnabled</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AssignTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChatterEditOwnPost</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChatterFileLink</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChatterInternalUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChatterInviteExternalUsers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ChatterOwnGroups</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ContentWorkspaces</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ConvertLeads</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateCustomizeFilters</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateCustomizeReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CreateTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>DistributeFromPersWksp</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditEvent</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditOppLineItemUnitPrice</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditTask</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EditTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EmailMass</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EmailSingle</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EnableCommunityAppLauncher</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>EnableNotifications</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ImportPersonal</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>LightningConsoleAllowedForUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>LightningExperienceUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ListEmailSend</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>MassInlineEdit</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>RemoveDirectMessageMembers</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>RunReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SelectFilesFromSalesforce</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SendSitRequests</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ShowCompanyNameAsUserBadge</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubmitMacrosAllowed</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubscribeToLightningReports</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>TransactionalEmailSend</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>UseWebLink</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewHelpLink</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewRoles</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewSetup</name>
-    </userPermissions>
 </Profile>
