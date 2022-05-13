@@ -357,7 +357,6 @@
         <label>Customer Priority</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -376,6 +375,11 @@
                     <fullName>Medium</fullName>
                     <default>false</default>
                     <label>Medium</label>
+                </value>
+                <value>
+                    <fullName>From dev2</fullName>
+                    <default>false</default>
+                    <label>From dev2</label>
                 </value>
             </valueSetDefinition>
         </valueSet>
