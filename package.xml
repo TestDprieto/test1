@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Main</members>
-        <members>Main/subfolder1</members>
-        <members>Main/subfolder1/LOA_Compliance_Report_i4s_t0A</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>LOAComplianceReport</members>
-        <members>LOAComplianceReport/LOA_Compliance_Report_i4s</members>
-        <name>Report</name>
+        <members>Case.AccountId</members>
+        <name>CustomField</name>
     </types>
     <version>54.0</version>
 </Package>
