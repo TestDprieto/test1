@@ -170,6 +170,15 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <fields>
+        <fullName>custom_email__c</fullName>
+        <externalId>false</externalId>
+        <label>custom email</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
     <gender n1:nil="true" />
     <household>false</household>
     <label>Audit</label>
