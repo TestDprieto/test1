@@ -12,14 +12,6 @@
     <navType>Console</navType>
     <profileActionOverrides>
         <actionName>View</actionName>
-        <content>vlocity_cmt__Vlocity_Attribute_Category_Record_Page_Product_Console</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>vlocity_cmt__AttributeCategory__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
         <content>vlocity_cmt__VlocityAttributeRecordPage</content>
         <formFactor>Large</formFactor>
         <pageOrSobjectType>vlocity_cmt__Attribute__c</pageOrSobjectType>
@@ -65,6 +57,14 @@
         <formFactor>Large</formFactor>
         <pageOrSobjectType>Product2</pageOrSobjectType>
         <recordType>Product2.vlocity_cmt__Product</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>vlocity_cmt__Vlocity_Attribute_Category_Record_Page_Product_Console</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>vlocity_cmt__AttributeCategory__c</pageOrSobjectType>
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
