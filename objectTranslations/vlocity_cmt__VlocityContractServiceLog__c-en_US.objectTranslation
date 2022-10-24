@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Context Id --></label>
+        <name>vlocity_cmt__ContextId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Context Type --></label>
+        <name>vlocity_cmt__ContextType__c</name>
+    </fields>
+    <fields>
+        <label><!-- DateTime Accepted --></label>
+        <name>vlocity_cmt__DateTimeAccepted__c</name>
+    </fields>
+    <fields>
+        <label><!-- DateTime Completed --></label>
+        <name>vlocity_cmt__DateTimeCompleted__c</name>
+    </fields>
+    <fields>
+        <label><!-- DateTime Started --></label>
+        <name>vlocity_cmt__DateTimeStarted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Type --></label>
+        <name>vlocity_cmt__JobType__c</name>
+        <picklistValues>
+            <masterLabel>Cleanup Tenant Resources</masterLabel>
+            <translation><!-- Cleanup Tenant Resources --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Create Contract</masterLabel>
+            <translation><!-- Create Contract --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Delete Template</masterLabel>
+            <translation><!-- Delete Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generate DOCX</masterLabel>
+            <translation><!-- Generate DOCX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generate DOCX (Async)</masterLabel>
+            <translation><!-- Generate DOCX (Async) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generate PDF</masterLabel>
+            <translation><!-- Generate PDF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generate PDF (Async)</masterLabel>
+            <translation><!-- Generate PDF (Async) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generate PPTX</masterLabel>
+            <translation><!-- Generate PPTX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generate PPTX (Async)</masterLabel>
+            <translation><!-- Generate PPTX (Async) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Publish Template</masterLabel>
+            <translation><!-- Publish Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Publish Template (Async)</masterLabel>
+            <translation><!-- Publish Template (Async) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Republish Template</masterLabel>
+            <translation><!-- Republish Template --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Republish Template (Async)</masterLabel>
+            <translation><!-- Republish Template (Async) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Send Envelope</masterLabel>
+            <translation><!-- Send Envelope --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscribe Tenant to Service</masterLabel>
+            <translation><!-- Subscribe Tenant to Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unsubscribe Tenant from Service</masterLabel>
+            <translation><!-- Unsubscribe Tenant from Service --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Request Data --></label>
+        <name>vlocity_cmt__RequestData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Response Data --></label>
+        <name>vlocity_cmt__ResponseData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Service Type --></label>
+        <name>vlocity_cmt__ServiceType__c</name>
+        <picklistValues>
+            <masterLabel>Contract DocuSign Service</masterLabel>
+            <translation><!-- Contract DocuSign Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Generic DocuSign Service</masterLabel>
+            <translation><!-- Generic DocuSign Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multi-Site Service</masterLabel>
+            <translation><!-- Multi-Site Service --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VCloudService</masterLabel>
+            <translation><!-- VCloudService --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Accepted</masterLabel>
+            <translation><!-- Accepted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation><!-- Cancelled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially Completed</masterLabel>
+            <translation><!-- Partially Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Started</masterLabel>
+            <translation><!-- Started --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- User Id --></label>
+        <name>vlocity_cmt__UserId__c</name>
+        <relationshipLabel><!-- Vlocity Contract Service Logs --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

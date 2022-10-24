@@ -1,0 +1,35 @@
+<ng-form name='loopform' class="nds-edit-block-edit__container" 
+        ng-init="isModalLoaded = !isModalLoaded"
+        ng-class="control.propSetMap.isNewInlineBlock ? '': 'nds-inline_edit-top'">
+    <div class="nds-cont-wrapper">
+        <header class="nds-size_1-of-1">
+            <h1 class="nds-text-heading_small nds-step_label">{{::OmniEditBlockModalTitle}}</h1>
+        </header>
+
+        <div class="nds-size_1-of-1">
+            <div class="nds-grid nds-wrap nds-grid_pull-padded">
+                <child noformatterebmodal="true" 
+                    ng-repeat='child in ::children = control.children'
+                    class="nds-size_1-of-1 nds-medium_{{child.eleArray[0].propSetMap.controlWidth}}-of-1 nds-large-size_{{child.eleArray[0].propSetMap.controlWidth}}-of-12"
+                    ng-show='::!child.eleArray[0].propSetMap.hide'                 
+                    ng-if='(child.eleArray[0].propSetMap.hide && child.eleArray[0].type!=="Formula")||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                </child>
+            </div>
+        </div>
+
+        <button class='nds-button nds-button_neutral nds-button_brand nds-custom_button' 
+                ng-disabled="loopform.$invalid" 
+                ng-click="control.showInlineEBRow = true; control.propSetMap.isNewInlineBlock = false; saveEditChanges($event);">{{::OmniConfigProdModalOk}}</button>
+
+        <slds-svg-icon sprite="'utility'" 
+            icon="'close'" 
+            extra-classes="'nds-editblock_close'" 
+            size="'small'" 
+            ng-click="control.showInlineEBRow = true; control.propSetMap.isNewInlineBlock = false; closeModal($event);"></slds-svg-icon>
+    </div>
+</ng-form>
+<style type="text/css">
+  .pac-container {
+       z-index: 10000 !important;
+   }
+</style>

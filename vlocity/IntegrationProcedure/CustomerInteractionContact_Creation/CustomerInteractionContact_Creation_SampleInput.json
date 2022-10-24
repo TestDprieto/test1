@@ -1,0 +1,99 @@
+{
+    "consoleCardLayout": null,
+    "drBundleName": null,
+    "integrationProcName": "CustomerInteractionContact_Creation",
+    "interactionObjName": "CustomerInteractionContact",
+    "moreRequests": null,
+    "numOfOptionalVerificationFields": null,
+    "optionalVerificationFieldList": [
+    ],
+    "parentId": null,
+    "recordId": "00346000002HMFyAAO",
+    "request": {
+        "additionalData": null,
+        "continueSearch": false,
+        "displaySequence": 2,
+        "fieldPicklistValues": {
+        },
+        "isClassBased": false,
+        "lastRecordId": null,
+        "previousSearchResults": null,
+        "recordOffset": null,
+        "referenceObjectName": null,
+        "requestUniqueName": "InteractionContact",
+        "searchFieldList": [
+            "FirstName",
+            "LastName"
+        ],
+        "searchFieldsLabelTypeMap": {
+            "FirstName": {
+                "datatype": "text",
+                "label": "First Name"
+            },
+            "LastName": {
+                "datatype": "text",
+                "label": "Last Name"
+            }
+        },
+        "searchObjectLabel": "Agent",
+        "searchObjectName": "Contact",
+        "searchType": "Caller Identification",
+        "searchValueMap": {
+            "FirstName": "*",
+            "LastName": null
+        }
+    },
+    "resultFieldList": [
+        "Name",
+        "MailingStreet",
+        "Email"
+    ],
+    "resultFieldsLabelTypeMap": {
+        "BirthDate": {
+            "datatype": "date",
+            "label": "Birthdate"
+        },
+        "Email": {
+            "datatype": null,
+            "label": "Email"
+        },
+        "MailingPostalCode": {
+            "datatype": "text",
+            "label": "Mailing Zip/Postal Code"
+        },
+        "MailingStreet": {
+            "datatype": "text",
+            "label": "Mailing Street"
+        },
+        "Name": {
+            "datatype": "text",
+            "label": "Full Name"
+        }
+    },
+    "resultValueMap": {
+        "AccountId": "00146000003lOONAA2",
+        "BirthDate": "6/7/1943",
+        "Email": "ajames@uog.com",
+        "FirstName": "Ashley",
+        "LastName": "James",
+        "MailingPostalCode": null,
+        "MailingStreet": "",
+        "Name": "Ashley James"
+    },
+    "uniqueRequestName": "InteractionContact",
+    "verificationFieldList": [
+        "Name",
+        "MailingPostalCode",
+        "BirthDate"
+    ],
+    "verificationResult": {
+        "BirthDate": null,
+        "MailingPostalCode": null,
+        "Name": null,
+        "fields": {
+            "BirthDate": true,
+            "MailingPostalCode": true,
+            "Name": true
+        }
+    }
+}

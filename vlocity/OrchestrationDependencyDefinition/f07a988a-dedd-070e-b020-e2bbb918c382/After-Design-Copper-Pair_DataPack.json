@@ -1,0 +1,29 @@
+{
+    "%vlocity_namespace%__DependencyItemDefinitionId__c": {
+        "%vlocity_namespace%__OrchestrationPlanDefinitionId__r.Name": "Copper Pair Fulfilment",
+        "Name": "Design Copper Pair",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationItemDefinition__c/Design Copper Pair/%vlocity_namespace%__OrchestrationPlanDefinition__c/Copper Pair Fulfilment",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationItemDefinition__c"
+    },
+    "%vlocity_namespace%__DependencyPlanDefinitionId__c": {
+        "Name": "Copper Pair Fulfilment",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationPlanDefinition__c/Copper Pair Fulfilment",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationPlanDefinition__c"
+    },
+    "%vlocity_namespace%__DependencyType__c": "Depends On",
+    "%vlocity_namespace%__GlobalKey__c": "f07a988a-dedd-070e-b020-e2bbb918c382",
+    "%vlocity_namespace%__OrchestrationItemDefinitionId__c": {
+        "%vlocity_namespace%__OrchestrationPlanDefinitionId__r.Name": "DSL Service Provisioning",
+        "Name": "Design Local Connectivity",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__OrchestrationItemDefinition__c/Design Local Connectivity/%vlocity_namespace%__OrchestrationPlanDefinition__c/DSL Service Provisioning",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationItemDefinition__c"
+    },
+    "%vlocity_namespace%__Scope__c": "",
+    "Name": "After Design Copper Pair",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__OrchestrationDependencyDefinition__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__OrchestrationDependencyDefinition__c/f07a988a-dedd-070e-b020-e2bbb918c382"
+}

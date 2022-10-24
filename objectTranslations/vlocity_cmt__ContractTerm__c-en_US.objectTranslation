@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Attribute Selected Values --></label>
+        <name>vlocity_cmt__AttributeSelectedValues__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Document --></label>
+        <name>vlocity_cmt__ContractVersionId__c</name>
+        <relationshipLabel><!-- Contract Terms --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Effective End Date --></label>
+        <name>vlocity_cmt__EffectiveEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Start Date --></label>
+        <name>vlocity_cmt__EffectiveStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Term Spec --></label>
+        <name>vlocity_cmt__TermSpecProduct2Id__c</name>
+        <relationshipLabel><!-- Contract Terms --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

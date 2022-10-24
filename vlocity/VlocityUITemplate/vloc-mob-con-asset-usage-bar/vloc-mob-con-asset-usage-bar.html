@@ -1,0 +1,24 @@
+<!-- Bar Graphs -->
+<div class="con-device-details-bar-graph" ng-controller="barChartController as bc">
+    <span ng-if="placeholder.DisplayThreshold.value != '0'">
+        <div class="con-device-details-bar-graph-title">
+            <b>{{placeholder.DisplayName.value}}</b>
+        </div>
+        <div class="con-device-details-bar-graph-subtitle">
+            {{placeholder.DisplayAmount.value}}  /  {{placeholder.DisplayThreshold.value}} {{placeholder.DisplayAmount.label}}
+        </div>
+        <div class="con-device-details-bar-graph-chart con-bar-chart-{{data.cardIndex}}">
+            <div class="con-device-details-bar-graph-chart-fill">
+            </div>
+            {{drawGraph(data)}}
+        </div>
+    </span>
+    <span ng-if="placeholder.DisplayThreshold.value == '0'">
+        <div class="con-device-details-bar-graph-title">
+            <b>{{placeholder.DisplayName.value}}</b> (unlimited)
+        </div>
+        <div class="con-device-details-bar-graph-subtitle">
+            {{placeholder.DisplayAmount.value}} {{placeholder.DisplayAmount.label}}
+        </div>
+    </span>
+</div>

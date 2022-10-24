@@ -1,0 +1,105 @@
+<script src="https://vdo-cmt-site.secure.force.com/resource/VLOCMOBCON/js/d3.v5.min.js"></script>
+<div class="con-bill" ng-controller="billingController as bc" ng-init="bc.init(payload);">
+
+    <!-- Bill Overview -->
+    <div class="con-device-details-section">
+        <div class="con-bill-details-title">
+            Your bill this month is
+        </div>
+        
+        <div class="con-bill-details-total">
+            {{summaryResult[0].%vlocity_namespace%__BalanceDue__c | currency:2}}
+        </div>
+        
+        <div class="con-bill-details-subtotal">
+            For {{getStatementStartDate(summaryResult[0].%vlocity_namespace%__StatementDate__c)}} through {{getStatementEndDate(summaryResult[0].%vlocity_namespace%__StatementDate__c)}}<br/>
+            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_AutoPay_Green.svg' | trusted}}"/> It will be auto-paid on {{summaryResult[0].%vlocity_namespace%__DueDate__c | date : 'MMM dd'}}
+        </div>
+        
+        <div class="con-bill-details-manage">
+            Manage auto-payment <span></span>
+        </div>
+
+        <!-- Pay Now -->
+        <div class="con-bill-button">
+            Pay Now
+        </div>
+    </div>
+    
+    <!-- Bill Table -->
+    <div class="con-device-details-section">
+        
+        <!-- Base Plan -->
+        <div class="con-bill-details-table" ng-repeat="category in detailResult">
+            <div class="con-bill-details-table-header">
+                {{category[0].%vlocity_namespace%__Type__c}}
+            </div>
+            <div class="con-bill-details-table-row" ng-repeat="service in category">
+                <div class="con-bill-details-table-label">
+                    {{service.%vlocity_namespace%__ServiceName__c}}
+                </div>
+                <div class="con-bill-details-table-value">
+                    {{service.%vlocity_namespace%__CurrencyAmount__c | currency:2}}
+                </div>
+            </div>
+        </div>
+        
+        <div class="con-device-details-notification">
+            <div class="con-device-details-notification-grid">
+                <div class="con-device-details-notification-icon-container">
+                    <div class="con-device-details-notification-icon">
+                        <div class="con-device-details-notification-icon-lines">
+                            <div class="con-device-details-notification-icon-line1"></div>
+                            <div class="con-device-details-notification-icon-line2"></div>
+                            <div class="con-device-details-notification-icon-line3"></div>
+                            <div class="con-device-details-notification-icon-line4"></div>
+                            <div class="con-device-details-notification-icon-line5"></div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="con-device-details-notification-desc-container">
+                    <div class="con-device-details-notification-title">
+                        You've been getting overage charges lately. Consider an unlimited plan.
+                    </div>
+                    <div class="con-device-details-notification-action">
+                        Upgrade my plan <span></span>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+    
+    <!-- Bill Graph -->
+    <div class="con-device-details-section graph">
+        <div class="con-bill-details-title">
+            Last 6 months
+        </div>
+        <div class="con-bill-graph con-bill-graph-small">
+            <div class="con-bill-graph-bar-wrapper" ng-repeat="eachMonthData in graphResult | orderBy:'$index':true">
+                <div class="con-bill-graph-bar">
+                    <div class="con-bill-graph-bar-segment" style="height:{{(bar.expr0 / topData) * 180}}px; background:{{chartColors[$index]}}" ng-repeat="bar in eachMonthData  track by $index">
+                    </div>
+                </div>
+                <div class="con-bill-graph-bar-axis">
+                    {{eachMonthData[0].%vlocity_namespace%__ServiceEndDate__c | date : 'MMM'}}
+                </div>
+            </div>
+            
+            <div class="con-bill-graph-legend" ng-repeat=" title in chartTitles | orderBy : '%vlocity_namespace%__Type__c' track by $index">
+                <div class="con-bill-graph-legend-bar" style="background:{{chartColors[$index]}}">
+                </div>
+                {{title.%vlocity_namespace%__Type__c}}
+            </div>
+        </div>
+        
+        <div class="con-bill-details-table-row" ng-repeat="record in summaryResult">
+            <div class="con-bill-details-table-label">
+                {{record.%vlocity_namespace%__StatementDate__c | date : 'MMMM dd'}}
+            </div>
+            <div class="con-bill-details-table-value">
+                {{record.%vlocity_namespace%__BalanceDue__c | currency:2}}
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>

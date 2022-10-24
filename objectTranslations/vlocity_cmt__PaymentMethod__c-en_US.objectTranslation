@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Payment Methods --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Country --></label>
+        <name>vlocity_cmt__BankAccountCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Holder Name --></label>
+        <name>vlocity_cmt__BankAccountHolderName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Number --></label>
+        <name>vlocity_cmt__BankAccountNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bank Account Type --></label>
+        <name>vlocity_cmt__BankAccountType__c</name>
+        <picklistValues>
+            <masterLabel>Checking</masterLabel>
+            <translation><!-- Checking --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Savings</masterLabel>
+            <translation><!-- Savings --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Card Holder Name --></label>
+        <name>vlocity_cmt__CardHolderName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Card Number --></label>
+        <name>vlocity_cmt__CardNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Card Type --></label>
+        <name>vlocity_cmt__CardType__c</name>
+        <picklistValues>
+            <masterLabel>DISCOVER</masterLabel>
+            <translation><!-- DISCOVER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Master Card</masterLabel>
+            <translation><!-- Master Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UCB</masterLabel>
+            <translation><!-- UCB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VISA</masterLabel>
+            <translation><!-- VISA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Customer Last Modified Date --></label>
+        <name>vlocity_cmt__CustomerLastModifiedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expiration Month --></label>
+        <name>vlocity_cmt__ExpirationMonth__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation><!-- 04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation><!-- 05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation><!-- 06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation><!-- 07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation><!-- 08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation><!-- 09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation><!-- 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation><!-- 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Expiration Year --></label>
+        <name>vlocity_cmt__ExpirationYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- IBAN --></label>
+        <name>vlocity_cmt__IBAN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Primary --></label>
+        <name>vlocity_cmt__IsPrimary__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last4Numbers --></label>
+        <name>vlocity_cmt__Last4Numbers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Method Type --></label>
+        <name>vlocity_cmt__MethodType__c</name>
+        <picklistValues>
+            <masterLabel>Bank Account</masterLabel>
+            <translation><!-- Bank Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Card</masterLabel>
+            <translation><!-- Credit Card --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Routing Transit Number --></label>
+        <name>vlocity_cmt__RoutingTransitNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valid To --></label>
+        <name>vlocity_cmt__ValidityEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valid From --></label>
+        <name>vlocity_cmt__ValidityStartDate__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- This payment method is used in auto pay and it can&apos;t be inactivated. --></errorMessage>
+        <name>vlocity_cmt__EnforceActivePaymentMethodInAutoPay</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Expiration Year is not valid --></errorMessage>
+        <name>vlocity_cmt__ExpirationYearIsValid</name>
+    </validationRules>
+</CustomObjectTranslation>

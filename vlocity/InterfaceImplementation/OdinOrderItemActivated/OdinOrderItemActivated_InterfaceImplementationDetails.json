@@ -1,0 +1,18 @@
+[
+    {
+        "%vlocity_namespace%__InterfaceId__c": {
+            "Name": "OdinOrderItemActivated",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__InterfaceImplementation__c/OdinOrderItemActivated",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementation__c"
+        },
+        "%vlocity_namespace%__InterfaceId__r.Name": "OdinOrderItemActivated",
+        "%vlocity_namespace%__InterfaceName__c": "OdinOrderItemActivated",
+        "%vlocity_namespace%__IsActive__c": true,
+        "%vlocity_namespace%__IsDefault__c": true,
+        "Name": "OdinOrderItemActivatedHandler",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementationDetail__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__InterfaceImplementationDetail__c/%vlocity_namespace%__InterfaceImplementation__c/OdinOrderItemActivated/OdinOrderItemActivatedHandler"
+    }
+]

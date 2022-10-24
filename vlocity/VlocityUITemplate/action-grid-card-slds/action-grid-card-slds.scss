@@ -1,0 +1,51 @@
+.via-slds-action-grid-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .via-action-icon {
+        margin: 0 auto;
+        &:before {
+            font-size: 200%;
+        }
+    }
+
+    p {
+        white-space: normal;
+        word-break: normal;
+    }
+    
+    .via-slds-button {
+        overflow: hidden;
+        white-space: normal;
+        word-break: normal;
+        width: 100%;
+        margin: .2rem ;
+        margin-left: 0 !important;
+        
+        @media screen and (min-width:20em){
+            width:50%;
+        }
+        @media screen and (min-width:30em){
+            width:33%
+        }
+        @media screen and (min-width:40em){
+            width:25%
+        }
+    }
+}
+
+@supports(display:grid) {
+    .via-slds-action-grid-card {
+        display: grid;
+        -ms-grid-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+        grid-gap: 0.6rem;
+        
+        .via-slds-button  {
+            width: auto !important;
+            margin: 0 !important;
+        }
+
+    }
+}

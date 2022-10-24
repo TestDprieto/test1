@@ -1,0 +1,33 @@
+[
+    {
+        "%vlocity_namespace%__ConditionData__c": "",
+        "%vlocity_namespace%__DestinationDefaultQuantity__c": 1,
+        "%vlocity_namespace%__DestinationMaxQuantity__c": 1,
+        "%vlocity_namespace%__DestinationMinQuantity__c": 1,
+        "%vlocity_namespace%__DestinationProductId__c": {
+            "%vlocity_namespace%__GlobalKey__c": "0040591b-44c5-7527-6f03-717e0af66f54",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "Product2/0040591b-44c5-7527-6f03-717e0af66f54",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "%vlocity_namespace%__GlobalKey__c": "ad8c3bc5-e483-438c-7941-334133dcf00c",
+        "%vlocity_namespace%__MappingsData__c": "",
+        "%vlocity_namespace%__Priority__c": "",
+        "%vlocity_namespace%__RequireReservation__c": false,
+        "%vlocity_namespace%__SourceDefaultQuantity__c": 1,
+        "%vlocity_namespace%__SourceMaxQuantity__c": "",
+        "%vlocity_namespace%__SourceMinQuantity__c": 1,
+        "%vlocity_namespace%__SourceProductId__c": {
+            "%vlocity_namespace%__GlobalKey__c": "51ccb540-842d-0ccd-1478-956e2fb8d165",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "Product2/51ccb540-842d-0ccd-1478-956e2fb8d165",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "%vlocity_namespace%__SourceProductId__r.%vlocity_namespace%__GlobalKey__c": "51ccb540-842d-0ccd-1478-956e2fb8d165",
+        "%vlocity_namespace%__XORGroup__c": "",
+        "Name": "Mobile Data Plan -> Activation Spec",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DecompositionRelationship__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__DecompositionRelationship__c/Mobile Data Plan -> Activation Spec/Product2/51ccb540-842d-0ccd-1478-956e2fb8d165"
+    }
+]

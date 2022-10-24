@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Author --></label>
+        <name>vlocity_cmt__Author__c</name>
+    </fields>
+    <fields>
+        <label><!-- Record Type --></label>
+        <name>vlocity_cmt__CardType__c</name>
+        <picklistValues>
+            <masterLabel>Classic</masterLabel>
+            <translation><!-- Classic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flex</masterLabel>
+            <translation><!-- Flex --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Datasource --></label>
+        <name>vlocity_cmt__Datasource__c</name>
+    </fields>
+    <fields>
+        <label><!-- Definition --></label>
+        <name>vlocity_cmt__Definition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Key --></label>
+        <name>vlocity_cmt__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Child Card? --></label>
+        <name>vlocity_cmt__IsChildCard__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent ID --></label>
+        <name>vlocity_cmt__ParentID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sample Data --></label>
+        <name>vlocity_cmt__SampleData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Styles --></label>
+        <name>vlocity_cmt__Styles__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>vlocity_cmt__Type__c</name>
+        <picklistValues>
+            <masterLabel>JSON</masterLabel>
+            <translation><!-- JSON --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SObject</masterLabel>
+            <translation><!-- SObject --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Static</masterLabel>
+            <translation><!-- Static --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Version --></label>
+        <name>vlocity_cmt__Version__c</name>
+    </fields>
+</CustomObjectTranslation>

@@ -1,0 +1,6 @@
+<apex:page standardController="Opportunity" extensions="vlocity_cmt.VFPageControllerBase" showHeader="false" sidebar="false" docType="html-5.0">
+   <vlocity_cmt:ActionComponent standardController="{!stdController}"                            
+      objType="Opportunity"                           
+      style="Horizontal"      
+      linkTypes="ConsoleCards"/> 
+</apex:page>
