@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Represents item instances that are not generally tied to any specific customer and which can be tracked in inventory. Useful for equipment or devices before they are purchased by a customer or that are never purchased by a customer. Examples include inventoried SIM cards, networking equipment, set-top boxes and meters.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>vlocity_cmt__AccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Account</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Inventory Items (Account)</relationshipLabel>
+        <relationshipName>Inventory_Items</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ActivationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date of activation for this Inventory Item.</description>
+        <externalId>false</externalId>
+        <label>Activation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Address__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AverageMonthlyUsage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Average monthly usage for the service point.</description>
+        <externalId>false</externalId>
+        <label>Average Monthly Usage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BillingAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the account responsible for paying for the item.</description>
+        <externalId>false</externalId>
+        <label>BillingAccountId</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Inventory Items (BillingAccountId)</relationshipLabel>
+        <relationshipName>Inventory_Items2</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DisconnectLocation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Location of the disconnection (meter removed, line cut, switch flipped, etc.)</description>
+        <externalId>false</externalId>
+        <label>Disconnect Location</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Meter removed</fullName>
+                    <default>false</default>
+                    <label>Meter removed</label>
+                </value>
+                <value>
+                    <fullName>Line cut</fullName>
+                    <default>false</default>
+                    <label>Line cut</label>
+                </value>
+                <value>
+                    <fullName>Switch flipped</fullName>
+                    <default>false</default>
+                    <label>Switch flipped</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__GasPressureLevel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The gas pressure level (applicable for gas-related inventories)</description>
+        <externalId>false</externalId>
+        <label>Gas Pressure Level</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__InstallDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date the meter was installed at the premises.</description>
+        <externalId>false</externalId>
+        <label>Install Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ItemType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Type of meter installed at the Service Point (Smart Meter, Prepay Meter, etc.)</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Smart Meter</fullName>
+                    <default>false</default>
+                    <label>Smart Meter</label>
+                </value>
+                <value>
+                    <fullName>Prepay Meter</fullName>
+                    <default>false</default>
+                    <label>Prepay Meter</label>
+                </value>
+                <value>
+                    <fullName>Interval Meter</fullName>
+                    <default>false</default>
+                    <label>Interval Meter</label>
+                </value>
+                <value>
+                    <fullName>Two-way Meter</fullName>
+                    <default>false</default>
+                    <label>Two-way Meter</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__JSONAttribute__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>JSONAttribute</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LineNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Line Number</description>
+        <externalId>false</externalId>
+        <label>Line Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PremiseId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Installed Premise</label>
+        <referenceTo>vlocity_cmt__Premises__c</referenceTo>
+        <relationshipLabel>Inventory Items</relationshipLabel>
+        <relationshipName>InventoryItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProductId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Inventory Items</relationshipLabel>
+        <relationshipName>InventoryItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProvisioningStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The current provisioning, or fulfillment, status of the inventory Item with values such as New, Active, Changed or Deleted.</description>
+        <externalId>false</externalId>
+        <label>ProvisioningStatus</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QualificationExpirationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Qualification Expiration Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SerialNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>true</externalId>
+        <label>Serial Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServiceAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the account that identifies the service location or subscriber that is the user of the service.</description>
+        <externalId>false</externalId>
+        <label>ServiceAccountId</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Inventory Items (ServiceAccountId)</relationshipLabel>
+        <relationshipName>Inventory_Items1</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServicePointId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Installed Service Point</label>
+        <referenceTo>vlocity_cmt__ServicePoint__c</referenceTo>
+        <relationshipLabel>Inventory Items</relationshipLabel>
+        <relationshipName>InventoryItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Status of the Inventory Item.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Connected</fullName>
+                    <default>false</default>
+                    <label>Connected</label>
+                </value>
+                <value>
+                    <fullName>Disconnected</fullName>
+                    <default>false</default>
+                    <label>Disconnected</label>
+                </value>
+                <value>
+                    <fullName>Offline</fullName>
+                    <default>false</default>
+                    <label>Offline</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <label>Inventory Item</label>
+    <listViews>
+        <fullName>vlocity_cmt__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Inventory Item Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Inventory Items</pluralLabel>
+    <recordTypes>
+        <fullName>vlocity_cmt__InventoryItem</fullName>
+        <active>true</active>
+        <label>Inventory Item</label>
+        <picklistValues>
+            <picklist>vlocity_cmt__DisconnectLocation__c</picklist>
+            <values>
+                <fullName>Line cut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meter removed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Switch flipped</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ItemType__c</picklist>
+            <values>
+                <fullName>Interval Meter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prepay Meter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart Meter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Two-way Meter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Status__c</picklist>
+            <values>
+                <fullName>Connected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disconnected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Offline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__ServiceQualificationResult</fullName>
+        <active>true</active>
+        <label>Service Qualification Result</label>
+        <picklistValues>
+            <picklist>vlocity_cmt__DisconnectLocation__c</picklist>
+            <values>
+                <fullName>Line cut</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meter removed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Switch flipped</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ItemType__c</picklist>
+            <values>
+                <fullName>Interval Meter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prepay Meter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart Meter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Two-way Meter</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Status__c</picklist>
+            <values>
+                <fullName>Connected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Disconnected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Offline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,39 @@
+<div class="slds-p-left_small vloc-attr-table slds-size_1-of-1" ng-init="allrecords = records.records; importedScope.initData(attrs.contractTypeId)">
+    <!-- <input autofocus="false" class="slds-text-body_regular slds-input slds-size_1-of-4" id="vloc-search-title" placeholder="Search" ng-model="searchTitle"/> -->
+    <div class="vloc-attr-table-header slds-col slds-grid slds-wrap slds-grid_align-spread tableHeader" >
+        <div class="slds-small-show vloc-attr-cell slds-size_1-of-2">
+            <div  class="vloc-attr-title-cell slds-truncate slds-text-heading_label slds-p-around_x-small slds-p-left_small" title="Name">
+                <div class="vloc-attrs-header-label slds-truncate"> Name </div>
+            </div>
+        </div>
+        <div class="slds-small-show vloc-attr-cell slds-size_1-of-2">
+            <div  class="vloc-attr-title-cell slds-truncate slds-text-heading_label slds-p-around_x-small" title="Attributes">
+                <div class="vloc-attrs-header-label slds-truncate"> Attributes </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="records && !records.records" class="slds-text-align_center slds-text-heading_small slds-p-around_medium"> {{importedScope.modalLabels.CLMNoTermsToDisplay}} </div>
+    <div class="vloc-attr-row slds-row" style="border-top: 1px solid #dddbda;"  ng-repeat="productRecord in records.records" ng-class="{'slds-m-bottom_small' : record.showMore}" data-card="card-{{cardIndex}}" data-popover-flyout="true" ng-click="$root.config.show = true; importedScope.setAttr(productRecord, cardIndex)" ng-if="importedScope.searchFilter(productRecord.productName, $root.searchTerm)" >
+        <div class="slds-col slds-grid slds-wrap">
+            <div class="slds-p-left_x-small vloc-attr-cell slds-size_1-of-2 slds-m-top_x-small" style="padding-top:20px"ng-show="key != 'attributes'">
+                <span class="slds-checkbox" >
+                    <!-- <input ng-disabled="!record.isOptional" type="checkbox" name="add-attrs-{{$index}}--{{$parent.$index}}" id="add-qli-attrs-{{$index}}--{{$parent.$index}}" ng-model="record.remove" ng-change="importedScope.removeQLI(record)"/> -->
+                    <input type="checkbox" name="terms-{{$index}}" id="terms-{{$index}}"  ng-model="productRecord.isSelected"/>
+                    <label class="slds-checkbox__label slds-m-around_none" for="terms-{{$index}}">
+                        <span class="slds-checkbox_faux vloc-check"></span>
+                    </label>
+                </span>
+                <label class="slds-p-left_x-small"> {{productRecord.productName}}</label> 
+            </div> 
+
+            <div  class="vloc-attr-cell slds-size_1-of-2"   ng-if="!productRecord.showMore" ng-init="categories = productRecord.attributeCategories.records;showFirstAttr = true;" ng-include="'clm-attribute-display-edit.tpl.html'"></div>
+            <div class="slds-no-flex vloc-attr-showmore"  ng-if="productRecord.attributeCategories.records[0].productAttributes.records.length > 1 || productRecord.attributeCategories.records.length > 1">
+                <button class="slds-button slds-button_link vloc-attr-showmore-btn vloc-show-less" ng-click="productRecord.showMore = !productRecord.showMore">
+                    <span ng-if="!productRecord.showMore">{{importedScope.modalLabels.CLMMoreLabel}}</span> 
+                    <span ng-if="productRecord.showMore">{{importedScope.modalLabels.CLMLessLabel}}</span>
+                </button>
+            </div>
+        </div>
+        <div ng-if="productRecord.showMore" style="background-color: #f3f2f2;" class="vloc-attr-row slds-p-top_x-small slds-p-bottom_x-small slds-m-around_small slds-size_1-of-1 vloc-left-align" ng-init="categories = productRecord.attributeCategories.records;" ng-include="'clm-attribute-display-edit.tpl.html'"></div>
+    </div>
+</div>

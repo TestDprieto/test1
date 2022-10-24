@@ -1,0 +1,13 @@
+<div class="nds-size_1-of-1">
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small nds-rich-text-editor__output'
+             id="{{::control.name}}"
+             ng-repeat='control in child.eleArray' >
+
+        <div class="nds-form-element__control">
+            <h1 ng-bind-html='control.propSetMap.value' ng-if='refresh(control)'></h1>
+        </div>
+    </ng-form>
+
+</div>

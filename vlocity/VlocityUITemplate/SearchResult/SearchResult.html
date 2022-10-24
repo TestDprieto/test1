@@ -1,0 +1,11 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+ <div class='slds-p-vertical--small slds-grid' ng-repeat='p in control.vlcSI[control.itemsKey]'>
+     <div class='slds-col'>
+        <p>Name : {{p.Name}}</p>
+        <p>Account Number : {{p.AccountNumber}}</p>
+     </div>
+     <div class='slds-col'>
+         <button class="slds-button slds-button--neutral slds-float--right" ng-click="baseCtrl.oninit(control, this, p)">Verify</button>
+     </div>
+ </div>
+</div>

@@ -1,0 +1,56 @@
+{
+    "Cards": [
+        "cpq-discounts-item"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0Q01I000000xLhESAU"
+            }
+        ],
+        "type": "Dual",
+        "value": {
+            "apexRemoteResultVar": "records",
+            "apexRestResultVar": "",
+            "endpoint": "/%vlocity_namespace%/v2/cpq/carts/{{params.id}}/discounts?includeProducts=true",
+            "inputMap": {
+                "cartId": "{{params.id}}",
+                "includeIneligible": "{{attrs.includeIneligible}}",
+                "includeProducts": "true",
+                "localeCode": "{{attrs.cpqUserLocale}}",
+                "offsetSize": "0",
+                "pagesize": "10"
+            },
+            "methodType": "GET",
+            "remoteClass": "CpqAppHandler",
+            "remoteMethod": "getCartsDiscounts",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "result.records"
+        }
+    },
+    "previewType": "runTime",
+    "session": {
+        "query": "iPhone and {{params.Id}}",
+        "size": "{{payload.totalSize}}"
+    },
+    "sessionVars": [
+        {
+            "formula": "",
+            "name": "totalSize",
+            "val": "payload.totalSize"
+        },
+        {
+            "name": "nextDiscounts",
+            "val": "payload.actions.nextitems"
+        }
+    ],
+    "templates": {
+        "0": {
+            "templateUrl": "cpq-discounts-list"
+        }
+    },
+    "workspace": [
+        "cpq-discounts-item/vlocity/1/1543906798710"
+    ]
+}

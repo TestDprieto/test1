@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Vlocity Cart APIs (v2): Specifies the number of children to include for getCartItems and addToCart APIs calls. To use this setting, you must set CacheEnabled and LevelBasedPagination to TRUE.",
+    "%vlocity_namespace%__SetupValue__c": "10",
+    "Name": "LevelBasedPageSize",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/LevelBasedPageSize"
+}

@@ -1,0 +1,51 @@
+.viewMore{
+    cursor:pointer;
+    float:right;
+    margin-top:3px;
+}
+.viewMorertl{
+    cursor:pointer;
+    float:left;
+    margin-top:3px;
+}
+.opv_cardItem{
+    max-width: 160px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 35px;
+}
+.PONRIcon{
+    float:right;
+}
+.PONRIcon span:first-child{
+    margin-right:-29px;
+}
+.PONRIcon span:first-child svg{
+    width: .9rem;
+    height: 1rem;
+    margin-bottom: 4px;
+    margin-right: 5px;
+    fill:black;
+}
+.PONRIcon span:nth-child(2) svg{
+    fill: red;
+    width: 2em;
+    height: 2em;
+}
+.TaskAction{
+    display:inline-block;
+}
+.TaskAction a i,.externalDepInfo a i{
+    font-size:19px;
+    color:#0054A3;
+}
+[class^="icon-"]:before, [class*=" icon-"]:before{
+    margin-left:0px;
+}
+.dueDateHt{
+    height: 50px;
+}
+.startDateHt{
+    height:70px;
+}

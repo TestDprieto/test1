@@ -1,0 +1,15 @@
+<div class="via-slds" ng-controller="interactionFeedCardController">
+    <div class="activity-feed-container">
+        <h3 class="slds-section__title slds-has-divider_bottom slds-m-bottom_small slds-size_12-of-12">
+            {{::$root.vlocity.getCustomLabel('Activity', 'Activity')}}
+            <div class="slds-icon_container" ng-click="refreshFrame()">
+                <slds-svg-icon size="'x-small'" sprite="'utility'" icon="'refresh'"></slds-svg-icon>
+            </div>
+        </h3>
+        <ul class="slds-p-around_small slds-col">
+          <li ng-repeat="card in cards">
+            <vloc-card ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}"></vloc-card>
+          </li>
+        </ul>
+    </div>  
+</div>

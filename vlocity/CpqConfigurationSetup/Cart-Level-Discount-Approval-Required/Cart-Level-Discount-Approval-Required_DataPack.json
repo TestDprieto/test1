@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Vlocity Cart: If TRUE, cart-added discounts must be approved and are created with ApprovalStatus field value 'Not Submitted'. If FALSE, no approval is required, and the ApprovalStatus field value is 'Approved'. Default is FALSE.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "Cart Level Discount Approval Required",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/Cart Level Discount Approval Required"
+}

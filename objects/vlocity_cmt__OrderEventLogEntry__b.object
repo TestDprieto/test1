@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>This object stores the log entries of the Order Management Notifications</description>
+    <fields>
+        <fullName>vlocity_cmt__EventData__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is used to store the whole Notification message</description>
+        <externalId>false</externalId>
+        <label>Event Data</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EventRecordId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Id of the Order or OrderItem</description>
+        <externalId>false</externalId>
+        <label>Event Record</label>
+        <length>18</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EventTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field describes the time at which event occurred</description>
+        <externalId>false</externalId>
+        <label>Event Time</label>
+        <required>true</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EventType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Describes the type of message received from OM Notification. Possible types are as follows:
+OrderAccepted
+OrderRejected
+OrderActivated
+OrderInProgress
+OrderItemAccepted
+OrderItemRejected
+OrderItemActivated
+OrderItemInProgress
+OrderSubmitted
+OrderPaused or OrderFrozen
+OrderResumed</description>
+        <externalId>false</externalId>
+        <label>Event Type</label>
+        <length>36</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Order Id of the Order</description>
+        <externalId>false</externalId>
+        <label>Order</label>
+        <referenceTo>Order</referenceTo>
+        <relationshipLabel>Order Event Log Entries</relationshipLabel>
+        <relationshipName>OrderEventLogEntries</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderItemId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Item Id of the Order Product</description>
+        <externalId>false</externalId>
+        <label>Order Product</label>
+        <referenceTo>OrderItem</referenceTo>
+        <relationshipLabel>Order Event Log Entries</relationshipLabel>
+        <relationshipName>OrderEventLogEntries</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <indexes>
+        <fullName>vlocity_cmt__OrderIndex</fullName>
+        <fields>
+            <name>vlocity_cmt__OrderId__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <fields>
+            <name>vlocity_cmt__EventTime__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <fields>
+            <name>vlocity_cmt__EventRecordId__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <fields>
+            <name>vlocity_cmt__EventType__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <label>Order Index</label>
+    </indexes>
+    <label>Order Event</label>
+    <pluralLabel>Order Events</pluralLabel>
+</CustomObject>

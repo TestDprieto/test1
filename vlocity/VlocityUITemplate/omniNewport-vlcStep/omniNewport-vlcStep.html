@@ -1,0 +1,153 @@
+<div class="nds-grid vlc-slds-step_container nds-size_1-of-1" vlc-slds-window-scroll="test">
+
+    <section id='{{::child.name}}'
+             ng-show='child.bAccordionActive && child.bAccordionOpen'
+             class="step-step nds-size_1-of-1">
+
+        <!-- banner template -->
+
+        <!-- article when embedded in omniscript -->
+        <vlc-slds-embedded-article></vlc-slds-embedded-article>
+       <div class="nds-size_1-of-1 nds-small-size_1-of-1 nds-medium-size_8-of-12 nds-col_padded nds-align_absolute-center nds-p-top_xx-large">
+           <h1 class="nds-step_label"
+              prev="{{bpTree.children[bpTree.asIndex].bHasPrevious}}">
+               {{bpTree.children[bpTree.asIndex].propSetMap.label}}
+           </h1>
+       </div>
+
+        <form novalidate
+              role='form'
+              stepForm
+              name='{{::bpTree.sOmniScriptId}}-{{$index}}'
+              id='{{::bpTree.sOmniScriptId}}-{{$index}}'
+              vlc-slds-disable-auto-complete="testing"
+              class="nds-omniscript_stepform nds-size_1-of-1 nds-small-size_1-of-1 nds-medium-size_8-of-12 nds-grid nds-wrap nds-align_absolute-center nds-p-top_xx-large"
+              ng-style="{'border':'0'}">
+
+            <!-- child controls in the step new comment-->
+            <div class='nds-col_padded nds-size_1-of-1'>
+                <div  class="nds-grid nds-wrap nds-grid_pull-padded">
+                    <child class="nds-size_1-of-1 nds-max-small-size_1-of-1 nds-small-size_{{child.eleArray[0].propSetMap.controlWidth}}-of-12"
+                           ng-repeat='child in ::children = child.children'
+                           ng-show='::!child.eleArray[0].propSetMap.hide'
+                           ng-if='(child.eleArray[0].propSetMap.hide && child.eleArray[0].type!=="Formula")||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                    </child>
+                </div>
+            </div>
+
+            <div class='nds-col_padded nds-size_1-of-1 nds-m-top_medium nds-m-bottom_xx-large'>
+
+                <div class='nds-grid nds-wrap vlc-slds-button_footer nds-form-element__control-help'>
+
+                    <div class='nds-grid nds-size_1-of-1 nds-p-bottom_small'>
+
+                        <div class='nds-cursor-pointer'
+                             ng-if='child.bAccordionActive && bpTree.propSetMap.allowCancel != false'
+                             id="vlc-step-cancel-btn"
+                             confirmed-click='cancel()'
+                             ng-confirm-click='{{::child.propSetMap.cancelMessage}}'>
+                            {{::child.propSetMap.cancelLabel}}
+                        </div>
+
+                        <!-- test -->
+                        <div ng-show='!child.bHasNext'
+                             class='nds-col_bump-left nds-cursor-pointer'
+                             ng-if='bpTree.scriptState == "saveAndResume" && child.bAccordionActive'
+                             vlc-animation-slider="test"
+                             confirmed-click='completeScript(true)'
+                             ng-confirm-click='{{::child.propSetMap.completeMessage}}'>
+                            {{::child.propSetMap.completeLabel}}
+                        </div>
+
+
+                        <div class='nds-col_bump-left nds-cursor-pointer'
+                             ng-if='child.propSetMap.allowSaveForLater !==false && bpTree.propSetMap.allowSaveForLater !==false && !bpService.bSflInProgress && bpTree.scriptState !== "review" && child.bAccordionActive'
+                             id="vlc-step-save-btn"
+                             confirmed-click='saveForLater(child)'
+                             ng-confirm-click='{{::child.propSetMap.saveMessage}}'>
+                            {{::child.propSetMap.saveLabel}}
+                        </div>
+
+                    </div>
+
+                    <div class='nds-size_1-of-1 nds-header__desktop' ng-if="!bpService.isMobileBrowser">
+
+                        <div class='nds-wrap'>
+
+                            <div class="nds-align_absolute-center">
+                            <button class="nds-button nds-button_brand nds-p-around_xx-small nds-size_1-of-1 nds-medium-size_{{::child.propSetMap.nextWidth}}-of-12"
+                                    type="button"
+                                    ng-show='child.bHasNext && child.propSetMap.nextWidth > 0'
+                                    id="{{::child.name + '_nextBtn'}}"
+                                    ng-click='nextRepeater(child.nextIndex, child.indexInParent)'
+                                    ng-disabled='checkValidity(this, child.index, child.indexInParent, "Step", null, true)'
+                                    vlc-animation-slider='test'>
+                                    {{::child.propSetMap.nextLabel}}
+                            </button>
+                            </div>
+                            <div class="nds-align_absolute-center nds-p-around_xx-small">
+                            <button class="nds-button nds-button_neutral nds-p-around_xx-small nds-size_1-of-1 nds-medium-size_{{::child.propSetMap.previousWidth}}-of-12"
+                                    type="button"
+                                    ng-if='child.bHasPrevious && child.propSetMap.previousWidth > 0'
+                                    id="{{::child.name + '_prevBtn'}}"
+                                    ng-click='previous(this,child)'
+                                    vlc-animation-slider='test'
+                                    reverse="true"
+                                    ng-style="{'border':'none'}">
+                                    {{::child.propSetMap.previousLabel}}
+                            </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class='nds-size_1-of-1 nds-header__mobile-only' ng-if="bpService.isMobileBrowser">
+
+                        <div class="nds-size_1-of-1 nds-grid">
+                            <div class="nds-step__prev-link"
+                                 ng-style="!(child.bHasPrevious && child.propSetMap.previousWidth > 0) ? {'visibility' : 'hidden'}:''"
+                                 id="{{::child.name + '_prevBtn'}}"
+                                 ng-click='previous(this,child)'
+                                 vlc-animation-slider='test'
+                                 reverse="true">
+                                 <slds-svg-icon aria-hidden="true"
+                                    sprite="'utility'"
+                                    icon="'chevronleft'"
+                                    size="'small'"
+                                    extra-classes="'nds-button__icon'">
+                                </slds-svg-icon>
+                                <span class="nds-step__link-button">{{::child.propSetMap.previousLabel}}</span>
+                            </div>
+
+                            <div class="nds-align_absolute-center nds-progress__list-mobile">
+                                <div class="nds-custom-step__progress">
+                                    <span class="nds-custom-step__progress-fill" ng-style="{'width': calculateProgressWidthMobile()}"></span>
+                                </div>
+                            </div>
+
+                            <div class="nds-step__next-link"
+                                ng-style="!(child.bHasNext && child.propSetMap.nextWidth > 0) ? {'visibility' : 'hidden'}:{'text-align' : 'right'}"
+                                id="{{::child.name + '_nextBtn'}}"
+                                ng-click='nextRepeater(child.nextIndex, child.indexInParent)'
+                                ng-disabled='checkValidity(this, child.index, child.indexInParent, "Step", null, true)'
+                                vlc-animation-slider='test'>
+                                <span class="nds-step__link-button">{{::child.propSetMap.nextLabel}}</span>
+                                 <slds-svg-icon aria-hidden="true"
+                                    sprite="'utility'"
+                                    icon="'chevronright'"
+                                    size="'small'"
+                                    extra-classes="'nds-button__icon'">
+                                </slds-svg-icon>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </section>
+</div>

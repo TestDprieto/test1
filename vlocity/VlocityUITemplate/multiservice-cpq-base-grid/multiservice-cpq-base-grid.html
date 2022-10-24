@@ -1,0 +1,75 @@
+<div class="cpq-base-grid">
+
+    <div class="slds-spinner_container" ng-show="!isLoaded">
+        <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+        </div>
+    </div>
+
+    <div class="slds-grid slds-grid_frame slds-grid_vertical">
+        <vloc-layout layout-name="multiservice-cpq-header" ctrl="CPQHeaderController" 
+            enable-pricing="{{importedScope.featureSettings.enablePricing}}"  
+            enable-loyalty-points="{{importedScope.customSettings.EnableLoyaltyPoints}}">
+        </vloc-layout>
+
+        <div class="slds-col slds-grid slds-wrap slds-small-nowrap cpq-container" ng-class="{'cpq-outer-col-visible': !importedScope.showProductList || importedScope.isConfigAttrsPanelEnabled}">
+            <div class="slds-backdrop cpq-tablet-overlay" ng-if="importedScope.isMobileTablet" ng-click="importedScope.toggleOutsideCols()" ng-class="{'slds-backdrop_open': !importedScope.showProductList || importedScope.isConfigAttrsPanelEnabled}"></div>
+
+            <div class="slds-is-relative slds-col slds-grid slds-size_1-of-1 slds-small-size_1-of-3 slds-medium-size_2-of-6 slds-large-size_2-of-12 grouplist-sidebar-wrapper" 
+                ng-class="{'hide-grouplist-sidebar': !importedScope.showGroupList || importedScope.isConfigAttrsPanelEnabled}">
+
+                <div class="grouplist-sidebar-container multiservice-cpq-grouplist-sidebar">
+                    
+                    <vloc-layout layout-name="multiservice-cpq-grouplist-sidebar" ctrl="CPQGroupSidebarController"></vloc-layout>
+                </div>
+            </div>
+            
+            <button class="slds-button slds-button_icon-border cpq-show-hide-button" ng-class="{'cursor-point-west': importedScope.showGroupList, 'cursor-point-east': !importedScope.showGroupList}" ng-click="importedScope.toggleGroupListSidebar()">⋮</button>
+            <span class="button-divider" ng-if="importedScope.showProductList"></span>
+            <div class="slds-is-relative slds-col slds-grid slds-size_1-of-1 slds-small-size_1-of-3 slds-medium-size_2-of-6 slds-large-size_3-of-12 cpq-left-sidebar-wrapper"
+                ng-class="{'hide-cpq-left-sidebar': importedScope.showProductList || importedScope.isConfigAttrsPanelEnabled}">
+
+                <div class="cpq-left-sidebar-container">
+                    <button ng-if="importedScope.isMobileTablet" class="slds-button slds-button_icon-border cpq-show-hide-button" ng-click="importedScope.toggleOutsideCols();importedScope.toggleGroupListSidebar();">
+                        <slds-button-svg-icon sprite="'utility'" size="'medium'" icon="'right'" extra-classes="'cpq-show-hide-button-icon'"></slds-button-svg-icon>
+                    </button>
+                    <vloc-layout layout-name="cpq-left-sidebar" ctrl="CPQItemsController"></vloc-layout>
+                </div>
+
+            </div>
+
+            <button ng-if="!importedScope.isMobileTablet"
+                class="slds-button slds-button_icon-border cpq-show-hide-button" 
+                ng-class="{'cursor-point-west': !importedScope.showProductList, 'cursor-point-east': importedScope.showProductList}"
+                ng-click="importedScope.toggleOutsideCols();">⋮
+            </button>
+
+            <div class="slds-is-relative slds-col slds-grid cpq-cart-container-wrapper">
+
+                <div class="cpq-cart-container">
+                    <vloc-layout layout-name="cpq-product-cart" ctrl="CPQCartController" show-product-list="{{importedScope.showProductList}}" show-config-panel="{{importedScope.isConfigAttrsPanelEnabled}}"></vloc-layout>
+                </div>
+                
+                <div ng-if="$root.enableGroupCart">
+                    <vloc-layout layout-name="multiservice-cpq-group-total-bar" ctrl="GroupCPQTotalController"></vloc-layout>
+                </div>
+                <div ng-if="!$root.enableGroupCart">
+                    <vloc-layout layout-name="cpq-total-bar" ctrl="CPQTotalController"></vloc-layout>
+                </div>
+            </div>
+            
+            <div class="slds-is-relative slds-col slds-grid slds-size_1-of-1 slds-small-size_1-of-3 slds-medium-size_2-of-6 slds-large-size_4-of-12 slds-float_right cpq-attribute-config-panel-hide" 
+                ng-class="{'cpq-attribute-config-panel-show': importedScope.isConfigAttrsPanelEnabled, 'cpq-attribute-config-panel-hide': !importedScope.isConfigAttrsPanelEnabled}">
+
+                <div class="cpq-product-container">
+                    <vloc-layout layout-name="cpq-product-cart-config" ctrl="CPQCartItemConfigController"></vloc-layout>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

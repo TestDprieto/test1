@@ -1,0 +1,35 @@
+{
+    "filter": {
+        "['RecordType.DeveloperName']": "Producer"
+    },
+    "states": [
+        {
+            "collapse": true,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Type",
+                    "name": "['Type']",
+                    "type": "string"
+                }
+            ],
+            "name": "Contact",
+            "templateUrl": "left-account-info-slds"
+        }
+    ],
+    "title": "Profile"
+}

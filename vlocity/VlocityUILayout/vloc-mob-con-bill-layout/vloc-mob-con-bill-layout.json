@@ -1,0 +1,29 @@
+{
+    "Cards": [
+    ],
+    "dataSource": {
+        "contextVariables": [
+        ],
+        "type": "IntegrationProcedures",
+        "value": {
+            "endpoint": "",
+            "inputMap": {
+                "accountId": "{{$root.currentUser.Account.attributes.url.substring(38)}}"
+            },
+            "ipMethod": "Mobile_Billing",
+            "methodType": "GET",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": ""
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "vloc-mob-con-bill"
+        }
+    },
+    "workspace": [
+    ]
+}

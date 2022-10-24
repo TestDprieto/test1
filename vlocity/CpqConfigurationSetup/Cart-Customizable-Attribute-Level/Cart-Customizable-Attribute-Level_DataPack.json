@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "For v15 compatibility, set to \"Read Only\" so the Cart ignores the Run-time Configurable (Customizable) property when determining which attributes are editable in the Vlocity Cart UI. Set to \"Runtime Configurable and Read Only\" so that it considers both.",
+    "%vlocity_namespace%__SetupValue__c": "Attribute",
+    "Name": "Cart Customizable Attribute Level",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/Cart Customizable Attribute Level"
+}

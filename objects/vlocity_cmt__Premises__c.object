@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>A complex, building or house, together with its land and outbuildings, occupied by businesses or tenants. In the communications and media industry, it may be a location where services such as wired phone or cable TV services are provided to customers. A premises record may optionally represent a location within a premises, such as a particular building on a property, a floor of a building, or some other subset of the larger premises where equipment may be deployed.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>vlocity_cmt__ActivationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date of Premises activation</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date of Premises activation</inlineHelpText>
+        <label>Activation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Address1__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Additional premises address information - 1.</description>
+        <externalId>false</externalId>
+        <label>Street Supplement 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Address2__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Additional premises address information - 2.</description>
+        <externalId>false</externalId>
+        <label>Street Supplement 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AlternateCity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Alternate City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AlternateCountry__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Alternate Country</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AlternatePostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Alternate Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AlternateState__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Alternate State</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AlternateStreetAddress__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Alternate Street Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AutoNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Auto Number</label>
+        <trackTrending>false</trackTrending>
+        <type>AutoNumber</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__City__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Country__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Floor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The floor in a building where Premises is located.</description>
+        <externalId>false</externalId>
+        <label>Floor</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Geolocation__c</fullName>
+        <deprecated>false</deprecated>
+        <displayLocationInDecimal>true</displayLocationInDecimal>
+        <externalId>false</externalId>
+        <label>Geolocation</label>
+        <required>false</required>
+        <scale>15</scale>
+        <trackTrending>false</trackTrending>
+        <type>Location</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__HouseNumberSupplement__c</fullName>
+        <deprecated>false</deprecated>
+        <description>House number supplement of given Premises.</description>
+        <externalId>false</externalId>
+        <label>House Number Supplement</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsKeyAtPremises__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates that a key is available at the premises to access the meter.</description>
+        <externalId>false</externalId>
+        <label>Key at Premises</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsOkToEnter__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates a field service rep has permission to enter the premise for meter read or other field activities.</description>
+        <externalId>false</externalId>
+        <label>Ok to Enter</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsSupplyGuaranteed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Supply cannot be turned off for the premises.</description>
+        <externalId>false</externalId>
+        <label>Supply Guaranteed</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Jurisdiction__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Jurisdiction in which the Premises exists.</description>
+        <externalId>false</externalId>
+        <label>Jurisdiction</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Jurisdiction A</fullName>
+                    <default>false</default>
+                    <label>Jurisdiction A</label>
+                </value>
+                <value>
+                    <fullName>Jurisdiction B</fullName>
+                    <default>false</default>
+                    <label>Jurisdiction B</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterReadInstructions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Provides additional meter read instructions required to access difficult meters.</description>
+        <externalId>false</externalId>
+        <label>Meter Read Instructions</label>
+        <length>32786</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MeterReadWarning__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Provides warnings to the meter reader.</description>
+        <externalId>false</externalId>
+        <label>Meter Read Warning</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__NumberOfOccupants__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of occupants located at the premises.</description>
+        <externalId>false</externalId>
+        <label>Number of Occupants</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ParentPremisesId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Parent Premises</label>
+        <referenceTo>vlocity_cmt__Premises__c</referenceTo>
+        <relationshipLabel>Child Premises</relationshipLabel>
+        <relationshipName>Premises</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PostalCode__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Postal Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PremisesIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Defined as &apos;external id&quot; so ID to be used especially for integration to outside systems.</description>
+        <externalId>true</externalId>
+        <label>Premises Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PremisesNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Potentially an external id</description>
+        <externalId>false</externalId>
+        <label>Premises Number</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PremisesType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Premises Type</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Duplex</fullName>
+                    <default>false</default>
+                    <label>Duplex</label>
+                </value>
+                <value>
+                    <fullName>Condominium</fullName>
+                    <default>false</default>
+                    <label>Condominium</label>
+                </value>
+                <value>
+                    <fullName>Commercial Building</fullName>
+                    <default>false</default>
+                    <label>Commercial Building</label>
+                </value>
+                <value>
+                    <fullName>Floor</fullName>
+                    <default>false</default>
+                    <label>Floor</label>
+                </value>
+                <value>
+                    <fullName>Floor Section</fullName>
+                    <default>false</default>
+                    <label>Floor Section</label>
+                </value>
+                <value>
+                    <fullName>Apartment Building</fullName>
+                    <default>false</default>
+                    <label>Apartment Building</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PropertyOwnerAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the customer account that is considered the titled owner of this premises. Used in energy and utilities implementations to identify who should be charged for services after one tenant leaves and before a new tenant moves in.</description>
+        <externalId>false</externalId>
+        <label>Property Owner Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Premises</relationshipLabel>
+        <relationshipName>Premises</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__State__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Connected</fullName>
+                    <default>true</default>
+                    <label>Connected</label>
+                </value>
+                <value>
+                    <fullName>Vacant</fullName>
+                    <default>false</default>
+                    <label>Vacant</label>
+                </value>
+                <value>
+                    <fullName>Install in Progress</fullName>
+                    <default>false</default>
+                    <label>Install in Progress</label>
+                </value>
+                <value>
+                    <fullName>Planned</fullName>
+                    <default>false</default>
+                    <label>Planned</label>
+                </value>
+                <value>
+                    <fullName>Inactive</fullName>
+                    <default>false</default>
+                    <label>Inactive</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__StreetAddress__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Street Address</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SupplyGuaranteeReason__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Supply cannot be turned off for the premises - reason</description>
+        <externalId>false</externalId>
+        <label>Supply Guarantee Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Medical Device</fullName>
+                    <default>false</default>
+                    <label>Medical Device</label>
+                </value>
+                <value>
+                    <fullName>Contractual Agreement</fullName>
+                    <default>false</default>
+                    <label>Contractual Agreement</label>
+                </value>
+                <value>
+                    <fullName>National Security</fullName>
+                    <default>false</default>
+                    <label>National Security</label>
+                </value>
+                <value>
+                    <fullName>Public Service</fullName>
+                    <default>false</default>
+                    <label>Public Service</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TimeZone__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Timezone of this premises.</description>
+        <externalId>false</externalId>
+        <label>Time Zone</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetName>vlocity_cmt__VlocityTimeZones</valueSetName>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TrendArea__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Premises location classification</description>
+        <externalId>false</externalId>
+        <label>Trend Area</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__UnitNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unit / Apartment number of this Premises.</description>
+        <externalId>false</externalId>
+        <label>Unit / Apartment</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Premises</label>
+    <listViews>
+        <fullName>vlocity_cmt__All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Premises</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>vlocity_cmt__ValidateAddress</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Validate Address</masterLabel>
+        <openType>sidebar</openType>
+        <page>vlocity_cmt__PremisesAddrValidation</page>
+        <protected>false</protected>
+    </webLinks>
+</CustomObject>

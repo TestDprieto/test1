@@ -1,0 +1,59 @@
+<ion-side-menu side="left" class="menu-wrapper" ng-controller="SideMenuController as smc" side-menu-content drag-content="false">
+      
+        <ion-header-bar class="menu-bar con-menu-header">
+            <div class="con-menu-profile">
+                <div class="con-menu-close" ng-click="smc.toggleSideMenu()">
+                    
+                </div>
+                <div class="con-menu-profile-picture">
+                    <img ng-show="myAvatar" ng-src="{{myAvatar}}" class="con-menu-avatar">
+                </div>
+                <div class="user-name con-menu-name">
+                    {{currentUser.Name | limitTo: 25}}
+                    <span>{{currentUser.Email}}</span>
+                </div>
+                <div class="con-menu-settings">
+                    
+                </div>
+            </div>
+
+        </ion-header-bar>
+        <ion-content class="con-menu">
+            <ion-list>
+                <ion-item menu-close ng-repeat="menu in menus"  ng-click="openPage(menu)">
+					<span class="con-menu-icon">
+					    {{menu.sprite}}
+					</span>
+					<span class="menu-item-name">
+						{{menu.name}}
+					</span>
+                </ion-item>
+
+				<ion-item ng-if="devMode" ng-click="switchConfig()">
+				    <span class="con-menu-icon">
+					    
+					</span>
+					<span class="menu-item-name">
+						Switch Experience
+					</span>
+                </ion-item>	
+				<ion-item ng-if="devMode" ng-click="clearCacheAndReload()">
+				    <span class="con-menu-icon">
+					    
+					</span>
+				    <span class="menu-item-name">
+						Refresh
+					</span>
+				</ion-item>	                
+				<ion-item ng-if="devMode" ng-click="showConfirm()">
+				    <span class="con-menu-icon">
+					    
+					</span>
+                    <span class="menu-item-name">
+						Logout
+					</span>
+				</ion-item>
+            </ion-list>
+			
+        </ion-content>
+</ion-side-menu>

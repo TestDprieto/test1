@@ -1,0 +1,77 @@
+{
+    "allowCancel": true,
+    "allowSaveForLater": false,
+    "autoFocus": false,
+    "autoSaveOnStepNext": true,
+    "bLK": false,
+    "cancelRedirectPageName": "OmniScriptCancelled",
+    "cancelRedirectTemplateUrl": "vlcCancelled.html",
+    "cancelSource": "%ContextId%",
+    "cancelType": "SObject",
+    "consoleTabIcon": "custom:custom18",
+    "consoleTabLabel": "New",
+    "consoleTabTitle": null,
+    "currencyCode": "",
+    "disableUnloadWarn": true,
+    "elementTypeToHTMLTemplateMapping": {
+        "Horizontal Mode Persistent Component": "vlcHCartHyb.html"
+    },
+    "enableKnowledge": false,
+    "errorMessage": {
+        "custom": [
+        ]
+    },
+    "hideStepChart": false,
+    "includeCustomization": true,
+    "knowledgeArticleTypeQueryFieldsMap": {
+    },
+    "lkObjName": null,
+    "message": {
+    },
+    "persistentComponent": [
+        {
+            "id": "vlcCart",
+            "itemsKey": "cartItems",
+            "label": "Shopping Cart",
+            "modalConfigurationSetting": {
+                "modalController": "ModalProductCtrl",
+                "modalHTMLTemplateId": "vlcProductConfig.html",
+                "modalSize": "lg"
+            },
+            "postTransformBundle": "",
+            "preTransformBundle": "",
+            "remoteClass": "%vlocity_namespace%.CpqAppHandler",
+            "remoteMethod": "putCartsItems",
+            "remoteOptions": {
+                "postTransformBundle": "",
+                "preTransformBundle": ""
+            },
+            "remoteTimeout": 30000,
+            "render": true,
+            "responseJSONNode": "",
+            "responseJSONPath": "",
+            "sendJSONNode": "",
+            "sendJSONPath": ""
+        }
+    ],
+    "pubsub": false,
+    "rtpSeed": false,
+    "saveContentEncoded": false,
+    "saveExpireInDays": null,
+    "saveForLaterRedirectPageName": "sflRedirect",
+    "saveForLaterRedirectTemplateUrl": "vlcSaveForLaterAcknowledge.html",
+    "saveNameTemplate": null,
+    "saveObjectId": "%ContextId%",
+    "saveURLPatterns": {
+    },
+    "seedDataJSON": {
+    },
+    "showInputWidth": false,
+    "ssm": false,
+    "timeTracking": true,
+    "trackingCustomData": {
+    },
+    "visualforcePagesAvailableInPreview": {
+    },
+    "wpm": false
+}
