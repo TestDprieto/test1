@@ -1,0 +1,45 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "CaseComment",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "CommentBody",
+        "%vlocity_namespace%__GlobalKey__c": "0fefa02e-e063-332b-daca-a83658c9c647",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "CaseComment:Comment",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "sampleCreateCommentCustom7560",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "sampleCreateComment",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__ConfigurationValue__c": "FAKEMAPPING",
+        "%vlocity_namespace%__DomainObjectAPIName__c": "CaseComment",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Id",
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__GlobalKey__c": "8518dec8-b61a-d478-ad25-6ac5d374238e",
+        "%vlocity_namespace%__IsDisabled__c": true,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "sampleCreateCommentCustom9473",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "sampleCreateComment",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "CaseComment",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "ParentId",
+        "%vlocity_namespace%__GlobalKey__c": "334a3f7e-a52c-267e-1c06-ef9dd14ddefa",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "CaseComment:CaseId",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "sampleCreateCommentCustom5719",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "sampleCreateComment",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

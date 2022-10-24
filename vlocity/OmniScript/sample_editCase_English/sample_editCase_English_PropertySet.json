@@ -12,6 +12,7 @@
     "consoleTabLabel": "New",
     "consoleTabTitle": null,
     "currencyCode": "",
+    "currentLanguage": "en_US",
     "disableUnloadWarn": true,
     "elementTypeToHTMLTemplateMapping": {
     },
@@ -20,10 +21,11 @@
         "custom": [
         ]
     },
-    "hideStepChart": true,
+    "hideStepChart": false,
     "knowledgeArticleTypeQueryFieldsMap": {
     },
     "lkObjName": null,
+    "mergeSavedData": false,
     "message": {
     },
     "persistentComponent": [
@@ -52,6 +54,7 @@
             "sendJSONPath": ""
         },
         {
+            "dispOutsideOmni": false,
             "id": "vlcKnowledge",
             "itemsKey": "knowledgeItems",
             "label": "",
@@ -82,11 +85,18 @@
     "saveObjectId": "%ContextId%",
     "saveURLPatterns": {
     },
+    "scrollBehavior": "auto",
     "seedDataJSON": {
     },
     "showInputWidth": false,
     "ssm": false,
     "stepChartPlacement": "right",
+    "stylesheet": {
+        "lightning": "",
+        "lightningRtl": "",
+        "newport": "",
+        "newportRtl": ""
+    },
     "timeTracking": false,
     "trackingCustomData": {
     },
