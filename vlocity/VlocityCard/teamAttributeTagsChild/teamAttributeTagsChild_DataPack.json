@@ -1,0 +1,29 @@
+{
+    "%vlocity_namespace%__Author__c": "VU",
+    "%vlocity_namespace%__CardType__c": "flex",
+    "%vlocity_namespace%__Datasource__c": {
+        "contextVariables": [
+        ],
+        "orderBy": {
+            "isReverse": false,
+            "name": ""
+        },
+        "type": "Custom",
+        "value": {
+            "body": " [\n    {\n      \"label\": \"Business Continuity\",\n      \"category\": \"Noted_Concerns__c\"\n    },\n    {\n      \"label\": \"Cyber Security\",\n      \"category\": \"Noted_Concerns__c\"\n    },\n    {\n      \"label\": \"Innovation\",\n      \"category\": \"Company_Culture__c\"\n    },\n    {\n      \"label\": \"Integrity\",\n      \"category\": \"Company_Culture__c\"\n    },\n    {\n      \"label\": \"Sustainability\",\n      \"category\": \"Company_Culture__c\"\n    }\n  ]"
+        }
+    },
+    "%vlocity_namespace%__Definition__c": "teamAttributeTagsChild.json",
+    "%vlocity_namespace%__Description__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "teamAttributeTagsChild/VU/1/1604356445425",
+    "%vlocity_namespace%__IsChildCard__c": true,
+    "%vlocity_namespace%__ParentID__c": "Flex_AttributeTags4/cardsdailyins_lwc/1/1604196424499",
+    "%vlocity_namespace%__SampleData__c": "[{\"label\":\"Business Continuity\",\"category\":\"Noted_Concerns__c\"},{\"label\":\"Cyber Security\",\"category\":\"Noted_Concerns__c\"},{\"label\":\"Innovation\",\"category\":\"Company_Culture__c\"},{\"label\":\"Integrity\",\"category\":\"Company_Culture__c\"},{\"label\":\"Sustainability\",\"category\":\"Company_Culture__c\"}]",
+    "%vlocity_namespace%__Styles__c": "",
+    "%vlocity_namespace%__Type__c": "",
+    "%vlocity_namespace%__Version__c": 1,
+    "Name": "teamAttributeTagsChild",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__VlocityCard__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__VlocityCard__c/teamAttributeTagsChild"
+}

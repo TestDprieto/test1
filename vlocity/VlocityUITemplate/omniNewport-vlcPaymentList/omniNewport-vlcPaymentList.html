@@ -1,0 +1,47 @@
+<div class='nds-col_padded nds-size_1-of-1'>
+    <table class="nds-table nds-table_bordered nds-table_cell-buffer vlc-slds-table" ng-class="compareWindowWidth(768,'vlc-slds-table_stacked')" ng-init=digestOnResize()>
+       <thead>
+            <tr class="nds-text-heading_label">
+                <th width="20px"/>
+                <th scope="col">
+                    <div class="nds-truncate">Primary</div>
+                </th>
+                <th scope="col">
+                    <div class="nds-truncate">Type</div>
+                </th>
+                <th scope="col">
+                    <div class="nds-truncate">Name</div>
+                </th>
+                <!-- <th/> -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat='p in control.vlcSI[control.itemsKey]' ng-class="{ 'vlc-selectableitem-selected' : p.vlcSelected }" >
+                <td class="nds-cell-shrink" data-label='Select'>
+                    <label class="nds-checkbox">
+                        <input type='checkbox' ng-model='p.vlcSelected' ng-change='onSelectItem(control, p, $index, this)' checked ng-if="bpTree.response['Task Details']['Task Sub Category']!='Amend Payment Method'" />
+                        <span class="nds-checkbox_faux"></span>
+                        <span class="nds-assistive-text">Select</span>
+                    </label>
+                </td>
+                <td data-label='Primary'>
+                    <div class="nds-truncate"><span class="icon icon-v-check" ng-if='p.IsPrimary'></span></div>
+                </td>
+                <td data-label='Type'>
+                    <div class="nds-truncate">{{p.PayMethType}}</span></div>
+                </td>
+                <td data-label='Name'>
+                    <div class="nds-truncate">{{p.Name}}</span></div>
+                </td>
+                <!-- <td>
+                    <button type="button" class="btn btn-link" ng-click=" buttonClick(bpTree.response, control, this, p, 'Update')">
+                      <span class="icon icon-v-edit" aria-hidden="true"></span>
+                    </button>
+                    <button type="button" class="btn btn-link" ng-click="buttonClick(bpTree.response, control, this, p, 'Delete')">
+                      <span class="icon icon-v-trash" aria-hidden="true"></span>
+                    </button>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

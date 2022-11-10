@@ -1,0 +1,382 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           docType="html-5.0"
+           applyBodyTag="false"
+           lightningStylesheets="false"
+           applyHtmlTag="false"
+           title="OmniScript Compiler VF Page"
+           cache="false"
+           standardController="vlocity_cmt__OmniScript__c"
+           extensions="vlocity_cmt.OmniScriptDesignerController">
+
+    <html xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          lang="en">
+
+    <head>
+        <meta http-equiv="x-ua-compatible"
+              content="ie=edge" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1" />
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jszip.min.js')}"></script>
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-core.min.js')}"></script>
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-tooling.min.js')}"></script>
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-metadata.min.js')}"></script>
+        <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+        <script type="text/javascript">
+            window.conn = new jsforce.Connection({ accessToken: '{!$API.Session_Id}', version: '48.0' });
+            conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
+            const POST_MESSAGE_KEY = '{!$CurrentPage.parameters.postmessagekey}';
+        </script>
+    </head>
+
+    <body>
+        <p id="deployment-message"></p>
+        <script>
+        let allUnmanagedLabels = null;
+        const messageEl = document.getElementById('deployment-message');
+        loadAllCustomLabelsInOrg();
+        window.addEventListener("message", (event) => {
+            let params = (new URL(document.location)).searchParams;
+            if (event.origin === params.get('sfdcIFrameOrigin') && event.data.message === 'saveLabels') {
+                saveAll(event.data.labels)
+                    .then(complete => {
+                        setMessage(false, complete);
+                    })
+                    .catch(err => {
+                        setMessage(true, err);
+                    })
+            }
+        }, false);
+
+        function saveAll(arrayOfLabels) {
+            if (!allUnmanagedLabels) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        resolve(saveAll(arrayOfLabels));
+                    }, 1000);
+                });
+            }
+
+            var arrayToUpsert = [],
+                arrayToDeploy = [];
+            arrayOfLabels.forEach((label) => {
+                if (label.value === null ||
+                    label.value === undefined) {
+                    return;
+                }
+
+                // Do a metadata deploy instead of upsert if this label is from a managed
+                // package.
+                if (/__/.test(label.name)) {
+                    arrayToDeploy.push(label);
+                    return;
+                }
+
+                const existingLabel = allUnmanagedLabels[label.name.toLowerCase()];
+
+                // change the name to match the case sensitive version of the existing one
+                // otherwise we'll get a duplicate error
+                if (existingLabel) {
+                    label.name = existingLabel.originalName;
+                }
+
+                // Do a metadata deploy instead of upsert if the label exists
+                // but this is a different language.
+                if (existingLabel &&
+                    existingLabel.originalLanguage !== label.language) {
+                    arrayToDeploy.push(label);
+                    return;
+                }
+
+                // Don't do anything if the language and label value are the same
+                if (existingLabel &&
+                    existingLabel.originalLanguage === label.language &&
+                    existingLabel.value === label.value) {
+                    return;
+                }
+
+                arrayToUpsert.push(label);
+            });
+
+            const promiseToUpsert = upsertAll(_.uniqBy(arrayToUpsert, 'name'));
+            const promiseToDeploy = deployAll(_.uniqBy(arrayToDeploy, 'name'));
+
+            return Promise.all([promiseToUpsert, promiseToDeploy]);
+        }
+
+        function upsertAll(arrayOfLabels) {
+            if (!arrayOfLabels ||
+                arrayOfLabels.length === 0) {
+                return Promise.resolve(true);
+            }
+
+            // Metadata api only accepts 10 inserts at a time, so split
+            // up larger arrays into multiple smaller ones and submit individually
+            if (arrayOfLabels.length > 10) {
+                const maxSizeTenArrays = [];
+                while (arrayOfLabels.length > 0) {
+                    maxSizeTenArrays.push(arrayOfLabels.splice(0, 10));
+                }
+
+                return Promise.all(maxSizeTenArrays.map((arrayOfLabels) => {
+                    return upsertAll(arrayOfLabels);
+                }));
+            }
+
+            var metadata = arrayOfLabels.map((label) => {
+                return {
+                    fullName: label.name,
+                    language: label.language,
+                    protected: false,
+                    shortDescription: label.shortDescription,
+                    value: label.value
+                };
+            });
+            return new Promise((resolve, reject)  =>{
+                conn.metadata.upsert('CustomLabel', metadata, (err, results) => {
+                    if (err) {
+                        reject(err);
+                        return;
+                    }
+                    if (!Array.isArray(results)) {
+                        results = [results];
+                    }
+                    const errors = results.filter((result) =>{
+                        return result.errors;
+                    }).map((result) => {
+                        return result.errors;
+                    });
+                    if (errors.length > 0) {
+                        reject(errors);
+                        return;
+                    }
+                    resolve(results[0]);
+                });
+            });
+        }
+
+        function deployAll(arrayOfLabels) {
+            if (!arrayOfLabels ||
+                arrayOfLabels.length === 0) {
+                return Promise.resolve(true);
+            }
+
+            return createZipOfAll(arrayOfLabels)
+                .then((zipStream) => {
+                    return new Promise((resolve, reject) => {
+                        conn.metadata.deploy(zipStream, {
+                                singlePackage: true
+                            })
+                            .complete((err, deployResult) => {
+                                if (err) {
+                                    reject(err);
+                                    return;
+                                }
+
+                                if (deployResult.success === false) {
+                                    conn.metadata.checkDeployStatus(deployResult.id, true,
+                                            (err, result) => {
+                                                console.log(err);
+                                                console.log(result);
+                                            });
+                                    reject(deployResult);
+                                    return;
+                                }
+
+                                resolve(deployResult);
+                            });
+                    });
+                });
+        }
+
+        function createZipOfAll(arrayOfLabels) {
+            return new Promise((resolve, reject) => {
+                const zip = new JSZip();
+                const langToLabelsMap = arrayOfLabels.reduce((map, label) => {
+                    if (!map[label.language]) {
+                        map[label.language] = [];
+                    }
+                    map[label.language].push(label);
+                    return map;
+                }, {});
+
+                zip.file(
+                    'package.xml',
+                    '<?xml version=\"1.0\" encoding=\"UTF-8\"?>' +
+                    '<Package xmlns=\"http://soap.sforce.com/2006/04/metadata\">' +
+                        '<types>' +
+                            '<members>*</members>' +
+                            '<name>CustomLabels</name>' +
+                        '</types>' +
+                        '<types>' +
+                            Object.keys(langToLabelsMap)
+                                    .map((language) => {
+                                        return '<members>' + language + '</members>';
+                                    })
+                                    .join('') +
+                            '<name>Translations</name>' +
+                        '</types>' +
+                        '<version>42.0</version>' +
+                    '</Package>'
+                );
+
+                Object.keys(langToLabelsMap)
+                    .forEach((language) => {
+                        const languageLabels = langToLabelsMap[language];
+                        const languageLabelsXml = arrayOfLabels.map((label) => {
+                            return '<customLabels>' +
+                                        '<label>' + label.value + '</label>' +
+                                        '<name>' + label.name + '</name>' +
+                                    '</customLabels>';
+                        });
+
+                        // translation file
+                        zip.file(
+                            'translations/' + language + '.translation',
+                            '<?xml version=\"1.0\" encoding=\"UTF-8\"?>' +
+                            '<Translations xmlns=\"http://soap.sforce.com/2006/04/metadata\">' +
+                                languageLabelsXml +
+                            '</Translations>'
+                        );
+                    });
+
+                var content = zip.generateAsync({type: 'base64'})
+                    .then((content) => {
+                        resolve(content);
+                    });
+            });
+        }
+
+        function setMessage(isError, message) {
+            messageEl.innerText = message;
+            window.parent.postMessage({
+                key: POST_MESSAGE_KEY,
+                err: isError ? message : undefined,
+                response: isError ? undefined : message
+            }, '*');
+        }
+
+        function loadAllCustomLabelsInOrg() {
+            allUnmanagedLabels = null;
+            conn.metadata.retrieve({
+                unpackaged: {
+                    'types': {
+                        'members': '*',
+                        'name': 'CustomLabel'
+                    },
+                    'version': '42.0'
+                }
+            }).complete((err, result) => {
+                JSZip.loadAsync(result.zipFile, {base64: true})
+                    .then((zip) => {
+                        if (zip.files['unpackaged/labels/CustomLabels.labels']) {
+                            const outputFile = zip.file('unpackaged/labels/CustomLabels.labels');
+                            if (outputFile) {
+                                return outputFile.async('string');
+                            }
+                        }
+                        return Promise.resolve('<?xml version=\"1.0\" ' +
+                        'encoding=\"UTF-8\"?><CustomLabels xmlns=\"http://soap.sforce.com/2006/04/metadata\">' +
+                        '</CustomLabels>');
+                    }).then((text) => {
+                        const jsonResponse = xmlToJson(text);
+
+                        let labels = jsonResponse.CustomLabels.labels;
+                        if (!Array.isArray(labels) && labels) {
+                            labels = [labels];
+                        }
+                        if (!labels) {
+                            allUnmanagedLabels = {};
+                            return;
+                        }
+                        allUnmanagedLabels = labels.reduce(function (obj, label) {
+                            if (!obj[label.fullName['#text'].toLowerCase()]) {
+                                obj[label.fullName['#text'].toLowerCase()] = {};
+                            }
+                            obj[label.fullName['#text'].toLowerCase()] = {
+                                originalName: label.fullName['#text'],
+                                originalLanguage: label.language['#text'],
+                                isDefault: true,
+                                value: label.value['#text']
+                            };
+                            return obj;
+                        }, {});
+                    });
+            });
+        }
+
+        function xmlToJson(xmlString) {
+            let xml = xmlString;
+            if (xml == null) {
+                return {};
+            }
+            if (typeof xmlString === 'string') {
+                const oParser = new DOMParser();
+                xml = oParser.parseFromString(xmlString, 'text/xml');
+                if (isParseError(xml)) {
+                    return {};
+                }
+            }
+
+            // Create the return object
+            let obj = {};
+            if (xml.nodeType === 1) { // element
+                processXmlAttributes(xml, obj);
+            } else if (xml.nodeType === 3) { // text
+                obj = xml.nodeValue;
+            }
+
+            // do children
+            if (xml.hasChildNodes()) {
+                processChildNodes(xml, obj);
+            }
+            return obj;
+        }
+
+        function processXmlAttributes(xml, obj) {
+            if (xml.attributes.length > 0) {
+                for (let j = 0; j < xml.attributes.length; j++) {
+                    const attribute = xml.attributes.item(j);
+                    obj['@' + attribute.nodeName] = attribute.nodeValue;
+                }
+            }
+        }
+
+        function processChildNodes(xml, obj) {
+            for (let i = 0; i < xml.childNodes.length; i++) {
+                const item = xml.childNodes.item(i);
+                const nodeName = item.nodeName;
+                if (typeof (obj[nodeName]) === 'undefined') {
+                    obj[nodeName] = xmlToJson(item);
+                } else {
+                    if (typeof (obj[nodeName].push) === 'undefined') {
+                        var old = obj[nodeName];
+                        obj[nodeName] = [];
+                        obj[nodeName].push(old);
+                    }
+                    obj[nodeName].push(xmlToJson(item));
+                }
+            }
+        }
+
+        function isParseError(parsedDocument) {
+            // parser and parsererrorNS could be cached on startup for efficiency
+            var parser = new DOMParser(),
+                errorneousParse = parser.parseFromString('<', 'text/xml'),
+                parsererrorNS = errorneousParse.getElementsByTagName('parsererror')[0].namespaceURI;
+
+            if (parsererrorNS === 'http://www.w3.org/1999/xhtml') {
+                // In PhantomJS the parseerror element doesn't seem to have a special
+                // namespace, so we are just guessing here :(
+                return parsedDocument.getElementsByTagName('parsererror').length > 0;
+            }
+
+            return parsedDocument.getElementsByTagNameNS(parsererrorNS, 'parsererror').length > 0;
+        }
+
+        </script>
+    </body>
+    </html>
+</apex:page>

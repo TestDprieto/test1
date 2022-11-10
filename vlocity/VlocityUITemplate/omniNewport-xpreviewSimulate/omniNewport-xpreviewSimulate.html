@@ -1,0 +1,41 @@
+<div class='nds-grid nds-wrap nds-grid_pull-padded nds-col_padded'>
+
+    <div class='nds-size_1-of-1'>
+        
+        <div class="nds-form_stacked">
+
+            <div class="nds-form-element">
+                <label class="nds-form-element__label" for="inputSample2">Bundle Name</label>
+                <div class="nds-form-element__control">
+                    <input class="nds-input" type="text" ng-model="bundleName"/>
+                </div>
+            </div>
+
+            <div class="nds-form-element">
+                <label class="nds-form-element__label" for="inputSample2">Context Id</label>
+                <div class="nds-form-element__control">
+                    <input class="nds-input" type="text" ng-model="ctxObjId"/>
+                </div>
+            </div>
+
+            <div class="nds-form-element">
+                <label class="nds-form-element__label" for="inputSample2"></label>
+                <div class="nds-form-element__control">
+                        <button style="flex: 0 0 100%"
+                                class="nds-button vlc-slds-button_primary"
+                                ng-click='invokeDR(bundleName, ctxObjId)'>
+                            Fetch Data
+                        </button>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <div class='nds-size_1-of-1' ng-if="bpTree.previewMode">
+        <div class='nds-form-element__label'>{{::customLabels.OmniDataJSON}}</div>
+        <json-formatter json="drInvokeResult" class="nds-box"></json-formatter>
+    </div>
+
+</div>

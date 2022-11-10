@@ -1,0 +1,89 @@
+{
+    "Alerts": [
+    ],
+    "GlobalKey__c": "profile-account-slds/Vlocity/1495043462804",
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0011500001ChJqa"
+            }
+        ],
+        "type": null,
+        "value": {
+            "query": "SELECT Id, Name, BillingAddress, Phone, PhotoURL, Website FROM Account WHERE Id = '{{params.id}}'"
+        }
+    },
+    "enableLwc": false,
+    "filter": {
+    },
+    "states": [
+        {
+            "alerts": [
+            ],
+            "blankStateCheck": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Name",
+                    "name": "['Name']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Type",
+                    "name": "['Type']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Industry",
+                    "name": "['Industry']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status == 'active'",
+            "flyout": "",
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "leftProfileState",
+                "Id": "0Rbf4000000GoVuCAK",
+                "MasterLabel": "left-profile-state",
+                "name": "leftProfileState"
+            },
+            "name": "active",
+            "sObjectType": null,
+            "smartAction": {
+            },
+            "templateUrl": "left-profile-slds"
+        }
+    ],
+    "templates": [
+        {
+            "filter": "$scope.data.status == 'active'",
+            "templateUrl": "left-profile-slds"
+        },
+        {
+            "filter": "$scope.data.status == 'non-existent'",
+            "templateUrl": "left-profile-slds"
+        }
+    ],
+    "title": "Profile"
+}

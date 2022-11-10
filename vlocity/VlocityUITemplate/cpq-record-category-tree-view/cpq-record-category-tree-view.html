@@ -1,0 +1,59 @@
+<ul class="slds-accordion">
+    <li class="slds-accordion__list-item">
+        <div>
+            <table class="cpq-compare-attribute-highlight slds-table slds-table--bordered slds-table_fixed-layout slds-max-medium-table--stacked slds-no-row-hover ">
+                <tbody>
+                    <tr ng-repeat="field in fields" ng-if="record[field].value">
+                        <th>{{record[field].label}}</th>
+                        <td class="slds-cell-wrap">{{record[field].value | picker: record[field].dataType.toLowerCase()}}</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <th colspan="2"><button aria-controls="expando-{{record.Id.value}}" aria-expanded="{{!record.$toggle1}}" class="slds-button slds-button_reset slds-accordion__summary-action"></button><span class="cpq-compare-text-overflow" title="{{records.Name}}"><b>{{records.Name}}</b></span></th>
+                    <tr aria-hidden="{{record.$toggle1}}" ng-repeat = "attribute in records.productAttributes.records" ng-hide="attribute.hidden">
+                        <td ng-if="!attribute.hidden" class="slds-cell-buffer_left">
+                            <span ng-if="!attribute.hidden" class="cpq-compare-text-overflow slds-form-element__label slds-text-body_regular" title="{{attribute.label}}" cpq-translate="Attribute.Name">{{attribute.label}}</span>
+                        </td>
+                        <td ng-if="!attribute.hidden" class="slds-cell-wrap">
+                            <span ng-if="!attribute.hidden" class="assets-info-attr-value">
+                                <span ng-if="attribute.inputType !== 'dropdown' && attribute.inputType !=='radio' && attribute.inputType !=='checkbox' && attribute.inputType !=='date'"
+                                cpq-translate="{{attribute.isNotTranslatable ? 'null' :'Attribute.Value'}}">
+                                    {{attribute.userValues}}
+                                </span>
+
+                                <span ng-if="attribute.inputType ==='datetime' || attribute.inputType ==='date'">
+                                    {{attribute.userValues | date}}
+                                </span>
+
+                                <span ng-if="attribute.inputType==='dropdown' || attribute.inputType==='radio' || attribute.inputType==='checkbox'">
+                                    <span ng-if="!attribute.multiselect">
+                                        <span ng-repeat="valueObj in attribute.values" ng-if="valueObj.value === attribute.userValues">
+                                            {{valueObj.label | CPQTranslateFilter : (attribute.isNotTranslatable ? 'null' : 'Attribute.Name')}}
+                                        </span>
+                                    </span>
+                                    <span ng-if="attribute.multiselect && attribute.inputType !=='checkbox'">
+                                        <span ng-repeat="valueObj in attribute.values">
+                                            <span ng-repeat="userValue in attribute.userValues" ng-if="valueObj.value === userValue">
+                                                <span ng-if="!$first">, </span><span cpq-translate="{{attribute.isNotTranslatable ? 'null' : 'Attribute.Name'}}">{{valueObj.label}}</span> 
+                                            </span>
+                                        </span>
+                                    </span>
+                                    <!-- Handle checkboxes of type multi select -->
+                                    <span ng-if="attribute.multiselect && attribute.inputType ==='checkbox'">
+                                        <span ng-repeat="valueObj in attribute.values|filter:{'selected':true}">
+                                            <span  ng-if="!$first">, </span><span cpq-translate="{{attribute.isNotTranslatable ? 'null' : 'Attribute.Name'}}">{{valueObj.label}}</span>
+                                        </span>
+                                    </span>
+                                    <!-- Handle checkboxes of type only checkbox -->
+                                    <span ng-if="!attribute.multiselect && attribute.inputType ==='checkbox'" cpq-translate="{{attribute.isNotTranslatable ? 'null' :'Attribute.Value'}}">
+                                    {{attribute.userValues}}
+                                    </span>
+                                </span>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </li>
+</ul>

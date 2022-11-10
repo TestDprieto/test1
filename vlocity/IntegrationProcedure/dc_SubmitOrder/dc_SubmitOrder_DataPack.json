@@ -1,0 +1,31 @@
+{
+    "%vlocity_namespace%__CustomJavaScript__c": "dc_SubmitOrder_SampleInput.json",
+    "%vlocity_namespace%__DisableMetadataCache__c": false,
+    "%vlocity_namespace%__ElementTypeToHTMLTemplateList__c": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "%vlocity_namespace%__Element__c": [
+        "dc_SubmitOrder_Element_createOrder.json",
+        "dc_SubmitOrder_Element_CreateAssetsFlow-CPQ.json",
+        "dc_SubmitOrder_Element_CreateAssetsFlow-CPQ-and-OM.json",
+        "dc_SubmitOrder_Element_CreateAssetsFlow-OM.json",
+        "dc_SubmitOrder_Element_SetCreateAssetsValue.json",
+        "dc_SubmitOrder_Element_canSubmitOrder.json",
+        "dc_SubmitOrder_Element_CheckoutWithCPQ.json",
+        "dc_SubmitOrder_Element_DecomposeAndSubmit.json",
+        "dc_SubmitOrder_Element_CheckoutWithCPQAndOM.json",
+        "dc_SubmitOrder_Element_DecomposeAndSubmitWithCPQAndOM.json",
+        "dc_SubmitOrder_Element_SetResponse.json"
+    ],
+    "%vlocity_namespace%__IsLwcEnabled__c": false,
+    "%vlocity_namespace%__IsProcedure__c": true,
+    "%vlocity_namespace%__IsReusable__c": false,
+    "%vlocity_namespace%__IsTest__c": false,
+    "%vlocity_namespace%__Language__c": "Procedure",
+    "%vlocity_namespace%__ProcedureKey__c": "dc_SubmitOrder",
+    "%vlocity_namespace%__PropertySet__c": "dc_SubmitOrder_PropertySet.json",
+    "%vlocity_namespace%__SubType__c": "SubmitOrder",
+    "%vlocity_namespace%__Type__c": "dc",
+    "Name": "Submit Order",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__OmniScript__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__OmniScript__c/dc/SubmitOrder/Procedure"
+}

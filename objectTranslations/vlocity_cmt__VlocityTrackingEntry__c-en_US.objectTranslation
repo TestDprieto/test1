@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- Primary Account --></help>
+        <label><!-- Primary Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The type of component where the tracking record originated --></help>
+        <label><!-- Action Container Component --></label>
+        <name>vlocity_cmt__ActionContainerComponent__c</name>
+        <picklistValues>
+            <masterLabel>Card</masterLabel>
+            <translation><!-- Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integration Procedure</masterLabel>
+            <translation><!-- Integration Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Omniscript</masterLabel>
+            <translation><!-- Omniscript --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Action Container Global Key --></help>
+        <label><!-- Action Container Global Key --></label>
+        <name>vlocity_cmt__ActionContainerGlobalKey__c</name>
+    </fields>
+    <fields>
+        <help><!-- Id of the container where event has originated --></help>
+        <label><!-- Action Container Id --></label>
+        <name>vlocity_cmt__ActionContainerId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Container Language --></help>
+        <label><!-- Action Container Language --></label>
+        <name>vlocity_cmt__ActionContainerLanguage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Container Name where the tracking event originated --></help>
+        <label><!-- Action Container Name --></label>
+        <name>vlocity_cmt__ActionContainerName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Container SubType e.g. Omniscript subtype --></help>
+        <label><!-- Action Container SubType --></label>
+        <name>vlocity_cmt__ActionContainerSubType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Container Type e.g. Omniscript type, VIP type --></help>
+        <label><!-- Action Container Type --></label>
+        <name>vlocity_cmt__ActionContainerType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Container Version --></help>
+        <label><!-- Action Container Version --></label>
+        <name>vlocity_cmt__ActionContainerVersion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Element Label --></help>
+        <label><!-- Action Element Label --></label>
+        <name>vlocity_cmt__ActionElementLabel__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Element Name --></help>
+        <label><!-- Action Element Name --></label>
+        <name>vlocity_cmt__ActionElementName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Corresponds to the various types of actions that can be invoked from an Omniscript, Integration Procedure, and Cards --></help>
+        <label><!-- Action Element Type --></label>
+        <name>vlocity_cmt__ActionElementType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Execution Mode. Values: Synchronous, Asynchronous --></help>
+        <label><!-- Action Execution Mode --></label>
+        <name>vlocity_cmt__ActionExecutionMode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name or Type/Subtype/Lang of the DataRaptor, Integration Procedure, APEX Class, etc that was invoked by an Omniscript action. --></help>
+        <label><!-- Action Target Name --></label>
+        <name>vlocity_cmt__ActionTargetName__c</name>
+    </fields>
+    <fields>
+        <help><!-- Component referenced by the action e.g. FlexCard, Omniscript, Navigate, Flyout, DataRaptor, Integration Procedure, APEX Class etc. --></help>
+        <label><!-- Action Target Type --></label>
+        <name>vlocity_cmt__ActionTargetType__c</name>
+    </fields>
+    <fields>
+        <help><!-- Action Target Version --></help>
+        <label><!-- Action Target Version --></label>
+        <name>vlocity_cmt__ActionTargetVersion__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary Asset --></help>
+        <label><!-- Primary Asset --></label>
+        <name>vlocity_cmt__AssetId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Id of the batch calling the VIP --></help>
+        <label><!-- Batch Id --></label>
+        <name>vlocity_cmt__BatchId__c</name>
+    </fields>
+    <fields>
+        <help><!-- New metadata attribute of the action, designed to categorize the tracking record&apos;s business purpose --></help>
+        <label><!-- Business Category --></label>
+        <name>vlocity_cmt__BusinessCategory__c</name>
+    </fields>
+    <fields>
+        <help><!-- New Metadata Attribute of the action, designed to categorize it&apos;s business purpose --></help>
+        <label><!-- Business Event --></label>
+        <name>vlocity_cmt__BusinessEvent__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary Case --></help>
+        <label><!-- Primary Case --></label>
+        <name>vlocity_cmt__CaseId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Name of the FlexCard state --></help>
+        <label><!-- Component State --></label>
+        <name>vlocity_cmt__ComponentState__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary Contact --></help>
+        <label><!-- Primary Contact --></label>
+        <name>vlocity_cmt__ContactId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Context Id --></label>
+        <name>vlocity_cmt__ContextId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vlocity Interaction --></label>
+        <name>vlocity_cmt__CustomerInteractionId__c</name>
+        <relationshipLabel><!-- Vlocity Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Customer Interaction Token --></label>
+        <name>vlocity_cmt__CustomerInteractionToken__c</name>
+    </fields>
+    <fields>
+        <help><!-- Time difference between Data Request End Time and Data Request Start Time in Milliseconds --></help>
+        <label><!-- Data Fetch Duration --></label>
+        <name>vlocity_cmt__DataFetchDuration__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unix epoch milliseconds for Data Request End Time --></help>
+        <label><!-- Data Request End Time in Milliseconds --></label>
+        <name>vlocity_cmt__DataRequestEndTimeMilliseconds__c</name>
+    </fields>
+    <fields>
+        <help><!-- Time at which data request from Card completes --></help>
+        <label><!-- Data Request End Time --></label>
+        <name>vlocity_cmt__DataRequestEndTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unix epoch milliseconds for Data Request Start Time --></help>
+        <label><!-- Data Request Start Time in Milliseconds --></label>
+        <name>vlocity_cmt__DataRequestStartTimeMilliseconds__c</name>
+    </fields>
+    <fields>
+        <help><!-- Time at which we issue a request for data from Card --></help>
+        <label><!-- Data Request Start Time --></label>
+        <name>vlocity_cmt__DataRequestStartTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data --></label>
+        <name>vlocity_cmt__Data__c</name>
+    </fields>
+    <fields>
+        <help><!-- Elasped time in milliseconds between the Ready time and Unload time --></help>
+        <label><!-- Elapsed Time --></label>
+        <name>vlocity_cmt__ElapsedTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error code --></label>
+        <name>vlocity_cmt__ErrorCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Message --></label>
+        <name>vlocity_cmt__ErrorMessage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Denotes if an error occured in Test Procedure. Computed to true if Error Code is not null --></help>
+        <label><!-- Error Occurred --></label>
+        <name>vlocity_cmt__ErrorOccurred__c</name>
+    </fields>
+    <fields>
+        <help><!-- Instance Identifier. Impression Id of the component (e.g. Omniscript) displayed to the user. --></help>
+        <label><!-- Instance Identifier --></label>
+        <name>vlocity_cmt__InstanceIdentifier__c</name>
+    </fields>
+    <fields>
+        <help><!-- Primary Lead --></help>
+        <label><!-- Primary Lead --></label>
+        <name>vlocity_cmt__LeadId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Time difference between Ready Time and Start Time in Milliseconds --></help>
+        <label><!-- Load Duration --></label>
+        <name>vlocity_cmt__LoadDuration__c</name>
+    </fields>
+    <fields>
+        <help><!-- Omni User Session, under which this tracking entry is captured --></help>
+        <label><!-- Omni User Session Id --></label>
+        <name>vlocity_cmt__OmniUserSessionId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Primary Oppotunity --></help>
+        <label><!-- Primary Opportunity --></label>
+        <name>vlocity_cmt__OpportunityId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Primary Order --></help>
+        <label><!-- Primary Order --></label>
+        <name>vlocity_cmt__OrderId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Primary Product --></help>
+        <label><!-- Primary Product --></label>
+        <name>vlocity_cmt__ProductId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Context Promotion for the UI Event --></help>
+        <label><!-- Primary Promotion --></label>
+        <name>vlocity_cmt__PromotionId__c</name>
+        <relationshipLabel><!-- Vlocity Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Primary Quote --></help>
+        <label><!-- Primary Quote --></label>
+        <name>vlocity_cmt__QuoteId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Unix epoch milliseconds for Ready Time --></help>
+        <label><!-- Ready Time in Milliseconds --></label>
+        <name>vlocity_cmt__ReadyTimeMilliseconds__c</name>
+    </fields>
+    <fields>
+        <help><!-- For Omniscript, Omniscript Step or Card, time at which the UI component is fully rendered and ready. For action this denotes the time at which the action is finished executing --></help>
+        <label><!-- Ready Time --></label>
+        <name>vlocity_cmt__ReadyTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Request Payload for the Transaction --></help>
+        <label><!-- Request Payload --></label>
+        <name>vlocity_cmt__RequestPayload__c</name>
+    </fields>
+    <fields>
+        <help><!-- Container page URL --></help>
+        <label><!-- Request Url --></label>
+        <name>vlocity_cmt__RequestUrl__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vlocity Acuity Resource --></label>
+        <name>vlocity_cmt__ResourceId__c</name>
+        <relationshipLabel><!-- Vlocity Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Response Payload for the Transaction --></help>
+        <label><!-- Response Payload --></label>
+        <name>vlocity_cmt__ResponsePayload__c</name>
+    </fields>
+    <fields>
+        <help><!-- Duration in minutes captured specifically when an OS Invoke event fires for an Omniscript that is being resumed --></help>
+        <label><!-- Save For Later Minutes --></label>
+        <name>vlocity_cmt__SaveForLaterMinutes__c</name>
+    </fields>
+    <fields>
+        <help><!-- Unix epoch milliseconds for Start Time --></help>
+        <label><!-- Start Time in Milliseconds --></label>
+        <name>vlocity_cmt__StartTimeMilliseconds__c</name>
+    </fields>
+    <fields>
+        <help><!-- Time at which the Omniscript, Omniscript Step or Card starts loading into the DOM. For actions this indicates when the action began executing. --></help>
+        <label><!-- Start Time --></label>
+        <name>vlocity_cmt__StartTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Step Instance Identifier --></help>
+        <label><!-- Step Instance Identifier --></label>
+        <name>vlocity_cmt__StepInstanceIdentifier__c</name>
+    </fields>
+    <fields>
+        <help><!-- Omniscript step sequence order number --></help>
+        <label><!-- Step Sequence --></label>
+        <name>vlocity_cmt__StepSequence__c</name>
+    </fields>
+    <fields>
+        <help><!-- Difference in milliseconds between previous step unload and current step ready time --></help>
+        <label><!-- UI Step Wait Time --></label>
+        <name>vlocity_cmt__StepWaitTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Test Assert Failure Message --></help>
+        <label><!-- Test Assert Failure Message --></label>
+        <name>vlocity_cmt__TestAssertFailureMessage__c</name>
+    </fields>
+    <fields>
+        <help><!-- Assertion Expression of the Test Procedure --></help>
+        <label><!-- Test Assertion Expression --></label>
+        <name>vlocity_cmt__TestAssertionExpression__c</name>
+    </fields>
+    <fields>
+        <help><!-- Test result --></help>
+        <label><!-- Test result --></label>
+        <name>vlocity_cmt__TestResult__c</name>
+        <picklistValues>
+            <masterLabel>Failure</masterLabel>
+            <translation><!-- Failure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Timestamp --></label>
+        <name>vlocity_cmt__Timestamp__c</name>
+    </fields>
+    <fields>
+        <help><!-- Event originating environment --></help>
+        <label><!-- Tracking Category --></label>
+        <name>vlocity_cmt__TrackingCategory__c</name>
+        <picklistValues>
+            <masterLabel>Server</masterLabel>
+            <translation><!-- Server --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UI</masterLabel>
+            <translation><!-- UI --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The tracking record entry is captured as part of this Tracking Group definition --></help>
+        <label><!-- Tracking Group --></label>
+        <name>vlocity_cmt__TrackingGroupId__c</name>
+        <relationshipLabel><!-- Tracking Entries --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- TrackingService --></label>
+        <name>vlocity_cmt__TrackingService__c</name>
+    </fields>
+    <fields>
+        <help><!-- Tracking framework Version --></help>
+        <label><!-- Tracking framework Version --></label>
+        <name>vlocity_cmt__TrackingVersion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vlocity Interaction Token --></label>
+        <name>vlocity_cmt__VlocityInteractionToken__c</name>
+    </fields>
+</CustomObjectTranslation>

@@ -1,0 +1,101 @@
+{
+    "Alerts": [
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0011500001ChJqa"
+            }
+        ],
+        "type": null,
+        "value": {
+            "query": ""
+        }
+    },
+    "filter": {
+        "attributes": {
+            "type": "Account"
+        }
+    },
+    "states": [
+        {
+            "actionCtxId": "['Id']",
+            "alerts": [
+            ],
+            "blankStateCheck": false,
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                    {
+                        "id": "Account-ChangeAddress",
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "id": "AgencyBrokerage-Survey",
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "id": "Account-Commercial-New Quote",
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "id": "Alerts",
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "id": "Create Assets",
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Phone",
+                    "name": "['Phone']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "Billing Address",
+                    "name": "['BillingAddress']['city']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Website",
+                    "name": "['Website']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status == 'active'",
+            "flyout": "",
+            "name": "active",
+            "sObjectType": "Account",
+            "templateUrl": "action-grid-card-slds"
+        }
+    ],
+    "templates": [
+        {
+            "filter": "$scope.data.status == 'active'",
+            "templateUrl": "action-grid-card-slds"
+        },
+        {
+            "filter": "$scope.data.status == 'non-existent'",
+            "templateUrl": "action-grid-card-slds"
+        }
+    ],
+    "title": "Actions"
+}

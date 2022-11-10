@@ -1,0 +1,80 @@
+{
+    "Alerts": [
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0011500001ChJqa"
+            }
+        ],
+        "type": null,
+        "value": {
+            "query": ""
+        }
+    },
+    "definedActions": [
+        {
+            "actionIds": [
+                {
+                    "id": "Add",
+                    "type": "Vlocity Action"
+                }
+            ],
+            "filter": "$scope.data.status == 'active'"
+        }
+    ],
+    "filter": {
+    },
+    "states": [
+        {
+            "alerts": [
+            ],
+            "blankStateCheck": false,
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Type",
+                    "name": "['Type']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "fieldType": "standard",
+                    "label": "Industry",
+                    "name": "['Industry']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status === 'active'",
+            "flyout": "",
+            "name": "Account Profile",
+            "templateUrl": "left-account-info-slds"
+        }
+    ],
+    "templates": [
+        {
+            "filter": "$scope.data.status == 'active'",
+            "templateUrl": "left-account-info"
+        },
+        {
+            "filter": "$scope.data.status == 'non-existent'",
+            "templateUrl": "left-account-info"
+        }
+    ],
+    "title": "Profile"
+}
