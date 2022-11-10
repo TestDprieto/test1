@@ -1,0 +1,133 @@
+<div class="nds-size_1-of-1">
+  <ng-form name='loopform'
+             class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small nds-typeahead'
+             ng-repeat='control in child.eleArray'>
+
+    <div class="nds-grid nds-typeahead-block-container">
+      <div class="nds-cont-wrapper nds-form-element__control nds-form-element__control-animated-label nds-grid nds-input-has-icon_right nds-input-has-icon">
+              <slds-svg-icon aria-hidden="true"
+                 sprite="'utility'"
+                 icon="'search'"
+                 size="'small'"
+                 class="nds-p-right_xx-small nds-p-top_xx-small"
+                 ng-if='!control.propSetMap.enableGoogleMapsAutocomplete && !control.propSetMap.enableLookup'>
+              </slds-svg-icon>
+              <slds-svg-icon aria-hidden="true"
+                 sprite="'utility'"
+                 icon="'checkin'"
+                 size="'small'"
+                 class="nds-p-right_xx-small nds-p-top_xx-small"
+                 ng-if='control.propSetMap.enableGoogleMapsAutocomplete && !control.propSetMap.enableLookup'>
+              </slds-svg-icon>
+
+              <div class="nds-form-element__control-animated-label" ng-style="{'width': '100%'}">
+                  <input type="text"
+                     id='{{::control.name}}'
+                     name='loopname'
+                     class='nds-input'
+                     data-animation="am-fade"
+                     ng-if='(!control.propSetMap.enableGoogleMapsAutocomplete && !control.propSetMap.enableLookup) && ngInitValidation(this, control)'
+                     data-limit="2001"
+                     data-trim-value="false"
+                     ng-trim="false"
+                     ng-init='init(this, control); undefinedValueForDataFilter = undefined'
+                     ng-model='control.response'
+                     ng-blur='aggregate(this, control.index, control.indexInParent, true, -1)'
+                     bs-options="control.propSetMap.typeAheadKey ? option[control.propSetMap.typeAheadKey] : option for option in typeAheadSearch($viewValue, this.bpTree.response, control, this)"
+                     ng-required='control.req'
+                     ng-disabled='control.ro'
+                     ng-maxlength='{{::control.propSetMap.maxLength}}'
+                     ng-minlength='{{::control.propSetMap.minLength}}'
+                     bs-typeahead autocomplete='off'
+                     data-template='{{::typeaheadHTMLId}}'
+                     ng-keydown='typeAheadOnChange($event, this)'
+                     data-html='1'
+                     vlc-slds-typeahead-prefill="response"
+                     ng-attr-data-filter="{{control.propSetMap.disableDataFilter ? false : undefinedValueForDataFilter}}"
+                     vlc-slds-val-checker="response"/>
+
+                  <input type="text"
+                     id='{{::control.name}}'
+                     name='loopname'
+                     class='nds-input'
+                     ng-class='{"vlc-typeahead-invalid-key": googleInvalidKey === true}'
+                     ng-focus="onFocusAutocomplete(this, control)"
+                     ng-if='(control.propSetMap.enableGoogleMapsAutocomplete && !control.propSetMap.enableLookup) && ngInitValidation(this, control)'
+                     ng-init='initAutocomplete(this, control)'
+                     ng-model='control.response'
+                     ng-blur='aggregate(this, control.index, control.indexInParent, true, -1)'
+                     placeholder =''
+                     ng-required='control.req'
+                     ng-disabled='control.ro'
+                     ng-maxlength='{{::control.propSetMap.maxLength}}'
+                     ng-minlength='{{::control.propSetMap.minLength}}'
+                     ng-keydown='onKeyDownAutocomplete($event, this, control)'
+                     vlc-slds-typeahead-prefill="response"
+                     vlc-slds-val-checker="response"/>
+
+                  <input type='text'
+                      id='{{::control.name}}'
+                      name='loopname'
+                      class='nds-input'
+                      ng-if='control.propSetMap.enableLookup && ngInitValidation(this, control)'
+                      ng-blur='aggregate(this, control.index, control.indexInParent, true, -1)'
+                      ng-click='typeAheadSearch($viewValue, this.bpTree.response, control, this, true)'
+                      ng-model='control.response'
+                      bs-options='control.propSetMap.typeAheadKey ? option[control.propSetMap.typeAheadKey] : option for option in control.propSetMap.options'
+                      bs-typeahead
+                      data-template='{{::typeaheadHTMLId}}'
+                      data-limit='2001'
+                      data-min-length='0'
+                      data-watch-options='true'
+                      ng-init='init(this, control)'
+                      autocomplete='off'
+                      ng-required='control.req'
+                      ng-disabled='control.ro'
+                      vlc-slds-typeahead-prefill="response"
+                      ng-focus="control.propSetMap.options = null"
+                      ng-style="{'background': 'none'}"
+                      ng-attr-data-filter="{{control.propSetMap.disableDataFilter ? false : undefinedValueForDataFilter}}"
+                      vlc-slds-val-checker="response"
+                      readonly/>
+
+                  <label for="{{::control.name}}" class='nds-form-element__label'>
+                      <div class="nds-label-desc">{{::control.propSetMap.label}}</div>
+
+                      <span class='nds-required'
+                          ng-if='control.req'>*
+                      </span>
+                  </label>
+              </div>
+
+              <slds-svg-icon aria-hidden="true"
+                 sprite="'utility'"
+                 icon="'edit'"
+                 size="'small'"
+                 class="nds-p-left_xx-small nds-p-top_xx-small"
+                 ng-click='toggleTypeAheadEditMode(this)'
+                 ng-if='!control.propSetMap.enableLookup && !control.propSetMap.hideEditButton'>
+             </slds-svg-icon>
+             <slds-svg-icon aria-hidden="true"
+                 sprite="'utility'"
+                 icon="'down'"
+                 size="'small'"
+                 class="nds-p-left_xx-small nds-p-top_xx-small"
+                 ng-click='toggleTypeAheadEditMode(this)'
+                 ng-if='control.propSetMap.enableLookup'>
+             </slds-svg-icon>
+        </div>
+
+      <a class="nds-tooltip_container" vlc-slds-tool-tip="test" ng-if="control.propSetMap.help" ng-include="'vlcHelptextInfoIcon.html'"></a>
+    </div>
+
+    <div id='{{::control.name}}_map'
+        class='vlc-typeahead-gmap'
+        ng-if='control.propSetMap.enableGoogleMapsAutocomplete && !control.propSetMap.hideMap'>
+    </div>
+
+    {{validForm = (loopform.loopname.$valid && control.req && !control.srvErr);""}}
+    {{invalidForm = ((loopform.loopname.$invalid  && !control.req) || (loopform.loopname.$invalid && loopform.loopname.$dirty && control.req) || (control.srvErr));""}}
+
+    <div ng-include="::errHTMLId"></div>
+  </ng-form>
+</div>

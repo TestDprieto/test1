@@ -1,0 +1,36 @@
+/*@import "ins-product-attributes-variables";*/
+
+.via-slds{
+    .vloc-attr-row {
+        position: relative;
+        &:hover{
+            .vloc-attr-data-cell{
+            cursor: pointer; 
+            /*background: $cards-gray;*/
+            background: #f4f6f9;
+            }
+        }
+        &.selected{
+            .vloc-attr-data-cell{
+                /*background: $cards-gray;*/
+                background: #f4f6f9;
+            }
+        }
+        .vloc-attr-cell {
+            .vloc-attr-title-cell {
+
+            }  
+
+            .vloc-attr-data-cell{
+                min-height: 2.3rem;
+                /*border-bottom: 1px solid $cards-border-gray;*/
+                border-bottom: 1px solid #d8dde6;
+            }
+        }
+        .vloc-attr-fly-out{
+            position: absolute; 
+            right: 0;
+            bottom: 0;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 0,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "ContractRecordType",
+        "%vlocity_namespace%__FilterGroup__c": 0,
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__FilterValue__c": "'Contract'",
+        "%vlocity_namespace%__GlobalKey__c": "d9816973-ad57-da80-bc64-b151353cce33",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "SobjectType",
+        "%vlocity_namespace%__InterfaceObjectLookupOrder__c": 1,
+        "%vlocity_namespace%__InterfaceObjectName__c": "RecordType",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "ExtractContractRecordTypesCustom7448",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "ExtractContractRecordTypes",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "ContractRecordType:Id",
+        "%vlocity_namespace%__GlobalKey__c": "4f77a317-6b2d-6008-886e-f0d3dd159921",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ContractRecordType:Id",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "ExtractContractRecordTypesCustom8799",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "ExtractContractRecordTypes",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "ContractRecordType:Name",
+        "%vlocity_namespace%__GlobalKey__c": "cdad90a5-0611-fb18-7239-b35569bceec7",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ContractRecordType:Name",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "ExtractContractRecordTypesCustom7679",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "ExtractContractRecordTypes",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

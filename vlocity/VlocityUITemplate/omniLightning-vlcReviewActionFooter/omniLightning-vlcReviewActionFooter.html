@@ -1,0 +1,22 @@
+<!-- footer template  -->
+<div class='slds-grid slds-wrap slds-m-top--small vlc-slds-action--footer'>
+
+    <div class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{::bpTree.reviewAction.propSetMap.previousWidth}}-of-12 vlc-slds-button--tertiary"
+         ng-if='bpTree.reviewAction.bHasPrevious'>
+
+        <div ng-click='navigate(bpTree, bpTree.reviewAction, "previous")'>
+            {{::bpTree.reviewAction.propSetMap.previousLabel}}
+        </div>
+    </div>
+
+    <div class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{::bpTree.reviewAction.propSetMap.nextWidth}}-of-12"
+         style="flex-grow:0"
+         ng-if='bpTree.reviewAction.bHasNext'>
+
+        <button class='slds-button vlc-slds-button--primary'
+                ng-click='navigate(bpTree, bpTree.reviewAction, "next")'>
+            {{::bpTree.reviewAction.propSetMap.nextLabel}}
+        </button>
+    </div>
+
+</div>

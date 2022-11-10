@@ -1,0 +1,32 @@
+<div id='debug-panel' class='panel panel-default'
+    ng-if="!isPreviewEmbedded">
+    <div class='panel-heading' ng-click='showDebugTabs = !showDebugTabs' style='padding:0;'>
+        <h5 class='pull-left'>Troubleshooting </h5>
+        <span class='pull-right' ng-class='{"icon-v-up-caret": showDebugTabs, "icon-v-down-caret": !showDebugTabs}'>
+        </span>
+    </div>
+    <div class='row' style='background-color: #969696; margin: 0;'>
+        <ul id='debug-tabs' ng-show='showDebugTabs'>
+            <li ng-repeat="tab in tabs"  ng-class="{active: isActiveTab(tab.page)}" ng-click="onClickTab(tab, $event);">{{tab.title}}</li>
+        </ul>
+    </div>
+    <div id="mainView" ng-class='{collapse: !showDebugTabs}'>
+        <div class='panel-body' style='height: 200px; overflow: auto;' ng-include="currentTab"></div>
+    </div>
+</div>
+
+<div class="nds-cont-wrapper">
+    <div class="nds-col nds-clearfix" ng-if="children && children.length>0">
+        <sidebar class="nds-col_padded nds-cleafix"></sidebar>
+        <auto-saveforlater-msg></auto-saveforlater-msg>
+        <!-- <div ng-include="'vlcStepChart.html'"></div> -->
+        <div vlc-slds-step-chart map="StepChart" ></div>
+        <div>
+            <bptree class="nds-clearfix"></bptree>
+        </div>
+    </div>
+
+    <div class="nds-container">
+        <vlc-slds-right-panel></vlc-slds-right-panel>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+{
+    "Cards": [
+        "clm-term-attributes"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "01t0b00000FgkXG"
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "productId": "{{params.id}}"
+            },
+            "interval": null,
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.ContractProductAdminHandler"
+            },
+            "remoteClass": "ContractProductAdminHandler",
+            "remoteMethod": "getProductAttributes",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "vlocityAsync": false
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "clm-product-attributes-container"
+        }
+    },
+    "workspace": [
+        "clm-attributes-default/vlocityDev/1/1543455810790",
+        "clm-term-attributes/Vlocity/1/1543543653061"
+    ]
+}

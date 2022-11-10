@@ -1,0 +1,121 @@
+{
+    "dataSource": {
+        "type": null,
+        "value": {
+            "inputMap": {
+                "productId": "01t0b00000FwjAL"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.ContractProductAdminHandler"
+            },
+            "remoteClass": "ContractProductAdminHandler",
+            "remoteMethod": "getProductAttributes",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": ""
+        }
+    },
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "productRecordType",
+            "val": "TermSpec"
+        }
+    ],
+    "states": [
+        {
+            "blankStateCheck": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Attribute Name",
+                    "name": "%vlocity_namespace%__AttributeName__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Attribute Code (Unique-Value)",
+                    "name": "%vlocity_namespace%__AttributeUniqueCode__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Label",
+                    "name": "Name",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Category",
+                    "name": "%vlocity_namespace%__CategoryName__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Data Type",
+                    "name": "%vlocity_namespace%__ValueDataType__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Value",
+                    "name": "%vlocity_namespace%__Value__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Description",
+                    "name": "%vlocity_namespace%__ValueDescription__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Customizable",
+                    "name": "%vlocity_namespace%__IsConfigurable__c",
+                    "type": "boolean"
+                }
+            ],
+            "name": "Product-Attributes-Config",
+            "templateUrl": "clm-product-attributes-config"
+        }
+    ],
+    "title": "Product Attributes Configuration"
+}

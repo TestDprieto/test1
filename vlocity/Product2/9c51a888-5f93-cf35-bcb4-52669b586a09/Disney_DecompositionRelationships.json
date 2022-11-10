@@ -1,0 +1,33 @@
+[
+    {
+        "%vlocity_namespace%__ConditionData__c": "",
+        "%vlocity_namespace%__DestinationDefaultQuantity__c": 1,
+        "%vlocity_namespace%__DestinationMaxQuantity__c": 1,
+        "%vlocity_namespace%__DestinationMinQuantity__c": 1,
+        "%vlocity_namespace%__DestinationProductId__c": {
+            "%vlocity_namespace%__GlobalKey__c": "0e9a79c6-329b-42cb-4387-33b73c5bf9ab",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "Product2/0e9a79c6-329b-42cb-4387-33b73c5bf9ab",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "%vlocity_namespace%__GlobalKey__c": "1f5350c1-0110-db93-d85c-3ece7a4ee563",
+        "%vlocity_namespace%__MappingsData__c": "[{\"source_attr_name\":\"Connection Type\",\"mapping_type\":\"ad-verbatim\",\"destination_attr_name\":\"Connection Type\",\"destination_attr_code\":\"ATT_DT_CON\",\"source_attr_code\":\"ATT_DT_CON\",\"source_type\":\"Attribute\"}]",
+        "%vlocity_namespace%__Priority__c": "",
+        "%vlocity_namespace%__RequireReservation__c": false,
+        "%vlocity_namespace%__SourceDefaultQuantity__c": 1,
+        "%vlocity_namespace%__SourceMaxQuantity__c": "",
+        "%vlocity_namespace%__SourceMinQuantity__c": 0,
+        "%vlocity_namespace%__SourceProductId__c": {
+            "%vlocity_namespace%__GlobalKey__c": "9c51a888-5f93-cf35-bcb4-52669b586a09",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "Product2/9c51a888-5f93-cf35-bcb4-52669b586a09",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "%vlocity_namespace%__SourceProductId__r.%vlocity_namespace%__GlobalKey__c": "9c51a888-5f93-cf35-bcb4-52669b586a09",
+        "%vlocity_namespace%__XORGroup__c": "",
+        "Name": "Disney > Disney RFS",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DecompositionRelationship__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__DecompositionRelationship__c/Disney > Disney RFS/Product2/9c51a888-5f93-cf35-bcb4-52669b586a09"
+    }
+]

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Customer Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Customer Subscriptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Billing Account --></label>
+        <name>vlocity_cmt__BillingAccountId__c</name>
+        <relationshipLabel><!-- Billed Subscriptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current Contract End Date --></label>
+        <name>vlocity_cmt__CurrentContractEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Contract --></label>
+        <name>vlocity_cmt__CurrentContractId__c</name>
+        <relationshipLabel><!-- Subscriptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Current Contract Start Date --></label>
+        <name>vlocity_cmt__CurrentContractStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Contract Term (months) --></label>
+        <name>vlocity_cmt__CurrentContractTerm__c</name>
+    </fields>
+    <fields>
+        <label><!-- Subscription End Date --></label>
+        <name>vlocity_cmt__EndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Premises --></label>
+        <name>vlocity_cmt__PremisesId__c</name>
+        <relationshipLabel><!-- Subscriptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Account --></label>
+        <name>vlocity_cmt__ServiceAccountId__c</name>
+        <relationshipLabel><!-- Subscriber Subscriptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service User --></label>
+        <name>vlocity_cmt__ServiceContactId__c</name>
+        <relationshipLabel><!-- Subscriptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Subscription Start Date --></label>
+        <name>vlocity_cmt__StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expired</masterLabel>
+            <translation><!-- Expired --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspended</masterLabel>
+            <translation><!-- Suspended --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subscription Number --></label>
+        <name>vlocity_cmt__SubscriptionNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Suspended --></label>
+        <name>vlocity_cmt__SuspendDate__c</name>
+    </fields>
+</CustomObjectTranslation>

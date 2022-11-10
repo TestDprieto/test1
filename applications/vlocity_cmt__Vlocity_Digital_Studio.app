@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__Vlocity_OmniScript_Designer</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__OmniScript__c</pageOrSobjectType>
+    </actionOverrides>
+    <brand>
+        <headerColor>#008AB3</headerColor>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Vlocity Digital Studio</label>
+    <navType>Console</navType>
+    <tabs>vlocity_cmt__OmniScriptHome</tabs>
+    <tabs>vlocity_cmt__VlocityCardHome</tabs>
+    <tabs>vlocity_cmt__FlexCards</tabs>
+    <tabs>vlocity_cmt__DataRaptor</tabs>
+    <tabs>vlocity_cmt__IntegrationProcedureHome</tabs>
+    <tabs>vlocity_cmt__CalculationProcedure__c</tabs>
+    <tabs>vlocity_cmt__CalculationMatrix__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>vlocity_cmt__Vlocity_Digital_Studio_UtilityBar</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>vlocity_cmt__CalculationMatrix__c</tab>
+        </mappings>
+        <mappings>
+            <tab>vlocity_cmt__CalculationProcedure__c</tab>
+        </mappings>
+        <mappings>
+            <tab>vlocity_cmt__DataRaptor</tab>
+        </mappings>
+        <mappings>
+            <tab>vlocity_cmt__FlexCards</tab>
+        </mappings>
+        <mappings>
+            <tab>vlocity_cmt__IntegrationProcedureHome</tab>
+        </mappings>
+        <mappings>
+            <tab>vlocity_cmt__OmniScriptHome</tab>
+        </mappings>
+        <mappings>
+            <tab>vlocity_cmt__VlocityCardHome</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>

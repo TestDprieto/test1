@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Inventory Items (Account) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Activation Date --></label>
+        <name>vlocity_cmt__ActivationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address --></label>
+        <name>vlocity_cmt__Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- Average Monthly Usage --></label>
+        <name>vlocity_cmt__AverageMonthlyUsage__c</name>
+    </fields>
+    <fields>
+        <label><!-- BillingAccountId --></label>
+        <name>vlocity_cmt__BillingAccountId__c</name>
+        <relationshipLabel><!-- Inventory Items (BillingAccountId) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Disconnect Location --></label>
+        <name>vlocity_cmt__DisconnectLocation__c</name>
+        <picklistValues>
+            <masterLabel>Line cut</masterLabel>
+            <translation><!-- Line cut --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Meter removed</masterLabel>
+            <translation><!-- Meter removed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Switch flipped</masterLabel>
+            <translation><!-- Switch flipped --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Gas Pressure Level --></label>
+        <name>vlocity_cmt__GasPressureLevel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Install Date --></label>
+        <name>vlocity_cmt__InstallDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>vlocity_cmt__ItemType__c</name>
+        <picklistValues>
+            <masterLabel>Interval Meter</masterLabel>
+            <translation><!-- Interval Meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prepay Meter</masterLabel>
+            <translation><!-- Prepay Meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Smart Meter</masterLabel>
+            <translation><!-- Smart Meter --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Two-way Meter</masterLabel>
+            <translation><!-- Two-way Meter --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- JSONAttribute --></label>
+        <name>vlocity_cmt__JSONAttribute__c</name>
+    </fields>
+    <fields>
+        <label><!-- Line Number --></label>
+        <name>vlocity_cmt__LineNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installed Premise --></label>
+        <name>vlocity_cmt__PremiseId__c</name>
+        <relationshipLabel><!-- Inventory Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>vlocity_cmt__ProductId__c</name>
+        <relationshipLabel><!-- Inventory Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- ProvisioningStatus --></label>
+        <name>vlocity_cmt__ProvisioningStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Qualification Expiration Date --></label>
+        <name>vlocity_cmt__QualificationExpirationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serial Number --></label>
+        <name>vlocity_cmt__SerialNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- ServiceAccountId --></label>
+        <name>vlocity_cmt__ServiceAccountId__c</name>
+        <relationshipLabel><!-- Inventory Items (ServiceAccountId) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Installed Service Point --></label>
+        <name>vlocity_cmt__ServicePointId__c</name>
+        <relationshipLabel><!-- Inventory Items --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Connected</masterLabel>
+            <translation><!-- Connected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disconnected</masterLabel>
+            <translation><!-- Disconnected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Offline</masterLabel>
+            <translation><!-- Offline --></translation>
+        </picklistValues>
+    </fields>
+    <recordTypes>
+        <label><!-- Inventory Item --></label>
+        <name>vlocity_cmt__InventoryItem</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Service Qualification Result --></label>
+        <name>vlocity_cmt__ServiceQualificationResult</name>
+    </recordTypes>
+</CustomObjectTranslation>

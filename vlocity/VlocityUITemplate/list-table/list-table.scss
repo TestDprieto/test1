@@ -1,0 +1,16 @@
+/*** STYLES ***/
+.via-slds {
+    .container-table-canvas .slds-grid .slds-form-element__control{
+        display: inline-block;
+    }   
+
+    table {
+        th {
+        border-right: 1px solid #fafaf9;
+        }
+        th.resizing {
+        cursor: col-resize;
+        }
+    }
+
+}
