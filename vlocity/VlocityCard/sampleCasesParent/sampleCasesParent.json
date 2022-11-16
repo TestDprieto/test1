@@ -35,6 +35,7 @@
             "actions": [
             ],
             "childCards": [
+                "sampleCases",
                 "sampleCases"
             ],
             "components": {
@@ -44,9 +45,33 @@
                             "children": [
                                 {
                                     "class": "slds-col ",
+                                    "element": "customLwc",
+                                    "elementLabel": "Header-Custom LWC-0",
+                                    "key": "element_element_block_0_0_customLwc_0_0",
+                                    "name": "Custom LWC",
+                                    "parentElementKey": "element_block_0_0",
+                                    "property": {
+                                        "customlwcname": "helloworldv2"
+                                    },
+                                    "size": {
+                                        "default": 12,
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "size": {
+                                            "default": 12,
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_12-of-12"
+                                    },
+                                    "type": "element"
+                                },
+                                {
+                                    "class": "slds-col ",
                                     "element": "flexIcon",
-                                    "elementLabel": "Header-Icon-0",
-                                    "key": "element_element_block_0_0_flexIcon_0_0",
+                                    "elementLabel": "Header-Icon-1",
+                                    "key": "element_element_block_0_0_flexIcon_1_0",
                                     "name": "Icon",
                                     "parentElementKey": "element_block_0_0",
                                     "property": {
@@ -111,9 +136,33 @@
                                 },
                                 {
                                     "class": "slds-col ",
+                                    "element": "childCardPreview",
+                                    "elementLabel": "Header-FlexCard-2",
+                                    "key": "element_element_block_0_0_childCardPreview_2_0",
+                                    "name": "FlexCard",
+                                    "parentElementKey": "element_block_0_0",
+                                    "property": {
+                                        "cardName": "sampleCases",
+                                        "cardNode": "{record}",
+                                        "isChildCardTrackingEnabled": false,
+                                        "recordId": "{recordId}",
+                                        "selectedState": "Active"
+                                    },
+                                    "size": {
+                                        "default": "12",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "sizeClass": "slds-size_12-of-12"
+                                    },
+                                    "type": "element"
+                                },
+                                {
+                                    "class": "slds-col ",
                                     "element": "outputField",
-                                    "elementLabel": "Header-Text-1",
-                                    "key": "element_element_block_0_0_outputField_1_0",
+                                    "elementLabel": "Header-Text-3",
+                                    "key": "element_element_block_0_0_outputField_3_0",
                                     "name": "Text",
                                     "parentElementKey": "element_block_0_0",
                                     "property": {
@@ -301,6 +350,8 @@
                 "actions": [
                 ]
             },
+            "documents": [
+            ],
             "fields": [
             ],
             "isSmartAction": false,
@@ -335,5 +386,56 @@
         }
     ],
     "theme": "slds",
-    "title": "sampleCasesParent"
+    "title": "sampleCasesParent",
+    "xmlJson": [
+        {
+            "@attributes": {
+                "targets": "lightning__AppPage",
+                "xmlns": "http://soap.sforce.com/2006/04/metadata"
+            },
+            "property": [
+                {
+                    "@attributes": {
+                        "name": "debug",
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "@attributes": {
+                        "name": "recordId",
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        {
+            "@attributes": {
+                "targets": "lightning__RecordPage",
+                "xmlns": "http://soap.sforce.com/2006/04/metadata"
+            },
+            "property": [
+                {
+                    "@attributes": {
+                        "name": "debug",
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        }
+    ],
+    "xmlObject": {
+        "apiVersion": 48,
+        "isExplicitImport": false,
+        "isExposed": true,
+        "masterLabel": "sampleCasesParent",
+        "runtimeNamespace": "%vlocity_namespace%",
+        "targetConfigs": "PHRhcmdldENvbmZpZyB4bWxucz0iaHR0cDovL3NvYXAuc2ZvcmNlLmNvbS8yMDA2LzA0L21ldGFkYXRhIiB0YXJnZXRzPSJsaWdodG5pbmdfX0FwcFBhZ2UiPjxwcm9wZXJ0eSBuYW1lPSJkZWJ1ZyIgdHlwZT0iQm9vbGVhbiIvPjxwcm9wZXJ0eSBuYW1lPSJyZWNvcmRJZCIgdHlwZT0iU3RyaW5nIi8+PC90YXJnZXRDb25maWc+PHRhcmdldENvbmZpZyB4bWxucz0iaHR0cDovL3NvYXAuc2ZvcmNlLmNvbS8yMDA2LzA0L21ldGFkYXRhIiB0YXJnZXRzPSJsaWdodG5pbmdfX1JlY29yZFBhZ2UiPjxwcm9wZXJ0eSBuYW1lPSJkZWJ1ZyIgdHlwZT0iQm9vbGVhbiIvPjwvdGFyZ2V0Q29uZmlnPg==",
+        "targets": {
+            "target": [
+                "lightning__RecordPage",
+                "lightning__AppPage",
+                "lightning__HomePage"
+            ]
+        }
+    }
 }
