@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <FlowSettings xmlns="http://soap.sforce.com/2006/04/metadata">
-    <enableFlowBREncodedFixEnabled>false</enableFlowBREncodedFixEnabled>
+    <canDebugFlowAsAnotherUser>false</canDebugFlowAsAnotherUser>
+    <doesEnforceApexCpuTimeLimit>true</doesEnforceApexCpuTimeLimit>
+    <doesFormulaEnforceDataAccess>true</doesFormulaEnforceDataAccess>
+    <doesFormulaGenerateHtmlOutput>false</doesFormulaGenerateHtmlOutput>
+    <enableFlowBREncodedFixEnabled>true</enableFlowBREncodedFixEnabled>
+    <enableFlowCustomPropertyEditor>false</enableFlowCustomPropertyEditor>
     <enableFlowDeployAsActiveEnabled>false</enableFlowDeployAsActiveEnabled>
     <enableFlowFieldFilterEnabled>true</enableFlowFieldFilterEnabled>
-    <enableFlowFormulasFixEnabled>false</enableFlowFormulasFixEnabled>
+    <enableFlowFormulasFixEnabled>true</enableFlowFormulasFixEnabled>
     <enableFlowInterviewSharingEnabled>true</enableFlowInterviewSharingEnabled>
     <enableFlowNullPreviousValueFix>false</enableFlowNullPreviousValueFix>
     <enableFlowPauseEnabled>false</enableFlowPauseEnabled>
     <enableFlowUseApexExceptionEmail>false</enableFlowUseApexExceptionEmail>
-    <enableInvocableFlowFixEnabled>true</enableInvocableFlowFixEnabled>
+    <enableFlowViaRestUsesUserCtxt>false</enableFlowViaRestUsesUserCtxt>
     <enableLightningRuntimeEnabled>false</enableLightningRuntimeEnabled>
-    <enableUseFlowBuilder>true</enableUseFlowBuilder>
-    <isAccessToInvokedApexRequired>false</isAccessToInvokedApexRequired>
+    <isAccessToInvokedApexRequired>true</isAccessToInvokedApexRequired>
+    <isApexPluginAccessModifierRespected>true</isApexPluginAccessModifierRespected>
     <isEnhancedFlowListViewVisible>true</isEnhancedFlowListViewVisible>
+    <isFlowApexContextRetired>false</isFlowApexContextRetired>
+    <isFlowBlockAccessToSessionIDEnabled>false</isFlowBlockAccessToSessionIDEnabled>
     <isManageFlowRequiredForAutomationCharts>false</isManageFlowRequiredForAutomationCharts>
+    <isTimeResumedInSameRunContext>false</isTimeResumedInSameRunContext>
 </FlowSettings>
