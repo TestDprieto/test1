@@ -1,0 +1,40 @@
+<apex:page standardStylesheets="false"
+           showHeader="false" applyHtmlTag="false" applyBodyTag="false"
+           sidebar="false" controller="omnistudio.OmniScriptDesignerController" docType="html-5.0"
+           language="{!$CurrentPage.parameters.LanguageCode}"
+           action="{!checkIfOmniPreviewPageThisIsIndustryPackage}">
+
+    <html>
+        <apex:includeScript value="/soap/ajax/37.0/connection.js"/>
+        <apex:includeScript value="/support/console/42.0/integration.js"/>
+
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+        </head>
+
+        <body>
+            <c:VFPageDeprecatedMessage rendered="{!!showLegacyOmniStudioUi}"/>
+            <apex:outputPanel rendered="{!showLegacyOmniStudioUi}">
+                <div ng-app="OmniScriptPreview" class='vlocity via-slds' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <a ng-if="!isPreviewEmbedded && (!isSforce || (isSforce && !sforce.one)) && !isInConsole" href="{!URLFOR($Page.OmniScriptHome)}"><i class="omni-preview icon icon-v-left-caret"></i>{!$Label.OmniGoback}</a>
+                    <a ng-if="!isPreviewEmbedded && !isInConsole && isSforce && sforce.one " href="javascript:sforce.one.navigateToURL('/{!$CurrentPage.parameters.id}')"><i class="omni-preview icon icon-v-left-caret"></i>{!$Label.OmniGoback}</a>
+                    <hr ng-if="!isPreviewEmbedded && !isInConsole" />
+                    <c:BusinessProcessComponent strNamespacePrefixList="{!namespace}"
+                                                strOmniScriptId="{!$CurrentPage.parameters.id}"
+                                                previewMode="true"
+                                                JSONTreeHTMLTemplateName="JSONApplicationReviewHTMLTemplate.html"/>
+                </div>
+    
+                <script type="text/javascript">
+                    var modules = ['vlocity-business-process'];
+                    var myModule = angular.module('OmniScriptPreview', modules);
+                </script>
+    
+                <c:VFActionFunction />
+
+            </apex:outputPanel>
+        </body>
+
+    </html>
+
+</apex:page>

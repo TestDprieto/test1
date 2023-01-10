@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Apex Job ID --></label>
+        <name>omnistudio__AsyncApexJobId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>omnistudio__Status__c</name>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid Test Name</masterLabel>
+            <translation><!-- Invalid Test Name --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Run</masterLabel>
+            <translation><!-- Not Run --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Test Name --></label>
+        <name>omnistudio__TestName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Suite Unique Key --></label>
+        <name>omnistudio__TestSuiteUniqueKey__c</name>
+    </fields>
+</CustomObjectTranslation>

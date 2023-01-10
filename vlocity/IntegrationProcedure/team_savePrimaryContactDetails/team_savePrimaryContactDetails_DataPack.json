@@ -1,0 +1,25 @@
+{
+    "CustomJavaScript": "{}",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Team Starter Save Primary Contact Details",
+    "OmniProcessElement": [
+        "team_savePrimaryContactDetails_Element_DRUpdatePriContact.json",
+        "team_savePrimaryContactDetails_Element_DRChangePriContact.json",
+        "team_savePrimaryContactDetails_Element_DRCreatePriContact.json"
+    ],
+    "OmniProcessKey": "team_savePrimaryContactDetails",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "team_savePrimaryContactDetails_PropertySetConfig.json",
+    "SubType": "savePrimaryContactDetails",
+    "Type": "team",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/team/savePrimaryContactDetails/Procedure",
+    "WebComponentKey": "d03b8e86-ea95-c552-e595-b9810730c27a"
+}

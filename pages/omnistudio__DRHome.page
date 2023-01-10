@@ -1,0 +1,112 @@
+<apex:page showHeader="true" sidebar="false"
+            standardStylesheets="false"
+            docType="html-5.0" applyBodyTag="false"
+            controller="omnistudio.DRDataPackRunnerController"
+            extensions="omnistudio.DRMapperControllerFoundation"
+            lightningStylesheets="true"
+            tabStyle="DataRaptor__tab"
+            title="Dataraptor Designer Home"
+            action="{!checkIfThisIsFirstInstalledPackage}">
+
+  <head>
+      <apex:includeScript value="{!URLFOR($Resource.omnistudio__jsforce_1_7, '/jsforce-core.min.js')}" />
+      <script>
+          window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
+      </script>
+      <apex:includeScript value="{!$Resource.omnistudio__angular_bundle_1_6}"/>
+      <apex:includeScript value="{!URLFOR($Resource.omnistudio__vlocity_assets, '/bower_components/ng-table/dist/ng-table.js')}"/>
+      <apex:includeScript value="{!URLFOR($Resource.omnistudio__ngInfiniteScroll, '/build/ng-infinite-scroll.min.js')}"/>
+      <apex:stylesheet value="{!IF(isLanguageRTL, URLFOR($Resource.omnistudio__slds, '/assets/styles/salesforce-lightning-design-system-vf.rtl.min.css'), URLFOR($Resource.omnistudio__slds, '/assets/styles/salesforce-lightning-design-system-vf.min.css'))}"/>
+      <apex:includeScript value="{!$Resource.omnistudio__SldsAngular}"/>
+      <apex:includeScript value="{!$Resource.omnistudio__DRVComp}"/>
+      <apex:includeScript value="{!$Resource.omnistudio__DRHome}"/>
+      <apex:includeScript value="/support/console/42.0/integration.js"/>
+      <script type="text/javascript">
+          window.industryPkgNSPrefix = '{!industryPkgNSPrefix}';
+      </script>
+
+  </head>
+  <style>
+    html.Theme4d body,
+    html.Theme4u body {
+      margin: 0;
+    }
+    html:not(.Theme3) body.sfdcBody {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .bodyDiv .noSidebarCell{
+      padding: 0;
+    }
+  </style>
+  <script>
+    (function() {
+      document.documentElement.classList.add('{!$User.UIThemeDisplayed}');
+    })();
+  </script>
+  <body xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <div ng-app="drhome" class="via-slds ng-cloak {!$User.UIThemeDisplayed}" ng-controller="drhome">
+      <!--{!$ObjectType.OmniDataTransform.Name} will be automatically fixed by Make on deploy-->
+      <slds-home
+                page-title="'DataRaptor'"
+                new-url="'{!newUrl}'"
+                view-url="'{!newUrl}?id={Id}'"
+                group-by="false"
+                min-height="'300px'"
+                id-prefix="drbundle-home"
+                s-object-type="'{!drBundleObjType}'"
+                row-actions="rowActions"
+                default-columns="defaultColumns"
+                extra-filters="extraFilters">
+      </slds-home>
+    </div>
+    <c:VFActionFunction />
+  <script>
+       angular.module('DRHome.core', [])
+           .value('IsFoundation', {!JSENCODE(IF(isFoundation, "true", "false"))})
+           .value('DRBundleFieldMappingsNamespace', JSON.parse('{!JSENCODE(drBundleFieldMappingsNamespace)}'));
+  </script>
+  <script>
+      window.i18n = {
+        "SldsObjectHomeHeaderInfo": "{!$Label.omnistudio__SldsObjectHomeHeaderInfo}",
+        "RefreshData": "{!$Label.omnistudio__RefreshData}",
+        "Export": "{!$Label.omnistudio__Export}",
+        "New": "{!$Label.omnistudio__New}",
+        "FilterList": "{!$Label.omnistudio__FilterList}",
+        "Import": "{!$Label.omnistudio__Import}",
+        "AdditionalActions": "{!$Label.omnistudio__AdditionalActions}",
+        "Delete": "{!$Label.omnistudio__Delete}",
+        "Preview": "{!$Label.omnistudio__Preview}",
+        "LastModified": "{!$Label.omnistudio__LastModified}",
+        "Name": "{!$Label.omnistudio__Name}",
+        "ModifiedOnBy": "{!$Label.omnistudio__ModifiedOnBy}",
+        "DeleteDataRaptor": "{!$Label.omnistudio__DeleteDataRaptor}",
+        "InstallDataPack": "{!$Label.omnistudio__InstallDataPack}",
+        "DeleteDataraptorConfirmation2": "{!$Label.omnistudio__DeleteDataraptorConfirmation2}",
+        "Filters":"{!$Label.omnistudio__Filters}",
+        "HideFilter":"{!$Label.omnistudio__HideFilter}",
+        "Cancel":"{!$Label.omnistudio__Cancel}",
+        "Save":"{!$Label.omnistudio__Save}",
+        "ShowMe":"{!$Label.omnistudio__ShowMe}",
+        "MatchingAllOfTheseFilters":"{!$Label.omnistudio__MatchingAllOfTheseFilters}",
+        "Remove":"{!$Label.omnistudio__Remove}",
+        "NewFilter":"{!$Label.omnistudio__NewFilter}",
+        "AddFilter":"{!$Label.omnistudio__AddFilter}",
+        "RemoveAll":"{!$Label.omnistudio__RemoveAll}",
+        "Field":"{!$Label.omnistudio__Field}",
+        "Operator":"{!$Label.omnistudio__Operator}",
+        "Value":"{!$Label.omnistudio__Value}",
+        "Done":"{!$Label.omnistudio__Done}",
+        "AllType":"{!$Label.omnistudio__AllType}",
+        "MyType":"{!$Label.omnistudio__MyType}"
+      };
+      if (typeof sforce !== 'undefined') {
+          if (sforce.console && sforce.console.isInConsole()) {
+              sforce.console.setTabTitle('Vlocity Dataraptor Designer');
+              sforce.console.setTabIcon('standard:environment_hub');
+          }
+      }
+    </script>
+  </body>
+</apex:page>

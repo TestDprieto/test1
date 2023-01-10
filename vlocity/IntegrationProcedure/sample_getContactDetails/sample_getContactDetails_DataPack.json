@@ -1,0 +1,24 @@
+{
+    "CustomJavaScript": "sample_getContactDetails_SampleInput.json",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Sample Get Contact Details",
+    "OmniProcessElement": [
+        "sample_getContactDetails_Element_DRGetContactDetails.json",
+        "sample_getContactDetails_Element_ResponseAction.json"
+    ],
+    "OmniProcessKey": "sample_getContactDetails",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "sample_getContactDetails_PropertySetConfig.json",
+    "SubType": "getContactDetails",
+    "Type": "sample",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/sample/getContactDetails/Procedure",
+    "WebComponentKey": "e265a7e1-1140-63ac-2629-7d35e9ddcc7a"
+}

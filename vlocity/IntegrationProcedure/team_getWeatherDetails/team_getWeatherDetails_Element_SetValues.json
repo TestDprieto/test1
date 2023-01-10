@@ -1,0 +1,52 @@
+{
+    "IsActive": true,
+    "IsOmniScriptEmbeddable": false,
+    "Name": "SetValues",
+    "OmniProcessId": {
+        "Name": "Team Stub Get Current and Forecast Weather Data",
+        "VlocityDataPackType": "VlocityMatchingKeyObject",
+        "VlocityMatchingRecordSourceKey": "OmniProcess/team/getWeatherDetails/Procedure",
+        "VlocityRecordSObjectType": "OmniProcess"
+    },
+    "PropertySetConfig": {
+        "chainOnStep": false,
+        "disOnTplt": false,
+        "elementValueMap": {
+            "Current:CityState": "Schenectady, New York",
+            "Current:Condition": "Heavy Snow",
+            "Current:TempC": -2.5,
+            "Current:TempF": 27.5,
+            "Forecast|1:Condition": "Heavy Snow",
+            "Forecast|1:Date": "2022-01-26",
+            "Forecast|1:HiLoTempC": "-0.8/-5.7",
+            "Forecast|1:HiLoTempF": "30.5/21.7",
+            "Forecast|2:Condition": "Light Snow",
+            "Forecast|2:Date": "2022-01-27",
+            "Forecast|2:HiLoTempC": "-0.2/-5.1",
+            "Forecast|2:HiLoTempF": "31.7/22.8",
+            "Forecast|3:Condition": "Flurries",
+            "Forecast|3:Date": "2022-01-28",
+            "Forecast|3:HiLoTempC": "-0.6/-7.8",
+            "Forecast|3:HiLoTempF": "31.0/18.7",
+            "Forecast|4:Condition": "Clear sky",
+            "Forecast|4:Date": "2022-01-29",
+            "Forecast|4:HiLoTempC": "-3.7/-7.7",
+            "Forecast|4:HiLoTempF": "25.3/18.1",
+            "Forecast|5:Condition": "Clear sky",
+            "Forecast|5:Date": "2022-01-30",
+            "Forecast|5:HiLoTempC": "-4.3/-6.8",
+            "Forecast|5:HiLoTempF": "24.2/19.7"
+        },
+        "failOnStepError": true,
+        "failureConditionalFormula": "",
+        "label": "SetValues1",
+        "responseJSONNode": "",
+        "responseJSONPath": "",
+        "sendJSONNode": "",
+        "sendJSONPath": ""
+    },
+    "Type": "Set Values",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcessElement",
+    "VlocityRecordSourceKey": "OmniProcessElement/OmniProcess/team/getWeatherDetails/Procedure/SetValues"
+}

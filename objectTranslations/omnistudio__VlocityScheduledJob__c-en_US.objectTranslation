@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Apex Job ID --></label>
+        <name>omnistudio__AsyncApexJobId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch Size --></label>
+        <name>omnistudio__BatchSize__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Source Data --></label>
+        <name>omnistudio__DataSourceData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Source Spec --></label>
+        <name>omnistudio__DataSourceSpec__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Source Type --></label>
+        <name>omnistudio__DataSourceType__c</name>
+        <picklistValues>
+            <masterLabel>Data Input</masterLabel>
+            <translation><!-- Data Input --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>List Input</masterLabel>
+            <translation><!-- List Input --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Input</masterLabel>
+            <translation><!-- No Input --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Query</masterLabel>
+            <translation><!-- Query --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>omnistudio__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address List --></label>
+        <name>omnistudio__EmailAddressList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Frequency --></label>
+        <name>omnistudio__Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation><!-- Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hourly</masterLabel>
+            <translation><!-- Hourly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ignore</masterLabel>
+            <translation><!-- Ignore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yearly</masterLabel>
+            <translation><!-- Yearly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Global Key --></label>
+        <name>omnistudio__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>omnistudio__IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Input As List --></label>
+        <name>omnistudio__IsInputAsList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Queue --></label>
+        <name>omnistudio__JobQueue__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Last Run DateTime --></label>
+        <name>omnistudio__LastRunDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Run Error Message --></label>
+        <name>omnistudio__LastRunErrorMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Run DateTime --></label>
+        <name>omnistudio__NextRunDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Scheduled Job --></label>
+        <name>omnistudio__NextScheduledJobId__c</name>
+        <relationshipLabel><!-- Vlocity ScheduledJobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Process Name --></label>
+        <name>omnistudio__ProcessName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Type --></label>
+        <name>omnistudio__ProcessType__c</name>
+        <picklistValues>
+            <masterLabel>Integration Procedure</masterLabel>
+            <translation><!-- Integration Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vlocity Open Interface</masterLabel>
+            <translation><!-- Vlocity Open Interface --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Send Email On --></label>
+        <name>omnistudio__SendEmailOn__c</name>
+        <picklistValues>
+            <masterLabel>Error</masterLabel>
+            <translation><!-- Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finish</masterLabel>
+            <translation><!-- Finish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Wrap Up Process Name --></label>
+        <name>omnistudio__WrapUpProcessName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Wrap Up Process Type --></label>
+        <name>omnistudio__WrapUpProcessType__c</name>
+        <picklistValues>
+            <masterLabel>Integration Procedure</masterLabel>
+            <translation><!-- Integration Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vlocity Open Interface</masterLabel>
+            <translation><!-- Vlocity Open Interface --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

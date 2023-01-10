@@ -1,0 +1,28 @@
+{
+    "CustomJavaScript": "sample_getWeatherDetails_SampleInput.json",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Sample Get Current and Forecast Weather Data",
+    "OmniProcessElement": [
+        "sample_getWeatherDetails_Element_DRGetAccountInfo.json",
+        "sample_getWeatherDetails_Element_SVWeatherAPI.json",
+        "sample_getWeatherDetails_Element_HTTPGetCurrentWeather.json",
+        "sample_getWeatherDetails_Element_HTTPGetForecastWeather.json",
+        "sample_getWeatherDetails_Element_DRXformWeather.json",
+        "sample_getWeatherDetails_Element_ResponseAction.json"
+    ],
+    "OmniProcessKey": "sample_getWeatherDetails",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "sample_getWeatherDetails_PropertySetConfig.json",
+    "SubType": "getWeatherDetails",
+    "Type": "sample",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/sample/getWeatherDetails/Procedure",
+    "WebComponentKey": "24f97b0c-68d7-0cbf-9004-8ad0161e4a50"
+}

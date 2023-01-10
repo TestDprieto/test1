@@ -1,0 +1,109 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:true={showLoader} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: transparent; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <omnistudio-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+         box-shadow:5px 5px 5px grey;
+border 1px solid #cccccc;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-text-align_center slds-p-around_x-small slds-m-top_small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element0_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="utility:user"  size="medium"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-p-around_small  slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2014pt;%22%3E%3Cstrong%3E%3Cspan%20style=%22color:%20#236fa1;%22%3E%7BContactFirstName%7D%3C/span%3E%3C/strong%3E%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col  slds-p-around_small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element2_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22color:%20#236fa1;%20font-size:%2014pt;%22%3E%3Cstrong%3E%7BContactLastName%7D%3C/strong%3E%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element3" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element3_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20class=%22slds-text-title_caps%22%20style=%22font-size:%2010pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3EPhone%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2012pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3E%7BContactPhone%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element4" class="slds-col  slds-text-align_center slds-p-around_small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element4_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="action:edit_groups"  size="medium"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div><div data-style-id="state0element0block_element5" class="slds-col  slds-p-around_small slds-m-top_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-action data-style-id="state0element0block_element5_child"  tracking-obj={_childCardTrackingObj}   record={record}  card={card}  state-obj={record}  state-action='\{"id":"flex-action-1639778297644","type":"Flyout","displayName":"Update Contact","vlocityIcon":"standard-default","openUrlIn":"Current Window","flyoutType":"OmniScripts","openFlyoutIn":"Modal","layoutType":"lightning","osName":"sample/updateAccountPrimaryContact/English","flyoutLwc":"sample-update-account-primary-contact-english","hasExtraParams":true,"flyoutParams":{"ContextId":"{ContactId}"}}'  display-as-button="false"  button-variant="brand"  styles='\{"label":{"fontSize":""}}'  hide-action-icon="true"  re-render-flyout="true"  theme="slds" ><div slot="flyout"> <omnistudio-custom-lwc-wrapper element-name="c-sample-update-account-primary-contact-english" property='\{"prefill":"{\"omniscriptEmbeddedSource\":\"flyout\",\"ContextId\":\"{ContactId}\"}"}' records={records} record-id={recordId} record={record}  card={card} >
+     <c-sample-update-account-primary-contact-english   layout='lightning'    ></c-sample-update-account-primary-contact-english>
+    </omnistudio-custom-lwc-wrapper></div></omnistudio-action>
+    </div><div data-style-id="state0element0block_element6" class="slds-col   slds-p-around_x-small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element6_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element7" class="slds-col  slds-m-left_small  slds-size_5-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element7_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20class=%22slds-text-title_caps%22%20style=%22font-size:%2010pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3EEmail%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactEmail%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element8" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element8_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20class=%22slds-text-title_caps%22%20style=%22font-size:%2010pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3ETitle%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactTitle%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <omnistudio-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+         box-shadow:5px 5px 5px grey;
+border 1px solid #cccccc;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-text-align_center slds-p-around_x-small slds-m-top_small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element0_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="utility:user"  size="medium"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-p-around_small  slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element1_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2014pt;%22%3E%3Cstrong%3E%3Cspan%20style=%22color:%20#236fa1;%22%3E%7BContactFirstName%7D%3C/span%3E%3C/strong%3E%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element2" class="slds-col  slds-p-around_small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element2_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22color:%20#236fa1;%20font-size:%2014pt;%22%3E%3Cstrong%3E%7BContactLastName%7D%3C/strong%3E%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element3" class="slds-col   slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element3_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20class=%22slds-text-title_caps%22%20style=%22font-size:%2010pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3EPhone%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2012pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3E%7BContactPhone%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element4" class="slds-col  slds-text-align_center slds-p-around_small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element4_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="action:edit_groups"  size="medium"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div><div data-style-id="state0element0block_element5" class="slds-col  slds-p-around_small slds-m-top_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-action data-style-id="state0element0block_element5_child"  tracking-obj={_childCardTrackingObj}   record={record}  card={card}  state-obj={record}  state-action='\{"id":"flex-action-1639778297644","type":"Flyout","displayName":"Update Contact","vlocityIcon":"standard-default","openUrlIn":"Current Window","flyoutType":"OmniScripts","openFlyoutIn":"Modal","layoutType":"lightning","osName":"sample/updateAccountPrimaryContact/English","flyoutLwc":"sample-update-account-primary-contact-english","hasExtraParams":true,"flyoutParams":{"ContextId":"{ContactId}"}}'  display-as-button="false"  button-variant="brand"  styles='\{"label":{"fontSize":""}}'  hide-action-icon="true"  re-render-flyout="true"  theme="slds" ><div slot="flyout"> <omnistudio-custom-lwc-wrapper element-name="c-sample-update-account-primary-contact-english" property='\{"prefill":"{\"omniscriptEmbeddedSource\":\"flyout\",\"ContextId\":\"{ContactId}\"}"}' records={records} record-id={recordId} record={record}  card={card} >
+     <c-sample-update-account-primary-contact-english   layout='lightning'    ></c-sample-update-account-primary-contact-english>
+    </omnistudio-custom-lwc-wrapper></div></omnistudio-action>
+    </div><div data-style-id="state0element0block_element6" class="slds-col   slds-p-around_x-small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element6_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element7" class="slds-col  slds-m-left_small  slds-size_5-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element7_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20class=%22slds-text-title_caps%22%20style=%22font-size:%2010pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3EEmail%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactEmail%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div><div data-style-id="state0element0block_element8" class="slds-col   slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-output-field data-style-id="state0element0block_element8_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20class=%22slds-text-title_caps%22%20style=%22font-size:%2010pt;%20font-family:%20'Salesforce%20Sans',%20Arial,%20sans-serif;%22%3ETitle%3C/span%3E%3C/div%3E%0A%3Cdiv%20class=%22slds-text-heading_medium%22%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BContactTitle%7D%3C/span%3E%3C/div%3E"  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

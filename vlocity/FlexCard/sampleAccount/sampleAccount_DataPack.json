@@ -1,0 +1,42 @@
+{
+    "AuthorName": "Salesforce",
+    "ClonedFromOmniUiCardKey": "sampleAccountDetails/Salesforce/1.0/1639619979847",
+    "DataSourceConfig": {
+        "contextVariables": [
+            {
+                "id": 2,
+                "name": "recordId",
+                "val": "0012S00002TYx6rQAD"
+            }
+        ],
+        "orderBy": {
+            "isReverse": false,
+            "name": ""
+        },
+        "type": "IntegrationProcedures",
+        "value": {
+            "dsDelay": "",
+            "inputMap": {
+                "AccountId": "{recordId}"
+            },
+            "ipMethod": "sample_getAccountContactDetails",
+            "resultVar": "[\"Account\"]",
+            "vlocityAsync": false
+        }
+    },
+    "Description": "Use if you didn't build a teamAccount FlexCard",
+    "IsTrackingEnabled": false,
+    "Name": "sampleAccount",
+    "Namespace": "",
+    "OmniUiCardKey": "sampleAccount/Salesforce/1.0",
+    "OmniUiCardType": "Parent",
+    "OverrideKey": "",
+    "PropertySetConfig": "sampleAccount.json",
+    "SampleDataSourceResponse": "{\"Contact\":[{\"ContactLastName\":\"Stamos\",\"ContactTitle\":\"President and CEO\",\"ContactId\":\"0032S00002ZdH26QAF\",\"ContactFirstName\":\"Edward\",\"ContactEmail\":\"edward2@acme.com\",\"ContactPhone\":\"2121691475\"},{\"ContactLastName\":\"Tomlin\",\"ContactTitle\":\"VP Customer Support\",\"ContactId\":\"0032S00002ZdH27QAF\",\"ContactFirstName\":\"Leanne\",\"ContactEmail\":\"ltomlin1@acme.com\",\"ContactPhone\":\"(212) 189-8980\"},{\"ContactLastName\":\"Jones\",\"ContactTitle\":\"Buyer\",\"ContactId\":\"0032S00002ZdH28QAF\",\"ContactFirstName\":\"Howard\",\"ContactEmail\":\"hjones@acme.com\",\"ContactPhone\":\"(650) 169-2247\"},{\"ContactLastName\":\"Hunt\",\"ContactTitle\":\"VP of Marketing\",\"ContactId\":\"0032S00002ZdH29QAF\",\"ContactFirstName\":\"Jeff\",\"ContactEmail\":\"jhunt@acme.com\",\"ContactPhone\":\"(415) 156-7801\"}],\"Account\":{\"AccountName\":\"Acme\",\"AccountPostalCode\":\"10044\",\"AccountPriContact\":\"Leanne Tomlin\",\"AccountWebsite\":\"www.acme.com\",\"AccountId\":\"0012S00002TYx6rQAD\",\"AccountPhone\":\"(212) 154-6450\"}}",
+    "StylingConfiguration": "{\"styleObjects\":{\"AccountFieldStyle\":{\"sizeClass\":\"slds-size_11-of-12 \",\"padding\":[{\"type\":\"around\",\"size\":\"x-small\",\"label\":\"around:x-small\"}],\"margin\":[{\"type\":\"left\",\"size\":\"small\",\"label\":\"left:small\"}],\"background\":{\"color\":\"\",\"image\":\"\",\"size\":\"\",\"repeat\":\"\",\"position\":\"\"},\"size\":{\"isResponsive\":false,\"default\":\"11\"},\"container\":{\"class\":\"\"},\"border\":{\"type\":\"\",\"width\":\"\",\"color\":\"\",\"radius\":\"\",\"style\":\"\"},\"elementStyleProperties\":{},\"text\":{\"align\":\"\",\"color\":\"\"},\"inlineStyle\":\"\",\"class\":\"slds-p-around_x-small slds-m-left_small \",\"style\":\"      \\n         \",\"selectedStyles\":\"AccountFieldStyle\",\"element\":\"outputField\"}},\"styleDefaults\":{}}",
+    "UniqueName": "",
+    "VersionNumber": 1,
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniUiCard",
+    "VlocityRecordSourceKey": "OmniUiCard/sampleAccount"
+}

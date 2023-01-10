@@ -1,0 +1,101 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:false={cardLoaded} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: white; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <omnistudio-flex-card-state if:true={record}  key={record._flex.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+         box-shadow:5px 5px 5px grey;
+border 1px solid #cccccc;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-text-align_center slds-p-around_x-small slds-m-top_small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element0_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="utility:user"  size="medium"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element1_child"   card={card}  record={record}  type="text"  property-obj='\{"label":"FIRST NAME","fieldBinding":"{ContactFirstName}"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"14pt","color":"#3A6D9D","fontFamily":"","textDecoration":""}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element2" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element2_child"   card={card}  record={record}  type="text"  property-obj='\{"label":"LAST NAME","fieldBinding":"{ContactLastName}"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"14pt","color":"#3A6D9D","fontFamily":"","textDecoration":""}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element3" class="slds-col  slds-p-around_x-small  slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element3_child"   card={card}  record={record}  type="tel"  property-obj='\{"imask":"(000) 000-0000","label":"PHONE","fieldBinding":"{ContactPhone}"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"12pt"}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element4" class="slds-col  slds-text-align_center slds-p-around_small slds-m-top_small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-action data-style-id="state0element0block_element4_child"  tracking-obj={_childCardTrackingObj}   record={record}  card={card}  state-obj={record}  state-action='\{"id":"flex-action-1637183675983","type":"DataAction","displayName":"Save Changes","vlocityIcon":"","targetType":"Web Page","openUrlIn":"Current Window","Web Page":{"targetName":"/apex"},"eventName":"reload","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"sample_saveContactDetails\",\"vlocityAsync\":false,\"inputMap\":{\"ContactId\":\"{ContactId}\",\"ContactFirstName\":\"{ContactFirstName}\",\"ContactLastName\":\"{ContactLastName}\",\"ContactPhone\":\"{ContactPhone}\",\"ContactEmail\":\"{ContactEmail}\",\"ContactTitle\":\"{ContactTitle}\"}},\"orderBy\":{\"name\":\"\",\"isReverse\":false},\"contextVariables\":[{\"name\":\"ContactFirstName\",\"val\":\"\",\"id\":4},{\"name\":\"ContactLastName\",\"val\":\"\",\"id\":6},{\"name\":\"ContactPhone\",\"val\":\"\",\"id\":8},{\"name\":\"ContactEmail\",\"val\":\"\",\"id\":10},{\"name\":\"ContactTitle\",\"val\":\"\",\"id\":12},{\"name\":\"ContactId\",\"val\":\"\",\"id\":12}]}","responseNode":""}'  display-as-button="true"  button-variant="brand"  styles='\{"label":{"fontSize":"10pt"}}'  theme="slds"   onfireactionevent={actionEvtHandler} ></omnistudio-action>
+      </div><div data-style-id="state0element0block_element5" class="slds-col   slds-p-around_x-small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element5_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element6" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element6_child"   card={card}  record={record}  type="email"  property-obj='\{"label":"EMAIL","fieldBinding":"{ContactEmail}"}'  styles='\{"value":{"fontSize":"12pt"},"label":{"fontSize":"10pt"}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element7" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element7_child"   card={card}  record={record}  type="text"  property-obj='\{"fieldBinding":"{ContactTitle}","label":"TITLE"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"12pt"}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element8" class="slds-col   slds-size_4-of-12  condition-element" data-rindex={rindex} style=""  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"SaveStatus","operator":"==","value":"Updated","type":"custom","hasMergeField":false}]}' ><omnistudio-output-field data-style-id="state0element0block_element8_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_right%22%3E%3Cspan%20style=%22font-size:%2012pt;%20color:%20#ffffff;%20background-color:%20#2dc26b;%22%3EEdits%20Saved!%3C/span%3E%3C/div%3E"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"SaveStatus","operator":"==","value":"Updated","type":"custom","hasMergeField":false}]}'  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <omnistudio-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-border_top slds-border_right slds-border_bottom slds-border_left slds-p-around_x-small  slds-size_12-of-12  " data-rindex={rindex} style="     border-top: #cccccc 1px solid;border-right: #cccccc 1px solid;border-bottom: #cccccc 1px solid;border-left: #cccccc 1px solid; 
+         box-shadow:5px 5px 5px grey;
+border 1px solid #cccccc;" >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col  slds-text-align_center slds-p-around_x-small slds-m-top_small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element0_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="utility:user"  size="medium"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div><div data-style-id="state0element0block_element1" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element1_child"   card={card}  record={record}  type="text"  property-obj='\{"label":"FIRST NAME","fieldBinding":"{ContactFirstName}"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"14pt","color":"#3A6D9D","fontFamily":"","textDecoration":""}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element2" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element2_child"   card={card}  record={record}  type="text"  property-obj='\{"label":"LAST NAME","fieldBinding":"{ContactLastName}"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"14pt","color":"#3A6D9D","fontFamily":"","textDecoration":""}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element3" class="slds-col  slds-p-around_x-small  slds-size_2-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element3_child"   card={card}  record={record}  type="tel"  property-obj='\{"imask":"(000) 000-0000","label":"PHONE","fieldBinding":"{ContactPhone}"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"12pt"}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element4" class="slds-col  slds-text-align_center slds-p-around_small slds-m-top_small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-action data-style-id="state0element0block_element4_child"  tracking-obj={_childCardTrackingObj}   record={record}  card={card}  state-obj={record}  state-action='\{"id":"flex-action-1637183675983","type":"DataAction","displayName":"Save Changes","vlocityIcon":"","targetType":"Web Page","openUrlIn":"Current Window","Web Page":{"targetName":"/apex"},"eventName":"reload","message":"{\"type\":\"IntegrationProcedures\",\"value\":{\"dsDelay\":\"\",\"ipMethod\":\"sample_saveContactDetails\",\"vlocityAsync\":false,\"inputMap\":{\"ContactId\":\"{ContactId}\",\"ContactFirstName\":\"{ContactFirstName}\",\"ContactLastName\":\"{ContactLastName}\",\"ContactPhone\":\"{ContactPhone}\",\"ContactEmail\":\"{ContactEmail}\",\"ContactTitle\":\"{ContactTitle}\"}},\"orderBy\":{\"name\":\"\",\"isReverse\":false},\"contextVariables\":[{\"name\":\"ContactFirstName\",\"val\":\"\",\"id\":4},{\"name\":\"ContactLastName\",\"val\":\"\",\"id\":6},{\"name\":\"ContactPhone\",\"val\":\"\",\"id\":8},{\"name\":\"ContactEmail\",\"val\":\"\",\"id\":10},{\"name\":\"ContactTitle\",\"val\":\"\",\"id\":12},{\"name\":\"ContactId\",\"val\":\"\",\"id\":12}]}","responseNode":""}'  display-as-button="true"  button-variant="brand"  styles='\{"label":{"fontSize":"10pt"}}'  theme="slds"   onfireactionevent={actionEvtHandler} ></omnistudio-action>
+      </div><div data-style-id="state0element0block_element5" class="slds-col   slds-p-around_x-small  slds-size_1-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0block_element5_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element0block_element6" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element6_child"   card={card}  record={record}  type="email"  property-obj='\{"label":"EMAIL","fieldBinding":"{ContactEmail}"}'  styles='\{"value":{"fontSize":"12pt"},"label":{"fontSize":"10pt"}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element7" class="slds-col  slds-p-around_x-small  slds-size_3-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-base-input-element data-style-id="state0element0block_element7_child"   card={card}  record={record}  type="text"  property-obj='\{"fieldBinding":"{ContactTitle}","label":"TITLE"}'  styles='\{"label":{"fontSize":"10pt"},"value":{"fontSize":"12pt"}}'  theme="slds"  ></omnistudio-base-input-element>
+      </div><div data-style-id="state0element0block_element8" class="slds-col   slds-size_4-of-12  condition-element" data-rindex={rindex} style=""  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"SaveStatus","operator":"==","value":"Updated","type":"custom","hasMergeField":false}]}' ><omnistudio-output-field data-style-id="state0element0block_element8_child"   card={card}  record={record}  merge-field="%3Cdiv%20class=%22slds-text-align_right%22%3E%3Cspan%20style=%22font-size:%2012pt;%20color:%20#ffffff;%20background-color:%20#2dc26b;%22%3EEdits%20Saved!%3C/span%3E%3C/div%3E"  data-conditions='\{"id":"state-condition-object","isParent":true,"group":[{"id":"state-new-condition-0","field":"SaveStatus","operator":"==","value":"Updated","type":"custom","hasMergeField":false}]}'  theme="slds"  ></omnistudio-output-field>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

@@ -1,0 +1,1 @@
+console.error('This resource has been removed due to security vulnerabilities. Please upgrade to the latest secure version');

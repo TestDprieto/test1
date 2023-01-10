@@ -1,0 +1,4 @@
+<apex:page standardStylesheets="true" showHeader="true" sidebar="true" docType="html-5.0" controller="omnistudio.OmniScriptWorkbenchController"
+    action="{!checkIfThisIsFirstInstalledPackage}">
+    <c:OmniScriptInstanceComponent />
+</apex:page>

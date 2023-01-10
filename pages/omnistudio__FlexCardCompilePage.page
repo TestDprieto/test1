@@ -1,0 +1,85 @@
+<apex:page showHeader="false" sidebar="false"
+            docType="html-5.0" applyBodyTag="false"
+            lightningStylesheets="true"
+            title="Flex Card Compile Page" cache="false"
+            controller="omnistudio.FlexCardController">
+
+  <apex:includeLightning />
+  <apex:stylesheet value="{!URLFOR($Resource.omnistudio__slds, '/assets/styles/salesforce-lightning-design-system-vf.min.css')}"/>
+  <head>
+
+
+  </head>
+  <body>
+    <div id="lightning">
+    </div>
+    <div id="auraErrorMessage">
+      <div id="loader" class="via-slds">
+        <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+          <span class="slds-assistive-text">Loading</span>
+          <div class="slds-spinner__dot-a"></div>
+          <div class="slds-spinner__dot-b"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    (function() {
+      let url = '{!$CurrentPage.URL}';
+      let flexCardIds = getUrlParam(url,'id');
+      window.addEventListener("message", receiveMessage, false);
+      let componentLoading = false;
+      let componentName = "";
+      receiveMessage();
+      function receiveMessage() {
+        if(document.getElementById('lightning')) {
+          document.getElementById('lightning').innerHTML = "";
+        }
+        renderLoader(true);
+        componentLoading = true;
+        let orgNamespace = '{!namespace}';
+        orgNamespace = orgNamespace ? orgNamespace : 'c';
+        $Lightning.use(orgNamespace + ':ltngOutAppSupport', function() {
+          $Lightning.createComponent(`${orgNamespace ? orgNamespace : 'c'}:flexCardCompile`,
+              {"flexCardIds":flexCardIds} ,
+              "lightning",
+              function(cmp, status) {
+                componentLoading = false;
+                renderLoader(false);
+                if(status === "SUCCESS"){
+                  // If lwc load succesfully, making sure error div is empty
+                  document.querySelector("#auraErrorMessage").innerHTML = "";
+                }
+              }
+          );
+        });
+      }
+      function getUrlParam(url, paramName) {
+        var paramMatch = new RegExp(paramName + '=([^&#=]*)', 'i').exec(url);
+        if (paramMatch && paramMatch.length > 1) {
+            return decodeURIComponent(paramMatch[1]);
+        }
+        return null;
+      }
+    function renderLoader(render) {
+      let loaderHtml = `<div id="loader" class="via-slds">
+        <div  role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+          <span class="slds-assistive-text">Loading</span>
+          <div class="slds-spinner__dot-a"></div>
+          <div class="slds-spinner__dot-b"></div>
+        </div>
+      </div>`;
+      let loader = document.getElementById("loader");
+      let container = document.getElementById("auraErrorMessage");
+      if(render) {
+          container.innerHTML = loaderHtml;
+      } else {
+        if(loader) {
+          container.removeChild(loader);
+        }
+      }
+    }
+
+    })();
+  </script>
+</apex:page>
