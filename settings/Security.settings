@@ -13,7 +13,7 @@
         <expiration>Never</expiration>
         <historyRestriction>0</historyRestriction>
         <lockoutInterval>FifteenMinutes</lockoutInterval>
-        <maxLoginAttempts>TenAttempts</maxLoginAttempts>
+        <maxLoginAttempts>NoLimit</maxLoginAttempts>
         <minimumPasswordLength>8</minimumPasswordLength>
         <minimumPasswordLifetime>false</minimumPasswordLifetime>
         <obscureSecretAnswer>false</obscureSecretAnswer>
@@ -55,8 +55,8 @@
         <identityConfirmationOnTwoFactorRegistrationEnabled>true</identityConfirmationOnTwoFactorRegistrationEnabled>
         <lockSessionsToDomain>true</lockSessionsToDomain>
         <lockSessionsToIp>false</lockSessionsToIp>
-        <lockerServiceCSP>false</lockerServiceCSP>
-        <lockerServiceNext>false</lockerServiceNext>
+        <lockerServiceCSP>true</lockerServiceCSP>
+        <lockerServiceNext>true</lockerServiceNext>
         <lockerServiceNextControl>false</lockerServiceNextControl>
         <redirectBlockModeEnabled>false</redirectBlockModeEnabled>
         <redirectionWarning>true</redirectionWarning>

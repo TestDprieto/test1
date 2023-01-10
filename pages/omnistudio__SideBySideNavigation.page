@@ -1,0 +1,28 @@
+<apex:page id="SideBySideNavigation" controller="omnistudio.SideBySideNavigationController" action="{!init}" showHeader="false" sidebar="false" title="{!tabTitle}" >
+    <apex:includeLightning />
+    <apex:includeScript value="/support/console/52.0/integration.js"/>
+    <div id="wizard" />
+
+    <script>
+        if ('{!redirectURL}' != '') {
+            setTimeout(function(){
+                if (typeof sforce !== 'undefined'
+                    && sforce.console
+                    && sforce.console.isInConsole()) {
+                        sforce.console.setTabTitle('{!tabTitle}');
+                }
+                window.location = '{!redirectURL}';
+            }, 100);
+        } else {
+            $Lightning.use("{!namespace}:SideBySideNavigation", function () {
+                $Lightning.createComponent("{!namespace}:sideBySideWizard",
+                    {},
+                    "wizard",
+                    function (cmp) {
+                        console.log("Wizard goes here");
+                    }
+                );
+            });
+        }
+    </script>
+</apex:page>

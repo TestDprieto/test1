@@ -1,0 +1,24 @@
+{
+    "CustomJavaScript": "sample_getPrimaryContactDetails_SampleInput.json",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Sample Get Primary Contact Details",
+    "OmniProcessElement": [
+        "sample_getPrimaryContactDetails_Element_DRGetPriContactDetails.json",
+        "sample_getPrimaryContactDetails_Element_ResponseAction.json"
+    ],
+    "OmniProcessKey": "sample_getPrimaryContactDetails",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "sample_getPrimaryContactDetails_PropertySetConfig.json",
+    "SubType": "getPrimaryContactDetails",
+    "Type": "sample",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/sample/getPrimaryContactDetails/Procedure",
+    "WebComponentKey": "6baca2c4-7a2d-7c97-af3f-c74e25372abe"
+}

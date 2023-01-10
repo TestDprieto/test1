@@ -2,10 +2,10 @@
 <EACSettings xmlns="http://soap.sforce.com/2006/04/metadata">
     <autoPopulateGoogleMeetLinks>false</autoPopulateGoogleMeetLinks>
     <enableActivityAnalyticsPref>false</enableActivityAnalyticsPref>
-    <enableEACForEveryonePref>true</enableEACForEveryonePref>
+    <enableEACForEveryonePref>false</enableEACForEveryonePref>
     <enableInboxActivitySharing>false</enableInboxActivitySharing>
     <enableInsightsInTimeline>true</enableInsightsInTimeline>
     <enableInsightsInTimelineEacStd>false</enableInsightsInTimelineEacStd>
     <provisionProductivityFeatures>false</provisionProductivityFeatures>
-    <syncInternalEvents>false</syncInternalEvents>
+    <syncInternalEvents>true</syncInternalEvents>
 </EACSettings>

@@ -1,0 +1,24 @@
+{
+    "CustomJavaScript": "{}",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Team Stub Get Account Details",
+    "OmniProcessElement": [
+        "team_getAccountDetails_Element_SetValues.json",
+        "team_getAccountDetails_Element_ResponseAction.json"
+    ],
+    "OmniProcessKey": "team_getAccountDetails",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "team_getAccountDetails_PropertySetConfig.json",
+    "SubType": "getAccountDetails",
+    "Type": "team",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/team/getAccountDetails/Procedure",
+    "WebComponentKey": "0033f44f-75db-8af0-bb28-d74e339d027c"
+}

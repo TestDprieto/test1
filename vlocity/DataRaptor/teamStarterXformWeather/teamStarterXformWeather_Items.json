@@ -1,0 +1,40 @@
+[
+    {
+        "GlobalKey": "teamStarterXformWeather26327012072986666",
+        "InputFieldName": "Current:city_name",
+        "IsDisabled": false,
+        "IsRequiredForUpsert": false,
+        "IsUpsertKey": false,
+        "Name": "teamStarterXformWeather",
+        "OmniDataTransformationId": {
+            "Name": "teamStarterXformWeather",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "OmniDataTransform/teamStarterXformWeather",
+            "VlocityRecordSObjectType": "OmniDataTransform"
+        },
+        "OutputCreationSequence": 1,
+        "OutputFieldName": "Current:CityState",
+        "OutputObjectName": "json",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "OmniDataTransformItem"
+    },
+    {
+        "GlobalKey": "teamStarterXformWeather2507863475071286",
+        "InputFieldName": "Current:weather:description",
+        "IsDisabled": false,
+        "IsRequiredForUpsert": false,
+        "IsUpsertKey": false,
+        "Name": "teamStarterXformWeather",
+        "OmniDataTransformationId": {
+            "Name": "teamStarterXformWeather",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "OmniDataTransform/teamStarterXformWeather",
+            "VlocityRecordSObjectType": "OmniDataTransform"
+        },
+        "OutputCreationSequence": 1,
+        "OutputFieldName": "Current:Condition",
+        "OutputObjectName": "json",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "OmniDataTransformItem"
+    }
+]

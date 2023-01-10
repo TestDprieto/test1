@@ -1,0 +1,224 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           docType="html-5.0"
+           applyBodyTag="false"
+           lightningStylesheets="false"
+           applyHtmlTag="false"
+           title="OmniScript Compiler VF Page"
+           cache="false"
+           controller="omnistudio.OmniScriptDesignerController"
+           action="{!checkIfOmniLwcCompileThisIsFirstInstalledPackage}">
+
+    <html xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          lang="en">
+
+    <head>
+        <meta http-equiv="x-ua-compatible"
+              content="ie=edge" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1" />
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jszip.min.js')}"></script>
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-core.min.js')}"></script>
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-tooling.min.js')}"></script>
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-metadata.min.js')}"></script>
+
+        <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
+        <script src="{!URLFOR($Resource.angular_strap_bundle_1_6)}"></script>
+        <script src="{!URLFOR($Resource.fileSaver_2_0_1, '/fileSaver.js')}"></script>
+        <apex:includeLightning />
+        <script type="text/javascript">
+            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
+            conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
+            window.omniLwcCompilerConfig = {
+                accessToken: '{!vlocAccessToken}',
+                namespacePrefix: '{!namespace}',
+                isInsidePckg: '{!isInsidePckg}',
+                toolingBaseUrl: '{!baseUrl}',
+                remoteActions: {
+                    buildJSONWithPrefillV2: {
+                        action: "{!$RemoteAction.OmniScriptDesignerController.BuildJSONWithPrefillV2}",
+                        config: { buffer: false, escape: false }
+                    },
+                    BuildJSONV3: {
+                        action: "{!$RemoteAction.OmniScriptDesignerController.BuildJSONV3}",
+                        config: { buffer: false, escape: false }
+                    }
+                }
+            };
+            const ACTIVATE = '{!JSENCODE($CurrentPage.parameters.activate)}' === 'true';
+            const DEACTIVATE = '{!JSENCODE($CurrentPage.parameters.activate)}' === 'false';
+            const DOWNLOAD = '{!JSENCODE($CurrentPage.parameters.download)}' === 'true';
+            const DOWNLOADOFFPLATFORM = '{!JSENCODE($CurrentPage.parameters.downloadoffplatform)}' === 'true';
+            const OMNISCRIPT_ID = '{!JSENCODE($CurrentPage.parameters.id)}';
+            const POST_MESSAGE_ENABLED = '{!JSENCODE($CurrentPage.parameters.postmessage)}' === 'true';
+            const POST_MESSAGE_KEY = '{!JSENCODE($CurrentPage.parameters.postmessagekey)}';
+
+            window.IsFoundation = {!JSENCODE(IF(isFoundation, "true", "false"))};
+            window.OmniScriptFieldMappings = JSON.parse('{!JSENCODE(omniScriptFieldMappings)}');
+            window.OmniElementFieldMappings = JSON.parse('{!JSENCODE(omniElementFieldMappings)}');
+            window.OmniScriptObjectName = '{!JSENCODE(omniScriptObjectName)}';
+        </script>
+        <script src="{!$Resource.OmniscriptLwcCompiler}"
+                crossorigin="use-credentials"></script>
+    </head>
+
+    <body>
+        <p ng-app="omniLwcCompile" id="compiler-message"></p>
+
+        <script>
+            const messageEl = document.getElementById('compiler-message');
+            angular.module('omniLwcCompile', ['omniscriptLwcCompiler'])
+                .value('OmniScriptJson', '{!JSENCODE(omniscriptJSON)}')
+                .run((compilerService, toolingService, bpService, OmniScriptJson) => {
+                    OmniScriptJson = bpService.replaceAllFields(OmniScriptJson, false, {!isFoundation});
+                    if (!OMNISCRIPT_ID) {
+                        setMessage('ERROR: Missing id query parameter');
+                        throw new Error('Missing id query parameter');
+                    }
+                    // here we'll do the actual deploy.
+                    const lwcName = compilerService.getLwcName(OmniScriptJson.{!namespace}__Type__c, OmniScriptJson.{!namespace}__SubType__c, OmniScriptJson.{!namespace}__Language__c);
+                    if (ACTIVATE) {
+                        executeActivation(true)
+                            .then(response => {
+                                if (response.error === "OK") {
+                                    if (!(/redirectTo/.test(response.url))) {
+                                        setMessage('COMPILING...');
+                                        return bpService.loadActiveLwc(OmniScriptJson.{!namespace}__Type__c, OmniScriptJson.{!namespace}__SubType__c, OmniScriptJson.{!namespace}__Language__c);
+                                    } else {
+                                        throw new Error('NEEDS_REDIRECT:' + response.url);
+                                    }
+                                }
+                                throw response;
+                            })
+                            .then(jsonObj => compilerService.compileActivated(lwcName, jsonObj, window.omniLwcCompilerConfig.isInsidePckg, window.omniLwcCompilerConfig.namespacePrefix))
+                            .then(resources => {
+                                setMessage('DEPLOYING...');
+                                const addRuntimeNamespace = window.omniLwcCompilerConfig.isInsidePckg,
+                                    type = OmniScriptJson.{!namespace}__Type__c,
+                                    subType = OmniScriptJson.{!namespace}__SubType__c,
+                                    lang = OmniScriptJson.{!namespace}__Language__c;
+                                return toolingService.deployResources(lwcName, resources, OMNISCRIPT_ID, compilerService.getPackageMetaXmlAsJson(type, subType, lang, OMNISCRIPT_ID, lwcName, addRuntimeNamespace, window.omniLwcCompilerConfig.namespacePrefix));
+                            })
+                            .then(() => {
+                                setMessage('DONE');
+                            })
+                            .catch(err => {
+                                if(!/NEEDS_REDIRECT/.test(err.message)){
+                                    // Deactivate as an error happened
+                                    executeActivation(false, true)
+                                        .then(()=>{
+                                            setMessage('ERROR: ' + err);
+                                        });
+                                } else {
+                                    const parts = err.message.split(':');
+                                    setMessage(parts[0], parts[1]);
+                                }
+                            })
+                    } else if (DEACTIVATE) {
+                        executeActivation(false)
+                        .then((response) => {
+                            if (!(/redirectTo/.test(response.url))) {
+                                setMessage('DONE');
+                            } else {
+                                setMessage('NEEDS_REDIRECT', response.url);
+                            }
+                        })
+                        .catch(err => {
+                            setMessage('ERROR: ' + err);
+                        })
+                    } else if (DOWNLOAD) {
+                        const type = OmniScriptJson.{!namespace}__Type__c,
+                            subType = OmniScriptJson.{!namespace}__SubType__c,
+                            language = OmniScriptJson.{!namespace}__Language__c,
+                            lwcName = compilerService.getLwcName(type, subType, language),
+                            addRuntimeNamespace = window.omniLwcCompilerConfig.isInsidePckg,
+                            namespace = window.omniLwcCompilerConfig.namespacePrefix;
+
+                        setMessage('COMPILING...');
+
+                        compilerService.getComponentZipFromOrgMetadata(lwcName).then(content => saveAs(content, lwcName + '.zip'))
+                        .catch(error => {
+                                setMessage('ERROR: {!$Label.OmniDesNoComponentFound}');
+                            })
+                        .finally(() => {
+                            setMessage('DONE');
+                        });
+                    }else if (DOWNLOADOFFPLATFORM) {
+                        const type = OmniScriptJson.{!namespace}__Type__c,
+                            subType = OmniScriptJson.{!namespace}__SubType__c,
+                            language = OmniScriptJson.{!namespace}__Language__c,
+                            lwcName = compilerService.getLwcName(type, subType, language),
+                            isInsidePckg = window.omniLwcCompilerConfig.isInsidePckg === 'true' || window.omniLwcCompilerConfig.isInsidePckg === true,
+                            namespace = window.omniLwcCompilerConfig.namespacePrefix;
+
+                        setMessage('COMPILING...');
+
+                        bpService.loadActiveLwc(type, subType, language)
+                            .then(jsonDef => {
+                                return compilerService.getComponentZipFromOrgMetadataForOffPlatform(jsonDef, lwcName, namespace, isInsidePckg);
+                            })
+                            .then(content => saveAs(content, lwcName + '.zip'))
+                            .catch(error => setMessage('ERROR: {!$Label.OmniDesNoComponentFound}'))
+                            .finally(() => {
+                                setMessage('DONE');
+                            });
+                    } else {
+                        setMessage('ERROR: Missing activate query parameter');
+                    }
+                });
+
+            function setMessage(message, payload) {
+                messageEl.innerText = message;
+                postMessageIfEnabled(payload);
+            }
+
+            function postMessageIfEnabled(payload) {
+                if (POST_MESSAGE_ENABLED) {
+                    window.parent.postMessage({
+                        key: POST_MESSAGE_KEY,
+                        status: messageEl.innerText,
+                        payload: payload
+                    }, '*');
+                }
+            }
+
+            function executeActivation(isActivate, skipMessage) {
+                if(!skipMessage){
+                    setMessage(isActivate ? 'ACTIVATING...' : 'DEACTIVATING...');
+                }
+                // Execute the request
+                return vlocityVFActionFunctionControllerHandlers.runServerMethod('{!namespace}.BusinessProcessController.BusinessProcessControllerOpen', isActivate ? 'ActivateVersion' : 'DeactivateVersion',
+                    JSON.stringify({
+                        Id: OMNISCRIPT_ID
+                    }), JSON.stringify({
+                        url: 'omnistudiodesigner'
+                    }), false)
+                        .then(response => JSON.parse(response));
+            }
+
+            function b64toFile(b64Data, filename, contentType) {
+                var sliceSize = 512;
+                var byteCharacters = atob(b64Data);
+                var byteArrays = [];
+
+                for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                    var slice = byteCharacters.slice(offset, offset + sliceSize);
+                    var byteNumbers = new Array(slice.length);
+
+                    for (var i = 0; i < slice.length; i++) {
+                        byteNumbers[i] = slice.charCodeAt(i);
+                    }
+                    var byteArray = new Uint8Array(byteNumbers);
+                    byteArrays.push(byteArray);
+                }
+                var file = new File(byteArrays, filename, { type: contentType });
+                return file;
+            }
+        </script>
+        <c:VFActionFunction />
+    </body>
+
+    </html>
+</apex:page>

@@ -72,6 +72,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <listViews>
         <fullName>ALL_Open_Work_Items</fullName>
         <filterScope>Everything</filterScope>
@@ -87,5 +88,5 @@
         <filterScope>Everything</filterScope>
         <label>All Work Items</label>
     </listViews>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

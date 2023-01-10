@@ -1,0 +1,24 @@
+{
+    "CustomJavaScript": "sample_getCaseList_SampleInput.json",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Sample Get Case List Layout",
+    "OmniProcessElement": [
+        "sample_getCaseList_Element_DRGetCaseDetails.json",
+        "sample_getCaseList_Element_ResponseAction.json"
+    ],
+    "OmniProcessKey": "sample_getCaseList",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "sample_getCaseList_PropertySetConfig.json",
+    "SubType": "getCaseList",
+    "Type": "sample",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/sample/getCaseList/Procedure",
+    "WebComponentKey": "34082800-1549-5bcf-e9b7-0ef85ffb7efe"
+}

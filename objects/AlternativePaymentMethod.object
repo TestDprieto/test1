@@ -114,6 +114,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
         <type>Lookup</type>
@@ -165,5 +166,10 @@
     <fields>
         <fullName>Status</fullName>
     </fields>
+    <listViews>
+        <fullName>AlternativePaymentMethod</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <sharingModel>Private</sharingModel>
 </CustomObject>

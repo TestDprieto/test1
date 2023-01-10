@@ -1,0 +1,42 @@
+{
+    "AuthorName": "Salesforce",
+    "ClonedFromOmniUiCardKey": "",
+    "DataSourceConfig": {
+        "contextVariables": [
+            {
+                "id": 3,
+                "name": "recordId",
+                "val": ""
+            }
+        ],
+        "orderBy": {
+            "isReverse": false,
+            "name": ""
+        },
+        "type": "IntegrationProcedures",
+        "value": {
+            "dsDelay": "",
+            "inputMap": {
+                "AccountId": "{recordId}"
+            },
+            "ipMethod": "sample_getCaseList",
+            "resultVar": "",
+            "vlocityAsync": false
+        }
+    },
+    "Description": "",
+    "IsTrackingEnabled": false,
+    "Name": "sampleCasesParent",
+    "Namespace": "",
+    "OmniUiCardKey": "sampleCasesParent/Salesforce/1.0/1635782042313",
+    "OmniUiCardType": "Parent",
+    "OverrideKey": "",
+    "PropertySetConfig": "sampleCasesParent.json",
+    "SampleDataSourceResponse": "[]",
+    "StylingConfiguration": "",
+    "UniqueName": "",
+    "VersionNumber": 1,
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniUiCard",
+    "VlocityRecordSourceKey": "OmniUiCard/sampleCasesParent"
+}

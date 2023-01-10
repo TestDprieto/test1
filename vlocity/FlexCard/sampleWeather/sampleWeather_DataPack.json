@@ -1,0 +1,46 @@
+{
+    "AuthorName": "Salesforce",
+    "ClonedFromOmniUiCardKey": "teamWeatherEG/Salesforce/2.0/1639089991990",
+    "DataSourceConfig": {
+        "dataSource": {
+            "contextVariables": [
+                {
+                    "id": 9,
+                    "name": "recordId",
+                    "val": ""
+                }
+            ],
+            "orderBy": {
+                "isReverse": false,
+                "name": ""
+            },
+            "type": "IntegrationProcedures",
+            "value": {
+                "dsDelay": "",
+                "inputMap": {
+                    "AccountId": "{recordId}",
+                    "Days": "5"
+                },
+                "ipMethod": "team_getWeatherDetails",
+                "jsonMap": "{\"recordId\":\"{recordId}\"}",
+                "resultVar": "[\"Current\"]",
+                "vlocityAsync": false
+            }
+        }
+    },
+    "Description": "",
+    "IsTrackingEnabled": false,
+    "Name": "sampleWeather",
+    "Namespace": "",
+    "OmniUiCardKey": "sampleWeather/Salesforce/1.0/1639439049975",
+    "OmniUiCardType": "Child",
+    "OverrideKey": "",
+    "PropertySetConfig": "sampleWeather.json",
+    "SampleDataSourceResponse": "{\"Current\":{\"CityState\":\"Schenectady, New York\",\"TempF\":27.5,\"Condition\":\"Heavy Snow\",\"TempC\":-2.5},\"Forecast\":[{\"Date\":\"2022-01-26\",\"HiLoTempC\":\"-0.8/-5.7\",\"HiLoTempF\":\"30.5/21.7\",\"Condition\":\"Heavy Snow\"},{\"Date\":\"2022-01-27\",\"HiLoTempC\":\"-0.2/-5.1\",\"HiLoTempF\":\"31.7/22.8\",\"Condition\":\"Light Snow\"},{\"Date\":\"2022-01-28\",\"HiLoTempC\":\"-0.6/-7.8\",\"HiLoTempF\":\"31.0/18.7\",\"Condition\":\"Flurries\"},{\"Date\":\"2022-01-29\",\"HiLoTempC\":\"-3.7/-7.7\",\"HiLoTempF\":\"25.3/18.1\",\"Condition\":\"Clear sky\"},{\"Date\":\"2022-01-30\",\"HiLoTempC\":\"-4.3/-6.8\",\"HiLoTempF\":\"24.2/19.7\",\"Condition\":\"Clear sky\"}]}",
+    "StylingConfiguration": "",
+    "UniqueName": "",
+    "VersionNumber": 1,
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniUiCard",
+    "VlocityRecordSourceKey": "OmniUiCard/sampleWeather"
+}

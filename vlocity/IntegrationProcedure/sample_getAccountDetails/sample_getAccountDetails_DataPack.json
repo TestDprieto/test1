@@ -1,0 +1,24 @@
+{
+    "CustomJavaScript": "sample_getAccountDetails_SampleInput.json",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Sample Get Account Details",
+    "OmniProcessElement": [
+        "sample_getAccountDetails_Element_DRGetAccountDetails.json",
+        "sample_getAccountDetails_Element_ResponseAction.json"
+    ],
+    "OmniProcessKey": "sample_getAccountDetails",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "sample_getAccountDetails_PropertySetConfig.json",
+    "SubType": "getAccountDetails",
+    "Type": "sample",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/sample/getAccountDetails/Procedure",
+    "WebComponentKey": "c2ecc964-386d-eed2-4c33-ff53b5051723"
+}

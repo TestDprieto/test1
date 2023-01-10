@@ -1,0 +1,1552 @@
+{
+    "dataSource": {
+        "contextVariables": [
+            {
+                "id": 9,
+                "name": "recordId",
+                "val": ""
+            }
+        ],
+        "orderBy": {
+            "isReverse": false,
+            "name": ""
+        },
+        "type": "IntegrationProcedures",
+        "value": {
+            "dsDelay": "",
+            "inputMap": {
+                "AccountId": "{recordId}",
+                "Days": "5"
+            },
+            "ipMethod": "team_getWeatherDetails",
+            "jsonMap": "{\"recordId\":\"{recordId}\"}",
+            "resultVar": "[\"Current\"]",
+            "vlocityAsync": false
+        }
+    },
+    "enableLwc": true,
+    "isFlex": true,
+    "lwc": {
+        "DeveloperName": "cfTeamWeatherEG_2_Salesforce",
+        "Id": "0Rb5f000001T56ZCAS",
+        "ManageableState": "unmanaged",
+        "MasterLabel": "cfTeamWeatherEG_2_Salesforce",
+        "NamespacePrefix": "c"
+    },
+    "osSupport": true,
+    "selectableMode": "Multi",
+    "states": [
+        {
+            "actions": [
+            ],
+            "childCards": [
+                "sampleWeatherForecast"
+            ],
+            "components": {
+                "layer-0": {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "class": "slds-col ",
+                                    "element": "flexImg",
+                                    "elementLabel": "Weather Image-Image-0",
+                                    "key": "element_element_block_0_1_flexImg_0_1",
+                                    "name": "Image",
+                                    "parentElementKey": "element_block_0_1",
+                                    "property": {
+                                        "card": "{card}",
+                                        "extraclass": "slds-align_absolute-center",
+                                        "record": "{record}",
+                                        "size": "large",
+                                        "stateImg": {
+                                            "alternativeText": "Image description",
+                                            "document": {
+                                                "Id": "0685f000000n1VUAAY",
+                                                "attachmentType": "ContentVersion",
+                                                "label": "weatherbannerAlert (Version:1)",
+                                                "title": "weatherbannerAlert",
+                                                "value": "/sfc/servlet.shepherd/version/download/0685f000000n1VUAAY"
+                                            },
+                                            "imgsrc": "/sfc/servlet.shepherd/version/download/0685f000000n1VUAAY"
+                                        }
+                                    },
+                                    "size": {
+                                        "default": "12",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 1,
+                                    "styleObject": {
+                                        "sizeClass": "slds-size_12-of-12"
+                                    },
+                                    "type": "element"
+                                }
+                            ],
+                            "class": "slds-col ",
+                            "element": "block",
+                            "elementLabel": "Weather Image",
+                            "name": "Block",
+                            "property": {
+                                "card": "{card}",
+                                "collapsedByDefault": false,
+                                "collapsible": false,
+                                "label": "",
+                                "record": "{record}"
+                            },
+                            "size": {
+                                "default": "12",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "class": "slds-p-around_x-small",
+                                "padding": [
+                                    {
+                                        "size": "x-small",
+                                        "type": "around"
+                                    }
+                                ],
+                                "sizeClass": "slds-size_12-of-12"
+                            },
+                            "type": "block",
+                            "userUpdatedElementLabel": true
+                        },
+                        {
+                            "children": [
+                                {
+                                    "class": "slds-col ",
+                                    "element": "outputField",
+                                    "elementLabel": "CityState",
+                                    "key": "element_element_block_1_0_outputField_0_0",
+                                    "name": "Text",
+                                    "parentElementKey": "element_block_1_0",
+                                    "property": {
+                                        "card": "{card}",
+                                        "mergeField": "%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22color:%20#e03e2d;%22%3E%3Cstrong%3E%3Cspan%20style=%22font-size:%2024pt;%22%3E%7BCityState%7D%3C/span%3E%3C/strong%3E%3C/span%3E%3C/div%3E",
+                                        "record": "{record}"
+                                    },
+                                    "size": {
+                                        "default": "12",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-p-bottom_small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "bottom:small",
+                                                "size": "small",
+                                                "type": "bottom"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "12",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_12-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-p-bottom_small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "bottom:small",
+                                                        "size": "small",
+                                                        "type": "bottom"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "12",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_12-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "text",
+                                    "userUpdatedElementLabel": true
+                                },
+                                {
+                                    "class": "slds-col ",
+                                    "element": "outputField",
+                                    "elementLabel": "Weather Details-Text-1",
+                                    "key": "element_element_block_1_0_outputField_1_0",
+                                    "name": "Text",
+                                    "parentElementKey": "element_block_1_0",
+                                    "property": {
+                                        "card": "{card}",
+                                        "mergeField": "%3Cdiv%20class=%22slds-text-title_caps%20slds-text-align_center%22%3ECondition%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22color:%20#e03e2d;%22%3E%3Cstrong%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BCondition%7D%3C/span%3E%3C/strong%3E%3C/span%3E%3C/div%3E",
+                                        "record": "{record}"
+                                    },
+                                    "size": {
+                                        "default": "6",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-p-bottom_small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "bottom:small",
+                                                "size": "small",
+                                                "type": "bottom"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "6",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_6-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-p-bottom_small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "bottom:small",
+                                                        "size": "small",
+                                                        "type": "bottom"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "6",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_6-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "text"
+                                },
+                                {
+                                    "class": "slds-col ",
+                                    "element": "outputField",
+                                    "elementLabel": "Weather Details-Text-2",
+                                    "key": "element_element_block_1_0_outputField_2_0",
+                                    "name": "Text",
+                                    "parentElementKey": "element_block_1_0",
+                                    "property": {
+                                        "card": "{card}",
+                                        "mergeField": "%3Cdiv%20class=%22slds-text-title_caps%20slds-text-align_center%22%3ETemperature%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cspan%20style=%22color:%20#e03e2d;%22%3E%3Cstrong%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BTempF%7D%20&deg;F%3C/span%3E%3C/strong%3E%3C/span%3E%3C/div%3E",
+                                        "record": "{record}"
+                                    },
+                                    "size": {
+                                        "default": "6",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-p-bottom_small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "bottom:small",
+                                                "size": "small",
+                                                "type": "bottom"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "6",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_6-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-p-bottom_small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "bottom:small",
+                                                        "size": "small",
+                                                        "type": "bottom"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "6",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_6-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "text"
+                                },
+                                {
+                                    "class": "slds-col ",
+                                    "element": "action",
+                                    "elementLabel": "Navigate Action",
+                                    "key": "element_element_block_1_0_action_3_0",
+                                    "name": "Action",
+                                    "parentElementKey": "element_block_1_0",
+                                    "property": {
+                                        "buttonVariant": "destructive",
+                                        "card": "{card}",
+                                        "displayAsButton": true,
+                                        "iconColor": "#FFFFFF",
+                                        "record": "{record}",
+                                        "stateAction": {
+                                            "Web Page": {
+                                                "targetName": "https://weather.com"
+                                            },
+                                            "displayName": "Weather.com",
+                                            "id": "flex-action-1639102778514",
+                                            "openUrlIn": "New Tab/Window",
+                                            "targetType": "Web Page",
+                                            "type": "Custom",
+                                            "vlocityIcon": "action:web_link"
+                                        },
+                                        "stateObj": "{record}",
+                                        "styles": {
+                                            "label": {
+                                                "color": "#FFFFFF"
+                                            }
+                                        }
+                                    },
+                                    "size": {
+                                        "default": "6",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-text-align_right slds-p-top_small slds-m-right_x-small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                            "iconColor": "#FFFFFF",
+                                            "styles": {
+                                                "label": {
+                                                    "color": "#FFFFFF"
+                                                }
+                                            }
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                            {
+                                                "label": "right:x-small",
+                                                "size": "x-small",
+                                                "type": "right"
+                                            }
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "top:small",
+                                                "size": "small",
+                                                "type": "top"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "6",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_6-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "right",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-text-align_right slds-p-top_small slds-m-right_x-small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                    "iconColor": "#FFFFFF",
+                                                    "styles": {
+                                                        "label": {
+                                                            "color": "#FFFFFF"
+                                                        }
+                                                    }
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                    {
+                                                        "label": "right:x-small",
+                                                        "size": "x-small",
+                                                        "type": "right"
+                                                    }
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "top:small",
+                                                        "size": "small",
+                                                        "type": "top"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "6",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_6-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "right",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "element",
+                                    "userUpdatedElementLabel": true
+                                },
+                                {
+                                    "class": "slds-col ",
+                                    "element": "action",
+                                    "elementLabel": "Forecast",
+                                    "key": "element_element_block_1_0_action_4_0",
+                                    "name": "Action",
+                                    "parentElementKey": "element_block_1_0",
+                                    "property": {
+                                        "buttonVariant": "text-destructive",
+                                        "card": "{card}",
+                                        "displayAsButton": true,
+                                        "iconColor": "#D02D2D",
+                                        "record": "{record}",
+                                        "stateAction": {
+                                            "cardName": "sampleWeatherForecast",
+                                            "displayName": "Get 5-Day Forecast",
+                                            "flyoutLwc": "sampleWeatherForecast",
+                                            "flyoutType": "childCard",
+                                            "id": "flex-action-1641580918452",
+                                            "openFlyoutIn": "Modal",
+                                            "openUrlIn": "Current Window",
+                                            "type": "Flyout",
+                                            "vlocityIcon": "standard:forecasts"
+                                        },
+                                        "stateObj": "{record}",
+                                        "styles": {
+                                            "label": {
+                                                "color": "#D02D2D"
+                                            }
+                                        }
+                                    },
+                                    "size": {
+                                        "default": "5",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-text-align_left slds-p-top_small slds-m-left_x-small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                            "iconColor": "#D02D2D",
+                                            "styles": {
+                                                "label": {
+                                                    "color": "#D02D2D"
+                                                }
+                                            }
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                            {
+                                                "label": "left:x-small",
+                                                "size": "x-small",
+                                                "type": "left"
+                                            }
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "top:small",
+                                                "size": "small",
+                                                "type": "top"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "5",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_5-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "left",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-text-align_left slds-p-top_small slds-m-left_x-small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                    "iconColor": "#D02D2D",
+                                                    "styles": {
+                                                        "label": {
+                                                            "color": "#D02D2D"
+                                                        }
+                                                    }
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                    {
+                                                        "label": "left:x-small",
+                                                        "size": "x-small",
+                                                        "type": "left"
+                                                    }
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "top:small",
+                                                        "size": "small",
+                                                        "type": "top"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "5",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_5-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "left",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "element",
+                                    "userUpdatedElementLabel": true
+                                }
+                            ],
+                            "class": "slds-col ",
+                            "element": "block",
+                            "elementLabel": "Weather Details",
+                            "name": "Block",
+                            "property": {
+                                "card": "{card}",
+                                "collapsedByDefault": false,
+                                "collapsible": false,
+                                "label": "",
+                                "record": "{record}"
+                            },
+                            "size": {
+                                "default": "12",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "class": "slds-p-around_x-small",
+                                "padding": [
+                                    {
+                                        "size": "x-small",
+                                        "type": "around"
+                                    }
+                                ],
+                                "sizeClass": "slds-size_12-of-12"
+                            },
+                            "type": "block",
+                            "userUpdatedElementLabel": true
+                        }
+                    ]
+                }
+            },
+            "conditions": {
+                "group": [
+                    {
+                        "field": "Condition",
+                        "hasMergeField": false,
+                        "id": "state-new-condition-9",
+                        "operator": "==",
+                        "type": "custom",
+                        "value": "Heavy Snow"
+                    }
+                ],
+                "id": "state-condition-object",
+                "isParent": true
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "documents": [
+                {
+                    "Id": "0685f000000n1VUAAY",
+                    "developerName": "weatherbannerAlert",
+                    "type": "ContentVersion"
+                }
+            ],
+            "fields": [
+            ],
+            "isSmartAction": false,
+            "name": "Alert",
+            "omniscripts": [
+            ],
+            "smartAction": {
+            },
+            "styleObject": {
+                "class": "slds-card slds-p-around_x-small slds-m-bottom_x-small",
+                "container": {
+                    "class": "slds-card"
+                },
+                "margin": [
+                    {
+                        "size": "none",
+                        "type": "around"
+                    }
+                ],
+                "padding": [
+                    {
+                        "size": "x-small",
+                        "type": "around"
+                    }
+                ],
+                "size": {
+                    "default": "12",
+                    "isResponsive": false
+                },
+                "sizeClass": "slds-size_12-of-12"
+            }
+        },
+        {
+            "actions": [
+            ],
+            "childCards": [
+                "sampleWeatherForecast"
+            ],
+            "components": {
+                "layer-0": {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "class": "slds-col ",
+                                    "element": "flexImg",
+                                    "elementLabel": "Weather Image-Image-0",
+                                    "key": "element_element_block_0_0_flexImg_0_0",
+                                    "name": "Image",
+                                    "parentElementKey": "element_block_0_0",
+                                    "property": {
+                                        "card": "{card}",
+                                        "extraclass": "slds-align_absolute-center",
+                                        "record": "{record}",
+                                        "size": "large",
+                                        "stateImg": {
+                                            "alternativeText": "Image description",
+                                            "document": {
+                                                "Id": "0685f000000n1VTAAY",
+                                                "attachmentType": "ContentVersion",
+                                                "label": "weatherbannerActive (Version:1)",
+                                                "title": "weatherbannerActive",
+                                                "value": "/sfc/servlet.shepherd/version/download/0685f000000n1VTAAY"
+                                            },
+                                            "imgsrc": "/sfc/servlet.shepherd/version/download/0685f000000n1VTAAY"
+                                        }
+                                    },
+                                    "size": {
+                                        "default": "12",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 0,
+                                    "styleObject": {
+                                        "sizeClass": "slds-size_12-of-12"
+                                    },
+                                    "type": "element"
+                                }
+                            ],
+                            "class": "slds-col ",
+                            "element": "block",
+                            "elementLabel": "Weather Image",
+                            "name": "Block",
+                            "property": {
+                                "card": "{card}",
+                                "collapsedByDefault": false,
+                                "collapsible": false,
+                                "label": "",
+                                "record": "{record}"
+                            },
+                            "size": {
+                                "default": "12",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 1,
+                            "styleObject": {
+                                "class": "slds-p-around_x-small",
+                                "padding": [
+                                    {
+                                        "size": "x-small",
+                                        "type": "around"
+                                    }
+                                ],
+                                "sizeClass": "slds-size_12-of-12"
+                            },
+                            "type": "block",
+                            "userUpdatedElementLabel": true
+                        },
+                        {
+                            "children": [
+                                {
+                                    "class": "slds-col ",
+                                    "element": "outputField",
+                                    "elementLabel": "CityState",
+                                    "key": "element_element_block_1_1_outputField_0_1",
+                                    "name": "Text",
+                                    "parentElementKey": "element_block_1_1",
+                                    "property": {
+                                        "card": "{card}",
+                                        "mergeField": "%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cstrong%3E%3Cspan%20style=%22font-size:%2024pt;%22%3E%7BCityState%7D%3C/span%3E%3C/strong%3E%3C/div%3E",
+                                        "record": "{record}"
+                                    },
+                                    "size": {
+                                        "default": "12",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 1,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-p-bottom_small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "bottom:small",
+                                                "size": "small",
+                                                "type": "bottom"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "12",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_12-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-p-bottom_small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "bottom:small",
+                                                        "size": "small",
+                                                        "type": "bottom"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "12",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_12-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "text",
+                                    "userUpdatedElementLabel": true
+                                },
+                                {
+                                    "class": "slds-col ",
+                                    "element": "outputField",
+                                    "elementLabel": "Weather Details-Text-1",
+                                    "key": "element_element_block_1_1_outputField_1_1",
+                                    "name": "Text",
+                                    "parentElementKey": "element_block_1_1",
+                                    "property": {
+                                        "card": "{card}",
+                                        "mergeField": "%3Cdiv%20class=%22slds-text-title_caps%20slds-text-align_center%22%3ECondition%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cstrong%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BCondition%7D%3C/span%3E%3C/strong%3E%3C/div%3E",
+                                        "record": "{record}"
+                                    },
+                                    "size": {
+                                        "default": "6",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 1,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-p-bottom_small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "bottom:small",
+                                                "size": "small",
+                                                "type": "bottom"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "6",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_6-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-p-bottom_small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "bottom:small",
+                                                        "size": "small",
+                                                        "type": "bottom"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "6",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_6-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "text"
+                                },
+                                {
+                                    "class": "slds-col ",
+                                    "element": "outputField",
+                                    "elementLabel": "Weather Details-Text-2",
+                                    "key": "element_element_block_1_1_outputField_2_1",
+                                    "name": "Text",
+                                    "parentElementKey": "element_block_1_1",
+                                    "property": {
+                                        "card": "{card}",
+                                        "mergeField": "%3Cdiv%20class=%22slds-text-title_caps%20slds-text-align_center%22%3ETemperature%3C/div%3E%0A%3Cdiv%20class=%22slds-text-align_center%22%3E%3Cstrong%3E%3Cspan%20style=%22font-size:%2012pt;%22%3E%7BTempF%7D%20&deg;F%3C/span%3E%3C/strong%3E%3C/div%3E",
+                                        "record": "{record}"
+                                    },
+                                    "size": {
+                                        "default": "6",
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 1,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-p-bottom_small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "bottom:small",
+                                                "size": "small",
+                                                "type": "bottom"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": "6",
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_6-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-p-bottom_small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "bottom:small",
+                                                        "size": "small",
+                                                        "type": "bottom"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": "6",
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_6-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "text"
+                                },
+                                {
+                                    "class": "slds-col ",
+                                    "element": "action",
+                                    "elementLabel": "Forecast",
+                                    "key": "element_element_block_1_1_action_3_1",
+                                    "name": "Action",
+                                    "parentElementKey": "element_block_1_1",
+                                    "property": {
+                                        "buttonVariant": "outline-brand",
+                                        "card": "{card}",
+                                        "displayAsButton": true,
+                                        "iconColor": "#3A6D9D",
+                                        "record": "{record}",
+                                        "stateAction": {
+                                            "cardName": "sampleWeatherForecast",
+                                            "displayName": "Get 5-Day Forecast",
+                                            "flyoutLwc": "sampleWeatherForecast",
+                                            "flyoutType": "childCard",
+                                            "id": "flex-action-1639440156363",
+                                            "openFlyoutIn": "Modal",
+                                            "openUrlIn": "Current Window",
+                                            "type": "Flyout",
+                                            "vlocityIcon": "standard:forecasts"
+                                        },
+                                        "stateObj": "{record}",
+                                        "styles": {
+                                            "label": {
+                                                "color": "#3A6D9D"
+                                            }
+                                        }
+                                    },
+                                    "size": {
+                                        "default": 12,
+                                        "isResponsive": false
+                                    },
+                                    "stateIndex": 1,
+                                    "styleObject": {
+                                        "background": {
+                                            "color": "",
+                                            "image": "",
+                                            "position": "",
+                                            "repeat": "",
+                                            "size": ""
+                                        },
+                                        "border": {
+                                            "color": "",
+                                            "radius": "",
+                                            "style": "",
+                                            "type": "",
+                                            "width": ""
+                                        },
+                                        "class": "slds-text-align_center slds-p-top_small ",
+                                        "container": {
+                                            "class": ""
+                                        },
+                                        "elementStyleProperties": {
+                                            "iconColor": "#3A6D9D",
+                                            "styles": {
+                                                "label": {
+                                                    "color": "#3A6D9D"
+                                                }
+                                            }
+                                        },
+                                        "inlineStyle": "",
+                                        "margin": [
+                                        ],
+                                        "padding": [
+                                            {
+                                                "label": "top:small",
+                                                "size": "small",
+                                                "type": "top"
+                                            }
+                                        ],
+                                        "size": {
+                                            "default": 12,
+                                            "isResponsive": false
+                                        },
+                                        "sizeClass": "slds-size_12-of-12 ",
+                                        "style": "      \n         ",
+                                        "text": {
+                                            "align": "center",
+                                            "color": ""
+                                        }
+                                    },
+                                    "styleObjects": [
+                                        {
+                                            "conditionString": "",
+                                            "conditions": "default",
+                                            "draggable": false,
+                                            "key": 0,
+                                            "label": "Default",
+                                            "name": "Default",
+                                            "styleObject": {
+                                                "background": {
+                                                    "color": "",
+                                                    "image": "",
+                                                    "position": "",
+                                                    "repeat": "",
+                                                    "size": ""
+                                                },
+                                                "border": {
+                                                    "color": "",
+                                                    "radius": "",
+                                                    "style": "",
+                                                    "type": "",
+                                                    "width": ""
+                                                },
+                                                "class": "slds-text-align_center slds-p-top_small ",
+                                                "container": {
+                                                    "class": ""
+                                                },
+                                                "elementStyleProperties": {
+                                                    "iconColor": "#3A6D9D",
+                                                    "styles": {
+                                                        "label": {
+                                                            "color": "#3A6D9D"
+                                                        }
+                                                    }
+                                                },
+                                                "inlineStyle": "",
+                                                "margin": [
+                                                ],
+                                                "padding": [
+                                                    {
+                                                        "label": "top:small",
+                                                        "size": "small",
+                                                        "type": "top"
+                                                    }
+                                                ],
+                                                "size": {
+                                                    "default": 12,
+                                                    "isResponsive": false
+                                                },
+                                                "sizeClass": "slds-size_12-of-12 ",
+                                                "style": "      \n         ",
+                                                "text": {
+                                                    "align": "center",
+                                                    "color": ""
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "element",
+                                    "userUpdatedElementLabel": true
+                                }
+                            ],
+                            "class": "slds-col ",
+                            "element": "block",
+                            "elementLabel": "Weather Details",
+                            "name": "Block",
+                            "property": {
+                                "card": "{card}",
+                                "collapsedByDefault": false,
+                                "collapsible": false,
+                                "label": "",
+                                "record": "{record}"
+                            },
+                            "size": {
+                                "default": "12",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 1,
+                            "styleObject": {
+                                "class": "slds-p-around_x-small",
+                                "padding": [
+                                    {
+                                        "size": "x-small",
+                                        "type": "around"
+                                    }
+                                ],
+                                "sizeClass": "slds-size_12-of-12"
+                            },
+                            "type": "block",
+                            "userUpdatedElementLabel": true
+                        }
+                    ]
+                }
+            },
+            "conditions": {
+                "group": [
+                ],
+                "id": "state-condition-object",
+                "isParent": true
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "documents": [
+                {
+                    "Id": "0685f000000n1VTAAY",
+                    "developerName": "weatherbannerActive",
+                    "type": "ContentVersion"
+                }
+            ],
+            "fields": [
+            ],
+            "isSmartAction": false,
+            "name": "Active",
+            "omniscripts": [
+            ],
+            "smartAction": {
+            },
+            "styleObject": {
+                "class": "slds-card slds-p-around_x-small slds-m-bottom_x-small",
+                "container": {
+                    "class": "slds-card"
+                },
+                "margin": [
+                    {
+                        "size": "none",
+                        "type": "around"
+                    }
+                ],
+                "padding": [
+                    {
+                        "size": "x-small",
+                        "type": "around"
+                    }
+                ],
+                "size": {
+                    "default": "12",
+                    "isResponsive": false
+                },
+                "sizeClass": "slds-size_12-of-12"
+            }
+        }
+    ],
+    "theme": "slds",
+    "title": "sampleWeather",
+    "xmlJson": [
+        {
+            "@attributes": {
+                "targets": "lightning__AppPage"
+            },
+            "property": [
+                {
+                    "@attributes": {
+                        "name": "debug",
+                        "type": "Boolean"
+                    }
+                },
+                {
+                    "@attributes": {
+                        "name": "recordId",
+                        "type": "String"
+                    }
+                }
+            ]
+        },
+        {
+            "@attributes": {
+                "targets": "lightning__RecordPage"
+            },
+            "property": [
+                {
+                    "@attributes": {
+                        "name": "debug",
+                        "type": "Boolean"
+                    }
+                }
+            ]
+        }
+    ],
+    "xmlObject": {
+        "apiVersion": 51,
+        "isExplicitImport": false,
+        "isExposed": true,
+        "masterLabel": "sampleWeather",
+        "runtimeNamespace": "%vlocity_namespace%",
+        "targetConfigs": "PHRhcmdldENvbmZpZyB0YXJnZXRzPSJsaWdodG5pbmdfX0FwcFBhZ2UiPjxwcm9wZXJ0eSBuYW1lPSJkZWJ1ZyIgdHlwZT0iQm9vbGVhbiIvPjxwcm9wZXJ0eSBuYW1lPSJyZWNvcmRJZCIgdHlwZT0iU3RyaW5nIi8+PC90YXJnZXRDb25maWc+PHRhcmdldENvbmZpZyB0YXJnZXRzPSJsaWdodG5pbmdfX1JlY29yZFBhZ2UiPjxwcm9wZXJ0eSBuYW1lPSJkZWJ1ZyIgdHlwZT0iQm9vbGVhbiIvPjwvdGFyZ2V0Q29uZmlnPg==",
+        "targets": {
+            "target": [
+                "lightning__RecordPage",
+                "lightning__AppPage",
+                "lightning__HomePage"
+            ]
+        }
+    }
+}

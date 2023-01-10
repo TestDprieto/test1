@@ -1,0 +1,24 @@
+{
+    "CustomJavaScript": "{}",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "Team Stub Get Contact Details",
+    "OmniProcessElement": [
+        "team_getContactDetails_Element_SetValues.json",
+        "team_getContactDetails_Element_ResponseAction.json"
+    ],
+    "OmniProcessKey": "team_getContactDetails",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "team_getContactDetails_PropertySetConfig.json",
+    "SubType": "getContactDetails",
+    "Type": "team",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/team/getContactDetails/Procedure",
+    "WebComponentKey": "6baf2ca6-5ab3-548a-7968-f24755c9da23"
+}

@@ -1,0 +1,126 @@
+<apex:page showHeader="false" sidebar="false"
+            standardStylesheets="false"
+            docType="html-5.0" applyBodyTag="false"
+            title="LWC Preview VF Page" cache="false"
+            controller="omnistudio.LWCDesignerController">
+<apex:outputPanel rendered="{!!hideCards}">
+  <apex:includeLightning />
+  <!-- Need to figure out how to include CardStyleLoaderComponent-->
+  <!-- <c:CardStyleLoaderComponent theme="slds"></c:CardStyleLoaderComponent> -->
+  <apex:includeScript value="{!URLFOR($Resource.omnistudio__iframeresizer, '/js/iframeResizer.contentWindow.min.js')}" />
+  <apex:slds rendered="{!isSldsTheme}"/>
+  <apex:stylesheet value="{!IF(isNdsTheme, ndsStylesheet,'')}"/>
+  <head>
+    <style>
+      .none-spinner{
+  position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 9051;
+  }
+
+  .custom-hide {
+    display:none;
+  }
+      </style>
+
+  </head>
+  <body>
+      <div id="lightning" class="{!wrapperClass}">
+      </div>
+      <div id="auraErrorMessage">
+        <div id="loader"  class="{!wrapperClass}">
+          <div role="status" class="{!theme}-spinner {!theme}-spinner_medium {!theme}-spinner_brand">
+            <span class="{!theme}-assistive-text">Loading</span>
+            <div class="{!theme}-spinner__dot-a"></div>
+            <div class="{!theme}-spinner__dot-b"></div>
+          </div>
+        </div>
+      </div>
+  </body>
+  <script>
+    (function() {
+      let url = '{!JSENCODE($CurrentPage.URL)}';
+        let previewId = getUrlParam(url,'previewid');
+        window.addEventListener("message", receiveMessage, false);
+        let namespace = getUrlParam(url,'namespace');
+        namespace = namespace ? namespace : 'c';
+        let layoutInfo = {
+          data : {
+            name : getUrlParam(url,'layout'),
+            namespace : namespace
+          }
+        }
+        let componentLoading = false;
+        let componentName = "";
+        if(previewId){
+          window.parent.postMessage({name : "setPreviewFrameOrigin",iframeOrigin : location.origin},document.referrer);
+        }
+        receiveMessage(layoutInfo);
+        function receiveMessage(event) {
+          if(previewId && previewId !== event.data.previewid) {
+            return;
+          }
+          if(componentName && componentName != event.data.name) {
+            componentLoading = false;
+          }
+          if(!event.data.name || componentLoading){
+            return;
+          }
+          if(document.getElementById('lightning')) {
+            document.getElementById('lightning').innerHTML = "";
+          }
+          renderLoader(true);
+          componentLoading = true;
+          componentName = event.data.name;
+          let orgNamespace = '{!namespace}';
+          orgNamespace = orgNamespace ? orgNamespace : 'c';
+          $Lightning.use(orgNamespace + ':ltngOutAppSupport', function() {
+            $Lightning.createComponent(`${event.data.namespace ? event.data.namespace : 'c'}:${event.data.name}`,
+                event.data.attrs,
+                "lightning",
+                function(cmp, status) {
+                  componentLoading = false;
+                  renderLoader(false);
+                  if(status === "SUCCESS"){
+                    // If lwc load succesfully, making sure error div is empty
+                    document.querySelector("#auraErrorMessage").innerHTML = "";
+                  }
+                }
+            );
+          });
+        }
+
+      function getUrlParam(url, paramName) {
+        var paramMatch = new RegExp(paramName + '=([^&#=]*)', 'i').exec(url);
+        if (paramMatch && paramMatch.length > 1) {
+            return decodeURIComponent(paramMatch[1]);
+        }
+        return null;
+      }
+    function renderLoader(render) {
+      let loaderHtml = `<div id="loader" class="{!wrapperClass}">
+        <div  role="status" class="{!theme}-spinner {!theme}-spinner_medium {!theme}-spinner_brand">
+          <span class="{!theme}-assistive-text">Loading</span>
+          <div class="{!theme}-spinner__dot-a"></div>
+          <div class="{!theme}-spinner__dot-b"></div>
+        </div>
+      </div>`;
+      let loader = document.getElementById("loader");
+      let container = document.getElementById("auraErrorMessage");
+      if(render) {
+          container.classList.remove("custom-hide");
+          container.innerHTML = loaderHtml;
+      } else {
+        if(loader) {
+          container.classList.add("custom-hide");
+          container.removeChild(loader);
+        }
+      }
+    }
+
+    })();
+  </script>
+  </apex:outputPanel>
+  <c:VFPageDeprecatedMessage rendered="{!hideCards}"/>
+</apex:page>

@@ -1,0 +1,42 @@
+{
+    "AuthorName": "Salesforce",
+    "ClonedFromOmniUiCardKey": "",
+    "DataSourceConfig": {
+        "contextVariables": [
+            {
+                "id": 1,
+                "name": "recordId",
+                "val": "0015f0000097BQCAA2"
+            }
+        ],
+        "orderBy": {
+            "isReverse": false,
+            "name": ""
+        },
+        "type": "IntegrationProcedures",
+        "value": {
+            "dsDelay": "",
+            "inputMap": {
+                "AccountId": "{recordId}"
+            },
+            "ipMethod": "sample_getAccountContactDetails",
+            "resultVar": "[\"Contact\"]",
+            "vlocityAsync": false
+        }
+    },
+    "Description": "",
+    "IsTrackingEnabled": false,
+    "Name": "sampleContacts",
+    "Namespace": "",
+    "OmniUiCardKey": "sampleContacts/Salesforce/1.0/1636050259619",
+    "OmniUiCardType": "Child",
+    "OverrideKey": "",
+    "PropertySetConfig": "sampleContacts.json",
+    "SampleDataSourceResponse": "[]",
+    "StylingConfiguration": "",
+    "UniqueName": "",
+    "VersionNumber": 1,
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniUiCard",
+    "VlocityRecordSourceKey": "OmniUiCard/sampleContacts"
+}

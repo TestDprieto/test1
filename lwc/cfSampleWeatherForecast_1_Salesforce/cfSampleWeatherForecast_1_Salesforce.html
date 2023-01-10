@@ -1,0 +1,75 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative ">
+            <div style="position: fixed;z-index: 999999;top: 0;right: 0;">
+  <omnistudio-toast class="flexcard-toast-element" theme="slds" title="" message="" styletype=""> </omnistudio-toast>
+</div>
+            <div if:false={cardLoaded} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: white; z-index: 99;">
+  <div>
+   <omnistudio-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></omnistudio-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_2-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element0_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="standard:forecasts"  size="large"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-p-around_x-small  slds-size_10-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-text-align_left  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-data-table data-style-id="state0element1block_element0_child"   issearchavailable="false"  issortavailable="true"  cell-level-edit="true"  pagelimit="3"  group-order="asc"  columns='\[{"fieldName":"Condition","label":"Condition","searchable":false,"sortable":true,"type":"text"},{"fieldName":"Date","label":"Date","searchable":false,"sortable":true,"type":"date","format":"M/D/YYYY"},{"fieldName":"HiLoTempC","label":"Hi/Lo Temp °C","searchable":false,"sortable":true,"type":"text"},{"fieldName":"HiLoTempF","label":"Hi/Lo Temp °F","searchable":false,"sortable":true,"type":"text"}]'  records={records}  styles='\{"cellMargin":[],"cellPadding":[],"headFontWeight":"bold"}'  theme="slds"  ></omnistudio-data-table>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+                <template if:false={hasRecords}>
+                      <omnistudio-flex-card-state   data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div data-style-id="state0element0" class="slds-col   slds-p-around_x-small  slds-size_2-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element0_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element0block_element0" class="slds-col   slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-flex-icon data-style-id="state0element0block_element0_child"   card={card}  record={record}  icon-type="Salesforce SVG"  icon-name="standard:forecasts"  size="large"  extraclass=""  variant="default"  imgsrc=""  color="#3A6D9D"  theme="slds"  ></omnistudio-flex-icon>
+      </div>
+        </div></omnistudio-block>
+    </div><div data-style-id="state0element1" class="slds-col   slds-p-around_x-small  slds-size_10-of-12  " data-rindex={rindex} style="      
+         " >
+    <omnistudio-block data-style-id="state0element1_child"  card={card}  record={record}  label="Block"  collapsible="false"  collapsed-by-default="false"  theme="slds"  ><div class="slds-grid slds-wrap">
+          <div data-style-id="state0element1block_element0" class="slds-col  slds-text-align_left  slds-size_12-of-12  " data-rindex={rindex} style="      
+         " ><omnistudio-data-table data-style-id="state0element1block_element0_child"   issearchavailable="false"  issortavailable="true"  cell-level-edit="true"  pagelimit="3"  group-order="asc"  columns='\[{"fieldName":"Condition","label":"Condition","searchable":false,"sortable":true,"type":"text"},{"fieldName":"Date","label":"Date","searchable":false,"sortable":true,"type":"date","format":"M/D/YYYY"},{"fieldName":"HiLoTempC","label":"Hi/Lo Temp °C","searchable":false,"sortable":true,"type":"text"},{"fieldName":"HiLoTempF","label":"Hi/Lo Temp °F","searchable":false,"sortable":true,"type":"text"}]'  records={records}  styles='\{"cellMargin":[],"cellPadding":[],"headFontWeight":"bold"}'  theme="slds"  ></omnistudio-data-table>
+      </div>
+        </div></omnistudio-block>
+    </div>
+        </div>
+      </omnistudio-flex-card-state>
+                </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <omnistudio-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+      
+      </omnistudio-action>
+  
+            <omnistudio-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onselectcards={updateSelectedCards} onsetvalue={updateAction} onfireactionevent={actionEvtHandler}>
+            
+            </omnistudio-action>
+            </div>
+          </template>

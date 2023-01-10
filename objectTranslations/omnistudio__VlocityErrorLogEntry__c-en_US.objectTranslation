@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <help><!-- The callout action: PUT, POST, etc --></help>
+        <label><!-- Action --></label>
+        <name>omnistudio__Action__c</name>
+    </fields>
+    <fields>
+        <help><!-- unique identifier from an external system --></help>
+        <label><!-- Context Id --></label>
+        <name>omnistudio__ContextId__c</name>
+    </fields>
+    <fields>
+        <help><!-- Error Code --></help>
+        <label><!-- Error Code --></label>
+        <name>omnistudio__ErrorCode__c</name>
+    </fields>
+    <fields>
+        <help><!-- Stores the Error Message --></help>
+        <label><!-- Error Message --></label>
+        <name>omnistudio__ErrorMessage__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date and time that the error occurred. --></help>
+        <label><!-- Error Time --></label>
+        <name>omnistudio__ErrorTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- A default value set in the data raptor bundle ex: Callout Error, Upsert Error --></help>
+        <label><!-- Error Type --></label>
+        <name>omnistudio__ErrorType__c</name>
+        <picklistValues>
+            <masterLabel>Callout Error</masterLabel>
+            <translation><!-- Callout Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upsert Error</masterLabel>
+            <translation><!-- Upsert Error --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Records the input data which lead to the error log entry --></help>
+        <label><!-- Input Data --></label>
+        <name>omnistudio__InputData__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the Object resulting to the error --></help>
+        <label><!-- Object Name --></label>
+        <name>omnistudio__ObjectName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Name --></label>
+        <name>omnistudio__SourceName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Type --></label>
+        <name>omnistudio__SourceType__c</name>
+        <picklistValues>
+            <masterLabel>Dataraptor</masterLabel>
+            <translation><!-- Dataraptor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Integration Procedure</masterLabel>
+            <translation><!-- Integration Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Omniscript</masterLabel>
+            <translation><!-- Omniscript --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Vlocity Interaction Token --></label>
+        <name>omnistudio__VlocityInteractionToken__c</name>
+    </fields>
+</CustomObjectTranslation>

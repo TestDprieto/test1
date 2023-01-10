@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Business-Blocking</fullName>
+        <default>true</default>
+        <label>Business-Blocking</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Partially Business-Blocking</fullName>
+        <default>false</default>
+        <label>Partially Business-Blocking</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Not Business-Blocking</fullName>
+        <default>false</default>
+        <label>Not Business-Blocking</label>
+    </standardValue>
+</StandardValueSet>
