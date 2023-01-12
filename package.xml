@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Omni_UI_Card_1</members>
-        <name>FlexCard</name>
+        <members>omnistudio__ITrigger</members>
+        <name>ApexClass</name>
     </types>
     <types>
-        <members>Reusable_Sample_English</members>
+        <members>cfSampleAccount</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>reusableCompanyMailingAddress_1</members>
+        <members>sampleChangePriContactTA_1</members>
+        <name>OmniDataTransform</name>
+    </types>
+    <types>
+        <members>Reusable_Sample_English_1</members>
         <name>OmniScript</name>
     </types>
     <types>
-        <members>Standard</members>
-        <members>Standard Price Book</members>
-        <name>Pricebook2</name>
+        <members>Omni_UI_Card_1_Diego_1</members>
+        <name>OmniUiCard</name>
     </types>
     <version>56.0</version>
 </Package>
