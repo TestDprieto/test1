@@ -1,0 +1,30 @@
+{
+    "%vlocity_namespace%__Active__c": true,
+    "%vlocity_namespace%__OmniScriptId__c": {
+        "Name": "CLM - Async Quote to Contract",
+        "VlocityDataPackType": "VlocityMatchingKeyObject",
+        "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__OmniScript__c/clm/asyncQuoteToContract/Procedure",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OmniScript__c"
+    },
+    "%vlocity_namespace%__PropertySet__c": {
+        "actionMessage": "",
+        "chainOnStep": false,
+        "disOnTplt": false,
+        "elementValueMap": {
+            "quoteFields": "Id, QuoteId, %vlocity_namespace%__ConnectDate__c, %vlocity_namespace%__DisconnectDate__c, %vlocity_namespace%__OneTimeManualDiscount__c, UnitPrice, %vlocity_namespace%__OneTimeTotal__c, %vlocity_namespace%__OverageCalculatedPrice__c, %vlocity_namespace%__RecurringUOM__c, %vlocity_namespace%__RecurringTotal__c, %vlocity_namespace%__RecurringManualDiscount__c, %vlocity_namespace%__RecurringCharge__c, %vlocity_namespace%__RecurringCalculatedPrice__c, %vlocity_namespace%__LineNumber__c, %vlocity_namespace%__OneTimeCalculatedPrice__c, PricebookEntry.Name, Quantity, Product2Id, PricebookEntryId, %vlocity_namespace%__JSONAttribute__c, %vlocity_namespace%__OverageDiscountPrice__c, %vlocity_namespace%__OverageUOM__c, %vlocity_namespace%__OverageTotal__c, %vlocity_namespace%__OverageManualDiscount__c, %vlocity_namespace%__OverageCharge__c, %vlocity_namespace%__RecurringDiscountPrice__c, %vlocity_namespace%__OneTimeDiscountPrice__c, %vlocity_namespace%__OneTimeCharge__c, %vlocity_namespace%__ServiceAccountId__c, %vlocity_namespace%__SerialNumber__c, %vlocity_namespace%__BillingAccountId__c"
+        },
+        "executionConditionalFormula": "",
+        "failOnStepError": true,
+        "failureConditionalFormula": "",
+        "label": "SetValues1",
+        "responseJSONNode": "",
+        "responseJSONPath": "",
+        "show": null
+    },
+    "%vlocity_namespace%__ReusableOmniScript__c": false,
+    "%vlocity_namespace%__Type__c": "Set Values",
+    "Name": "SetQuoteLineItemFieldsToQuery",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__Element__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__Element__c/%vlocity_namespace%__OmniScript__c/clm/asyncQuoteToContract/Procedure/SetQuoteLineItemFieldsToQuery"
+}

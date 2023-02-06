@@ -1,0 +1,96 @@
+<div class="cpq-discount-item-details slds-scrollable_y">
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <div class="slds-tile__title slds-text-heading_medium">{{records.Name}}</div>
+            <div>{{records[$root.nsPrefix+ 'Description__c']}}</div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-tile__title slds-text-heading_medium slds-text-align_right cpq-discount-code-label">{{::importedScope.customLabels.CPQDiscountCode}}</div>
+            <div class="slds-text-align_right">{{records[$root.nsPrefix+ 'Code__c']}}</div>
+        </div>
+    </div>
+
+    <div class="cpq-discount-item-table slds-m-top_x-large">
+        <div class="cpq-discount-item-table-row cpq-discount-item-table-header">
+            <div class="slds-text-heading_label cpq-discount-item-table-row-item cpq-discount-item-table-flex-product">{{::importedScope.customLabels.CPQEffectiveUntil}}</div>
+            <div class="slds-text-heading_label cpq-discount-item-table-row-item">
+                {{::importedScope.customLabels.CPQDiscountType}}
+            </div>
+            <div class="slds-text-heading_label cpq-discount-item-table-row-item">
+                {{::importedScope.customLabels.OneTime}}
+            </div>
+            <div class="slds-text-heading_label cpq-discount-item-table-row-item">
+                {{::importedScope.customLabels.CPQMonthly}}
+            </div>
+            <div class="slds-text-heading_label cpq-discount-item-table-row-item">
+                {{::importedScope.customLabels.CPQTimePlan}}
+            </div>
+        </div>
+        <div class="cpq-discount-item-table-row">
+            <div class="slds-m-top_x-small cpq-discount-item-table-row-item cpq-discount-item-table-flex-product slds-tile__title slds-truncate cpq-cart-item-title">
+                <span ng-bind-html="importedScope.convertToLocalDate(records[$root.nsPrefix+ 'effectiveenddate__c'])"></span>
+            </div>
+            <div class="slds-m-top_x-small cpq-discount-item-table-row-item cpq-discount-item-table-flex-recur">
+                {{records[$root.nsPrefix+ 'DiscountType__c']}}
+            </div>
+            <div class="slds-m-top_x-small cpq-discount-item-table-row-item cpq-discount-item-table-flex-onetime">
+                <div ng-repeat="discountType in records['Discount']"> 
+                <span ng-show="discountType.chargeType === 'One-time'">{{discountType.value}} {{discountType.selectedAdjustmentMethod}}</span>
+                </div>
+            </div>
+            <div class="slds-m-top_x-small cpq-discount-item-table-row-item cpq-discount-item-table-flex-onetime">
+                <div ng-repeat="discountType in records['Discount']"> 
+                    <span ng-show="discountType.chargeType === 'Recurring'">{{discountType.value}} {{discountType.selectedAdjustmentMethod}}</span>
+                </div>
+            </div>
+            <div class="slds-m-top_x-small  cpq-discount-item-table-row-item cpq-discount-item-table-flex-onetime">
+                {{records[$root.nsPrefix+ 'Duration__c']}} {{records[$root.nsPrefix+ 'DurationUnitOfMeasure__c']}}
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Scope -->
+    <div class="cpq-new-discount-container slds-m-bottom_small">
+        <div class="slds-size_1-of-1 slds-m-top_x-large slds-m-bottom_small">
+            <div class="cpq-custom-discount-criteria">{{::importedScope.customLabels.CPQDiscountScope}}</div>
+        </div>
+        <table class="slds-table slds-table_bordered cpq-discount--table_border">
+            <tr ng-if="records[$root.nsPrefix +'AppliesToAllItems__c']">
+                <td class="slds-cell-shrink cpq-discount-cell-shrink">
+                    <div class="slds-text-heading_label">{{::importedScope.customLabels.CPQAppliesToAllItems}}</div>
+                </td>
+            </tr>
+            <tr ng-if="records.productNamesList">
+                <td class="slds-cell-shrink cpq-discount-cell-shrink">
+                    <div class="slds-text-heading_label">{{::importedScope.customLabels.CPQProduct}}</div>
+                </td>
+                <td>
+                    <span class="cpq-discount-item-list slds-text-body_regular">
+                        {{records.productNamesList}}
+                    </span>
+                </td>
+            </tr>
+            <tr ng-if="records.categoryNamesList">
+                <td class="slds-cell-shrink cpq-discount-cell-shrink">
+                    <div class="slds-text-heading_label">{{::importedScope.customLabels.CPQCategory}}</div>
+                </td>
+                <td>
+                    <span class="cpq-discount-item-list slds-text-body_regular">
+                        {{records.categoryNamesList}}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="slds-cell-shrink cpq-discount-cell-shrink">
+                    <div class="slds-text-heading_label">{{::importedScope.customLabels.CPQEffectiveFrom}}</div>
+                </td>
+                <td>
+                    <span class="slds-text-body_regular">
+                        <span ng-bind-html="importedScope.convertToLocalDate(records[$root.nsPrefix+ 'effectivestartdate__c'])"></span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!-- End Scope -->
+</div>

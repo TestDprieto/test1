@@ -1,0 +1,76 @@
+{
+    "GlobalKey__c": "Top Left Account Profile/vlocityDev/1/1594355042781",
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0011I000003UkkTQAS"
+            }
+        ],
+        "type": "Query",
+        "value": {
+            "jsonMap": "{\"params.id\":\"{{params.id}}\"}"
+        }
+    },
+    "enableLwc": true,
+    "filter": {
+    },
+    "states": [
+        {
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['Name']",
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Name",
+                    "name": "['Name']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Industry']",
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Industry",
+                    "name": "['Industry']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['Type']",
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Type",
+                    "name": "['Type']",
+                    "type": "string"
+                }
+            ],
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "leftProfileState",
+                "Id": "0Rb1I0000008VSbSAM",
+                "MasterLabel": "left-profile-state",
+                "name": "leftProfileState"
+            },
+            "name": "Active",
+            "smartAction": {
+            }
+        }
+    ],
+    "title": "Account Profile"
+}

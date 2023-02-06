@@ -1,0 +1,113 @@
+{
+    "GlobalKey__c": "sample Case Details/vlocityDev/1/1594257637377",
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0011I000003UkkTQAS"
+            }
+        ],
+        "type": "IntegrationProcedures",
+        "value": {
+            "inputMap": {
+                "AccountId": "{{params.id}}"
+            },
+            "ipMethod": "sample_getCaseList",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": "['Cases']"
+        }
+    },
+    "enableLwc": true,
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "leftIcon",
+            "val": "new_case"
+        }
+    ],
+    "states": [
+        {
+            "actionCtxId": "['CaseId']",
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "displayName": "Update Case",
+                        "hasExtraParams": false,
+                        "iconName": "action:description",
+                        "id": "sample Update Case",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseNumber']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Number",
+                    "name": "['CaseNumber']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseOpenDate']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Date Opened",
+                    "name": "['CaseOpenDate']",
+                    "type": "date"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseStatus']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Status",
+                    "name": "['CaseStatus']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseSubject']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Subject",
+                    "name": "['CaseSubject']",
+                    "type": "string"
+                }
+            ],
+            "isSmartAction": false,
+            "lwc": {
+                "DeveloperName": "cardMiniActive",
+                "Id": "0Rb1I0000008VS5SAM",
+                "MasterLabel": "cardMiniActive",
+                "name": "cardMiniActive"
+            },
+            "name": "Active",
+            "sObjectType": "Case",
+            "smartAction": {
+            }
+        }
+    ],
+    "title": "Case Details"
+}

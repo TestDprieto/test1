@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- City --></label>
+        <name>vlocity_cmt__City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country Code --></label>
+        <name>vlocity_cmt__CountryCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- County Code --></label>
+        <name>vlocity_cmt__CountyCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- County --></label>
+        <name>vlocity_cmt__County__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Jurisdiction --></label>
+        <name>vlocity_cmt__ParentJurisdictionId__c</name>
+        <relationshipLabel><!-- Jurisdictions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Postal Code --></label>
+        <name>vlocity_cmt__PostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- State Code --></label>
+        <name>vlocity_cmt__StateCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- States/Provinces --></label>
+        <name>vlocity_cmt__StatesProvinces__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>vlocity_cmt__Type__c</name>
+        <picklistValues>
+            <masterLabel>City</masterLabel>
+            <translation><!-- City --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>County</masterLabel>
+            <translation><!-- County --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Federal</masterLabel>
+            <translation><!-- Federal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>State</masterLabel>
+            <translation><!-- State --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

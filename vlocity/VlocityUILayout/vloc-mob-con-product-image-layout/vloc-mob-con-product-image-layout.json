@@ -1,0 +1,14 @@
+{
+    "contextVariables": [
+        {
+            "name": "attrs.productid",
+            "val": "a2H1I000000Q6veUAC"
+        }
+    ],
+    "type": "Query",
+    "value": {
+        "body": "[\n    {\n        \"attributes\": {\n            \"type\": \"Attachment\",\n            \"url\": \"/services/data/v40.0/sobjects/Attachment/00P1I000000pjrpUAA\"\n        },\n        \"Id\": \"00P1I000000pjrpUAA\",\n        \"Name\": \"galaxy-s7.jpg\"\n    }\n]",
+        "query": "SELECT Id, %vlocity_namespace%__UrlLong__c, %vlocity_namespace%__ObjectId__c FROM %vlocity_namespace%__VlocityAttachment__c WHERE %vlocity_namespace%__ObjectId__c = '{{attrs.productid}}' AND Name LIKE '%{{attrs.type}}%' LIMIT 1",
+        "resultVar": ""
+    }
+}

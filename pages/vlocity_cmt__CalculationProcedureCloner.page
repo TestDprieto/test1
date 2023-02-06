@@ -1,0 +1,12 @@
+<apex:page standardController="vlocity_cmt__CalculationProcedure__c" extensions="vlocity_cmt.CalculationProcedureClonerController" showHeader="true" sidebar="true">
+    <apex:form >
+        <apex:pageMessages id="cloneMessages" />
+        <apex:sectionHeader title="Confirm Clone Procedure" subtitle="{!cloneProcedureMessage}" />
+        <apex:commandLink action="{!cloneProcedure}" target="_blank" >
+            <apex:commandButton value="{!$Label.vlocity_cmt__continue}" rerender="cloneMessages" />
+        </apex:commandLink>
+        <apex:commandLink action="{!cancel}" >
+            <apex:commandButton value="{!$Label.vlocity_cmt__cancel}" />
+        </apex:commandLink>
+    </apex:form>
+</apex:page>

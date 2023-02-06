@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Advanced Rules: If TRUE, rules evaluate deleted line items in the cart when applying product relationship rules such as auto-add, auto-remove, recommends, requires, and excludes. If FALSE or null, rules disregard line items that are deleted in the cart.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "ShouldConsiderDeletedItems",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/ShouldConsiderDeletedItems"
+}

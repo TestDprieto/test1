@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "DEPRECATED: Determines if pricing service runs every time a change to the cart is made in the legacy Manager pages. If TRUE, pricing occurs only if one or more of the fields have changed. If FALSE, pricing does not occur when fields change.",
+    "%vlocity_namespace%__SetupValue__c": "True",
+    "Name": "ImplicitPricing",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/ImplicitPricing"
+}

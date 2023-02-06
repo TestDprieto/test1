@@ -1,0 +1,158 @@
+<div class='nds-size_1-of-1'>
+    <ng-form name='loopform'
+             id="{{::control.name + '|' + $index}}"
+             ng-repeat='control in child.eleArray'
+             class="nds-form-element nds-p-around_small"
+             ng-class="typeof(control.propSetMap.horizontalMode)?'nds-m-bottom_x-small':'nds-m-bottom_large'">
+
+        <div class="nds-form-element">
+            <div class="nds-form-element__legend nds-form-element__label nds-form-element__control-help" for="{{::control.name + '|' + $index}}">
+                <span>{{::control.propSetMap.label}}</span>
+                <span class='nds-required'
+                    ng-if='control.req'>*
+                </span>
+
+                <a class="nds-tooltip_container" vlc-slds-tool-tip="test" nubbin-direction="auto top-left" ng-if="control.propSetMap.help" ng-include="'vlcHelptextInfoIcon.html'"></a>
+                <div vlc-slds-include="vlcLabelController.html"></div>
+            </div>
+
+            <div class="nds-form-element__control nds-vertical_radio" ng-if="control.propSetMap.horizontalMode === false">
+                <label class="nds-radio" ng-repeat='option in getOptions(control, this.$parent) track by option.name'>
+                    <input id='{{::control.name}}'
+                        ng-disabled='control.ro'
+                        ng-required='!control.response && control.req'
+                        type='radio'
+                        ng-init='init(this, control)'
+                        ng-value='option.name'
+                        ng-model='control.response'
+                        ng-change='aggregate(this, control.index, control.indexInParent, true, -1);'
+                        vlc-slds-val-checker="response"
+                        ng-click='autoAdvance(option.autoAdv);'/>
+                    <div class="nds-radio__label" for="{{::control.name}}" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        <span class="nds-radio_faux"></span>
+                        <span class="nds-form-element__label">{{option.value}}</span>
+                    </div>
+                </label>
+            </div>
+
+            <div class="nds-form-element__control nds-horizontal_radio" ng-if="control.propSetMap.horizontalMode === true">
+                <label class="nds-radio" ng-repeat='option in getOptions(control, this.$parent) track by option.name'>
+                    <input id='{{::control.name}}'
+                        ng-disabled='control.ro'
+                        ng-required='!control.response && control.req'
+                        type='radio'
+                        ng-init='init(this, control)'
+                        ng-value='option.name'
+                        ng-model='control.response'
+                        ng-change='aggregate(this, control.index, control.indexInParent, true, -1);'
+                        vlc-slds-val-checker="response"
+                        ng-click='autoAdvance(option.autoAdv);'/>
+
+                    <div class="nds-radio__label" for="{{::control.name}}">
+                        <span class="nds-radio_faux"></span>
+                        <span class="nds-form-element__label">{{option.value}}</span>
+                    </div>
+                </label>
+            </div>
+
+
+            <div class="nds-form-element__control nds-radio_horizontal" 
+                    ng-if="control.propSetMap.horizontalMode === 'displayWide'" 
+                    style="position: relative; height: 2.0625rem;">
+                <div class="nds-radio_button-group">
+                    <label class="nds-button nds-radio_button" ng-repeat='option in getOptions(control, this.$parent) track by option.name' style="width:{{100/getOptions(control, this.$parent).length}}%">
+                        <input id='{{::control.name}}'
+                            ng-disabled='control.ro'
+                            ng-required='!control.response && control.req'
+                            type='radio'
+                            ng-init='init(this, control)'
+                            ng-value='option.name'
+                            ng-model='control.response'
+                            ng-change='aggregate(this, control.index, control.indexInParent, true, -1);'
+                            vlc-slds-val-checker="response"
+                            ng-click='autoAdvance(option.autoAdv);'/>
+                        <span class="nds-radio_button__label">
+                            <span class="nds-radio_faux">{{option.value}}</span>
+                            <div class="nds-radio-overlay"></div>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="nds-form-element__control" ng-if="control.propSetMap.horizontalMode === 'image'">
+
+                <div class="nds-radio_custom-group nds-clearfix" 
+                        ng-if="control.propSetMap.optionSource.type === 'image' && (control.propSetMap.imageCountInRow > 0)">
+                    <label class="nds-button nds-radio_button nds-radio_aspect-ratio" 
+                          ng-repeat='option in getOptions(control, this.$parent) track by option.name' 
+                          ng-class="{'nds-float_left':(false !== control.propSetMap.horizontalMode)}"
+                          ng-style='{"width": "calc(100% /" + control.propSetMap.imageCountInRow + " - 1.25rem)", "padding-top":(control.propSetMap.optionHeight)?control.propSetMap.optionHeight: "calc(100%/"+control.propSetMap.imageCountInRow + " - 1.25rem)", "margin-bottom": (control.propSetMap.horizontalMode == "image" && option.imgId)?"1.5rem":"0.5rem"}'>
+                        <input id='{{::control.name}}'
+                            ng-disabled='control.ro'
+                            ng-required='!control.response && control.req'
+                            type='radio'
+                            ng-init='init(this, control)'
+                            ng-value='option.name'
+                            ng-model='control.response'
+                            ng-change='aggregate(this, control.index, control.indexInParent, true, -1);'
+                            vlc-slds-val-checker="response"
+                            ng-click='autoAdvance(option.autoAdv);'/>
+                        <span class="nds-radio_button__label" for='{{::control.name}}_{{$index}}' ng-if='control.propSetMap.horizontalMode == "image"'>
+                            <img
+                                ng-if='control.propSetMap.horizontalMode == "image" && option.imgId && control.propSetMap.optionSource.type == "image"'
+                                class='imgItem' 
+                                src="{{option.imgId}}"
+                                alt='{{option.value}}'  
+                                title='{{option.value}}' />
+                            <span class="nds-radio_custom-faux" ng-class="{'nds-title':!(control.propSetMap.horizontalMode == 'image' && option.imgId)}" ng-if='!option.imgId || control.propSetMap.enableCaption'>{{option.value}}</span>
+                        </span>
+
+
+                        <span class="nds-radio_button__label" for='{{::control.name}}_{{$index}}' ng-if='control.propSetMap.horizontalMode != "image"'>
+                            <span class="nds-radio_custom-faux nds-title">{{option.value}}</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+
+
+            <div class="nds-form-element__control" ng-if="control.propSetMap.horizontalMode === 'image'">
+                <div class="nds-radio_custom-group nds-clearfix" 
+                        ng-if="control.propSetMap.optionSource.type === 'image' && !(control.propSetMap.imageCountInRow > 0)">
+                    <label class="nds-button nds-radio_button" 
+                          ng-repeat='option in getOptions(control, this.$parent) track by option.name' 
+                          ng-class="{'nds-float_left':(false !== control.propSetMap.horizontalMode)}" 
+                          ng-style="{'margin-bottom': (control.propSetMap.horizontalMode == 'image' && option.imgId)?'1.5rem':'0.5rem', 'width': control.propSetMap.optionWidth+'px','height':control.propSetMap.optionHeight+'px'}">
+                        <input id='{{::control.name}}'
+                            ng-disabled='control.ro'
+                            ng-required='!control.response && control.req'
+                            type='radio'
+                            ng-init='init(this, control)'
+                            ng-value='option.name'
+                            ng-model='control.response'
+                            ng-change='aggregate(this, control.index, control.indexInParent, true, -1);'
+                            vlc-slds-val-checker="response"
+                            ng-click='autoAdvance(option.autoAdv);'/>
+                        <span class="nds-radio_button__label" for='{{::control.name}}_{{$index}}' ng-if='control.propSetMap.horizontalMode == "image"'>
+                            <img
+                                ng-if='control.propSetMap.horizontalMode == "image" && option.imgId && control.propSetMap.optionSource.type == "image"'
+                                class='imgItem' 
+                                src="{{option.imgId}}"
+                                alt='{{option.value}}'  
+                                title='{{option.value}}' />
+                            <span class="nds-radio_custom-faux" ng-class="{'nds-title':!(control.propSetMap.horizontalMode == 'image' && option.imgId)}" ng-if='!option.imgId || control.propSetMap.enableCaption'>{{option.value}}</span>
+                        </span>
+
+
+                        <span class="nds-radio_button__label" for='{{::control.name}}_{{$index}}' ng-if='control.propSetMap.horizontalMode != "image"'>
+                            <span class="nds-radio_custom-faux nds-title">{{option.value}}</span>
+                        </span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="nds-has-error" ng-include="::errHTMLId"></div>
+    </ng-form>
+
+</div>

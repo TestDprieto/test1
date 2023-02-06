@@ -1,0 +1,28 @@
+<div class='nds-modal nds-fade-in-open nds-modal_large via-nds'>
+    <div class='nds-modal__container'>
+        <div class='nds-modal__header'>
+            <h3 class="modal-title">Item Comparison Sample</h3>
+        </div>
+        <div class='nds-modal__content nds-p-around_medium'>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Feature</th>
+                    </tr>
+                </thead>
+                <tbody class='ins'>
+                    <tr ng-repeat='p in content.recSet'>
+                        <td>{{p.ProductName}}</td>
+                        <td>{{p.TermLifeMatrix__Rate}}
+                            <div ng-repeat="a in p.attributes | filterMultiple:{value:['True']}">{{a.name}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class='nds-modal__footer'>
+            <button class="btn btn-warning" ng-click="cancel()">OK</button>
+        </div>
+    </div>
+</div>

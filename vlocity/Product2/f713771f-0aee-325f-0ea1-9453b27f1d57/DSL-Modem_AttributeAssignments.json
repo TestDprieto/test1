@@ -1,0 +1,106 @@
+[
+    {
+        "%vlocity_namespace%__AddDate__c": "",
+        "%vlocity_namespace%__AttributeAdjustmentComments__c": "",
+        "%vlocity_namespace%__AttributeAdjustmentUnits__c": "",
+        "%vlocity_namespace%__AttributeCategoryId__c": {
+            "%vlocity_namespace%__Code__c": "ATT_CODE_IS",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__AttributeCategory__c/ATT_CODE_IS",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__AttributeCategory__c"
+        },
+        "%vlocity_namespace%__AttributeDisplayNameOverride__c": "Grade",
+        "%vlocity_namespace%__AttributeDisplaySequence__c": "4",
+        "%vlocity_namespace%__AttributeId__c": {
+            "%vlocity_namespace%__Code__c": "ATT_RT_GR",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Attribute__c/ATT_RT_GR",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__Attribute__c"
+        },
+        "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_RT_GR",
+        "%vlocity_namespace%__ConfigurationDetail__c": "",
+        "%vlocity_namespace%__ConfigurationStages__c": "",
+        "%vlocity_namespace%__CustomConfigUiTemplate__c": "",
+        "%vlocity_namespace%__Data__c": "",
+        "%vlocity_namespace%__DefaultPicklistEntryId__c": "",
+        "%vlocity_namespace%__DefaultPicklistValueId__c": "",
+        "%vlocity_namespace%__DisplaySequence__c": "null",
+        "%vlocity_namespace%__EndStory__c": "",
+        "%vlocity_namespace%__ExcludedPicklistEntryIds__c": "",
+        "%vlocity_namespace%__ExcludedPicklistValues__c": "",
+        "%vlocity_namespace%__FormatMask__c": "",
+        "%vlocity_namespace%__GlobalKey__c": "1ba848ff-6c5a-7c80-8c4b-13de9e7adb3d",
+        "%vlocity_namespace%__HasRule__c": false,
+        "%vlocity_namespace%__HelpText__c": "",
+        "%vlocity_namespace%__IsActiveAssignment__c": true,
+        "%vlocity_namespace%__IsConfigurable__c": true,
+        "%vlocity_namespace%__IsDynamic__c": false,
+        "%vlocity_namespace%__IsEncrypted__c": false,
+        "%vlocity_namespace%__IsHidden__c": false,
+        "%vlocity_namespace%__IsNotAssetizable__c": false,
+        "%vlocity_namespace%__IsNotTranslatable__c": false,
+        "%vlocity_namespace%__IsOverride__c": false,
+        "%vlocity_namespace%__IsQueryDriven__c": false,
+        "%vlocity_namespace%__IsReadOnly__c": false,
+        "%vlocity_namespace%__IsRequired__c": true,
+        "%vlocity_namespace%__LookupFilter__c": "",
+        "%vlocity_namespace%__LookupObjectId__c": "",
+        "%vlocity_namespace%__LookupObjectTypeId__c": "",
+        "%vlocity_namespace%__ObjectId__c": {
+            "%vlocity_namespace%__GlobalKey__c": "f713771f-0aee-325f-0ea1-9453b27f1d57",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "Product2/f713771f-0aee-325f-0ea1-9453b27f1d57",
+            "VlocityRecordSObjectType": "Product2"
+        },
+        "%vlocity_namespace%__ObjectType__c": "Product2",
+        "%vlocity_namespace%__PicklistId__c": {
+            "%vlocity_namespace%__GlobalKey__c": "5f65e7d2-e3cb-d119-87e7-34967e7a25ca",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Picklist__c/5f65e7d2-e3cb-d119-87e7-34967e7a25ca",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__Picklist__c"
+        },
+        "%vlocity_namespace%__QueryCode__c": "",
+        "%vlocity_namespace%__QueryLabel__c": "",
+        "%vlocity_namespace%__RemoveDate__c": "",
+        "%vlocity_namespace%__RemovedFlag__c": false,
+        "%vlocity_namespace%__RuleData__c": "",
+        "%vlocity_namespace%__RuleMessage__c": "",
+        "%vlocity_namespace%__StartStory__c": "",
+        "%vlocity_namespace%__StyleClass__c": "",
+        "%vlocity_namespace%__UIDisplayType__c": "Dropdown",
+        "%vlocity_namespace%__ValidValuesData__c": [
+            {
+                "displayText": "Good",
+                "id": "3914e491-ec5b-94b1-02fa-5231d737a0b1",
+                "isDefault": false,
+                "isEditable": false,
+                "sequence": 1,
+                "value": "Good"
+            },
+            {
+                "displayText": "Better",
+                "id": "fcf5e549-306d-a692-a7c1-15178d81501e",
+                "isDefault": true,
+                "isEditable": false,
+                "sequence": 2,
+                "value": "Better"
+            },
+            {
+                "displayText": "Best",
+                "id": "72ba875a-4fd3-3ff0-3655-d2302d489dc3",
+                "isDefault": false,
+                "isEditable": false,
+                "sequence": 3,
+                "value": "Best"
+            }
+        ],
+        "%vlocity_namespace%__ValueDataType__c": "Picklist",
+        "%vlocity_namespace%__ValueDecoder__c": "",
+        "%vlocity_namespace%__ValueDescription__c": "",
+        "%vlocity_namespace%__Value__c": "Better",
+        "Name": "TempAA-ATT_RT_GR",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__AttributeAssignment__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__AttributeAssignment__c/1ba848ff-6c5a-7c80-8c4b-13de9e7adb3d"
+    }
+]

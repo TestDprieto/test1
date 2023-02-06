@@ -1,0 +1,59 @@
+<div class="" ng-if="records.messages && !records.records" ng-init="importedScope.compareToast(records.messages);">
+</div>
+<div class="cpq-cart-item-compare cpq-cart-item-lookup slds-wrap slds-grid_pull-padded" ng-if="records.records.length > 0">
+    <div class="slds-col_padded slds-grid">
+        <div class="slds-size_1-of-2 slds-border_right">
+            <div class="slds-section slds-m-right_x-small">
+                <div class="slds-section__title">
+                    <span>{{::importedScope.customLabels.CPQCompareCurrentState}}</span>
+                </div>
+                <div ng-if="records.records[0].lineItems" ng-init="leftRecord = records.records[0];" class="cpq-compare-overflow">
+                    <cpq-product-item-tree-view ng-repeat="record in leftRecord.lineItems.records" record="record"></cpq-product-item-tree-view>
+                </div>
+            </div>
+        </div>
+        <div class="slds-size_1-of-2">
+            <div class="slds-section slds-m-left_x-small">
+                <div class="slds-section__title">
+                    <span>{{::importedScope.customLabels.CPQCompareFutureState}}</span>
+                </div>
+
+                <div ng-if="records.records[1].lineItems" ng-init="rightRecord = records.records[1];" class="cpq-compare-overflow">
+                    <cpq-product-item-tree-view ng-repeat="record in rightRecord.lineItems.records" record="record"></cpq-product-item-tree-view>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slds-col_padded">
+        <div class="slds-grid">
+            <div class="slds-size_1-of-2 total-bar-border-top slds-grid slds-border_top slds-p-top_small" ng-init="oldRecord = records.records[0]">
+                <div class="slds-col slds-shrink slds-text-align--center">
+                    <div class="slds-text-body--small">
+                        {{oldRecord[$root.nsPrefix + 'RecurringTotal__c'].label}}
+                    </div>
+                    <div class="slds-text-heading--medium">
+                        {{oldRecord[$root.nsPrefix + 'RecurringTotal__c'].value | picker: 'currency'}}
+                    </div>
+                </div>
+            </div>
+            <div class=" slds-size_1-of-2 total-bar-border-top slds-grid slds-border_top slds-p-top_small" ng-init="newRecord = records.records[1]">
+                <div class="slds-col slds-shrink slds-text-align--center">
+                    <div class="slds-text-body--small">
+                        {{newRecord[$root.nsPrefix + 'RecurringTotal__c'].label}}
+                    </div>
+                    <div class="slds-text-heading--medium">
+                        {{newRecord[$root.nsPrefix + 'RecurringTotal__c'].value | picker: 'currency'}}
+                    </div>
+                </div>
+                <div class="slds-col slds-shrink slds-text-align--center">
+                    <div class="slds-text-body--small">
+                        {{newRecord[$root.nsPrefix + 'OneTimeTotal__c'].label}}
+                    </div>
+                    <div class="slds-text-heading--medium">
+                        {{newRecord[$root.nsPrefix + 'OneTimeTotal__c'].value | picker: 'currency'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class='nds-col nds-medium-size_6-of-12 nds-align_absolute-center'>
+    <div class="nds-grid nds-box nds-medium-size_12-of-12">
+
+        <div class="nds-col" ng-if="response.error==='OK'" style="margin-left: 13%;">
+
+            <figure style="display: -webkit-flex;">
+                <span class="nds-icon_container nds-icon-action-check nds-icon_container_circle">
+                    <slds-svg-icon aria-hidden="true"
+                                   sprite="'utility'"
+                                   icon="'check'"
+                                   size="'small'"
+                                   extra-classes="''">
+                    </slds-svg-icon>
+                </span>
+
+                <div class="nds-m-left_medium" style="font-size: 1.5rem;">
+                    {{::customLabels.OmniSaved}}
+                </div>
+
+            </figure>
+
+            <label class="nds-form-element__label nds-m-around_x-small">{{::customLabels.OmniResume}}
+                <a href='{{response.saveURL}}' target="_blank"> {{::customLabels.OmniLink}}</a>&#8228;
+            </label>
+            <br/>
+            <a class='nds-m-left_x-small' ng-click="copyToClipboard(customLabels.OmniCopyToClipBoard, response.saveURL)">{{::customLabels.OmniCopyLink}}</a> or
+            <a href="mailto:?subject=&body={{::customLabels.OmniResumeLink}} %0D{{response.saveURLMailTo}}%0D%0D{{::customLabels.OmniSaveEmailBody}}">{{::customLabels.OmniEmailMe}}</a>
+
+        </div>
+
+        <div class="nds-col nds-col__error" ng-if="response.error!=='OK'">
+
+            <figure>
+                <span class="nds-icon_container nds-icon-action-check nds-icon_container_circle">
+
+                    <slds-svg-icon aria-hidden="true"
+                                   sprite="'utility'"
+                                   icon="'remove'"
+                                   size="'small'"
+                                   extra-classes="''">
+                    </slds-svg-icon>
+
+                </span>
+                <figcaption class="nds-form-element__label">{{::customLabels.OmniError}}</figcaption>
+            </figure>
+
+            <label class="nds-form-element__label">{{response.error}}</label>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+{
+    "filter": {
+        "['objAPIName']": "Asset"
+    },
+    "states": [
+        {
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Type",
+                    "name": "['highlight']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Status",
+                    "name": "['subtitle']",
+                    "type": "string"
+                }
+            ],
+            "name": "Held Product",
+            "sObjectType": "Asset",
+            "templateUrl": "story-card"
+        }
+    ],
+    "title": "Held Products"
+}

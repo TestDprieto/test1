@@ -1,0 +1,109 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+.vlocity {
+
+    & .title {
+        
+    }
+
+    .navbar-template {
+        .title {
+            text-align: center;
+            padding: 0 40px;
+            width: auto;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            left: 0 !important;
+            margin: auto;
+            height:60px;
+            line-height:60px;
+
+            img {
+                max-height: 40px;
+                vertical-align: middle;
+            }
+        }
+
+        .nav-right-button {
+            float:right;
+        }
+
+        .icon-custom-edit {
+            background: url(https://mobile-ins102--c.na59.content.force.com/servlet/servlet.ImageServer?id=015f4000001nszP&oid=00Df40000023GKu&lastMod=1527139337000) no-repeat center;
+            background-size: contain;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-indent: -999em;
+            font-size: 0;
+            line-height: 0;
+        }
+    }
+}
+
+
+.navbar-template.con-navbar-usage {
+    pointer-events: all;
+    background-color: #fff;
+    position: relative;
+    height:80px;
+    padding-top:20px;
+}
+.navbar-template.con-navbar-usage.con-loaded {
+    background: #FFFFFF !important;
+    opacity:1;
+}
+.con-navbar-usage .title.title-left.header-item {
+    color:#000 !important;
+    font-size: 20px;
+    transition:color 0.4s linear;
+    font-family: Brown-Bold;
+}
+.con-navbar-usage .nav-left-button {
+    margin-left: 25px;
+    margin-top:12.5px;
+    transition:color 0.4s linear;
+    color: #000 !important;
+}
+
+
+/*Usage Tabs*/
+.con-usage-tabs{
+    height:50px;
+    width:100%;
+    box-shadow:0px 15px 25px -15px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    z-index: 2;
+    position: relative;
+    background: #FFF;
+}
+.con-usage-tab{
+    height: 50px;
+    width: 20%;
+    padding: 0px 12.5px;
+    line-height: 56px;
+    margin: 0px 0px 0px 10%;
+    font-size: 16px;
+    color:$subtitle-colour;
+    display: inline-block;
+    text-align: center;
+}
+.con-usage-tab-active{
+    border-bottom:3px solid #000;
+    color:#000;
+}
+.con-usage-tab-content{
+    pointer-events:none;
+    position:absolute;
+    background: #fff;
+    overflow: hidden;
+    width: 100%;
+    pointer-events:all;
+}
+.con-usage-tab-content-active > div{
+    opacity:1;
+}

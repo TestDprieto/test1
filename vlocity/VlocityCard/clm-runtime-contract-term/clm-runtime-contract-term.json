@@ -1,0 +1,46 @@
+{
+    "dataSource": {
+        "type": null,
+        "value": {
+            "resultVar": ""
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "blankStateCheck": false,
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['productName']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Name",
+                    "name": "['productName']",
+                    "type": "string"
+                }
+            ],
+            "name": "Contract-Terms",
+            "sObjectType": null,
+            "templateUrl": "clm-runtime-contract-term-row"
+        }
+    ],
+    "title": "Terms"
+}
