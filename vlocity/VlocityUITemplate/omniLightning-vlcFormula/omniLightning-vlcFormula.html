@@ -1,0 +1,82 @@
+<div class="slds-col--padded slds-size--1-of-1">
+
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-slds-formula vlc-slds-omniscript-currency'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-col"
+             ng-hide="::control.propSetMap.hide">
+
+            <div vlc-slds-include="vlcLabelController.html"></div>
+            <span class='vlc-slds-currency-symbol'
+                  ng-if="control.propSetMap.dataType == 'Currency'">{{::(bpTree.oSCurrencySymbol || control.propSetMap.currencySymbol)}}</span>
+
+            <div class="slds-form-element__control">
+                <div class="vlc-control-wrapper">
+
+                    <input id='{{::control.name}}'
+                           type='text'
+                           name='loopname'
+                           ng-model='control.response'
+                           class='slds-input'
+                           ng-if="control.propSetMap.dataType != 'Number' &&
+                                  control.propSetMap.dataType != 'Date' &&
+                                  control.propSetMap.dataType != 'Currency' &&
+                                  performCalculation(this, control)"
+                           vlc-slds-readonly="test" />
+
+                    <input id='{{::control.name}}'
+                           type='text'
+                           name='loopname'
+                           ng-if="control.propSetMap.dataType == 'Currency' && performCalculation(this, control)"
+                           ng-model='control.response'
+                           class='slds-input vlc-slds-currency'
+                           via-mask='::control.propSetMap.mask'
+                           vlc-slds-readonly="test"
+                           autocomplete="off" />
+
+                    <input id='{{::control.name}}'
+                           type='text'
+                           ng-if="control.propSetMap.dataType == 'Date' && performCalculation(this, control)"
+                           class='slds-input'
+                           name='loopname'
+                           name='date'
+                           date-format="{{control.propSetMap.dateFormat}}"
+                           value="{{control.response | date:control.propSetMap.dateFormat}}"
+                           vlc-slds-readonly="test"
+                           vlc-disable-auto-complete="off" />
+
+
+                    <input id='{{::control.name}}'
+                           type='text'
+                           name='loopname'
+                           ng-model='control.response'
+                           class='slds-input'
+                           ng-if="control.propSetMap.dataType == 'Number' && performCalculation(this, control)"
+                           via-mask='::control.propSetMap.mask'
+                           vlc-slds-readonly="test"
+                           autocomplete="off" />
+
+
+                    <label class='slds-form-element__label'>{{::control.propSetMap.label}}
+                        <span class='vlc-asterix icon-v-asterix'
+                              ng-if='control.req'>
+                        </span>
+                    </label>
+
+                    <small class='helpText description'>
+                        {{::control.propSetMap.helpText}}
+                    </small>
+
+                </div>
+
+                <!-- this is the error block -->
+                <div ng-include="::errHTMLId"></div>
+
+            </div>
+        </div>
+
+    </ng-form>
+
+</div>

@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Vlocity Telecommunication Services</label>
     <logo>vlocity_cmt__VlocityCMTResources/vlocity_cmt__CommuincationMediaAndTechnologyLogo.gif</logo>
     <tabs>standard-Contact</tabs>

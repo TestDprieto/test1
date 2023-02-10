@@ -1,0 +1,26 @@
+<div class='slds-grid slds-wrap slds-grid--pull-padded slds-col--padded'>
+
+    <div class="slds-col--padded">
+
+        <div class="slds-size--1-of-1">
+
+            <button style="flex: 0 0 100%"
+                    class="slds-button vlc-slds-button--primary"
+                    ng-click='debugInformation = []'>
+                Clear Logs
+            </button>
+
+
+        </div>
+
+
+        <div class='slds-size--1-of-1' ng-if="bpTree.previewMode">
+            <div class="slds-size--1-of-1" ng-repeat='info in debugInformation'>
+                <div class='slds-form-element__label'>{{::info.label}}</div>
+                <json-formatter json="info.log" class="slds-box"></json-formatter>
+            </div>
+        </div>
+
+    </div>
+
+</div>

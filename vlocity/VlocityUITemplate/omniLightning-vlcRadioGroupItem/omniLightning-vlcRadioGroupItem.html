@@ -1,0 +1,44 @@
+<div class="slds-grid">
+    <div class='slds-col slds-size_{{control.propSetMap.radioLabelsWidth}}-of-12'>
+    </div>            
+    <div class='slds-col slds-size_{{12-control.propSetMap.radioLabelsWidth}}-of-12 slds-grid'>
+        <label ng-repeat='option in getOptions(control, this.$parent) track by option.name'
+               class='slds-col slds-p-left_x-small set-all'
+               style="width:{{100/control.propSetMap.options.length}}%">
+
+            <div ng-if="option.setAll" class="vlc-slds-button" ng-click='!control.ro && setAllRadioGroup(this.$parent, option.name)'>
+                {{::customLabels.OmniRadioGroupSetAll}}
+            </div>
+        </label>
+    </div>
+</div>
+<div id='{{::label.name}}' class='slds-form-element__control slds-grid slds-grid--align-spread slds-p-vertical_x-small'
+     ng-repeat="label in control.propSetMap.radioLabels track by label.name">
+    <div class='slds-grid slds-col slds-size_{{control.propSetMap.radioLabelsWidth}}-of-12'>
+        <label class='slds-radio slds-p-right_x-small'>
+            <span class="slds-form-element__label">
+                {{::label.value}}
+            </span>
+        </label>
+    </div>
+    <div class='slds-grid slds-col slds-size_{{12-control.propSetMap.radioLabelsWidth}}-of-12'>
+        <label ng-repeat='option in control.propSetMap.options track by option.name'
+               ng-class="{'itemSelected': control.response[label.name]==option.name}"
+               class='slds-radio slds-p-left_x-small slds-col'
+               style="width:{{100/control.propSetMap.options.length}}%">
+
+            <input ng-disabled='control.ro'
+                   ng-required='!control.response && control.response[label.name] && control.req'
+                   type='radio'
+                   ng-init='init(this, control)'
+                   ng-value='option.name'
+                   ng-model='control.response[label.name]'
+                   ng-change='onRadioGroupSelect(this, control, option)'
+                   vlc-slds-mu-val-checker="response"
+                   />
+            <span class="slds-radio--faux" ng-if='control.propSetMap.horizontalMode!=="image"' ></span>
+            <span class="slds-form-element__label" ng-if='control.propSetMap.horizontalMode!=="image"' >{{::option.value}}</span>
+            <span ng-if='control.propSetMap.horizontalMode=="image"' ng-include="'vlcDisplayOption.html'" class="slds-radio--faux_container"></span>
+        </label>
+    </div>
+</div>

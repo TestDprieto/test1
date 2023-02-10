@@ -10,6 +10,7 @@
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Contract Lifecycle Management (CLM)</label>
     <navType>Standard</navType>
     <tabs>vlocity_cmt__VlocityDocumentClauses</tabs>

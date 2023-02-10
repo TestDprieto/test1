@@ -26,7 +26,7 @@
                 <template if:false={compLoaded}>
                     <div class="omni-spinner-container_wrapper">
                         <vlocity_cmt-spinner variant="brand"
-                                            alternative-text={allCustomLabelsUtil.OmniSpinnerTextLoading}
+                                            alternative-text="Loading.."
                                             theme={_theme}
                                             size="medium">
                         </vlocity_cmt-spinner>
@@ -56,17 +56,7 @@
                                             props={stepChartProps}
                                             layout={layout}
                                             script-header-def={scriptHeaderDef}>
-                                </vlocity_cmt-omniscript-step-chart>                    
-                                <template if:true={isPageLoading}>
-                                    <vlocity_cmt-spinner variant="brand"
-                                                        alternative-text={allCustomLabelsUtil.OmniSpinnerTextLoading}
-                                                        extraclass="nds-theme_default"
-                                                        theme={_theme}
-                                                        message={spinnerMessage}
-                                                        size="medium">
-                                    </vlocity_cmt-spinner>
-                                </template>
-                                <template for:each={jsonDef.children} for:item="item" for:index="idx"><vlocity_cmt-omniscript-step if:true={item.bStep} key={item.lwcId} json-def={item} data-omni-key={item.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode} seed-json={jsonDef.propSetMap.seedDataJSON}><template for:each={item.children} for:item="itemChild0" for:index="itemChild0Idx"><template for:each={itemChild0.eleArray} for:item="itemChild0Ele" for:index="itemChild0Idx"><vlocity_cmt-omniscript-radio-group if:true={itemChild0Ele.bRadioGroup} key={itemChild0Ele.lwcId} json-def={itemChild0Ele} data-omni-key={itemChild0Ele.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode} seed-json={jsonDef.propSetMap.seedDataJSON}></vlocity_cmt-omniscript-radio-group><vlocity_cmt-omniscript-custom-lwc if:true={itemChild0Ele.bcustomlightningwebcomponent1} key={itemChild0Ele.lwcId} json-def={itemChild0Ele} data-omni-key={itemChild0Ele.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode} seed-json={jsonDef.propSetMap.seedDataJSON}><c-helloworldv2 if:true={itemChild0Ele.bcustomlightningwebcomponent1} key={itemChild0Ele.lwcId} data-omni-key={itemChild0Ele.name} omni-resume={resume} data-omni-layout={layout} omni-json-def={itemChild0Ele} omni-json-data={jsonDef.response} omni-seed-json={jsonDef.propSetMap.seedDataJSON} omni-custom-state={jsonDef.customSaveState} omni-script-header-def={scriptHeaderDef} omni-json-data-str={jsonDataStr} data-omni-input=""></c-helloworldv2></vlocity_cmt-omniscript-custom-lwc></template></template></vlocity_cmt-omniscript-step><vlocity_cmt-omniscript-set-values if:true={item.bSetValues} key={item.lwcId} json-def={item} data-omni-key={item.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode}></vlocity_cmt-omniscript-set-values></template>
+                                </vlocity_cmt-omniscript-step-chart>
                                 <template if:true={_isKbEnabledOnScript}>
                                 <vlocity_cmt-omniscript-knowledge-base knowledge-options={kbOptions}
                                                              data-omni-key='omniscriptKnowledgeBase'
@@ -76,6 +66,16 @@
                                                              kb-label={knowledgeLabel}>
                                 </vlocity_cmt-omniscript-knowledge-base>
                             </template>
+                                <template if:true={isPageLoading}>
+                                    <vlocity_cmt-spinner variant="brand"
+                                                        alternative-text="Loading..."
+                                                        extraouterclass="nds-theme_default"
+                                                        theme={_theme}
+                                                        message={spinnerMessage}
+                                                        size="medium">
+                                    </vlocity_cmt-spinner>
+                                </template>
+                                <template for:each={jsonDef.children} for:item="item" for:index="idx"><vlocity_cmt-omniscript-step if:true={item.bStep} key={item.lwcId} json-def={item} data-omni-key={item.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode} seed-json={jsonDef.propSetMap.seedDataJSON}><template for:each={item.children} for:item="itemChild0" for:index="itemChild0Idx"><template for:each={itemChild0.eleArray} for:item="itemChild0Ele" for:index="itemChild0Idx"><vlocity_cmt-omniscript-radio-group if:true={itemChild0Ele.bRadioGroup} key={itemChild0Ele.lwcId} json-def={itemChild0Ele} data-omni-key={itemChild0Ele.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode} seed-json={jsonDef.propSetMap.seedDataJSON}></vlocity_cmt-omniscript-radio-group><vlocity_cmt-omniscript-custom-lwc if:true={itemChild0Ele.bcustomlightningwebcomponent1} key={itemChild0Ele.lwcId} json-def={itemChild0Ele} data-omni-key={itemChild0Ele.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode} seed-json={jsonDef.propSetMap.seedDataJSON}><c-helloworldv2 if:true={itemChild0Ele.bcustomlightningwebcomponent1} key={itemChild0Ele.lwcId} data-omni-key={itemChild0Ele.name} omni-resume={resume} data-omni-layout={layout} omni-json-def={itemChild0Ele} omni-json-data={jsonDef.response} omni-seed-json={jsonDef.propSetMap.seedDataJSON} omni-custom-state={jsonDef.customSaveState} omni-script-header-def={scriptHeaderDef} omni-json-data-str={jsonDataStr} data-omni-input=""></c-helloworldv2></vlocity_cmt-omniscript-custom-lwc></template></template></vlocity_cmt-omniscript-step><vlocity_cmt-omniscript-set-values if:true={item.bSetValues} key={item.lwcId} json-def={item} data-omni-key={item.name} json-data={jsonDef.response} json-data-str={jsonDataStr} layout={layout} resume={resume} script-header-def={scriptHeaderDef} run-mode={runMode}></vlocity_cmt-omniscript-set-values></template>
                             </div>
                             <div class="nds-m-around_small">
                                 <div class="nds-grid nds-grid_align-center">
@@ -90,7 +90,6 @@
                                                 <vlocity_cmt-button
                                                     type="button"
                                                     label={navButton.next.label}
-                                                    aria-label={navButton.next.label}
                                                     variant="brand"
                                                     extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
                                                     theme={_theme}>
@@ -104,7 +103,6 @@
                                                 onclick={nextStep}
                                                 class={navButton.next.classes}
                                                 label={navButton.next.label}
-                                                aria-label={navButton.next.label}
                                                 extraclass="nds-button_stretch nds-p-around_xx-small nds-size_1-of-1"
                                                 theme={_theme}>
                                             </vlocity_cmt-button>
@@ -124,7 +122,6 @@
                                                     type="button"
                                                     variant="neutral"
                                                     label={navButton.previous.label}
-                                                    aria-label={navButton.previous.label}
                                                     extraclass="nds-button_stretch nds-p-around_xx-small nds-size_1-of-1"
                                                     theme={_theme}>
                                                 </vlocity_cmt-button>
@@ -136,7 +133,6 @@
                                                 variant="neutral"
                                                 onclick={prevStep}
                                                 label={navButton.previous.label}
-                                                aria-label={navButton.previous.label}
                                                 class={navButton.previous.classes}
                                                 extraclass="nds-button_stretch nds-p-around_xx-small nds-size_1-of-1"
                                                 theme={_theme}>

@@ -1,0 +1,1 @@
+console.error('This library has been removed for security reasons. Please upgrade to the latest version');

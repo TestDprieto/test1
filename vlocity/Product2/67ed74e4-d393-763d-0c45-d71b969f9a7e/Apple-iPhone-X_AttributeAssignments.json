@@ -18,6 +18,7 @@
             "VlocityRecordSObjectType": "%vlocity_namespace%__Attribute__c"
         },
         "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_DT_BRD",
+        "%vlocity_namespace%__AttributeName__c": "Brand",
         "%vlocity_namespace%__ConfigurationDetail__c": "",
         "%vlocity_namespace%__ConfigurationStages__c": "",
         "%vlocity_namespace%__CustomConfigUiTemplate__c": "",
@@ -117,27 +118,28 @@
             "VlocityLookupRecordSourceKey": "%vlocity_namespace%__AttributeCategory__c/ACAT_Phones",
             "VlocityRecordSObjectType": "%vlocity_namespace%__AttributeCategory__c"
         },
-        "%vlocity_namespace%__AttributeDisplayNameOverride__c": "Capacity",
-        "%vlocity_namespace%__AttributeDisplaySequence__c": "30",
+        "%vlocity_namespace%__AttributeDisplayNameOverride__c": "Size",
+        "%vlocity_namespace%__AttributeDisplaySequence__c": "50",
         "%vlocity_namespace%__AttributeId__c": {
-            "%vlocity_namespace%__Code__c": "ATT_DT_CAP",
+            "%vlocity_namespace%__Code__c": "ATT_DT_SZ",
             "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
-            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Attribute__c/ATT_DT_CAP",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Attribute__c/ATT_DT_SZ",
             "VlocityRecordSObjectType": "%vlocity_namespace%__Attribute__c"
         },
-        "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_DT_CAP",
+        "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_DT_SZ",
+        "%vlocity_namespace%__AttributeName__c": "Size",
         "%vlocity_namespace%__ConfigurationDetail__c": "",
         "%vlocity_namespace%__ConfigurationStages__c": "",
         "%vlocity_namespace%__CustomConfigUiTemplate__c": "",
         "%vlocity_namespace%__Data__c": "",
         "%vlocity_namespace%__DefaultPicklistEntryId__c": "",
         "%vlocity_namespace%__DefaultPicklistValueId__c": "",
-        "%vlocity_namespace%__DisplaySequence__c": "null",
+        "%vlocity_namespace%__DisplaySequence__c": "20",
         "%vlocity_namespace%__EndStory__c": "",
         "%vlocity_namespace%__ExcludedPicklistEntryIds__c": "",
         "%vlocity_namespace%__ExcludedPicklistValues__c": "",
         "%vlocity_namespace%__FormatMask__c": "",
-        "%vlocity_namespace%__GlobalKey__c": "435184f7-204a-e0f4-71e5-7c851ed4f498",
+        "%vlocity_namespace%__GlobalKey__c": "db4b502b-0c1a-1083-90a7-7f1d6ed33342",
         "%vlocity_namespace%__HasRule__c": false,
         "%vlocity_namespace%__HelpText__c": "",
         "%vlocity_namespace%__IsActiveAssignment__c": true,
@@ -161,12 +163,7 @@
             "VlocityRecordSObjectType": "Product2"
         },
         "%vlocity_namespace%__ObjectType__c": "Product2",
-        "%vlocity_namespace%__PicklistId__c": {
-            "%vlocity_namespace%__GlobalKey__c": "e2801685-b02b-f5d9-3c76-e0e98b3c251c",
-            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
-            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Picklist__c/e2801685-b02b-f5d9-3c76-e0e98b3c251c",
-            "VlocityRecordSObjectType": "%vlocity_namespace%__Picklist__c"
-        },
+        "%vlocity_namespace%__PicklistId__c": "",
         "%vlocity_namespace%__QueryCode__c": "",
         "%vlocity_namespace%__QueryLabel__c": "",
         "%vlocity_namespace%__RemoveDate__c": "",
@@ -175,38 +172,16 @@
         "%vlocity_namespace%__RuleMessage__c": "",
         "%vlocity_namespace%__StartStory__c": "",
         "%vlocity_namespace%__StyleClass__c": "",
-        "%vlocity_namespace%__UIDisplayType__c": "Dropdown",
-        "%vlocity_namespace%__ValidValuesData__c": [
-            {
-                "displayText": "32 GB",
-                "id": 10,
-                "isDefault": false,
-                "isEditable": false,
-                "value": "32 GB"
-            },
-            {
-                "displayText": "64 GB",
-                "id": 20,
-                "isDefault": true,
-                "isEditable": false,
-                "value": "64 GB"
-            },
-            {
-                "displayText": "128 GB",
-                "id": 30,
-                "isDefault": false,
-                "isEditable": false,
-                "value": "128 GB"
-            }
-        ],
-        "%vlocity_namespace%__ValueDataType__c": "Picklist",
+        "%vlocity_namespace%__UIDisplayType__c": "",
+        "%vlocity_namespace%__ValidValuesData__c": "",
+        "%vlocity_namespace%__ValueDataType__c": "Text",
         "%vlocity_namespace%__ValueDecoder__c": "",
         "%vlocity_namespace%__ValueDescription__c": "",
-        "%vlocity_namespace%__Value__c": "64 GB",
-        "Name": "TempAA-ATT_DT_CAP",
+        "%vlocity_namespace%__Value__c": "5.65 x 2.79 x 0.30",
+        "Name": "NEW_ATT_DT_SZ",
         "VlocityDataPackType": "SObject",
         "VlocityRecordSObjectType": "%vlocity_namespace%__AttributeAssignment__c",
-        "VlocityRecordSourceKey": "%vlocity_namespace%__AttributeAssignment__c/435184f7-204a-e0f4-71e5-7c851ed4f498"
+        "VlocityRecordSourceKey": "%vlocity_namespace%__AttributeAssignment__c/db4b502b-0c1a-1083-90a7-7f1d6ed33342"
     },
     {
         "%vlocity_namespace%__AddDate__c": "",
@@ -227,6 +202,7 @@
             "VlocityRecordSObjectType": "%vlocity_namespace%__Attribute__c"
         },
         "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_RT_CLR",
+        "%vlocity_namespace%__AttributeName__c": "Color",
         "%vlocity_namespace%__ConfigurationDetail__c": "",
         "%vlocity_namespace%__ConfigurationStages__c": "",
         "%vlocity_namespace%__CustomConfigUiTemplate__c": "",
@@ -321,6 +297,7 @@
             "VlocityRecordSObjectType": "%vlocity_namespace%__Attribute__c"
         },
         "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_RT_MOS",
+        "%vlocity_namespace%__AttributeName__c": "Mobile OS",
         "%vlocity_namespace%__ConfigurationDetail__c": "",
         "%vlocity_namespace%__ConfigurationStages__c": "",
         "%vlocity_namespace%__CustomConfigUiTemplate__c": "",
@@ -415,6 +392,7 @@
             "VlocityRecordSObjectType": "%vlocity_namespace%__Attribute__c"
         },
         "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_RT_PAY_TYPE",
+        "%vlocity_namespace%__AttributeName__c": "Payment Type",
         "%vlocity_namespace%__ConfigurationDetail__c": "",
         "%vlocity_namespace%__ConfigurationStages__c": "",
         "%vlocity_namespace%__CustomConfigUiTemplate__c": "",
@@ -485,27 +463,28 @@
             "VlocityLookupRecordSourceKey": "%vlocity_namespace%__AttributeCategory__c/ACAT_Phones",
             "VlocityRecordSObjectType": "%vlocity_namespace%__AttributeCategory__c"
         },
-        "%vlocity_namespace%__AttributeDisplayNameOverride__c": "Size",
-        "%vlocity_namespace%__AttributeDisplaySequence__c": "50",
+        "%vlocity_namespace%__AttributeDisplayNameOverride__c": "Capacity",
+        "%vlocity_namespace%__AttributeDisplaySequence__c": "30",
         "%vlocity_namespace%__AttributeId__c": {
-            "%vlocity_namespace%__Code__c": "ATT_DT_SZ",
+            "%vlocity_namespace%__Code__c": "ATT_DT_CAP",
             "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
-            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Attribute__c/ATT_DT_SZ",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Attribute__c/ATT_DT_CAP",
             "VlocityRecordSObjectType": "%vlocity_namespace%__Attribute__c"
         },
-        "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_DT_SZ",
+        "%vlocity_namespace%__AttributeId__r.%vlocity_namespace%__Code__c": "ATT_DT_CAP",
+        "%vlocity_namespace%__AttributeName__c": "Capacity",
         "%vlocity_namespace%__ConfigurationDetail__c": "",
         "%vlocity_namespace%__ConfigurationStages__c": "",
         "%vlocity_namespace%__CustomConfigUiTemplate__c": "",
         "%vlocity_namespace%__Data__c": "",
         "%vlocity_namespace%__DefaultPicklistEntryId__c": "",
         "%vlocity_namespace%__DefaultPicklistValueId__c": "",
-        "%vlocity_namespace%__DisplaySequence__c": "20",
+        "%vlocity_namespace%__DisplaySequence__c": "null",
         "%vlocity_namespace%__EndStory__c": "",
         "%vlocity_namespace%__ExcludedPicklistEntryIds__c": "",
         "%vlocity_namespace%__ExcludedPicklistValues__c": "",
         "%vlocity_namespace%__FormatMask__c": "",
-        "%vlocity_namespace%__GlobalKey__c": "db4b502b-0c1a-1083-90a7-7f1d6ed33342",
+        "%vlocity_namespace%__GlobalKey__c": "435184f7-204a-e0f4-71e5-7c851ed4f498",
         "%vlocity_namespace%__HasRule__c": false,
         "%vlocity_namespace%__HelpText__c": "",
         "%vlocity_namespace%__IsActiveAssignment__c": true,
@@ -529,7 +508,12 @@
             "VlocityRecordSObjectType": "Product2"
         },
         "%vlocity_namespace%__ObjectType__c": "Product2",
-        "%vlocity_namespace%__PicklistId__c": "",
+        "%vlocity_namespace%__PicklistId__c": {
+            "%vlocity_namespace%__GlobalKey__c": "e2801685-b02b-f5d9-3c76-e0e98b3c251c",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__Picklist__c/e2801685-b02b-f5d9-3c76-e0e98b3c251c",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__Picklist__c"
+        },
         "%vlocity_namespace%__QueryCode__c": "",
         "%vlocity_namespace%__QueryLabel__c": "",
         "%vlocity_namespace%__RemoveDate__c": "",
@@ -538,15 +522,37 @@
         "%vlocity_namespace%__RuleMessage__c": "",
         "%vlocity_namespace%__StartStory__c": "",
         "%vlocity_namespace%__StyleClass__c": "",
-        "%vlocity_namespace%__UIDisplayType__c": "",
-        "%vlocity_namespace%__ValidValuesData__c": "",
-        "%vlocity_namespace%__ValueDataType__c": "Text",
+        "%vlocity_namespace%__UIDisplayType__c": "Dropdown",
+        "%vlocity_namespace%__ValidValuesData__c": [
+            {
+                "displayText": "32 GB",
+                "id": 10,
+                "isDefault": false,
+                "isEditable": false,
+                "value": "32 GB"
+            },
+            {
+                "displayText": "64 GB",
+                "id": 20,
+                "isDefault": true,
+                "isEditable": false,
+                "value": "64 GB"
+            },
+            {
+                "displayText": "128 GB",
+                "id": 30,
+                "isDefault": false,
+                "isEditable": false,
+                "value": "128 GB"
+            }
+        ],
+        "%vlocity_namespace%__ValueDataType__c": "Picklist",
         "%vlocity_namespace%__ValueDecoder__c": "",
         "%vlocity_namespace%__ValueDescription__c": "",
-        "%vlocity_namespace%__Value__c": "5.65 x 2.79 x 0.30",
-        "Name": "NEW_ATT_DT_SZ",
+        "%vlocity_namespace%__Value__c": "64 GB",
+        "Name": "TempAA-ATT_DT_CAP",
         "VlocityDataPackType": "SObject",
         "VlocityRecordSObjectType": "%vlocity_namespace%__AttributeAssignment__c",
-        "VlocityRecordSourceKey": "%vlocity_namespace%__AttributeAssignment__c/db4b502b-0c1a-1083-90a7-7f1d6ed33342"
+        "VlocityRecordSourceKey": "%vlocity_namespace%__AttributeAssignment__c/435184f7-204a-e0f4-71e5-7c851ed4f498"
     }
 ]

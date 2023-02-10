@@ -3,6 +3,7 @@
     <defaultLandingTab>vlocity_cmt__DataRaptor</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Vlocity DataRaptor</label>
     <logo>vlocity_cmt__VlocityResources/vlocity_cmt__CommunicationsMediaLogo.gif</logo>
     <tabs>vlocity_cmt__DataRaptor</tabs>

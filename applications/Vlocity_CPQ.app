@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-Order</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Vlocity CPQ</label>
     <logo>vlocity_cmt__VlocityResources/vlocity_cmt__VlocityCommunicationsLogo.png</logo>
     <tabs>standard-Chatter</tabs>

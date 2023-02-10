@@ -2,5 +2,9 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>ForecastingItemCategory</fullName>
+        <type>Picklist</type>
+    </fields>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
