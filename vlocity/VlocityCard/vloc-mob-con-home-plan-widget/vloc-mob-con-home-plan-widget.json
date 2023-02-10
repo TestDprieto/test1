@@ -1,0 +1,84 @@
+{
+    "dataSource": {
+        "type": "Query",
+        "value": {
+            "jsonMap": "{\"$root.currentUser.Account.attributes.url.substring(38)\":\"{{$root.currentUser.Account.attributes.url.substring(38)}}\"}"
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+            ],
+            "name": "Active",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayConditional",
+                    "type": "string",
+                    "value": "true"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "/month",
+                    "name": "DisplayConditionalTrue",
+                    "type": "currency",
+                    "value": "['%vlocity_namespace%__RecurringTotal__c']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "DisplayString",
+                    "type": "string",
+                    "value": "['Name']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "Your Plan",
+                    "name": "DisplayTitle",
+                    "type": "string",
+                    "value": ""
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "NavigationPage",
+                    "type": "string",
+                    "value": "MobConBilling"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "IsLast",
+                    "type": "string",
+                    "value": "true"
+                }
+            ],
+            "templateUrl": "vloc-mob-con-home-widget-long-arrow"
+        }
+    ],
+    "title": "Plan"
+}

@@ -1,0 +1,410 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "Apple-iPhone-Xs_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+        "ATT_DT_BRD": "Apple",
+        "ATT_DT_CAP": null,
+        "ATT_DT_SZ": null,
+        "ATT_RT_CLR": null,
+        "ATT_RT_PAY_TYPE": null
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ACAT_Phones",
+                "Name": "Mobile Devices",
+                "displaySequence": 20,
+                "id": "a0J5e000000pggAEAQ",
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "attributeId": "a0K5e000000bEwhEAE",
+                            "cloneable": true,
+                            "code": "ATT_RT_PAY_TYPE",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 1,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Payment Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": true,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 10,
+                                    "id": "68799995-f287-e291-5a67-9e9a981edb43",
+                                    "label": "Pay in Full",
+                                    "readonly": false,
+                                    "value": "Pay in Full"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 20,
+                                    "id": "5a89e782-6f0b-2639-79c9-1f6dca091c88",
+                                    "label": "Pay Monthly",
+                                    "readonly": false,
+                                    "value": "Pay Monthly"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwLEAU",
+                            "cloneable": true,
+                            "code": "ATT_DT_BRD",
+                            "dataType": "text",
+                            "disabled": true,
+                            "displaySequence": 10,
+                            "filterable": true,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Brand",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": true,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 10,
+                                    "id": "ac5b52df-143d-2038-6bdb-0eab8087ac37",
+                                    "label": "Apple",
+                                    "readonly": false,
+                                    "value": "Apple"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 20,
+                                    "id": "4a5e1aba-18a3-da49-c150-ca803b8e0556",
+                                    "label": "LG",
+                                    "readonly": false,
+                                    "value": "LG"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 30,
+                                    "id": "3eb374af-293b-647f-3770-538711878820",
+                                    "label": "Samsung",
+                                    "readonly": false,
+                                    "value": "Samsung"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 40,
+                                    "id": "d8edad84-cb33-a62f-e9a4-5fcfd10acb35",
+                                    "label": "Google",
+                                    "readonly": false,
+                                    "value": "Google"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwKEAU",
+                            "cloneable": true,
+                            "code": "ATT_RT_CLR",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 20,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Color",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": true,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 10,
+                                    "id": "5f68349b-6bef-2fac-4807-74a1f4d1d9b5",
+                                    "label": "Silver",
+                                    "readonly": false,
+                                    "value": "Silver"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 20,
+                                    "id": "157596b3-8e72-1247-48d2-7712dc64adec",
+                                    "label": "Space Gray",
+                                    "readonly": false,
+                                    "value": "Space Gray"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 30,
+                                    "id": "20abdfbe-e3dd-5be8-305c-6217c6d3fdaa",
+                                    "label": "Gold",
+                                    "readonly": false,
+                                    "value": "Gold"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwMEAU",
+                            "cloneable": true,
+                            "code": "ATT_DT_CAP",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 30,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Capacity",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": true,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 10,
+                                    "id": "a65e3f5a-0824-ff55-416e-7e398ce6c7a4",
+                                    "label": "64 GB",
+                                    "readonly": false,
+                                    "value": "64 GB"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 20,
+                                    "id": "664e596e-fd69-2f75-dd10-3414c45010a9",
+                                    "label": "256 GB",
+                                    "readonly": false,
+                                    "value": "256 GB"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 30,
+                                    "id": "e94374f5-3bd7-04d3-fd8d-36588ccc29e5",
+                                    "label": "512 GB",
+                                    "readonly": false,
+                                    "value": "512 GB"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwNEAU",
+                            "cloneable": true,
+                            "code": "ATT_RT_MOS",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 40,
+                            "filterable": true,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Mobile OS",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": null
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwPEAU",
+                            "cloneable": true,
+                            "code": "ATT_DT_SZ",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 50,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "text",
+                            "isNotTranslatable": false,
+                            "label": "Size",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 6
+                }
+            }
+        ],
+        "totalSize": 1
+    },
+    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__CategoryData__c": [
+        {
+            "actions": {
+            },
+            "childCategories": [
+            ],
+            "displaySequence": -1,
+            "fields": {
+            },
+            "id": "a0c1I000006EoYrQAK",
+            "messages": [
+            ],
+            "name": "SAMPLE Mobile Catalog",
+            "nameResult": {
+            },
+            "uiStates": {
+            }
+        },
+        {
+            "actions": {
+            },
+            "childCategories": [
+            ],
+            "displaySequence": -1,
+            "fields": {
+            },
+            "id": "a0c1I000006e70zQAA",
+            "messages": [
+            ],
+            "name": "Phones",
+            "nameResult": {
+            },
+            "uiStates": {
+            }
+        }
+    ],
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "",
+    "%vlocity_namespace%__GlobalGroupKey__c": "41884922-e1ba-6462-9200-5db97ac1dc28",
+    "%vlocity_namespace%__GlobalKey__c": "ccedb38f-2e6c-5d20-2d50-a53c2db601c8",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": true,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "Seconds",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "0dcba5d42ab6de0806123ba60dbf5817",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/0dcba5d42ab6de0806123ba60dbf5817",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ObjectTypeName__c": "SmartPhone Product Spec",
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__PriceListEntry__c": "Apple-iPhone-Xs_PriceListEntries.json",
+    "%vlocity_namespace%__ProductChildItem__c": "Apple-iPhone-Xs_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Product",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "None",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "None",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "V1",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "A Super Retina OLED display. Even faster Face ID. And a breakthrough dual-camera system. The iPhone Xs is everything you love about iPhone. Taken to the extreme.",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "Apple iPhone Xs",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "PricebookEntry": "Apple-iPhone-Xs_PricebookEntries.json",
+    "ProductCode": "C-PHO-010",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StandardPricebookEntry": [
+        {
+            "%vlocity_namespace%__FloorPrice__c": "",
+            "%vlocity_namespace%__OverageCharge__c": "",
+            "%vlocity_namespace%__OverageUOM__c": "",
+            "%vlocity_namespace%__RecurringPrice__c": 0,
+            "%vlocity_namespace%__RecurringUOM__c": "Monthly",
+            "IsActive": true,
+            "IsArchived": false,
+            "Name": "Apple iPhone Xs",
+            "Pricebook2.Name": "Standard Price Book",
+            "Pricebook2Id": {
+                "Name": "Standard Price Book",
+                "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+                "VlocityLookupRecordSourceKey": "Pricebook2/Standard Price Book",
+                "VlocityRecordSObjectType": "Pricebook2"
+            },
+            "Product2.%vlocity_namespace%__GlobalKey__c": "ccedb38f-2e6c-5d20-2d50-a53c2db601c8",
+            "Product2Id": {
+                "%vlocity_namespace%__GlobalKey__c": "ccedb38f-2e6c-5d20-2d50-a53c2db601c8",
+                "VlocityDataPackType": "VlocityMatchingKeyObject",
+                "VlocityMatchingRecordSourceKey": "Product2/ccedb38f-2e6c-5d20-2d50-a53c2db601c8",
+                "VlocityRecordSObjectType": "Product2"
+            },
+            "ProductCode": "C-PHO-010",
+            "UnitPrice": 0,
+            "UseStandardPrice": false,
+            "VlocityDataPackType": "SObject",
+            "VlocityRecordSObjectType": "PricebookEntry",
+            "VlocityRecordSourceKey": "PricebookEntry/Pricebook2/Standard Price Book/Product2/ccedb38f-2e6c-5d20-2d50-a53c2db601c8"
+        }
+    ],
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/ccedb38f-2e6c-5d20-2d50-a53c2db601c8"
+}

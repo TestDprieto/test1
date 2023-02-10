@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Action --></label>
+        <name>vlocity_cmt__Action__c</name>
+        <picklistValues>
+            <masterLabel>Add</masterLabel>
+            <translation><!-- Add --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disconnect</masterLabel>
+            <translation><!-- Disconnect --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Modify</masterLabel>
+            <translation><!-- Modify --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NoChange</masterLabel>
+            <translation><!-- NoChange --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Resume</masterLabel>
+            <translation><!-- Resume --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspend</masterLabel>
+            <translation><!-- Suspend --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Condition Data --></label>
+        <name>vlocity_cmt__ConditionData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Key --></label>
+        <name>vlocity_cmt__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Orchestration Plan Definition --></label>
+        <name>vlocity_cmt__OrchestrationPlanDefinitionId__c</name>
+        <relationshipLabel><!-- Orchestration Scenarios --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Orchestration Plan --></label>
+        <name>vlocity_cmt__OrchestrationPlanId__c</name>
+        <relationshipLabel><!-- Orchestration Scenarios --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Product --></label>
+        <name>vlocity_cmt__Product2Id__c</name>
+        <relationshipLabel><!-- Orchestration Scenarios --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sub Action --></label>
+        <name>vlocity_cmt__SubAction__c</name>
+        <picklistValues>
+            <masterLabel>Move-Add</masterLabel>
+            <translation><!-- Move-Add --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Move-Disconnect</masterLabel>
+            <translation><!-- Move-Disconnect --></translation>
+        </picklistValues>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- Action cannot be blank --></errorMessage>
+        <name>vlocity_cmt__ValidateOrchestrationScenario</name>
+    </validationRules>
+</CustomObjectTranslation>

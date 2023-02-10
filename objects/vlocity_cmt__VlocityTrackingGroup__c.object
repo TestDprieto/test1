@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Web/Omnichannel tracking definition. Under each Tracking Group, we can specify a set of Components to be tracked.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>vlocity_cmt__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Description</inlineHelpText>
+        <label>Description</label>
+        <length>2048</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective End Date. Date, on which the tracking will stop. Null implies no limit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the tracking will stop. Null implies no limit.</inlineHelpText>
+        <label>End Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Effective Start Date. Date from which the tracking will start. Null implies no limit.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date from which the tracking will start. Null implies no limit.</inlineHelpText>
+        <label>Start Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__GlobalKey__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <deprecated>false</deprecated>
+        <description>Data pack support.</description>
+        <externalId>true</externalId>
+        <label>GlobalKey</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Denotes if the current Tracking Group is active.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Denotes if the current Tracking Group is active.</inlineHelpText>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MaxAgeInDays__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of days, the event data from this tracking group will be persisted in the Reporting SObject.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of days, the event data from this tracking group will be persisted in the Reporting SObject. Applicable only when Tracking Group Type is Internal.</inlineHelpText>
+        <label>Max Age In Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This denotes the tracking data endpoint for the current group. Web denotes that, the data endpoint is a third party vendor as defined in the Vlocity Web Tracking Configuration. 
+Internal denotes that the event data will be posted to Vlocity inhouse framework.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This denotes the tracking data endpoint for the current group.</inlineHelpText>
+        <label>Tracking Group Type</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Web</fullName>
+                    <default>false</default>
+                    <label>Web</label>
+                </value>
+                <value>
+                    <fullName>Internal</fullName>
+                    <default>false</default>
+                    <label>Internal</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__VlocityWebTrackingConfigurationId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Reference to the Tracking Configuration that will dictate how information is sent to the tracker.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Reference to the Tracking Configuration that will dictate how information is sent to the tracker.</inlineHelpText>
+        <label>Vlocity Web Tracking Configuration</label>
+        <referenceTo>vlocity_cmt__VlocityWebTrackingConfiguration__c</referenceTo>
+        <relationshipLabel>Vlocity Tracking Groups</relationshipLabel>
+        <relationshipName>VlocityTrackingGroups</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <label>Vlocity Tracking Group</label>
+    <nameField>
+        <label>Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Vlocity Tracking Groups</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>vlocity_cmt__Active_Web_TrackingConfiguration</fullName>
+        <active>true</active>
+        <description>Only active Web Tracking Configuration records are allowed to be selected with Tracking Group.</description>
+        <errorConditionFormula>AND(vlocity_cmt__VlocityWebTrackingConfigurationId__c &lt;&gt; null,vlocity_cmt__VlocityWebTrackingConfigurationId__r.vlocity_cmt__IsActive__c == false)</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__VlocityWebTrackingConfigurationId__c</errorDisplayField>
+        <errorMessage>Only active Web Tracking Configuration records are allowed to be selected with Tracking Group.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__Effective_Start_Date_and_End_Date</fullName>
+        <active>true</active>
+        <description>Effective End Date can not be in the past relative to Effective Start Date.</description>
+        <errorConditionFormula>AND(ISBLANK(vlocity_cmt__EffectiveStartDate__c) = false, ISBLANK(vlocity_cmt__EffectiveEndDate__c) = false, vlocity_cmt__EffectiveStartDate__c - vlocity_cmt__EffectiveEndDate__c &gt; 0)</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__EffectiveEndDate__c</errorDisplayField>
+        <errorMessage>End Date can not be older than Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__Max_Age_Greater_Than_Zero</fullName>
+        <active>true</active>
+        <description>Max Age In Days entry should be greater than zero.</description>
+        <errorConditionFormula>vlocity_cmt__MaxAgeInDays__c &lt;= 0</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__MaxAgeInDays__c</errorDisplayField>
+        <errorMessage>Max Age In Days entry should be greater than zero.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__Oldest_EffectiveEndDate</fullName>
+        <active>true</active>
+        <description>Restricting end date to 2020/01/01.</description>
+        <errorConditionFormula>DATE(2020, 1, 1) &gt;  vlocity_cmt__EffectiveEndDate__c</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__EffectiveEndDate__c</errorDisplayField>
+        <errorMessage>End date can not be older that Jan 2020.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__Oldest_EffectiveStartDate</fullName>
+        <active>true</active>
+        <description>Restricting start date to 2020/01/01.</description>
+        <errorConditionFormula>DATE(2020, 1, 1) &gt;  vlocity_cmt__EffectiveStartDate__c</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__EffectiveStartDate__c</errorDisplayField>
+        <errorMessage>Start date can not be older that Jan 2020.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__TrackingConfig_With_Internal_Type</fullName>
+        <active>true</active>
+        <description>When Type is Internal, Web Tracking Configuration look up must be empty.</description>
+        <errorConditionFormula>AND(ISPICKVAL(vlocity_cmt__Type__c, &apos;Internal&apos;), vlocity_cmt__VlocityWebTrackingConfigurationId__c &lt;&gt; null)</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__VlocityWebTrackingConfigurationId__c</errorDisplayField>
+        <errorMessage>Vlocity Web Tracking Configuration with Tracking Group type Internal is invalid.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__Type_Validation</fullName>
+        <active>true</active>
+        <description>When Type is Web, Web Tracking Configuration look up must be populated.</description>
+        <errorConditionFormula>AND(ISPICKVAL(vlocity_cmt__Type__c, &apos;Web&apos;), vlocity_cmt__VlocityWebTrackingConfigurationId__c == null)</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__VlocityWebTrackingConfigurationId__c</errorDisplayField>
+        <errorMessage>Please select a Web Tracking Configuration.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

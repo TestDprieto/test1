@@ -1,0 +1,49 @@
+{
+    "%vlocity_namespace%__AppliesToAllItems__c": false,
+    "%vlocity_namespace%__BenefitTimePlanId__c": "",
+    "%vlocity_namespace%__BenefitTimePolicyId__c": "",
+    "%vlocity_namespace%__CannotBeCombined__c": false,
+    "%vlocity_namespace%__Code__c": "PRO-001",
+    "%vlocity_namespace%__Description__c": "20% off iPhone X plus $20 data plan for 6 months with 2-year subscription",
+    "%vlocity_namespace%__DiscountType__c": "",
+    "%vlocity_namespace%__DurationTimePlanId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "a4e35dbf-6fa3-6fae-e3e9-627588b3fd27",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__TimePlan__c/a4e35dbf-6fa3-6fae-e3e9-627588b3fd27",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__TimePlan__c"
+    },
+    "%vlocity_namespace%__DurationTimePolicyId__c": {
+        "%vlocity_namespace%__GlobalKey__c": "06b988e6-c706-2353-ace6-49dc7c790e2c",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__TimePolicy__c/06b988e6-c706-2353-ace6-49dc7c790e2c",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__TimePolicy__c"
+    },
+    "%vlocity_namespace%__DurationUnitOfMeasure__c": "",
+    "%vlocity_namespace%__Duration__c": "",
+    "%vlocity_namespace%__EffectiveEndDate__c": "",
+    "%vlocity_namespace%__EffectiveStartDate__c": "2018-01-01T08:00:00.000Z",
+    "%vlocity_namespace%__EnableAutoAddProducts__c": false,
+    "%vlocity_namespace%__EnableAutoApplyPromotion__c": true,
+    "%vlocity_namespace%__FollowOnPromotionId__c": "",
+    "%vlocity_namespace%__GlobalKey__c": "2dbc9dc1-e1c1-7bf1-f77a-a98ed927af96",
+    "%vlocity_namespace%__IsActive__c": true,
+    "%vlocity_namespace%__IsLimitedQuantity__c": true,
+    "%vlocity_namespace%__IsOrderable__c": true,
+    "%vlocity_namespace%__PriceListEntry__c": "iPhone-X-Intro-Promo_PriceListEntries.json",
+    "%vlocity_namespace%__PriceListId__c": {
+        "%vlocity_namespace%__Code__c": "PL-001",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__PriceList__c/PL-001",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PriceList__c"
+    },
+    "%vlocity_namespace%__PromotionItem__c": "iPhone-X-Intro-Promo_PromotionItems.json",
+    "%vlocity_namespace%__Quantity__c": "",
+    "%vlocity_namespace%__RankOrder__c": "",
+    "%vlocity_namespace%__RedeemableCode__c": "2FOR20",
+    "%vlocity_namespace%__ServiceContinuation__c": "Manual Opt-Out",
+    "Name": "iPhone X Intro Promo",
+    "RecordTypeId": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__Promotion__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__Promotion__c/2dbc9dc1-e1c1-7bf1-f77a-a98ed927af96"
+}

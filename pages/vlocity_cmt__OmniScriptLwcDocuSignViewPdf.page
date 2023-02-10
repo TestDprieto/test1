@@ -1,0 +1,19 @@
+<apex:page standardStylesheets="false"
+            showHeader="false"
+            sidebar="false" docType="html-5.0" >
+<html>
+    <script type='text/javascript'>
+        window.addEventListener('DOMContentLoaded', function(event) {
+            window.parent.postMessage({docuSignViewPdfPageloaded: true, docusignPostMessage:true}, '*');
+            window.addEventListener('message', function(event){
+                if (typeof event.data === 'object' && event.data.docusignPostMessageViewPdf)
+                    document.querySelector('embed').setAttribute('src', 'data:application/pdf;base64,' + event.data.pdfData);
+        	});
+        });
+    </script>
+
+    <body>
+        <embed type="application/pdf" style="height: 100vh; width: 100%;" />
+    </body>
+</html>
+</apex:page>

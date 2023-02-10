@@ -1,0 +1,37 @@
+{
+    "Cards": [
+        "sample Case List",
+        "sample Action Stash"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0013k00002cO0fzAAC"
+            }
+        ],
+        "type": "IntegrationProcedures",
+        "value": {
+            "bundle": "",
+            "inputMap": {
+                "AccountId": "{{params.id}}"
+            },
+            "ipMethod": "sample_getCaseList",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": "['Cases']"
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "list-card-canvas-slds"
+        }
+    },
+    "workspace": [
+        "Action Stash/VU/1/1568847963158",
+        "sample Case List/VU/1/1573064488005",
+        "sample Action Stash/VU/1/1573065624238"
+    ]
+}

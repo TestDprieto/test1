@@ -1,0 +1,62 @@
+<div class="slds-col--padded slds-size--1-of-1">
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex slds-clearfix vlc-slds-block vlc-slds-filter-block'
+             id ="{{::control.name}}"
+             ng-repeat='control in child.eleArray' >
+
+        <div class="slds-form-element__control">
+
+            <label vlc-slds-toggle="toggle"
+                   class="slds-form-element__label slds-clearfix"
+                   ng-if="control.propSetMap.label">
+                
+                <slds-svg-icon aria-hidden="true"
+                               sprite="'utility'"
+                               icon="'chevrondown'"
+                               size="'small'"
+                               extra-classes="'vlc-slds-collapse slds-button__icon slds-button__icon--large'">
+                </slds-svg-icon>
+
+                <slds-svg-icon aria-hidden="true"
+                               sprite="'utility'"
+                               icon="'chevronup'"
+                               size="'small'"
+                               extra-classes="'vlc-slds-expand slds-button__icon slds-button__icon--large'">
+                </slds-svg-icon>
+
+                <div class="slds-form-element__label--toggleText">
+                    {{::control.propSetMap.label}}
+                </div>
+                
+            </label>
+
+            <!-- block withing the main grid  ng-hide hides hthe block by default-->
+            <div class='slds-size--1-of-1 ng-hide'
+                 vlc-slds-toggle-elem='visible'>
+
+                <div  class="slds-grid slds-wrap slds-grid--pull-padded">
+                    <child class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--12-of-12 vlc-slds-filter__item"
+                           ng-repeat='child in ::children = control.children'
+                           ng-show='::!child.eleArray[0].propSetMap.hide'
+                           vlc-slds-change-inline-templates="::child.eleArray[0].propSetMap.showInputWidth"
+                           ng-if='child.eleArray[0].propSetMap.hide||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                    </child>
+                </div>
+
+                <ng-form class="slds-size--1-of-1 vlc-slds-select--filter-button slds-clearfix">
+                        <button type="button"
+                                class="slds-button slds-button--neutral slds-float--left" 
+                                ng-disabled='false'
+                                ng-click='buttonClick(bpTree.response, control, this)'>
+                            {{::control.propSetMap.buttonLabel}}
+                        </button>
+                </ng-form>
+
+            </div>
+
+        </div>
+        
+    </ng-form>
+
+</div>

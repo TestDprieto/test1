@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Custom control to dictate the time frame of historical billing retained. For example, a customer may wish to see billing data for the past three billing cycles and to have all older data purged.</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>vlocity_cmt__TrimDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Trim Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>Billing Data Trim Setting</label>
+    <visibility>Public</visibility>
+</CustomObject>

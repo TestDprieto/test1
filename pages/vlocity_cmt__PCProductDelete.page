@@ -1,0 +1,105 @@
+<apex:page docType="html-5.0" applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" standardController="Product2" extensions="vlocity_cmt.ProductConsoleControllerV2" cache="true" expires="86400">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" dir="{!IF(isLanguageRTL, 'rtl', 'ltr')}">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="Vlocity Product Designer" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+        <meta name="description" content="Vlocity Product Designer" />
+        <title>Vlocity Product Designer</title>
+
+        <!-- Common scripts -->
+        <apex:includeScript value="/support/console/44.0/integration.js" />
+
+        <!--
+            The `<base>` tag below is present to support two advanced deployment options:
+            1) Differential serving. 2) Serving from a non-root path.
+
+            Instead of manually editing the `<base>` tag yourself, you should generally either:
+            a) Add a `basePath` property to the build configuration in your `polymer.json`.
+            b) Use the `--base-path` command-line option for `polymer build`.
+
+            Note: If you intend to serve from a non-root path, see [polymer-root-path] below.
+          -->
+        <base href="/" />
+
+        <!--TODO: add vlocity icons-->
+        <link rel="icon" href="images/favicon.ico" />
+        <style>
+            #upc-product-delete-container{
+                width: 50%;
+                margin: 150px auto;
+            }
+            #upc-product-delete-container .slds-modal__content{
+                border-left: 1px solid #ededed;
+                border-right: 1px solid #ededed;
+            }
+        </style>
+        <script>
+            /**
+             * [polymer-root-path]
+             *
+             * Leave this line unchanged if you intend to serve your app from the root
+             * path (e.g., with URLs like `my.domain/` and `my.domain/view1`).
+             *
+             * If you intend to serve your app from a non-root path (e.g., with URLs
+             * like `my.domain/my-app/` and `my.domain/my-app/view1`), edit this line
+             * to indicate the path from which you'll be serving, including leading
+             * and trailing slashes (e.g., `/my-app/`).
+             */
+            window.VlocityProductConsoleAppGlobals = {
+                rootPath: '/'
+            };
+        </script>
+        
+    </head>
+
+    <body>
+        <apex:includeLightning />
+        <div id="upc-product-delete-container"></div>
+        <noscript>
+            Please enable JavaScript to view Vlocity Product Designer.
+        </noscript>
+
+        <script>
+            let primaryTabId;
+            function setTabTitle(){
+                sforce.console.getEnclosingPrimaryTabId(result => {
+                    primaryTabId = result.id;
+                    const tabLabel =  '{!$Label.upcDeleteProduct}';
+                    sforce.console.setTabTitle(tabLabel,primaryTabId);
+                });  
+            }
+
+            function closeAndRedirectToList(){
+                sforce.console.setSelectedNavigationTab(() => {}, "standard-Product2");
+                sforce.console.closeTab(primaryTabId);
+            }
+
+            function createComponent(){
+                const namespacePrefix = '{!NSP}';
+                const namespace = namespacePrefix.slice(0,namespacePrefix.length-2);
+                $Lightning.use(namespace+":ltngOutVF", function() {
+                    const currentRecordId = '{!$CurrentPage.parameters.id}';
+                    $Lightning.createComponent(
+                        namespace+":upcProductDelete", {recordId:currentRecordId}, "upc-product-delete-container",
+                        (cmp)=> {
+                            cmp.elements[0].addEventListener("productdeletecancel",event=>{
+                                closeAndRedirectToList();
+                            });
+                            cmp.elements[0].addEventListener("productdeletesuccess",event=>{
+                                closeAndRedirectToList();
+                            });
+                        }
+                    );
+                });
+            }
+
+            setTabTitle();
+            createComponent();
+        </script>
+
+    </body>
+
+    </html>
+</apex:page>

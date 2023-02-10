@@ -1,0 +1,40 @@
+<div ng-if="baseCtrl.setDocXDocTempList(this)"></div>
+            <div class='slds-col--padded slds-size--1-of-1'>
+                <div class="slds-form-element slds-size--2-of-8">
+                    <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
+                        <slds-svg-icon sprite="'utility'" icon="'search'" extra-classes="'slds-icon_small slds-input__icon'"></slds-svg-icon>
+                        <input ng-model="searchTerm" class="slds-input" type="text" placeholder="Search" />
+                    </div>
+                </div>
+              <table class="slds-table slds-table--bordered slds-table--cell-buffer vlc-slds-table">
+              <thead>
+                <tr class="slds-text-heading--label">
+                  <th width="20px"/>
+                  <th scope="col">
+                    <div class="slds-truncate">Template Name</div>
+                  </th>
+                 <th scope="col">
+                    <div class="slds-truncate">Version Number</div>
+                 </th>               
+               </tr>
+             </thead>
+             <tbody>
+               <tr ng-repeat='p in control.vlcSI[control.itemsKey]' ng-class="{ 'vlc-selectableitem-selected' : p.vlcSelected }" 
+                                  ng-if="searchFilter(p.Name,searchTerm)">
+                 <th class="slds-cell-shrink">
+                    <label class="slds-checkbox">
+                        <input type="checkbox" ng-model='p.vlcSelected' ng-change='onSelectItem(control, p, $index, this)'/>
+                        <span class="slds-checkbox--faux"></span>
+                        <span class="slds-assistive-text">Select</span>
+                    </label>
+                </th>
+                <td>
+                    <div class="slds-truncate">{{p['Name']}}</div>
+                </td>
+                <td>
+                    <div class="slds-truncate">{{p['VersionNumber']}}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

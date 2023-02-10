@@ -1,0 +1,21 @@
+<div class="cpq-replace-item-content">
+    <div class="slds-modal__content slds-p-around--x-large cpq-modal-content">
+        <div class="cpq-replace-heading-text">
+            <div>{{::importedScope.customLabels.CPQSelectExistingOffer}}</div>
+        </div>
+        <hr>
+        <div>
+            <fieldset class="slds-form-element">
+                <div class="slds-form-element__control">
+                    <div class="slds-checkbox cpq-replace-options-checkbox" ng-repeat="item in records">
+                        <input type="checkbox" id="{{item.itemId}}" ng-value="item.productId" ng-change="importedScope.selectPlan(records)" ng-model="$root.isPlanSelected[$index]"/>
+                        <label class="slds-checkbox__label" for="{{item.itemId}}">
+                        <span class="slds-checkbox_faux"></span>
+                        <span cpq-translate="Product2.Name" class="slds-form-element__label">{{item.productName}}</span>
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+</div>
