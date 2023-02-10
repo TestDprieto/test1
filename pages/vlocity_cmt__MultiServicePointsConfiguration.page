@@ -1,0 +1,6 @@
+<apex:page standardcontroller="Opportunity" extensions="vlocity_cmt.MultiServicePointsController" standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+    <script type="text/javascript">
+        var nsp = '{!namespacePrefix}';
+        window.location.href = 'apex/'+nsp+'OmniScriptUniversalPage?id={!Opportunity.Id}&parentId={!Opportunity.Id}&layout=lightning#/OmniScriptType/Energy/OmniScriptSubType/MultiServicePoints/OmniScriptLang/English/ContextId/{!Opportunity.Id}/PrefillDataRaptorBundle//true';
+    </script>
+</apex:page>

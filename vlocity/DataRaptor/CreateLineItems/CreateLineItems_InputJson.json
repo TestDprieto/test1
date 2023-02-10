@@ -1,0 +1,62 @@
+{
+    "ContextId": "80015000000Dl1A",
+    "Contract": {
+        "AccountId": "0011500001FNz53AAD",
+        "Id": "80015000000Dl1AAAS",
+        "Name": "Test1"
+    },
+    "ContractType": "Amendment",
+    "EnterPrice": {
+        "SpecifyPrice": [
+            {
+                "MonthlyCharge": 33.33,
+                "Name": "GenWatt Propane 1500kW",
+                "OneTimeCharge": 2.22,
+                "OneTimeTotal": 2.22,
+                "ProductId": "01t15000005EMCTAA4",
+                "Quantity": 1,
+                "RecurringTotal": 33.33
+            },
+            {
+                "MonthlyCharge": 333.33,
+                "Name": "GenWatt Diesel 1000kW",
+                "OneTimeCharge": 333.33,
+                "OneTimeTotal": 999.99,
+                "ProductId": "01t15000005EMCUAA4",
+                "Quantity": 3,
+                "RecurringTotal": 999.99
+            }
+        ]
+    },
+    "Lines": {
+        "CreateNewLine": "CreateNewLine"
+    },
+    "SelectProduct": {
+        "Product": [
+            {
+                "Name": "GenWatt Propane 1500kW",
+                "ProductId": "01t15000005EMCTAA4",
+                "Status": "Inactive",
+                "vlcSelected": true
+            },
+            {
+                "Family": "Landline",
+                "Name": "GenWatt Diesel 1000kW",
+                "ProductId": "01t15000005EMCUAA4",
+                "Status": "Inactive",
+                "vlcSelected": true
+            }
+        ]
+    },
+    "TrackingAgreement": true,
+    "VersionNumber": 1,
+    "timeStamp": "2016-03-17T04:05:27.801Z",
+    "userName": "qlu_contract_test@vlocity.com",
+    "userProfile": "System Administrator",
+    "vlcPersistentComponent": {
+    },
+    "vlcTimeTracking": {
+        "Lines": 7075,
+        "SelectProduct": 7954
+    }
+}

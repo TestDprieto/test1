@@ -1,0 +1,46 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex'
+             ng-repeat='control in child.eleArray'>
+
+        <div vlc-slds-include="vlcLabelController.html"></div>
+        
+        <div class="slds-form-element__control">
+
+            <div class="vlc-control-wrapper" help="{{::control.propSetMap.help}}">
+
+                <input id='{{::control.name}}'
+                       type='tel'
+                       ng-disabled='control.ro'
+                       ng-required='control.req'
+                       name='loopname'
+                       ng-model='control.response'
+                       ng-blur='aggregate(this, control.index, control.indexInParent, true, -1)'
+                       ng-model-options="{ updateOn: 'default focusout blur', debounce: { 'default': control.propSetMap.debounceValue, 'focusout': 0, 'blur': 0 } }"
+                       class='slds-input form-control'
+                       via-mask='::control.propSetMap.mask'
+                       vlc-slds-ng-pattern='{{::control.propSetMap.pattern}}'
+                       vlc-slds-num-val-checker="response"
+                       vlc-slds-only-numeric="response"
+                       vlc-slds-attr="placeholder" />
+
+                <label for="{{::control.name}}" class='slds-form-element__label'>{{::control.propSetMap.label}}
+                    <span class='vlc-asterix icon-v-asterix'
+                          ng-if='control.req'>
+                    </span>
+                </label>
+
+                <!-- tooltip template -->
+                <a vlc-slds-tool-tip="test" ng-show="{{control.propSetMap.help}}"> i </a>
+
+
+            </div>
+
+            <div ng-include="::errHTMLId"></div>
+            
+        </div>
+
+    </ng-form>
+
+</div>

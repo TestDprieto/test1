@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Vlocity Cart APIs (v2): If TRUE, APIs return root and 1st level children in product hierarchy. Next level are returned when user clicks expand icon on product. If FALSE, APIs return full product hierarchy. To use this setting, CacheEnabled must be TRUE.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "LevelBasedApproach",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/LevelBasedApproach"
+}

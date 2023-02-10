@@ -1,0 +1,30 @@
+.vlocity {
+	/* Always use vlocity class as a wrapper */
+	.google-chart-template {
+		/* Always use template specific unique class, follow the template name */
+		border: 2px solid black;
+		label {
+			font-size: 18px;
+			width: 100px;
+		}
+		form {
+			width: 100%;
+		}
+		.addRow {
+			.addRowBtn {
+				color: white;
+				background-color: #2280e0;
+			}
+			li {
+				padding-bottom: 10px;
+				input {
+					height: 30px;
+				}
+				button {
+					background-color: #bd1e1e;
+					color: white;
+				}
+			}
+		}
+	}
+}

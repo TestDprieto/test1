@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label><!-- Console Admin Search --></label>
+        <name>vlocity_cmt__ConsoleAdminSearch</name>
+    </fieldSets>
+    <fields>
+        <label><!-- Account Scope --></label>
+        <name>vlocity_cmt__AccountScope__c</name>
+        <picklistValues>
+            <masterLabel>Same Account</masterLabel>
+            <translation><!-- Same Account --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Same Value2</masterLabel>
+            <translation><!-- Same Value2 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Business Reason --></label>
+        <name>vlocity_cmt__BusinessReason__c</name>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Code --></label>
+        <name>vlocity_cmt__Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective End Date --></label>
+        <name>vlocity_cmt__EffectiveEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Start Date --></label>
+        <name>vlocity_cmt__EffectiveStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Migration Method --></label>
+        <name>vlocity_cmt__MigrationMethod__c</name>
+        <picklistValues>
+            <masterLabel>Any to Any Offers</masterLabel>
+            <translation><!-- Any to Any Offers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Specific Offers</masterLabel>
+            <translation><!-- Specific Offers --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Product Family --></label>
+        <name>vlocity_cmt__ProductFamily__c</name>
+        <picklistValues>
+            <masterLabel>Broadband</masterLabel>
+            <translation><!-- Broadband --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fixed Line</masterLabel>
+            <translation><!-- Fixed Line --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internet</masterLabel>
+            <translation><!-- Internet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Multiplay</masterLabel>
+            <translation><!-- Multiplay --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation><!-- None --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wireless Mobile</masterLabel>
+            <translation><!-- Wireless Mobile --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__isActive__c</name>
+    </fields>
+    <validationRules>
+        <errorMessage><!-- Effective End Date should be greater than or equal to Effective Start Date. --></errorMessage>
+        <name>vlocity_cmt__EffectiveStart_Greater_EffectiveEnd</name>
+    </validationRules>
+</CustomObjectTranslation>

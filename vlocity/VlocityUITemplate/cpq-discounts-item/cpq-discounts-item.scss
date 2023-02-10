@@ -1,0 +1,98 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-card-mixin";
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+@include cardMixin($namespace);
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-discount-item {
+            border-bottom: $cpq-product-item-padding solid $cpq-page-bg-color;
+            .#{$namespace}-discount-label {
+                text-transform: uppercase;
+                background: $discount-type-label-background;
+                font-size:$cpq-cart-item-attr-label-font-size;
+                color: $cpq-product-container-bg-color;
+                padding: 3px 10px;
+                .#{$namespace}-discount-date-label {
+                    text-transform: none;
+                    float: right;
+                    font-size: 10px;
+                    font-weight: 300;
+                }
+            }
+
+            .#{$namespace}-discount-container {
+                padding: $cpq-padding-large-vertical 0px;
+                .#{$namespace}-discount-name {
+                    font-weight: $cpq-headings-font-weight;
+                    line-height: 30px;
+                }
+                .#{$namespace}-discount-link {
+                    line-height: 30px;
+                    color: $cpq-product-link-color;
+                }
+                .#{$namespace}-discount-price {
+                    .cpq-discount-timeplan-label {
+                        font-weight: $cpq-cart-item-product-group-font-weight;
+                    }
+                    .cpq-discount-info-wrap {
+                        font-weight: $cpq-headings-font-weight;
+                        color: $cpq-discount-info-color;
+                        font-size: $cpq-discount-font-size;
+                        .cpq-discount-info-label {
+                            font-size: $cpq-cart-item-attr-label-font-size;
+                        }
+                    }
+                    padding-right: $cpq-padding-large-horizontal;
+                    color: $dark-gray;
+                    &:last-child {
+                        padding-bottom:$cpq-padding-large-vertical;
+                    }
+                    .#{$namespace}-discount-label {
+                      font-size: $cpq-cart-item-attr-label-font-size;
+                    }
+                }
+                .#{$namespace}-discount-price .#{$namespace}-item-product-messages {
+                    font-size: 95%;
+
+                    .#{$namespace}-error-msg {
+                        color: $error;
+                    }
+                    .#{$namespace}-warning-msg {
+                        color: $warning;
+                    }
+                }
+            }
+            
+            .#{$namespace}-discount-actions {
+                padding-top:$cpq-padding-large-vertical;
+                padding-bottom:$cpq-padding-large-vertical; 
+                
+                .#{$namespace}-add-button {
+                    padding-left:$cpq-padding-small-horizontal;
+                    padding-right:$cpq-padding-small-horizontal;
+               }
+            }
+        }
+    }
+}
+
+[dir=rtl] .vlocity {
+    &.via-slds {
+        .#{$namespace}-discount-item {
+            .#{$namespace}-discount-container {
+                .#{$namespace}-discount-price div {
+                    padding-right: 0;
+                    padding-left: $cpq-padding-large-horizontal;
+                }
+            }
+        }
+    }
+}

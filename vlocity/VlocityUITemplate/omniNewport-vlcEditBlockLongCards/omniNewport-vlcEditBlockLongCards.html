@@ -1,0 +1,25 @@
+<!-- vlcEditBlockLongCards.html -->
+<div class='nds-grid nds-wrap nds-p-around_small nds-element_text-font' ng-init="isLongCard=true">
+    {{set = ((child.eleArray[0].children.length === 0)?(child.eleArray[0].childrenC):(child.eleArray[0].children));""}}
+    <div class="nds-size_12-of-12 nds-medium-size_12-of-12 nds-large-size_12-of-12 nds-m-bottom_x-small">
+        <div>
+            {{::child.eleArray[0].propSetMap.label}}
+        </div>
+        <div class="nds-m-around_xx-small nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_{{action.propSetMap.controlWidth}}-of-12 nds-show_inline-block" 
+            ng-style="(action.propSetMap.svgSprite && action.propSetMap.svgIcon) ? {'width' : 'auto'}:''"
+            ng-repeat="action in child.eleArray[0].propSetMap.gActions" ng-include="'vlcEditBlockGlobalBtn.html'">
+        </div>
+    </div>
+    <div class="nds-size_12-of-12 nds-medium-size_12-of-12 nds-large-size_12-of-12 nds-m-bottom_x-small nds-edit-block_longcards"
+        id ='{{::control.name}}'
+        ng-repeat="control in child.eleArray"
+        ng-style="control.childrenC !== undefined && {'display':'none'}"
+        ng-if="set.length > 0">
+        <form name="vlcEditBlockFormMain_{{$index}}"
+              ng-init="control.selectCheckBox = child.eleArray[0].propSetMap.selectCheckBox; initEditBlockControlLimit(control, 2);" 
+              ng-click="onClickEditBlockRecord(control, set.checkboxInd, $event, child.eleArray, $index)" 
+              ng-include="'vlcEditBlockDetailCont.html'">
+        </form>
+    </div>
+    <div class="nds-size_12-of-12 nds-medium-size_12-of-12 nds-large-size_12-of-12 nds-m-bottom_x-small" ng-include="'vlcEditBlockCardAddNew.html'"></div>
+</div>

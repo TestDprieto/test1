@@ -1,0 +1,37 @@
+<div id='{{::child.name}}'
+     class="slds-box vlc-slds-remote-action__container"
+     ng-if='child.ui.show && child.ui.error'>
+
+    <div class="vlc-slds-remote-action__content" ng-if='!loading && child.ui.error'>
+
+        <p>{{::child.propSetMap.label}}</p>
+        <p ng-if='child.ui.preTransform'>{{::customLabels.OmniPreTransform}}</p>
+        <p ng-if='child.ui.postTransform'>{{::customLabels.OmniPostTransform}}</p>
+        <p>{{child.ui.errorMessage}}</p>
+
+        <p>
+            <button class="slds-button slds-button--neutral"
+                    ng-if='::child.propSetMap.enableDefaultAbort != true && child.ui.error && findPreShowStep(child.indexInParent) != null'
+                    ng-click='previous(this, child)'>
+                {{::child.propSetMap.failureGoBackLabel}}
+            </button>
+
+            <button class="slds-button slds-button--neutral"
+                    ng-if='::child.propSetMap.enableDefaultAbort && child.ui.error && findPreShowStep(child.indexInParent) != null'
+                    confirmed-click='cancel()'
+                    ng-confirm-click='{{::child.propSetMap.failureAbortMessage}}'>
+                {{::child.propSetMap.failureAbortLabel}}
+            </button>
+
+            <button class="slds-button slds-button--neutral"
+                    ng-if='child.ui.error && child.bHasNext'
+                    ng-click='nextRepeater(child.nextIndex, child.indexInParent)'>
+                {{::child.propSetMap.failureNextLabel}}
+            </button>
+        </p>
+        
+
+
+    </div>
+
+</div>

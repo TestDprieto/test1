@@ -1,0 +1,25 @@
+<!-- vlcEditBlockCards.html -->
+<div class='slds-grid slds-wrap slds-grid--pull-padded vlc-slds-edit-block--main-container' ng-init="isShortCard=true">
+    {{set = ((child.eleArray[0].children.length === 0)?(child.eleArray[0].childrenC):(child.eleArray[0].children));""}}
+    <div class="slds-size--12-of-12 slds-medium-size--12-of-12 slds-large-size--12-of-12">
+        <div class="vlc-slds-edit-block__label">
+            {{::child.eleArray[0].propSetMap.label}}
+        </div>
+        <div class="vlc-slds-edit-block__gaction_container">
+            <span ng-repeat="action in child.eleArray[0].propSetMap.gActions" ng-include="'vlcEditBlockGlobalBtn.html'"></span>
+        </div>
+    </div>
+    <div class="slds-card slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12"
+            id ='{{::control.name}}'
+            ng-repeat="control in child.eleArray"
+            ng-style="control.childrenC !== undefined && {'display':'none'}"
+            ng-if="set.length > 0">
+        <div class="vlc-slds-edit-block--cards">
+            <form name="vlcEditBlockFormMain_{{$index}}" 
+                  ng-init="control.selectCheckBox = child.eleArray[0].propSetMap.selectCheckBox; initEditBlockControlLimit(control, 3)"
+                  ng-include="'vlcEditBlockDetailCont.html'">
+            </form>
+        </div>
+    </div>
+    <div class="slds-card slds-size--12-of-12 slds-medium-size--6-of-12 slds-large-size--3-of-12" ng-include="'vlcEditBlockCardAddNew.html'"></div>
+</div>

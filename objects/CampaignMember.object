@@ -128,6 +128,86 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <fieldSets>
+        <fullName>vlocity_cmt__ListMember</fullName>
+        <availableFields>
+            <field>FirstRespondedDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>HasResponded</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__StartDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Display campaign member list.</description>
+        <displayedFields>
+            <field>CampaignId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__CampaignName__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__CampaignStatus__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__TargetCallDate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__CampaignType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ContactId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LeadId</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__CampaignOmniScriptURL__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__EmailTemplate__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>ListMember</label>
+    </fieldSets>
     <fields>
         <fullName>CampaignId</fullName>
         <type>Lookup</type>
@@ -208,6 +288,101 @@
     </fields>
     <fields>
         <fullName>Title</fullName>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ActionType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Text field used to log the latest action taken for this campaign member such as &apos;Call Attempted&apos;, &apos;Call Back Tomorrow&apos; etc. The values are up to the deploying company to choose.</description>
+        <externalId>false</externalId>
+        <label>Action Type</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CampaignName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Campaign.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Name</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CampaignOmniScriptURL__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>&quot;/apex/%nsp%OmniScriptUniversalPage?layout=lightning&amp;id=&quot; &amp; Id &amp; &quot;&amp;campaignId=&quot; &amp;  CampaignId &amp; &quot;#/OmniScriptType/&quot; &amp;  Campaign.vlocity_cmt__ProcessType__c &amp; &quot;/OmniScriptSubType/&quot; &amp; Campaign.vlocity_cmt__ProcessSubType__c &amp; &quot;/OmniScriptLang/&quot; &amp; Campaign.vlocity_cmt__ProcessLanguage__c &amp; &quot;/ContextId/&quot;&amp; Id &amp; &quot;/PrefillDataRaptorBundle/&quot;+ Campaign.vlocity_cmt__ProcessPrefillBundle__c +&quot;/false&quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign OmniScript URL</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CampaignStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Status of the parent campaign (joined via CampaignId).</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Campaign.Status)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Campaign Status</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CampaignType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Type of the parent campaign (joined via CampaignId).</description>
+        <externalId>false</externalId>
+        <formula>TEXT(Campaign.Type)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Type</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EmailTemplate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula: Email template of the parent campaign (joined via CampaignId).</description>
+        <externalId>false</externalId>
+        <formula>Campaign.vlocity_cmt__EmailTemplate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Email Template</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LastCallDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Last Call Date</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__StartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>Campaign.StartDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Start Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TargetCallDate__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Target Call Date</label>
+        <required>false</required>
+        <type>DateTime</type>
     </fields>
     <sharingModel>ControlledByCampaign</sharingModel>
 </CustomObject>

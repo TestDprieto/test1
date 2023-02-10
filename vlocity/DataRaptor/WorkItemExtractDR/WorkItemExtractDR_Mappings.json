@@ -1,0 +1,49 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 0,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "item",
+        "%vlocity_namespace%__FilterGroup__c": 0,
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__FilterValue__c": "Context",
+        "%vlocity_namespace%__GlobalKey__c": "2e8c48da-811f-65ff-88bd-889246fb37f0",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Id",
+        "%vlocity_namespace%__InterfaceObjectLookupOrder__c": 1,
+        "%vlocity_namespace%__InterfaceObjectName__c": "%vlocity_namespace%__OrchestrationItem__c",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "WorkItemExtractDRCustom689",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "WorkItemExtractDR",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "itemName",
+        "%vlocity_namespace%__GlobalKey__c": "66e71ee1-dc9a-a5c3-d86b-342bf1333499",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "item:Name",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "WorkItemExtractDRCustom6937",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "WorkItemExtractDR",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "itemState",
+        "%vlocity_namespace%__GlobalKey__c": "064bd317-700c-eabb-d1f6-04683914af72",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "item:%vlocity_namespace%__State__c",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "WorkItemExtractDRCustom3003",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "WorkItemExtractDR",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

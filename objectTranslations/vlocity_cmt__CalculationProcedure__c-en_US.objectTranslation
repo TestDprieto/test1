@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Action Class Name --></label>
+        <name>vlocity_cmt__ActionClassName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Key --></label>
+        <name>vlocity_cmt__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- SubType --></label>
+        <name>vlocity_cmt__SubType__c</name>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Custom</masterLabel>
+            <translation><!-- Custom --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation><!-- Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Annual</masterLabel>
+            <translation><!-- Semi-Annual --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>vlocity_cmt__Type__c</name>
+        <picklistValues>
+            <masterLabel>Rating</masterLabel>
+            <translation><!-- Rating --></translation>
+        </picklistValues>
+    </fields>
+    <recordTypes>
+        <label><!-- Class Based --></label>
+        <name>vlocity_cmt__ClassBased</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Declarative --></label>
+        <name>vlocity_cmt__Declarative</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- DeepClone --></label>
+        <name>vlocity_cmt__DeepClone</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Export --></label>
+        <name>vlocity_cmt__Export</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Import --></label>
+        <name>vlocity_cmt__Import</name>
+    </webLinks>
+</CustomObjectTranslation>

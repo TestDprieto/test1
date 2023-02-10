@@ -1,0 +1,340 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+
+/*Bill Details*/
+.con-bill{
+    width:100%;
+    height:100%;
+    background:#FFF;
+    padding:  110px 20px 20px 20px;
+    box-sizing:border-box;
+    opacity:0;
+    transition:opacity 1s linear;
+}
+.con-bill .con-device-details-section {
+    padding: 0;
+}
+.con-bill .con-device-details-section.graph {
+    margin-top: 30px;
+}
+.con-bill-details-title {
+    font-size: 24px;
+    color: #000;
+    font-weight: bold;
+    min-height: 28px;
+}
+.con-bill-details-total{
+    font-size:48px;
+    color:$theme-colour;
+    font-family: Brown-Bold;
+    line-height: 48px;
+    margin-bottom: 15px;
+}
+.con-bill-details-subtotal{
+    color:$subtitle-colour;
+    line-height:20px;
+}
+.con-bill-details-subtotal img{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 5px;
+    margin-right: 5px;
+}
+.con-bill-details-manage{
+    color:$theme-colour;
+    font-family: Brown-Bold;
+    margin-top:5px;
+}
+.con-bill-details-manage span{
+    font-family:fontello;
+    font-size: 12px;
+    margin-left: 5px;
+}
+.con-bill-details-section{
+    padding:25px;
+    text-align:left;
+}
+
+/*Bill Table*/
+.con-bill-details-table-header{
+    font-family:Brown-Bold;
+    width:100%;
+    border-bottom:1px solid #000;
+    height:50px;
+    line-height:50px;
+    font-size:16px;
+}
+.con-bill-details-table-row{
+    width:100%;
+    border-bottom:1px solid #e9ecfe;
+    height:50px;
+    line-height:50px;
+}
+.con-bill-details-table-label{
+    width:70%;
+    color:$subtitle-colour;
+    float:left;
+}
+.con-bill-details-table-value{
+    width:30%;
+    float:right;
+    text-align:right;
+    height: 50px;
+    font-family: Brown-Bold;
+}
+.con-bill-details-table-value span{
+    font-family:fontello;
+    color:$theme-colour;
+    margin-left:10px;
+}
+.con-bill-details-table-row:last-child{
+    border-bottom:0px;
+    margin-bottom:25px;
+}
+
+/*Device Notifications*/
+.con-device-details-notification {
+  width: 100vw;
+  height: 90px;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  margin-top: 25px;
+  position: relative;
+  margin-left: -20px;
+  padding: 0px 25px;
+  box-sizing: border-box; }
+
+.con-device-details-notification-icon {
+  width: 35px;
+  height: 35px;
+  float: left;
+  border-radius: 40px;
+  border: 2px solid #0081f9;
+  box-shadow: 0px 0px 13px #0081f9;
+  margin: 16px 15px 25px 0px; }
+
+.con-device-details-notification-title {
+  margin-bottom: 5px;
+  margin-left: 50px;
+  padding-top: 11px; }
+
+.con-device-details-notification-action {
+  color: #0081f9;
+  font-family: Brown-Bold; }
+
+.con-device-details-notification-action span {
+  font-family: fontello;
+  font-size: 12px;
+  margin-left: 5px; }
+
+.con-device-details-notification-icon-lines {
+  margin: 12px auto;
+  display: table; }
+
+.con-device-details-notification-icon-lines > div {
+  float: left;
+  width: 1px;
+  background: #0081f9;
+  border-radius: 10px; }
+
+.con-device-details-notification-icon-line1, .con-device-details-notification-icon-line5 {
+  height: 3px;
+  margin: 3px 1px;
+  opacity: 0.6; }
+
+.swiper-slide-active .con-device-details-notification-icon-line1, .swiper-slide-active .con-device-details-notification-icon-line5 {
+  animation: growlarge 4s 1s infinite; }
+  .con-device-details-notification-icon-line3 {
+  height: 7px;
+  margin: 1px 1px;
+  opacity: 0.8; }
+  .con-device-details-notification-icon-line2, .con-device-details-notification-icon-line4 {
+  height: 5px;
+  margin: 2px 1px;
+  opacity: 0.7; }
+  
+  /*Chat Bot Icon Animations*/
+@keyframes growlarge {
+  0% {
+    transform: scaleY(1); }
+  15% {
+    transform: scaleY(1.75); }
+  30% {
+    transform: scaleY(0.6); }
+  45% {
+    transform: scaleY(1.5); }
+  60% {
+    transform: scaleY(0.7); }
+  75% {
+    transform: scaleY(2); }
+  90%, 100% {
+    transform: scaleY(1); } }
+
+@keyframes growmedium {
+  0% {
+    transform: scaleY(1); }
+  15% {
+    transform: scaleY(1.3); }
+  30% {
+    transform: scaleY(0.85); }
+  45% {
+    transform: scaleY(1.15); }
+  60% {
+    transform: scaleY(0.7); }
+  75% {
+    transform: scaleY(1.45); }
+  90%, 100% {
+    transform: scaleY(1); } }
+
+@keyframes growsmall {
+  0% {
+    transform: scaleY(1); }
+  15% {
+    transform: scaleY(1.25); }
+  30% {
+    transform: scaleY(0.9); }
+  45% {
+    transform: scaleY(1.1); }
+  60% {
+    transform: scaleY(0.85); }
+  75% {
+    transform: scaleY(1.4); }
+  90%, 100% {
+    transform: scaleY(1); } }
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1, 1); }
+  5% {
+    transform: rotate(180deg) scale(1.06, 1.1); }
+  10% {
+    transform: rotate(360deg) scale(1.02, 1); }
+  15% {
+    transform: rotate(540deg) scale(1, 1); }
+  20% {
+    transform: rotate(720deg) scale(1, 1); }
+  25% {
+    transform: rotate(900deg) scale(1.09, 1.15); }
+  30% {
+    transform: rotate(1080deg) scale(1.02, 1); }
+  35% {
+    transform: rotate(1260deg) scale(1, 1); }
+  40% {
+    transform: rotate(1440deg) scale(1, 1); }
+  45% {
+    transform: rotate(1620deg) scale(1.12, 1.19); }
+  50% {
+    transform: rotate(1800deg) scale(1.02, 1); }
+  55% {
+    transform: rotate(1980deg) scale(1, 1); }
+  100% {
+    transform: rotate(0deg) scale(1, 1); } }
+
+/*Bill Graph*/
+.con-bill-graph{
+    height:420px;
+    width:100%;
+    padding-top:70px;
+    pointer-events:none;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-bill-graph-bar-wrapper{
+    width:calc(100% / 6);
+    height:234px;
+    float:left;
+    position:relative;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-bill-graph-bar{
+    width:12px;
+    position:absolute;
+    bottom:30px;
+    left: 50%;
+    margin-left: -7.5px;
+    display: flex;
+    flex-direction: column-reverse;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-bill-graph-bar-segment{
+    width:12px;
+    background:$theme-colour;
+    margin-top:2px;
+    transition:height 0.5s linear;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-bill-graph-small .con-bill-graph-bar-segment{
+    height:0px !important;
+}
+.con-bill-graph-bar-axis{
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #e9ecfe;
+    font-weight: bold;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+.con-bill-graph-legend{
+    width: 100%;
+    height: 20px;
+    font-family: Brown-Bold;
+    margin-bottom: 5px;
+    float: left;
+    margin-top: 10px;
+}
+.con-bill-graph-legend-bar{
+    width: 25px;
+    height: 10px;
+    float: left;
+    margin-right: 15px;
+    background: $theme-colour;
+    margin-top: 6px;
+    margin-left: 15px;
+}
+
+/*Bill Button*/
+.con-bill-button{
+    color: #ffffff;
+    font-size: 14px;
+    background: $theme-colour;
+    border-radius: 5px;
+    line-height: 40px;
+    width: 100%;
+    height: 40px;
+    display: table;
+    padding: 0px 25px;
+    text-align:center;
+    margin:auto;
+    margin-top:35px;
+}
+
+
+
+/*Device Specific Styling*/
+/*iPhone 5/SE*/
+@media only screen 
+    and (max-device-height : 640px) {
+ 
+}
+/*iPhone 6/7/8*/
+@media only screen 
+    and (max-device-height : 667px) {
+
+}
+/*iPhone 6/7/8 Plus*/
+@media only screen 
+    and (min-device-height : 668px) and (max-device-height : 737px) {
+
+}
+/*iPhone X*/
+@media only screen 
+    and (min-device-height : 738px) {
+}
