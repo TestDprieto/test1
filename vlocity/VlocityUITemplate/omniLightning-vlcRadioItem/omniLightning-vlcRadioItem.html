@@ -1,0 +1,17 @@
+<label ng-repeat='option in getOptions(control, this.$parent) track by option.name' ng-class="{'itemSelected': control.response==option.name}"  class="slds-radio">
+
+    <input id='{{::control.name}}'
+           ng-disabled='control.ro'
+           ng-required='!control.response && control.req'
+           type='radio'
+           ng-init='init(this, control)'
+           ng-value='option.name'
+           ng-model='control.response'
+           ng-change='aggregate(this, control.index, control.indexInParent, true, -1);'
+           vlc-slds-val-checker="response"
+           ng-click='autoAdvance(option.autoAdv);'/>
+
+    <span class="slds-radio--faux" ng-if='control.propSetMap.horizontalMode!=="image"' ></span>
+    <span class="slds-form-element__label" ng-if='control.propSetMap.horizontalMode!=="image"' >{{option.value}}</span>
+    <span ng-if='control.propSetMap.horizontalMode=="image"' ng-include="'vlcDisplayOption.html'" class="slds-radio--faux_container"></span>
+</label>

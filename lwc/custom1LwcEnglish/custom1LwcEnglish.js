@@ -22,7 +22,6 @@ export default class custom1LwcEnglish extends OmniscriptHeader {
     @api inlineLabel;
     @api inlineVariant;
     @api layout;
-    @api flexipageRegionWidth;
     @api recordId;
     /**
      * Exposing dir (direction) property in order to allow users to manually specify the direction

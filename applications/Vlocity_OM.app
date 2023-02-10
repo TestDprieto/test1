@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-Order</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Vlocity Order Management</label>
     <logo>vlocity_cmt__VlocityResources/Vlocity_Logo_Orange.png</logo>
     <tabs>standard-Chatter</tabs>

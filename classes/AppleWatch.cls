@@ -9,7 +9,6 @@ Public with sharing Class AppleWatch{
         t.WhatId      = opp.Id;
         insert t;
      }
-     /* test 1 */
   }
   /* aug 6th*/
  }

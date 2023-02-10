@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-Contract</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Vlocity CLM</label>
     <logo>vlocity_cmt__VlocityResources/vlocity_cmt__VlocityLogo.png</logo>
     <tabs>standard-Chatter</tabs>

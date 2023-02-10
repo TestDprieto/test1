@@ -20,6 +20,7 @@
                     <value>3</value>
                 </componentInstanceProperties>
                 <componentName>force:highlightsPanel</componentName>
+                <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -33,6 +34,7 @@
                     <value>linear</value>
                 </componentInstanceProperties>
                 <componentName>runtime_sales_pathassistant:pathAssistant</componentName>
+                <identifier>runtime_sales_pathassistant_pathAssistant</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -46,6 +48,7 @@
                     <value>{recordId}</value>
                 </componentInstanceProperties>
                 <componentName>vlocity_cmt:powerLauncher</componentName>
+                <identifier>vlocity_cmt_powerLauncher</identifier>
             </componentInstance>
         </itemInstances>
         <name>header</name>
@@ -59,6 +62,7 @@
                     <value>NONE</value>
                 </componentInstanceProperties>
                 <componentName>force:relatedListContainer</componentName>
+                <identifier>force_relatedListContainer</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-f8bf491a-4f5c-4b7b-a64b-bfe778a3d801</name>
@@ -84,6 +88,7 @@
                     <value>true</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:visualforcePage</componentName>
+                <identifier>flexipage_visualforcePage</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-16d8ce0c-4ee3-4fbc-9fcf-cba020a955f9</name>
@@ -105,6 +110,7 @@
                     <value>Standard.Tab.relatedLists</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>relatedListsTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -118,6 +124,7 @@
                     <value>Standard.Tab.detail</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>detailTab</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -135,6 +142,7 @@
                     <value>Documents</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tab</componentName>
+                <identifier>customTab</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-0c1d5c58-0c87-492e-8826-34b3247cbff7</name>
@@ -156,6 +164,7 @@
                     <value>false</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:visualforcePage</componentName>
+                <identifier>flexipage_visualforcePage2</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
@@ -165,6 +174,7 @@
                     <value>facet-0c1d5c58-0c87-492e-8826-34b3247cbff7</value>
                 </componentInstanceProperties>
                 <componentName>flexipage:tabset</componentName>
+                <identifier>flexipage_tabset</identifier>
             </componentInstance>
         </itemInstances>
         <name>main</name>
@@ -174,6 +184,7 @@
         <itemInstances>
             <componentInstance>
                 <componentName>force:detailPanel</componentName>
+                <identifier>force_detailPanel</identifier>
             </componentInstance>
         </itemInstances>
         <name>facet-ae2fecf1-a6b6-480a-b496-6fdc831c14d4</name>

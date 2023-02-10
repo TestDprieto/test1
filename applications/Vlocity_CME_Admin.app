@@ -3,6 +3,7 @@
     <defaultLandingTab>vlocity_cmt__CMTAdmin</defaultLandingTab>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
     <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Vlocity CME Admin</label>
     <logo>vlocity_cmt__VlocityResources/vlocity_cmt__CommunicationsMediaLogo.gif</logo>
     <tabs>standard-Chatter</tabs>

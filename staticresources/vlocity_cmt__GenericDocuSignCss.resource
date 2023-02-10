@@ -1,0 +1,1 @@
+.singerRole .slds-dropdown-trigger_click.slds-is-open .slds-dropdown{text-align:center;min-width:6rem}.recipientsDataTable .slds-scrollable_x{overflow-y:auto}
