@@ -1,0 +1,82 @@
+{
+    "drBundleName": "CreateInteractionForPolicyPrimary",
+    "interactionObjName": "CustomerInteraction",
+    "parentId": null,
+    "recordId": "a0p41000000dV7VAAU",
+    "request": {
+        "continueSearch": false,
+        "displaySequence": 3,
+        "fieldPicklistValues": {
+        },
+        "referenceObjectName": "Policy__c",
+        "requestUniqueName": "Policy_Primary",
+        "searchFieldList": [
+            "PolicyNumber__c"
+        ],
+        "searchFieldsLabelTypeMap": {
+            "PolicyNumber__c": {
+                "datatype": "text",
+                "label": "Policy Number"
+            }
+        },
+        "searchObjectLabel": "Policy",
+        "searchObjectName": "PolicyPartyRelationship__c",
+        "searchType": "Related Party",
+        "searchValueMap": {
+            "PolicyNumber__c": "499-344-3888"
+        }
+    },
+    "resultFieldList": [
+        "RelatedParty__c",
+        "Role__c",
+        "PolicyId__r.AccountId__r.Name"
+    ],
+    "resultFieldsLabelTypeMap": {
+        "PartyId__r.PartyEntityAddress__c": {
+            "datatype": "text",
+            "label": "Address"
+        },
+        "PartyName__c": {
+            "datatype": "text",
+            "label": "Party Name"
+        },
+        "PolicyId__r.AccountId__r.Name": {
+            "datatype": "text",
+            "label": "Account Name"
+        },
+        "RelatedParty__c": {
+            "datatype": "text",
+            "label": "Related Party"
+        },
+        "Role__c": {
+            "datatype": "text",
+            "label": "Role"
+        }
+    },
+    "resultValueMap": {
+        "AccountId__c": "00141000005MbhPAAS",
+        "ContactId__c": "00341000004CMjxAAG",
+        "PartyId__r.PartyEntityAddress__c": "<br>  <br>",
+        "PartyName__c": "Erika Ashford",
+        "PolicyHolderId__c": "00141000005MbhPAAS",
+        "PolicyId__c": "a0s41000000OWzyAAG",
+        "PolicyId__r.AccountId__r.Name": "Erika Ashford",
+        "PolicyNumber__c": "499-344-3888",
+        "RelatedParty__c": "Erika Ashford",
+        "Role__c": "Policyholder"
+    },
+    "uniqueRequestName": "Policy_Primary",
+    "verificationFieldList": [
+        "PartyName__c",
+        "PartyId__r.PartyEntityAddress__c"
+    ],
+    "verificationResult": {
+        "fields": {
+            "PartyId__r.PartyEntityAddress__c": true,
+            "PartyName__c": true
+        },
+        "status": true,
+        "timestamp": "2016-10-04T00:02:26.560Z",
+        "username": "rsingh@demopm.com"
+    }
+}

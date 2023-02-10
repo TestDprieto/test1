@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Payment Plan --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Amount Remaining --></label>
+        <name>vlocity_cmt__AmountRemaining__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deactivation Date --></label>
+        <name>vlocity_cmt__DeactivationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deactivation Reason --></label>
+        <name>vlocity_cmt__DeactivationReason__c</name>
+        <picklistValues>
+            <masterLabel>Alternate arrangement</masterLabel>
+            <translation><!-- Alternate arrangement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer default</masterLabel>
+            <translation><!-- Customer default --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paid in full</masterLabel>
+            <translation><!-- Paid in full --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Down Payment Amount --></label>
+        <name>vlocity_cmt__DownPaymentAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>vlocity_cmt__EndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Installment Amount --></label>
+        <name>vlocity_cmt__InstallmentAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of Installments --></label>
+        <name>vlocity_cmt__NumberOfInstallments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Open Amount at Deactivation --></label>
+        <name>vlocity_cmt__OpenAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Frequency --></label>
+        <name>vlocity_cmt__PaymentFrequency__c</name>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Payment Method --></label>
+        <name>vlocity_cmt__PaymentMethodId__c</name>
+        <relationshipLabel><!-- Payment Plans --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payment Plan Total --></label>
+        <name>vlocity_cmt__PaymentPlanAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Plan Reason --></label>
+        <name>vlocity_cmt__Reason__c</name>
+        <picklistValues>
+            <masterLabel>Amount in dispute</masterLabel>
+            <translation><!-- Amount in dispute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Customer cannot pay</masterLabel>
+            <translation><!-- Customer cannot pay --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>vlocity_cmt__StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>vlocity_cmt__Type__c</name>
+        <picklistValues>
+            <masterLabel>Budget Billing</masterLabel>
+            <translation><!-- Budget Billing --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Debt Repayment</masterLabel>
+            <translation><!-- Debt Repayment --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

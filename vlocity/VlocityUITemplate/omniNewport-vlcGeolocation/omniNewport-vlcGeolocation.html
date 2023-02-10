@@ -1,0 +1,43 @@
+<div class="nds-col--padded nds-size--1-of-1">
+    <ng-form name='loopform'
+             class='nds-form-element vlc-flex nds-m-bottom_large nds-geolocation'
+             ng-repeat='control in child.eleArray'>
+
+
+        <div class="nds-form-element__control">
+
+            <!-- add block label -->
+            <label class="nds-form-element__label nds-clearfix"
+                   ng-click='getLocation(this, control)' 
+                   ng-if="control.propSetMap.label">
+
+                <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'location'"
+                           size="'small'"
+                           extra-classes="'nds-button__icon nds-button__icon_large'">
+                </slds-svg-icon>
+
+                <span>{{::control.propSetMap.label}}</span>
+
+            </label>
+
+            <div class="nds-col">
+
+                <!-- css for the leaflet plugin are included in the main scss file -->
+                <leaflet ng-if='control.response'
+                         defaults="{scrollWheelZoom: false,
+                                    trackResize: true}"
+                         markers="control.response"
+                         vlc-slds-event-tester="test"
+                         center='control.center'>
+                </leaflet>
+
+            </div>
+
+        </div>
+
+    </ng-form>
+
+
+</div>

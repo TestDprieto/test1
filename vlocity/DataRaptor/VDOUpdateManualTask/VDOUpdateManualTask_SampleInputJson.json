@@ -1,0 +1,44 @@
+{
+    "ContextId": "a2b36000001j3rS",
+    "Returned Credit Information": {
+        "Credit Messaging Failed": false,
+        "Credit Messaging Success": true,
+        "Credit Score": "400",
+        "Manual Task Status": "Complete",
+        "Override": true
+    },
+    "credit": {
+        "accounts": [
+            {
+                "amount": "300,000",
+                "date": "01/01/1998",
+                "type": "Mortgage"
+            },
+            {
+                "amount": "41,000",
+                "date": "01/01/2012",
+                "type": "Car Payments"
+            },
+            {
+                "amount": "6,000",
+                "date": "01/01/2002",
+                "type": "MasterCard"
+            }
+        ],
+        "score": "690"
+    },
+    "id": "a1I36000005R7nlEAC",
+    "layout": "lightning",
+    "timeStamp": "2017-08-06T06:43:16.245Z",
+    "userId": "00536000000xTCTAA2",
+    "userName": "admin@vdo.cmt.master",
+    "userProfile": "System Administrator",
+    "vlcPersistentComponent": {
+    },
+    "vlcTimeTracking": {
+        "Credit Check Request": 803,
+        "OmniScriptSessionToken": "0270de33-8963-4019-a065-dd9013c2144a",
+        "Perform Credit Check": 7746,
+        "Set Credit Values": 22
+    }
+}

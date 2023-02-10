@@ -1,0 +1,15 @@
+ObjectClass__c
+ObjectLayout__c
+UIFacet__c
+UISection__c
+Rule__c
+EntityFilter__c
+ObjectRuleAssignment__c
+VlocityFunction__c
+VlocityFunctionArgument__c
+ContextAction__c
+ContextScope__c
+ContextDimension__c
+ContextMapping__c
+AttributeAssignment__c
+ChargeMeasurement__c

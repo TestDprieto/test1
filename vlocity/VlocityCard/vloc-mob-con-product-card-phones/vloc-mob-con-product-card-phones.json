@@ -1,0 +1,78 @@
+{
+    "dataSource": {
+        "type": "IntegrationProcedures",
+        "value": {
+            "inputMap": {
+                "AccountId": "{{$root.currentUser.Account.attributes.url.substring(38)}}",
+                "CatalogName": "Mobile Catalog Phones"
+            },
+            "ipMethod": "VlocityMobileConsumer_GetProductsFromCatalog",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": "products"
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "actionCtxId": "Id",
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+            ],
+            "name": "Product",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": true,
+                    "label": "",
+                    "name": "ProductName",
+                    "type": "string",
+                    "value": "['name']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "ProductImage",
+                    "type": "string",
+                    "value": "['Attachments'][0]['url']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "/mo",
+                    "name": "ProductPrice",
+                    "type": "currency",
+                    "value": "['%vlocity_namespace%__RecurringPrice__c']['value']"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "",
+                    "name": "ProductDiscount",
+                    "type": "string",
+                    "value": ""
+                }
+            ],
+            "sObjectType": "Product2",
+            "templateUrl": "vloc-mob-con-shop-product"
+        }
+    ],
+    "title": "Product"
+}

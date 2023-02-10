@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Apex Job ID --></label>
+        <name>vlocity_cmt__AsyncApexJobId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Batch Size --></label>
+        <name>vlocity_cmt__BatchSize__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Source Data --></label>
+        <name>vlocity_cmt__DataSourceData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Source Spec --></label>
+        <name>vlocity_cmt__DataSourceSpec__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data Source Type --></label>
+        <name>vlocity_cmt__DataSourceType__c</name>
+        <picklistValues>
+            <masterLabel>Query</masterLabel>
+            <translation><!-- Query --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>vlocity_cmt__Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email Address List --></label>
+        <name>vlocity_cmt__EmailAddressList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Frequency --></label>
+        <name>vlocity_cmt__Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation><!-- Daily --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hourly</masterLabel>
+            <translation><!-- Hourly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yearly</masterLabel>
+            <translation><!-- Yearly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Global Key --></label>
+        <name>vlocity_cmt__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Input As List --></label>
+        <name>vlocity_cmt__IsInputAsList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Queue --></label>
+        <name>vlocity_cmt__JobQueue__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Last Run DateTime --></label>
+        <name>vlocity_cmt__LastRunDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Run Error Message --></label>
+        <name>vlocity_cmt__LastRunErrorMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Run DateTime --></label>
+        <name>vlocity_cmt__NextRunDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Next Scheduled Job --></label>
+        <name>vlocity_cmt__NextScheduledJobId__c</name>
+        <relationshipLabel><!-- Vlocity ScheduledJobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Process Name --></label>
+        <name>vlocity_cmt__ProcessName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Type --></label>
+        <name>vlocity_cmt__ProcessType__c</name>
+        <picklistValues>
+            <masterLabel>Integration Procedure</masterLabel>
+            <translation><!-- Integration Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vlocity Open Interface</masterLabel>
+            <translation><!-- Vlocity Open Interface --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Send Email On --></label>
+        <name>vlocity_cmt__SendEmailOn__c</name>
+        <picklistValues>
+            <masterLabel>Error</masterLabel>
+            <translation><!-- Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finish</masterLabel>
+            <translation><!-- Finish --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Wrap Up Process Name --></label>
+        <name>vlocity_cmt__WrapUpProcessName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Wrap Up Process Type --></label>
+        <name>vlocity_cmt__WrapUpProcessType__c</name>
+        <picklistValues>
+            <masterLabel>Integration Procedure</masterLabel>
+            <translation><!-- Integration Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vlocity Open Interface</masterLabel>
+            <translation><!-- Vlocity Open Interface --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

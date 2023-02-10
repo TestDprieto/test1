@@ -1,0 +1,64 @@
+.via-slds{
+    height: 100%;
+    margin: 0;
+    padding: 20px;
+    background: #fff;
+}
+
+.slds-notify_container {
+    position: static;
+}
+
+.collapse {
+    display: none;
+}
+
+.task-details-form-container {
+    border-right: 1px solid #d8dde6;
+}
+
+.activity-feed-container h3.slds-section__title {
+    position: relative;
+}
+
+.activity-feed-container .slds-media__figure{
+    border-color: #f9f9f9;   
+}
+
+.activity-feed-container h3.slds-section__title .slds-icon_container {
+    position: absolute;
+    top: -2px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.activity-feed-container h3.slds-section__title .slds-icon_container svg {
+    fill: #A7B8D1;
+    transition: fill 100ms ease-in;
+}
+
+.activity-feed-container h3.slds-section__title .slds-icon_container svg:hover {
+    fill: #54698d;
+}
+
+.activity-feed-container h3.slds-section__title .slds-icon_container svg:active {
+    fill: #4BC076;
+}
+
+.task-details-form-container .form-buttons-group .slds-button {
+    width: 100%;
+}
+
+.via-slds .slds-timeline__media_task:before {
+    background: #d8dde6;
+}
+
+.via-slds .slds-icon-standard-task {
+    background-color: #f9f9f9;
+    fill: #9faab5;
+}
+
+.activity-description {
+    color: #00396B;
+    font-size: 0.75rem;
+}

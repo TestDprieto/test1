@@ -114,6 +114,41 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <fieldSets>
+        <fullName>vlocity_cmt__StoryFieldSet</fullName>
+        <description>Display in story list</description>
+        <displayedFields>
+            <field>Subject</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ActivityDate</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Priority</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>StoryFieldSet</label>
+    </fieldSets>
     <fields>
         <fullName>ActivityDate</fullName>
     </fields>
@@ -143,6 +178,9 @@
     </fields>
     <fields>
         <fullName>IsReminderSet</fullName>
+    </fields>
+    <fields>
+        <fullName>IsVisibleInSelfService</fullName>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
@@ -362,28 +400,10 @@
         <label>ENCODED:{!FilterNames.Task_UnscheduledTasks}</label>
     </listViews>
     <recordTypes>
-        <fullName>General_Record_Type</fullName>
+        <fullName>vlocity_cmt__MobilePhoneTask</fullName>
         <active>true</active>
-        <label>General Record Type</label>
-        <picklistValues>
-            <picklist>Calling_File__c</picklist>
-            <values>
-                <fullName>Inbound</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Longterm Lapsed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non Maintained</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
+        <description>Mobile Phone Task</description>
+        <label>MobilePhoneTask</label>
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
@@ -429,10 +449,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -452,15 +468,26 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Meeting</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__EventStatus__c</picklist>
+            <values>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Shared</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

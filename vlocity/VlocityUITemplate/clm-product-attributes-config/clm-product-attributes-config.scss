@@ -1,0 +1,165 @@
+/*
+@import "ins-product-attributes-variables";
+*/
+
+.via-slds{
+
+    .slds-radio_faux{
+        &.checked:after,{
+        width: .5rem;
+        height: .5rem;
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        transform: translated(-50%,-50%,0);
+        border-radius: 50%;
+        background: #1589ee;
+        }
+    }
+
+    .vloc-unique-name{
+        position: absolute;
+        left: 0;
+        bottom: 1rem;
+        color: #4F6A92;
+    }
+
+    .vloc-attr-config-row {
+        /*border-bottom: 1px solid $cards-border-gray;*/
+        border-bottom: 1px solid #d8dde6;
+        position: relative;
+        min-height: 5rem;
+
+        .vloc-error-input{
+            border-color: red;
+        }
+
+        .option-show-rule{
+            padding: 0;
+            margin: 0;
+            margin-bottom: .5rem;
+        }
+
+        .vloc-links{
+            &:hover{
+                cursor: pointer;
+            }
+        }
+
+        &.vloc-attr-config-row_description{
+            /*border-top: 1px solid $cards-border-gray;*/
+            border-top: 1px solid #d8dde6;
+        }
+
+        &.vloc-attr-config-row_value{
+            border-bottom: none;
+        }
+
+        .vloc-attrs-select{
+            margin-bottom: .25rem;
+        }
+
+        &.configurable{
+            width: 100%;
+            .vloc-attrs-select{
+                &.subType{
+              
+                }
+            }
+        }
+
+        .vloc-attrs-input{
+            border: none;
+            border-radius: 0;
+            padding: 0;
+            line-height: 2.7rem;
+            &.disabled{
+                background: white;
+                /*color: $neutral-dark;*/
+                color: #4F6A92;
+            }
+            &.ng-invalid-max{
+                color: red; 
+            }
+            &.ng-invalid-min{
+                color: red; 
+            }
+            &.vloc-attrs-picklist-input{
+                line-height: 1.875rem;
+            }
+        }
+
+        .vloc-attrs-picklist{
+
+            .vloc-attrs-picklist-label{
+                margin: 0;
+                &.vloc-attrs-add-new {
+                    line-height: .5;
+                }
+            }
+            .vloc-attrs-picklist-values{
+
+               .vloc-ins-rules-box{
+                   display: none;
+
+                    &.showRules{
+                        display: block;
+                    }
+                }
+                .vloc-rules-icon{
+                    &.has-rules{
+                        /*color: $primary-light;*/
+                        color: #0070D2;
+                        /*fill: $primary-light;*/
+                        fill: #0070D2;
+                    }
+                    
+                }
+                .vloc-attrs-delete{
+                    position: relative;
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+                .vloc-delete-icon{
+                    position: absolute;
+                    right: 5px;
+                }
+            }
+
+            .vloc-attrs-add-row{
+                position: relative; 
+                .vloc-attrs-add-value{
+                    position: absolute;
+                    right: -1rem;
+                    top: 0rem;
+                    &:focus{
+                        box-shadow: none;
+                    }
+                }
+            }
+        }
+
+        .vloc-attrs-slider{
+            .vloc-attrs-slider-label{
+                margin-right: 0;
+                margin-top: 0;
+            }
+        }
+        .vloc-attrs-add-value{
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        .vloc-attr-title-cell{
+            margin-bottom: 0;
+
+        }
+        .vloc-attrs-checkbox{
+            position: absolute;
+            bottom: 1.25rem;
+        }
+
+    }
+}

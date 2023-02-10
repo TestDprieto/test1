@@ -1,0 +1,77 @@
+{
+    "drBundleName": "CreatCase",
+    "interactionObjName": "Case",
+    "parentId": "0033600000MOb4AAAT",
+    "recordId": "a2R36000000WFVxEAO",
+    "request": {
+        "continueSearch": false,
+        "displaySequence": 4,
+        "referenceObjectName": "%vlocity_namespace%__Policy__c",
+        "requestUniqueName": "Policy",
+        "searchFieldList": [
+            "%vlocity_namespace%__PolicyId__r.Name"
+        ],
+        "searchFieldsLabelTypeMap": {
+            "%vlocity_namespace%__PolicyId__r.Name": {
+                "datatype": "text",
+                "label": "Policy Number"
+            }
+        },
+        "searchObjectLabel": "Policy",
+        "searchObjectName": "%vlocity_namespace%__PolicyPartyRelationship__c",
+        "searchType": "Related Party",
+        "searchValueMap": {
+            "%vlocity_namespace%__PolicyId__r.Name": "BO-20932058"
+        }
+    },
+    "resultFieldList": [
+        "%vlocity_namespace%__RelatedParty__c",
+        "%vlocity_namespace%__Role__c"
+    ],
+    "resultFieldsLabelTypeMap": {
+        "%vlocity_namespace%__AccountId__c": {
+            "datatype": "text",
+            "label": "Account Id"
+        },
+        "%vlocity_namespace%__ContactId__c": {
+            "datatype": "text",
+            "label": "Contact Id"
+        },
+        "%vlocity_namespace%__PolicyId__c": {
+            "label": "Policy"
+        },
+        "%vlocity_namespace%__RelatedParty__c": {
+            "datatype": "text",
+            "label": "Related Party"
+        },
+        "%vlocity_namespace%__Role__c": {
+            "datatype": "text",
+            "label": "Role"
+        }
+    },
+    "resultValueMap": {
+        "%vlocity_namespace%__ContactId__c": "0033600000MOb4AAAT",
+        "%vlocity_namespace%__PolicyHolderId__c": "0013600000UckPOAAZ",
+        "%vlocity_namespace%__PolicyId__c": "a2U36000000kXimEAE",
+        "%vlocity_namespace%__PolicyId__r.Name": "BO-20932058",
+        "%vlocity_namespace%__RelatedParty__c": "Amy Agent",
+        "%vlocity_namespace%__Role__c": "Agency"
+    },
+    "searchTimestamp": "2016-07-27T18:37:52.006Z",
+    "uniqueRequestName": "Policy",
+    "verificationFieldList": [
+        "%vlocity_namespace%__AccountId__c",
+        "%vlocity_namespace%__ContactId__c",
+        "%vlocity_namespace%__PolicyId__c"
+    ],
+    "verificationResult": {
+        "fields": {
+            "%vlocity_namespace%__CalculatedAddress__c": true,
+            "%vlocity_namespace%__ProducerNumber__c": true,
+            "Name": true
+        },
+        "status": true,
+        "timestamp": "2016-07-27T18:37:52.006Z",
+        "username": "%vlocity_namespace%@vlocity.com"
+    }
+}

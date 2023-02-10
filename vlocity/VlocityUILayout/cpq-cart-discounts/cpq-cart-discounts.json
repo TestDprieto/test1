@@ -1,0 +1,45 @@
+{
+    "Cards": [
+        "cpq-cart-discounts-card"
+    ],
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "0Q01I000000xMKp"
+            }
+        ],
+        "type": "Dual",
+        "value": {
+            "apexRemoteResultVar": "records",
+            "apexRestResultVar": "records",
+            "endpoint": "/%vlocity_namespace%/v2/cpq/carts/{{params.id}}/discounts?subaction=getAddedDiscounts",
+            "inputMap": {
+                "cartId": "{{params.id}}",
+                "pagesize": "10"
+            },
+            "methodType": "GET",
+            "optionsMap": {
+            },
+            "remoteClass": "CpqAppHandler",
+            "remoteMethod": "getAllApplicableDiscounts",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "records"
+        }
+    },
+    "previewType": "runTime",
+    "sessionVars": [
+        {
+            "name": "createNewDiscount",
+            "val": "payload.actions.createNewDiscount"
+        }
+    ],
+    "templates": {
+        "0": {
+            "templateUrl": "cpq-cart-discounts"
+        }
+    },
+    "workspace": [
+        "cpq-cart-discounts-card/Vlocity/1/1543832749865"
+    ]
+}

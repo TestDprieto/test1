@@ -1,0 +1,55 @@
+<a ng-repeat='p in control.vlcSI[control.itemsKey][0].records' class="con-os-details-os">
+
+    <div class="con-os-details">
+        <div class="con-shop-browse-product-background">
+            <div class="con-os-image" ng-repeat='a in p.Attachments | limitTo: 1'>
+                <img src="..{{a.url}}" alt="{{a.title}}" ng-if="a.contentType === 'Image'"/>
+            </div>
+        </div>
+
+        <div class="con-os-title">
+
+            <label class="slds-form__element__label">
+                {{p.Name}}
+            </label>
+            
+            <div class="con-os-cost" ng-init="RecurringPrice__c = p[nsPrefix + 'RecurringPrice__c'].value ? p[nsPrefix + 'RecurringPrice__c'].value : 0.00">
+
+                <label class="con-os-cost">
+                    {{p.%vlocity_namespace%__RecurringPrice__c | currency:bpTree.cpqCurrencySymbol  | numFormatFilter}}
+                </label>
+    
+                <label class="con-os-cost-subtitle">
+                    monthly
+                </label>
+            </div>
+            
+            <div class="con-os-cost" ng-init="UnitPrice.value = p['UnitPrice.value'].value ? p['UnitPrice.value'].value : 0.00">
+
+                <label class="con-os-cost">
+                    {{p.UnitPrice.value | currency:bpTree.cpqCurrencySymbol  | numFormatFilter}}
+                </label>
+    
+                <label class="con-os-cost-subtitle">
+                    one time
+                </label>
+            </div>
+
+        </div>
+
+        <span class="slds-icon_container slds-icon-action-approval slds-icon_container--circle">
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'action'"
+                           icon="'approval'"
+                           size="'small'"
+                           extra-classes="''">
+            </slds-svg-icon>
+
+        </span>
+
+
+
+    </div>
+
+</a>

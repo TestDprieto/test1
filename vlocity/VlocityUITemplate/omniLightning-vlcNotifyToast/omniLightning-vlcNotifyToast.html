@@ -1,0 +1,23 @@
+<div class="slds-notify_container am-fade">
+  <div class="slds-notify slds-notify--toast" 
+    ng-class="{'slds-theme--success': severity == 'success', 'slds-theme--warning': severity == 'warning', 'slds-theme--error': severity == 'error'}" 
+    role="alert">
+    <span class="slds-assistive-text">{{::$root.vlocity.getCustomLabel('Info', 'Info')}}</span>
+    <button class="slds-button slds-button--icon-inverse slds-notify__close" ng-click="$hide()">
+      <slds-button-svg-icon sprite="'utility'" icon="'close'" size="'large'"></slds-button-svg-icon>
+      <span class="slds-assistive-text">{{::$root.vlocity.getCustomLabel('Close', 'Close')}}</span>
+    </button>
+    <div class="slds-notify__content slds-grid">
+        <slds-svg-icon sprite="'utility'" icon="icon" size="'small'" extra-classes="'slds-m-right--small slds-col slds-no-flex'" ng-if="icon"></slds-svg-icon>
+        <div class="slds-col slds-align-middle">
+          <h2 class="slds-text-heading--small" ng-if="title">
+            {{title}}
+          </h2>
+          <h2 class="slds-text-heading--small" ng-if="message">
+            {{message}}
+          </h2>
+          <p ng-if="content" ng-bind-html="content"></p>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+{
+    "%vlocity_namespace%__GlobalKey__c": "e70f3f84-1aa1-4f50-9975-9dd54563687c",
+    "%vlocity_namespace%__MaximumNumberOfRetries__c": 3,
+    "%vlocity_namespace%__OrchestrationItemDefinitionId__c": "",
+    "%vlocity_namespace%__TimeBetweenRetries__c": 30,
+    "Name": "Default Retry Policy for AutoTasks",
+    "RecordTypeId": {
+        "DeveloperName": "MonotonousRetryPolicy",
+        "SobjectType": "%vlocity_namespace%__IntegrationRetryPolicy__c",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/%vlocity_namespace%__IntegrationRetryPolicy__c/MonotonousRetryPolicy",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__IntegrationRetryPolicy__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__IntegrationRetryPolicy__c/e70f3f84-1aa1-4f50-9975-9dd54563687c"
+}

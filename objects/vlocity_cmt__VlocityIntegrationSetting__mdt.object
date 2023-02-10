@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>vlocity_cmt__APIName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API name or module name for which settings are configured</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>API Name</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__APIType__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Type Of API</label>
+        <required>true</required>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CommerceCloud</fullName>
+                    <default>false</default>
+                    <label>CommerceCloud</label>
+                </value>
+                <value>
+                    <fullName>Matrixx</fullName>
+                    <default>false</default>
+                    <label>Matrixx</label>
+                </value>
+                <value>
+                    <fullName>TMForum</fullName>
+                    <default>false</default>
+                    <label>TMForum</label>
+                </value>
+                <value>
+                    <fullName>FlowOne</fullName>
+                    <default>false</default>
+                    <label>FlowOne</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DefaultValue__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The default value of setting</description>
+        <externalId>false</externalId>
+        <fieldManageability>SubscriberControlled</fieldManageability>
+        <label>Default Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Description__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Description for the setting</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Description</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enable and disable the settings</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Active</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Key__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Setting name</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Key</label>
+        <length>255</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>It will be deprecated as this feild was not SubscriberControlled when Managed Org was created.</description>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Value</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Vlocity Integration Setting</label>
+    <pluralLabel>Vlocity Integration Settings</pluralLabel>
+    <visibility>Public</visibility>
+</CustomObject>

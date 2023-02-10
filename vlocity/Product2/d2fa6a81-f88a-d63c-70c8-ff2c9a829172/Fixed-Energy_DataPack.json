@@ -1,0 +1,315 @@
+{
+    "%vlocity_namespace%__ApprovedBy__c": "",
+    "%vlocity_namespace%__ApprovedOn__c": "",
+    "%vlocity_namespace%__AttributeAssignment__c": "Fixed-Energy_AttributeAssignments.json",
+    "%vlocity_namespace%__AttributeDefaultValues__c": {
+        "ATT_CUST_CATEGORY": "Consumer",
+        "ATT_METER_TYPE": "Any",
+        "ATT_PAYMENT_METHOD": "Direct Debit",
+        "ATT_PRICING_SCHEME": "Matrix"
+    },
+    "%vlocity_namespace%__AttributeMetadata__c": {
+        "messages": [
+        ],
+        "records": [
+            {
+                "Code__c": "ACAT_COMM_OFFER",
+                "Name": "Commodity Offer",
+                "displaySequence": 120,
+                "id": "a0J5e000000pggBEAQ",
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "attributeId": "a0K5e000000bEwlEAE",
+                            "cloneable": true,
+                            "code": "ATT_CUST_CATEGORY",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 10,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Customer Category",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 10,
+                                    "id": "1080d163-8c7f-05eb-1059-7bbfe1fe5206",
+                                    "label": "Consumer",
+                                    "readonly": false,
+                                    "value": "Consumer"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 20,
+                                    "id": "612b7f9f-3b27-098b-928c-5c8cdf197a15",
+                                    "label": "Government",
+                                    "readonly": false,
+                                    "value": "Government"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 30,
+                                    "id": "a6369ebb-29d2-efed-51d2-2a552457261d",
+                                    "label": "Large Enterprise",
+                                    "readonly": false,
+                                    "value": "Large Enterprise"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 40,
+                                    "id": "5264f79b-1888-79c6-0453-0cabb26d75c9",
+                                    "label": "Small and Medium Business",
+                                    "readonly": false,
+                                    "value": "Small and Medium Business"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwmEAE",
+                            "cloneable": true,
+                            "code": "ATT_METER_TYPE",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 20,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Meter Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 10,
+                                    "id": "9512c1e2-bbe2-3f54-1aae-9ba794d7444c",
+                                    "label": "Any",
+                                    "readonly": false,
+                                    "value": "Any"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 20,
+                                    "id": "59ee1c1f-1c90-9f14-dc84-12cb5d966999",
+                                    "label": "Prepaid",
+                                    "readonly": false,
+                                    "value": "Prepaid"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 30,
+                                    "id": "ca85e228-8f77-74ad-8a59-8eb450dd781d",
+                                    "label": "Smart",
+                                    "readonly": false,
+                                    "value": "Smart"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwnEAE",
+                            "cloneable": true,
+                            "code": "ATT_PRICING_SCHEME",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 30,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Pricing Scheme",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 10,
+                                    "id": "d925569a-2120-7f26-6412-c52ebd45aaa7",
+                                    "label": "List",
+                                    "readonly": false,
+                                    "value": "List"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 20,
+                                    "id": "f66410a5-5b8a-0fb3-2d89-ef9e7c213772",
+                                    "label": "Matrix",
+                                    "readonly": false,
+                                    "value": "Matrix"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 30,
+                                    "id": "09fb9a5f-4ce4-f0f7-53cd-ee37bea5c219",
+                                    "label": "External",
+                                    "readonly": false,
+                                    "value": "External"
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwoEAE",
+                            "cloneable": true,
+                            "code": "ATT_PAYMENT_METHOD",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 40,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "text",
+                            "isNotTranslatable": false,
+                            "label": "Payment Method",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 4
+                }
+            }
+        ],
+        "totalSize": 1
+    },
+    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__CategoryData__c": "",
+    "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
+    "%vlocity_namespace%__ClassId__c": "",
+    "%vlocity_namespace%__DefaultImageId__c": "",
+    "%vlocity_namespace%__EffectiveDate__c": "2020-11-01",
+    "%vlocity_namespace%__EndDate__c": "",
+    "%vlocity_namespace%__EndOfLifeDate__c": "",
+    "%vlocity_namespace%__FulfilmentStartDate__c": "2020-11-01T07:00:00.000Z",
+    "%vlocity_namespace%__GlobalGroupKey__c": "7ccdbdca-b17a-6c42-5fc2-25bbf02bf712",
+    "%vlocity_namespace%__GlobalKey__c": "d2fa6a81-f88a-d63c-70c8-ff2c9a829172",
+    "%vlocity_namespace%__HeaderData__c": "",
+    "%vlocity_namespace%__HelpText__c": "",
+    "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsLocationDependent__c": false,
+    "%vlocity_namespace%__IsNotAssetizable__c": false,
+    "%vlocity_namespace%__IsOrderable__c": true,
+    "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "Seconds",
+    "%vlocity_namespace%__JeopardySafetyInterval__c": "",
+    "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__Modification__c": "",
+    "%vlocity_namespace%__ObjectTypeId__c": {
+        "%vlocity_namespace%__GlobalKey__c": null,
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "%vlocity_namespace%__ObjectClass__c/Generated80252209",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__ObjectClass__c"
+    },
+    "%vlocity_namespace%__ObjectTypeName__c": "Commodity Offer",
+    "%vlocity_namespace%__ParentClassId__c": "",
+    "%vlocity_namespace%__PriceListEntry__c": "Fixed-Energy_PriceListEntries.json",
+    "%vlocity_namespace%__ProductChildItem__c": "Fixed-Energy_ProductChildItems.json",
+    "%vlocity_namespace%__ProductSpecId__c": "",
+    "%vlocity_namespace%__ProductTemplateProductId__c": "",
+    "%vlocity_namespace%__Scope__c": "Order Item",
+    "%vlocity_namespace%__SellingEndDate__c": "",
+    "%vlocity_namespace%__SellingStartDate__c": "2020-11-01T07:00:00.000Z",
+    "%vlocity_namespace%__SpecificationSubType__c": "",
+    "%vlocity_namespace%__SpecificationType__c": "Product",
+    "%vlocity_namespace%__StandardPremium__c": "",
+    "%vlocity_namespace%__Status__c": "Active",
+    "%vlocity_namespace%__SubType__c": "Electricity",
+    "%vlocity_namespace%__TimeToLive__c": "",
+    "%vlocity_namespace%__TrackAsAgreement__c": false,
+    "%vlocity_namespace%__Type__c": "Commodity",
+    "%vlocity_namespace%__VendorAccountId__c": "",
+    "%vlocity_namespace%__VersionEndDateTime__c": "",
+    "%vlocity_namespace%__VersionLabel__c": "",
+    "%vlocity_namespace%__VersionStartDateTime__c": "",
+    "CanUseQuantitySchedule": false,
+    "CanUseRevenueSchedule": false,
+    "Description": "Basic consumer fixed energy product. Priced with usage pricing based on distribution region and payment method.",
+    "DisplayUrl": "",
+    "ExternalDataSourceId": "",
+    "ExternalId": "",
+    "Family": "Electricity",
+    "IsActive": true,
+    "IsArchived": false,
+    "Name": "Fixed Energy",
+    "NumberOfQuantityInstallments": "",
+    "NumberOfRevenueInstallments": "",
+    "PricebookEntry": "Fixed-Energy_PricebookEntries.json",
+    "ProductCode": "PD_FIXED_ENERGY",
+    "QuantityInstallmentPeriod": "",
+    "QuantityScheduleType": "",
+    "QuantityUnitOfMeasure": "",
+    "RecordTypeId": {
+        "DeveloperName": "Product",
+        "SobjectType": "Product2",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "RecordType/Product2/Product",
+        "VlocityRecordSObjectType": "RecordType"
+    },
+    "RevenueInstallmentPeriod": "",
+    "RevenueScheduleType": "",
+    "StandardPricebookEntry": [
+        {
+            "%vlocity_namespace%__FloorPrice__c": "",
+            "%vlocity_namespace%__OverageCharge__c": "",
+            "%vlocity_namespace%__OverageUOM__c": "",
+            "%vlocity_namespace%__RecurringPrice__c": 0,
+            "%vlocity_namespace%__RecurringUOM__c": "Monthly",
+            "IsActive": true,
+            "IsArchived": false,
+            "Name": "Fixed Energy",
+            "Pricebook2.Name": "Standard Price Book",
+            "Pricebook2Id": {
+                "Name": "Standard Price Book",
+                "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+                "VlocityLookupRecordSourceKey": "Pricebook2/Standard Price Book",
+                "VlocityRecordSObjectType": "Pricebook2"
+            },
+            "Product2.%vlocity_namespace%__GlobalKey__c": "d2fa6a81-f88a-d63c-70c8-ff2c9a829172",
+            "Product2Id": {
+                "%vlocity_namespace%__GlobalKey__c": "d2fa6a81-f88a-d63c-70c8-ff2c9a829172",
+                "VlocityDataPackType": "VlocityMatchingKeyObject",
+                "VlocityMatchingRecordSourceKey": "Product2/d2fa6a81-f88a-d63c-70c8-ff2c9a829172",
+                "VlocityRecordSObjectType": "Product2"
+            },
+            "ProductCode": "PD_FIXED_ENERGY",
+            "UnitPrice": 0,
+            "UseStandardPrice": false,
+            "VlocityDataPackType": "SObject",
+            "VlocityRecordSObjectType": "PricebookEntry",
+            "VlocityRecordSourceKey": "PricebookEntry/Pricebook2/Standard Price Book/Product2/d2fa6a81-f88a-d63c-70c8-ff2c9a829172"
+        }
+    ],
+    "StockKeepingUnit": "",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "Product2",
+    "VlocityRecordSourceKey": "Product2/d2fa6a81-f88a-d63c-70c8-ff2c9a829172"
+}
