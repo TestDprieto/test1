@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Digital Cacheable APIs (v3): If TRUE, the Configure Offer API splits into two transactions, allowing you to configure promotions in a two-step process. If FALSE or NULL, Configure Offer API operates in a single configuration transaction.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "CacheAPIPartialConfigure",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/CacheAPIPartialConfigure"
+}

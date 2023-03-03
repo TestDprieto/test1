@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Global Key --></label>
+        <name>vlocity_cmt__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Translated --></label>
+        <name>vlocity_cmt__IsTranslated__c</name>
+    </fields>
+    <fields>
+        <label><!-- Locale Code --></label>
+        <name>vlocity_cmt__LocaleCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Vlocity String --></label>
+        <name>vlocity_cmt__StringId__c</name>
+        <relationshipLabel><!-- Vlocity String Translations --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Translation --></label>
+        <name>vlocity_cmt__Translation__c</name>
+    </fields>
+</CustomObjectTranslation>

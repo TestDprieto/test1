@@ -1,0 +1,66 @@
+<ul class="slds-accordion" ng-init="record = records.record; fields = records.fields; childRecords = records.childRecords; attributeCategories = records.attributeCategories; $root.sourceId=null">
+    <li ng-class="(($root.highlightProductId === record.Id.value) || ($root.sourceId === record.Id.value)) ? 'cpq-compare-highlight' : 'cpq-compare-highlight-white'" class="slds-accordion__list-item" id={{record.Id.value}}>
+        <section class="slds-accordion__section" ng-class="{'slds-is-open': !record.$toggle}">
+            <div class="slds-accordion__summary" >
+                <h3 class="slds-accordion__summary-heading">
+                    <button aria-controls="expando-{{record.Id.value}}" aria-expanded="{{!record.$toggle}}" class="slds-button slds-button_reset slds-accordion__summary-action"
+                        ng-class="{'slds-text-title--caps': record.itemType === 'productGroup'}"
+                        ng-click="record.$toggle = !record.$toggle">
+                        <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'switch'" extra-classes="'slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left'"></slds-button-svg-icon>
+                        <span class="slds-truncate" title="{{importedScope.getProductInformation(record)}}" cpq-translate="Product2.Name">{{record.PricebookEntry.Product2.Name || record.Product2.Name}}</span>
+                        
+                    </button>
+                </h3>
+                <a href="javascript:void(0)" ng-click="$root.sourceId = record.Id.value; importedScope.scrollToProduct(record.actions.findreplacementtargetitem.client.params.replacementTargetItemId)">
+                    <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'link'" extra-classes="'slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left'" ng-if="record.actions.findreplacementtargetitem"></slds-button-svg-icon>
+                </a>
+            </div>
+            <div aria-hidden="{{record.$toggle}}" class="slds-accordion__content" id="expando-{{record.Id.value}}">
+                <div>
+                    <table class="slds-table slds-table--bordered slds-table_fixed-layout slds-max-medium-table--stacked slds-no-row-hover">
+                        <tbody>
+                            <tr ng-class="(($root.highlightProductId === record.Id.value) || ($root.sourceId === record.Id.value)) ? 'cpq-compare-highlight' : 'cpq-compare-highlight-white'" ng-repeat="field in fields"  
+                            ng-if="record[field].value || (record[field].fieldName === $root.nsPrefix+'OneTimeCharge__c') || (record[field].fieldName === $root.nsPrefix+'OneTimeTotal__c') || (record[field].fieldName === $root.nsPrefix+'RecurringTotal__c') || (record[field].fieldName === $root.nsPrefix+'RecurringCharge__c')">
+                                <th>{{record[field].label}}</th>
+                                <td class="slds-cell-wrap">{{record[field].value | picker: record[field].dataType.toLowerCase()}}</td>
+                            </tr>
+                            <tr ng-if="record.PurchaseDate">
+                                <th>Purchase date</th>
+                                <td>{{record.PurchaseDate | date}}</td>
+                            </tr>
+                            <tr ng-if="record.InstallDate">
+                                <th>Install date</th>
+                                <td>{{record.InstallDate | date}}</td>
+                            </tr>
+                            <tr ng-if="record.UsageEndDate">
+                                <th>Usage end date</th>
+                                <td>{{record.UsageEndDate | date}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <!-- category -->
+                    <section ng-if="record.attributeCategories" class="slds-accordion__section" ng-class="{'slds-is-open': record.$toggle1}">
+                        <div class="slds-accordion__summary" ng-click="record.$toggle1 = !record.$toggle1">
+                            <h3 class="slds-accordion__summary-heading">
+                                <button aria-controls="expando-{{record.Id.value}}" aria-expanded="{{!record.$toggle1}}" class="slds-button slds-button_reset slds-accordion__summary-action"
+                                    ng-class="{'slds-text-title--caps': record.itemType === 'productGroup'}">
+                                    <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'switch'" extra-classes="'slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left'"></slds-button-svg-icon>
+                                    <span class="slds-truncate" title="{{importedScope.getProductInformation(record)}}" cpq-translate="Product2.Name"><b>Attributes</b></span>
+                                </button>
+                            </h3>
+                        </div>
+                        <div aria-hidden="{{record.$toggle1}}" class="slds-accordion__content" id="expando-{{record.Id.value}}">
+                            <cpq-record-category-tree-view ng-repeat="category in attributeCategories | orderBy: 'Name'" category="category"></cpq-record-category-tree-view>
+                        </div>
+                    </section>
+                </div>
+                <div>
+                    <cpq-child-line-item-tree-view ng-repeat="item in childRecords | orderBy: 'sequenceNumber'" 
+                    record="item" ng-if="$root.checkIfHasRealRecords(item)"></cpq-child-line-item-tree-view>
+                </div>
+            </div>
+        </section>
+    </li>
+</ul>

@@ -1,0 +1,25 @@
+<div class='slds-box vlc-slds-mob-conf'>
+    <slds-svg-icon aria-hidden="true"
+                   sprite="'action'"
+                   icon="'approval'"
+                   size="'small'"
+                   extra-classes="'slds-button__icon slds-button__icon--large'">
+    </slds-svg-icon>
+
+    <div class='vlc-slds-mob-conf--body'>
+
+        <label class="slds-form-element__label"
+               ng-if='bpTree.response.applicationRefNumber'>
+            Thank you for submitting the form. Your reference number is
+            <span class='vlc-slds-ref-number'>{{bpTree.response.applicationRefNumber}}</span>.
+        </label>
+
+        <label class="slds-form-element__label"
+               ng-if='bpTree.response.OrderNumber'>
+            Thank you for submitting the order. Your order number is
+            <span class='vlc-slds-ref-number'>{{bpTree.response.OrderNumber}}</span>.
+        </label>
+
+    </div>
+
+</div>

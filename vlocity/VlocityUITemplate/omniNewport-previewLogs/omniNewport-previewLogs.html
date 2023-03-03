@@ -1,0 +1,26 @@
+<div class='nds-grid nds-wrap nds-grid_pull-padded nds-col_padded'>
+
+    <div class="nds-col_padded">
+
+        <div class="nds-size_1-of-1">
+
+            <button style="flex: 0 0 100%"
+                    class="nds-button"
+                    ng-click='debugInformation = []'>
+                Clear Logs
+            </button>
+
+
+        </div>
+
+
+        <div class='nds-size_1-of-1' ng-if="bpTree.previewMode">
+            <div class="nds-size_1-of-1" ng-repeat='info in debugInformation'>
+                <div class='nds-form-element__label'>{{::info.label}}</div>
+                <json-formatter json="info.log" class="nds-box"></json-formatter>
+            </div>
+        </div>
+
+    </div>
+
+</div>

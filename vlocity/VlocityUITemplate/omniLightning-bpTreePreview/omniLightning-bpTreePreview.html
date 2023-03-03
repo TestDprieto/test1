@@ -1,0 +1,34 @@
+<div id='debug-panel' class='panel panel-default'
+        ng-if="!isPreviewEmbedded">
+        <div class='panel-heading' ng-click='showDebugTabs = !showDebugTabs' style='padding:0;'>
+            <h5 class='pull-left'>Troubleshooting </h5>
+            <span class='pull-right' ng-class='{"icon-v-up-caret": showDebugTabs, "icon-v-down-caret": !showDebugTabs}'>
+            </span>
+        </div>
+        <div class='row' style='background-color: #969696; margin: 0;'>
+            <ul id='debug-tabs' ng-show='showDebugTabs'>
+                <li ng-repeat="tab in tabs"  ng-class="{active: isActiveTab(tab.page)}" ng-click="onClickTab(tab, $event);">{{tab.title}}</li>
+            </ul>
+        </div>
+        <div id="mainView" ng-class='{collapse: !showDebugTabs}'>
+            <div class='panel-body' style='height: 200px; overflow: auto;' ng-include="currentTab"></div>
+        </div>
+</div>
+
+<div class="slds-col slds-clearfix" ng-if="children && children.length>0">
+
+
+
+    <sidebar class="slds-col--padded slds-cleafix"></sidebar>
+
+    
+    <auto-saveforlater-msg></auto-saveforlater-msg>
+
+    <div class="vlc-slds-bpTree-step-chart__container">
+        <!-- step chart for lightning this is the stepchar -->
+        <bptree class="slds-clearfix"></bptree>
+        <vlc-slds-right-panel></vlc-slds-right-panel>
+    </div>
+
+
+</div>

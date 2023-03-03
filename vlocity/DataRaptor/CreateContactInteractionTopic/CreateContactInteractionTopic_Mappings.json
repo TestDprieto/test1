@@ -1,0 +1,72 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__CustomerInteractionTopic__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "%vlocity_namespace%__AccountId__c",
+        "%vlocity_namespace%__GlobalKey__c": "ac3a6cdb-fca6-bd22-6e93-4b20704f854c",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "CreateInteraction:%vlocity_namespace%__CustomerInteraction__c_1:%vlocity_namespace%__AccountId__c",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "CreateContactInteractionTopicCustoma0L46000000B5WiEAKItem0",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "CreateContactInteractionTopic",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__CustomerInteractionTopic__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "%vlocity_namespace%__AccountId__c",
+        "%vlocity_namespace%__GlobalKey__c": "e3b3127d-77f7-fbb9-79aa-6ad8cc8f5a28",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ExtractAssetBasedOnAccount:AssetAccountId",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "CreateContactInteractionTopicCustoma0L46000000B5WiEAKItem1",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "CreateContactInteractionTopic",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__CustomerInteractionTopic__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "%vlocity_namespace%__AssetId__c",
+        "%vlocity_namespace%__GlobalKey__c": "f358054f-430f-501e-2f3b-ad4bddc8dbbc",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ExtractAssetBasedOnAccount:AssetId",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "CreateContactInteractionTopicCustoma0L46000000B5WiEAKItem2",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "CreateContactInteractionTopic",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__CustomerInteractionTopic__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "%vlocity_namespace%__CustomerInteractionId__c",
+        "%vlocity_namespace%__GlobalKey__c": "62d9dd15-150e-487b-8908-b5126bbbe7e3",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "TransformNewInteraction:NewInteraction:Id",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "CreateContactInteractionTopicCustoma0L46000000B5WiEAKItem4",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "CreateContactInteractionTopic",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "%vlocity_namespace%__CustomerInteractionTopic__c",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Name",
+        "%vlocity_namespace%__GlobalKey__c": "ce46a188-3c38-70b3-20a6-64750d8758b8",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "ExtractAssetBasedOnAccount:Name",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "CreateContactInteractionTopicCustoma0L46000000B5WiEAKItem3",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "CreateContactInteractionTopic",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

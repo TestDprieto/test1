@@ -1,0 +1,51 @@
+<div class="nds-col_padded nds-size_1-of-1">
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-multiSelect_filter-control'
+             ng-repeat='control in child.eleArray'>
+
+        <label for="{{::control.name}}" class='nds-form-element__label'>
+          <span>{{::control.propSetMap.label}}</span>
+ 
+          <span class='nds-required'
+              ng-if='control.req'>*
+          </span>
+        </label>
+
+        <div class="nds-form-element__control">
+            <div>
+                <!-- always horizontal -->
+                <ul class="nds-form-element" horizontalMode='true'>
+                    <li class="nds-form-element__control" ng-repeat='option in control.propSetMap.options track by option.name'>
+                        <label class="nds-checkbox">
+                            <input id='{{::control.name}}'
+                                   type='checkbox'
+                                   ng-model='option.selected'
+                                   ng-init='init(this, control)'
+                                   ng-if='ngInitValidation(this, control)'
+                                   ng-change='onMultiSelect(this, control, option)' />
+
+                            <span class="nds-checkbox_faux"></span>
+                            <span class="nds-form-element__label">{{::option.value}}</span>
+
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class='vlc-slds-error-block'>
+                <div class='error' ng-show='loopform.$error' ng-hide='loopform.$pristine'>
+                    <small ng-show='loopform.$error.required' class='description'>{{::customLabels.OmniRequired}}</small>
+                </div>
+                
+                <div class='error' ng-show='control.srvErr'>
+                    <small ng-show='control.srvErr' class='description'>{{control.srvErr}}</small>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </ng-form>
+
+</div>

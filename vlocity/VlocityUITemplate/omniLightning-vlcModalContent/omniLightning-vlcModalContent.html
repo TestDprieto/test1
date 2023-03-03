@@ -1,0 +1,28 @@
+<div class='slds-modal slds-fade-in-open slds-modal--large via-slds via-omni'>
+    <div class='slds-modal__container'>
+        <div class='slds-modal__header'>
+            <h3 class="modal-title">Item Comparison Sample</h3>
+        </div>
+        <div class='slds-modal__content slds-p-around--medium'>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Feature</th>
+                    </tr>
+                </thead>
+                <tbody class='ins'>
+                    <tr ng-repeat='p in content.recSet'>
+                        <td>{{p.ProductName}}</td>
+                        <td>{{p.TermLifeMatrix__Rate}}
+                            <div ng-repeat="a in p.attributes | filterMultiple:{value:['True']}">{{a.name}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class='slds-modal__footer'>
+            <button class="btn btn-warning" ng-click="cancel()">OK</button>
+        </div>
+    </div>
+</div>

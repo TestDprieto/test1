@@ -1,0 +1,14 @@
+<div class='nds-col_padded'>
+    <div class="nds-box">
+        <div class='nds-form-element__label'>
+            <b>{{::customLabels.OmniCallResult}}</b>
+        </div>
+        <p>
+            <p ng-if="response.CallSuccess">{{::customLabels.OmniApplicationAcknowledge}} {{response.applicationRefNumber}}.</p>
+            <p ng-if="!response.CallSuccess">{{response.responseText}}</p>
+            <p ng-if="!response.CallSuccess">{{response.message}}</p>
+            <p ng-if="!response.CallSuccess">{{response.error}}</p>
+        </p>
+
+    </div>
+</div>

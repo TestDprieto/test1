@@ -1,0 +1,33 @@
+<accordion-group id='{{::child.name}}' ng-show='((!bVert && child.bAccordionActive) || bVert)' is-open='child.open' is-disabled='!child.bAccordionActive' ng-class='{ active: child.bAccordionActive }' template-url='vlcAccordionGroup.html' step='child'>
+    <accordion-heading>
+        {{::child.propSetMap.label}}
+    </accordion-heading>
+    <form novalidate class='form-horizontal' role='form' name='{{::bpTree.sOmniScriptId}}-{{$index}}' id='{{::bpTree.sOmniScriptId}}-{{$index}}'>
+        <div class='row'>
+            <child ng-repeat='child in ::children = child.children' ng-if='!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this)'></child>
+        </div>
+    </form>
+    <div class='footer-row row'>
+        <div class='vlc-sfl pull-left col-md-2 col-xs-12' ng-if='bpTree.propSetMap.allowSaveForLater && bpTree.scriptState !== "review" && child.bAccordionActive'>
+            <a class='form-control btn btn-link' confirmed-click='saveForLater(child)' ng-confirm-click='{{::child.propSetMap.saveMessage}}'>{{::child.propSetMap.saveLabel}}</a>
+        </div>
+        <div ng-show='!child.bHasNext' class='vlc-sfl pull-left col-md-2 col-xs-12' ng-if='bpTree.scriptState == "saveAndResume" && child.bAccordionActive'>
+            <a class='form-control btn btn-link' confirmed-click='completeScript(true)' ng-confirm-click='{{::child.propSetMap.completeMessage}}'>{{::child.propSetMap.completeLabel}}</a>
+        </div>
+
+        <div ng-show='child.bHasNext' class='col-md-2 col-xs-12 vlc-next pull-right'>
+             <button class='form-control btn btn-primary' ng-click='nextRepeater(child.nextIndex, child.indexInParent)' ng-class="{ 'vlc-primary-inactive': false }"
+                ng-disabled='checkValidity(this, child.index, child.indexInParent, "Step", null, true)'>
+                {{::child.propSetMap.nextLabel}}
+            </button>
+        </div>
+
+        <div ng-if='child.bHasPrevious' class='col-md-2 col-xs-12 vlc-previous pull-right'>
+            <button class='form-control btn btn-default' ng-click='previous(this, child)'>{{::child.propSetMap.previousLabel}}</button>
+        </div>
+
+        <div class='vlc-cancel pull-right col-md-2 col-xs-12' ng-if='child.bAccordionActive'>
+            <button class='form-control btn btn-default' confirmed-click='cancel()' ng-confirm-click='{{::child.propSetMap.cancelMessage}}'>{{::child.propSetMap.cancelLabel}}</button>
+        </div>
+    </div>
+</accordion-group>

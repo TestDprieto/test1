@@ -1,0 +1,31 @@
+{
+    "Cards": [
+    ],
+    "bypassSave": true,
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "a3L1N0000009lp8"
+            }
+        ],
+        "type": "ApexRemote",
+        "value": {
+            "inputMap": {
+                "interactionId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.InteractionSummaryController"
+            },
+            "remoteClass": "InteractionSummaryController",
+            "remoteMethod": "getInteractionObject",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": "result"
+        }
+    },
+    "templates": {
+        "0": {
+            "templateUrl": "interaction-action-canvas"
+        }
+    }
+}

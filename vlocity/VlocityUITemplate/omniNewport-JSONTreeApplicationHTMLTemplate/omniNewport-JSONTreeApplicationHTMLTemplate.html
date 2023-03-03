@@ -1,0 +1,13 @@
+<div class="vlc-json-tree-row">
+    <div ng-hide="node.isCollapsed" ng-repeat="key in utils.keys(json) track by key" class="children">
+        <a ng-click="utils.clickNode(childs[key])">
+            <span class="toggler {{childs[key].isCollapsed ? '' : 'open'}}" ng-if="childs[key].isObject() &amp;&amp; key !== 'filesMap'"></span>
+        </a>
+        <span ng-if="node.type() !== 'array' &amp;&amp; key !== 'filesMap'" class="key"><label>{{key}}: </label></span>
+        <span ng-if="node.type() === 'array' &amp;&amp; key !== 'filesMap'" class="key"><label>{{$index+1}}: </label></span>
+        <span class="value">
+            <span ng-if="!childs[key].isObject() &amp;&amp; key !== 'filesMap'"><label>{{json[key]}}</label></span>
+        </span>
+        <json-tree json="json[key]" edit-level="{{editLevel}}" collapsed-level="{{+collapsedLevel - 1}}" node="childs[key]" ng-show="childs[key].isObject() &amp;&amp; key !== 'filesMap'"></json-tree>
+    </div>
+</div>

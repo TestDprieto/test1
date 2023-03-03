@@ -1,0 +1,23 @@
+<div class="slds-page-header custom-contract-creation-header" role="banner">
+    <div class="slds-grid slds-grid--vertical-align-center" ng-init="importedScope.initData(params.id)">
+        <div class="slds-size--1-of-2" role="banner">
+            <div class="slds-media slds-no-space slds-grow">
+                <div class="slds-media__figure">
+                    <slds-svg-icon id="document-creation-icon" sprite="'standard'" icon="'contract'" size="'medium'" extra-classes="'slds-icon-standard-contract'"></slds-svg-icon>
+                </div>
+                <div class="slds-media__body">
+                    <h1 class="slds-page-header__title custom slds-m-right--small slds-align-middle slds-truncate" title="Contract Document Creation">Contract Terms</h1>
+                    <p class="slds-text-heading--label slds-line-height--reset">{{importedScope.versionName}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="slds-size--1-of-2">
+            <div class="slds-button-group slds-float--right" role="group">
+                <button class="slds-button slds-button--neutral navigate-back"  ng-click="importedScope.navigateBack()">
+                    <slds-button-svg-icon id="back-to-contract" sprite="'utility'" icon="'back'" size="'small'" extra-classes="'slds-button__icon--left'"></slds-button-svg-icon>
+                    Go Back to Contract
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

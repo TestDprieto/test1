@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__DestinationChildObject__c": "QuoteLineItem",
+    "%vlocity_namespace%__DestinationParentObject__c": "Quote",
+    "%vlocity_namespace%__ParentDestinationReferenceField__c": "QuoteId",
+    "%vlocity_namespace%__ParentSourceReferenceField__c": "OpportunityId",
+    "%vlocity_namespace%__SourceChildObject__c": "OpportunityLineItem",
+    "%vlocity_namespace%__SourceParentObject__c": "Opportunity",
+    "Name": "Opportunity>Quote",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CustomObjectMap__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CustomObjectMap__c/Opportunity>Quote"
+}

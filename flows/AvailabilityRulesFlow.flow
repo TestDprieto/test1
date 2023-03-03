@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Rule1</name>
+        <label>Rule1</label>
+        <locationX>212</locationX>
+        <locationY>186</locationY>
+        <actionName>vlocity_cmt__RuleAction</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>ruleType</name>
+            <value>
+                <stringValue>Availability</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>ruleName</name>
+            <value>
+                <stringValue>Avail Rule 1</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>doCommit</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>Availability Rules Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Availability Rules Flow</label>
+    <processType>AutoLaunchedFlow</processType>
+    <startElementReference>Rule1</startElementReference>
+    <status>Draft</status>
+</Flow>

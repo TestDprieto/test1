@@ -1,0 +1,19 @@
+<div role="dialog" tabindex="-1" aria-labelledby="prompt-heading-id" aria-describedby="prompt-message-wrapper" class="slds-modal slds-fade-in-open slds-modal--prompt via-slds via-omni">
+  <div id="alert-container" class="slds-modal__container">
+    <div class="slds-modal__header slds-theme--info slds-theme--alert-texture" ng-class="{'slds-theme--error':error,'slds-theme--warning':warning}">
+      <h2 class="slds-text-heading--medium" id="prompt-heading-id">{{::title}}</h2>
+    </div>
+    <div class="slds-modal__content slds-p-around--medium">
+      <p ng-bind-html="::content"></p>
+      <input ng-model='input'
+             type='text'
+             name='loopname'
+             class='slds-input'
+             ng-if="alertType !== undefined && alertType == 'Prompt'"/>
+    </div>
+    <div class="slds-modal__footer slds-theme--default">
+      <button id="alert-cancel-button" class="slds-button slds-button--neutral" ng-if="alertType !== undefined && alertType != 'Alert'" ng-click="cancel()">{{::cancelLabel}}</button>
+      <button id="alert-ok-button" class="slds-button slds-button--neutral" ng-click="submit(input)">{{::submitLabel}}</button>
+    </div>
+  </div>
+</div>
