@@ -1,0 +1,15 @@
+{
+    "contextVariables": [
+        {
+            "name": "$root.vlocity.userAccountId",
+            "val": "0013600000KvU5Z"
+        }
+    ],
+    "type": "Query",
+    "value": {
+        "endpoint": "",
+        "methodType": "GET",
+        "query": "SELECT %vlocity_namespace%__Type__c, %vlocity_namespace%__ServiceEndDate__c, SUM(%vlocity_namespace%__Usage__c), MAX(Threshold__c) FROM %vlocity_namespace%__StatementLineItem__c WHERE %vlocity_namespace%__StatementId__c = '{{attrs.statementid}}'  AND (%vlocity_namespace%__Type__c = 'Data' OR %vlocity_namespace%__Type__c = 'Talk' OR %vlocity_namespace%__Type__c = 'Text') GROUP BY  %vlocity_namespace%__Type__c, %vlocity_namespace%__ServiceEndDate__c",
+        "resultVar": ""
+    }
+}

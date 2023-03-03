@@ -1,0 +1,27 @@
+<apex:page standardController="vlocity_cmt__Attribute__c" extensions="TRNGProcessAttributes" recordSetVar="attrib">
+
+    <apex:slds /><!-- Implement the Salesforce Lightning Design System -->
+    <div class="slds-scope" style="text-align:center">
+    <div class="slds-modal__header">
+        Confirm Processing
+    </div>
+    <div class="slds-modal__content slds-p-around--medium">
+        <p>This will run the EPCProductAttribJSONBatchJob, which updates record ids stored in the JSONAttribute field. 
+        </p>
+        <p>Ready to process product attributes?
+        </p>
+    </div>
+    <apex:form >
+    <apex:commandLink action="{!RunProcess}" id="process" >
+        <button class="slds-button slds-button--neutral">Start processing
+        </button>
+    </apex:commandLink>
+    <apex:commandLink action="{!cancel}" id="goback">
+        <button class="slds-button slds-button--neutral">
+        Cancel
+        </button>
+    </apex:commandLink>
+     </apex:form>  
+     </div>
+   
+</apex:page>

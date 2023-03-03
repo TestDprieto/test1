@@ -1,0 +1,63 @@
+[
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 0,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "Account",
+        "%vlocity_namespace%__FilterGroup__c": 0,
+        "%vlocity_namespace%__FilterOperator__c": "=",
+        "%vlocity_namespace%__FilterValue__c": "AccountId",
+        "%vlocity_namespace%__GlobalKey__c": "229d3093-8015-26f3-f9be-346462573c78",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Id",
+        "%vlocity_namespace%__InterfaceObjectLookupOrder__c": 1,
+        "%vlocity_namespace%__InterfaceObjectName__c": "Account",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "teamGetPriContactDetailsCustoma173k00000c9SwwAAEItem0",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "teamStarterGetPriContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "AccountId",
+        "%vlocity_namespace%__GlobalKey__c": "c0da429a-9166-ba10-2fb4-c0e921bf5c4b",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Account:Id",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "teamStarterGetPriContactDetailsCustom9879",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "teamStarterGetPriContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "AccountPostalCode",
+        "%vlocity_namespace%__GlobalKey__c": "c8760ea1-da28-51c9-7538-f9b469dd9c16",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Account:BillingPostalCode",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "teamGetPriContactDetailsCustoma173k00000c9SwwAAEItem1",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "teamStarterGetPriContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    },
+    {
+        "%vlocity_namespace%__DomainObjectAPIName__c": "json",
+        "%vlocity_namespace%__DomainObjectCreationOrder__c": 1,
+        "%vlocity_namespace%__DomainObjectFieldAPIName__c": "UpdateContactId",
+        "%vlocity_namespace%__GlobalKey__c": "66e92884-e33c-c57b-66ac-968fd726d711",
+        "%vlocity_namespace%__InterfaceFieldAPIName__c": "Account:%vlocity_namespace%__PrimaryContactId__c",
+        "%vlocity_namespace%__IsDisabled__c": false,
+        "%vlocity_namespace%__IsRequiredForUpsert__c": false,
+        "%vlocity_namespace%__MapId__c": "teamGetPriContactDetailsCustoma173k00000c9SwwAAEItem2",
+        "%vlocity_namespace%__UpsertKey__c": false,
+        "Name": "teamStarterGetPriContactDetails",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__DRMapItem__c"
+    }
+]

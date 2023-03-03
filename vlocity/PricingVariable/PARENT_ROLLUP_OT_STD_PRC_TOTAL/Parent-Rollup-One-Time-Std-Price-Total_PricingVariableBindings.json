@@ -1,0 +1,41 @@
+[
+    {
+        "%vlocity_namespace%__DestinationFieldApiName__c": "%vlocity_namespace%__EffectiveOneTimeTotal__c",
+        "%vlocity_namespace%__DestinationSObjectType__c": "Opportunity",
+        "%vlocity_namespace%__PricingVariableId__c": {
+            "%vlocity_namespace%__Code__c": "PARENT_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__PricingVariable__c/PARENT_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariable__c"
+        },
+        "Name": "Parent Rollup One Time Standard Price Total - Opportunity",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariableBinding__c"
+    },
+    {
+        "%vlocity_namespace%__DestinationFieldApiName__c": "%vlocity_namespace%__EffectiveOneTimeTotal__c",
+        "%vlocity_namespace%__DestinationSObjectType__c": "Order",
+        "%vlocity_namespace%__PricingVariableId__c": {
+            "%vlocity_namespace%__Code__c": "PARENT_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__PricingVariable__c/PARENT_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariable__c"
+        },
+        "Name": "Parent Rollup One Time Standard Price Total - Order",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariableBinding__c"
+    },
+    {
+        "%vlocity_namespace%__DestinationFieldApiName__c": "%vlocity_namespace%__EffectiveOneTimeTotal__c",
+        "%vlocity_namespace%__DestinationSObjectType__c": "Quote",
+        "%vlocity_namespace%__PricingVariableId__c": {
+            "%vlocity_namespace%__Code__c": "PARENT_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__PricingVariable__c/PARENT_ROLLUP_OT_STD_PRC_TOTAL",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariable__c"
+        },
+        "Name": "Parent Rollup One Time Standard Price Total - Quote",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__PricingVariableBinding__c"
+    }
+]

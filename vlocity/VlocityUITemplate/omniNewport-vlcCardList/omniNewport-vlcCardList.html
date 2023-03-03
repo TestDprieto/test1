@@ -1,0 +1,250 @@
+<div ng-controller='insuranceCartController'>
+    <div class='vlc-slds-items_top-container' ng-init='initFilters(this)'>
+        <div class='nds-form-element__control nds-input-has-icon nds-has-input-has-icon_right vlc-slds-items_top-container-select'>
+            <div class='nds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border_primary'>
+                <span class="vlc-slds-form-element__center_horizontal">
+                    {{filters.ProductSubType}}
+                </span>
+                <select name='{{::control.name}}_productType'
+                    id='{{::control.name}}_productType'
+                    style='opacity:-1'
+                    chainup="test"
+                    ng-model='filters.ProductSubType'
+                    class='nds-select'
+                    vlc-slds-val-watch="response"
+                    vlc-slds-val-checker="response"
+                    ng-change="filterChanged(filters.ProductSubType, control)"
+                    ng-options="item as item for item in getSelectValues('ProductSubType', control)">
+                </select>
+                <label for="{{::control.name}}_productType" class='nds-form-element__label'>{{::OmniInsuranceCartProductType}}</label>
+            </div>
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'down'"
+                           size="'small'"
+                           extra-classes="'nds-button__icon nds-button__icon_large'">
+            </slds-svg-icon>
+        </div>
+        <div class='nds-form-element__control nds-input-has-icon nds-has-input-has-icon_right vlc-slds-items_top-container-select'>
+            <div class='nds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border_primary'>
+                <span class="vlc-slds-form-element__center_horizontal">
+                    {{filters.LevelCoverage}}
+                </span>
+                <select name='{{::control.name}}_metalLevel'
+                    id='{{::control.name}}_metalLevel'
+                    style='opacity:-1'
+                    chainup="test"
+                    ng-model='filters.LevelCoverage'
+                    class='nds-select'
+                    vlc-slds-val-watch="response"
+                    vlc-slds-val-checker="response"
+                    ng-change="filterChanged(filters.LevelCoverage, control)"
+                    ng-options="item as item for item in getSelectValues('LevelCoverage', control)">
+                </select>
+                <label for="{{::control.name}}_metalLevel" class='nds-form-element__label'>{{::OmniInsuranceCartMetalLevel}}</label>
+            </div>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'down'"
+                           size="'small'"
+                           extra-classes="'nds-button__icon nds-button__icon_large'">
+            </slds-svg-icon>
+
+        </div>
+        <div class='nds-form-element__control nds-input-has-icon nds-has-input-has-icon_right vlc-slds-items_top-container-select'>
+            <div class='nds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border_primary'>
+                <span class="vlc-slds-form-element__center_horizontal">
+                    {{filters.NetworkName}}
+                </span>
+                <select name='{{::control.name}}_network'
+                    id='{{::control.name}}_network'
+                    style='opacity:-1'
+                    chainup="test"
+                    ng-model='filters.NetworkName'
+                    class='nds-select'
+                    vlc-slds-val-watch="response"
+                    vlc-slds-val-checker="response"
+                    ng-change="filterChanged(filters.NetworkName, control)"
+                    ng-options="item as item for item in getSelectValues('NetworkName', control)">
+                </select>
+                <label for="{{::control.name}}_network" class='nds-form-element__label'>{{::OmniInsuranceCartMetalLevel}}</label>
+            </div>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'down'"
+                           size="'small'"
+                           extra-classes="'nds-button__icon nds-button__icon_large'">
+            </slds-svg-icon>
+
+        </div>
+
+        <div class='nds-form-element__control nds-input-has-icon nds-has-input-has-icon_right vlc-slds-items_top-container-select'>
+            <div class='nds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border_primary'>
+                <span class="vlc-slds-form-element__center_horizontal">
+                    {{filters.Dental}}
+                </span>
+                <select name='{{::control.name}}_pediatricDental'
+                    id='{{::control.name}}_pediatricDental'
+                    style='opacity:-1'
+                    chainup="test"
+                    ng-model='filters.Dental'
+                    class='nds-select'
+                    vlc-slds-val-watch="response"
+                    vlc-slds-val-checker="response"
+                    ng-change="filterChanged(filters.Dental, control)"
+                    ng-options="item as item for item in getSelectValues('Dental', control)" >
+                </select>
+                <label for="{{::control.name}}_pediatricDental" class='nds-form-element__label'>{{::OmniInsuranceCartPediatricDental}}</label>
+            </div>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'down'"
+                           size="'small'"
+                           extra-classes="'nds-button__icon nds-button__icon_large'">
+            </slds-svg-icon>
+
+        </div>
+
+        <div class='nds-form-element__control nds-input-has-icon nds-has-input-has-icon_right vlc-slds-items_top-container-select'>
+            <div class='nds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border_primary'>
+                <span class="vlc-slds-form-element__center_horizontal">
+                    {{filters.Favorites}}
+                </span>
+                <select name='{{::control.name}}_favorites'
+                    id='{{::control.name}}_favorites'
+                    style='opacity:-1'
+                    chainup="test"
+                    ng-model='filters.Favorites'
+                    class='nds-select'
+                    vlc-slds-val-watch="response"
+                   vlc-slds-val-checker="response"
+                   ng-change="filterChanged(filters.Favorites, control)"
+                   ng-options="item as item for item in getSelectValues('Favorites', control)" >
+                </select>
+                <label for="{{::control.name}}_favorites" class='nds-form-element__label'>{{::OmniInsuranceCartFavorites}}</label>
+            </div>
+            
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'down'"
+                           size="'small'"
+                           extra-classes="'nds-button__icon nds-button__icon_large'">
+            </slds-svg-icon>
+
+        </div>
+        <div class='vlc-slds-items_top-container-select' ng-if='getNumItems(control, this)' style='text-align: right;'>
+            {{::OmniInsuranceCartPlansAvailable}}:
+            <strong>{{numItems}}</strong>
+        </div>
+        <div class='vlc-slds-remote-action_button'>
+            <div class="nds-form-element__control">
+                <div class="vlc-control-wrapper vlc-slds-cart__button">
+
+                     <div id='{{::control.name}}_showAttr'
+                         class='nds-box'
+                         title='{{::OmniInsuranceCartShowPlanDetails}}'
+                         ng-click="isCollapsed = !isCollapsed">
+                        <p ng-if='!isCollapsed'>{{::OmniInsuranceCartShowPlanDetails}}</p>
+                        <p ng-if='isCollapsed'>{{::OmniInsuranceCartHidePlanDetails}}</p>                        
+                    </div>
+
+                </div>
+                <div class="vlc-control-wrapper vlc-slds-cart__button" style="float: right;">
+
+                     <div id='{{::control.name}}_comparePlans'
+                         class='nds-box'
+                         title='{{::OmniInsuranceCartComparePlans}}'
+                         ng-click='openModal(this, control)'>
+                        <p>{{::OmniInsuranceCartComparePlans}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <p ng-if="!cardsShown">{{::OmniInsuranceCartNoProdMsg}}</p>
+    <div class='nds-grid nds-wrap nds-grid_pull-padded'>
+        <div class="nds-size_12-of-12 nds-medium-size_6-of-12 nds-large-size_4-of-12 vlc-slds-items_container vlc-slds-insurance-selectableItem"
+            ng-click="onSelectItem(control, p, $index, this, true)"
+            vlc-slds-added="{{ p.vlcSelected }}"
+            vlc-slds-prod-desc="{{p.Description}}"
+            ng-if="showParentProduct(p, $index, control, this)"
+            ng-repeat="p in control.vlcSI[control.itemsKey] | orderBy: 'aggregationResults.TotalPrice'">
+
+        <div class="nds-box vlc-slds-selectableItem">
+
+            <div class="nds-form-element__control vlc-slds-checkbox vlc-slds-checkbox__compare">
+                <label class="nds-checkbox">
+                    <input type='checkbox'
+                        ng-model="p.vlcCompSelected"
+                        ng-change="onCompSelectItem(control)"
+                        ng-disabled="control.compDisable && !p.vlcCompSelected" />
+
+                    <span class="nds-checkbox_faux"></span>
+                    <label class="nds-form-element__label vlc-slds-inline-control__label" vlc-bubble-canceller="test">
+                        {{::OmniInsuranceCartCompare}}
+                    </label>
+                </label>
+            </div>
+
+            <div class="nds-box vlc-slds-item_image">
+                <img ng-if="p.Image" ng-src="{{::instanceHost}}/servlet/servlet.FileDownload?file={{p.Image}}" />
+            </div>
+
+            <div ng-if="p.calculationResults!=null && p.aggregationResults!=null" class='vlc-slds-selectableItem__name'>
+                <div ng-repeat="i in p.calculationResults" ng-class="{'vlc-slds-visibility-hidden': !showProduct(i, $parent.$index, control)}">
+                    <div class="vlc-slds-item_details">
+
+                        <label class="nds-form__element__label">
+                            {{i.ProductName}}
+                        </label>
+
+                        </div>
+                        <div class="vlc-slds-item_cost">
+
+                            <label class="nds-form__element__label">
+                                <span class='vlc-slds-cardList-curSymbol'>{{currencySymbol}}</span>
+                                    {{p.aggregationResults.TotalPrice}}
+                                </label>
+
+                            <label class="nds-form__element__label">{{::customLabels.OmniMonthly}}</label>
+                        </div>
+                        <div class='vlc-slds-item-selectableItem-link'>
+                            <a href="{{i.SOB_Link}} + convertDate('01/01/2016')" target="_blank" style="display: block;"> View Schedule of Benefits (SOB)</a>
+                            <a href="{{i.SBC_Link}} + convertDate('01/01/2016')" target="_blank" style="display: block;"> View Summary of Benefits and Coverage (SBC)</a>
+                            <a href="{{i.Directory}}", "popupWindow", "width=200, height=100, scrollbars=yes, toolbar=no, status=no, titlebar=no, location=no, addressbar=no" target="_blank" style="display: block;"> Search Provider Directory</a>
+                            <a href="{{i.Formulary}}", "popupWindow", "width=200, height=100, scrollbars=yes, toolbar=no, status=no, titlebar=no, location=no, addressbar=no" target="_blank" style="display: block;">Formulary</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="vls-nds-item_action"
+                    vlc-slds-added="{{ p.vlcSelected }}">
+
+                    <span class="nds-icon_container nds-icon-action-approval nds-icon_container_circle">
+                        <slds-svg-icon aria-hidden="true"
+                                       sprite="'action'"
+                                       icon="'approval'"
+                                       size="'small'"
+                                       extra-classes="''">
+                        </slds-svg-icon>
+
+                    </span>
+                </div>
+
+            </div>
+            <div class="vlc-slds-item_attributes" ng-show="isCollapsed">
+                <div ng-repeat="i in p.calculationResults">
+                    <li class="nds-form-element__label" ng-repeat="k in i.attributes | orderBy: 'attributeDisplaySequence'">
+                        <strong class='vlc-slds-item_attributes-name'>{{ k.name }} </strong>
+                        <p>
+                            <span class='vlc-slds-item_attributes-value'>{{ k.value }} </span>
+                        </p>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

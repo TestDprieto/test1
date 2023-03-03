@@ -1,0 +1,17 @@
+<div role='dialog' class='vlocity slds-modal slds-fade-in-open slds-modal--large'>
+    <div class='slds-modal__container'>
+        <div class="slds-modal__header">
+            <h3 id='modalLabelId' class="modal-title">{{step.articleTitle}}</h3>
+        </div>
+        <div class="slds-modal__content slds-p-around--medium">
+            <div class="panel panel-default">
+                <div class='vlc-textblock-text'>
+                    <p ng-bind-html='step.articleBody'></p>
+                </div>
+            </div>
+        </div>
+        <div class="slds-modal__footer">
+            <button class="btn btn-warning" ng-click="cancel()">OK</button>
+        </div>
+    </div>
+</div>

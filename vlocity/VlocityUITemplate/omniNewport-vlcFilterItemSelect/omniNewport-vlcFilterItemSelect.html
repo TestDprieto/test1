@@ -1,0 +1,35 @@
+<div class='nds-col_padded nds-size_1-of-1'>
+
+    <ng-form name='loopform'
+             class='nds-form-element vlc-flex nds-select_filter-control'
+             ng-repeat='control in child.eleArray'>
+
+         <div class="nds-grid nds-cont-wrapper nds-select-wrapper">
+            <div class='nds-form-element__control nds-select_container nds-form-element__control-animated-label'  ng-style="{'height':'2rem'}">
+
+                    <!-- this select control should not be visible to the user -->
+                <select name='loopname'
+                    id='{{::control.name}}'
+                    chainup="test"
+                    ng-model='control.response'
+                    class='nds-select'
+                    vlc-slds-val-watch="response"
+                    vlc-slds-val-checker="response"
+                    ng-init='init(this, control)'
+                    ng-if='ngInitValidation(this, control)'
+                    ng-options='sOption as sOption.value for sOption in control.propSetMap.options track by sOption.name'> 
+                    <option value=""></option>
+                </select>
+
+                <label for="{{::control.name}}" class='nds-form-element__label'>
+                    {{::control.propSetMap.label}}
+                    <span class='nds-required'
+                        ng-if='control.req'>*
+                    </span>
+                </label>
+            </div>
+        </div>
+
+    </ng-form>
+
+</div>

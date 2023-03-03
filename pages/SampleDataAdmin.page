@@ -1,0 +1,265 @@
+<apex:page controller="SampleDataAdminController" showHeader="true" sidebar="true" applyBodyTag="false" applyHtmlTag="true">
+    <html xmlns:ng="http://angularjs.org" ng-app="SampleDataAdminApp" class="ng-cloak" style="height:100%" >
+        <head>
+            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery, 'jquery-1.8.2.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/jquery-ui-1.9.1.custom.min.js')}"/>
+            <apex:includeScript value="/soap/ajax/31.0/connection.js" />
+            <apex:includeScript value="{!$Resource.vlocity_cmt__AngularJS}"/>
+            <apex:includeScript value="{!$Resource.vlocity_cmt__ANGULARBOOT}"/>
+            <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}"/>
+            <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__IcoMoonIconPack, 'style.css')}"/>
+            <style>
+                div[id^="overlay"]{
+                    position: absolute;
+                    background: white;
+                    width: 47px;
+                    height: 30px;
+                    opacity: 0.7;
+                }
+
+                #loading {
+                    position: absolute;
+                    width: 20px;
+                    top: 5px;
+                    left: 15px;
+                }
+
+            </style>
+            <script>
+                sforce.connection.sessionId = '{!$Api.Session_ID}';
+                j$ = jQuery.noConflict();
+                
+                function importSampleDRMappings(callback){
+                    var parameters = {};
+                    parameters['methodName'] =  'importSampleDRMappings';
+
+                    var remoteOptions ={};
+                    remoteOptions['parameters'] =  JSON.stringify(parameters);
+
+                    Visualforce.remoting.Manager.invokeAction(
+                                    '{!$RemoteAction.SampleDataAdminController.invokeMethod}',
+                                    remoteOptions,
+                                    callback,
+                                    {buffer: false, escape: false});
+                }
+                
+                function getAllCMDataPacks(callback){
+                	Visualforce.remoting.Manager.invokeAction(
+                    	'{!$RemoteAction.SampleDataAdminController.getAllCMDataPacks}', callback,
+                                {buffer: false, escape: false}); 
+                }
+ 
+                
+                function importSampleCMData(srName, callback)
+            	{
+                	Visualforce.remoting.Manager.invokeAction(
+                    	'{!$RemoteAction.SampleDataAdminController.importCMData}', srName, callback,
+                                {buffer: false, escape: false}); 
+            	}
+
+                var SampleDataAdminApp = angular.module('SampleDataAdminApp', ['ui.bootstrap']);
+                SampleDataAdminApp.factory('SampleDataAdminService',function($q,$rootScope){
+                    var factory = {};                                        
+                    factory.importSampleDRMappings = function() {
+                            var deferred = new j$.Deferred();
+                            importSampleDRMappings(function(result){
+                                $rootScope.$apply(function(){
+                                    var sresult =[];
+                                    if ( result){
+                                        sresult = angular.fromJson(result);
+                                    }
+                                    deferred.resolve(sresult);
+
+                                });
+                            });
+                            return deferred.promise();
+                    };
+                    
+                    factory.getAllCMDataPacks = function()
+                    {
+                    	var deferred = $q.defer();
+	                    getAllCMDataPacks(function(result){
+	                        $rootScope.$apply(function() {
+	                            deferred.resolve(result);
+	                        });
+	                    });
+	                    return deferred.promise;
+                    };
+                    
+                    factory.importSampleCMData = function(srName) 
+                    {
+                    	var deferred = $q.defer();
+	                    importSampleCMData(srName, function(result){
+	                        $rootScope.$apply(function() {
+	                            deferred.resolve(result);
+	                        });
+	                    });
+	                    return deferred.promise;
+                    };
+                    
+                    return factory;
+                });
+
+                SampleDataAdminApp.controller('SampleDataAdminAppController', function ($scope, $timeout, SampleDataAdminService) {
+                    $scope.cmDataPacks = [];
+                    $scope.cmErrorMessage = [];
+                    $scope.cmStateModel ='';
+                    $scope.totalDataPacks;
+                    $scope.startImportMessage = '';
+                                       
+                    SampleDataAdminService.getAllCMDataPacks().then(function(result, event)
+                    {
+                    	var srList = angular.fromJson(result);
+                    	if(typeof srList != 'undefined' && srList.length > 0)
+                    	{
+                    		$scope.totalDataPacks = srList.length;
+                    		for(var i=0; i< srList.length; i++)
+                    		{
+                    			if(srList[i].Name === 'VLC_SampleCM_ContractStateModel')
+                    			{
+                    				$scope.cmStateModel = srList[i].Name;
+                    			}
+                    			else
+                    			{
+                    				$scope.cmDataPacks.push(srList[i].Name);
+                    			}
+                    		}
+                    	}                   	
+                    });
+                    
+                                        
+                    $scope.importSampleDRMappings = function(){
+                        $scope.displayWaitDialog('idInImpStartButton');
+                        SampleDataAdminService.importSampleDRMappings().then(function(result){
+                            $scope.removeWaitDialog('idInImpStartButton');
+                            //TODO check errors from result.hasErrors
+                            if(result.hasErrors){
+                                $scope.errorMessage = result.errorMessage;
+                                $scope.hasErrors = true;
+                            } else {
+                                $scope.hasErrors = false;
+                                $scope.showSuccessStatus('idInImpStartButton');
+                            }
+                        })
+                    }
+                    
+                    $scope.importSampleCMData = function(){
+                        $scope.displayWaitDialog('idInImpCMStartButton');
+                        $scope.startImportMessage= 'Total number of datapacks to import: ' + $scope.totalDataPacks;
+                        SampleDataAdminService.importSampleCMData($scope.cmStateModel).then(function(smResult)
+                        {                       	
+                          if(smResult.hasErrors){
+                              $scope.cmErrorMessage.push(smResult.errorMessage);
+                              $scope.cmHasErrors = true;
+                          } else {
+                              $scope.cmHasErrors = false;
+                          }
+                          
+                          if($scope.cmDataPacks)
+	                      {
+                        	for(var i= 0; i < $scope.cmDataPacks.length; i++)
+                        	{
+                        		SampleDataAdminService.importSampleCMData($scope.cmDataPacks[i]).then(function(result){
+		                            if(result.hasErrors){
+		                                $scope.cmErrorMessage.push(result.errorMessage);
+		                                $scope.cmHasErrors = true;
+		                            } 
+                        		});
+                        	}
+                        	$scope.removeWaitDialog('idInImpCMStartButton');
+	                      }    
+                          
+                     	});
+                                         
+                    };
+
+                    $scope.displayWaitDialog = function(parentId){
+                        var over = j$('<div id="overlay-'+parentId+'">' +
+                                            '<img id="loading" src="'+'{!$Resource.vlocity_cmt__WAITGIF}'+'">' +
+                                            '</div>');
+                        var div = j$('#'+parentId);
+                        over.css('top', div.position().top);
+                        over.css('left', div.position().left);
+                        j$(over).appendTo(div);
+
+                    }
+
+                    $scope.removeWaitDialog = function(parentId){
+                        j$('#overlay-'+parentId).remove();
+
+                    }
+
+                    $scope.showSuccessStatus = function(parentId){
+                        var over = j$('<div id="overlay-'+parentId+'">' +
+                                            '<span style="font-size: 2em; color:green" aria-hidden="true" data-icon="&#xea10;" class="icon-checkmark" />' +
+                                        '</div>');
+                        var div = j$('#'+parentId);
+                        over.css('top', div.position().top);
+                        over.css('left', div.position().left);
+
+                        j$(over).appendTo(div);
+                        j$(over).fadeOut(2000).promise().then(function(){
+                            j$(over).remove();
+
+                        })
+
+                    }
+                });
+
+            </script>
+        </head>
+        <body ng-controller="SampleDataAdminAppController">
+            <div class="vlocity">
+                <div class="container-fluid">
+                    <tabset>
+                        <div class="page-header">
+                            <h2 style="color: rgb(1, 138, 180);">Sample Data Admin</h2>
+                        </div>
+                        <tab heading="Data Import" id="idDataImport">
+                            <div style="margin: 5px;" class="panel panel-default">
+                                <div class="list-group">                                    
+                                    <a href="#" class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                                <h4 class="list-group-item-heading">Import Sample DataRaptor Mappings</h4>
+                                                <p class="list-group-item-text"></p>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12  text-right ">
+                                                <button id="idInImpStartButton" type="button" ng-click="importSampleDRMappings();" class="btn btn-primary btn-sm">Start</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="idInImpStatus" class="col-md-12 col-sm-12 col-xs-12">
+                                                <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <div class="row">
+                                            <div class="col-md-8 col-sm-12 col-xs-12">
+                                                <h4 class="list-group-item-heading">Import Sample Data for Contract Management</h4>
+                                                <p class="list-group-item-text"></p>
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 col-xs-12  text-right ">
+                                                <button id="idInImpCMStartButton" type="button" ng-click="importSampleCMData()" class="btn btn-primary btn-sm">Start</button>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="idInCMImpStatus" class="col-md-12 col-sm-12 col-xs-12">{{startImportMessage}}
+                                                <div ng-if="cmHasErrors" class="alert" role="alert" >
+                                                	<ol>
+                                                		<li ng-repeat="msg in cmErrorMessage">{{msg}}</li>
+                                                	</ol>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>                                    
+                                </div>
+                            </div>
+                        </tab>
+                    </tabset>
+                </div>
+            </div>
+        </body>
+    </html>
+</apex:page>

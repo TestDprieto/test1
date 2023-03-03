@@ -1,0 +1,25 @@
+<div class="navbar-template con-navbar-usage" ng-controller="viaMobileNavBarController">
+    <div>
+        <button ng-click="vm.goBack()" class="button button-clear header-item nav-left-button" ng-disabled="vm.isSavingInProgress" ng-style="{'color':$root.appTheme.NavBarItemColor}">
+            <span ng-show="vm.canGoBack">
+                <i class="icon ion-ios-arrow-back"></i>
+            </span>
+            <span ng-show="!vm.canGoBack">
+                <i class="icon ion-navicon"></i>
+            </span>
+        </button>
+        
+        <div class="title title-left header-item">
+            {{ pageTitle }}
+        </div>
+
+    </div>
+    
+    <!-- Usage Tabs-->
+    <div class="con-usage-tabs">
+        <div class="con-usage-tab" ng-repeat="tabItem in tabList" ng-click="selectUsageTab(tabItem.id)" ng-class="{'con-usage-tab-active' : tabIndex === tabItem.id}">
+            {{tabItem.title}}
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+{
+    "Cards": [
+        "Contact"
+    ],
+    "GlobalKey__c": "Grid/1/Vlocity/1495043708170",
+    "componentName": "cfGrid",
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "001f400000Odl3cAAB"
+            }
+        ],
+        "type": "Query",
+        "value": {
+            "jsonMap": "{\"params.id\":\"{{params.id}}\"}"
+        }
+    },
+    "enableLwc": false,
+    "lwc": {
+        "DeveloperName": "cardCanvasLayout",
+        "Id": "0Rbf4000000XZo5CAG",
+        "MasterLabel": "cardCanvasLayout",
+        "name": "cardCanvasLayout"
+    },
+    "previewType": "runTime",
+    "repeatCards": false,
+    "templates": {
+        "0": {
+            "templateUrl": "card-canvas-1x-slds"
+        }
+    },
+    "workspace": [
+        "Contact/Vlocity/1495043462711"
+    ]
+}

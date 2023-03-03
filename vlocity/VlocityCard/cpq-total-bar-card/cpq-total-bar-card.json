@@ -1,0 +1,1661 @@
+{
+    "dataSource": {
+        "type": null
+    },
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "enableLoyaltyPoints",
+            "val": "$root.enableLoyaltyPoints"
+        },
+        {
+            "name": "enableCostAndMargin",
+            "val": "$root.enableCostAndMargin"
+        },
+        {
+            "name": "enableUsage",
+            "val": "$root.enableUsage"
+        }
+    ],
+    "states": [
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Opportunity'"
+                            },
+                            {
+                                "field": "$scope.session.enableLoyaltyPoints",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Quote",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOpportunityTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOpportunityTotal__c']",
+                    "name": "['EffectiveOpportunityTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Opportunity' && $scope.session.enableLoyaltyPoints == 'false' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Opportunity",
+            "sObjectType": "Opportunity",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Quote'"
+                            },
+                            {
+                                "field": "$scope.session.enableLoyaltyPoints",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Order",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveQuoteTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveQuoteTotal__c']",
+                    "name": "['EffectiveQuoteTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Quote' && $scope.session.enableLoyaltyPoints == 'false' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Quote",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "collapse": false,
+                        "filter": "$scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true'",
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Order'"
+                            },
+                            {
+                                "field": "$scope.session.enableLoyaltyPoints",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Assets",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOrderTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOrderTotal__c']",
+                    "name": "['EffectiveOrderTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'false' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Order",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Opportunity'"
+                            },
+                            {
+                                "field": "$scope.session.enableLoyaltyPoints",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Quote",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOpportunityTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOpportunityTotal__c']",
+                    "name": "['EffectiveOpportunityTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeLoyaltyTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeLoyaltyTotal__c']",
+                    "name": "['EffectiveOneTimeLoyaltyTotal__c']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Opportunity' && $scope.session.enableLoyaltyPoints == 'true' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Opportunity",
+            "sObjectType": "Opportunity",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Quote'"
+                            },
+                            {
+                                "field": "$scope.session.enableLoyaltyPoints",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Order",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveQuoteTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveQuoteTotal__c']",
+                    "name": "['EffectiveQuoteTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeLoyaltyTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeLoyaltyTotal__c']",
+                    "name": "['EffectiveOneTimeLoyaltyTotal__c']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Quote' && $scope.session.enableLoyaltyPoints == 'true' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Quote",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "collapse": false,
+                        "filter": "$scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true'",
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Order'"
+                            },
+                            {
+                                "field": "$scope.session.enableLoyaltyPoints",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Assets",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOrderTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOrderTotal__c']",
+                    "name": "['EffectiveOrderTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeLoyaltyTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeLoyaltyTotal__c']",
+                    "name": "['EffectiveOneTimeLoyaltyTotal__c']",
+                    "type": "string"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Order",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Opportunity'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Quote",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "name": "['RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__OneTimeMarginTotal__c']",
+                    "name": "['OneTimeMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOpportunityTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOpportunityTotal__c']",
+                    "name": "['EffectiveOpportunityTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__OpportunityMarginTotal__c']",
+                    "name": "['OpportunityMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Opportunity' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Opportunity",
+            "sObjectType": "Opportunity",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Quote'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Order",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "name": "['RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__OneTimeMarginTotal__c']",
+                    "name": "['OneTimeMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveQuoteTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveQuoteTotal__c']",
+                    "name": "['EffectiveQuoteTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__QuoteMarginTotal__c']",
+                    "name": "['QuoteMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Quote' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Quote",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "collapse": false,
+                        "filter": "$scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true'",
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Order'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Assets",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "name": "['RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__OneTimeMarginTotal__c']",
+                    "name": "['OneTimeMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOrderTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOrderTotal__c']",
+                    "name": "['EffectiveOrderTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__OrderMarginTotal__c']",
+                    "name": "['OrderMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Order' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'false')",
+            "isSmartAction": false,
+            "name": "Active Order",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "collapse": false,
+                        "filter": "$scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true'",
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Opportunity'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Quote",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveUsagePriceTotal__c']",
+                    "name": "['EffectiveUsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOrderTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOrderTotal__c']",
+                    "name": "['EffectiveOrderTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Opportunity' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'true')",
+            "isSmartAction": false,
+            "name": "Usage Total(Opportunity)",
+            "sObjectType": "Opportunity",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "collapse": false,
+                        "filter": "$scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true'",
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Quote'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Order",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveUsagePriceTotal__c']",
+                    "name": "['EffectiveUsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOrderTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOrderTotal__c']",
+                    "name": "['EffectiveOrderTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Quote' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'true')",
+            "isSmartAction": false,
+            "name": "Usage Total(Quote)",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "collapse": false,
+                        "filter": "$scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true'",
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Order'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'false'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Assets",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveUsagePriceTotal__c']",
+                    "name": "['EffectiveUsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOneTimeTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOneTimeTotal__c']",
+                    "name": "['EffectiveOneTimeTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOrderTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOrderTotal__c']",
+                    "name": "['EffectiveOrderTotal__c']",
+                    "type": "currency"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Order' && $scope.session.enableCostAndMargin == 'false' && $scope.session.enableUsage == 'true')",
+            "isSmartAction": false,
+            "name": "Usage Total(Order)",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Opportunity'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Quote",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveUsagePriceTotal__c']",
+                    "name": "['EffectiveUsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__UsageMarginTotal__c']",
+                    "name": "['UsageMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "name": "['RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOpportunityTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOpportunityTotal__c']",
+                    "name": "['EffectiveOpportunityTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__OpportunityMarginTotal__c']",
+                    "name": "['OpportunityMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Opportunity' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'true')",
+            "isSmartAction": false,
+            "name": "Usage Cost & Margin (Opportunity)",
+            "sObjectType": "Opportunity",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Quote'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Order",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveUsagePriceTotal__c']",
+                    "name": "['EffectiveUsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__UsageMarginTotal__c']",
+                    "name": "['UsageMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "name": "['RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveQuoteTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveQuoteTotal__c']",
+                    "name": "['EffectiveQuoteTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__QuoteMarginTotal__c']",
+                    "name": "['QuoteMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Quote' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'true')",
+            "isSmartAction": false,
+            "name": "Usage Cost & Margin (Quote)",
+            "sObjectType": "Quote",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        },
+        {
+            "actionCtxId": "['Id']",
+            "blankStateCheck": false,
+            "collapse": true,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "collapse": false,
+                        "filter": "$scope.obj['ObjectType'] == 'Order' && $scope.session.enableLoyaltyPoints == 'true'",
+                        "group": [
+                            {
+                                "field": "['ObjectType']",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'Order'"
+                            },
+                            {
+                                "field": "$scope.session.enableCostAndMargin",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            },
+                            {
+                                "field": "$scope.session.enableUsage",
+                                "logicalOperator": "&&",
+                                "operator": "==",
+                                "type": "custom",
+                                "value": "'true'"
+                            }
+                        ],
+                        "logicalOperator": "&&"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Create Assets",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "disableAddCondition": false,
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveUsagePriceTotal__c']",
+                    "name": "['EffectiveUsagePriceTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__UsageMarginTotal__c']",
+                    "name": "['UsageMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveRecurringTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveRecurringTotal__c']",
+                    "name": "['EffectiveRecurringTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__RecurringMarginTotal__c']",
+                    "name": "['RecurringMarginTotal__c']",
+                    "type": "percentage"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['EffectiveOrderTotal__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "['translatedLabels']['%vlocity_namespace%__EffectiveOrderTotal__c']",
+                    "name": "['EffectiveOrderTotal__c']",
+                    "type": "currency"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "['translatedLabels']['%vlocity_namespace%__OrderMarginTotal__c']",
+                    "name": "['OrderMarginTotal__c']",
+                    "type": "percentage"
+                }
+            ],
+            "filter": "$scope.data.status === 'active' && ($scope.obj['ObjectType'] == 'Order' && $scope.session.enableCostAndMargin == 'true' && $scope.session.enableUsage == 'true')",
+            "isSmartAction": false,
+            "name": "Usage Cost & Margin (Order)",
+            "sObjectType": "Order",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-total-card"
+        }
+    ],
+    "title": "Total Card"
+}

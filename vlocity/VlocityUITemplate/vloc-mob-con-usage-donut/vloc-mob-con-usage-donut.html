@@ -1,0 +1,51 @@
+<div class="con-device-details-section con-opacity-fade-in con-usage-details-section" ng-controller="usageDonutController as udc" ng-init="udc.init(payload.result);">
+    <div class="con-usage-details-title">
+        Top activities
+    </div>
+    <div class="con-usage-circle-title">
+        {{udc.usagePercent}}
+        <span>%</span>
+        <span class="con-usage-circle-subtitle">
+            {{udc.usageSection}}
+        </span>
+    </div>
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" class="circle_usage">
+        <g>
+            <circle ng-init="offset = 500" ng-repeat="bar in payload.result" class="circle{{$index+1}} circle_usage_animation" r="79.61" cy="100" cx="100" stroke-width="10" stroke-dashoffset="{{bar.offset}}" fill="transparent" stroke-dasharray="{{bar.circleamount - 10}} {{510 - bar.circleamount}}" amount="{{bar.circleamount}}" ng-class="{'circle_usage_animation-selected' : $index === udc.selectedSegment}">
+            </circle>
+        </g>
+    </svg>
+    
+    <!-- Usage Table -->
+    <div class="con-usage-details-table">
+        <div id="usage{{$index+1}}" class="con-usage-details-table-row con-usage-activities usage{{$index+1}}" ng-class="{'selected-segment' : $index === udc.selectedSegment}" ng-repeat="bar in payload.result | orderBy:'expr0':true" ng-click="udc.selectDonutSegment($index, $event)">
+            <div class="con-usage-details-table-label">
+                <span class="con-usage-dot"></span>
+                <span class="con-usage-activity-title">
+                    {{bar.%vlocity_namespace%__ServiceName__c}}
+                </span>
+            </div>
+            <div class="con-usage-details-table-value" ng-if="bar.%vlocity_namespace%__Type__c == 'Data'">{{bar.expr0}} GB</div>
+            <div class="con-usage-details-table-value" ng-if="bar.%vlocity_namespace%__Type__c == 'Talk'">{{bar.expr0}} Minutes</div>
+            <div class="con-usage-details-table-value" ng-if="bar.%vlocity_namespace%__Type__c == 'Text'">{{bar.expr0}} Text</div>
+        </div>
+    </div>
+    
+    <div class="con-device-details-notification">
+        <div class="con-device-details-notification-icon">
+            <div class="con-device-details-notification-icon-lines">
+            <div class="con-device-details-notification-icon-line1"></div>
+            <div class="con-device-details-notification-icon-line2"></div>
+            <div class="con-device-details-notification-icon-line3"></div>
+            <div class="con-device-details-notification-icon-line4"></div>
+            <div class="con-device-details-notification-icon-line5"></div>
+        </div>
+        </div>
+        <div class="con-device-details-notification-title">
+            You've been streaming a lot of 4k videos. Have you heard about 5G?
+        </div>
+        <div class="con-device-details-notification-action">
+            Learn more <span></span>
+        </div>
+    </div>
+</div>

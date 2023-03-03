@@ -1,0 +1,332 @@
+<script>
+    var productSwiper = '';
+    function startSwiper(){
+        if(productSwiper != ''){
+            productSwiper.destroy();
+        }
+    	productSwiper = new Swiper('.product-swiper-container', {
+    	    effect: 'coverflow',
+    	    coverflowEffect: {
+                rotate: 50,
+                slideShadows: false,
+                depth:400
+            },
+    		slidesPerView: 'auto',
+      		centeredSlides: true,
+    		spaceBetween: -25,
+    		loop: true,
+    		preventClicks: false,
+    		speed: 600,
+    		preventClicksPropagation: false,
+    		parallax:true,
+    		pagination: {
+    			el: '.swiper-pagination',
+    			clickable: true,
+    		}
+    		
+        });
+    }
+    $(document).ready(function(){
+        //Attribute click
+        //Colours
+        $('.con-product-attributes-colours-option').click(function(e){
+            $('.con-product-attributes-colours-option').removeClass('con-product-attributes-colours-selected');
+            $(e.target).addClass('con-product-attributes-colours-selected');
+            //TO DO need to find way of storing colour code and name in the attribute
+            //$('.con-product-attributes-colours-title').html('Color: ' + $(e.target).attr('colourname'));
+        });
+        //Select Option
+        $('.con-product-attributes-select-option').click(function(e){
+            $('.con-product-attributes-select-option').removeClass('con-product-attributes-select-option-selected');
+            $(e.target).addClass('con-product-attributes-select-option-selected');
+            //Update prices
+        });
+        
+        //Page finished loading so show navbar
+        showPage();
+
+    });
+    
+    function showPage(){
+        if($('.con-navbar-product').length){
+    	    $('.con-navbar-product').css('opacity', '1');
+    	    $('.con-product').css('opacity', '1');
+    	    setTimeout(function(){$('.con-navbar-product').addClass('con-loaded');}, 1000);
+        }else{
+            setTimeout(function(){showPage();},500);
+        }
+    }
+</script>
+<div class="con-product" ng-controller="productController as pc">
+    
+    <!--Product Images-->
+    <div class="con-product-images">
+        <div class="con-product-images-background">
+        </div>
+        <div class="product-swiper-container">
+            <div class="swiper-pagination"></div>
+	        <div class="swiper-wrapper">
+	            
+	            <div vloc-card ng-repeat="card in data.zones.Images.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="swiper-slide con-product-image"></div>
+	            
+	            <!--<div class="con-product-image swiper-slide">
+	                <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/img_iPhoneX_Large@2x.png' | trusted}}"/>
+	            </div>
+	            <div class="con-product-image swiper-slide">
+	                <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/img_iPhoneX_Large@2x.png' | trusted}}"/>
+	            </div>
+	            <div class="con-product-image swiper-slide">
+	                <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/img_iPhoneX_Large@2x.png' | trusted}}"/>
+	            </div>-->
+            </div>
+        </div>
+    </div>
+    
+    <!--Product Overview-->
+    <div class="con-product-details">
+        <div class="con-product-details-rating">
+            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_HalfStar_Yellow.svg' | trusted}}">
+            <span>(34)</span>
+        </div>
+        <div class="con-product-details-title">
+            {{payload.products[0].Product2.Name}}
+        </div>
+        <div class="con-product-details-price-large" ng-if="payload.products[0].%vlocity_namespace%__RecurringPrice__c.value != ''">
+            {{payload.products[0].%vlocity_namespace%__RecurringPrice__c.value | currency}}<span> / mo</span>
+        </div>
+        <div class="con-product-details-price-large" ng-if="payload.products[0].%vlocity_namespace%__RecurringPrice__c.value == ''">
+            {{payload.products[0].UnitPrice.value | currency}}
+        </div>
+        <div class="con-product-details-price-small" ng-if="payload.products[0].%vlocity_namespace%__RecurringPrice__c.value != ''">
+            for 24 months 0% APR. Retail Price: <span>{{payload.products[0].UnitPrice.value | currency}}</span>
+        </div>
+        <div class="con-product-details-price-small" ng-if="payload.products[0].%vlocity_namespace%__RecurringPrice__c.value == ''">
+            Monthly payment plan options available.
+        </div>
+    </div>
+    
+    <!--Product Attributes-->
+    <div class="con-product-attributes">
+
+        <!-- Colours -->
+        <div class="con-product-attributes-colours">
+            <div ng-repeat="attrcat in payload.products[0].attributeCategories.records">
+                <div ng-repeat="attr in attrcat.productAttributes.records">
+                    <div ng-if="attr.label == 'Device Colour'">
+                        <div class="con-product-attributes-colours-title">
+                                Colour
+                        </div>
+                        <div ng-repeat="colours in attr.values">
+                            
+                            <div ng-if="$index < 1 && colours.label != 'White - #ffffff'" class="con-product-attributes-colours-option con-product-attributes-colours-selected" style="background:{{colours.label.substring(colours.label.indexOf('#'))}};">
+                            </div>
+                            <div ng-if="$index < 1 && colours.label == 'White - #ffffff'" class="con-product-attributes-colours-option con-product-attributes-colours-selected con-shop-browse-product-attribute-colour-border" style="background:{{colours.label.substring(colours.label.indexOf('#'))}};">
+                            </div>
+                            <div ng-if="$index < 10 && $index > 0 && colours.label != 'White - #ffffff'" class="con-product-attributes-colours-option" style="background:{{colours.label.substring(colours.label.indexOf('#'))}};">
+                            </div>
+                            <div ng-if="$index < 10 && $index > 0 && colours.label == 'White - #ffffff'" class="con-product-attributes-colours-option con-shop-browse-product-attribute-colour-border" style="background:{{colours.label.substring(colours.label.indexOf('#'))}};">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Dropdown / Radio Buttons -->
+        <div ng-repeat="attrcat in payload.products[0].attributeCategories.records">
+            <div ng-repeat="attr in attrcat.productAttributes.records">
+                <div class="con-product-attributes-colours-title" ng-if="(attr.inputType == 'dropdown' || attr.inputType =='radio') && attr.label != 'Device Colour'">
+                    {{attr.label}}
+                </div>
+                <div ng-if="(attr.inputType == 'dropdown' || attr.inputType =='radio') && attr.label != 'Device Colour'" class="con-product-attributes-select">
+                    <div ng-repeat="options in attr.values">
+                        
+                        <div ng-if="$index < 1" class="con-product-attributes-select-option con-product-attributes-select-option-selected">
+                            <div class="con-product-attributes-select-option-title">
+                                {{options.label}}
+                            </div>
+                            <!--<div class="con-product-attributes-select-option-subtitle">
+                                {{payload.products[0].%vlocity_namespace%__RecurringPrice__c.value | currency}}/mo<br/>or {{payload.products[0].UnitPrice.value | currency}} retail
+                            </div>-->
+                        </div>
+                        <div ng-if="$index > 0" class="con-product-attributes-select-option">
+                            <div class="con-product-attributes-select-option-title">
+                                {{options.label}}
+                            </div>
+                            <!--<div class="con-product-attributes-select-option-subtitle">
+                                {{payload.products[0].%vlocity_namespace%__RecurringPrice__c.value | currency}}/mo<br/>or {{payload.products[0].UnitPrice.value | currency}} retail
+                            </div>-->
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <!--Add To Cart-->
+    <div class="con-product-button" ng-click="pc.addToCart('{{payload.products[0].Id.value}}', '{{payload.products[0].actions.getproductbyid.client.params.cartId}}');" ng-disabled="isDisabled" ng-model="isDisabled">
+        Add to cart
+    </div>
+    
+    <!--Product Details-->
+    <div class="con-product-description">
+         <div class="con-device-details-section">
+            <div class="con-device-details-section-title">
+                Product details
+            </div>
+            <span>
+                {{payload.products[0].Product2.Description}}
+                <br/><br/>
+                <span ng-repeat="attrcat in payload.products[0].attributeCategories.records">
+                    <span ng-repeat="attr in attrcat.productAttributes.records">
+                        <p ng-if="attr.inputType == 'text' && attr.values[0].defaultValue != null">
+                            <b>{{attr.label}}:</b> {{attr.values[0].defaultValue}}
+                        </p>
+                    </span>
+                </span>
+            </span>
+            <div class="con-product-description-more">
+                View all
+            </div>
+        </div>
+    </div>
+    
+    <!--Reviews-->
+    <div class="con-product-reviews">
+        <div class="con-device-details-section">
+            <div class="con-device-details-section-title">
+                Customer reviews
+            </div>
+            <div class="con-product-reviews-overview">
+                <div class="con-product-reviews-overview-total">
+                    4.5
+                    <span>Overall</span>
+                    <div class="con-product-details-rating">
+                        <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}" class="con-star-empty">
+                     </div>
+                </div>
+                <div class="con-product-reviews-overview-bars">
+                    <div class="con-product-reviews-overview-bars-bar">
+                        <div class="con-product-reviews-overview-bars-bar-rating">
+                            5
+                            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        </div>
+                        <div class="con-product-reviews-overview-bars-bar-background">
+                            <div class="con-product-reviews-overview-bars-bar-fill" style="width:71%;">
+                            </div>
+                        </div>
+                        <span>71%</span>
+                    </div>
+                    <div class="con-product-reviews-overview-bars-bar">
+                        <div class="con-product-reviews-overview-bars-bar-rating">
+                            4
+                            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        </div>
+                        <div class="con-product-reviews-overview-bars-bar-background">
+                            <div class="con-product-reviews-overview-bars-bar-fill" style="width:19%;">
+                            </div>
+                        </div>
+                        <span>19%</span>
+                    </div>
+                    <div class="con-product-reviews-overview-bars-bar">
+                        <div class="con-product-reviews-overview-bars-bar-rating">
+                            3
+                            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        </div>
+                        <div class="con-product-reviews-overview-bars-bar-background">
+                            <div class="con-product-reviews-overview-bars-bar-fill" style="width:6%;">
+                            </div>
+                        </div>
+                        <span>6%</span>
+                    </div>
+                    <div class="con-product-reviews-overview-bars-bar">
+                        <div class="con-product-reviews-overview-bars-bar-rating">
+                            2
+                            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        </div>
+                        <div class="con-product-reviews-overview-bars-bar-background">
+                            <div class="con-product-reviews-overview-bars-bar-fill" style="width:3%;">
+                            </div>
+                        </div>
+                        <span>3%</span>
+                    </div>
+                    <div class="con-product-reviews-overview-bars-bar">
+                        <div class="con-product-reviews-overview-bars-bar-rating">
+                            1
+                            <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                        </div>
+                        <div class="con-product-reviews-overview-bars-bar-background">
+                            <div class="con-product-reviews-overview-bars-bar-fill" style="width:1%;">
+                            </div>
+                        </div>
+                       <span>1%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="con-product-reviews-single">
+                <b>Carson H.</b>
+                <div class="con-product-details-rating">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}" class="con-star-empty">
+                    <span>on Jan 15, 2018</span>
+                </div>
+                I LOVE this phone. It's so sleek and opening things with my face has never been so easy!
+            </div>
+            <div class="con-product-reviews-single">
+                <b>Jean G.</b>
+                <div class="con-product-details-rating">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}" class="con-star-empty">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}" class="con-star-empty">
+                    <span>on Jan 16, 2018</span>
+                </div>
+                The display employs new techniques and technology to precisely follow the curves of the design, all the way to the interface... <span>read more</span>
+            </div>
+            <div class="con-product-reviews-single">
+                <b>Nick H.</b>
+                <div class="con-product-details-rating">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}">
+                    <img src="{{$root.instanceUrl + '/resource/VLOCMOBCON/images/ic_Star_Yellow.svg' | trusted}}" class="con-star-empty">
+                    <span>on Jan 16, 2018</span>
+                </div>
+                I was super worried about getting this phone because I think the 'notch' is a joke. After using it for a few weeks, I don't even notice anymore.
+            </div>
+            <div class="con-product-description-more">
+                View all 34 reviews
+            </div>
+        </div>
+    </div>
+    
+    <!-- Also Viewed-->
+    <div class="con-device-details-section">
+        <div class="con-device-details-section-title">
+            People also viewed
+        </div>
+        
+        <div class="con-shop-browse">
+                    
+            <div vloc-card ng-repeat="card in data.zones.Recommended.cards | orderBy:data.dataSource.order" ctrl="{{ctrl}}" ng-model="card" data="card" records="records" index="{{$index}}" session-id="{{sessionId}}" use-existing-element-type class="con-shop-browse-product con-opacity-fade-in"></div>
+            
+        </div>
+
+    </div>
+</div>

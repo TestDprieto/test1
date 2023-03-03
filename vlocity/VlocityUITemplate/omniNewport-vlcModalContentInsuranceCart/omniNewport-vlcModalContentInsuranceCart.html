@@ -1,0 +1,76 @@
+<div class='nds-modal nds-fade-in-open nds-modal_large via-slds'>
+    <div class='nds-modal__container'>
+        <div class='nds-modal__header'>
+            <div class='nds-form-element__control nds-input-has-icon nds-has-input-has-icon_right vlc-slds-ins-cart_modal-select' ng-if='productList.length > 1'>
+                <div class='nds-select_container vlc-control-wrapper vlc-slds__border vlc-slds__border_primary'>
+                    <span class="vlc-slds-form-element__center_horizontal">
+                        {{comparePlans.selectedCC}}
+                    </span>
+                    <select name='comparePlansSelect'
+                        id='comparePlansSelect'
+                        style='opacity:-1'
+                        ng-model='comparePlans.selectedCC'
+                        class='nds-select'
+                        ng-options="category.name as category.name for category in categoryList"
+                        ng-change="selectedItemChanged(comparePlans.selectedCC)"
+                        ng-if="productList.length > 1">
+                    </select>
+                    <label for="{comparePlansSelect" class='nds-form-element__label' style='text-align: left;'>{{::OmniInsuranceCartComparePlans}}</label>
+                </div>
+                <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'down'"
+                           size="'small'"
+                           extra-classes="'nds-button__icon nds-button__icon_large'">
+                </slds-svg-icon>
+            </div>
+        </div>
+        <div class='nds-modal__content nds-p-around_medium'>
+            <label ng-style="{'font-size':'25px','color':'#FF0000'}" ng-if='productList.length < 2'>{{::OmniInsuranceCartModalNoProdMsg}}</label>
+            <table class="table" ng-if='productList.length >1'>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th ng-repeat="product in productList | orderBy: '+TotalPrice'" style='padding-left: 10px;'>
+                            <h2>{{product.name}}</h2>
+                            <div class="subtotal custom-premium">
+                                <span id="premium-price" class="num price-format"><sup>{{currencySymbol}}</sup>{{product.TotalPrice | currency:"":2}}</span>
+                                <br>
+                                <span class="label-text">{{::OmniInsuranceCartModalMonthlyPremium}}</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class='ins' ng-repeat="category in categoryList | orderBy:'displaySequence'" ng-if="showCategory(category)">
+                    <tr class="attr-category" style='background: #D3D3D3;' ng-if="category.name !== 'All'">
+                        <td ng-attr-colspan="{{productList.length + 1}}" style='padding: 5px 8px;'>
+                        <h3 style='font-size: 1rem;'>{{category.name}}</h3>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="(key,value) in categoryMap[category.name]['attributes'] | orderObjectBy:'displaySequence' track by $index">
+                        <td style='padding: 5px 15px;'>{{value.name}}</td>
+                        <td ng-repeat="product in productList | orderBy: 'TotalPrice' track by $index" class="{{attributesValueForProduct(product.code,category.name,value.name).dataType.toLowerCase()}}" style='padding-left: 10px; padding-top: 5px;'>
+                            <span class="value">
+                            <span ng-if="attributesValueForProduct(product.code,category.name,value.name).dataType === 'Currency' && currencyCode" class="currency-symbol">{{currencySymbol}}</span> {{attributesValueForProduct(product.code,category.name,value.name).value }}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class='nds-modal__footer vlc-slds-remote-action_button'>
+            <div class="nds-form-element__control">
+                <div class="vlc-control-wrapper vlc-slds-cart__button vlc-slds-ins-cart_modal-okbutton">
+
+                     <div id='insuranceCartOk'
+                         class='nds-box'
+                         title='{{::OmniInsuranceCartModalOk}}'
+                         ng-click="cancel()">
+                        <p>{{::OmniInsuranceCartModalOk}}</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

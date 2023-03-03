@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "If set to false(default value), pricing will not be invoked while creating supplemental order. If it is set to true, then the pricing will be invoked based on price flag in the API request.",
+    "%vlocity_namespace%__SetupValue__c": "",
+    "Name": "EnableSupplementalOrderPricing",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/EnableSupplementalOrderPricing"
+}

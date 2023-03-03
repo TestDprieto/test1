@@ -1,0 +1,37 @@
+<div class="slds-col--padded slds-size--1-of-1">
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-message'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-form-element__control">
+
+            <label ng-if='::!control.propSetMap.hideLabel' class='slds-form-element__label'>
+                {{::control.propSetMap.label}}
+            </label>
+
+            <div class="vlc-control-wrapper">
+
+                <div class="message description"
+                     ng-repeat='msg in ::control.propSetMap.messages'
+                     msg="{{msg.type}}"
+                     ng-if="msg.active === true && control.response !== null && control.response === msg.value">
+                    {{control.displayMsg}}
+                </div>
+
+                <input id='{{::control.name}}'
+                       type='text'
+                       name='loopname'
+                       ng-show='performValidate(this, control)'
+                       ng-model='control.response'
+                       class='slds-input'
+                       vlc-slds-val-checker="response"
+                       readonly />
+                
+            </div>
+
+        </div>
+
+    </ng-form>
+
+</div>

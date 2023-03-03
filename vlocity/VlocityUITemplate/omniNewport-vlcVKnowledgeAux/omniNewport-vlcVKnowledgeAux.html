@@ -1,0 +1,80 @@
+<div  class="nds-form-element nds-lookup nds-knowledge-component"
+      data-select="single" data-scope="single">
+
+    <label class="nds-form-element__label"
+           for="vlcKnowledgeKeyword" ng-if="!knowledge.isToggled" ng-click="knowledge.isToggled = !knowledge.isToggled;">
+
+        {{::vlcPC.label}}
+
+    </label>
+
+    <div class="nds-knowledge-data_wrapper" ng-if="knowledge.isToggled">
+      
+      <div class="nds-form-element__control nds-input-has-icon nds-input-has-icon_left" >
+
+      <div class="nds-knowledge-data_cont">
+        <label class="nds-form-element__label" for="vlcKnowledgeKeyword"> {{::vlcPC.label}}</label>
+
+        <slds-svg-icon aria-hidden="true"
+                         sprite="'utility'"
+                         icon="'chevronright'"
+                         size="'small'"
+                         ng-click="knowledge.isToggled = !knowledge.isToggled;"
+                         extra-classes="'nds-input__icon nds-icon-text-default'">
+                      </slds-svg-icon>
+      </div>
+        
+
+        <div class="nds-knowledge-data_wrapper-search">
+          <input id='vlcKnowledgeKeyword'
+             class="nds-lookup__search-input nds-input"
+             type="text"
+             aria-autocomplete="list"
+             role="combobox"
+             aria-expanded="true"
+             aria-activedescendant=""
+             ng-model-options="{ updateOn: 'change blur' }"
+             ng-model='bpTree.children[bpTree.asIndex].knowledgeKeyword'
+             ng-enter='searchKnowledgeArticle(bpTree.children[bpTree.asIndex], true)'
+             placeholder="{{::customLabels.OmniScriptSearch}}" />
+
+          <slds-svg-icon aria-hidden="true"
+             sprite="'utility'"
+             icon="'search'"
+             size="'small'"
+             extra-classes="'nds-input__icon nds-icon-text-default'">
+          </slds-svg-icon>
+        </div>
+      </div>
+
+      <ul ng-show="showCart"
+          class="nds-knowledge-item">
+
+          <li class="nds-item" 
+              ng-repeat="i in bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]]">
+
+              <!-- this needs to be the page header and team -->
+              <div class="nds-knowledge-list-item">
+                  <div class="nds-grid nds-control-action_container">
+
+                      <div class="nds-knowledge-item_heading" vlc-slds-open="openArticleInConsole">{{i.title}}</div>
+
+                      <a class="nds-knowledge-item_popup" href="" ng-click='getArticleBody(bpTree.children[bpTree.asIndex], i, true)'>
+                          <slds-svg-icon aria-hidden="true"
+                                         sprite="'utility'"
+                                         icon="'preview'"
+                                         size="'small'"
+                                         extra-classes="'nds-button__icon nds-button__icon_medium vlc-slds-button_exp'">
+                          </slds-svg-icon>
+
+                          <small>{{ ::customLabels.OmniScriptModal }}</small>
+                      </a>
+                  </div>
+
+                  <h3>{{i.summary}}</h3>
+                  <h3>{{i.displayType}} | {{::customLabels.OmniScriptLastPublished}} {{i.lastPubDate}}</h3>
+              </div>
+          </li>
+      </ul>
+    </div>
+</div>
