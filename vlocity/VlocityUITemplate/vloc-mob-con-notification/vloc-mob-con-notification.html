@@ -1,0 +1,39 @@
+<div ng-controller="notificationController as nc">
+
+    <div class="con-device-details-notification" ng-if="placeholder.NavigationType.value == 'Mobile'" ng-click="nc.viewDetail('' + placeholder.NavigationPage.value)">
+        <div class="con-device-details-notification-icon">
+            <div class="con-device-details-notification-icon-lines">
+            <div class="con-device-details-notification-icon-line1"></div>
+            <div class="con-device-details-notification-icon-line2"></div>
+            <div class="con-device-details-notification-icon-line3"></div>
+            <div class="con-device-details-notification-icon-line4"></div>
+            <div class="con-device-details-notification-icon-line5"></div>
+        </div>
+        </div>
+        <div class="con-device-details-notification-title">
+            {{placeholder.DisplayText.value}}   
+        </div>
+        <div class="con-device-details-notification-action">
+            {{placeholder.DisplayButton.value}} <span></span>
+        </div>
+    </div>
+    
+    <div class="con-device-details-notification" ng-if="placeholder.NavigationType.value != 'Mobile'" ng-click="performAction(obj.info)">
+        <div class="con-device-details-notification-icon">
+            <div class="con-device-details-notification-icon-lines">
+            <div class="con-device-details-notification-icon-line1"></div>
+            <div class="con-device-details-notification-icon-line2"></div>
+            <div class="con-device-details-notification-icon-line3"></div>
+            <div class="con-device-details-notification-icon-line4"></div>
+            <div class="con-device-details-notification-icon-line5"></div>
+        </div>
+        </div>
+        <div class="con-device-details-notification-title">
+            {{placeholder.DisplayText.value}}   
+        </div>
+        <div class="con-device-details-notification-action">
+            {{placeholder.DisplayButton.value}} <span></span>
+        </div>
+    </div>
+
+</div>

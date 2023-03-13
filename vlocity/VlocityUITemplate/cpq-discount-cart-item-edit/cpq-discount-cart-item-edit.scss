@@ -1,0 +1,89 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-discount-cart-item-edit {
+            .#{$namespace}-discount-edit-header-title {
+                color: $cpq-discount-title-color;
+                font-weight: $cpq-cart-item-product-group-font-weight;
+            }
+            .#{$namespace}-custom-discount-title {
+                text-transform: uppercase;
+                font-weight: $cpq-cart-item-product-group-font-weight;
+                border-bottom: 1px solid $cpq-custom-discount-title-border-color;
+                letter-spacing: 1px;
+            }
+            .#{$namespace}-custom-discount-criteria {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: $cpq-cart-item-product-group-font-weight;
+            }
+            .slds-cell-shrink {
+                padding:10px 10px 10px 0px;
+            }
+            .#{$namespace}-discount--table_border {
+                border-top : none;
+            }
+            .#{$namespace}-new-discount-container {
+                .#{$namespace}-discount-month-input {
+                    width: 14%;
+                }
+                .#{$namespace}-discount-slds-radio {
+                    display: inline-block;
+                }
+                .#{$namespace}-discount-date-input {
+                    width: 30%;
+                }
+                .#{$namespace}-discount-form_horizontal {
+                    text-align: left;
+                }
+                .#{$namespace}-discount-label {
+                    text-align: left;
+                }
+            }
+            input::-webkit-input-placeholder {
+                color: $middle-dark-gray;
+            }
+            .#{$namespace}-error-msg {
+                color: $error;
+            }
+            .#{$namespace}-success-msg {
+                color: $success;
+            }
+            .#{$namespace}-cell-pricing-modal__border {
+                border-top: 2px solid $cpq-discount-border-color;
+            }
+            .#{$namespace}-discount-dropdown {
+                .#{$namespace}-pricing-picklist__label  {
+                    width:20.5rem;
+                }  
+            }
+            /* Overwrite slds-picklist width */
+            .#{$namespace}-pricing-picklist {
+                width:100%;
+                .#{$namespace}-discount-input-filed {
+                    width: 14%;
+                }
+                .#{$namespace}-pricing-picklist__label,.#{$namespace}-pricing-picklist-dropdown {
+                    width:20.5rem;
+                } 
+                .#{$namespace}-time-plan-picklist-value__label {
+                    width:8rem;
+                }
+                .#{$namespace}-pricing-picklist-value__label{
+                    width:5rem;
+                }
+            }
+            .#{$namespace}-pricing-mandatory-input {
+                border: 1px solid $error;
+            }
+            .#{$namespace}-pricing-block-center {
+                margin: auto;
+            }
+        }
+    }
+}

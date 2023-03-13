@@ -1,0 +1,42 @@
+<section  class="slds-page-header vlc-slds-page--header" ng-style="bpTree.propSetMap.hideStepChart && {'display': 'inline-block'}">
+
+    <div class='slds-size--1-of-1 vlc-slds-height--100'>
+
+
+        <div  class="slds-grid vlc-slds-height--100">
+
+            <!-- <div ng-show='bpTree.children[bpTree.asIndex].bHasPrevious'
+                 class="slds-size--1-of-12 slds-clearfix"
+                 ng-click="previous(this,bpTree.children[bpTree.asIndex])"
+                 ng-class="bpTree.children[bpTree.asIndex].bHasPrevious? 'vlc-slds-back-button':''"
+                 aria-hidden="true"
+                 reverse="true">
+
+                 <span>
+                 
+                 <slds-svg-icon aria-hidden="true"
+                 sprite="'utility'"
+                 icon="'chevronup'"
+                 size="'small'"
+                 extra-classes="'slds-button__icon slds-button__icon--large'">
+                 </slds-svg-icon>
+                 
+
+                 <span class="vlc-slds-small-size--hide">{{::bpTree.children[bpTree.asIndex].propSetMap.previousLabel}}</span>
+
+                 </span>
+
+		 </div>
+	       -->
+            <div class="slds-size--11-of-12 vlc-slds-flex-grow vlc-slds-underline--gradient">
+                <h1 class="slds-page-header__title vlc-slds-page-header__title slds-truncate"
+                   prev="{{bpTree.children[bpTree.asIndex].bHasPrevious}}">
+                    {{bpTree.children[bpTree.asIndex].propSetMap.label}}
+                </h1>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

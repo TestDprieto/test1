@@ -1,0 +1,35 @@
+{
+    "Cards": [
+    ],
+    "bypassSave": true,
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "$root.vlocity.userAccountId",
+                "val": "001f400000eZhXo"
+            }
+        ],
+        "type": "IntegrationProcedures",
+        "value": {
+            "endpoint": "",
+            "inputMap": {
+                "accountId": "{{$root.currentUser.Account.attributes.url.substring(38)}}"
+            },
+            "ipMethod": "Mobile_Usage",
+            "jsonMap": "{\"$root.currentUser.Account.attributes.url.substring(38)\":\"{{$root.currentUser.Account.attributes.url.substring(38)}}\"}",
+            "methodType": "GET",
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.IntegrationProcedureService"
+            },
+            "resultVar": ""
+        }
+    },
+    "previewType": "runTime",
+    "templates": {
+        "0": {
+            "templateUrl": "vloc-mob-con-usage"
+        }
+    },
+    "workspace": [
+    ]
+}

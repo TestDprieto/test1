@@ -1,0 +1,68 @@
+{
+    "%vlocity_namespace%__Active__c": true,
+    "%vlocity_namespace%__OmniScriptId__c": {
+        "Name": "Digital Commerce LWC Checkout",
+        "VlocityDataPackType": "VlocityMatchingKeyObject",
+        "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__OmniScript__c/dc/lwccheckout/English",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__OmniScript__c"
+    },
+    "%vlocity_namespace%__ParentElementId__c": {
+        "%vlocity_namespace%__OmniScriptId__c": {
+            "Name": "Digital Commerce LWC Checkout",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__OmniScript__c/dc/lwccheckout/English",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__OmniScript__c"
+        },
+        "Name": "ReviewOrder",
+        "VlocityDataPackType": "VlocityMatchingKeyObject",
+        "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__Element__c/%vlocity_namespace%__OmniScript__c/dc/lwccheckout/English/ReviewOrder",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__Element__c"
+    },
+    "%vlocity_namespace%__ParentElementName__c": "ReviewOrder",
+    "%vlocity_namespace%__ParentElementType__c": "Step",
+    "%vlocity_namespace%__PropertySet__c": {
+        "bStandalone": false,
+        "conditionType": "Hide if False",
+        "controlWidth": 12,
+        "customAttributes": [
+            {
+                "name": "user-info",
+                "source": "%accountInfo%"
+            },
+            {
+                "name": "billing-address",
+                "source": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:billing%"
+            },
+            {
+                "name": "shipping-address",
+                "source": "%UpdateBillingAddress:dcUpdateBillingAddressLWC:shipping%"
+            },
+            {
+                "name": "transaction-details",
+                "source": "%Payment:BraintreepaymentLWC:transactionDetails%"
+            }
+        ],
+        "disOnTplt": false,
+        "hide": false,
+        "label": null,
+        "lwcName": "%vlocity_namespace%__dcReviewOrder",
+        "show": {
+            "group": {
+                "operator": "AND",
+                "rules": [
+                    {
+                        "condition": "<>",
+                        "data": "yes",
+                        "field": "ShoppingCart:dcShoppingCart:saveCart"
+                    }
+                ]
+            }
+        }
+    },
+    "%vlocity_namespace%__ReusableOmniScript__c": true,
+    "%vlocity_namespace%__Type__c": "Custom Lightning Web Component",
+    "Name": "ReviewOrderLWC",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__Element__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__Element__c/%vlocity_namespace%__OmniScript__c/dc/lwccheckout/English/ReviewOrderLWC"
+}

@@ -1,0 +1,9 @@
+<div class="nds-right_panel" ng-if="::!bpTree.propSetMap.hideStepChart">
+    <!-- knowledge component will go here -->
+    <ng-include ng-repeat="vlcPC in ::bpTree.propSetMap.persistentComponent"
+                ng-if='bpTree.showPCNew[vlcPC.pcIndex] && ($index === 1 )'
+                id='{{::vlcPC.id}}'
+                knowledge="true"
+                src="::bpTree.dfHPSTmpl[vlcPC.pcIndex]"/>
+                
+</div>

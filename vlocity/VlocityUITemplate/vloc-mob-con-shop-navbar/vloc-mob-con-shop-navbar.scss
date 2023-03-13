@@ -1,0 +1,190 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+.vlocity {
+
+    & .title {
+        
+    }
+
+    .navbar-template {
+        .title {
+            text-align: center;
+            padding: 0 40px;
+            width: auto;
+            position: absolute;
+            top: 20px;
+            right: 0;
+            left: 0 !important;
+            margin: auto;
+            height:60px;
+            line-height:60px;
+
+            img {
+                max-height: 40px;
+                vertical-align: middle;
+            }
+        }
+
+        .nav-right-button {
+            float:right;
+        }
+
+        .icon-custom-edit {
+            background: url(https://mobile-ins102--c.na59.content.force.com/servlet/servlet.ImageServer?id=015f4000001nszP&oid=00Df40000023GKu&lastMod=1527139337000) no-repeat center;
+            background-size: contain;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            text-indent: -999em;
+            font-size: 0;
+            line-height: 0;
+        }
+    }
+    
+}
+.con-navbar-shop{
+    opacity:0;
+}
+.navbar-template.con-navbar-shop {
+    pointer-events: all;
+    background-image:url('https://vdo-cmt-site.secure.force.com/resource/VLOCMOBCON/images/bgtransparecny_Vlocity.png');
+    background-color:$theme-colour;
+    background-size: 100% auto;  
+    transition:background 0.4s linear, opacity 1s linear;
+    position: relative;
+    display:inline-block;
+    width: 100%;
+    
+    .con-shop-header {
+        margin-top: env(safe-area-inset-top);
+        position: relative;
+    }
+    
+    .con-home-shop {
+        padding-top: 0;
+        margin-top: 20px;
+    }
+}
+.navbar-template.con-navbar-shop.con-navbar-shop-alt{
+    background: #fff !important;
+}
+.con-navbar-shop-alt .title.title-left.header-item{
+    color:#000 !important;
+}
+.con-navbar-shop .title.title-left.header-item {
+    color: #fff;
+    font-size: 20px;
+    transition:color 0.4s linear;
+    font-family: Brown-Bold;
+    top: 0px;
+}
+.con-navbar-shop .nav-left-button {
+    margin-left: 25px;
+    margin-top:12.5px;
+    transition:color 0.4s linear;
+}
+.con-navbar-shop-alt .nav-left-button{
+    color: #000 !important;
+}
+div[layout-name="vloc-mob-con-shop-layout"] {
+    height: 100vh;
+    background: #fff;
+}
+
+/*Shop Banner*/
+.con-shop-banner{
+    width: 100%;
+    height: 200px;
+    font-size: 30px;
+    overflow: hidden;
+    color: #FFF;
+    line-height: 32px;
+    text-align: right;
+    padding: 25px 25px 0px 25px;
+    transition:height 0.4s linear, padding-top 0.4s linear;
+}
+.con-navbar-shop-alt .con-shop-banner{
+    height:0px;
+    padding-top:0px;
+}
+.con-app-title-alt{
+    color:#000;
+    z-index: 3;
+}
+#con-shop-title{
+    font-family: Brown-Bold;
+    transition:color 0.4s linear;
+}
+.con-shop-banner img{
+    float:left;
+    display:block;
+    width:60%;
+}
+.con-shop-banner-title{
+    float:right;
+    width:40%;
+    padding-left:25px;
+    padding-top:20px;
+    box-sizing:border-box;
+}
+.con-shop-banner-title span{
+    font-family:fontello;
+    display:block;
+    margin-top:10px;
+    font-size:34px;
+}
+.con-navbar-shop-alt .con-home-shop{
+    color:#000;
+}
+.con-home-shop{
+    transition:color 0.4s linear;
+}
+
+/*Shop Tabs*/
+.con-shop-tabs{
+    height:50px;
+    width:100%;
+    box-shadow:0px 15px 25px -15px rgba(0, 0, 0, 0.1);
+    overflow-y: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    z-index: 2;
+    position: relative;
+    background: #FFF;
+}
+.con-shop-tab{
+    height: 50px;
+    width: auto;
+    padding: 0px 12.5px;
+    line-height: 56px;
+    margin: 0px 12.5px;
+    font-size: 16px;
+    color:$subtitle-colour;
+    display: inline-block;
+}
+.con-shop-tab-active{
+    border-bottom:3px solid #000;
+    color:#000;
+}
+.con-shop-tab-content{
+    pointer-events:none;
+    position:absolute;
+    background: #fff;
+    height: 0px;
+    overflow: hidden;
+}
+.con-shop-tab-content > div{
+    opacity:0;
+    transition:opacity 1s linear;
+}
+.con-shop-tab-content-active{
+    pointer-events:all;
+    height:auto;
+}
+.con-shop-tab-content-active > div{
+    opacity:1;
+}
+.navbar-custom-template.bar.bar-header > div {
+    margin-top: 0 !important;
+}

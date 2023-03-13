@@ -1,0 +1,25 @@
+<div class="nds-box nds-mob-conf">
+    <slds-svg-icon aria-hidden="true"
+                   sprite="'action'"
+                   icon="'approval'"
+                   size="'small'"
+                   extra-classes="'nds-button__icon nds-button__icon_large'">
+    </slds-svg-icon>
+
+    <div class="nds-mob-conf__body">
+
+        <label class="nds-form-element__label"
+                ng-if='bpTree.response.applicationRefNumber'>
+            Thank you for submitting the form. Your reference number is
+            <span class="nds-ref-number">{{bpTree.response.applicationRefNumber}}</span>.
+        </label>
+
+        <label class="nds-form-element__label"
+               ng-if="bpTree.response.OrderNumber">
+            Thank you for submitting the order. Your order number is
+            <span class="nds-ref-number">{{bpTree.response.OrderNumber}}</span>.
+        </label>
+
+    </div>
+
+</div>

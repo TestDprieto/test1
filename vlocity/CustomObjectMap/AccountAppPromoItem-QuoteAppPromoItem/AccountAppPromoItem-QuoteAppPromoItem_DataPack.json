@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__DestinationChildObject__c": "%vlocity_namespace%__QuoteAppliedPromotionItem__c",
+    "%vlocity_namespace%__DestinationParentObject__c": "QuoteLineItem",
+    "%vlocity_namespace%__ParentDestinationReferenceField__c": "%vlocity_namespace%__QuoteLineItemId__c",
+    "%vlocity_namespace%__ParentSourceReferenceField__c": "%vlocity_namespace%__AssetId__c",
+    "%vlocity_namespace%__SourceChildObject__c": "%vlocity_namespace%__AccountAppliedPromotionItem__c",
+    "%vlocity_namespace%__SourceParentObject__c": "Asset",
+    "Name": "AccountAppPromoItem>QuoteAppPromoItem",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CustomObjectMap__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CustomObjectMap__c/AccountAppPromoItem>QuoteAppPromoItem"
+}

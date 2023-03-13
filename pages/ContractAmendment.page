@@ -1,0 +1,23 @@
+<apex:page standardStylesheets="false" showHeader="true" sidebar="true" standardController="Contract" extensions="vlocity_cmt.VFPageControllerBase" docType="html-5.0" >   
+    <div ng-app="Text" class='vlocity'> 
+      
+        <vlocity_cmt:BusinessProcessComponent standardController="{!stdController}"
+                                                               strOmniScriptType="Contract"
+                                                               strOmniScriptSubType="Amend"
+                                                               strOmniScriptLang="English"
+                                                               strPrefillDataRaptorBundle=""
+                                                               verticalMode="false"
+                                                               JSONTreeHTMLTemplateName="JSONApplicationReviewHTMLTemplate.html" 
+                                                               /> 
+                                                             
+        <vlocity_cmt:BusinessProcessHelperComponent />
+        <vlocity_cmt:JSONTreeHTMLTemplateComponent /> 
+        <c:CreateContractDocument />
+        
+        
+        <script type="text/javascript">
+            var modules = ['vlocity-business-process'];
+            var myModule = angular.module('Text', modules);
+        </script> 
+    </div>
+</apex:page>

@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Vlocity Cart APIs (v2) in Winter 18 only: If TRUE, populates both VFRemote and REST actions in response JSON, to ensure backward compatibility. If FALSE or null, populates only VFRemote or REST actions, increasing performance.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "PopulateAllActionVariants",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/PopulateAllActionVariants"
+}

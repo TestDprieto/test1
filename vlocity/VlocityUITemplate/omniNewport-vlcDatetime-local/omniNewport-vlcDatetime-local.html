@@ -1,0 +1,64 @@
+<div class='nds-size_1-of-1'>
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-m-bottom_large nds-p-around_small nds-input__tooltip'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-grid nds-form--multi-input__container">
+            <div class="nds-form-element__control nds-form-element__control-animated-label nds-size_2-of-3 nds-p-right_small">
+
+                <input id='{{::control.name}}'
+                    name='loopname'
+                    ng-disabled='control.ro'
+                    ng-required="control.req"
+                    type='text'
+                    placement='none'
+                    ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'
+                    class='nds-input'
+                    ng-model='control.response'
+                    ng-init='init(this, control)'
+                    data-date-format="{{::control.propSetMap.dateFormat}}"
+                    data-max-date="{{::control.propSetMap.maxDate}}"
+                    data-min-date="{{::control.propSetMap.minDate}}"
+                    timezone="{{::selectTimezoneOffset(control.propSetMap.timezone);}}"
+                    slds-date-picker
+                    autocomplete="off"
+                    vlc-slds-val-checker="response"
+                    vlc-slds-toggle-help-text />
+
+                <label for="{{::control.name}}" class='nds-form-element__label'>
+                    {{::control.propSetMap.label}}
+                    <span class='nds-required'
+                        ng-if='control.req'>*
+                    </span>
+                </label>
+
+            </div>
+            <div class="nds-form-element__control nds-form-element__control-animated-label" ng-style="{'width':'100%'}">
+                <input type='text'
+                     placement='none'
+                     ng-disabled='control.ro'
+                     ng-required="control.req"
+                     ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'
+                     class='nds-input'
+                     ng-model='control.response'
+                     name='timectrl'
+                     ng-init='init(this, control)'
+                     data-time-format ="{{::control.propSetMap.timeFormat}}"
+                     timezone="{{::selectTimezoneOffset(control.propSetMap.timezone)}}"
+                     slds-time-picker 
+                     data-default-date="today"
+                     vlc-slds-val-checker="reponse" 
+                     autocomplete="off"
+                     vlc-slds-toggle-help-text />
+            </div>
+            <div vlc-slds-include="vlcLabelController.html"></div>
+        </div>
+
+        
+        <div class="nds-form-element__control-help" ng-if="control.propSetMap.help">{{control.propSetMap.helpText}}</div>
+        <div ng-include="::errHTMLId"></div>
+
+    </ng-form>
+
+</div>

@@ -8,14 +8,12 @@
                 <identifier>console_history</identifier>
             </componentInstance>
         </itemInstances>
-        <itemInstances>
-            <componentInstance>
-                <componentName>notes:utilityBarNoteList</componentName>
-                <identifier>notes_utilityBarNoteList</identifier>
-            </componentInstance>
-        </itemInstances>
         <name>utilityItems</name>
         <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <name>backgroundComponents</name>
+        <type>Background</type>
     </flexiPageRegions>
     <masterLabel>Service Console App Utility Bar</masterLabel>
     <template>

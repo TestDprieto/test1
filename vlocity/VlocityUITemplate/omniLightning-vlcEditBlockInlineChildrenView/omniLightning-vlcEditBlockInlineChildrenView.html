@@ -1,0 +1,26 @@
+<form name='loopform' class="slds-edit-block-edit__container" 
+        ng-init="isModalLoaded = !isModalLoaded"
+        ng-class="control.propSetMap.isNewInlineBlock ? 'slds-inline_new-top': 'slds-inline_edit-top'" autocomplete="off">
+    <div class="slds-cont-wrapper">
+        <header class="slds-size_1-of-1 slds-modal__header">
+            <h1 class="slds-text-heading_small slds-step_label">{{::OmniEditBlockModalTitle}}</h1>
+        </header>
+
+        <div class="slds-size_1-of-1 slds-modal__content slds-p-around--medium">
+            <div class="slds-grid slds-wrap slds-grid_pull-padded">
+                <child noformatterebmodal="true" 
+                    vlc-slds-change-inline-templates="::child.eleArray[0].propSetMap.showInputWidth"
+                    ng-repeat='child in ::children = control.children'
+                    class="slds-size_1-of-1 slds-medium_{{child.eleArray[0].propSetMap.controlWidth}}-of-12 slds-large-size_{{child.eleArray[0].propSetMap.controlWidth}}-of-12"
+                    ng-show='::!child.eleArray[0].propSetMap.hide'                 
+                    ng-if='(child.eleArray[0].propSetMap.hide && child.eleArray[0].type!=="Formula")||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                </child>
+            </div>
+        </div>
+
+        <footer class="slds-modal__footer">
+            <button type="button" class='slds-button slds-button--neutral' ng-click='control.showInlineEBRow = true; closeModal($event)'>{{::OmniConfigProdModalCancel}}</button>
+            <button type="button" class='slds-button slds-button--neutral' ng-click='control.showInlineEBRow = true; saveEditChanges($event)' ng-disabled="loopform.$invalid">{{::OmniConfigProdModalOk}}</button>
+        </footer>
+    </div>
+</form>

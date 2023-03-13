@@ -1,0 +1,122 @@
+{
+    "dataSource": {
+        "contextVariables": [
+            {
+                "name": "params.id",
+                "val": "01t6A000000NlGxQAK"
+            }
+        ],
+        "type": null,
+        "value": {
+            "inputMap": {
+                "categoryCode": "{{attrs.categoryCode}}",
+                "productId": "{{params.id}}"
+            },
+            "optionsMap": {
+                "vlcClass": "%vlocity_namespace%.InsuranceProductAdminHandler"
+            },
+            "query": "",
+            "remoteClass": "InsuranceProductAdminHandler",
+            "remoteMethod": "getCategoryAttributes",
+            "remoteNSPrefix": "%vlocity_namespace%",
+            "resultVar": ""
+        }
+    },
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "productRecordType",
+            "val": "TermSpec"
+        }
+    ],
+    "states": [
+        {
+            "blankStateCheck": false,
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['Name']",
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Name",
+                    "name": "['Name']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['%vlocity_namespace%__CategoryName__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Category",
+                    "name": "['%vlocity_namespace%__CategoryName__c']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['%vlocity_namespace%__AttributeDisplayName__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Label",
+                    "name": "['%vlocity_namespace%__AttributeDisplayName__c']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['%vlocity_namespace%__ValueDataType__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Control",
+                    "name": "['%vlocity_namespace%__ValueDataType__c']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['%vlocity_namespace%__Value__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Value",
+                    "name": "['%vlocity_namespace%__Value__c']",
+                    "type": "%vlocity_namespace%__ValueDataType__c"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['%vlocity_namespace%__IsConfigurable__c']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Customizable",
+                    "name": "['%vlocity_namespace%__IsConfigurable__c']",
+                    "type": "BOOLEAN"
+                }
+            ],
+            "filter": "$scope.data.status === 'active'",
+            "flyout": {
+                "data": "",
+                "layout": null
+            },
+            "name": "Attribute -- Coverage",
+            "templateUrl": "clm-product-attributes-row"
+        }
+    ],
+    "title": "Attributes"
+}

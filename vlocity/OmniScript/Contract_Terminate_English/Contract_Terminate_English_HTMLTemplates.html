@@ -1,0 +1,24 @@
+<script type="text/ng-template" id="contractItems.html">
+            <div class="panel panel-default">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th/>
+                            <th>Name</th>
+                            <th>Product Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody class='contractLine'>
+                        <tr ng-repeat='p in control.vlcSI[control.itemsKey]' ng-class="{ 'vlc-selectableitem-selected' : p.vlcSelected }" >
+                            <td>
+                                <input type='checkbox' ng-model='p.vlcSelected' ng-change='baseCtrl.onSelectItemCustomized(control, p, $index, this, false)'/>
+                            </td>
+                            <td>{{p.Name}}</td>
+                            <td>{{p.ProdName}}</td>
+                            <td>{{p.Status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+	</script>

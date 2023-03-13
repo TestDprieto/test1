@@ -1,0 +1,20 @@
+<div class="via-slds" ng-controller="InteractionActionController">
+    <div class="slds-grid slds-wrap slds-p-around_x-large">
+        <div class="slds-notify_container slds-m-bottom_medium ng-hide" ng-show="notification.message">
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture" role="alert">
+                <span class="slds-assistive-text">Info</span>
+                <h2>{{notification.message}}</h2>
+            </div>
+        </div>
+        <div class="task-details-form-container slds-p-left_small slds-p-right_medium slds-size_12-of-12">
+            <div class="slds-grid slds-grid_align-center slds-p-top_small slds-buttons-group">
+                <div class="slds-col_padded">
+                    <button type="button" class="slds-button slds-button_neutral" ng-click="interactionAction('Cancel')">Cancel Interaction</button>
+                </div>
+                <div class="slds-col_padded">
+                    <button type="button" class="slds-button slds-button_brand" ng-click="interactionAction('Completed')">Complete Interaction</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

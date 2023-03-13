@@ -1,0 +1,70 @@
+{
+    "dataSource": {
+        "type": null
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "blankCardState": true,
+            "blankStateCheck": true,
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    },
+                    {
+                        "field": "",
+                        "logicalOperator": "&&",
+                        "operator": "===",
+                        "type": "custom",
+                        "value": ""
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Pay Bill",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Renew Contract",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Support Center",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    },
+                    {
+                        "collapse": true,
+                        "hasExtraParams": false,
+                        "id": "Assisted Pay Bill",
+                        "isCustomAction": false,
+                        "type": "Vlocity Action"
+                    }
+                ]
+            },
+            "fields": [
+            ],
+            "filter": "$scope.data.status === 'active'",
+            "name": "Action Card State",
+            "sObjectType": "Contact",
+            "templateUrl": "mobile-action-grid-card-slds"
+        }
+    ],
+    "title": "mobile-ret-action-contact"
+}

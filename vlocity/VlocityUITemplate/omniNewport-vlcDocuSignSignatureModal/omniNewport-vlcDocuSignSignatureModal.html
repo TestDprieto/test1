@@ -1,0 +1,26 @@
+<!-- vlcDocuSignSignatureModal.html -->
+<div class="nds-modal_custom">
+    <div class='mask' ng-show='loading'>
+        <div vlc-slds-spinner='test'></div>
+    </div>
+    <section modalmove role="dialog" tabindex="-1" aria-modal="true" class="nds-modal nds-fade-in-open via-omni" ng-init='initDocuSignModal()'>
+        <div class="nds-modal__container">
+            <header class="nds-modal__header">
+                <h1 class="nds-text-heading_small">{{::OmniDocuSignModalTitle}}</h1>
+            </header>
+            <div class="nds-modal__content nds-p-around_medium">
+                <div id='docusign-frame'>
+                    <iframe ng-src='{{redirectUri}}' style="width: 100%; height: 600px;"></iframe>
+                </div>
+                <div id='docusign-pdf'>
+                    <embed ng-src='{{pdfDocUrl}}' type='application/pdf' class='vlcPDFEmbed' style="width: 100%; height: 600px;"/>
+                </div>
+            </div>
+            <footer class="nds-modal__footer nds-button_text-font">
+                <button class='nds-button nds-button_neutral' ng-click='ViewPDF()' ng-show='viewPdf' ng-disabled='disableViewPdf' >{{::OmniDocuSignModalViewPdf}}</button>
+                <button class='nds-button nds-button_neutral' ng-click='closeModal()'>{{::OmniDocuSignModalClose}}</button>
+                <div modalresize class='nds-editblock_expand-modal' prop='min-height'></div>
+            </footer>
+        </div>
+    </section>
+</div>

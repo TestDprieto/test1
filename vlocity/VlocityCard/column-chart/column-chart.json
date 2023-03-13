@@ -1,0 +1,87 @@
+{
+    "dataSource": {
+        "type": "Custom",
+        "value": {
+            "body": "{ \"records\" :  [{\n\t\t\t\"sub\": \"Maths\",\n\t\t\t\"mark\": 80\n\t\t},\n\t\t{\n\t\t\t\"sub\": \"English\",\n\t\t\t\"mark\": 65\n\t\t},\n\t\t{\n\t\t\t\"sub\": \"Physics\",\n\t\t\t\"mark\": 95\n\t\t},\n\t\t{\n\t\t\t\"sub\": \"Chemistry\",\n\t\t\t\"mark\": 85\n\t\t},\n\t\t{\n\t\t\t\"sub\": \"Biology\",\n\t\t\t\"mark\": 70\n\t\t}\n\t]\n}"
+        }
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Sub",
+                    "name": "['sub']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Mark",
+                    "name": "['mark']",
+                    "type": "number"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Records",
+                    "name": "['records']",
+                    "type": "object"
+                }
+            ],
+            "name": "Column Chart",
+            "placeholderExpand": true,
+            "placeholders": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "Height",
+                    "name": "Height",
+                    "type": "string",
+                    "value": "400"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "Title",
+                    "name": "Title",
+                    "type": "string",
+                    "value": "Column Chart"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "Width",
+                    "name": "Width",
+                    "type": "string",
+                    "value": "400"
+                }
+            ],
+            "templateUrl": "column-chart-card"
+        }
+    ],
+    "title": "column-chart"
+}

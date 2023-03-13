@@ -1,0 +1,17 @@
+<!--OMNI-3025-->
+<div class="imgItemContainer" 
+     ng-style='{"width":"{{control.propSetMap.optionWidth}}"+"px","height":"{{control.propSetMap.optionHeight}}"+"px"}'
+     ng-class='{invertOption:control.propSetMap.optionSource.source==""&&option.imgId===null}'
+     >
+    <img 
+        ng-if='option.imgId && control.propSetMap.optionSource.type == "image"' 
+        class='imgItem' 
+        src="{{option.imgId}}"
+        alt='{{option.value}}'  
+        title='{{option.value}}' />
+    <span ng-if='!(option.imgId)' class="imgItem">{{option.value}}</span>
+    <div class="borderOverlay"></div>
+</div>
+<div class="captionOut" ng-style='{"width":"{{control.propSetMap.optionWidth}}"+"px"}' ng-if='(control.propSetMap.enableCaption&&(option.imgId))' >
+    <span class="captionOut slds-form-element__label">{{ option.imgId ? option.value : "&nbsp" }}</span> 
+</div>

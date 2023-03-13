@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "DEPRECATED: Controls AddToCart button in legacy Manager pages. When TRUE, if any product is missing required attributes and the quantity is greater than zero, the Add to Cart button is disabled. When FALSE, the Add to Cart button is present.",
+    "%vlocity_namespace%__SetupValue__c": "True",
+    "Name": "Attribute Check Mode",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/Attribute Check Mode"
+}
