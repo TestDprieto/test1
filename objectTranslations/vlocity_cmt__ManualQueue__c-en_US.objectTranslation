@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__Active__c</name>
+    </fields>
+    <fields>
+        <label><!-- Displayed Fields --></label>
+        <name>vlocity_cmt__DisplayedFields__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filter Fields --></label>
+        <name>vlocity_cmt__FilterFields__c</name>
+    </fields>
+    <fields>
+        <label><!-- Global Key --></label>
+        <name>vlocity_cmt__GlobalKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Assigned To User --></label>
+        <name>vlocity_cmt__LastAssignedToUserId__c</name>
+        <relationshipLabel><!-- Last Assigned User --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Notification Email Id --></label>
+        <name>vlocity_cmt__NotificationEmailId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Queue Type --></label>
+        <name>vlocity_cmt__QueueType__c</name>
+        <picklistValues>
+            <masterLabel>Attributes-Based</masterLabel>
+            <translation><!-- Attributes-Based --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Least Loaded</masterLabel>
+            <translation><!-- Least Loaded --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Round Robin</masterLabel>
+            <translation><!-- Round Robin --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

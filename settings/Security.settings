@@ -10,8 +10,8 @@
     <networkAccess/>
     <passwordPolicies>
         <complexity>AlphaNumeric</complexity>
-        <expiration>Never</expiration>
-        <historyRestriction>0</historyRestriction>
+        <expiration>NinetyDays</expiration>
+        <historyRestriction>3</historyRestriction>
         <lockoutInterval>FifteenMinutes</lockoutInterval>
         <maxLoginAttempts>TenAttempts</maxLoginAttempts>
         <minimumPasswordLength>8</minimumPasswordLength>
@@ -70,7 +70,7 @@
         <enableCaseInsensitiveFederationID>false</enableCaseInsensitiveFederationID>
         <enableMultipleSamlConfigs>true</enableMultipleSamlConfigs>
         <enableSamlJitProvisioning>false</enableSamlJitProvisioning>
-        <enableSamlLogin>false</enableSamlLogin>
+        <enableSamlLogin>true</enableSamlLogin>
         <isLoginWithSalesforceCredentialsDisabled>false</isLoginWithSalesforceCredentialsDisabled>
     </singleSignOnSettings>
 </SecuritySettings>

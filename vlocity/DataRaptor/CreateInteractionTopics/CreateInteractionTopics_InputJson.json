@@ -1,0 +1,160 @@
+{
+    "CreateInteraction": {
+        "%vlocity_namespace%__CustomerInteraction__c_1": [
+            {
+                "%vlocity_namespace%__Channel__c": "Contact Center",
+                "%vlocity_namespace%__ContactId__c": "00346000002HMFyAAO",
+                "%vlocity_namespace%__Status__c": "In Progress",
+                "%vlocity_namespace%__Type__c": "Call",
+                "Id": "a0I46000000GcanEAC",
+                "Name": "Ashley James",
+                "UpsertSuccess": true
+            }
+        ],
+        "error": "OK",
+        "responseType": "SObject"
+    },
+    "CreateInteractionStatus": true,
+    "ExtractAccountFromContact": [
+        {
+            "AccountId": "00146000003lOOFAA2"
+        },
+        {
+            "AccountId": "00146000003lOOKAA2"
+        },
+        {
+            "AccountId": "00146000003lOONAA2"
+        }
+    ],
+    "ExtractAccountFromContactStatus": true,
+    "ExtractAssetBasedOnAccount": [
+        {
+            "AssetAccountId": "00146000003lOOFAA2",
+            "AssetId": "02i460000018r9yAAA",
+            "Name": "test"
+        },
+        {
+            "AssetAccountId": "00146000003lOOKAA2",
+            "AssetId": "02i46000000mmafAAA",
+            "Name": "GenWatt Diesel 1000kW"
+        },
+        {
+            "AssetAccountId": "00146000003lOOKAA2",
+            "AssetId": "02i46000000mmakAAA",
+            "Name": "GenWatt Diesel 1000kW"
+        },
+        {
+            "AssetAccountId": "00146000003lOONAA2",
+            "AssetId": "02i46000000mmbiAAA",
+            "Name": "UK asset  Diesel 10kW"
+        }
+    ],
+    "ExtractAssetBasedOnAccountStatus": true,
+    "TransformNewInteraction": {
+        "NewInteraction": {
+            "ContactId": "00346000002HMFyAAO",
+            "Id": "a0I46000000GcanEAC",
+            "Name": "Ashley James"
+        }
+    },
+    "TransformNewInteractionStatus": true,
+    "consoleCardLayout": null,
+    "drBundleName": null,
+    "integrationProcName": "CustomerInteractionContact_Creation",
+    "interactionObjName": "CustomerInteractionContact",
+    "moreRequests": null,
+    "numOfOptionalVerificationFields": null,
+    "optionalVerificationFieldList": [
+    ],
+    "options": {
+    },
+    "parentId": null,
+    "recordId": "00346000002HMFyAAO",
+    "request": {
+        "additionalData": null,
+        "continueSearch": false,
+        "displaySequence": 2,
+        "fieldPicklistValues": {
+        },
+        "isClassBased": false,
+        "lastRecordId": null,
+        "previousSearchResults": null,
+        "recordOffset": null,
+        "referenceObjectName": null,
+        "requestUniqueName": "InteractionContact",
+        "searchFieldList": [
+            "FirstName",
+            "LastName"
+        ],
+        "searchFieldsLabelTypeMap": {
+            "FirstName": {
+                "datatype": "text",
+                "label": "First Name"
+            },
+            "LastName": {
+                "datatype": "text",
+                "label": "Last Name"
+            }
+        },
+        "searchObjectLabel": "Agent",
+        "searchObjectName": "Contact",
+        "searchType": "Caller Identification",
+        "searchValueMap": {
+            "FirstName": "*",
+            "LastName": null
+        }
+    },
+    "resultFieldList": [
+        "Name",
+        "MailingStreet",
+        "Email"
+    ],
+    "resultFieldsLabelTypeMap": {
+        "BirthDate": {
+            "datatype": "date",
+            "label": "Birthdate"
+        },
+        "Email": {
+            "datatype": null,
+            "label": "Email"
+        },
+        "MailingPostalCode": {
+            "datatype": "text",
+            "label": "Mailing Zip/Postal Code"
+        },
+        "MailingStreet": {
+            "datatype": "text",
+            "label": "Mailing Street"
+        },
+        "Name": {
+            "datatype": "text",
+            "label": "Full Name"
+        }
+    },
+    "resultValueMap": {
+        "AccountId": "00146000003lOONAA2",
+        "BirthDate": "6/7/1943",
+        "Email": "ajames@uog.com",
+        "FirstName": "Ashley",
+        "LastName": "James",
+        "MailingPostalCode": null,
+        "MailingStreet": "",
+        "Name": "Ashley James"
+    },
+    "uniqueRequestName": "InteractionContact",
+    "verificationFieldList": [
+        "Name",
+        "MailingPostalCode",
+        "BirthDate"
+    ],
+    "verificationResult": {
+        "BirthDate": null,
+        "MailingPostalCode": null,
+        "Name": null,
+        "fields": {
+            "BirthDate": true,
+            "MailingPostalCode": true,
+            "Name": true
+        }
+    }
+}

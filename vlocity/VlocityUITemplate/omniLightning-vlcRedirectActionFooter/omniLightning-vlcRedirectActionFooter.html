@@ -1,0 +1,12 @@
+<!-- footer template  -->
+<div class='slds-grid slds-wrap slds-m-top--small vlc-slds-action--footer'>
+    <div class="slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{::bpTree.redirectAction.propSetMap.redirectNextWidth}}-of-12"
+         style="flex-grow:0"
+         ng-if='bpTree.redirectAction.bHasNext'>
+
+        <button class='slds-button vlc-slds-button--primary'
+                ng-click='navigate(bpTree, bpTree.redirectAction, "next")'>
+            {{::bpTree.redirectAction.propSetMap.redirectNextLabel}}
+        </button>
+    </div>
+</div>

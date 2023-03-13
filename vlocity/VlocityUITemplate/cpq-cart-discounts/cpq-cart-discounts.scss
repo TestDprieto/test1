@@ -1,0 +1,100 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-cart-discounts {
+            .#{$namespace}-discounts-items-tab-content {
+                padding-top: 0px; /* slds override */
+            }
+            .#{$namespace}-create-discount-container{
+                padding:10px 10px;
+            }
+            .#{$namespace}-promotion-item-border {
+                padding: 10px 0px;
+                margin: 0px 16px;
+                border-bottom: 1px solid $cpq-discount-border-color;
+            }
+            .#{$namespace}-discount-status-border-bottom{
+                border-bottom: 1px solid;
+            }
+            .#{$namespace}-discount-item-status-color {
+                color : $product-item-bookmark-green;
+            }
+            .#{$namespace}-discount-item-status-color-yellow {
+                color : $product-item-bookmark-yellow;
+            }
+            .#{$namespace}-base-discounts {
+                .#{$namespace}-item-base-product-actions {
+                    flex: 3;
+                }
+
+                .#{$namespace}-action-item-label{
+                    font-size: $cpq-cart-item-attr-label-font-size;
+                    color: $cpq-action-label-color;
+                }
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-end;
+                .#{$namespace}-discounts-editable-field {
+                    border-bottom: 1px dotted;
+                    input{
+                        border: none;
+                    }
+                }
+                &.#{$namespace}-discounts-header {
+                    font-size: $cpq-cart-item-attr-label-font-size;
+                    @extend .#{$namespace}-promotion-item-border;
+                }
+                &.#{$namespace}-discounts-item {
+                    .#{$namespace}-promo-text-wrap {
+                        .#{$namespace}-discount-charges {
+                            color:$cpq-discount-charge-color;
+                        }
+                        font-size: 12px;
+                        line-height: 1;
+                        .#{$namespace}-discount-charges-label {
+                           font-size:$cpq-cart-item-attr-label-font-size;
+                           line-height: 1.33;
+                        }
+                    }
+                    .#{$namespace}-discount-name {
+                        .#{$namespace}-discount-level {
+                            text-transform: uppercase;
+                            background: $discount-type-label-background;
+                            font-size: 11px;
+                            font-weight: $cpq-cart-item-product-group-font-weight;
+                            color: $cpq-product-container-bg-color;
+                            padding: 6px 10px;
+                            letter-spacing: 1px;
+                        }
+                        .#{$namespace}-discount-status {
+                            font-weight: $cpq-cart-item-product-group-font-weight;
+                            font-size: $cpq-product-padding;
+                        }
+                        .cpq-discount-status-new {
+                            color: $cpq-discount-status-color;
+                            font-weight: $cpq-discount-headings-font-weight;
+                            font-size: $cpq-product-padding;
+                        }
+                        font-weight: $cpq-headings-font-weight;
+                    }
+                    @extend .#{$namespace}-promotion-item-border;
+                    .#{$namespace}-underline {
+                            border-bottom: dashed 1px;
+                            &:hover, &.hovered {
+                            color: $cpq-product-link-color;
+                            cursor: pointer;
+                        }
+                    }
+                }
+                .#{$namespace}-discounts-name {
+                    flex: 5;
+                }
+            }
+        }
+    }
+}

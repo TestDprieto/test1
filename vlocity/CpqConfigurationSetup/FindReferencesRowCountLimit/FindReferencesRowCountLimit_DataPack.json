@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Vlocity EPC: Limits the number of rows returned across products, promotions, quotes, orders, opportunities and assets using the Find References button in Vlocity Product Console. If null, the default limit is 20 rows. Maximum is 1000.",
+    "%vlocity_namespace%__SetupValue__c": "20",
+    "Name": "FindReferencesRowCountLimit",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/FindReferencesRowCountLimit"
+}

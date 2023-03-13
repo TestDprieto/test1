@@ -1,0 +1,44 @@
+<!-- vlcEditBlockFS.html -->
+<div class='slds-grid slds-wrap slds-grid_pull-padded vlc-slds-edit-block_main-container' ng-init="isFSTable=true; calculateSumElememt(child.eleArray[0], this)">
+    {{set = ((child.eleArray[0].children.length === 0)?(child.eleArray[0].childrenC):(child.eleArray[0].children));""}}
+    <div class="slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_12-of-12 vlc-slds-edit-block__label_block_FS">
+        <div class="vlc-slds-edit-block__label_FS">
+            <span>{{::child.eleArray[0].propSetMap.label}}</span>
+            <span class="vlc-slds-edit-block__label_FS_ctrl">
+                <span ng-if="curSymbolFS">{{::curSymbolFS}}</span>
+                {{set.sumControlValue}}
+            </span>
+        </div>
+
+         <div class="vlc-slds-edit-block__gaction_container">
+            <span ng-repeat="action in child.eleArray[0].propSetMap.gActions" ng-include="'vlcEditBlockGlobalBtn.html'"></span>
+        </div>
+    </div>
+    
+    <div class="vlc-slds-edit-block_FS"
+        id ='{{::control.name}}'
+        ng-repeat="control in child.eleArray"
+        ng-style="control.childrenC !== undefined && {'display':'none'}"
+        ng-click="onClickEditBlockRecord(control, set.checkboxInd, $event, child.eleArray, $index)"
+        ng-class="{'vlc-slds-block_table-add' : set.checkboxInd >= 0 ? control.children[set.checkboxInd].eleArray[0].response : false}"
+        ng-if="set.length > 0"
+        ng-init="control.selectCheckBox = child.eleArray[0].propSetMap.selectCheckBox; initEditBlockControlLimit(control, 3)">
+        <form name="vlcEditBlockFormMain_{{$index}}" >
+            <span class="vlc-asterix icon-v-asterix vlc-editblock-asterix" ng-if="isEditBlockRecordInvalid($index, this)"></span>
+            <div class="vlc-slds-edit-block_controls" ng-hide='!child.displayInView' 
+                ng-class="{'vlc-slds-edit-block_fisrtele': child.displayInViewIndex==0, 'vlc-slds-edit-block_secondele': child.displayInViewIndex==1, 'vlc-slds-edit-block_thirdele': child.displayInViewIndex==2}"
+                ng-repeat='child in children = control.children'
+                ng-if='child.eleArray[0].propSetMap.hide||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                <ng-form name="editblockform" class="vlc-slds-edit-block__form"
+                    ng-include="'vlcEditBlockInnerForm.html'">
+                </ng-form>
+            </div>
+        </form>
+        <div class="vlc-slds-edit-block_button-menu">
+            <slds-dropdown content="[]" template-url="vlcEditBlockDropdown.html"></slds-dropdown>
+        </div>
+    </div>
+    <div class="vlc-slds-item_addbutton" ng-if='child.eleArray[0].propSetMap.allowNew && set.length > 0' ng-click="openEditModal(null, child, this, 'new', null, $event)">
+        <span>+ {{::((child.eleArray[0].propSetMap.newAction) ? (child.eleArray[0].propSetMap.newAction.propSetMap.label) : (child.eleArray[0].propSetMap.newLabel))}}</span>
+    </div>
+</div>

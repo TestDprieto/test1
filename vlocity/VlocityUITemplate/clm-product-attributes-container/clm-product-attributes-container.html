@@ -1,0 +1,91 @@
+<div class="slds-spinner_container vloc-spinner_container vloc-show-loader" ng-show="!$root.isLoaded">
+    <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div> 
+    </div>
+</div>
+<div class="slds-notify_container" hide-notification="true"  ng-if="$root.notification.active">
+    <div class="slds-notify slds-notify_alert slds-theme_alert-texture" role="alert" ng-class="{'slds-theme_success': $root.notification.type === 'success', 'slds-theme_error': $root.notification.type === 'error'}">
+        <button class="slds-button slds-button_icon-inverse slds-notify__close" ng-click="$root.notification.active = false">
+            <slds-button-svg-icon sprite="'utility'" icon="'close'" ></slds-button-svg-icon>
+            <span class="slds-assistive-text">Close</span>
+        </button>
+        <span class="slds-assistive-text">Info</span>
+        <h2 ng-bind-html="$root.notification.message"></h2>
+    </div>
+</div>
+<div class="clm-product-atttributes-container slds-grid slds-wrap slds-size_1-of-1" ng-init="importedScope.vlocAttrs.initData(params.id, records.productAttributes[params.id].prodAttributes.length); $root.productRecordType = records.productRecordType; $root.productRateBandTiers = records.productAttributes.productRateBandTiers; importedScope.vlocAttrs.processFieldSet(records.fieldList); importedScope.vlocAttrs.showCard(cards, records.productRecordType)">
+    <!--Attribute Table: -->
+    <div class="vloc-attr-table slds-size_1-of-1" ng-class="{'slds-size_2-of-3' : $root.config.show, 'newAttr' : ($root.config.show && !$root.config.attr.Id)}">
+      <!--Table Header:--> 
+      <div ng-repeat="card in importedScope.vlocAttrs.cards">
+      <div class="vloc-attr-table-header slds-col slds-grid slds-wrap slds-grid_align-spread" ng-if="$index === 0" ng-init="importedScope.orderTerm =  $root.rowFields[0].name; importedScope.orderAsc = false">
+         <div class="slds-small-show vloc-attr-cell slds-size_1-of-{{card.fields.length}}" ng-repeat="field in $root.rowFields" ng-show="key != 'attributes'">
+          <div ng-class="{'vloc-sorted-column' : importedScope.orderTerm === field.name, 'vloc-not-sorted-column': importedScope.orderTerm !==  field.name, 'slds-p-left_medium' : $index < 1}" class="vloc-attr-title-cell slds-truncate slds-text-heading_label slds-p-around_x-small slds-p-bottom_small" title="{{field.label}}" ng-click="importedScope.setOrderTerm(field.name);">
+              <div class="vloc-attrs-header-label slds-truncate">
+                <slds-button-svg-icon ng-if="importedScope.orderTerm === field.name && importedScope.orderAsc"  extra-classes="'slds-button__icon_left'" sprite="'utility'" icon="'arrowup'"></slds-button-svg-icon>
+                <slds-button-svg-icon ng-if="importedScope.orderTerm === field.name  && !importedScope.orderAsc"  extra-classes="'slds-button__icon_left'" sprite="'utility'" icon="'arrowdown'"></slds-button-svg-icon>
+                {{field.label}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Table Body: -->
+      <div ng-repeat="record in records.productAttributes[params.id].prodAttributes | orderBy: importedScope.orderTerm : importedScope.orderAsc">
+        <vloc-card
+            ng-model="card" 
+            data="card" 
+            records="record"
+            index="{{$index}}" 
+            session-id="{{sessionId}}"
+            ctrl="ClmProductAttributesRowController">
+        </vloc-card>
+        </div>
+         <div ng-if="!$root.config.show" class="slds-p-around_small slds-float_right">
+        <button class="slds-button slds-button_neutral" ng-click="$root.config.show = true; $root.config.attr = null">{{importedScope.modalLabels.CLMContractTermNewLabel}}</button>
+    </div>
+      </div>
+    </div>
+   <!--Attribute Configuration Panel: -->
+  <div class="vloc-attr-config-container slds-size_1-of-3 slds-p-around_small" ng-class="{'newAttr': !$root.config.attr.Id}" ng-if="$root.config.show"> 
+      <div class="vloc-attr-config-header slds-p-bottom_small slds-border_bottom"> 
+            <div class="slds-text-heading_medium slds-size_1-of-2 slds-truncate">
+              <span ng-if="$root.config.attr">{{$root.config.attr.Name}} </span>
+              <span ng-if="!$root.config.attr">{{importedScope.modalLabels.CLMContractTermNewAttribute}}</span>
+             </div>
+            <div class="slds-m-top_x-small vloc-attr-config-close slds-m-right_x-small">
+              <slds-button-svg-icon sprite="'utility'" icon="'close'" no-hint="true" ng-click="$root.config.show = false"></slds-button-svg-icon>
+            </div>
+            <div class="vloc-attr-actions-container">
+              <button class="slds-button slds-button_neutral" ng-click="$root.config.attr = null" ng-if="$root.config.attr.Id">{{importedScope.modalLabels.CLMContractTermNewLabel}}</button>
+              <button class="slds-button slds-button_brand slds-m-right_small" ng-if="!$root.config.attr.Id" ng-click="importedScope.vlocAttrs.saveAttrs()">{{importedScope.modalLabels.CLMTermSave}}</button>
+              <button class="slds-button slds-button_brand" ng-if="$root.config.attr.Id" ng-click="importedScope.vlocAttrs.saveAttrs()">{{importedScope.modalLabels.CLMContractTermUpdate}}</button>
+              <span class="vloc-attr-delete slds-m-right_x-small" ng-if="$root.config.attr.Id">
+                <slds-button-svg-icon sprite="'utility'" icon="'delete'" no-hint="true" extra-classes="" ng-click="importedScope.vlocAttrs.deleteAttr()">
+                </slds-button-svg-icon>
+              </span>
+            </div>
+      </div>
+        <div class="vloc-attr-new-container slds-size_1-of-1 slds-grid slds-wrap" ng-if="!$root.config.attr.Id">
+            <div class="slds-form-element slds-m-top_small slds-size_1-of-2">
+              <label class="slds-form-element__label" for="select-01">{{importedScope.modalLabels.CLMContractTermSelectCategory}}</label>
+              <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                  <select ng-options="cat as cat.categoryName for cat in importedScope.vlocAttrs.categories" ng-model="category" ng-change="importedScope.vlocAttrs.getCategoryAttributes(category)" class="slds-select slds-m-right_xx-small" id="select-01" >
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="slds-form-element slds-m-vertical_small slds-size_1-of-2">
+              <label class="slds-form-element__label" for="select-01">{{importedScope.modalLabels.CLMContractTermSelectAttribute}}</label>
+              <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                  <select ng-options="attr as attr.attributeName for attr in category.attrs | filter:{show: true}" ng-model="attrItem" class="slds-select slds-m-left_xx-small" id="select-01" ng-change="importedScope.vlocAttrs.newAttr(attrItem, category)">
+                  </select>
+                </div>
+              </div>
+            </div>
+        </div>
+         <vloc-layout records="attrs" layout-name="clm-product-attributes-config" ng-if="$root.config.attr" type="{{importedScope.vlocAttrs.productRecordType}}"></vloc-layout> 
+  </div>
+</div>
