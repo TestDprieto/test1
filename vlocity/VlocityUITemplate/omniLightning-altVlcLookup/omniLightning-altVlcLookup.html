@@ -1,0 +1,68 @@
+<div class="slds-col--padded slds-size--1-of-1 alt-vlc-slds--control">
+
+    <div class="slds-lookup" data-select="multi" data-scope="single" data-typeahead="true">
+
+        <ng-form name='loopform'
+                 class='slds-form-element vlc-flex vlc-slds-lookup-control'
+                 ng-repeat='control in child.eleArray'
+                 autocomplete="off">
+
+            <div vlc-slds-include="altVlcLabelController.html"></div>
+
+            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right slds-size--1-of-1 slds-medium--1-of-1 slds-large-size--{{control.propSetMap.inputWidth}}-of-12">
+
+                <div class="vlc-control-wrapper" help="{{::control.propSetMap.help}}">
+
+                    <input id='{{::control.name}}'
+                           ng-disabled='control.ro'
+                           ng-required='control.req'
+                           ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'
+                           ng-click="convertToObject(true);control.showSubList = true"
+                           name='loopname'
+                           type="text"
+                           class="slds-input"
+                           ng-model="control.response"
+                           vlc-slds-lookup-control="test"
+                           ng-init='init(this, control)'
+                           vlc-disable-auto-complete="off"/>
+
+                    <!-- list of matched items -->
+                    <ul class="slds-list--vertical vlc-slds-list--vertical"
+                        ng-click="aggregate(this, control.index, control.indexInParent, true, -1)"
+                        ng-show="control.propSetMap.options.length && control.showSubList">
+
+                        <!-- clear option-->
+                        <li ng-click="convertToObject(false);control.showSubList = false"
+                            class="slds-list__item">
+                            --
+                        </li>
+
+                        <li ng-click="setViewValue(obj)"
+                            ng-repeat="obj in control.viewObjects|orderBy:'value' "
+                            class='slds-list__item'>
+                            {{obj.value}}
+                        </li>
+
+                    </ul>
+
+                    <!-- tooltip template -->
+                    <a vlc-slds-tool-tip="test" ng-show="{{control.propSetMap.help}}"> i </a>
+
+                </div>
+
+                <slds-svg-icon aria-hidden="true"
+                               sprite="'utility'"
+                               icon="'search'"
+                               size="'small'"
+                               extra-classes="'slds-button__icon slds-button__icon--large'">
+                </slds-svg-icon>
+
+                <div ng-include="::errHTMLId"></div>
+
+            </div>
+
+        </ng-form>
+
+    </div>
+
+</div>

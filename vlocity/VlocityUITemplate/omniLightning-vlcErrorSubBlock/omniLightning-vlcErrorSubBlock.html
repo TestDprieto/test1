@@ -1,0 +1,49 @@
+<div class="vlc-slds-error-block">
+
+  <div class='error'
+       ng-show='control.srvErr'>
+    <small class='description'>{{control.srvErr}}</small>
+  </div>
+  <div class='error'
+       ng-class='bpService.isMobileBrowser ? "slds-grid slds-grid_vertical slds-p-top--xx-small" : ""'
+       ng-if='(loopform.loopname.$error && loopform.loopname.$dirty) || (loopform.timectrl.$error && loopform.timectrl.$dirty)'>
+    <small ng-show='loopform.loopname.$error.minlength'
+           class='description'>{{::customLabels.OmniMinLength}} {{::control.propSetMap.minLength}}</small>
+    <small ng-show='loopform.loopname.$error.maxlength'
+           class='description'>{{::customLabels.OmniMaxLength}} {{::control.propSetMap.maxLength}}</small>
+    <small ng-show="loopform.loopname.$error.disabledDate"
+           class="description">{{::customLabels.OmniDateDisabledDay}}</small>
+    <span ng-if='loopform.loopname.$error.min || loopform.loopname.$error.max'>
+      <small ng-if='loopform.loopname.$error.min && control.propSetMap.minDate'
+             class='description'>
+        {{::customLabels.OmniDateMin}} {{sldsDatePicker.getOption('minDate','formatDisplay')}}
+      </small>
+      <small ng-if='loopform.loopname.$error.max && control.propSetMap.maxDate'
+             class='description'>
+        {{::customLabels.OmniDateMax}} {{sldsDatePicker.getOption('maxDate','formatDisplay')}}
+      </small>
+      <small ng-show='control.propSetMap.minTime || control.propSetMap.maxTime'
+             class='description'>
+        {{::customLabels.OmniTimeMinMax}} {{::control.propSetMap.minTime}} - {{::control.propSetMap.maxTime}}
+      </small>
+      <span ng-if='!control.propSetMap.minTime && !control.propSetMap.maxTime && !control.propSetMap.minDate && !control.propSetMap.maxDate'>
+        <small ng-show='loopform.loopname.$error.min'
+               class='description'>{{::customLabels.OmniMinValue}} {{::control.propSetMap.min}}</small>
+        <small ng-show='loopform.loopname.$error.max'
+               class='description'>{{::customLabels.OmniMaxValue}} {{::control.propSetMap.max}}</small>
+      </span>
+    </span>
+    <small ng-show='loopform.loopname.$error.minInt'
+           class='description'>{{::customLabels.OmniMinInt}}</small>
+    <small ng-show='loopform.loopname.$error.maxInt'
+           class='description'>{{::customLabels.OmniMaxInt}}</small>
+    <small ng-show='loopform.loopname.$error.required'
+           class='description'>{{::customLabels.OmniRequired}}</small>
+    <small ng-show='loopform.loopname.$error.pattern'
+           class='description'>{{::control.propSetMap.ptrnErrText}}</small>
+    <small ng-show="loopform.loopname.$error.parse && control.propSetMap.dateFormat"
+           class="description">{{::customLabels.OmniInvalidParseFormat}} {{::control.propSetMap.dateFormat}}</small>
+    <small ng-show="(loopform.loopname.$error.parse || loopform.timectrl.$error.parse) && control.propSetMap.timeFormat"
+           class="description">{{::customLabels.OmniInvalidParseFormat}} {{::control.propSetMap.timeFormat}}</small>
+  </div>
+</div>

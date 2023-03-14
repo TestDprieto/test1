@@ -1,0 +1,181 @@
+<div class="select-master-quote slds-grid--align-center slds-container--fluid slds-p-horizontal_large" ng-controller="ManageMasterQuoteController" ng-init="init();">
+    
+    <!-- header section -->
+    <div class="slds-size_1-of-1">
+        <div class="slds-grid slds-size_1-of-1 slds-p-vertical_medium">
+            <div class="slds-size_1-of-2">
+                <span class="slds-text-heading_medium slds-border_bottom service-point-text-border-color">{{customLabelsMap.MSSelectMQLabel}}</span>
+            </div>
+        </div>
+        <div class="slds-clearfix slds-p-bottom_medium">
+            <div class="slds-size_1-of-2 slds-float_right">
+                <div class="slds-button-group slds-float_right" role="group">
+                    <button class="slds-button slds-button_neutral" 
+                        ng-click="newMasterQuote()">
+                        {{customLabelsMap.MSNewLabel}}
+                    </button>
+                    <button class="slds-button slds-button_neutral" 
+                        ng-click="clone()" 
+                        ng-if="bpTree.selectedQuote.masterQuoteId">
+                        {{customLabelsMap.MSCloneLabel}}
+                    </button>
+                    <button class="slds-button slds-button_neutral" 
+                        ng-click="rename(bpTree.selectedQuote)" 
+                        ng-if="bpTree.selectedQuote.masterQuoteId">
+                        {{customLabelsMap.MSRenameLabel}}
+                    </button>
+                    <div class="slds-dropdown-trigger slds-dropdown-trigger_click slds-button_last" 
+                        ng-click="actionDropdownClicked = !actionDropdownClicked"
+                        ng-class="{'slds-is-open': actionDropdownClicked}"
+                        ng-if="isToShowExtraActions()">
+
+                        <button class="slds-button slds-button_icon slds-button_icon-border-filled" aria-haspopup="true" title="Show More">
+                            <slds-svg-icon size="'xx-small'" extra-classes="''" 
+                                sprite="'utility'" icon="'down'"></slds-svg-icon>
+                            <span class="slds-assistive-text">Show More</span>
+                        </button>
+                        <div class="slds-dropdown slds-dropdown_right slds-dropdown_actions">
+                            <ul class="slds-dropdown__list" role="menu">
+                                <li class="slds-dropdown__item" role="presentation" 
+                                    ng-if="selectedQuote[nsp + 'ExternalPricingStatus__c'] === 'Ready'">
+                                    <a href="javascript:void(0);" role="menuitem" tabindex="-1" 
+                                    ng-click="requestExternalPricingClick()">
+                                        <span class="slds-truncate" title="{{::customLabelsMap.MSRequestExternalLabel}}">{{::customLabelsMap.MSRequestExternalLabel}}</span>
+                                    </a>
+                                </li>
+                                <li class="slds-dropdown__item" role="presentation"
+                                    ng-if="selectedQuote[nsp + 'ExternalPricingStatus__c'] === 'Request Confirmed'">
+                                    <a href="javascript:void(0);" role="menuitem" tabindex="-1" ng-click="getExternalPricingClick()">
+                                        <span class="slds-truncate" title="{{::customLabelsMap.MSGetExternalLabel}}">{{::customLabelsMap.MSGetExternalLabel}}</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- content -->
+    <div class="slds-size_1-of-1">
+
+        <!-- <div class="table-section slds-is-relative"> -->
+        <table class="slds-table slds-table_cell-buffer slds-no-row-hover slds-table_bordered" role="grid" ng-if="masterQuoteList.length !== 0">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th class="slds-text-align_left radio-selection-cell" scope="col"></th>
+                    <th aria-label="{{field.fieldLabel}}" aria-sort="ascending" class="slds-is-resizable" 
+                        scope="col" ng-repeat="field in fieldList | orderBy: 'displaySequence'">
+                        <span class="slds-truncate" title="{{field.fieldLabel}}">{{field.fieldLabel}}</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="quote in masterQuoteList">
+                    <td>
+                        <div class="slds-radio">
+                            <input type="radio" name="master-quote-select" id="master-quote-select-{{$index}}" tabindex="0" 
+                            aria-labelledby="master-quote-select-label-{{$index}}" ng-model="bpTree.selectedQuote.masterQuoteId" ng-value="quote.Id"
+                            ng-change="selectMasterQuote(quote)"/>
+                            <label class="slds-radio__label" for="master-quote-select-{{$index}}" id="master-quote-select-label-{{$index}}">
+                                <span class="slds-radio_faux"></span>
+                                <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                            </label>
+                        </div>
+                    </td>
+                    <td ng-repeat="field in fieldList | orderBy: 'displaySequence'">
+                        {{quote[field.fieldAPIName]}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="" ng-if="masterQuoteList.length === 0">
+            No Records Found.
+        </div>
+        <!--
+        <div class="slds-size_1-of-4" ng-if="!showTableLoading">
+            <div class="slds-grid slds-size_1-of-1 slds-m-vertical_small" ng-repeat="quote in masterQuoteList">
+                <div class="slds-radio">
+                    <input type="radio" name="master-quote-select" id="master-quote-select-{{$index}}" tabindex="0" 
+                    aria-labelledby="master-quote-select-label-{{$index}}" ng-model="bpTree.selectedQuote.masterQuoteId" ng-value="quote.Id"
+                    ng-change="selectMasterQuote(quote)"/>
+                    <label class="slds-radio__label" for="master-quote-select-{{$index}}" id="master-quote-select-label-{{$index}}">
+                        <span class="slds-radio_faux"></span>
+                        <span class="slds-form-element__label slds-assistive-text">Select item</span>
+                    </label>
+                </div>
+                <div class="margin-top-two">
+                    {{quote.Name}}
+                </div>
+            </div>
+            <div class="" ng-if="masterQuoteList.length == 0">
+                No Records Found.
+            </div>
+        </div>
+        -->
+        
+        <div class="slds-spinner_container" ng-if="showTableLoading">
+            <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- create new popup -->
+<script type="text/ng-template" id="masterQuotePopup.html">
+    <div class="manage-group-popup slds-modal slds-fade-in-open" aria-hidden="false" role="dialog">
+        <div class="slds-modal__container" ng-form name="masterQuoteForm">
+            <div class="slds-modal__header">
+                <button class="slds-button slds-button_icon-inverse slds-modal__close" ng-click="$hide()">
+                    <slds-svg-icon sprite="'utility'" size="'small'" icon="'close'" extra-classes="'slds-button__icon slds-button__icon_large'" ></slds-svg-icon>
+                    <span class="slds-assistive-text">{{closeLabel}}</span>
+                </button>
+                <h2 class="slds-text-heading_medium">{{confirmationTitle}}</h2>
+            </div>
+
+            <div class="slds-modal__content slds-p-around_medium">
+                <div class="slds-form-element slds-m-around_small">
+                    <label class="slds-form-element__label" for="name-input-id">{{customLabelsMap.MSNameLabel}}<abbr class="slds-required" title="required">*</abbr></label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="name-input-id" placeholder="Name" class="slds-input" ng-model="masterQuote.name" ng-required="true" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="slds-modal__footer">
+                <button type="button" class="slds-button slds-button_neutral" ng-click="$hide()">{{cancelActionLbl}}</button>
+                <button type="button" class="slds-button slds-button_neutral slds-button_brand" ng-click="confirmationAction()" ng-disabled="masterQuoteForm.$invalid">{{confirmActionLbl}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</script>
+<!-- confirmation popup -->
+<script type="text/ng-template" id="confirmationPopup.html">
+    <div class="manage-group-popup slds-modal slds-fade-in-open" aria-hidden="false" role="dialog">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <button class="slds-button slds-button_icon-inverse slds-modal__close" ng-click="$hide()">
+                    <slds-svg-icon sprite="'utility'" size="'small'" icon="'close'" extra-classes="'slds-button__icon slds-button__icon_large'" ></slds-svg-icon>
+                    <span class="slds-assistive-text">{{closeLabel}}</span>
+                </button>
+                <h2 class="slds-text-heading_medium">{{confirmationTitle}}</h2>
+            </div>
+
+            <div class="slds-modal__content slds-p-around--medium"> 
+                <div> 
+                    <p ng-bind-html="confirmationMsg"></p>
+                </div> 
+            </div>
+
+            <div class="slds-modal__footer"> 
+                <button type="button" class="slds-button slds-button--neutral" ng-click="$hide()">{{cancelActionLbl}}</button> 
+                <button type="button" class="slds-button slds-button--neutral slds-button--brand" ng-click="confirmationAction()">{{confirmActionLbl}}</button> 
+            </div>
+        </div>
+    </div>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</script>

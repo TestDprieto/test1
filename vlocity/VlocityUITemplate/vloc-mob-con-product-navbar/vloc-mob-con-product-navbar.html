@@ -1,0 +1,23 @@
+<div class="navbar-template con-navbar-product" ng-controller="productNavController as pnc">
+	<div>
+        <button ng-click="vm.goBack()" class="button button-clear header-item nav-left-button" ng-disabled="vm.isSavingInProgress" ng-style="{'color':$root.appTheme.NavBarItemColor}">
+    		<span ng-show="vm.canGoBack">
+    			<i class="icon ion-ios-arrow-back"></i>
+    		</span>
+    		<span ng-show="!vm.canGoBack">
+    			<i class="icon ion-navicon"></i>
+    		</span>
+    	</button>
+    	
+    	<div class="title title-left header-item">
+    		{{ pageTitle }}
+    	</div>
+    	
+    	
+	    <div class="con-home-shop" ng-click="pnc.viewDetail('')">
+            
+        </div>
+
+	</div>
+
+</div>

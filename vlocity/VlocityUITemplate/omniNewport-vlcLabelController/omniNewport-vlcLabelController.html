@@ -1,0 +1,17 @@
+<div class="nds-control-action__container"> 
+    <slds-button-svg-icon sprite="'utility'"
+                          icon="'add'"
+                          size="'medium'"
+                          ng-if="::control.propSetMap.repeat"
+                          ng-disabled="control.propSetMap.repeatLimit !== undefined && control.propSetMap.repeatLimit !== null && child.eleArray.length >= control.propSetMap.repeatLimit+1"
+                          ng-click="baseCtrl.addItem(this, child, $index)">
+    </slds-button-svg-icon>
+
+    <slds-button-svg-icon sprite="'utility'"
+                          icon="'close'"
+                          size="'medium'"
+                          ng-click='removeDomElement(this, child, $index)'
+                          vlc-slds-remove-item="ng-form.nds-form-element"
+                          ng-if='child.eleArray.length > 1'>
+    </slds-button-svg-icon>
+</div>

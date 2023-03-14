@@ -1,13 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MatchingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <matchingRules>
-        <fullName>CS_Contact_Phone_and_Mobile_Matching_Rule</fullName>
-        <label>CS Contact Phone and Mobile Matching Rule</label>
-        <matchingRuleItems>
-            <blankValueBehavior>MatchBlanks</blankValueBehavior>
-            <fieldName>Email</fieldName>
-            <matchingMethod>Exact</matchingMethod>
-        </matchingRuleItems>
-        <ruleStatus>Inactive</ruleStatus>
-    </matchingRules>
-</MatchingRules>
+<MatchingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
+

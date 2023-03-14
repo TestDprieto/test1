@@ -1,0 +1,824 @@
+{
+    "dataSource": {
+        "contextVariables": [
+            {
+                "id": 5,
+                "name": "recordId",
+                "val": "0011I000003UkkTQAS"
+            }
+        ],
+        "orderBy": {
+            "isReverse": false,
+            "name": ""
+        },
+        "type": "Query",
+        "value": {
+            "jsonMap": "{\"recordId\":\"{recordId}\"}",
+            "query": "\nSELECT Id, Name, AnnualRevenue, NumberOfEmployees, Phone, PhotoURL, Type, Industry, Website, %vlocity_namespace%__CustomerValue__c, %vlocity_namespace%__SLA__c,\t%vlocity_namespace%__DateFounded__c FROM Account WHERE Id = '{recordId}'",
+            "resultVar": ""
+        }
+    },
+    "enableLwc": true,
+    "isFlex": true,
+    "lwc": {
+        "DeveloperName": "cfFlex_LeftProfile_1_Vlocity",
+        "Id": "0Rb4W000000FPVMSA4",
+        "MasterLabel": "cfFlex_LeftProfile_1_Vlocity",
+        "NamespacePrefix": "c"
+    },
+    "states": [
+        {
+            "actions": [
+            ],
+            "childCards": [
+                "teamAttributeTagsChild"
+            ],
+            "components": {
+                "layer-0": {
+                    "children": [
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "Name-0",
+                            "name": "Name",
+                            "property": {
+                                "card": "{card}",
+                                "fieldName": "Name",
+                                "label": "",
+                                "placeholder": "",
+                                "record": "{record}",
+                                "styles": {
+                                    "label": {
+                                        "fontSize": "16px",
+                                        "textAlign": "left"
+                                    },
+                                    "value": {
+                                        "color": "#000000",
+                                        "fontSize": "28px",
+                                        "textAlign": "left"
+                                    }
+                                },
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": "6",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": "",
+                                    "width": ""
+                                },
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                    "styles": {
+                                        "label": {
+                                            "fontSize": "16px",
+                                            "textAlign": "left"
+                                        },
+                                        "value": {
+                                            "color": "#000000",
+                                            "fontSize": "28px",
+                                            "textAlign": "left"
+                                        }
+                                    }
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "size": {
+                                    "default": "6",
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_6-of-12 ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "field"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "Field-1",
+                            "name": "Field",
+                            "property": {
+                                "card": "{card}",
+                                "placeholder": "",
+                                "record": "{record}",
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": 12,
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "#cccccc",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": "border_top",
+                                    "width": "8px"
+                                },
+                                "class": "slds-border_top ",
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "size": {
+                                    "default": 12,
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_12-of-12 ",
+                                "style": "     border-color:#cccccc; border-width:8pxpx;       ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "element"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "Industry-2",
+                            "name": "Industry",
+                            "property": {
+                                "card": "{card}",
+                                "fieldName": "Industry",
+                                "label": "Industry",
+                                "placeholder": "output",
+                                "record": "{record}",
+                                "styles": {
+                                    "label": {
+                                        "color": "#000000",
+                                        "fontSize": "12px",
+                                        "textAlign": "left"
+                                    },
+                                    "value": {
+                                        "color": "#000000",
+                                        "fontSize": "16px",
+                                        "textAlign": "left",
+                                        "textDecoration": ""
+                                    }
+                                },
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": "4",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "#cccccc",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": [
+                                    ],
+                                    "width": ""
+                                },
+                                "class": " ",
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                    "styles": {
+                                        "label": {
+                                            "color": "#000000",
+                                            "fontSize": "12px",
+                                            "textAlign": "left"
+                                        },
+                                        "value": {
+                                            "color": "#000000",
+                                            "fontSize": "16px",
+                                            "textAlign": "left",
+                                            "textDecoration": ""
+                                        }
+                                    }
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "selectedStyles": "new",
+                                "size": {
+                                    "default": "4",
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_4-of-12 ",
+                                "style": "     border-color:#cccccc;        ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "field"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "Type-3",
+                            "name": "Type",
+                            "property": {
+                                "card": "{card}",
+                                "fieldName": "Type",
+                                "label": "Type",
+                                "placeholder": "output",
+                                "record": "{record}",
+                                "styles": {
+                                    "label": {
+                                        "color": "#000000",
+                                        "fontSize": "12px",
+                                        "textAlign": "left"
+                                    },
+                                    "value": {
+                                        "color": "#000000",
+                                        "fontSize": "16px",
+                                        "textAlign": "left",
+                                        "textDecoration": ""
+                                    }
+                                },
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": "4",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "#cccccc",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": [
+                                    ],
+                                    "width": ""
+                                },
+                                "class": " ",
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                    "styles": {
+                                        "label": {
+                                            "color": "#000000",
+                                            "fontSize": "12px",
+                                            "textAlign": "left"
+                                        },
+                                        "value": {
+                                            "color": "#000000",
+                                            "fontSize": "16px",
+                                            "textAlign": "left",
+                                            "textDecoration": ""
+                                        }
+                                    }
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "selectedStyles": "new",
+                                "size": {
+                                    "default": "4",
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_4-of-12 ",
+                                "style": "     border-color:#cccccc;        ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "field"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "%vlocity_namespace%__SLA__c-4",
+                            "name": "%vlocity_namespace%__SLA__c",
+                            "property": {
+                                "card": "{card}",
+                                "fieldName": "",
+                                "label": "SLA",
+                                "placeholder": "Platinum",
+                                "record": "{record}",
+                                "styles": {
+                                    "label": {
+                                        "color": "#000000",
+                                        "fontSize": "12px",
+                                        "textAlign": "left"
+                                    },
+                                    "value": {
+                                        "color": "#000000",
+                                        "fontSize": "16px",
+                                        "textAlign": "left",
+                                        "textDecoration": ""
+                                    }
+                                },
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": "4",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "#cccccc",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": [
+                                    ],
+                                    "width": ""
+                                },
+                                "class": " ",
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                    "styles": {
+                                        "label": {
+                                            "color": "#000000",
+                                            "fontSize": "12px",
+                                            "textAlign": "left"
+                                        },
+                                        "value": {
+                                            "color": "#000000",
+                                            "fontSize": "16px",
+                                            "textAlign": "left",
+                                            "textDecoration": ""
+                                        }
+                                    }
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "selectedStyles": "new",
+                                "size": {
+                                    "default": "4",
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_4-of-12 ",
+                                "style": "     border-color:#cccccc;        ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "field"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "Field-5",
+                            "name": "Field",
+                            "property": {
+                                "card": "{card}",
+                                "placeholder": "",
+                                "record": "{record}",
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": 12,
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "size": {
+                                    "default": 12,
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_12-of-12"
+                            },
+                            "type": "element"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "%vlocity_namespace%__DateFounded__c-6",
+                            "name": "%vlocity_namespace%__DateFounded__c",
+                            "property": {
+                                "card": "{card}",
+                                "fieldName": "%vlocity_namespace%__DateFounded__c",
+                                "format": "M/D/YYYY",
+                                "label": "Customer Since",
+                                "placeholder": "11/01/2011",
+                                "record": "{record}",
+                                "styles": {
+                                    "label": {
+                                        "color": "#000000",
+                                        "fontSize": "12px",
+                                        "textAlign": "left"
+                                    },
+                                    "value": {
+                                        "color": "#000000",
+                                        "fontSize": "16px",
+                                        "textAlign": "left",
+                                        "textDecoration": ""
+                                    }
+                                },
+                                "type": "date"
+                            },
+                            "size": {
+                                "default": "4",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "#cccccc",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": [
+                                    ],
+                                    "width": ""
+                                },
+                                "class": " ",
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                    "styles": {
+                                        "label": {
+                                            "color": "#000000",
+                                            "fontSize": "12px",
+                                            "textAlign": "left"
+                                        },
+                                        "value": {
+                                            "color": "#000000",
+                                            "fontSize": "16px",
+                                            "textAlign": "left",
+                                            "textDecoration": ""
+                                        }
+                                    }
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "selectedStyles": "new",
+                                "size": {
+                                    "default": "4",
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_4-of-12 ",
+                                "style": "     border-color:#cccccc;        ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "field"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "AnnualRevenue-7",
+                            "name": "AnnualRevenue",
+                            "property": {
+                                "card": "{card}",
+                                "fieldName": "AnnualRevenue",
+                                "label": "Annual Revenue",
+                                "mask": "",
+                                "placeholder": "output",
+                                "record": "{record}",
+                                "styles": {
+                                    "label": {
+                                        "color": "#000000",
+                                        "fontSize": "12px",
+                                        "textAlign": "left"
+                                    },
+                                    "value": {
+                                        "color": "#000000",
+                                        "fontSize": "16px",
+                                        "textAlign": "left",
+                                        "textDecoration": ""
+                                    }
+                                },
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": "4",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "#cccccc",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": [
+                                    ],
+                                    "width": ""
+                                },
+                                "class": " ",
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                    "styles": {
+                                        "label": {
+                                            "color": "#000000",
+                                            "fontSize": "12px",
+                                            "textAlign": "left"
+                                        },
+                                        "value": {
+                                            "color": "#000000",
+                                            "fontSize": "16px",
+                                            "textAlign": "left",
+                                            "textDecoration": ""
+                                        }
+                                    }
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "selectedStyles": "new",
+                                "size": {
+                                    "default": "4",
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_4-of-12 ",
+                                "style": "     border-color:#cccccc;        ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "field"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "NumberOfEmployees-8",
+                            "name": "NumberOfEmployees",
+                            "property": {
+                                "card": "{card}",
+                                "fieldName": "NumberOfEmployees",
+                                "label": "Employees",
+                                "placeholder": "output",
+                                "record": "{record}",
+                                "styles": {
+                                    "label": {
+                                        "color": "#000000",
+                                        "fontSize": "12px",
+                                        "textAlign": "left"
+                                    },
+                                    "value": {
+                                        "color": "#000000",
+                                        "fontSize": "16px",
+                                        "textAlign": "left",
+                                        "textDecoration": ""
+                                    }
+                                },
+                                "type": "number"
+                            },
+                            "size": {
+                                "default": "4",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "background": {
+                                    "color": "",
+                                    "image": "",
+                                    "position": "",
+                                    "repeat": "",
+                                    "size": ""
+                                },
+                                "border": {
+                                    "color": "#cccccc",
+                                    "radius": "",
+                                    "style": "",
+                                    "type": [
+                                    ],
+                                    "width": ""
+                                },
+                                "class": " ",
+                                "container": {
+                                    "class": ""
+                                },
+                                "elementStyleProperties": {
+                                    "styles": {
+                                        "label": {
+                                            "color": "#000000",
+                                            "fontSize": "12px",
+                                            "textAlign": "left"
+                                        },
+                                        "value": {
+                                            "color": "#000000",
+                                            "fontSize": "16px",
+                                            "textAlign": "left",
+                                            "textDecoration": ""
+                                        }
+                                    }
+                                },
+                                "inlineStyle": "",
+                                "margin": [
+                                ],
+                                "padding": [
+                                ],
+                                "selectedStyles": "new",
+                                "size": {
+                                    "default": "4",
+                                    "isResponsive": false
+                                },
+                                "sizeClass": "slds-size_4-of-12 ",
+                                "style": "     border-color:#cccccc;        ",
+                                "text": {
+                                    "align": "",
+                                    "color": ""
+                                }
+                            },
+                            "type": "field"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "outputField",
+                            "elementLabel": "Field-9",
+                            "name": "Field",
+                            "property": {
+                                "card": "{card}",
+                                "placeholder": "",
+                                "record": "{record}",
+                                "type": "text"
+                            },
+                            "size": {
+                                "default": "12",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "sizeClass": "slds-size_12-of-12"
+                            },
+                            "type": "element"
+                        },
+                        {
+                            "class": "slds-col ",
+                            "element": "childCardPreview",
+                            "elementLabel": "FlexCard-10",
+                            "name": "FlexCard",
+                            "property": {
+                                "cardName": "teamAttributeTagsChild",
+                                "cardNode": "",
+                                "isChildCardTrackingEnabled": false,
+                                "recordId": "{recordId}",
+                                "selectedState": "Interests"
+                            },
+                            "size": {
+                                "default": "12",
+                                "isResponsive": false
+                            },
+                            "stateIndex": 0,
+                            "styleObject": {
+                                "sizeClass": "slds-size_12-of-12"
+                            },
+                            "type": "element"
+                        }
+                    ]
+                }
+            },
+            "conditions": {
+                "group": [
+                ],
+                "id": "state-condition-object",
+                "isParent": true
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+            ],
+            "isSmartAction": false,
+            "name": "Active",
+            "omniscripts": [
+            ],
+            "smartAction": {
+            },
+            "styleObject": {
+                "background": {
+                    "color": "#FFFFFF",
+                    "image": "",
+                    "position": "",
+                    "repeat": "",
+                    "size": ""
+                },
+                "border": {
+                    "color": "#cccccc",
+                    "radius": "5",
+                    "style": "",
+                    "type": "border_top",
+                    "width": "5"
+                },
+                "class": "slds-theme_shade slds-card slds-border_top slds-p-around_x-small slds-m-bottom_x-small ",
+                "container": {
+                    "class": "slds-card"
+                },
+                "elementStyleProperties": {
+                },
+                "inlineStyle": "",
+                "margin": [
+                    {
+                        "label": "bottom:x-small",
+                        "size": "x-small",
+                        "type": "bottom"
+                    }
+                ],
+                "padding": [
+                    {
+                        "label": "around:x-small",
+                        "size": "x-small",
+                        "type": "around"
+                    }
+                ],
+                "size": {
+                    "default": "12",
+                    "isResponsive": false
+                },
+                "sizeClass": "slds-size_12-of-12 ",
+                "style": "background-color:#FFFFFF;     border-color:#cccccc; border-width:5px; border-radius:5;      ",
+                "text": {
+                    "align": "",
+                    "color": ""
+                },
+                "theme": "theme_shade"
+            }
+        }
+    ],
+    "theme": "slds",
+    "title": "teamLeftSidebarProfile"
+}

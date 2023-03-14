@@ -1,0 +1,221 @@
+<script>
+	$(document).ready(function(){
+        
+        //Handle device grabber events
+		$('.con-device-grabber, .con-device-details-title').off().on('click',function(event){
+		    if($('.swiper-slide-active .con-device-grabber').hasClass('grabberup')){
+    			hideDeviceDetails();
+		    }else{
+		        showDeviceDetails();
+		    }
+		});
+		$('.con-device-details').on('swipeup',function(event){
+            showDeviceDetails();
+		});
+		$('.con-device-grabber, .con-device-details-title').on('swipedown',function(event){
+			hideDeviceDetails();
+		});
+
+		//Open full height device view
+		function showDeviceDetails(){
+		    $('.swiper-slide-active .con-device-details-wrapper').addClass('con-device-details-expanded');
+			$('.swiper-slide-active .con-device-image, .con-home-back, .con-home-shop, .swiper-slide-active .con-device-title').addClass('con-opacity-hidden');
+			$('.swiper-slide-active .con-device-grabber').addClass('grabberup');
+			$('.con-home-hide-scroll').css('height','auto');
+			mySwiper.detachEvents(); 
+			allowScroll = true;
+		}
+		
+		//Close full height device view
+		function hideDeviceDetails(){
+		    allowScroll = false;
+		    //Stop Scroll 2 - Currently a rendering flash when height is reset.
+		    //$('.con-home-hide-scroll').css('height','100vh');
+		    $('.swiper-slide-active .con-device-details-wrapper').removeClass('con-device-details-expanded');
+			$('.swiper-slide-active .con-device-image, .con-home-back, .con-home-shop').removeClass('con-opacity-hidden');
+			setTimeout(function(){
+			    $('.swiper-slide-active .con-device-grabber').removeClass('grabberup');
+			    $('.swiper-slide-active .con-device-title').removeClass('con-opacity-hidden');
+			    $('.scroll-content').scrollTop(0);
+                mySwiper.attachEvents();
+			}, 500);
+		}
+		
+		//Show the home page
+		$('.con-device-image').on('swipedown click',function(event){
+	        showHome();
+		});
+      
+		//Create the slide view
+        if(mySwiper != ''){
+	        mySwiper.destroy();
+	    }
+		mySwiper = new Swiper('.swiper-container', {
+			slidesPerView: 'auto',
+  			centeredSlides: true,
+			spaceBetween: 0,
+			loop: false,
+			allowSlidePrev: false,
+			preventClicks: false,
+			speed: 600,
+			preventClicksPropagation: false,
+			parallax:true,
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			}
+	    });
+	    
+	    //Stop slide animation at beginning and end
+	    mySwiper.on('slideChangeTransitionEnd', function(){
+	        if(mySwiper.isBeginning){
+	            mySwiper.allowSlidePrev = false;
+	        }else{
+	            mySwiper.allowSlidePrev = true;
+	        }
+	        if(mySwiper.isEnd){
+	            mySwiper.allowSlideNext = false;
+	        }else{
+	            mySwiper.allowSlideNext = true;
+	        }
+	    });
+
+	});
+</script>
+
+<div class="con-device-image con-device-image-small">
+    <vloc-layout layout-name="vloc-mob-con-product-image-layout" productid="{{obj.Product2Id}}" type="Large"></vloc-layout>
+</div>
+<div class="con-device-title" data-swiper-parallax-x="-300">
+    {{obj.Name}}
+</div>
+<div class="con-device-shadow"></div>
+
+<!--Device Details-->
+<div class="con-device-details-wrapper" ng-controller="assetPageController as ap">
+    <div class="con-device-details" data-swiper-parallax-x="-300">
+        <div class="con-device-grabber">
+            <div class="con-device-grabber-bar"></div>
+        </div>
+        <div class="con-device-details-title">
+            <span></span>{{obj.Name}}
+        </div>
+        <div class="con-device-details-section">
+            
+            <vloc-layout layout-name="vloc-mob-con-asset-usage-wrapper-layout"></vloc-layout>
+            
+            <!--Assitant Notification-->
+            <vloc-layout layout-name="vloc-mob-con-notification-layout" type="mobiledevice"></vloc-layout>
+            
+            <div class="con-device-details-section-button" ng-click="ap.viewDetail('MobConUsage')">
+                View all Usage
+            </div>
+        
+        </div>
+        
+        <div class="con-device-details-section">
+            <div class="con-device-details-section-title">
+                Active Perks
+            </div>
+            
+            <!-- Perks List -->
+            <div class="con-device-details-perk">
+                <div class="con-device-details-perk-icon">
+                    
+                </div>
+                <div class="con-device-details-perk-title">
+                    Music First Package
+                </div>
+                <div class="con-device-details-perk-subtitle">
+                    Unlimited streaming from Spotify.
+                </div>
+            </div>
+            <div class="con-device-details-perk">
+                <div class="con-device-details-perk-icon">
+                    
+                </div>
+                <div class="con-device-details-perk-title">
+                    Personal Hotspot
+                </div>
+                <div class="con-device-details-perk-subtitle">
+                    10GB of data while tethering.
+                </div>
+            </div>
+            <div class="con-device-details-perk">
+                <div class="con-device-details-perk-icon">
+                    
+                </div>
+                <div class="con-device-details-perk-title">
+                    Protection Plan
+                </div>
+                <div class="con-device-details-perk-subtitle">
+                    Peace of mine with phone insurance.
+                </div>
+            </div>
+            <div class="con-device-details-perk">
+                <div class="con-device-details-perk-icon">
+                    
+                </div>
+                <div class="con-device-details-perk-title">
+                    International Roaming
+                </div>
+                <div class="con-device-details-perk-subtitle">
+                    Use your plan while on vacation.
+                </div>
+            </div>
+            
+            <!--Action-->
+            <div class="con-device-details-action">
+                Manage perks <span></span>
+            </div>
+            
+        </div>
+        
+        <div class="con-device-details-section">
+            <div class="con-device-details-section-title">
+                Recommended for you
+            </div>
+            
+            <!--Product Suggestions-->
+            <div class="con-shop-browse">
+                <vloc-layout layout-name="vloc-mob-con-asset-products-layout"></vloc-layout>
+            </div>
+            
+            <div class="con-device-details-section-button" ng-click="ap.viewDetail('MobConShop')">
+                View more items
+            </div>
+        </div>
+        
+        <div class="con-device-details-section">
+            <div class="con-device-details-section-title">
+                Manage device
+            </div>
+            
+            <!--Actions-->
+            <div class="con-device-details-action" ng-repeat="action in data.actions" ng-click="performAction(action)">
+                {{action.displayName}}<span></span>
+            </div>
+            
+        </div>
+        
+        <div class="con-device-chat" ng-click="ap.viewDetail('MobConHelp')">
+            <div class="con-device-chat-icon">
+                <div class="con-device-chat-icon-lines">
+                    <div class="con-device-chat-icon-line1"></div>
+                    <div class="con-device-chat-icon-line2"></div>
+                    <div class="con-device-chat-icon-line3"></div>
+                    <div class="con-device-chat-icon-line4"></div>
+                    <div class="con-device-chat-icon-line5"></div>
+                </div>
+            </div>
+            <div class="con-device-chat-subtitle">
+                Looking for something else?
+            </div>
+            <div class="con-device-chat-title">
+                Ask the Assistant
+            </div>
+        </div>
+ 
+    </div>
+    
+</div>

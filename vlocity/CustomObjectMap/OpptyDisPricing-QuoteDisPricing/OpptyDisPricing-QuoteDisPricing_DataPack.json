@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__DestinationChildObject__c": "%vlocity_namespace%__QuoteDiscountPricing__c",
+    "%vlocity_namespace%__DestinationParentObject__c": "%vlocity_namespace%__QuoteDiscount__c",
+    "%vlocity_namespace%__ParentDestinationReferenceField__c": "%vlocity_namespace%__QuoteDiscountId__c",
+    "%vlocity_namespace%__ParentSourceReferenceField__c": "%vlocity_namespace%__OpportunityDiscountId__c",
+    "%vlocity_namespace%__SourceChildObject__c": "%vlocity_namespace%__OpportunityDiscountPricing__c",
+    "%vlocity_namespace%__SourceParentObject__c": "%vlocity_namespace%__OpportunityDiscount__c",
+    "Name": "OpptyDisPricing>QuoteDisPricing",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CustomObjectMap__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CustomObjectMap__c/OpptyDisPricing>QuoteDisPricing"
+}

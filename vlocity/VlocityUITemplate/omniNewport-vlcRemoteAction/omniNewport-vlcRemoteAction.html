@@ -1,0 +1,37 @@
+<div id='{{::child.vlc-slds-remote-action__contentname}}'
+     class="nds-box nds-remote-action__container nds-text-align_center nds-is-fixed"
+     ng-if='child.ui.show && child.ui.error'>
+
+    <div ng-if='!loading && child.ui.error'>
+
+        <p>{{::child.propSetMap.label}}</p>
+        <p ng-if='child.ui.preTransform'>{{::customLabels.OmniPreTransform}}</p>
+        <p ng-if='child.ui.postTransform'>{{::customLabels.OmniPostTransform}}</p>
+        <p>{{child.ui.errorMessage}}</p>
+
+        <p>
+            <button class="nds-button nds-button_neutral"
+                    ng-if='::child.propSetMap.enableDefaultAbort != true && child.ui.error && findPreShowStep(child.indexInParent) != null'
+                    ng-click='previous(this, child)'>
+                {{::child.propSetMap.failureGoBackLabel}}
+            </button>
+
+            <button class="nds-button nds-button_neutral"
+                    ng-if='::child.propSetMap.enableDefaultAbort && child.ui.error && findPreShowStep(child.indexInParent) != null'
+                    confirmed-click='cancel()'
+                    ng-confirm-click='{{::child.propSetMap.failureAbortMessage}}'>
+                {{::child.propSetMap.failureAbortLabel}}
+            </button>
+
+            <button class="nds-button nds-button_neutral"
+                    ng-if='child.ui.error && child.bHasNext'
+                    ng-click='nextRepeater(child.nextIndex, child.indexInParent)'>
+                {{::child.propSetMap.failureNextLabel}}
+            </button>
+        </p>
+        
+
+
+    </div>
+
+</div>

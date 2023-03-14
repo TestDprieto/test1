@@ -1,0 +1,18 @@
+[
+    {
+        "%vlocity_namespace%__InterfaceId__c": {
+            "Name": "DeleteProductInterface",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__InterfaceImplementation__c/DeleteProductInterface",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementation__c"
+        },
+        "%vlocity_namespace%__InterfaceId__r.Name": "DeleteProductInterface",
+        "%vlocity_namespace%__InterfaceName__c": "DeleteProductInterface",
+        "%vlocity_namespace%__IsActive__c": true,
+        "%vlocity_namespace%__IsDefault__c": true,
+        "Name": "DefaultDeleteProductImplementation",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementationDetail__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__InterfaceImplementationDetail__c/%vlocity_namespace%__InterfaceImplementation__c/DeleteProductInterface/DefaultDeleteProductImplementation"
+    }
+]

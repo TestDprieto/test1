@@ -1,0 +1,44 @@
+{
+    "filter": {
+        "['objAPIName']": "%vlocity_namespace%__NonHeldProduct__c"
+    },
+    "states": [
+        {
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Type",
+                    "name": "['highlight']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "fieldType": "standard",
+                    "label": "Reference Number",
+                    "name": "['subtitle']",
+                    "type": "string"
+                }
+            ],
+            "name": "Non-Held Product",
+            "sObjectType": "%vlocity_namespace%__NonHeldProduct__c",
+            "templateUrl": "story-card"
+        }
+    ],
+    "title": "Non-Held Products"
+}

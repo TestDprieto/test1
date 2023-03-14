@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Apex Job Id --></label>
+        <name>vlocity_cmt__ApexJobId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Log Data --></label>
+        <name>vlocity_cmt__LogData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Log Message --></label>
+        <name>vlocity_cmt__LogMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Log Type --></label>
+        <name>vlocity_cmt__LogType__c</name>
+        <picklistValues>
+            <masterLabel>Diagnostic</masterLabel>
+            <translation><!-- Diagnostic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Error</masterLabel>
+            <translation><!-- System Error --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>System Maintenance</masterLabel>
+            <translation><!-- System Maintenance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Object Name --></label>
+        <name>vlocity_cmt__ObjectName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Name --></label>
+        <name>vlocity_cmt__ProcessName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Process Status --></label>
+        <name>vlocity_cmt__ProcessStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Severity --></label>
+        <name>vlocity_cmt__Severity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Time Stamp --></label>
+        <name>vlocity_cmt__TimeStamp__c</name>
+    </fields>
+    <fields>
+        <label><!-- User --></label>
+        <name>vlocity_cmt__UserId__c</name>
+        <relationshipLabel><!-- Vlocity System Log --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

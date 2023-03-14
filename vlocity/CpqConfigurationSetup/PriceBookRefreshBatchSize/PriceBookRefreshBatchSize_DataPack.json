@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "Vlocity EPC: Limits the size of attributes and products processed in the Refresh Pricebook batch job to remain within the Salesforce governor limits. If null, the default size is 500.",
+    "%vlocity_namespace%__SetupValue__c": "500",
+    "Name": "PriceBookRefreshBatchSize",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/PriceBookRefreshBatchSize"
+}

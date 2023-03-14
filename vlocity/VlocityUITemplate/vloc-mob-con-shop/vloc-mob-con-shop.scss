@@ -1,0 +1,17 @@
+/*Variables*/
+@import "vloc-mob-con-variables";
+
+/*Shop Products*/
+.con-shop-browse-product-price-monthly{
+    width:100%;
+}
+.con-shop-details{
+    padding-top: 305px;
+    background: #fff;
+    opacity:0;
+    transition:opacity 1s linear, padding-top 0.4s linear;
+    min-height:100vh;
+}
+.con-shop-details-expanded{
+    padding-top: 110px;
+}

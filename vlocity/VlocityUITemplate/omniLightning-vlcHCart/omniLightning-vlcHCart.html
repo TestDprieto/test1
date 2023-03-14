@@ -1,0 +1,50 @@
+<div class="vlc-slds-cart-container slds-size--1-of-1"
+     ng-init="showCurrentSection=false;showCart = false;setJSDataPreprocessor(vlcPC, baseCtrl.createCartHierarchy)">
+
+    <!-- please uploading -->
+    <div class="vlc-slds-cart-container-top-panel">
+        <div class='vlc-slds-cart-toggle' ng-click="showCart = !showCart;"></div>
+        <div class="slds-form-element__label slds-form-element-left_label">
+            <span class="slds-form-element-left_label--items">{{bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]].length ? bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]].length : 0}} Items in Cart</span>
+        </div>
+
+        <div class="slds-form-element-right_label">
+            <div class="slds-form-element__label" style='margin-right: 2em;'>
+                <span class='slds-form-element__label_name'>{{bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].OneTimeSum | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</span>
+                <span class='slds-form-element__label_amount'>{{::customLabels.OmniOneTime}}</span>
+            </div>
+    
+            <div class="slds-form-element__label" style='margin-right: .75rem;'>
+                <span class='slds-form-element__label_name'>{{bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].RecurringSum | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</span>
+                <span class='slds-form-element__label_amount'>{{::customLabels.OmniMonthly}}</span>
+            </div>
+        </div>
+   </div>
+   <div class="vlc-slds-cart-container-bottom-panel" ng-show="showCart">
+
+        <!-- please upload -->
+        <section class="vlc-slds-hCart-section">
+            <div class="slds-form-element-left_label--text">
+                <span>{{::vlcPC.label}}</span>
+            </div>
+            <div class="vlc-slds-line-item"
+                 ng-repeat="i in bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]] | filterMultiple:{provisioningStatus:['New','Pending','Changed']}"
+                 ng-include="'vlcTopCartHierarchy.html'">
+            </div>
+
+        </section>
+
+        <section class="vlc-slds-hCart-section">
+            <div class="slds-form-element-left_label--text" ng-if="(bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]] | filterMultiple:{provisioningStatus:['Active','Inactive']}).length > 0" style='border-top: 1px solid #D8DDE6;' >
+                <span>{{::customLabels.OmniCurrentSetup}}</span>
+            </div>
+            <div class="vlc-slds-line-item"
+                 ng-repeat="i in bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]] | filterMultiple:{provisioningStatus:['Active','Inactive']}"
+                 ng-include="'vlcTopCartHierarchy.html'">
+            </div>
+
+        </section> 
+
+    </div>
+
+</div>

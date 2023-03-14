@@ -128,6 +128,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>CloseDate</fullName>
         <trackHistory>false</trackHistory>
@@ -212,10 +213,6 @@
         <fullName>RootLocationId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ShouldSyncWithOci</fullName>
-        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TimeZone</fullName>

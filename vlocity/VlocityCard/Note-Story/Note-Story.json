@@ -1,0 +1,28 @@
+{
+    "filter": {
+        "['objAPIName']": "Note"
+    },
+    "states": [
+        {
+            "collapse": false,
+            "conditions": [
+                {
+                    "field": "$scope.data.status",
+                    "operator": "===",
+                    "type": "system",
+                    "value": "'active'"
+                }
+            ],
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+            ],
+            "name": "Note",
+            "sObjectType": "Note",
+            "templateUrl": "story-card"
+        }
+    ],
+    "title": "Notes"
+}

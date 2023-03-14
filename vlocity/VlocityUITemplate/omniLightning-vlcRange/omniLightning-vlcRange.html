@@ -1,0 +1,50 @@
+<div class='slds-col--padded slds-size--1-of-1'>
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-range-control'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-form-element__control">
+
+            <label for="{{::control.name}}" class='slds-form-element__label vlc-slds-inline-control__label'>
+
+                {{::control.propSetMap.label}}
+
+                <!-- tooltip template -->
+                <a vlc-slds-tool-tip="test" nubbin-direction="auto top-left" ng-show="{{control.propSetMap.help}}"> i </a>
+
+                <div vlc-slds-include="vlcLabelController.html" ng-init="size='responsive'"></div>
+                <span class='vlc-asterix icon-v-asterix'
+                      ng-show='control.req'>
+                </span>
+                
+            </label>
+
+
+
+            <div class="vlc-control-wrapper">
+
+                <input ng-init='init(this, control)'
+                       id='{{::control.name}}'
+                       type='range'
+                       vlc-range-slider
+                       ng-change='aggregate(this, control.index, control.indexInParent, true, -1)'
+                       ng-disabled='control.ro'
+                       ng-required='control.req'
+                       name='loopname'
+                       min='{{control.propSetMap.rangeLow}}'
+                       max='{{control.propSetMap.rangeHigh}}'
+                       step='{{::control.propSetMap.step}}'
+                       ng-model="control.response"
+                       mask='{{::control.propSetMap.mask}}'
+                       vlc-slds-val-checker="response"/>
+
+            </div>
+
+            <div ng-include="::errHTMLId"></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

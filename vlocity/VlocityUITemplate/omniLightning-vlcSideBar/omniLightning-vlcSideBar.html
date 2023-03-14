@@ -1,0 +1,8 @@
+<!-- vlc Cart persisten component (OMNI-1331)-->
+<div class="vlc-slds-cart" ng-if="bpTree.showPC">
+    <ng-include ng-repeat="vlcPC in ::bpTree.propSetMap.persistentComponent"
+                ng-if='bpTree.showPCNew[vlcPC.pcIndex] && ($index === 0 )'
+                id='{{::vlcPC.id}}'
+                class="slds-box"
+                src="::bpTree.dfHPSTmpl[vlcPC.pcIndex]"/>
+</div>

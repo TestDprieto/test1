@@ -1,0 +1,40 @@
+<div class="cpq-replace-list">
+    <!-- FILTERS -->
+    <div class="slds-col cpq-items-container scroll cpq-filter-container" ng-if="importedScope.$parent.$parent.filters.show">
+        <vloc-layout layout-name="cpq-product-filters" ctrl="CPQItemsController" parent=importedScope.$parent></vloc-layout>
+    </div>
+
+    <!-- CARDS -->
+    <div class="slds-grid cpq-replace-grid cpq-replace-list-vertical cpq-replace-list-col-stretch"
+        ng-if="!importedScope.$parent.$parent.filters.show">
+        <div class="slds-spinner_container" ng-hide="isLoaded">
+            <div class="slds-spinner_brand slds-spinner slds-spinner_medium" aria-hidden="false" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+
+        <vloc-card ng-repeat="card in cards |filter: searchFunc(card)" 
+            ctrl="CPQReplaceItemController" 
+            ng-model="card" data="card" records="records" 
+            index="{{$index}}" session-id="{{sessionId}}" 
+            ng-if="isLoaded">
+        </vloc-card>
+
+        <div class="slds-text-align_center slds-m-vertical_medium cpq-no-replace-product-msg" ng-show="!records && isLoaded">
+            {{::importedScope.customLabels.CPQProductsNotAvailable}}
+        </div>
+
+        <div class="cpq-next-replace-product slds-col slds-text-align_center slds-m-vertical_medium"  ng-if="session.nextProducts">
+            <div class="slds-spinner_container" ng-show="loadingMore">
+                <div class="slds-spinner_brand slds-spinner slds-spinner_small" aria-hidden="false" role="alert">
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+            <a ng-click="importedScope.nextPageProducts()" ng-hide="loadingMore || !isLoaded">
+              {{::importedScope.customLabels.CPQLoadMore}}
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "If true, unauthenticated community guest users can access a restricted set of API's in non-sharing (system) mode. If false, such users will be subject to user restrictions and, as a result, unlikely to be able to successfully execute any API.",
+    "%vlocity_namespace%__SetupValue__c": "True",
+    "Name": "GuestHandlingEnabled",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/GuestHandlingEnabled"
+}
