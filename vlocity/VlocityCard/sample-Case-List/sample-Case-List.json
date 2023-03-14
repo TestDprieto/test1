@@ -1,0 +1,93 @@
+{
+    "dataSource": {
+        "type": null
+    },
+    "enableLwc": true,
+    "filter": {
+    },
+    "icon": "case",
+    "sprite": "standard",
+    "states": [
+        {
+            "actionCtxId": "['CaseId']",
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                    {
+                        "collapse": true,
+                        "displayName": "Update Case",
+                        "hasExtraParams": false,
+                        "id": "OmniScript",
+                        "isCustomAction": true,
+                        "omniLang": "English",
+                        "omniSubType": "Edit Case",
+                        "omniType": "sample",
+                        "openUrlIn": "New Tab / Window",
+                        "type": "OmniScript",
+                        "vForcewithNsPrefix": "%vlocity_namespace%__OmniScriptUniversalPage",
+                        "visualForce": "OmniScriptUniversalPage",
+                        "vlocityIcon": "icon-v-document2"
+                    }
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseNumber']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Case Number",
+                    "name": "['CaseNumber']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseSubject']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Subject",
+                    "name": "['CaseSubject']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseStatus']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Status",
+                    "name": "['CaseStatus']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "['CaseOpenDate']",
+                    "editing": false,
+                    "fieldType": "standard",
+                    "group": "Custom Properties",
+                    "label": "Open Date",
+                    "name": "['CaseOpenDate']",
+                    "type": "date"
+                }
+            ],
+            "isSmartAction": false,
+            "name": "Active",
+            "sObjectType": "Case",
+            "smartAction": {
+            },
+            "templateUrl": "list-card-slds"
+        }
+    ],
+    "title": "Cases"
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "%vlocity_namespace%__InterfaceId__c": {
+            "Name": "ProductEligibilityInterface",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__InterfaceImplementation__c/ProductEligibilityInterface",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementation__c"
+        },
+        "%vlocity_namespace%__InterfaceId__r.Name": "ProductEligibilityInterface",
+        "%vlocity_namespace%__InterfaceName__c": "ProductEligibilityInterface",
+        "%vlocity_namespace%__IsActive__c": false,
+        "%vlocity_namespace%__IsDefault__c": false,
+        "Name": "AccountTypeProductEligibility",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementationDetail__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__InterfaceImplementationDetail__c/%vlocity_namespace%__InterfaceImplementation__c/ProductEligibilityInterface/AccountTypeProductEligibility"
+    },
+    {
+        "%vlocity_namespace%__InterfaceId__c": {
+            "Name": "ProductEligibilityInterface",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__InterfaceImplementation__c/ProductEligibilityInterface",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementation__c"
+        },
+        "%vlocity_namespace%__InterfaceId__r.Name": "ProductEligibilityInterface",
+        "%vlocity_namespace%__InterfaceName__c": "ProductEligibilityInterface",
+        "%vlocity_namespace%__IsActive__c": false,
+        "%vlocity_namespace%__IsDefault__c": false,
+        "Name": "FilterEligibilityImplementation",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementationDetail__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__InterfaceImplementationDetail__c/%vlocity_namespace%__InterfaceImplementation__c/ProductEligibilityInterface/FilterEligibilityImplementation"
+    },
+    {
+        "%vlocity_namespace%__InterfaceId__c": {
+            "Name": "ProductEligibilityInterface",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__InterfaceImplementation__c/ProductEligibilityInterface",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementation__c"
+        },
+        "%vlocity_namespace%__InterfaceId__r.Name": "ProductEligibilityInterface",
+        "%vlocity_namespace%__InterfaceName__c": "ProductEligibilityInterface",
+        "%vlocity_namespace%__IsActive__c": true,
+        "%vlocity_namespace%__IsDefault__c": true,
+        "Name": "DefaultProductEligibilityImplementation",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__InterfaceImplementationDetail__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__InterfaceImplementationDetail__c/%vlocity_namespace%__InterfaceImplementation__c/ProductEligibilityInterface/DefaultProductEligibilityImplementation"
+    }
+]

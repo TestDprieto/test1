@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Pricing Matrix --></label>
+        <name>vlocity_cmt__CalculationMatrixId__c</name>
+        <relationshipLabel><!-- Vlocity Calculation Matrix Dimensions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Column Key --></label>
+        <name>vlocity_cmt__ColumnKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Column Type --></label>
+        <name>vlocity_cmt__ColumnType__c</name>
+        <picklistValues>
+            <masterLabel>Input</masterLabel>
+            <translation><!-- Input --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Output</masterLabel>
+            <translation><!-- Output --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data Type --></label>
+        <name>vlocity_cmt__DataType__c</name>
+        <picklistValues>
+            <masterLabel>Boolean</masterLabel>
+            <translation><!-- Boolean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Currency</masterLabel>
+            <translation><!-- Currency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Number</masterLabel>
+            <translation><!-- Number --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Number Range</masterLabel>
+            <translation><!-- Number Range --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Percent</masterLabel>
+            <translation><!-- Percent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Text</masterLabel>
+            <translation><!-- Text --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Text Range</masterLabel>
+            <translation><!-- Text Range --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Display Order --></label>
+        <name>vlocity_cmt__DisplayOrder__c</name>
+    </fields>
+    <fields>
+        <label><!-- Range Values --></label>
+        <name>vlocity_cmt__RangeValues__c</name>
+    </fields>
+</CustomObjectTranslation>

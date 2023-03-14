@@ -1,0 +1,24 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-card-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+@include cardMixin($namespace);
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-cart-item-compare {
+            .total-bar-border-top {
+                border-top-width: 2px;
+            }
+            .#{$namespace}-compare-overflow{
+                overflow-y: scroll;
+                max-height: 61vh;
+            }
+        }
+    }
+}

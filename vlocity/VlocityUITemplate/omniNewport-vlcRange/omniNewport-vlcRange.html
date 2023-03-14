@@ -1,0 +1,51 @@
+<div class='nds-size--1-of-1'>
+    <ng-form name='loopform'
+             class='nds-form-element nds-m-bottom_large nds-p-around_small vlc-slds-range-control'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control nds-m-bottom_medium nds-range">
+
+            <label for="{{::control.name}}"
+                   class='nds-form-element__label nds-is-expanded nds-element_text-font '>
+                <span class="nds-slider-label">
+                    <span class="nds-slider-label__label nds-slider-label__span">
+                        {{::control.propSetMap.label}}
+                    </span>
+                    <span class='nds-required'
+                          ng-if='control.req'>*</span>
+                    <a class="nds-tooltip_container"
+                       vlc-slds-tool-tip="test"
+                       nubbin-direction="auto top-left"
+                       ng-if="control.propSetMap.help"
+                       ng-include="'vlcHelptextInfoIcon.html'"></a>
+                    <div vlc-slds-include="vlcLabelController.html"></div>
+                </span>
+            </label>
+
+            <div class="vlc-control-wrapper">
+                <div class="nds-form-element__control">
+                    <div class="nds-slider">
+                        <input ng-init="init(this, control)"
+                               id="{{::control.name}}"
+                               type="range"
+                               ng-change="aggregate(this, control.index, control.indexInParent, true, -1)"
+                               ng-disabled="control.ro"
+                               ng-required="control.req"
+                               name="loopname"
+                               step="{{::control.propSetMap.step}}"
+                               ng-model="
+                               control.response"
+                               mask="{{::control.propSetMap.mask}}"
+                               aria-valuenow="{{control.response}}"
+                               vlc-slds-val-checker="response"
+                               class="nds-slider__range"
+                               vlc-newport-range-slider />
+                        <span class="nds-slider__value"
+                              aria-hidden="true"
+                              ng-bind="formatDisplayVal()"></span>
+                    </div>
+                    <div ng-include="::errHTMLId"></div>
+                </div>
+            </div>
+    </ng-form>
+</div>

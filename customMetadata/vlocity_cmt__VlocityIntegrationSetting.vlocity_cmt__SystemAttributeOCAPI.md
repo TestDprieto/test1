@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>SystemAttributeOCAPI</label>
+    <protected>false</protected>
+    <values>
+        <field>vlocity_cmt__APIName__c</field>
+        <value xsi:type="xsd:string">CatalogPublish</value>
+    </values>
+    <values>
+        <field>vlocity_cmt__APIType__c</field>
+        <value xsi:type="xsd:string">CommerceCloud</value>
+    </values>
+    <values>
+        <field>vlocity_cmt__DefaultValue__c</field>
+        <value xsi:type="xsd:string">/s/-/dw/data/v20_4/system_object_definitions/Product/attribute_definitions/</value>
+    </values>
+    <values>
+        <field>vlocity_cmt__Description__c</field>
+        <value xsi:type="xsd:string">This specifies the relative path of the API url to create Product2 Fields in Commerce Cloud</value>
+    </values>
+    <values>
+        <field>vlocity_cmt__IsActive__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>vlocity_cmt__Key__c</field>
+        <value xsi:type="xsd:string">SystemAttributeOCAPI</value>
+    </values>
+    <values>
+        <field>vlocity_cmt__Value__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>

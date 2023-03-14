@@ -1,0 +1,73 @@
+{
+    "dataSource": {
+        "type": null
+    },
+    "filter": {
+    },
+    "states": [
+        {
+            "blankStateCheck": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "Product2Id",
+                    "name": "['Product2Id']['value']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "ProductCode",
+                    "name": "['ProductCode']['value']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "editing": false,
+                    "label": "IsActive",
+                    "name": "['IsActive']['value']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "CPQVersionLabel",
+                    "name": "['Product2']['%vlocity_namespace%__VersionLabel__c']",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "CPQSpecification",
+                    "name": "['Product2']['%vlocity_namespace%__SpecificationType__c']",
+                    "type": "string"
+                }
+            ],
+            "isSmartAction": false,
+            "name": "Product details",
+            "smartAction": {
+            },
+            "templateUrl": "cpq-product-item-details"
+        }
+    ],
+    "title": "Product details"
+}

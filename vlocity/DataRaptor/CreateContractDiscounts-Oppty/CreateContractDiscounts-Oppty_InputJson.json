@@ -1,0 +1,89 @@
+{
+    "AccountId": "001f400000R8I3eAAF",
+    "ContractId": "",
+    "ContractStatus": "Draft",
+    "ContractType": "Default",
+    "Oppty": {
+        "AccountId": "001f400000R8I3eAAF",
+        "Discount": [
+            {
+                "AppliesToAllItems": true,
+                "EffectiveEndDate": "2020-02-19T21:25:00.000Z",
+                "EffectiveStartDate": "2019-02-14T21:25:00.000Z",
+                "Name": "Discount33333",
+                "ReferenceNumber": "77777777",
+                "TemplateId": "a2yf4000000unwXAAQ"
+            },
+            {
+                "AppliesToAllItems": true,
+                "Description": "sdlaksasdjlasd",
+                "DiscountItem": [
+                    {
+                        "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                        "Description": "sdkjakda",
+                        "Name": "DiscountItem1",
+                        "ProductId": "01tf4000001opAuAAI"
+                    },
+                    {
+                        "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                        "Description": "sdkjakdascdasds",
+                        "Name": "DiscountItem2",
+                        "ProductId": "01tf4000001opAuAAI"
+                    }
+                ],
+                "DiscountPricing": {
+                    "AdjustmentValue": 1000,
+                    "Amount": 12,
+                    "Name": "Discount PRicing11",
+                    "PricingVariableId": "a2rf4000000Qwz7AAC",
+                    "TimePlanId": "a39f4000000R2vhAAC",
+                    "TimePolicyId": "a3Af40000009YaJEAU"
+                },
+                "EffectiveEndDate": "2020-02-19T21:25:00.000Z",
+                "EffectiveStartDate": "2019-02-14T21:25:00.000Z",
+                "Name": "Discount111",
+                "ReferenceNumber": "111111111",
+                "TemplateId": "a2yf4000000unwXAAQ"
+            },
+            {
+                "AppliesToAllItems": true,
+                "DiscountItem": {
+                    "CatalogCategoryId": "a0Ff4000003W2I7EAK",
+                    "Description": "slkndekaw",
+                    "Name": "DiscountItem2-2",
+                    "ProductId": "01tf4000003hmOdAAI"
+                },
+                "DiscountPricing": [
+                    {
+                        "AdjustmentValue": 1000,
+                        "Name": "Discount PRicing2-1",
+                        "PricingVariableId": "a2rf4000000Qwz7AAC",
+                        "TimePlanId": "a39f4000000R2vhAAC",
+                        "TimePolicyId": "a3Af40000009YaJEAU"
+                    },
+                    {
+                        "AdjustmentValue": 1000,
+                        "Name": "Discount PRicing2-2",
+                        "PricingVariableId": "a2rf4000000Qwz7AAC",
+                        "TimePlanId": "a39f4000000R2vhAAC",
+                        "TimePolicyId": "a3Af40000009YaJEAU"
+                    }
+                ],
+                "EffectiveEndDate": "2020-02-19T21:25:00.000Z",
+                "EffectiveStartDate": "2019-02-14T21:25:00.000Z",
+                "Name": "Discount2222",
+                "ReferenceNumber": "2222222",
+                "TemplateId": "a2yf4000000unwXAAQ"
+            }
+        ],
+        "Name": "Test123",
+        "originalContractId": "800f4000000wMc8AAE"
+    },
+    "OpptyId": "006f400000DGGxc",
+    "StartDate": "2019-02-14",
+    "VersionStatus": "Active",
+    "errorDetails": "",
+    "errorInfo": "",
+    "errorOK": "",
+    "isFrameContract": true
+}

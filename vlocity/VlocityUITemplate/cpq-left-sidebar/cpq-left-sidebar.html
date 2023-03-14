@@ -1,0 +1,107 @@
+<div class="slds-grid slds-grid_vertical cpq-left-sidebar scroll">
+    <div class="slds-col slds-no-flex cpq-tabs-container">
+        <!--<fieldset class="slds-form-element">
+            <div class="slds-form-element__control">
+                <div class="slds-radio_button-group">
+                    <span class="slds-button slds-radio_button">
+                        <input name="radio" type="radio" id="cpq-product-items" checked="" ng-click="importedScope.selectTab(importedScope.productsTab,filters)"/>
+                        <label class="slds-radio_button__label" for="cpq-product-items">
+                            <span class="slds-radio_faux">{{::importedScope.customLabels.CPQProducts | uppercase}}</span>
+                        </label>
+                    </span>
+                    <span class="slds-button slds-radio_button" ng-if="importedScope.featureSettings.enablePromotions">
+                        <input name="radio" type="radio" id="cpq-promo-items" ng-click="importedScope.selectTab(importedScope.promotionsTab,filters)"/>
+                        <label class="slds-radio_button__label" for="cpq-promo-items">
+                            <span class="slds-radio_faux">{{::importedScope.customLabels.CPQPromotions | uppercase}}</span>
+                        </label>
+                    </span>
+                    <span class="slds-button slds-radio_button">
+                        <input name="radio" type="radio" id="cpq-discounts-items" ng-click="importedScope.selectTab(importedScope.discountsTab,filters)"/>
+                        <label class="slds-radio_button__label" for="cpq-discounts-items">
+                            <span class="slds-radio_faux">{{::importedScope.customLabels.CPQDiscounts | uppercase}}</span>
+                        </label>
+                    </span>
+                </div>
+            </div>
+        </fieldset>-->
+        <div class="slds-button-group" role="group">
+            <button class="slds-button slds-button_neutral" id="cpq-product-items"
+                ng-class="{'slds-button_brand': importedScope.getSelectedTab() === importedScope.productsTab}"
+                ng-click="importedScope.selectTab(importedScope.productsTab,filters)">{{::importedScope.customLabels.CPQProducts | uppercase}}</button>
+            <button class="slds-button slds-button_neutral" id="cpq-promo-items" 
+                ng-class="{'slds-button_brand': importedScope.getSelectedTab() === importedScope.promotionsTab}"
+                ng-if="importedScope.featureSettings.enablePromotions"
+                ng-click="importedScope.selectTab(importedScope.promotionsTab,filters)">{{::importedScope.customLabels.CPQPromotions | uppercase}}</button>
+            <button class="slds-button slds-button_neutral" id="cpq-discounts-items"
+                ng-class="{'slds-button_brand': importedScope.getSelectedTab() === importedScope.discountsTab}"
+                ng-click="importedScope.selectTab(importedScope.discountsTab,filters)" >{{::importedScope.customLabels.CPQDiscounts | uppercase}}</button>
+        </div>
+    </div>            
+    
+    <div class="slds-col slds-no-flex slds-input-has-icon slds-input-has-icon_left cpq-searchbox">
+        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'search'" extra-classes="'slds-input__icon slds-icon-text-default'"></slds-svg-icon>
+        <input type="text" class="slds-input" placeholder="{{::importedScope.customLabels.CPQSearch}}" ng-model="importedScope.searchTerm" ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }" ng-change="importedScope.searchItems()" />
+    </div>
+
+    <div class="slds-col slds-no-flex slds-button-group" role="group" ng-if="importedScope.featureSettings.enableRuleBasedQualifications">
+        <button class="slds-button slds-button_neutral" ng-class="{'slds-is-selected': importedScope.getCategorySelected() === 'Qualified', 'slds-not-selected': importedScope.getCategorySelected() === 'Disqualified'}" ng-click="importedScope.setCategorySelected('Qualified')">
+            {{::importedScope.customLabels.CPQQualified}}
+        </button>
+        <button class="slds-button slds-button_neutral" ng-class="{'slds-is-selected': importedScope.getCategorySelected() === 'Disqualified', 'slds-not-selected': importedScope.getCategorySelected() === 'Qualified'}" ng-click="importedScope.setCategorySelected('Disqualified')">
+            {{::importedScope.customLabels.CPQDisqualified}}
+        </button>
+    </div>
+    <div class="slds-clearfix slds-col slds-no-flex cpq-filter-container" ng-show="importedScope.showList.products || importedScope.showList.replace">
+        <section class="slds-float_left">
+            <fieldset class="slds-form-element" id = "offers_radio_group"> 
+                <div class="slds-form-element__control">
+                    <div class="slds-radio_button-group">
+                        <span class="slds-button slds-radio_button">
+                            <input name="radio" type="radio" id="cpq-product-items1" checked="" ng-click="importedScope.selectTab(importedScope.productsTab,filters)"/>
+                            <label class="slds-radio_button__label" for="cpq-product-items1">
+                                <span class="slds-radio_faux">{{::importedScope.customLabels.CPQNew}}</span>
+                            </label>
+                        </span>
+                        <span class="slds-button slds-radio_button">
+                            <input name="radio" type="radio" id="cpq-replacement-item"  ng-click="importedScope.selectTab(importedScope.replaceTab,filters)"/>
+                            <label class="slds-radio_button__label" for="cpq-replacement-item">
+                                <span class="slds-radio_faux">{{::importedScope.customLabels.CPQReplace}}</span>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </section>
+        <section class="slds-float_right slds-text-body_small cpq-filter-padding">
+            <div>
+                <a ng-click="filters.show = !filters.show">
+                    {{::importedScope.customLabels.CPQFilter | uppercase}}
+                    <span class="slds-icon_container">
+                        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'chevronup'" extra-classes="'slds-icon-text-default'" ng-show="filters.show"></slds-svg-icon>
+                        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'chevrondown'" extra-classes="'slds-icon-text-default'" ng-show="!filters.show"></slds-svg-icon>
+                    </span>
+                </a>
+            </div>
+        </section>
+    </div>
+    <!-- PRODUCTS -->
+    <div class="slds-col cpq-items-container scroll" ng-show="importedScope.showList.products">
+            <vloc-layout layout-name="cpq-product-list" cpq-user-locale="{{$root.vlocity.userSfLocale}}" ctrl="CPQItemsController" tabView="{{importedScope.productsTab}}" include-ineligible="{{importedScope.featureSettings.enableRuleBasedQualifications}}"></vloc-layout> 
+    </div>
+    
+    <!-- PROMOTIONS -->
+    <div class="slds-col cpq-items-container scroll" ng-show="importedScope.showList.promotions" ng-if="importedScope.featureSettings.enablePromotions">
+        <vloc-layout layout-name="cpq-promotions-list" cpq-user-locale="{{$root.vlocity.userSfLocale}}" ctrl="CPQItemsController" tabView="{{importedScope.promotionsTab}}" include-ineligible="{{importedScope.featureSettings.enableRuleBasedQualifications}}"></vloc-layout>
+    </div>
+
+    <!-- DISCOUNTS -->
+    <div class="slds-col cpq-items-container scroll" ng-show="importedScope.showList.discounts">
+            <vloc-layout layout-name="cpq-discounts-list" cpq-user-locale="{{$root.vlocity.userSfLocale}}" ctrl="CPQItemsController" tabView="{{importedScope.discountsTab}}" include-ineligible="{{importedScope.featureSettings.enableRuleBasedQualifications}}"></vloc-layout> 
+    </div>
+
+    <!-- REPLACE -->
+    <div class="slds-col cpq-items-container scroll" ng-show="importedScope.showList.replace">
+        <vloc-layout layout-name="cpq-replace-list" cpq-user-locale="{{$root.vlocity.userSfLocale}}" ctrl="CPQItemsController" tabView="{{importedScope.replaceTab}}" include-ineligible="{{importedScope.featureSettings.enableRuleBasedQualifications}}"></vloc-layout> 
+    </div>
+
+</div>

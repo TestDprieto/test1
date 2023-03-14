@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__DestinationChildObject__c": "%vlocity_namespace%__AccountDiscountItem__c",
+    "%vlocity_namespace%__DestinationParentObject__c": "%vlocity_namespace%__AccountDiscount__c",
+    "%vlocity_namespace%__ParentDestinationReferenceField__c": "%vlocity_namespace%__AccountDiscountId__c",
+    "%vlocity_namespace%__ParentSourceReferenceField__c": "%vlocity_namespace%__OrderDiscountId__c",
+    "%vlocity_namespace%__SourceChildObject__c": "%vlocity_namespace%__OrderDiscountItem__c",
+    "%vlocity_namespace%__SourceParentObject__c": "%vlocity_namespace%__OrderDiscount__c",
+    "Name": "OrderDiscountItem>AccountDiscountItem",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CustomObjectMap__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CustomObjectMap__c/OrderDiscountItem>AccountDiscountItem"
+}

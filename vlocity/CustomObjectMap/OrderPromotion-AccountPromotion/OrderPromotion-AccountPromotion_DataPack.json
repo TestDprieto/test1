@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__DestinationChildObject__c": "%vlocity_namespace%__AccountAppliedPromotion__c",
+    "%vlocity_namespace%__DestinationParentObject__c": "Account",
+    "%vlocity_namespace%__ParentDestinationReferenceField__c": "%vlocity_namespace%__BillingAccountId__c",
+    "%vlocity_namespace%__ParentSourceReferenceField__c": "%vlocity_namespace%__OrderId__c",
+    "%vlocity_namespace%__SourceChildObject__c": "%vlocity_namespace%__OrderAppliedPromotion__c",
+    "%vlocity_namespace%__SourceParentObject__c": "Order",
+    "Name": "OrderPromotion>AccountPromotion",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CustomObjectMap__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CustomObjectMap__c/OrderPromotion>AccountPromotion"
+}

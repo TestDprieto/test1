@@ -1,0 +1,12 @@
+{
+    "%vlocity_namespace%__DestinationChildObject__c": "Asset",
+    "%vlocity_namespace%__DestinationParentObject__c": "Account",
+    "%vlocity_namespace%__ParentDestinationReferenceField__c": "AccountId",
+    "%vlocity_namespace%__ParentSourceReferenceField__c": "OrderId",
+    "%vlocity_namespace%__SourceChildObject__c": "OrderItem",
+    "%vlocity_namespace%__SourceParentObject__c": "Order",
+    "Name": "Order>Account",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CustomObjectMap__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CustomObjectMap__c/Order>Account"
+}

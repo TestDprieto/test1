@@ -1,0 +1,40 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-replace-list {
+            display:flex;
+            flex: 1;
+            
+            .#{$namespace}-next-replace-product {
+                 padding: $cpq-padding-large-vertical;
+                 
+                 .slds-spinner_container {
+                    position: relative;
+                    padding-top: 10px;
+                 }
+            }
+            //stretch the flex box irrespective of its contents
+            .#{$namespace}-replace-list-vertical {
+                &.#{$namespace}-replace-grid {
+                    flex-direction:column;
+             
+                    &.#{$namespace}-replace-list-col-stretch{
+                        flex:1 1 100%;
+                    }
+                }
+                .#{$namespace}-no-replace-product-msg {
+                    margin:auto;
+                }
+            }
+        }
+    }
+}

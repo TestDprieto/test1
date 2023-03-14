@@ -1,0 +1,24 @@
+<label for="{{::control.name}}" class="slds-form-element__label">
+    <slds-button-svg-icon sprite="'utility'"
+                          icon="'add'"
+                          size="'large'"
+                          ng-if="::control.propSetMap.repeat"
+                          ng-disabled="control.propSetMap.repeatLimit !== undefined && control.propSetMap.repeatLimit !== null && child.eleArray.length >= control.propSetMap.repeatLimit+1"
+                          ng-click="baseCtrl.addItem(this, child, $index)">
+    </slds-button-svg-icon>
+
+    <slds-button-svg-icon sprite="'utility'"
+                          icon="'close'"
+                          size="'large'"
+                          ng-click="removeDomElement(this, child, $index)"
+                          vlc-slds-remove-item="ng-form[ng-repeat='control in child.eleArray']"
+                          ng-if="child.eleArray.length > 1">
+    </slds-button-svg-icon>
+
+    <span class="vlc-label-description">{{::control.propSetMap.label}}</span>
+
+    <span class="vlc-asterix icon-v-asterix"
+          ng-if="control.req">
+    </span>
+
+</label>
