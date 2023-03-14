@@ -1,0 +1,5 @@
+<div ng-controller="omniActionExecController as oa" ng-init="oa.init(params);">
+    <div ng-repeat="action in data.actions" ng-if="url && itemType==='ManualTask'">
+        <button class="execute-omni-btn slds-button slds-button--neutral slds-truncate" ng-click="oa.performAction(action);">Execute Omniscript</button>
+    </div>
+</div>

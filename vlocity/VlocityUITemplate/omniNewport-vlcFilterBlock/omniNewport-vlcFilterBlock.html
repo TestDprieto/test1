@@ -1,0 +1,60 @@
+<div class="nds-size_1-of-1">
+
+    <ng-form name='loopform'
+             class='nds-form-element vlc-flex nds-clearfix nds-block nds-p-around_small'
+             id ="{{::control.name}}"
+             ng-repeat='control in child.eleArray' >
+
+        <div class="nds-form-element__control nds-block_container">
+
+            <label vlc-slds-toggle="toggle"
+                   class="nds-form-element__label nds-clearfix"
+                   ng-if="control.propSetMap.label">
+                
+                <slds-svg-icon aria-hidden="true"
+                               sprite="'utility'"
+                               icon="'chevrondown'"
+                               size="'small'"
+                               extra-classes="'nds-collapse nds-button__icon nds-button__icon_large'">
+                </slds-svg-icon>
+
+                <slds-svg-icon aria-hidden="true"
+                               sprite="'utility'"
+                               icon="'chevronup'"
+                               size="'small'"
+                               extra-classes="'nds-expand nds-button__icon nds-button__icon_large'">
+                </slds-svg-icon>
+
+                <div class="nds-form-element__label_toggleText">
+                    {{::control.propSetMap.label}}
+                </div>
+                
+            </label>
+
+            <!-- block withing the main grid  ng-hide hides hthe block by default-->
+            <div class='nds-size_1-of-1 toggleElement' vlc-slds-toggle-cust-elem='visible'>
+
+                <div  class="nds-grid nds-wrap nds-grid_pull-padded">
+                    <child class="nds-size_1-of-1 nds-medium_1-of-1 nds-large-size_12-of-12 vlc-slds-filter__item"
+                           ng-repeat='child in ::children = control.children'
+                           ng-show='::!child.eleArray[0].propSetMap.hide'
+                           ng-if='child.eleArray[0].propSetMap.hide||(!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this))'>
+                    </child>
+                </div>
+
+                <ng-form class="nds-size_1-of-1 nds-select_filter-button nds-clearfix">
+                        <button type="button"
+                                class="nds-button nds-button_brand nds-float_left" 
+                                ng-disabled='false'
+                                ng-click='buttonClick(bpTree.response, control, this)'>
+                            {{::control.propSetMap.buttonLabel}}
+                        </button>
+                </ng-form>
+
+            </div>
+
+        </div>
+        
+    </ng-form>
+
+</div>

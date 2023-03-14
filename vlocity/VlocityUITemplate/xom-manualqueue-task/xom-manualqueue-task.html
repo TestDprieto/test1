@@ -1,0 +1,50 @@
+<script type="text/ng-template" id="xom-manualqueue-task" >
+<div class="vlocity via-slds">
+<div class="XomManualQueueTask">
+<div class="slds-text-ctitle">Task : {{bpTree.response.showtaskdetails.data.name}}</div>
+<br>
+<div class="slds-text-ctitle">Order Item Parameters</div><br>
+
+<div style="width:50%;" ng-repeat="(nodeKey, nodeValue) in bpTree.response.showOrderDetails.data">
+<table  class="slds-table slds-table--bordered slds-table--cell-buffer" cellpadding="10" cellspacing="10" width="100%" >
+<tr ng-repeat="field in nodeValue" ng-if="nodeKey =='fields' && !field.refId">
+    <td class="slds-text-title fixedWidth">{{field.name}}</td>
+    <td>{{field.value }}</td>
+</tr>
+<tr ng-repeat="field in nodeValue" ng-if="nodeKey =='fields' && field.value && !!field.refId">
+    <td class="slds-text-title fixedWidth">{{field.name}}</td>
+    <td><a ng-click="resolveByGlobalKey(field.refId)" >{{field.value}}</a></td>
+</tr>
+<tr ng-repeat="attr in nodeValue" ng-repeat="attr in nodeValue" ng-if="nodeKey =='attrs' && attr.value">
+    <td class="slds-text-title fixedWidth">{{attr.name}}</td>
+    <td ng-if="attr.type !='Datetime' && attr.type !='Date'">{{attr.value}}</td>
+    <td ng-if="attr.type =='Datetime' || attr.type =='Date'">{{attr.value | date:'dd-MM-yyyy,  hh:mm a'}}</td>
+</tr>
+<tr ng-repeat="attr in nodeValue" ng-if="bpTree.response.showOrderDetails.data.assetId">
+    <td class="slds-text-title fixedWidth">Asset/Inventory Item</td>
+    <td><a ng-click="resolveNavigate(bpTree.response.showOrderDetails.data.assetId)">{{bpTree.response.showOrderDetails.data.assetName}}</a></a></td>
+</tr>
+</table>
+</div>
+
+<div id="customAttrElement" customAttrlId="{{bpTree.response.showtaskdetails.data.id | json}}" customAttrAdditionalId="{{bpTree.response.showtaskdetails.data.additionalId | json}}" customAttrMQueueGlobalKey="{{bpTree.response.showtaskdetails.data.parameters['Manual Queue Global Key'] | json}}" customAttrAssignedMQueueGlobalKey="{{bpTree.response.showtaskdetails.data.parameters['Assigned To Manual Queue Global Key'] | json}}"   ></div>
+</div>
+</br>
+</br>
+<div class="slds-text-ctitle">Task Parameters</div><br>
+<div ng-repeat="(key, value) in bpTree.response.showtaskdetails.data" style="width:50%;">
+<table  class="slds-table slds-table--bordered slds-table--cell-buffer fixedWidthTask" cellpadding="10" cellspacing="10" width="100%" ng-if="key =='parameters' &&  key !='deps'">
+<tr>
+    <td class="slds-text-title fixedWidthTask">Type</td>
+    <td>{{bpTree.response.showtaskdetails.data.type}}</td>
+    </tr>
+<tr>
+    <td class="slds-text-title fixedWidthTask">State</td>
+    <td>{{bpTree.response.showtaskdetails.data.state}}</td>
+</tr>
+<tr ng-repeat="(pkey, pvalue) in value" ng-if="pkey !='Orchestration Item Type' && pkey !='State'">
+  <td class="slds-text-title fixedWidthTask"> {{pkey}} </td> <td> {{ pvalue }} </td>
+</tr>
+</table>
+</div>
+</script>

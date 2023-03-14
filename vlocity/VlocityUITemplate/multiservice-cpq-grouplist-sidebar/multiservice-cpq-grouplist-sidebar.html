@@ -1,0 +1,13 @@
+<div class="slds-grid slds-grid_vertical cpq-left-sidebar scroll">
+    <div class="slds-col slds-no-flex slds-input-has-icon slds-input-has-icon_left cpq-searchbox">
+        <slds-svg-icon sprite="'utility'" size="'x-small'" icon="'search'" extra-classes="'slds-input__icon slds-icon-text-default'"></slds-svg-icon>
+        <input type="text" class="slds-input" placeholder="{{::importedScope.customLabels.CPQSearch}}" ng-model="importedScope.searchTerm" 
+        ng-model-options="{ updateOn: 'default blur', debounce: { 'default': 1000, 'blur': 0 } }"
+        ng-change="importedScope.searchGroups()" />
+    </div>
+
+    <div class="slds-col cpq-items-container scroll">
+        <vloc-layout layout-name="multiservice-cpq-group-list" class="slds-size_1-of-1 slds-scrollable_y"></vloc-layout>
+    </div>
+
+</div>

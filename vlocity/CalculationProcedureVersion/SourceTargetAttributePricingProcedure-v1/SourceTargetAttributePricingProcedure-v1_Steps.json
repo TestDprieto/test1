@@ -1,0 +1,165 @@
+[
+    {
+        "%vlocity_namespace%__CalculationMatrixId__c": {
+            "Name": "SourceTargetAttributePricingMatrix",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__CalculationMatrix__c/SourceTargetAttributePricingMatrix",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationMatrix__c"
+        },
+        "%vlocity_namespace%__CalculationProcedureId__c": {
+            "Name": "SourceTargetAttributePricingProcedure",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__CalculationProcedure__c/SourceTargetAttributePricingProcedure",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedure__c"
+        },
+        "%vlocity_namespace%__CalculationProcedureVersionId__c": {
+            "%vlocity_namespace%__CalculationProcedureId__r.Name": "SourceTargetAttributePricingProcedure",
+            "%vlocity_namespace%__VersionNumber__c": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__CalculationProcedureVersion__c/1/%vlocity_namespace%__CalculationProcedure__c/SourceTargetAttributePricingProcedure",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureVersion__c"
+        },
+        "%vlocity_namespace%__ConditionalInputDisplayData__c": [
+        ],
+        "%vlocity_namespace%__Function__c": "Matrix Lookup",
+        "%vlocity_namespace%__Input__c": [
+            {
+                "columnKey": "97a7f8",
+                "dataType": "Text",
+                "label": null,
+                "listValues": null,
+                "name": "Source Product Name"
+            },
+            {
+                "columnKey": "41475e",
+                "dataType": "Text",
+                "label": null,
+                "listValues": null,
+                "name": "Source Product Code"
+            },
+            {
+                "columnKey": "e5c992",
+                "dataType": "Text",
+                "label": null,
+                "listValues": null,
+                "name": "Characteristic Name"
+            },
+            {
+                "columnKey": "45d41d",
+                "dataType": "Text",
+                "label": null,
+                "listValues": null,
+                "name": "Characteristic Value"
+            }
+        ],
+        "%vlocity_namespace%__IsConditionalStep__c": false,
+        "%vlocity_namespace%__IsIncludedInResult__c": true,
+        "%vlocity_namespace%__OutputJSON__c": [
+            {
+                "columnKey": "94b309",
+                "dataType": "Text",
+                "label": null,
+                "listValues": null,
+                "name": "NRC"
+            },
+            {
+                "columnKey": "8dfe5a",
+                "dataType": "Text",
+                "label": null,
+                "listValues": null,
+                "name": "Target Product Name"
+            },
+            {
+                "columnKey": "201029",
+                "dataType": "Text",
+                "label": null,
+                "listValues": null,
+                "name": "MRC"
+            }
+        ],
+        "%vlocity_namespace%__OutputMappingJSON__c": "{\"NRC\":\"SourceTargetAttributePricingMatrix__NRC\",\"Target Product Name\":\"SourceTargetAttributePricingMatrix__TargetProductName\",\"MRC\":\"SourceTargetAttributePricingMatrix__MRC\"}",
+        "%vlocity_namespace%__Sequence__c": 1,
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureStep__c"
+    },
+    {
+        "%vlocity_namespace%__CalculationFormulaLong__c": "SourceTargetAttributePricingMatrix__MRC",
+        "%vlocity_namespace%__CalculationFormulaTags__c": [
+            {
+                "alias": "SourceTargetAttributePricingMatrix__MRC",
+                "dataType": "Text",
+                "text": "MRC ( SourceTargetAttributePricingMatrix )",
+                "userDefined": false
+            }
+        ],
+        "%vlocity_namespace%__CalculationProcedureId__c": {
+            "Name": "SourceTargetAttributePricingProcedure",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__CalculationProcedure__c/SourceTargetAttributePricingProcedure",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedure__c"
+        },
+        "%vlocity_namespace%__CalculationProcedureVersionId__c": {
+            "%vlocity_namespace%__CalculationProcedureId__r.Name": "SourceTargetAttributePricingProcedure",
+            "%vlocity_namespace%__VersionNumber__c": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__CalculationProcedureVersion__c/1/%vlocity_namespace%__CalculationProcedure__c/SourceTargetAttributePricingProcedure",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureVersion__c"
+        },
+        "%vlocity_namespace%__ConditionalInputDisplayData__c": [
+        ],
+        "%vlocity_namespace%__Function__c": "Calculation",
+        "%vlocity_namespace%__Input__c": [
+        ],
+        "%vlocity_namespace%__IsConditionalStep__c": false,
+        "%vlocity_namespace%__IsIncludedInResult__c": true,
+        "%vlocity_namespace%__OutputJSON__c": {
+            "alias": "REC_MNTH_STD_PRC",
+            "dataType": "Currency",
+            "name": "REC_MNTH_STD_PRC"
+        },
+        "%vlocity_namespace%__OutputMappingJSON__c": "{\"REC_MNTH_STD_PRC\":\"REC_MNTH_STD_PRC\"}",
+        "%vlocity_namespace%__Sequence__c": 2,
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureStep__c"
+    },
+    {
+        "%vlocity_namespace%__CalculationFormulaLong__c": "SourceTargetAttributePricingMatrix__NRC",
+        "%vlocity_namespace%__CalculationFormulaTags__c": [
+            {
+                "alias": "SourceTargetAttributePricingMatrix__NRC",
+                "dataType": "Text",
+                "text": "NRC ( SourceTargetAttributePricingMatrix )",
+                "userDefined": false
+            }
+        ],
+        "%vlocity_namespace%__CalculationProcedureId__c": {
+            "Name": "SourceTargetAttributePricingProcedure",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "%vlocity_namespace%__CalculationProcedure__c/SourceTargetAttributePricingProcedure",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedure__c"
+        },
+        "%vlocity_namespace%__CalculationProcedureVersionId__c": {
+            "%vlocity_namespace%__CalculationProcedureId__r.Name": "SourceTargetAttributePricingProcedure",
+            "%vlocity_namespace%__VersionNumber__c": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__CalculationProcedureVersion__c/1/%vlocity_namespace%__CalculationProcedure__c/SourceTargetAttributePricingProcedure",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureVersion__c"
+        },
+        "%vlocity_namespace%__ConditionalInputDisplayData__c": [
+        ],
+        "%vlocity_namespace%__Function__c": "Calculation",
+        "%vlocity_namespace%__Input__c": [
+        ],
+        "%vlocity_namespace%__IsConditionalStep__c": false,
+        "%vlocity_namespace%__IsIncludedInResult__c": true,
+        "%vlocity_namespace%__OutputJSON__c": {
+            "alias": "OT_STD_PRC",
+            "dataType": "Currency",
+            "name": "OT_STD_PRC"
+        },
+        "%vlocity_namespace%__OutputMappingJSON__c": "{\"OT_STD_PRC\":\"OT_STD_PRC\"}",
+        "%vlocity_namespace%__Sequence__c": 3,
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__CalculationProcedureStep__c"
+    }
+]

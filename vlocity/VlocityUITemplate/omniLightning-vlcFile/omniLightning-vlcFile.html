@@ -1,0 +1,70 @@
+<div class="slds-col--padded slds-size--1-of-1">
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-file-picker'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+
+            <div class="vlc-control-wrapper vlc-slds__border vlc-slds__border--primary" help="{{control.propSetMap.help}}">
+
+                <div class="vlc-slds-transparent">
+                
+                    <input type='file'
+                           id="{{::control.name}}"
+                           name='loopname'
+                           ng-model='control.response'
+                           class='slds-input'
+                           multiple app-filereader />
+
+                </div>
+
+                <label for="{{::control.name}}" class='slds-form-element__label'>{{::control.propSetMap.label}}
+                    <span class='vlc-asterix icon-v-asterix'
+                          ng-show='control.req'>
+                    </span>
+                </label>
+
+                <!-- tooltip template -->
+                <a vlc-slds-tool-tip="test" ng-show="{{control.propSetMap.help}}"> i </a>
+            
+            </div>
+
+            <!-- OMNI-1718 -->
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'upload'"
+                           size="'small'"
+                           extra-classes="'slds-button__icon slds-button__icon--large'">
+            </slds-svg-icon>
+
+            <!-- list that populates the uploaded files -->
+            <ul class="slds-list--vertical vlc-slds-list--vertical" ng-show='control.response.length'>
+                <li ng-repeat='file in control.response' class='slds-list__item slds-input-has-icon slds-input-has-icon--right'>
+
+                    <span>{{file.webkitRelativePath || file.filename}}
+                        &nbsp;(
+                        <span ng-switch='file.size > 1024*1024'>
+                            <span ng-switch-when='true'>{{file.size / 1024 / 1024 | number:2}} MB</span>
+                            <span ng-switch-default>{{file.size / 1024 | number:2}} kB</span>
+                        </span>
+                        )
+                    </span>
+
+                    <slds-button-svg-icon sprite="'utility'" icon="'delete'" size="'large'"
+                                          ng-click='removeFile(this, control, $index);$event.preventDefault();'
+                                          ng-show='isFileRemovable(this, control, $index)'>
+                    </slds-button-svg-icon>
+
+                </li>
+            </ul>
+
+            </div>
+
+            <div ng-include="::errHTMLId"></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

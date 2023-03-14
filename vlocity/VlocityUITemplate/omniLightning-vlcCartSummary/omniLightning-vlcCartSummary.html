@@ -1,0 +1,90 @@
+<div ng-repeat="vlcPC in ::bpTree.propSetMap.persistentComponent" ng-if="::vlcPC.id=='vlcCart'">
+    <div class="cart-summary">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="icon icon-v-cart-line"></span>
+                <h3 class="panel-title">{{::vlcPC.label}}</h3>
+                <div class="box"></div>
+                <!--
+                <button class="btn btn-primary">CHECKOUT</button>
+                -->
+            </div>
+
+            <div class="panel-body">
+
+            <section>
+                <h3>{{::customLabels.OmniYourSelections}}</h3>
+                <div class="item row" ng-repeat="i in bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]] | filterMultiple:{provisioningStatus:['New','Pending']}">
+                    <div class="col-md-4 col-sm-4">
+                        <label class="item-name">{{i.itemSObject.PricebookEntry.Product2.Name}}</label>
+                    </div>
+                    <div class="quantity col-md-2 col-sm-2">
+                        <span>x</span>
+                        <input type="number" disabled="true" name="quantity" step="1" ng-model="i.itemSObject.Quantity"/>
+                    </div>
+                    <div class="field col-md-3 col-sm-3">
+                        <label class="field-label">{{::customLabels.OmniOneTime}}</label>
+                        <p>
+                            <span class="price old-price color-black" ng-show="i.itemSObject[nsPrefix + 'OneTimeCharge__c'] > i.itemSObject[nsPrefix + 'OneTimeTotal__c']">
+                                {{i.itemSObject[nsPrefix + 'OneTimeCharge__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                            </span>
+                            <span class="price color-black" ng-class="{'new-price':i.itemSObject[nsPrefix + 'OneTimeCharge__c'] > i.itemSObject[nsPrefix + 'OneTimeTotal__c']}">
+                            {{i.itemSObject[nsPrefix + 'OneTimeTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field col-md-3 col-sm-3">
+                        <label class="field-label">{{::customLabels.OmniMonthly}}</label>
+                        <p>
+                            <span class="price old-price color-black" ng-show="i.itemSObject[nsPrefix + 'RecurringCharge__c'] > i.itemSObject[nsPrefix + 'RecurringTotal__c']">
+                                {{i.itemSObject[nsPrefix + 'RecurringCharge__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                            </span>
+                            <span class="price color-black" ng-class="{'new-price':i.itemSObject[nsPrefix + 'RecurringCharge__c'] > i.itemSObject[nsPrefix + 'RecurringTotal__c']}">
+                            {{i.itemSObject[nsPrefix + 'RecurringTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>{{::customLabels.OmniCurrentSetup}}</h3>
+                <div class="item row" ng-repeat="i in bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]][bpTree.pcItemsKey[vlcPC.pcIndex]] | filterMultiple:{provisioningStatus:['Active','Inactive']}">
+                    <div class="col-md-4 col-sm-4">
+                        <label class="item-name">{{i.itemSObject.PricebookEntry.Product2.Name}}</label>
+                    </div>
+                    <div class=" quantity col-md-2 col-sm-2">
+                        <span>x</span>
+                        <input type="number" disabled="true" name="quantity" step="1" ng-model="i.itemSObject.Quantity"/>
+                    </div>
+                    <div class="field col-md-3 col-sm-3">
+                        <label class="field-label">{{::customLabels.OmniOneTime}}</label>
+                        <p>{{i.itemSObject[nsPrefix + 'OneTimeTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</p>
+                    </div>
+                    <div class="field col-md-3 col-sm-3">
+                        <label class="field-label">{{::customLabels.OmniMonthly}}</label>
+                        <p>{{i.itemSObject[nsPrefix + 'RecurringTotal__c'] | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="totals row">
+                    <h4 class="col-md-6 col-sm-6"></h4>
+                    <div class="cost col-md-3 col-sm-3">
+                        <label class="totals-title">{{::customLabels.OmniOneTime}}</label>
+                        <h4 class="">{{bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].OneTimeSum | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</h4>
+                    </div>
+                    <div class="cost col-md-3 col-sm-3">
+                        <label class="totals-title">{{::customLabels.OmniMonthly}}</label>
+                        <h4 class="">{{bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].RecurringSum | currency:bpTree.response.vlcPersistentComponent[bpTree.pcId[vlcPC.pcIndex]].currencySymbol | numFormatFilter }}</h4>
+                    </div>
+                </div>
+            </section>
+            </div>
+            <!--
+            <div class="panel-footer">
+                <button class="btn btn-primary">CHECKOUT</button>
+            </div>
+            -->
+        </div
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Account --></label>
+        <name>vlocity_cmt__AccountId__c</name>
+        <relationshipLabel><!-- Account Holds --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Hold To --></label>
+        <name>vlocity_cmt__HoldEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hold From --></label>
+        <name>vlocity_cmt__HoldStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hold Type --></label>
+        <name>vlocity_cmt__HoldType__c</name>
+        <picklistValues>
+            <masterLabel>Auto Payment</masterLabel>
+            <translation><!-- Auto Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collections</masterLabel>
+            <translation><!-- Collections --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

@@ -1,0 +1,24 @@
+<div ng-if='!(action.propSetMap.svgSprite && action.propSetMap.svgIcon)'>
+    <ng-form name='loopform'
+             class='nds-form-element'>
+
+        <div class="nds-form-element__control">
+             <button id='{{::action.name}}'
+                 class='nds-button nds-button_brand nds-button_text-font nds-size_1-of-1'
+                 title='{{::action.propSetMap.label}}'
+                 ng-click='buttonClick(this.bpTree.response, action, this)'>
+                <p class="nds-truncate">{{::action.propSetMap.label}}</p>
+            </button>
+        </div>
+
+    </ng-form>
+</div>
+
+<div class="nds-edit-block_gaction_btn nds-show_inline-block nds-p-around_x-small nds-is-relative" ng-if='(action.propSetMap.svgSprite && action.propSetMap.svgIcon)'>
+    <slds-button-svg-icon sprite="action.propSetMap.svgSprite" icon="action.propSetMap.svgIcon" size="'small'" ng-click='buttonClick(this.bpTree.response, action, this)'></slds-button-svg-icon>
+    <div class="nds-popover nds-popover_tooltip nds-nubbin_top-left vlc-slds_tooltip nds-is-absolute" role="tooltip">
+        <div class="nds-popover__body">
+            {{action.propSetMap.label}}
+        </div>
+    </div>
+</div>

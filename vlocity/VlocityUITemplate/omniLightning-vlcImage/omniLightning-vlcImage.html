@@ -1,0 +1,53 @@
+<div  class='slds-col--padded slds-size--1-of-1'
+      ng-if='!child.eleArray[0].propSetMap.show || evaluateShow(child.eleArray[0], this)'>
+
+    <ng-form name='loopform'
+             class='slds-form-element vlc-flex vlc-slds-file-picker'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon--right">
+
+            <div class="vlc-control-wrapper vlc-slds__border vlc-slds__border--primary" help="{{::control.propSetMap.help}}">
+
+                <div class="vlc-slds-transparent">
+                    <input type='file'
+                           id="{{::control.name}}"
+                           name='loopname'
+                           ng-model='control.response'
+                           class='slds-input form-control'
+                           vlc-slds-file-select="{{::control.propSetMap.multiple}}"
+                           app-filereader accept="image/*" />
+
+                </div>
+
+                <label for="{{::control.name}}" class='slds-form-element__label'>{{::control.propSetMap.label}}
+                    <span class='vlc-asterix icon-v-asterix'
+                          ng-if='control.req'>
+                    </span>
+
+                </label>
+
+                <!-- tooltip template -->
+                <a vlc-slds-tool-tip="test" ng-show="{{control.propSetMap.help}}"> i </a>
+
+            </div>
+
+            <slds-svg-icon aria-hidden="true"
+                           sprite="'utility'"
+                           icon="'image'"
+                           size="'small'"
+                           extra-classes="'slds-button__icon slds-button__icon--large'">
+            </slds-svg-icon>
+
+
+            <div ng-if='control.response.length'>
+                <div ng-include="'vlcImageAux.html'"></div>
+            </div>
+
+            <div ng-include="::errHTMLId"></div>
+
+        </div>
+
+    </ng-form>
+
+</div>

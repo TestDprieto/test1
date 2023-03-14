@@ -1,0 +1,75 @@
+<div class="nds-size_1-of-1">
+
+
+    <ng-form name='loopform'
+             class='nds-form-element nds-size_1-of-1 nds-m-bottom_large nds-p-around_small'
+             ng-repeat='control in child.eleArray'>
+
+        <div class="nds-form-element__control nds-form-element__control-animated-label nds-input-has-icon_right nds-grid">
+
+            <span class="nds-form-element__addon"
+                  ng-if="control.propSetMap.dataType == 'Currency'">{{::(bpTree.oSCurrencySymbol || control.propSetMap.currencySymbol)}}</span>
+
+            <input id='{{::control.name}}'
+                   type='text'
+                   name='loopname'
+                   ng-model='control.response'
+                   class='nds-input'
+                   ng-if="control.propSetMap.dataType != 'Number' &&
+                        control.propSetMap.dataType != 'Date' &&
+                        control.propSetMap.dataType != 'Currency' &&
+                        performCalculation(this, control)"
+                   vlc-slds-readonly="test" />
+
+            <input id='{{::control.name}}'
+                   type='text'
+                   name='loopname'
+                   ng-if="control.propSetMap.dataType == 'Currency' && performCalculation(this, control)"
+                   ng-model='control.response'
+                   class='nds-input'
+                   via-mask='::control.propSetMap.mask'
+                   vlc-slds-readonly="test"
+                   autocomplete="off" />
+
+            <input id='{{::control.name}}'
+                   type='text'
+                   ng-if="control.propSetMap.dataType == 'Date' && performCalculation(this, control)"
+                   class='nds-input'
+                   name='loopname'
+                   name='date'
+                   date-format="{{control.propSetMap.dateFormat}}"
+                   value="{{control.response | date:control.propSetMap.dateFormat}}"
+                   vlc-slds-readonly="test"
+                   vlc-disable-auto-complete="off" />
+
+
+            <input id='{{::control.name}}'
+                   type='text'
+                   name='loopname'
+                   ng-model='control.response'
+                   class='nds-input'
+                   ng-if="control.propSetMap.dataType == 'Number' && performCalculation(this, control)"
+                   via-mask='::control.propSetMap.mask'
+                   vlc-slds-readonly="test"
+                   autocomplete="off" />
+
+
+            <label for="{{::control.name}}"
+                   class='nds-form-element__label'
+                   ng-class="{'nds-p-left_large': control.propSetMap.dataType == 'Currency'}">
+                {{::control.propSetMap.label}}
+                <span class='nds-required'
+                      ng-if='control.req'>*
+                </span>
+            </label>
+
+            <div vlc-slds-include="vlcLabelController.html"></div>
+
+        </div>
+        <div class="nds-form-element__control-help"
+             ng-if="control.propSetMap.help">{{control.propSetMap.helpText}}</div>
+        <div ng-include="::errHTMLId"></div>
+
+    </ng-form>
+
+</div>

@@ -1,0 +1,86 @@
+{
+    "dataSource": {
+        "type": null,
+        "value": {
+            "resultVar": ""
+        }
+    },
+    "filter": {
+    },
+    "sessionVars": [
+        {
+            "name": "recordType",
+            "val": "Product"
+        }
+    ],
+    "states": [
+        {
+            "blankStateCheck": false,
+            "collapse": false,
+            "conditions": {
+                "group": [
+                    {
+                        "field": "$scope.data.status",
+                        "operator": "===",
+                        "type": "system",
+                        "value": "'active'"
+                    }
+                ]
+            },
+            "definedActions": {
+                "actions": [
+                ]
+            },
+            "fields": [
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Term Name",
+                    "name": "Name",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Term Code",
+                    "name": "Code",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Control",
+                    "name": "%vlocity_namespace%__ValueDataType__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Value",
+                    "name": "%vlocity_namespace%__Value__c",
+                    "type": "string"
+                },
+                {
+                    "collapse": true,
+                    "displayLabel": "<<Custom Field>>",
+                    "editing": false,
+                    "fieldType": "custom",
+                    "label": "Description",
+                    "name": "%vlocity_namespace%__ValueDescription__c",
+                    "type": "string"
+                }
+            ],
+            "name": "Product-Attributes-Config",
+            "templateUrl": "clm-runtime-new-term-config"
+        }
+    ],
+    "title": "Term Configuration"
+}

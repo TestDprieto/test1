@@ -1,0 +1,20 @@
+/*** CPQ THEME VARIABLES ***/
+@import "cpq-theme-variables";
+
+/*** MIXINS ***/
+@import "cpq-mixin";
+
+/* $cpq-namespace is defined in cpq-base-variables */
+$namespace: $cpq-namespace;
+
+/*** STYLES ***/
+.vlocity {
+    &.via-slds {
+        .#{$namespace}-compare-highlight {
+            background-color: #A0F3FF;
+        }
+        .#{$namespace}-compare-highlight-white {
+            background-color: #FFFFFF;
+        }   
+    }
+}
