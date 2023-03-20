@@ -146,6 +146,14 @@
             </valueSetDefinition>
         </valueSet>
     </fields>
+    <fields>
+        <fullName>Email_Activity__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Activity</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
     <listViews>
         <fullName>AllActivities</fullName>
         <filterScope>Team</filterScope>
