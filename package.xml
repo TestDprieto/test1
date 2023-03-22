@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Activity.Email_Activity__c</members>
-        <members>Event.Email_Activity__c</members>
-        <members>Task.Email_Activity__c</members>
-        <name>CustomField</name>
+        <members>AppleWatch</members>
+        <members>AppleWatchTest</members>
+        <name>ApexClass</name>
     </types>
     <types>
-        <members>Admin</members>
-        <name>Profile</name>
+        <members>AppleWatch</members>
+        <name>ApexTrigger</name>
     </types>
     <version>57.0</version>
 </Package>
