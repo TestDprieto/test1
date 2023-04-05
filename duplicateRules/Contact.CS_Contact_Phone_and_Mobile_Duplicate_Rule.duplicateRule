@@ -3,17 +3,8 @@
     <actionOnInsert>Allow</actionOnInsert>
     <actionOnUpdate>Allow</actionOnUpdate>
     <alertText>Use one of these records?</alertText>
-    <description xsi:nil="true"/>
-    <duplicateRuleFilter>
-        <booleanFilter xsi:nil="true"/>
-        <duplicateRuleFilterItems>
-            <field>Email</field>
-            <operation>equals</operation>
-            <value>info@copa.do</value>
-            <sortOrder>1</sortOrder>
-            <table>Contact</table>
-        </duplicateRuleFilterItems>
-    </duplicateRuleFilter>
+    <description>adding description</description>
+    <duplicateRuleFilter xsi:nil="true"/>
     <duplicateRuleMatchRules>
         <matchRuleSObjectType>Contact</matchRuleSObjectType>
         <matchingRule>CS_Contact_Phone_and_Mobile_Matching_Rule</matchingRule>
