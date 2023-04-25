@@ -588,11 +588,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.delete_field_Chris_test_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.destructive_test_1__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -624,11 +619,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.new_testdate__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.newest_to_be_deleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3354,16 +3344,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.new_checkbox_aug24__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.to_be_deleted_2__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Opportunity.to_bedeleted__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
