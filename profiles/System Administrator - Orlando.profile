@@ -3,11 +3,6 @@
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.delete_field_Chris_test_3__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Opportunity.OIP_Comments__c</field>
         <readable>true</readable>
     </fieldPermissions>
