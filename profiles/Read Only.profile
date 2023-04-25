@@ -337,11 +337,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.delete_field_Chris_test_3__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.destructive_test_1__c</field>
         <readable>false</readable>
     </fieldPermissions>
