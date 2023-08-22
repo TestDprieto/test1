@@ -14,7 +14,10 @@
     <enableCreateEditOnArticlesTab>true</enableCreateEditOnArticlesTab>
     <enableExternalMediaContent>true</enableExternalMediaContent>
     <enableKnowledge>true</enableKnowledge>
+    <enableKnowledgeAgentContribution>false</enableKnowledgeAgentContribution>
+    <enableKnowledgeAnswersPromotion>false</enableKnowledgeAnswersPromotion>
     <enableKnowledgeArticleTextHighlights>true</enableKnowledgeArticleTextHighlights>
+    <enableKnowledgeCaseRL>false</enableKnowledgeCaseRL>
     <enableKnowledgeKeywordAutoComplete>true</enableKnowledgeKeywordAutoComplete>
     <enableKnowledgeTitleAutoComplete>true</enableKnowledgeTitleAutoComplete>
     <enableLightningKbAutoLoadRichTextField>false</enableLightningKbAutoLoadRichTextField>
@@ -41,4 +44,5 @@
             </field>
         </workOrderLineItemFields>
     </suggestedArticles>
+    <votingEnabled>true</votingEnabled>
 </KnowledgeSettings>

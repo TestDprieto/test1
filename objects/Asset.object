@@ -106,6 +106,10 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Address</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>AssetLevel</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -120,13 +124,47 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>ConsequenceOfFailure</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>ContactId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>CurrentAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CurrentLifecycleEndDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CurrentMrr</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CurrentQuantity</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>Description</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>DigitalAssetStatus</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>ExternalIdentifier</fullName>
+        <inlineHelpText>ID of matching record in an external system.</inlineHelpText>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>HasLifecycleManagement</fullName>
     </fields>
     <fields>
         <fullName>InstallDate</fullName>
@@ -138,6 +176,24 @@
     </fields>
     <fields>
         <fullName>IsInternal</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LifecycleEndDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LifecycleStartDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LocationId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ManufactureDate</fullName>
+        <inlineHelpText>Date when the asset was manufactured.</inlineHelpText>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -196,10 +252,25 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>StatusReason</fullName>
+        <inlineHelpText>Explanation of the device status.</inlineHelpText>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>StockKeepingUnit</fullName>
     </fields>
     <fields>
+        <fullName>TotalLifecycleAmount</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>UsageEndDate</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>Uuid</fullName>
+        <inlineHelpText>Unique string identifying the asset.</inlineHelpText>
         <trackHistory>false</trackHistory>
     </fields>
     <listViews>
