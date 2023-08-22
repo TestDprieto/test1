@@ -238,12 +238,14 @@
     </fields>
     <fields>
         <fullName>Active__c</fullName>
+        <description>new desc</description>
         <externalId>false</externalId>
         <label>Active</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
         <valueSet>
+            <controllingField>CustomerPriority__c</controllingField>
             <valueSetDefinition>
                 <sorted>false</sorted>
                 <value>
@@ -257,11 +259,30 @@
                     <label>Yes</label>
                 </value>
             </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>High</controllingFieldValue>
+                <valueName>No</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>High</controllingFieldValue>
+                <valueName>Yes</valueName>
+            </valueSettings>
         </valueSet>
     </fields>
     <fields>
         <fullName>AnnualRevenue</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Aug_27_Friday2__c</fullName>
+        <externalId>false</externalId>
+        <label>Aug 27 Friday2!</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>BillingAddress</fullName>
@@ -273,7 +294,6 @@
         <label>Business Segment</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -309,7 +329,6 @@
         <length>15</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -340,6 +359,7 @@
     </fields>
     <fields>
         <fullName>CustomerPriority__c</fullName>
+        <description>descp1</description>
         <externalId>false</externalId>
         <label>Customer Priority</label>
         <required>false</required>
@@ -391,6 +411,26 @@
     <fields>
         <fullName>Jigsaw</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>July_Hexagon_2__c</fullName>
+        <externalId>false</externalId>
+        <label>July Hexagon 2</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>July_Hexagon__c</fullName>
+        <externalId>false</externalId>
+        <label>July Hexagon</label>
+        <length>15</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>NaicsCode</fullName>
@@ -515,6 +555,9 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Tier</fullName>
+    </fields>
+    <fields>
         <fullName>Tradestyle</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -560,6 +603,15 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>delete_field_Chris_test_3__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>delete field Chris test 3</description>
+        <externalId>false</externalId>
+        <label>delete field Chris test 3</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>destructive_test_1__c</fullName>
         <externalId>false</externalId>
         <label>destructive test 1</label>
@@ -568,6 +620,14 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>field_for_FLS__c</fullName>
+        <externalId>false</externalId>
+        <label>field for FLS</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
     </fields>
     <listViews>
         <fullName>AllAccounts</fullName>
@@ -645,6 +705,25 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Segment__c</picklist>
+            <values>
+                <fullName>Business Segment a</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment b</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment c</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment d</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -899,25 +978,6 @@
         <active>false</active>
         <label>RT 1</label>
         <picklistValues>
-            <picklist>Business_Segment__c</picklist>
-            <values>
-                <fullName>Business Segment a</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Segment b</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Segment c</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Segment d</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -948,6 +1008,25 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Segment__c</picklist>
+            <values>
+                <fullName>Business Segment a</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment b</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment c</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Segment d</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -9,5 +9,7 @@ Public with sharing Class AppleWatch{
         insert t;
      }
   }
-  /* comment 4*/
+  /* Hotfix applied*/
+  /* Hotfix applied2*/
+  /* Hotfix applied 3*/
  }
