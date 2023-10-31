@@ -27,4 +27,5 @@
     <tabs>standard-Quote</tabs>
     <tabs>vlocity_cmt__ObjectClass__c</tabs>
     <uiType>Lightning</uiType>
+    <utilityBar>LightningSales_UtilityBar</utilityBar>
 </CustomApplication>

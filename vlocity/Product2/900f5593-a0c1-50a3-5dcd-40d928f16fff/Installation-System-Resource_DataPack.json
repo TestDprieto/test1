@@ -88,9 +88,9 @@
                     ],
                     "records": [
                         {
-                            "attributeId": "a0K5e000000bEwIEAU",
+                            "attributeId": "a0K5e000000bEwEEAU",
                             "cloneable": true,
-                            "code": "ATT_DC_PC",
+                            "code": "ATT_DC_IC",
                             "dataType": "text",
                             "disabled": false,
                             "displaySequence": 1,
@@ -99,59 +99,7 @@
                             "hidden": false,
                             "inputType": "text",
                             "isNotTranslatable": false,
-                            "label": "Product Code",
-                            "messages": [
-                            ],
-                            "multiselect": false,
-                            "readonly": false,
-                            "required": false,
-                            "userValues": null,
-                            "values": [
-                                {
-                                    "disabled": false,
-                                    "readonly": false
-                                }
-                            ]
-                        },
-                        {
-                            "attributeId": "a0K5e000000bEwHEAU",
-                            "cloneable": true,
-                            "code": "ATT_DC_MS",
-                            "dataType": "text",
-                            "disabled": false,
-                            "displaySequence": 1,
-                            "filterable": false,
-                            "hasRules": false,
-                            "hidden": false,
-                            "inputType": "text",
-                            "isNotTranslatable": false,
-                            "label": "Modem Standard",
-                            "messages": [
-                            ],
-                            "multiselect": false,
-                            "readonly": false,
-                            "required": false,
-                            "userValues": null,
-                            "values": [
-                                {
-                                    "disabled": false,
-                                    "readonly": false
-                                }
-                            ]
-                        },
-                        {
-                            "attributeId": "a0K5e000000bEwFEAU",
-                            "cloneable": true,
-                            "code": "ATT_DC_IS",
-                            "dataType": "text",
-                            "disabled": false,
-                            "displaySequence": 1,
-                            "filterable": false,
-                            "hasRules": false,
-                            "hidden": false,
-                            "inputType": "text",
-                            "isNotTranslatable": false,
-                            "label": "Install Street",
+                            "label": "Install City",
                             "messages": [
                             ],
                             "multiselect": false,
@@ -192,9 +140,9 @@
                             ]
                         },
                         {
-                            "attributeId": "a0K5e000000bEwEEAU",
+                            "attributeId": "a0K5e000000bEwFEAU",
                             "cloneable": true,
-                            "code": "ATT_DC_IC",
+                            "code": "ATT_DC_IS",
                             "dataType": "text",
                             "disabled": false,
                             "displaySequence": 1,
@@ -203,7 +151,7 @@
                             "hidden": false,
                             "inputType": "text",
                             "isNotTranslatable": false,
-                            "label": "Install City",
+                            "label": "Install Street",
                             "messages": [
                             ],
                             "multiselect": false,
@@ -242,6 +190,58 @@
                                     "readonly": false
                                 }
                             ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwHEAU",
+                            "cloneable": true,
+                            "code": "ATT_DC_MS",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 1,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "text",
+                            "isNotTranslatable": false,
+                            "label": "Modem Standard",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
+                        },
+                        {
+                            "attributeId": "a0K5e000000bEwIEAU",
+                            "cloneable": true,
+                            "code": "ATT_DC_PC",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 1,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "text",
+                            "isNotTranslatable": false,
+                            "label": "Product Code",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "readonly": false
+                                }
+                            ]
                         }
                     ],
                     "totalSize": 6
@@ -250,7 +250,7 @@
         ],
         "totalSize": 2
     },
-    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__AttributeRules__c": "{}",
     "%vlocity_namespace%__CategoryData__c": "",
     "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
     "%vlocity_namespace%__ClassId__c": "",

@@ -162,81 +162,121 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>AdditionalAddress</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>AdditionalName</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>BillingAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>BillingName</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ContactId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ContractId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Discount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Email</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ExpirationDate</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Fax</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>GrandTotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>IsSyncing</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>LineItemCount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Name</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>OpportunityId</fullName>
+        <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>QuoteToAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>QuoteToName</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ShippingAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ShippingHandling</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ShippingName</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Status</fullName>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Subtotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Tax</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>vlocity_cmt__AccountRecordType__c</fullName>
@@ -246,6 +286,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Record Type</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -257,6 +298,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account SLA</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -270,6 +312,7 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -282,6 +325,7 @@
         <relationshipLabel>Billing Account Quotes</relationshipLabel>
         <relationshipName>BillingAccountQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -290,6 +334,7 @@
         <externalId>false</externalId>
         <label>Default Currency Payment Mode</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -319,6 +364,7 @@
         <relationshipLabel>Premises Quotes</relationshipLabel>
         <relationshipName>PremisesQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -331,6 +377,7 @@
         <relationshipLabel>Service Account Quotes</relationshipLabel>
         <relationshipName>ServiceAccountQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -344,6 +391,7 @@
         <relationshipLabel>Service Point Quotes</relationshipLabel>
         <relationshipName>ServicePointQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -352,6 +400,7 @@
         <externalId>false</externalId>
         <label>Delivery Installation Status</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -383,6 +432,7 @@
         <precision>16</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -394,6 +444,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -405,6 +456,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__EffectiveOneTimeTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -417,6 +469,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -428,6 +481,7 @@
         <precision>16</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -438,6 +492,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__EffectiveRecurringTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -449,6 +504,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -460,6 +516,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -469,6 +526,7 @@
         <externalId>false</externalId>
         <label>External Pricing Status</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -522,6 +580,7 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes1</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -531,6 +590,7 @@
         <description>Denotes if quote requires a contract</description>
         <externalId>false</externalId>
         <label>Require Contract</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -540,6 +600,7 @@
         <formula>NOT(ISNULL(vlocity_cmt__LastPricedAt__c))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Priced</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -549,6 +610,7 @@
         <formula>NOT(ISNULL(vlocity_cmt__ValidationDate__c))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Validated</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -557,6 +619,7 @@
         <externalId>false</externalId>
         <label>Last Priced At</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -565,6 +628,7 @@
         <externalId>false</externalId>
         <label>Lead Source</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -604,6 +668,7 @@
         <externalId>false</externalId>
         <label>Multi Service Message Data</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -615,6 +680,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -627,6 +693,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -638,6 +705,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -650,6 +718,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -660,6 +729,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__OneTimeTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -671,6 +741,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Opportunity Account Id</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -681,6 +752,7 @@
         <externalId>false</externalId>
         <label>Originating Channel</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -719,6 +791,7 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -727,6 +800,7 @@
         <externalId>false</externalId>
         <label>PO Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
     <fields>
@@ -736,6 +810,7 @@
         <label>PO Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -749,6 +824,7 @@
         <relationshipLabel>Quotes Using This Price List</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -762,6 +838,7 @@
         <relationshipLabel>Group Quotes</relationshipLabel>
         <relationshipName>GroupQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -772,6 +849,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -784,6 +862,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -794,6 +873,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -806,6 +886,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -816,6 +897,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__RecurringTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -828,6 +910,7 @@
         <relationshipLabel>Renewal Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -838,6 +921,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Shipping Postal Code</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -849,6 +933,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Shipping State</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -862,6 +947,7 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -871,6 +957,7 @@
         <label>Tracking Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -880,6 +967,7 @@
         <externalId>false</externalId>
         <label>Type</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -916,6 +1004,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -926,6 +1015,7 @@
         <inlineHelpText>Date of last validation run</inlineHelpText>
         <label>Validation Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -936,6 +1026,7 @@
         <inlineHelpText>Message from the last validation run</inlineHelpText>
         <label>Validation Message</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -947,6 +1038,7 @@
         <inlineHelpText>The result status of the last validation run</inlineHelpText>
         <label>Validation Status</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -980,6 +1072,7 @@
         <filterScope>Mine</filterScope>
         <label>My Quotes</label>
     </listViews>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>vlocity_cmt__EnterpriseQuote</fullName>
         <active>true</active>

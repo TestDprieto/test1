@@ -25,6 +25,7 @@
                 <booleanValue>false</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>vlocity_cmt__EligibilityMatrixAction</nameSegment>
         <outputParameters>
             <assignToReference>Error</assignToReference>
             <name>error</name>
@@ -33,6 +34,7 @@
             <assignToReference>HasErrors</assignToReference>
             <name>hasErrors</name>
         </outputParameters>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>OrderEligibilityMatrix</name>
@@ -59,6 +61,7 @@
                 <booleanValue>false</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>vlocity_cmt__EligibilityMatrixAction</nameSegment>
         <outputParameters>
             <assignToReference>HasErrors</assignToReference>
             <name>hasErrors</name>
@@ -67,6 +70,7 @@
             <assignToReference>Error</assignToReference>
             <name>error</name>
         </outputParameters>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>49.0</apiVersion>
     <decisions>

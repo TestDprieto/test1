@@ -14877,6 +14877,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>AuthorizationFormText.DetailAuthorizationFormText</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>AuthorizationFormText.FullAuthorizationFormUrl</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15447,6 +15452,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.GenderIdentity</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.HasOptedOutOfEmail</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15493,6 +15503,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Phone</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Pronouns</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15699,6 +15714,11 @@
         <editable>true</editable>
         <field>ContactPointAddress.IsPrimary</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>ContactPointAddress.IsThirdPartyAddress</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -16312,11 +16332,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>EngagementChannelType.ContactPointType</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Entitlement.AssetId</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16597,6 +16612,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead.GenderIdentity</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead.HasOptedOutOfEmail</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -16643,6 +16663,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead.Phone</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.Pronouns</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -37424,15 +37449,6 @@
     <layoutAssignments>
         <layout>Seller-Seller Layout</layout>
     </layoutAssignments>
-    <layoutAssignments>
-        <layout>ServiceAppointmentGroup-Service Appointment Group Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WorkProcedure-Work Procedure Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>WorkProcedureStep-Work Procedure Step Layout</layout>
-    </layoutAssignments>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -39913,15 +39929,7 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>standard-RescheduleAppointments</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>standard-SOSSession</tab>
-        <visibility>Hidden</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-ScheduleAppointments</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>

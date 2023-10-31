@@ -1,22 +1,5 @@
 [
     {
-        "%vlocity_namespace%__GlobalKey__c": "",
-        "%vlocity_namespace%__Implementation__c": "XOMOrderSubmitSystemInterface",
-        "%vlocity_namespace%__Key__c": "Thor:Thor Interface",
-        "%vlocity_namespace%__Path__c": "/pathpath",
-        "%vlocity_namespace%__SystemId__c": {
-            "Name": "Thor",
-            "VlocityDataPackType": "VlocityMatchingKeyObject",
-            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__System__c/Thor",
-            "VlocityRecordSObjectType": "%vlocity_namespace%__System__c"
-        },
-        "%vlocity_namespace%__SystemId__r.Name": "Thor",
-        "Name": "Thor Interface",
-        "VlocityDataPackType": "SObject",
-        "VlocityRecordSObjectType": "%vlocity_namespace%__SystemInterface__c",
-        "VlocityRecordSourceKey": "%vlocity_namespace%__SystemInterface__c/Thor Interface/%vlocity_namespace%__System__c/Thor"
-    },
-    {
         "%vlocity_namespace%__GlobalKey__c": "6496906c-8e3c-2a6f-9ded-1e9b99f37638",
         "%vlocity_namespace%__Implementation__c": "XOMOrderSubmitSystemInterface",
         "%vlocity_namespace%__Key__c": "Thor:Supplemental Valid Interface",
@@ -100,5 +83,22 @@
         "VlocityDataPackType": "SObject",
         "VlocityRecordSObjectType": "%vlocity_namespace%__SystemInterface__c",
         "VlocityRecordSourceKey": "%vlocity_namespace%__SystemInterface__c/Supplemental Submit Status Interface/%vlocity_namespace%__System__c/Thor"
+    },
+    {
+        "%vlocity_namespace%__GlobalKey__c": "f123a0a7-c168-5ae2-d675-b8d18c5b110d",
+        "%vlocity_namespace%__Implementation__c": "XOMOrderSubmitSystemInterface",
+        "%vlocity_namespace%__Key__c": "Thor:Thor Interface",
+        "%vlocity_namespace%__Path__c": "/pathpath",
+        "%vlocity_namespace%__SystemId__c": {
+            "Name": "Thor",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "%vlocity_namespace%__System__c/Thor",
+            "VlocityRecordSObjectType": "%vlocity_namespace%__System__c"
+        },
+        "%vlocity_namespace%__SystemId__r.Name": "Thor",
+        "Name": "Thor Interface",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "%vlocity_namespace%__SystemInterface__c",
+        "VlocityRecordSourceKey": "%vlocity_namespace%__SystemInterface__c/Thor Interface/%vlocity_namespace%__System__c/Thor"
     }
 ]

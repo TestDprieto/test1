@@ -22,6 +22,7 @@
     <redirectBlockModeEnabled>false</redirectBlockModeEnabled>
     <sessionSettings>
         <allowUserAuthenticationByCertificate>false</allowUserAuthenticationByCertificate>
+        <allowUserCertBasedAuthenticationWithOcspValidation>false</allowUserCertBasedAuthenticationWithOcspValidation>
         <canConfirmEmailChangeInLightningCommunities>true</canConfirmEmailChangeInLightningCommunities>
         <canConfirmIdentityBySmsOnly>true</canConfirmIdentityBySmsOnly>
         <disableTimeoutWarning>false</disableTimeoutWarning>
@@ -52,7 +53,7 @@
         <hasRetainedLoginHints>false</hasRetainedLoginHints>
         <hasUserSwitching>true</hasUserSwitching>
         <identityConfirmationOnEmailChange>false</identityConfirmationOnEmailChange>
-        <identityConfirmationOnTwoFactorRegistrationEnabled>true</identityConfirmationOnTwoFactorRegistrationEnabled>
+        <identityConfirmationOnTwoFactorRegistrationEnabled>false</identityConfirmationOnTwoFactorRegistrationEnabled>
         <lockSessionsToDomain>true</lockSessionsToDomain>
         <lockSessionsToIp>false</lockSessionsToIp>
         <lockerServiceCSP>false</lockerServiceCSP>
@@ -61,9 +62,11 @@
         <redirectBlockModeEnabled>false</redirectBlockModeEnabled>
         <redirectionWarning>true</redirectionWarning>
         <referrerPolicy>true</referrerPolicy>
+        <referrerPolicyDirective>origin-when-cross-origin</referrerPolicyDirective>
         <requireHttpOnly>false</requireHttpOnly>
         <sessionTimeout>TwoHours</sessionTimeout>
         <sidToken3rdPartyAuraApp>false</sidToken3rdPartyAuraApp>
+        <skipSFAWhenMFADirectUILogin>false</skipSFAWhenMFADirectUILogin>
         <useLocalStorageForLogoutUrl>false</useLocalStorageForLogoutUrl>
     </sessionSettings>
     <singleSignOnSettings>

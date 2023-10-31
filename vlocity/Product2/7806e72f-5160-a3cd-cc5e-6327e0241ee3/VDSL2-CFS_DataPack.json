@@ -12,59 +12,6 @@
         ],
         "records": [
             {
-                "Code__c": "ATT_CODE_IS",
-                "Name": "Internet Services",
-                "displaySequence": 30,
-                "id": "a0J5e000000pgg6EAA",
-                "messages": [
-                ],
-                "productAttributes": {
-                    "messages": [
-                    ],
-                    "records": [
-                        {
-                            "attributeId": "a0K5e000000bEw7EAE",
-                            "cloneable": true,
-                            "code": "ATT_DT_CON",
-                            "dataType": "text",
-                            "disabled": false,
-                            "displaySequence": 3,
-                            "filterable": false,
-                            "hasRules": false,
-                            "hidden": false,
-                            "inputType": "dropdown",
-                            "isNotTranslatable": false,
-                            "label": "Connection Type",
-                            "messages": [
-                            ],
-                            "multiselect": false,
-                            "readonly": false,
-                            "required": false,
-                            "userValues": null,
-                            "values": [
-                                {
-                                    "disabled": false,
-                                    "displaySequence": 1,
-                                    "id": "3c5b4465-e6ea-5d01-6e6e-d67cdd6152cc",
-                                    "label": "Static",
-                                    "readonly": false,
-                                    "value": "Static IP"
-                                },
-                                {
-                                    "disabled": false,
-                                    "displaySequence": 2,
-                                    "id": "b0db3fd7-62d7-d1c7-de33-349a036fe063",
-                                    "label": "Dynamic",
-                                    "readonly": false,
-                                    "value": "Dynamic"
-                                }
-                            ]
-                        }
-                    ],
-                    "totalSize": 1
-                }
-            },
-            {
                 "Code__c": "ACAT_TECH",
                 "Name": "Technical Attributes",
                 "displaySequence": 100,
@@ -130,11 +77,64 @@
                     ],
                     "totalSize": 2
                 }
+            },
+            {
+                "Code__c": "ATT_CODE_IS",
+                "Name": "Internet Services",
+                "displaySequence": 30,
+                "id": "a0J5e000000pgg6EAA",
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "attributeId": "a0K5e000000bEw7EAE",
+                            "cloneable": true,
+                            "code": "ATT_DT_CON",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 3,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Connection Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": [
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 1,
+                                    "id": "3c5b4465-e6ea-5d01-6e6e-d67cdd6152cc",
+                                    "label": "Static",
+                                    "readonly": false,
+                                    "value": "Static IP"
+                                },
+                                {
+                                    "disabled": false,
+                                    "displaySequence": 2,
+                                    "id": "b0db3fd7-62d7-d1c7-de33-349a036fe063",
+                                    "label": "Dynamic",
+                                    "readonly": false,
+                                    "value": "Dynamic"
+                                }
+                            ]
+                        }
+                    ],
+                    "totalSize": 1
+                }
             }
         ],
         "totalSize": 2
     },
-    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__AttributeRules__c": "{}",
     "%vlocity_namespace%__CategoryData__c": "",
     "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
     "%vlocity_namespace%__ClassId__c": "",

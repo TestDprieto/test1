@@ -103,41 +103,57 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Discount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>HasSchedule</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LineNumber</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ListPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Product2Id</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ProductCode</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Quantity</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>QuoteId</fullName>
+        <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
     </fields>
     <fields>
         <fullName>ServiceDate</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Subtotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>UnitPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Action__c</fullName>
@@ -146,6 +162,7 @@
         <externalId>false</externalId>
         <label>Action</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -195,6 +212,7 @@
         <relationshipLabel>Quoted Changes</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -205,6 +223,7 @@
         <label>Asset Reference Id</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -214,6 +233,7 @@
         <externalId>false</externalId>
         <label>Attribute Metadata Changes</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -223,6 +243,7 @@
         <externalId>false</externalId>
         <label>Attribute Selected Values</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -237,6 +258,7 @@
         <relationshipLabel>Quote Items</relationshipLabel>
         <relationshipName>BillingAccountQuoteItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -245,6 +267,7 @@
         <externalId>false</externalId>
         <label>Reference Time</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -253,6 +276,7 @@
         <externalId>false</externalId>
         <label>Connect Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -261,6 +285,7 @@
         <externalId>false</externalId>
         <label>Cpq Cardinality Message</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -270,6 +295,7 @@
         <externalId>false</externalId>
         <label>Cpq Message Data</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -279,6 +305,7 @@
         <externalId>false</externalId>
         <label>Cpq Pricing Message</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -288,6 +315,7 @@
         <externalId>false</externalId>
         <label>Currency Payment Mode</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -312,6 +340,7 @@
         <externalId>false</externalId>
         <label>Disconnect Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -322,6 +351,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -332,6 +362,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -343,6 +374,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -353,6 +385,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -364,6 +397,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -374,6 +408,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -385,6 +420,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -396,6 +432,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -406,6 +443,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -415,6 +453,7 @@
         <externalId>false</externalId>
         <label>Filter</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>TextArea</type>
     </fields>
     <fields>
@@ -424,6 +463,7 @@
         <externalId>false</externalId>
         <label>InCartQuantityMap</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -435,6 +475,7 @@
         <formula>Product2.vlocity_cmt__TrackAsAgreement__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Product Track Agreement</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -444,6 +485,7 @@
         <formula>NOT(ISNULL(vlocity_cmt__ValidationDate__c))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Validated</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -453,6 +495,7 @@
         <label>Item Name</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -463,6 +506,7 @@
         <externalId>false</externalId>
         <label>JSONAttribute</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -473,6 +517,7 @@
         <label>JSONNode</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -482,6 +527,7 @@
         <externalId>false</externalId>
         <label>Last Priced At</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -492,6 +538,7 @@
         <label>Line Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -503,6 +550,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -515,6 +563,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -525,6 +574,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -535,6 +585,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -545,6 +596,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -556,6 +608,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -566,6 +619,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -577,6 +631,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -589,6 +644,7 @@
         <precision>5</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -599,6 +655,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -609,6 +666,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -620,6 +678,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -631,6 +690,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -642,6 +702,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -653,6 +714,7 @@
         <precision>5</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -663,6 +725,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -671,6 +734,7 @@
         <externalId>false</externalId>
         <label>Overage UOM</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -701,6 +765,7 @@
         <label>ParentItemId</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -714,6 +779,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -723,6 +789,7 @@
         <externalId>false</externalId>
         <label>Pricing Log</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -737,6 +804,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>Quote_Line_Items</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -750,6 +818,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>Quote_Line_Items</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -761,6 +830,7 @@
         <inlineHelpText>Version Group Key of Product</inlineHelpText>
         <label>Product Group Key</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -772,6 +842,7 @@
         <inlineHelpText>Stores the resulting string obtained by replacing every Product Id in the Product Hierarchy Path with its Version Group key</inlineHelpText>
         <label>Product Hierarchy Group Key Path</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -783,6 +854,7 @@
         <label>Product Hierarchy Path</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -794,6 +866,7 @@
         <label>Provisioning Status</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -804,6 +877,7 @@
         <label>Query</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -818,6 +892,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -831,6 +906,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -842,6 +918,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -853,6 +930,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -863,6 +941,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -873,6 +952,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -884,6 +964,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -895,6 +976,7 @@
         <precision>5</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -905,6 +987,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -915,6 +998,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -923,6 +1007,7 @@
         <externalId>false</externalId>
         <label>Recurring UOM</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -946,6 +1031,7 @@
         <externalId>false</externalId>
         <label>Recurring UOM</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -969,6 +1055,7 @@
         <externalId>false</externalId>
         <label>RelationshipType</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -995,6 +1082,7 @@
         <label>Relies on Item</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1006,6 +1094,7 @@
         <label>RootItemId</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1017,6 +1106,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1027,6 +1117,7 @@
         <label>Serial Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1041,6 +1132,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>ServiceAccountQuoteItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1050,6 +1142,7 @@
         <externalId>false</externalId>
         <label>Service Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
     <fields>
@@ -1063,6 +1156,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1072,6 +1166,7 @@
         <externalId>false</externalId>
         <label>Sub Action</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -1111,6 +1206,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1122,6 +1218,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1133,6 +1230,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -1146,6 +1244,7 @@
         <relationshipLabel>Quote Products</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1157,6 +1256,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1168,6 +1268,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1180,6 +1281,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>5</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1191,6 +1293,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>5</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1199,6 +1302,7 @@
         <externalId>false</externalId>
         <label>Validation Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <sharingModel>ControlledByParent</sharingModel>

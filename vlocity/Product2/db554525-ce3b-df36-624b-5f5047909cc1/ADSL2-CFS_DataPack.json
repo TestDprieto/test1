@@ -11,42 +11,6 @@
         ],
         "records": [
             {
-                "Code__c": "ATT_CODE_IS",
-                "Name": "Internet Services",
-                "displaySequence": 30,
-                "id": "a0J5e000000pgg6EAA",
-                "messages": [
-                ],
-                "productAttributes": {
-                    "messages": [
-                    ],
-                    "records": [
-                        {
-                            "attributeId": "a0K5e000000bEw7EAE",
-                            "cloneable": true,
-                            "code": "ATT_DT_CON",
-                            "dataType": "text",
-                            "disabled": false,
-                            "displaySequence": 3,
-                            "filterable": false,
-                            "hasRules": false,
-                            "hidden": false,
-                            "inputType": "dropdown",
-                            "isNotTranslatable": false,
-                            "label": "Connection Type",
-                            "messages": [
-                            ],
-                            "multiselect": false,
-                            "readonly": false,
-                            "required": false,
-                            "userValues": null,
-                            "values": null
-                        }
-                    ],
-                    "totalSize": 1
-                }
-            },
-            {
                 "Code__c": "ACAT_TECH",
                 "Name": "Technical Attributes",
                 "displaySequence": 100,
@@ -112,11 +76,47 @@
                     ],
                     "totalSize": 2
                 }
+            },
+            {
+                "Code__c": "ATT_CODE_IS",
+                "Name": "Internet Services",
+                "displaySequence": 30,
+                "id": "a0J5e000000pgg6EAA",
+                "messages": [
+                ],
+                "productAttributes": {
+                    "messages": [
+                    ],
+                    "records": [
+                        {
+                            "attributeId": "a0K5e000000bEw7EAE",
+                            "cloneable": true,
+                            "code": "ATT_DT_CON",
+                            "dataType": "text",
+                            "disabled": false,
+                            "displaySequence": 3,
+                            "filterable": false,
+                            "hasRules": false,
+                            "hidden": false,
+                            "inputType": "dropdown",
+                            "isNotTranslatable": false,
+                            "label": "Connection Type",
+                            "messages": [
+                            ],
+                            "multiselect": false,
+                            "readonly": false,
+                            "required": false,
+                            "userValues": null,
+                            "values": null
+                        }
+                    ],
+                    "totalSize": 1
+                }
             }
         ],
         "totalSize": 2
     },
-    "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__AttributeRules__c": "{}",
     "%vlocity_namespace%__CategoryData__c": "",
     "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
     "%vlocity_namespace%__ClassId__c": "",
