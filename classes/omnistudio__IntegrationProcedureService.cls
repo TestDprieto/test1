@@ -37,6 +37,10 @@ global class IntegrationProcedureService implements System.Callable, omnistudio.
     global static Boolean clearSessionCache(String ipKey, String blockName, Object inputData) {
         return null;
     }
+    @AuraEnabled
+    global static Object createNewVersion(String IdOrUniqueName) {
+        return null;
+    }
     global Object invokeMethod(String methodName, Map<String,Object> input, Map<String,Object> output, Map<String,Object> options) {
         return null;
     }

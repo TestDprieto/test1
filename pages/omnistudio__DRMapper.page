@@ -65,10 +65,13 @@
             object-type-label="'OmniStudio DataRaptor'" instance="vm.bundle" fields="vm.visibleFields" hide-default-name="true"
             buttons="vm.buttons" field-metadata="vm.fields"></slds-record-home-header>
           <extract-tabs bundle="vm.bundle" ng-if="vm.bundle.Id && (vm.bundle['Type'] == 'Extract' || vm.bundle['Type'] == 'Turbo Extract') && !vm.reloadRequired"
-            class="slds-col slds-grid slds-grid--vertical slds-grid--vertical-stretch"></extract-tabs>
-          <load-tabs bundle="vm.bundle" ng-if="vm.bundle.Id && vm.bundle['Type'] == 'Load' && !vm.reloadRequired" class="slds-col slds-grid slds-grid--vertical slds-grid--vertical-stretch">
+            class="slds-col slds-grid slds-grid--vertical slds-grid--vertical-stretch" is-readonly='vm.isReadonly'>
+          </extract-tabs>
+          <load-tabs bundle="vm.bundle" ng-if="vm.bundle.Id && vm.bundle['Type'] == 'Load' && !vm.reloadRequired" 
+            class="slds-col slds-grid slds-grid--vertical slds-grid--vertical-stretch" is-readonly='vm.isReadonly'>
           </load-tabs>
-          <transform-tabs bundle="vm.bundle" ng-if="vm.bundle.Id && vm.bundle['Type'] == 'Transform' && !vm.reloadRequired" class="slds-col slds-grid slds-grid--vertical slds-grid--vertical-stretch">
+          <transform-tabs bundle="vm.bundle" ng-if="vm.bundle.Id && vm.bundle['Type'] == 'Transform' && !vm.reloadRequired"
+            class="slds-col slds-grid slds-grid--vertical slds-grid--vertical-stretch" is-readonly='vm.isReadonly'>
           </transform-tabs>
           <div class="slds-spinner_container" ng-if="vm.saving" id="drmapper-loading-spinner">
             <div class="slds-spinner--brand slds-spinner slds-spinner--medium" role="alert">
@@ -87,7 +90,9 @@
         .value('fieldMetadata', JSON.parse("{!JSENCODE(fieldMetadata)}"))
         .value('fieldSetMetadata', JSON.parse("{!JSENCODE(fieldSetMetadata)}"))
         .value('IsFoundation', {!JSENCODE(IF(isFoundation, "true", "false"))})
+        .value('IsFileBased', {!JSENCODE(IF(isFileBased, "true", "false"))})
         .value('isOmniMetadataApiEnabled', {!JSENCODE(IF(isOmniMetadataApiEnabled, "true", "false"))})
+        .value('isDataRaptorVersioningEnabled', {!JSENCODE(IF(isDataRaptorVersioningEnabled, "true", "false"))})
         .value('attributesJson', JSON.parse("{!JSENCODE(attributesJson)}"));
     </script>
   </body>

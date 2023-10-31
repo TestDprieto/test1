@@ -1,25 +1,14 @@
-<apex:page showHeader="false"
-           sidebar="false"
-           standardStylesheets="false"
-           docType="html-5.0"
-           applyBodyTag="false"
-           applyHtmlTag="false"
-           lightningStylesheets="false"
-           title="LWC Preview VF Page"
-           cache="false"
-           controller="omnistudio.BusinessProcessDisplayController"
-           action="{!checkIfOmniLwcPreviewPageThisIsFirstInstalledPackage}">
-<html xmlns:xlink="http://www.w3.org/1999/xlink">
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false"
+    lightningStylesheets="false" title="LWC Preview VF Page" cache="false" controller="omnistudio.BusinessProcessDisplayController" action="{!checkIfOmniLwcPreviewPageThisIsFirstInstalledPackage}">
+    <html xmlns:xlink="http://www.w3.org/1999/xlink">
     <apex:includeLightning />
     <apex:slds />
 
-    <body >
-        <div id="loading"
-             style="display: none;">
+    <body>
+        <div id="loading" style="display: none;">
             <div class="slds-scope">
                 <div class="slds-spinner_container slds-is-fixed">
-                    <div role="status"
-                         class="slds-spinner--brand slds-spinner slds-spinner--large">
+                    <div role="status" class="slds-spinner--brand slds-spinner slds-spinner--large">
                         <span class="slds-assistive-text">{!$Label.OmniSpinnerTextLoading}</span>
                         <div class="slds-spinner__dot-a"></div>
                         <div class="slds-spinner__dot-b"></div>
@@ -32,8 +21,8 @@
                 <div role="status" id="mock-toast">
                     <span class="slds-assistive-text"></span>
                     <span class="slds-icon_container slds-m-right_small slds-no-flex slds-align-top">
-                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
-                    </svg>
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                        </svg>
                     </span>
                     <div class="slds-notify__content">
                         <h2 class="slds-text-heading_small" id="mock-toast-title"></h2>
@@ -70,13 +59,13 @@
                 let currentToastMode = null;
                 let previousTimeout;
                 const toastWrapper = document.getElementById("mock-toast");
-                toastWrapper.querySelector('.slds-button').addEventListener('click', function(event) {
+                toastWrapper.querySelector('.slds-button').addEventListener('click', function (event) {
                     if (currentToastMode === 'pester') {
                         return;
                     }
                     document.getElementById("mock-toast-container").classList.replace("slds-show", "slds-hide");
                 }, false);
-                window.addEventListener("lightning__showtoast", function(event) {
+                window.addEventListener("lightning__showtoast", function (event) {
                     if (!event || !event.detail) {
                         return;
                     }
@@ -128,7 +117,7 @@
                     document.getElementById("mock-toast-container").classList.replace(
                         "slds-hide", "slds-show");
                     if (currentToastMode !== 'sticky') {
-                        previousTimeout = setTimeout(function() {
+                        previousTimeout = setTimeout(function () {
                             hideToast();
                         }, 3000);
                     }
@@ -175,7 +164,7 @@
 
                 window.addEventListener('omnistepchange', function (event) {
                     document.documentElement.scrollTop = 0;
-                },false);
+                }, false);
 
 
                 // Create the object of attributes
@@ -187,6 +176,10 @@
                 if (attrs['LanguageCode']) {
                     attrs['langCode'] = attrs['LanguageCode'];
                     delete attrs['LanguageCode'];
+                }
+
+                if (attrs['omniscriptId']) {
+                    attrs['id'] = attrs['omniscriptId'];
                 }
 
                 // indicates that lwc is previewed from omniscript designer
@@ -205,6 +198,11 @@
                                     // If lwc load succesfully, making sure error div is empty
                                     document.querySelector("#auraErrorMessage").innerHTML = "";
                                 }
+
+                                if(attrs.theme === 'newport') {
+                                    document.getElementById('lightning').classList.remove('slds-scope');
+                                }
+
                                 document.getElementById('loading').style.display = 'none';
 
                                 // indicates to use the local storybook version of NDS
@@ -256,5 +254,6 @@
         <!-- Hide aura errors as this also shows unhandled exceptions on aura/lightning out  -->
         <div id="auraErrorMessage"></div>
     </body>
-</html>
+
+    </html>
 </apex:page>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Initial Sale</fullName>
+        <default>false</default>
+        <label>Initial Sale</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Upsells</fullName>
+        <default>false</default>
+        <label>Upsells</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Downsells</fullName>
+        <default>false</default>
+        <label>Downsells</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cross-Sells</fullName>
+        <default>false</default>
+        <label>Cross-Sells</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Cancellations</fullName>
+        <default>false</default>
+        <label>Cancellations</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Transfers</fullName>
+        <default>false</default>
+        <label>Transfers</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Terms And Conditions Changes</fullName>
+        <default>false</default>
+        <label>Terms And Conditions Changes</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Renewals</fullName>
+        <default>false</default>
+        <label>Renewals</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Other</fullName>
+        <default>false</default>
+        <label>Other</label>
+    </standardValue>
+</StandardValueSet>

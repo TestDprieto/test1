@@ -1,0 +1,51 @@
+{
+    "%vlocity_namespace%__GlobalKey__c": "SampleCustomerLifetimeValue V1",
+    "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+    "CalculationProcedureId": {
+        "Name": "SampleCustomerLifetimeValue",
+        "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+        "VlocityLookupRecordSourceKey": "CalculationProcedure/SampleCustomerLifetimeValue",
+        "VlocityRecordSObjectType": "CalculationProcedure"
+    },
+    "CalculationProcedureStep": "Version_Steps.json",
+    "CalculationProcedureVariable": "Version_Variables.json",
+    "Constants": [
+        {
+            "apiName": "One",
+            "dataType": "Number",
+            "displayName": null,
+            "isEditable": true,
+            "name": "One",
+            "precision": 0,
+            "uiDisplayOrder": null,
+            "userDefined": true,
+            "value": "1"
+        },
+        {
+            "apiName": "DiscountRate",
+            "dataType": "Number",
+            "displayName": null,
+            "isEditable": true,
+            "name": "DiscountRate",
+            "precision": 2,
+            "uiDisplayOrder": null,
+            "userDefined": true,
+            "value": "0.03"
+        }
+    ],
+    "Description": "",
+    "EndDateTime": "",
+    "IsLoopingEnabled": false,
+    "LastSimulatedVariablesInput": "{\"SLA\":\"Platinum\",\"AnnualIncome\":100000}",
+    "LoopEnd": "",
+    "LoopIncrement": "",
+    "LoopStart": "",
+    "Name": "SampleCustomerLifetimeValue V1",
+    "Namespace": "",
+    "Rank": 1,
+    "StartDateTime": "2022-01-27T17:32:54.000Z",
+    "VersionNumber": 1,
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "CalculationProcedureVersion",
+    "VlocityRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue"
+}

@@ -123,6 +123,15 @@
         <fullName>AuditEmail</fullName>
     </fields>
     <fields>
+        <fullName>BillingFirstName</fullName>
+    </fields>
+    <fields>
+        <fullName>BillingLastName</fullName>
+    </fields>
+    <fields>
+        <fullName>BillingName</fullName>
+    </fields>
+    <fields>
         <fullName>Comments</fullName>
     </fields>
     <fields>
@@ -156,6 +165,15 @@
     <fields>
         <fullName>PaymentGatewayId</fullName>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PaymentMethodDetails</fullName>
+    </fields>
+    <fields>
+        <fullName>PaymentMethodSubType</fullName>
+    </fields>
+    <fields>
+        <fullName>PaymentMethodType</fullName>
     </fields>
     <fields>
         <fullName>Phone</fullName>

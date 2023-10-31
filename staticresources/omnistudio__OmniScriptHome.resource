@@ -199,6 +199,7 @@ angular.module('ouihome')
                 })
                 .catch(reason => { });
 
+
             $scope.backcompatImport = backcompatImport;
             $scope.searchColumns = [OmniScriptFieldMappingsNamespace.Type__c, OmniScriptFieldMappingsNamespace.SubType__c, 'Name'];
             $scope.defaultColumns = [
@@ -209,7 +210,18 @@ angular.module('ouihome')
                     getValue: function ($scope, row) {
                         var url;
                         if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
+                            if(row?.IsFileBased){
+                                if(!row.uniqueName) {
+                                    let type = row[OmniScriptFieldMappingsNamespace.Type__c];
+                                    let subType = row[OmniScriptFieldMappingsNamespace.SubType__c];
+                                    let lang = row[OmniScriptFieldMappingsNamespace.Language__c];
+                                    let version = row[OmniScriptFieldMappingsNamespace.Version__c];
+                                    row.uniqueName =   `${type}_${subType}_${lang}_${version}`;
+                                }
+                                url = window.omniLwcMetadataUrl + row.uniqueName;
+                            } else {
                             url = window.omniLwcNewUrl + row.Id;
+                            }
                         } else {
                             url = window.omniNewUrl + '?id=' + row.Id;
                         }
@@ -287,10 +299,16 @@ angular.module('ouihome')
                     width: 140,
                     field: 'LastModifiedById',
                     getGroupValue: function ($scope, $group) {
-                        return _.escape($group.data[0].LastModifiedBy.Name);
+                        if ($group.data[0] && $group.data[0].LastModifiedBy) {
+                            return _.escape($group.data[0].LastModifiedBy.Name);
+                        }
+                        return null;
                     },
                     getValue: function ($scope, row) {
-                        return _.escape(row.LastModifiedBy.Name);
+                        if (row.LastModifiedBy) {
+                            return _.escape(row.LastModifiedBy.Name);
+                        }
+                        return null;
                     }
                 }, {
                     field: OmniScriptFieldMappingsNamespace.IsReusable__c,
@@ -403,6 +421,40 @@ angular.module('ouihome')
                     }
                 }
             ];
+
+            if (window.isFoundationPkg) {
+                $rootScope.vlocity.getCustomLabels('ODCFileBasedOmniscriptFieldLabel')
+                    .then(function (results) {
+                        $scope.defaultColumns.push(
+                            {
+                                resizable: false,
+                                width: 110,
+                                dynamic: true,
+                                title: results[0],
+                                getValue: function ($scope, row) {
+                                    if (row.IsFileBased) {
+                                        return '<span class="slds-icon_container" title="' + results[0] + '">' +
+                                            '<slds-svg-icon sprite="\'utility\'"' +
+                                            ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
+                                    }
+                                },
+                                getGroupValue: function ($scope, $group) {
+                                    var hasAnActiveEntry = false;
+                                    _.forEach($group.data, function (row) {
+                                        if (row.IsFileBased) {
+                                            hasAnActiveEntry = true;
+                                            return false;
+                                        }
+                                    });
+                                    if (hasAnActiveEntry) {
+                                        return '<span class="slds-icon_container" title="' + results[0] + '">' +
+                                            '<slds-svg-icon sprite="\'utility\'"' +
+                                            ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
+                                    }
+                                }
+                            });
+                    });
+            }
 
             function changeActivation(row, group, isActivate) {
 

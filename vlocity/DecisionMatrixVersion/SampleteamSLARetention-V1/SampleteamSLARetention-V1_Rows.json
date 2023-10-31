@@ -1,0 +1,82 @@
+[
+    {
+        "CalculationMatrixVersionId": {
+            "CalculationMatrix.Name": "SampleteamSLARetention",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationMatrixVersion/1/CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrixVersion"
+        },
+        "InputData": {
+            "SLA": "Bronze"
+        },
+        "IsVersionEnabled": true,
+        "Name": "a0088cb1a8aeeb7d43f9cb759c1a408b",
+        "OutputData": {
+            "RetentionCost": 6000,
+            "RetentionRate": 0.6
+        },
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationMatrixRow"
+    },
+    {
+        "CalculationMatrixVersionId": {
+            "CalculationMatrix.Name": "SampleteamSLARetention",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationMatrixVersion/1/CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrixVersion"
+        },
+        "InputData": {
+            "SLA": "Gold"
+        },
+        "IsVersionEnabled": true,
+        "Name": "ccbad9675055308a7d8ef999fa085f22",
+        "OutputData": {
+            "RetentionCost": 11000,
+            "RetentionRate": 0.9
+        },
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationMatrixRow"
+    },
+    {
+        "CalculationMatrixVersionId": {
+            "CalculationMatrix.Name": "SampleteamSLARetention",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationMatrixVersion/1/CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrixVersion"
+        },
+        "InputData": {
+            "SLA": "Platinum"
+        },
+        "IsVersionEnabled": true,
+        "Name": "4a77822b5076267bc16ac46433f51cd8",
+        "OutputData": {
+            "RetentionCost": 12500,
+            "RetentionRate": 0.95
+        },
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationMatrixRow"
+    },
+    {
+        "CalculationMatrixVersionId": {
+            "CalculationMatrix.Name": "SampleteamSLARetention",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationMatrixVersion/1/CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrixVersion"
+        },
+        "InputData": {
+            "SLA": "Silver"
+        },
+        "IsVersionEnabled": true,
+        "Name": "8eb1f13e281327c52e1e440eafe58955",
+        "OutputData": {
+            "RetentionCost": 8000,
+            "RetentionRate": 0.7
+        },
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationMatrixRow"
+    }
+]

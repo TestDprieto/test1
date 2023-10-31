@@ -38,6 +38,16 @@ global class OmniScriptHomeController {
     global static List<Map<String,Object>> exportScripts(Id scriptId) {
         return null;
     }
+    @AuraEnabled
+    @RemoteAction
+    global static List<SObject> getFileBasedIntegrationProcedures() {
+        return null;
+    }
+    @AuraEnabled
+    @RemoteAction
+    global static List<Object> getFileBasedOmniScripts() {
+        return null;
+    }
     @RemoteAction
     global static void toggleElementTrigger(Boolean toggle) {
 

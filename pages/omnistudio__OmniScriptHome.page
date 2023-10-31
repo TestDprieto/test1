@@ -8,7 +8,7 @@
         <apex:includeScript value="{!URLFOR($Resource.omnistudio__jsforce_1_7, '/jsforce-api-tooling.min.js')}" />
         <apex:includeScript value="{!URLFOR($Resource.omnistudio__jsforce_1_7, '/jszip.min.js')}" />
         <script>
-            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
+            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '55.0' });
             window.conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
         </script>
         <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
@@ -73,7 +73,7 @@
             <slds-home new-url="'{!newUrl}'" search-columns="searchColumns" page-title="'OmniScripts'" s-object-type="'{!omniScriptObjType}'"
                 row-actions="rowActions" group-by="groupBy" sorting="sorting" id-prefix="omni-home" backcompat-import="backcompatImport(json, done)"
                 default-columns="defaultColumns" additional-table-buttons="additionalTableButtons" extra-filters="extraFilters"
-                new-designer-customization-buttons="newDesignerCustomizationButtons">
+                new-designer-customization-buttons="newDesignerCustomizationButtons" load-file-based-omni-scripts="true">
             </slds-home>
         </div>
         <script type="text/javascript">
@@ -103,6 +103,7 @@
             window.omniNewUrl = "{!newUrl}";
             window.previewUrl = "{!previewUrl}"
             window.omniLwcNewUrl = `/lightning/cmp/{!namespacePrefix}OmniDesignerAuraWrapper?c__recordId=`;
+            window.omniLwcMetadataUrl = `/lightning/cmp/{!namespacePrefix}OmniDesignerAuraWrapper?c__uniqueName=`;
             window.showLegacyOmniStudioUi = {!showLegacyOmniStudioUi};
             window.isFoundationPkg = {!isFoundationPackage};
             window.newOutSideFeatureUrl = "/lightning/cmp/{!namespacePrefix}OmniDesignerCustomizationNewFormAuraWrapper?c__componentName=";

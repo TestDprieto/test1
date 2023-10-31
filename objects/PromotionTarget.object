@@ -142,10 +142,6 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>ExclusivityType</fullName>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>IsMinItemCountRequired</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -159,8 +155,13 @@
         <type>MasterDetail</type>
     </fields>
     <fields>
+        <fullName>PromotionTierId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>RestrictionQuantity</fullName>
-        <inlineHelpText>Enter the number of products that can receive this discount. The default quantity is unlimited.</inlineHelpText>
+        <inlineHelpText>Enter how many products can receive this discount. Leave blank for an unlimited quantity. This field is mandatory if the Adjustment Type is Total Fixed Price.</inlineHelpText>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>

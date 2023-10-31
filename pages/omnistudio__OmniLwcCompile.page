@@ -29,7 +29,7 @@
         <script src="{!URLFOR($Resource.fileSaver_2_0_1, '/fileSaver.js')}"></script>
         <apex:includeLightning />
         <script type="text/javascript">
-            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
+            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '55.0' });
             conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
             window.omniLwcCompilerConfig = {
                 accessToken: '{!vlocAccessToken}',
@@ -56,9 +56,15 @@
             const POST_MESSAGE_KEY = '{!JSENCODE($CurrentPage.parameters.postmessagekey)}';
 
             window.IsFoundation = {!JSENCODE(IF(isFoundation, "true", "false"))};
+            window.IsStandardRuntime = {!JSENCODE(IF(isStandardRuntime, "true", "false"))};
             window.OmniScriptFieldMappings = JSON.parse('{!JSENCODE(omniScriptFieldMappings)}');
             window.OmniElementFieldMappings = JSON.parse('{!JSENCODE(omniElementFieldMappings)}');
             window.OmniScriptObjectName = '{!JSENCODE(omniScriptObjectName)}';
+
+    window.minifierWorker = undefined;
+    if (typeof Worker === 'function') {
+        window.minifierWorker = new Worker("{!URLFOR($Resource.htmlminifier, 'assets/worker.js')}");
+    }
         </script>
         <script src="{!$Resource.OmniscriptLwcCompiler}"
                 crossorigin="use-credentials"></script>
@@ -92,7 +98,7 @@
                                 }
                                 throw response;
                             })
-                            .then(jsonObj => compilerService.compileActivated(lwcName, jsonObj, window.omniLwcCompilerConfig.isInsidePckg, window.omniLwcCompilerConfig.namespacePrefix))
+                            .then(jsonObj => compilerService.compileActivated(lwcName, jsonObj, window.omniLwcCompilerConfig.isInsidePckg, window.omniLwcCompilerConfig.namespacePrefix, IsStandardRuntime))
                             .then(resources => {
                                 setMessage('DEPLOYING...');
                                 const addRuntimeNamespace = window.omniLwcCompilerConfig.isInsidePckg,
@@ -108,7 +114,7 @@
                                 if(!/NEEDS_REDIRECT/.test(err.message)){
                                     // Deactivate as an error happened
                                     executeActivation(false, true)
-                                        .then(()=>{
+                                        .then(() => {
                                             setMessage('ERROR: ' + err);
                                         });
                                 } else {

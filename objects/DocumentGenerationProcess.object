@@ -130,6 +130,26 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>DataRaptorInput</fullName>
+    </fields>
+    <fields>
+        <fullName>DocGenApiVersionType</fullName>
+    </fields>
+    <fields>
+        <fullName>DocGenerationBatchProcessId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DocumentInputType</fullName>
+    </fields>
+    <fields>
+        <fullName>DocumentTemplateId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>HasDocGenFontSource</fullName>
+    </fields>
+    <fields>
         <fullName>ReferenceObject</fullName>
     </fields>
     <fields>

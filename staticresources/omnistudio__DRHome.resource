@@ -157,9 +157,39 @@ angular.module('drhome')
         'use strict';
         
         $scope.isFoundation = IsFoundation;
+
+        if(IsFoundation !== false) {
+            $scope.groupBy = function (datatransform) {
+                return  datatransform['Name'];
+            };
+        } else {
+            $scope.groupBy = false;
+        }
         
         $scope.defaultColumns = [{
             field: 'Name',
+            additionalFields: window.isFoundationPackage ? [DRBundleFieldMappingsNamespace.VersionNumber] : undefined,
+            getValue: function ($scope, row) {
+                var url;
+                if(row?.IsFileBased){
+                    url = window.DRNewUrl + '?uniqueName=' + row.UniqueName;
+                } else {
+                    url = window.DRNewUrl + '?id=' + row.Id;
+                }
+                var versionString = '';
+                if (window.isFoundationPackage) {
+                    versionString = ' (Version ' + row[DRBundleFieldMappingsNamespace.VersionNumber] + ')';
+                }
+                return '<a href="' + url + '" ng-mouseup="$root.vlocityOpenUrl(\'' + url + '\', $event);">' +
+                    _.escape(row.Name) + versionString + '</a>';
+            },
+            getGroupValue: function ($scope, $group) {
+                var Name = _.escape($group.data[0]['Name']);
+                if (!Name) {
+                    return '<span>&nbsp;</span>';
+                }
+                return '<span>' + Name + '</span>';
+            },
             resizable: true
         }, {
             field: DRBundleFieldMappingsNamespace.Type__c,
@@ -210,6 +240,52 @@ angular.module('drhome')
             }
         }];
 
+        if (window.isFoundationPackage) {
+            $scope.defaultColumns.push(
+                {
+                    title: window.i18n['DRHomeStandard'],
+                    field: 'IsActive',
+                    resizable: false,
+                    width: 180,
+                    dynamic: true,
+                    getValue: function ($scope, row) {
+                        if (row?.IsFileBased) {
+                            return '<span class="slds-icon_container" title="Is Standard">' +
+                                '<slds-svg-icon sprite="\'utility\'"' +
+                                ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
+                        }
+                    },
+                    getGroupValue: function ($scope, $group) {
+                        var hasAnActiveEntry = false;
+                        _.forEach($group.data, function (row) {
+                            if (row?.IsFileBased) {
+                                hasAnActiveEntry = true;
+                                return false;
+                            }
+                        });
+                        if (hasAnActiveEntry) {
+                            return '<span class="slds-icon_container" title="Is Standard">' +
+                                '<slds-svg-icon sprite="\'utility\'"' +
+                                ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
+                        }
+                    }
+                });
+                $scope.defaultColumns.push(
+                    {
+                        title: window.i18n['DRHomeActive'],
+                        resizable: false,
+                        width: 180,
+                        dynamic: true,
+                        getValue: function ($scope, row) {
+                            if (row[DRBundleFieldMappingsNamespace.IsActive]) {
+                                return '<span class="slds-icon_container" title="Is Active">' +
+                                    '<slds-svg-icon sprite="\'utility\'"' +
+                                    ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
+                            }
+                        }
+                    });
+        }
+
         $localizable('DeleteDataRaptor', 'Delete DataRaptor')
             .then(function(label) {
                 $scope.rowActions = [{
@@ -223,6 +299,9 @@ angular.module('drhome')
                     },
                     deleteAction: function(row, group) {
                         return remoteActions.deleteBundle(row.Id);
+                    },
+                    hide: function (row, group) {
+                        return row[DRBundleFieldMappingsNamespace.IsActive];
                     }
                 }];
             });

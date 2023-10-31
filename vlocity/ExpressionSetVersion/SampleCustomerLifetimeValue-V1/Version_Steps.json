@@ -1,0 +1,277 @@
+[
+    {
+        "CalculationMatrixId": "",
+        "CalculationMatrixType": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "ConditionsConvertedText": "",
+        "ConditionsExpressionText": "",
+        "ConditionsUiFormattedText": {
+            "bypass": {
+            },
+            "stepNumber": 5
+        },
+        "DecisionTableId": "",
+        "Description": "",
+        "FormulaConvertedText": "| var:CLV SUM",
+        "FormulaExpressionText": "SUM(CLV)",
+        "FormulaUiFormattedText": "",
+        "InputVariablesFormatText": [
+            {
+                "alias": "CLV",
+                "dataType": "Currency",
+                "name": "CLV"
+            }
+        ],
+        "IsConditionalStep": false,
+        "IsResultIncluded": true,
+        "Name": "Aggregate",
+        "Namespace": "",
+        "OutputVariablesFormatText": {
+            "alias": "TotalCLV",
+            "dataType": "Currency",
+            "name": "TotalCLV"
+        },
+        "OutputVariablesMappingText": {
+            "TotalCLV": "TotalCLV"
+        },
+        "ReferenceProcedureId": "",
+        "ReturnMessageValueSet": {
+            "false": "",
+            "true": ""
+        },
+        "Stage": "Aggregation",
+        "StageStepSequence": "",
+        "StepType": "Aggregation",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureStep",
+        "VlocityRecordSourceKey": "CalculationProcedureStep/Generated1107763291"
+    },
+    {
+        "CalcProcStepRelationship": [
+            {
+                "CalcProcStepId": "",
+                "CalcProcVersionId": {
+                    "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+                    "VersionNumber": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+                    "VlocityRecordSObjectType": "CalculationProcedureVersion"
+                },
+                "Description": "",
+                "Label": "",
+                "Namespace": "",
+                "ParentCalcProcStepId": {
+                    "Name": "Calculation",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureStep/Generated1401559962",
+                    "VlocityRecordSObjectType": "CalculationProcedureStep"
+                },
+                "Priority": "",
+                "RelationshipType": "Bypass",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "CalcProcStepRelationship",
+                "VlocityRecordSourceKey": "CalcProcStepRelationship/Generated695557960"
+            },
+            {
+                "CalcProcStepId": {
+                    "Name": "Aggregate",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureStep/Generated1107763291",
+                    "VlocityRecordSObjectType": "CalculationProcedureStep"
+                },
+                "CalcProcVersionId": {
+                    "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+                    "VersionNumber": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+                    "VlocityRecordSObjectType": "CalculationProcedureVersion"
+                },
+                "Description": "",
+                "Label": "",
+                "Namespace": "",
+                "ParentCalcProcStepId": {
+                    "Name": "Calculation",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureStep/Generated1401559962",
+                    "VlocityRecordSObjectType": "CalculationProcedureStep"
+                },
+                "Priority": "",
+                "RelationshipType": "ParentChild",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "CalcProcStepRelationship",
+                "VlocityRecordSourceKey": "CalcProcStepRelationship/Generated636068655"
+            }
+        ],
+        "CalculationMatrixId": "",
+        "CalculationMatrixType": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "ConditionsConvertedText": "",
+        "ConditionsExpressionText": "",
+        "ConditionsUiFormattedText": {
+            "bypass": {
+                "-1": 1
+            },
+            "stepNumber": 4
+        },
+        "DecisionTableId": "",
+        "Description": "",
+        "FormulaConvertedText": "var:AnnualIncome var:SampleteamSLARetention__RetentionCost - var:SampleteamSLARetention__RetentionRate * 1 0.03 + var:SampleteamSLARetention__RetentionRate - /",
+        "FormulaExpressionText": "( AnnualIncome - SampleteamSLARetention__RetentionCost )* SampleteamSLARetention__RetentionRate / ( One + DiscountRate - SampleteamSLARetention__RetentionRate )",
+        "FormulaUiFormattedText": "",
+        "InputVariablesFormatText": [
+            {
+                "alias": "AnnualIncome",
+                "dataType": "Currency",
+                "name": "AnnualIncome"
+            },
+            {
+                "alias": "SampleteamSLARetention__RetentionCost",
+                "dataType": "Currency",
+                "name": "SampleteamSLARetention__RetentionCost"
+            },
+            {
+                "alias": "SampleteamSLARetention__RetentionRate",
+                "dataType": "Number",
+                "name": "SampleteamSLARetention__RetentionRate"
+            }
+        ],
+        "IsConditionalStep": false,
+        "IsResultIncluded": true,
+        "Name": "Calculation",
+        "Namespace": "",
+        "OutputVariablesFormatText": {
+            "alias": "CLV",
+            "dataType": "Currency",
+            "name": "CLV"
+        },
+        "OutputVariablesMappingText": {
+            "CLV": "CLV"
+        },
+        "ReferenceProcedureId": "",
+        "ReturnMessageValueSet": {
+            "false": "",
+            "true": ""
+        },
+        "Stage": "Calculation",
+        "StageStepSequence": "",
+        "StepType": "Calculation",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureStep",
+        "VlocityRecordSourceKey": "CalculationProcedureStep/Generated1401559962"
+    },
+    {
+        "CalcProcStepRelationship": [
+            {
+                "CalcProcStepId": {
+                    "Name": "Calculation",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureStep/Generated1401559962",
+                    "VlocityRecordSObjectType": "CalculationProcedureStep"
+                },
+                "CalcProcVersionId": {
+                    "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+                    "VersionNumber": 1,
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+                    "VlocityRecordSObjectType": "CalculationProcedureVersion"
+                },
+                "Description": "",
+                "Label": "",
+                "Namespace": "",
+                "ParentCalcProcStepId": {
+                    "Name": "Decision Matrix",
+                    "VlocityDataPackType": "VlocityMatchingKeyObject",
+                    "VlocityMatchingRecordSourceKey": "CalculationProcedureStep/Generated922257696",
+                    "VlocityRecordSObjectType": "CalculationProcedureStep"
+                },
+                "Priority": "",
+                "RelationshipType": "ParentChild",
+                "VlocityDataPackType": "SObject",
+                "VlocityRecordSObjectType": "CalcProcStepRelationship",
+                "VlocityRecordSourceKey": "CalcProcStepRelationship/Generated179027541"
+            }
+        ],
+        "CalculationMatrixId": {
+            "Name": "SampleteamSLARetention",
+            "VlocityDataPackType": "VlocityLookupMatchingKeyObject",
+            "VlocityLookupRecordSourceKey": "CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrix"
+        },
+        "CalculationMatrixType": "Standard",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "ConditionsConvertedText": "",
+        "ConditionsExpressionText": "",
+        "ConditionsUiFormattedText": {
+            "bypass": {
+            },
+            "stepNumber": 3
+        },
+        "DecisionTableId": "",
+        "Description": "",
+        "FormulaConvertedText": "",
+        "FormulaExpressionText": "",
+        "FormulaUiFormattedText": "",
+        "InputVariablesFormatText": [
+            {
+                "alias": "SLA",
+                "columnKey": "SLA",
+                "dataType": "Text",
+                "listValues": "",
+                "name": "SLA"
+            }
+        ],
+        "IsConditionalStep": false,
+        "IsResultIncluded": false,
+        "Name": "Decision Matrix",
+        "Namespace": "",
+        "OutputVariablesFormatText": [
+            {
+                "alias": "RetentionCost",
+                "columnKey": "RetentionCost",
+                "dataType": "Currency",
+                "listValues": "",
+                "name": "RetentionCost"
+            },
+            {
+                "alias": "RetentionRate",
+                "columnKey": "RetentionRate",
+                "dataType": "Number",
+                "listValues": "",
+                "name": "RetentionRate"
+            }
+        ],
+        "OutputVariablesMappingText": {
+            "RetentionCost": "SampleteamSLARetention__RetentionCost",
+            "RetentionRate": "SampleteamSLARetention__RetentionRate"
+        },
+        "ReferenceProcedureId": "",
+        "ReturnMessageValueSet": {
+            "false": "",
+            "true": ""
+        },
+        "Stage": "Calculation",
+        "StageStepSequence": "",
+        "StepType": "MatrixLookup",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureStep",
+        "VlocityRecordSourceKey": "CalculationProcedureStep/Generated922257696"
+    }
+]

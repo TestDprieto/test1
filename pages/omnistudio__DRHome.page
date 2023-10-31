@@ -11,7 +11,7 @@
   <head>
       <apex:includeScript value="{!URLFOR($Resource.omnistudio__jsforce_1_7, '/jsforce-core.min.js')}" />
       <script>
-          window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
+          window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '55.0' });
       </script>
       <apex:includeScript value="{!$Resource.omnistudio__angular_bundle_1_6}"/>
       <apex:includeScript value="{!URLFOR($Resource.omnistudio__vlocity_assets, '/bower_components/ng-table/dist/ng-table.js')}"/>
@@ -23,6 +23,8 @@
       <apex:includeScript value="/support/console/42.0/integration.js"/>
       <script type="text/javascript">
           window.industryPkgNSPrefix = '{!industryPkgNSPrefix}';
+          window.isFoundationPackage = {!isFoundation};
+          window.DRNewUrl = "{!newUrl}";
       </script>
 
   </head>
@@ -52,13 +54,14 @@
                 page-title="'DataRaptor'"
                 new-url="'{!newUrl}'"
                 view-url="'{!newUrl}?id={Id}'"
-                group-by="false"
+                group-by="groupBy"
                 min-height="'300px'"
                 id-prefix="drbundle-home"
                 s-object-type="'{!drBundleObjType}'"
                 row-actions="rowActions"
                 default-columns="defaultColumns"
-                extra-filters="extraFilters">
+                extra-filters="extraFilters"
+                load-file-based-data-raptors="{!isFoundation}">
       </slds-home>
     </div>
     <c:VFActionFunction />
@@ -99,7 +102,9 @@
         "Value":"{!$Label.omnistudio__Value}",
         "Done":"{!$Label.omnistudio__Done}",
         "AllType":"{!$Label.omnistudio__AllType}",
-        "MyType":"{!$Label.omnistudio__MyType}"
+        "MyType":"{!$Label.omnistudio__MyType}",
+        "DRHomeStandard":"{!$Label.omnistudio__DRHomeStandard}",
+        "DRHomeActive":"{!$Label.omnistudio__DRHomeActive}"
       };
       if (typeof sforce !== 'undefined') {
           if (sforce.console && sforce.console.isInConsole()) {
