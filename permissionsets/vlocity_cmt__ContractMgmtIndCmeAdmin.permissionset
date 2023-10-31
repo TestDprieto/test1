@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__ContractMgmtIndCmeAdmin</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__ContractMgmtIndCmeRuntime</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__DocGenIndCmeDesigner</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__DocGenIndCmeRuntime</name>
+    </customPermissions>
+    <description>Allows admin users to monitor, maintain, configure, and manage contract lifecycles.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>ContractMgmtInd CME Admin User</label>
+</PermissionSet>

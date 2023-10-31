@@ -15,6 +15,9 @@ global class PricingCalculationService {
 global class CalculationProcedureResults {
     global Map<String,Object> aggregationResults;
     global List<Object> calculationResults;
+    global CalculationProcedureResults(Map<String,Object> procedureResult) {
+
+    }
     global CalculationProcedureResults(List<Object> results, Map<String,Object> aggResults) {
 
     }

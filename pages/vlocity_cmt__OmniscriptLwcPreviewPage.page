@@ -3,24 +3,49 @@
            standardStylesheets="false"
            docType="html-5.0"
            applyBodyTag="false"
+           applyHtmlTag="false"
            lightningStylesheets="false"
            title="LWC Preview VF Page"
            cache="false"
-           controller="vlocity_cmt.BusinessProcessDisplayController">
-
+           controller="vlocity_cmt.BusinessProcessDisplayController"
+           action="{!checkIfOmniLwcPreviewPageThisIsFirstInstalledPackage}">
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
     <apex:includeLightning />
     <apex:slds />
 
-    <body>
+    <body >
         <div id="loading"
              style="display: none;">
             <div class="slds-scope">
                 <div class="slds-spinner_container slds-is-fixed">
                     <div role="status"
                          class="slds-spinner--brand slds-spinner slds-spinner--large">
-                        <span class="slds-assistive-text">Loading</span>
+                        <span class="slds-assistive-text">{!$Label.OmniSpinnerTextLoading}</span>
                         <div class="slds-spinner__dot-a"></div>
                         <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-scope" style="position: fixed; z-index: 9999; left: 0; right: 0;">
+            <div class="slds-notify_container slds-is-absolute slds-hide" id="mock-toast-container">
+                <div role="status" id="mock-toast">
+                    <span class="slds-assistive-text"></span>
+                    <span class="slds-icon_container slds-m-right_small slds-no-flex slds-align-top">
+                    <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                    </svg>
+                    </span>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small" id="mock-toast-title"></h2>
+                        <p id="mock-toast-message"></p>
+                    </div>
+                    <div class="slds-notify__close">
+                        <button class="slds-button slds-button_icon slds-button_icon-inverse" title="{!$Label.Close}">
+                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#close')}"></use>
+                            </svg>
+                            <span class="slds-assistive-text">{!$Label.Close}</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -39,6 +64,79 @@
                     lwcComponent = urlParams.get('lwc'),
                     omnidesignerChannelId = urlParams.get('omnidesignerChannelId');
 
+                // this is our mock implementation of toasts in the designer preview
+                // because LWC api doesn't work.
+                const sldsIconBase = "{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg')}";
+                let currentToastMode = null;
+                let previousTimeout;
+                const toastWrapper = document.getElementById("mock-toast");
+                toastWrapper.querySelector('.slds-button').addEventListener('click', function(event) {
+                    if (currentToastMode === 'pester') {
+                        return;
+                    }
+                    document.getElementById("mock-toast-container").classList.replace("slds-show", "slds-hide");
+                }, false);
+                window.addEventListener("lightning__showtoast", function(event) {
+                    if (!event || !event.detail) {
+                        return;
+                    }
+                    if (previousTimeout) {
+                        clearTimeout(previousTimeout);
+                    }
+                    const title = event.detail.title;
+                    const message = event.detail.message;
+                    const variant = event.detail.variant;
+                    currentToastMode = event.detail.mode;
+                    const titleEl = document.getElementById("mock-toast-title");
+                    if (titleEl.innerText !== title) {
+                        titleEl.innerText = title;
+                    }
+                    const messageEl = document.getElementById("mock-toast-message");
+                    if (message) {
+                        messageEl.innerText = message;
+                        messageEl.classList.remove('slds-hide');
+                    } else {
+                        messageEl.innerText = '';
+                        messageEl.classList.add('slds-hide');
+                    }
+
+                    const newClass = "slds-notify slds-notify_toast slds-theme_" + variant;
+                    if (newClass !== toastWrapper.className) {
+                        toastWrapper.className = newClass;
+                    }
+                    const toastAssistiveText = toastWrapper.querySelector('.slds-assistive-text');
+                    if (toastAssistiveText.innerText !== variant) {
+                        toastAssistiveText.innerText = variant;
+                    }
+                    const newIconClassName = "slds-icon_container slds-m-right_small slds-no-flex slds-align-top slds-icon-utility-" + variant;
+                    const iconContainer = toastWrapper.querySelector('.slds-icon_container');
+                    if (newIconClassName !== iconContainer.className) {
+                        iconContainer.className = newIconClassName;
+                    }
+                    const iconEl = toastWrapper.querySelector('.slds-icon');
+                    const svgText = `<use xlink:href="${sldsIconBase}#${variant}"></use>`;
+                    if (iconEl.innerHTML !== svgText) {
+                        iconEl.innerHTML = svgText;
+                    }
+
+                    const closeElement = toastWrapper.querySelector('.slds-notify__close');
+                    if (currentToastMode === "pester") {
+                        closeElement.classList.add('slds-hide');
+                    } else {
+                        closeElement.classList.remove('slds-hide');
+                    }
+                    document.getElementById("mock-toast-container").classList.replace(
+                        "slds-hide", "slds-show");
+                    if (currentToastMode !== 'sticky') {
+                        previousTimeout = setTimeout(function() {
+                            hideToast();
+                        }, 3000);
+                    }
+                }, false);
+
+                function hideToast() {
+                    document.getElementById("mock-toast-container").classList.replace("slds-show", "slds-hide");
+                }
 
                 window.addEventListener('omniaggregate', function (event) {
                     // Pass the data to the parent, as is needed there (because we are in an iframe)
@@ -108,6 +206,47 @@
                                     document.querySelector("#auraErrorMessage").innerHTML = "";
                                 }
                                 document.getElementById('loading').style.display = 'none';
+
+                                // indicates to use the local storybook version of NDS
+                                if (attrs.newportMode === 'storybook') {
+                                    const newportStorybookStyles = document.createElement('link');
+                                    newportStorybookStyles.href = `http://localhost:6006/assets/styles/index-scoped.css?${Date.now()}`;
+                                    newportStorybookStyles.rel = 'stylesheet';
+                                    newportStorybookStyles.onerror = () => {
+                                        // ignore for now, the HMR will take care of it.
+                                    };
+                                    document.head.appendChild(newportStorybookStyles);
+
+                                    const storybookEventSource = new EventSource('http://localhost:6006/__webpack_hmr');
+                                    storybookEventSource.onmessage = (event) => {
+                                        if (event.data) {
+                                            try {
+                                                if (event.data === '💓') {
+                                                    hideToast();
+                                                } else {
+                                                    const data = JSON.parse(event.data);
+                                                    if (data.action === 'built') {
+                                                        newportStorybookStyles.href = `http://localhost:6006/assets/styles/index-scoped.css?${Date.now()}`;
+                                                    }
+                                                }
+                                            } catch (e) {
+                                                // ignore errors.
+                                            }
+                                        }
+                                    };
+                                    storybookEventSource.onerror = () => {
+                                        document.getElementById('lightning').dispatchEvent(new CustomEvent('lightning__showtoast', {
+                                            bubbles: true,
+                                            composed: true,
+                                            detail: {
+                                                title: '{!JSENCODE($Label.ODCNewportStorybookErrorToastTitle)}',
+                                                message: '{!JSENCODE($Label.ODCNewportStorybookErrorToastMessage)}',
+                                                variant: 'warning',
+                                                mode: 'sticky'
+                                            }
+                                        }));
+                                    }
+                                }
                             }
                         );
                     }
@@ -117,4 +256,5 @@
         <!-- Hide aura errors as this also shows unhandled exceptions on aura/lightning out  -->
         <div id="auraErrorMessage"></div>
     </body>
+</html>
 </apex:page>

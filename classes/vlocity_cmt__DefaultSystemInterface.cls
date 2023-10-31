@@ -21,6 +21,9 @@ global virtual class DefaultSystemInterface implements vlocity_cmt.XOMOrchestrat
     global virtual String generatePayload(vlocity_cmt__OrchestrationItem__c item, vlocity_cmt.XOMOrderDomainObject orderObj) {
         return null;
     }
+    global virtual void persistOrchestrationItemLogs(List<vlocity_cmt__OrchestrationItem__c> items) {
+
+    }
     global virtual void processResponse(String url, String path, System.HttpResponse res) {
 
     }

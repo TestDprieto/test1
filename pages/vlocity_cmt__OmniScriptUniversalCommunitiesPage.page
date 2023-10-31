@@ -1,16 +1,19 @@
-<apex:page standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0" controller="vlocity_cmt.VFPageControllerBase"
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0" controller="vlocity_cmt.PlatformVFPageControllerBase"
            language="{!$CurrentPage.parameters.LanguageCode}">
-    <div ng-app="OmniScriptCommunities" class='vlocity'>
-        <c:BusinessProcessComponent verticalMode="false"
-              strOmniScriptId="{!$CurrentPage.parameters.designerPreviewId}"
-              previewMode="{!$CurrentPage.parameters.previewEmbedded}"
-              strCSSFileList="[{!sNSP}vlocity_assets:css/vlocity.css], [{!sNSP}oui:], [{!sNSP}vlocityouidependency:vlocityoui.css], [{!sNSP}OmniScriptCommunitiesCss]"
-              JSONTreeHTMLTemplateName="JSONApplicationReviewHTMLTemplate.html"
-              elementTypeToHTMLTemplateMapping="{'Step': 'vlcCommunitiesStep.html'}" />
-        <script type="text/javascript">
-            var modules = ['vlocity-business-process'];
-            var myModule = angular.module('OmniScriptCommunities', modules);
-        </script>
-    </div>
-    <c:VFActionFunction />
+    <c:VFPageDeprecatedMessage rendered="{!!showLegacyOmniStudioUi}"/>
+    <apex:outputPanel layout="none" rendered="{!showLegacyOmniStudioUi}">
+        <div ng-app="OmniScriptCommunities" class='vlocity'>
+            <c:BusinessProcessComponent verticalMode="false"
+                strOmniScriptId="{!$CurrentPage.parameters.designerPreviewId}"
+                previewMode="{!$CurrentPage.parameters.previewEmbedded}"
+                strCSSFileList="[{!sNSP}vlocity_assets:css/vlocity.css], [{!sNSP}oui:], [{!sNSP}vlocityouidependency:vlocityoui.css], [{!sNSP}OmniScriptCommunitiesCss]"
+                JSONTreeHTMLTemplateName="JSONApplicationReviewHTMLTemplate.html"
+                elementTypeToHTMLTemplateMapping="{'Step': 'vlcCommunitiesStep.html'}" />
+            <script type="text/javascript">
+                var modules = ['vlocity-business-process'];
+                var myModule = angular.module('OmniScriptCommunities', modules);
+            </script>
+        </div>
+        <c:VFActionFunction />
+    </apex:outputPanel>
 </apex:page>

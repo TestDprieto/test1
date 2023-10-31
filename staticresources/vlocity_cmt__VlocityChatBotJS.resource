@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -2036,9 +2050,9 @@ VOUINS.OmniFormCtrl = function($scope, ouiBaseService, $timeout, $rootScope, $q,
                                 result = angular.fromJson(result);
                             }
 
-                            if(result && (control.type==='File' || control.type==='Image')) {
-                                control.response[control.response.length-1].contentDocumentId = result.contentDocumentId;
-                                control.response[control.response.length-1].vId = result.contentVersionId;
+                            if (result && (control.type === 'File' || control.type === 'Image')) {
+                                file.contentDocumentId = result.contentDocumentId;
+                                file.vId = result.contentVersionId;
                                 scp.aggregate(scp, control.index, control.indexInParent, true, -1);
                             }
 
@@ -3367,6 +3381,9 @@ VOUINS.OmniFormCtrl = function($scope, ouiBaseService, $timeout, $rootScope, $q,
                                     } 
                                 }
 
+                                // [PKG-962] creating alternate id for usage in form name attribute.
+                                scope.bpTree.sOmniScriptId2 = (sfdcVars.bOmniStudio ? 'os_' : '') + scope.bpTree.sOmniScriptId;
+
                                 if(ouiBaseService.bPLSeeding) {
                                     var interval = setInterval(check, 10);   
                                     
@@ -3404,7 +3421,7 @@ VOUINS.OmniFormCtrl = function($scope, ouiBaseService, $timeout, $rootScope, $q,
         };
     });
 }());  
- 
+
 },{}],8:[function(require,module,exports){
 // directive - bot form child
 (function() {
@@ -5215,7 +5232,8 @@ angular.module('vlocity-oui-common')
             'Vlocity BuildJSONWithPrefill' : 'BusinessProcessDisplayController/BuildJSONWithPrefillV2',
             'Vlocity GetUserInfo' : 'BusinessProcessDisplayController/GetUserInfo',
             'Vlocity GetCustomLabels' : 'DRDataPackRunnerController/getCustomLabels',
-            'Vlocity CreateOSContentVersion' : 'BusinessProcessUtility/CreateOSContentVersion'
+            'Vlocity CreateOSContentVersion': 'BusinessProcessUtility/CreateOSContentVersion',
+            'Vlocity LogUsageInteractionEvent': 'BusinessProcessDisplayController/logUsageInteractionEvent',
         }
         // in ChatBot miniform, the VF component attribute will overwrite the default Type-HTML Map
         factory.elementTypeToHTMLMapOW = angular.copy(factory.elementTypeToHTMLMap);        

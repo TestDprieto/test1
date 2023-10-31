@@ -46,6 +46,10 @@
         <name>vlocity_cmt__HasUnappliedGroupItems__c</name>
     </fields>
     <fields>
+        <label><!-- Has Unapplied Members --></label>
+        <name>vlocity_cmt__HasUnappliedMembers__c</name>
+    </fields>
+    <fields>
         <label><!-- Locked By User --></label>
         <name>vlocity_cmt__LockedBy__c</name>
         <relationshipLabel><!-- Quote Groups --></relationshipLabel>
@@ -103,6 +107,11 @@
         <name>vlocity_cmt__OneTimeTotal__c</name>
     </fields>
     <fields>
+        <label><!-- Opportunity Group --></label>
+        <name>vlocity_cmt__OpportunityGroupId__c</name>
+        <relationshipLabel><!-- Quote Groups --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Quote Group Margin Total --></label>
         <name>vlocity_cmt__QuoteGroupMarginTotal__c</name>
     </fields>
@@ -122,6 +131,10 @@
     <fields>
         <label><!-- Group Recurring Total --></label>
         <name>vlocity_cmt__RecurringTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Selected Assets Common Configuration --></label>
+        <name>vlocity_cmt__SelectedAssetsCommonConfiguration__c</name>
     </fields>
     <fields>
         <label><!-- Group Usage Cost Total --></label>

@@ -2,7 +2,6 @@ Name
 GUIDGenerator
 CategoryGUIDBatchJobQuery
 AttributeGUIDBatchJobQuery
-OdinOrderActivated
 OdinNotificationClassifier
 OdinValidator
 OdinOrderItemAccepted
@@ -15,3 +14,4 @@ OdinOrderItemRejected
 OdinOrderRejected
 OdinOrderQueued
 OdinOrderItemAssetize
+UserNotifier

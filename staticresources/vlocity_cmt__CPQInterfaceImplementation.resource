@@ -14,3 +14,4 @@ OdinOrderItemRejectedHandler,OdinOrderItemRejected,TRUE,TRUE
 OdinOrderRejectedHandler,OdinOrderRejected,TRUE,TRUE
 OdinOrderQueuedHandler,OdinOrderQueued,TRUE,TRUE
 OdinOrderItemAssetizeHandler,OdinOrderItemAssetize,TRUE,TRUE
+DefaultUserNotifierImplementation,UserNotifier,TRUE,TRUE

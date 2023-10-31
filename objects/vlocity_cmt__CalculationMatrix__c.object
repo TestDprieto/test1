@@ -144,7 +144,7 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>vlocity_cmt__StandardMatrix</compactLayoutAssignment>
     <compactLayouts>
         <fullName>vlocity_cmt__GroupMatrix</fullName>
         <fields>Name</fields>
@@ -295,7 +295,7 @@
         <protected>false</protected>
         <url>var dataPackType = &apos;CalculationMatrix&apos;;
 var objectId = &apos;{!vlocity_cmt__CalculationMatrix__c.Id}&apos;;
-var suggestedName = &apos;{!vlocity_cmt__CalculationMatrix__c.Name}&apos;;
+var suggestedName = &apos;{!JSENCODE(vlocity_cmt__CalculationMatrix__c.Name)}&apos;;
 
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}

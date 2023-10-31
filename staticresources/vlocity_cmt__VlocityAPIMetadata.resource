@@ -1,15 +1,39 @@
-APIHandler__c,APIParams__c,APIResponseHandler__c,APIUrl__c,IsActive__c,APIName__c,Sequence__c, BatchClassName__c
-DefaultEcomDataProfilerCHandler,{"batchSize":1},,,TRUE,EcomDataProfileGenerator,1,EcomDataProfileGeneratorBatch
-DefaultRuleSetCombinationsCHandler,{"batchSize":1},,,TRUE,RuleSetCombinationGenerator,2,RuleSetCombinationGeneratorBatch
-DefaultCtxCombinationsCHandler,{"batchSize":1},,,TRUE,ContextEligibilityGenerator,3,ContextEligibilityGeneratorBatch
-DefaultGetOfferHierarchyCHandler,{"batchSize":1},,,TRUE,GetOffersHierarchyHelper,4,GetOffersHierarchyHelperBatch
-DefaultGetOffersItemCHandler,{"batchSize":1},,,TRUE,GetOffersItem,5,GetOffersItemBatch
-DefaultGetOffersCHandler,{"batchSize":1},DefaultGetOffersRHandler,/v3/catalogs/{catalog_code}/offers,TRUE,GetOffers,6,GetOffersBatch
-DefaultGetRelatedOffersCHandler,{"batchSize":1},DefaultGetRelatedOffersRHandler,/v3/catalogs/{catalogCode}/offers?contains={productCode}&context={contextParams},TRUE,GetContainOffers,7,GetContainOffersBatch
-DefaultGetPricesCHandler,{"batchSize":20__COMMA_TOKEN__"scopeAll":true},DefaultGetPricesCHandler,/v3/prices,true,GetPrices,8, GetPricesBatch
-DefaultGetOfferDetailsCHandler,{"batchSize":1},DefaultGetOfferDetailsRHandler,/v3/catalogs/{catalog_code}/offers/{offer_code},TRUE,GetOfferDetails,9,GetOfferDetailsBatch
-null,,DefaultConfigureOfferRHandler,/v3/catalogs/{catalog_code}/offers/{offer_code},TRUE,ConfigureOfferDetail,10,
-null,,DefaultCreateEcomCartRHandler,/v3/carts,TRUE,CreateEcomCart,11,
-null,,DefaultBasketOperationsRHandler,,TRUE,basketOperations,12,
-null,,DefaultContextInfoRHandler,,TRUE,contextInfo,13,
-null,,DefaultCacheMigrationImplementation,/v3/migrationstatus,TRUE,CacheMigration,14,
+APIHandler__c,APIKey__c,APIParams__c,APIResponseHandler__c,APIUrl__c,IsActive__c,APIName__c,Sequence__c, BatchClassName__c
+DefaultDCProductVersionInfoCHandler,versioning,{"batchSize":1},,,TRUE,ProductVersionInfoGenerator,1,DCProductVersionInfoGeneratorBatch
+DefaultDCPromoVersionInfoCHandler,versioning,{"batchSize":1},,,TRUE,PromoVersionInfoGenerator,2,DCPromoVersionInfoGeneratorBatch
+DefaultDCVersionInfoListCHandler,versioning,{"batchSize":1},,,TRUE,VersionInfoListGenerator,3,DCVersionInfoListGeneratorBatch
+DefaultDCTimeSliceListCHandler,versioning,{"batchSize":1},,,TRUE,TimeSliceListGenerator,4,DCTimeSliceListBatch
+DCTimeSlicesCHandler,versioning,{"batchSize":1},,,TRUE,TimeSliceInfoGenerator,5,DCTimeSliceGeneratorBatch
+DefaultEcomDataProfilerCHandler,common,{"batchSize":1},,,TRUE,EcomDataProfileGenerator,13,EcomDataProfileGeneratorBatch
+DefaultRuleSetCombinationsCHandler,versioning,{"batchSize":1},,,TRUE,RuleSetCombinationVersionGenerator,14,RuleSetCombinationVersionGeneratorBatch
+DefaultRuleSetCombinationsCHandler,common,{"batchSize":1},,,TRUE,RuleSetCombinationGenerator,15,RuleSetCombinationGeneratorBatch
+DefaultCtxCombinationsCHandler,common,{"batchSize":1},,,TRUE,ContextEligibilityGenerator,16,ContextEligibilityGeneratorBatch
+DefaultGetOfferHierarchyCHandler,common,{"batchSize":1},,,TRUE,GetOffersHierarchyHelper,17,GetOffersHierarchyHelperBatch
+DefaultGetOffersItemCHandler,common,{"batchSize":1},,,TRUE,GetOffersItem,18,GetOffersItemBatch
+DefaultGetOffersCHandler,common,{"batchSize":1},DefaultGetOffersRHandler,/v3/catalogs/{catalog_code}/offers,TRUE,GetOffers,19,GetOffersBatch
+DefaultGetRelatedOffersCHandler,common,{"batchSize":1},DefaultGetRelatedOffersRHandler,/v3/catalogs/{catalogCode}/offers?contains={productCode}&context={contextParams},TRUE,GetContainOffers,20,GetContainOffersBatch
+DefaultGetPricesCHandler,non_versioning,{"batchSize":20__COMMA_TOKEN__"scopeAll":true},DefaultGetPricesCHandler,/v3/prices,true,GetPrices,21, GetPricesBatch
+DefaultGetPricesCHandler,versioning,{"batchSize":1},DefaultGetPricesCHandler,/v3/prices,true,GetPrices,22, GetPricesBatch
+DefaultGetOfferDetailsCHandler,common,{"batchSize":1},DefaultGetOfferDetailsRHandler,/v3/catalogs/{catalog_code}/offers/{offer_code},TRUE,GetOfferDetails,23,GetOfferDetailsBatch
+DefaultPromotionWrapperCHandler,common,{"batchSize":1},,,TRUE,PromotionWrapper,24,PromotionWrapperBatch
+null,,,DefaultConfigureOfferRHandler,/v3/catalogs/{catalog_code}/offers/{offer_code},TRUE,ConfigureOfferDetail,25,
+null,,,DefaultCreateEcomCartRHandler,/v3/carts,TRUE,CreateEcomCart,26,
+null,,,DefaultBasketOperationsRHandler,,TRUE,basketOperations,27,
+null,,,DefaultContextInfoRHandler,,TRUE,contextInfo,28,
+null,,,DefaultCacheMigrationImplementation,/v3/migrationstatus,TRUE,CacheMigration,29,
+null,,{"Generation":0__COMMA_TOKEN__"Counter":0},,,TRUE,CacheInvalidationLock,30,
+null,,{"Generation":0__COMMA_TOKEN__"Counter":0},,,TRUE,CacheOfferRegenerationLock,31,
+null,,,CatalogProfileRHandler,/v3/admin/catalogs/{catalogCode}/catalogprofile,TRUE,CMCatalogProfile,32,
+null,,,RuleSetCombinationsRHandler,/v3/admin/ruleset/{rulesetId}/rulesetcombinations,TRUE,CMRuleSetCombinations,33,
+null,,,ContextDimensionsRHandler,/v3/admin/catalogs/{catalogCode}/contextdimensions,TRUE,CMContextDimensions,34,
+null,,,ContextCombinationsRHandler,/v3/admin/catalogs/{catalogCode}/contextcombinations,TRUE,CMContextCombinations,35,
+null,,,ContextEligibilityRHandler,/v3/admin/catalogs/{catalogCode}/contexteligibility,TRUE,CMContextEligibility,36,
+null,,,OffersItemRHandler,/v3/admin/catalogs/{catalogCode}/offersitem,TRUE,CMOffersItem,37,
+null,,,OffersRHandler,/v3/admin/catalogs/{catalogCode}/offers,TRUE,CMOffers,38,
+null,,,HierarchyRHandler,/v3/admin/catalogs/{catalogCode}/offers/{offerId}/hierarchy,TRUE,CMHierarchy,39,
+null,,,PricesRHandler,/v3/admin/catalogs/{catalogCode}/offers/{offerId}/prices,TRUE,CMPrices,40,
+null,,,OfferDetailsRHandler,/v3/admin/catalogs/{catalogCode}/offers/{offerId}/offerdetails,TRUE,CMOfferDetails,41,
+null,,,BundleWrapperRHandler,/v3/admin/catalogs/{catalogCode}/offers/{offerId}/bundlewrapper,TRUE,CMBundleWrapper,42,
+null,,,PromotionWrapperRHandler,/v3/admin/offers/{offerId}/promotionWrapper,TRUE,CMPromotionWrapper,43,
+null,,,ContainsOfferRHandler,/v3/admin/catalogs/{catalogCode}/offers/{offerId}/containsoffer,TRUE,CMContainsOffer,44,
+null,,,DefaultRegenerationCachedAPIRHandler,,TRUE,regenerate,45,

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Async Process --></label>
+        <name>vlocity_cmt__AsyncProcessId__c</name>
+        <relationshipLabel><!-- Async Process Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Async Process Step --></label>
+        <name>vlocity_cmt__AsyncProcessStepId__c</name>
+        <relationshipLabel><!-- Async Process Jobs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Items Processed List --></label>
+        <name>vlocity_cmt__ItemsProcessedList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Items to Process List --></label>
+        <name>vlocity_cmt__ItemsToProcessList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Job Id --></label>
+        <name>vlocity_cmt__JobId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>vlocity_cmt__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status Code --></label>
+        <name>vlocity_cmt__StatusCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Step Progress --></label>
+        <name>vlocity_cmt__StepProgress__c</name>
+        <picklistValues>
+            <masterLabel>Execute Process</masterLabel>
+            <translation><!-- Execute Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finish Process</masterLabel>
+            <translation><!-- Finish Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Start Process</masterLabel>
+            <translation><!-- Start Process --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Technical Message --></label>
+        <name>vlocity_cmt__TechnicalMessage__c</name>
+    </fields>
+</CustomObjectTranslation>

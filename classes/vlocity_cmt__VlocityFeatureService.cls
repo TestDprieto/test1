@@ -15,10 +15,19 @@ global class VlocityFeatureService {
     global static void diableVersioningFeature() {
 
     }
+    global static void disableCPQNextFeature() {
+
+    }
     global static void disableCostAndMarginFeature() {
 
     }
     global static void disableFDOQueueFeature() {
+
+    }
+    global static void disableJsonInCoreFeature() {
+
+    }
+    global static void disableLWCCPQFeature() {
 
     }
     global static void disableLoyaltyFeature() {
@@ -33,13 +42,31 @@ global class VlocityFeatureService {
     global static void disableUsageFeature() {
 
     }
+    global static void disableV2AttributeModel() {
+
+    }
+    global static void disableVersioningFeature() {
+
+    }
+    global static void disableVersioningTestMode() {
+
+    }
     global static void disableWorkSetFeature() {
+
+    }
+    global static void enableCPQNextFeature() {
 
     }
     global static void enableCostAndMarginFeature() {
 
     }
     global static void enableFDOQueueFeature() {
+
+    }
+    global static void enableJsonInCoreFeature() {
+
+    }
+    global static void enableLWCCPQFeature() {
 
     }
     global static void enableLoyaltyFeature() {
@@ -54,7 +81,13 @@ global class VlocityFeatureService {
     global static void enableUsageFeature() {
 
     }
+    global static void enableV2AttributeModel() {
+
+    }
     global static void enableVersioningFeature() {
+
+    }
+    global static void enableVersioningTestMode() {
 
     }
     global static void enableWorkSetFeature() {
@@ -63,10 +96,19 @@ global class VlocityFeatureService {
     global static Boolean getFeatureValue(String featureName) {
         return null;
     }
+    global static Boolean isCPQNextFeatureEnabled() {
+        return null;
+    }
     global static Boolean isCostAndMarginFeatureEnabled() {
         return null;
     }
     global static Boolean isFDOQueueFeatureEnabled() {
+        return null;
+    }
+    global static Boolean isJsonInCoreEnabled() {
+        return null;
+    }
+    global static Boolean isLWCCPQEnabled() {
         return null;
     }
     global static Boolean isLoyaltyFeatureEnabled() {
@@ -81,7 +123,13 @@ global class VlocityFeatureService {
     global static Boolean isUsageFeatureEnabled() {
         return null;
     }
+    global static Boolean isV2AttributeModelEnabled() {
+        return null;
+    }
     global static Boolean isVersioningFeatureEnabled() {
+        return null;
+    }
+    global static Boolean isVersioningTestModeEnabled() {
         return null;
     }
     global static Boolean isWorkSetFeatureEnabled() {

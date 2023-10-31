@@ -5,10 +5,11 @@
             <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}"/>
             <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__angular_strap_bundle_1_6)}"/>
 
-			<apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery,  '/ui/jquery-ui-1.9.1.custom.min.js')}"/>
+			<apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery,  '/ui/jquery-ui-1.12.1.custom.min.js')}"/>
 			<apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__ANGULAR_SORTABLE)}"/> 
 		   	<apex:includeScript value="/soap/ajax/31.0/connection.js" />
 			<apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}"/>
+			<apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/css/ui-lightness/jquery-ui-1.12.1.custom.min.css')}"/>
             
 			<apex:includeScript value="{!$Resource.vlocity_cmt__ngtable}"/>
 			<apex:stylesheet value="{!$Resource.vlocity_cmt__ngtablecss}" />
@@ -251,7 +252,7 @@
 			</style>
 
 		   	<script>
-		   		sforce.connection.sessionId = '{!$Api.Session_ID}'; 
+		   		sforce.connection.sessionId = '{!vlocAccessToken}'; 
 
                 //Upgrading the old jquery to the latest by using vlocity core assets :CMT-1948
                 //Fixing an incompatible/deprecated methods needed by old jquery drag and drop library
@@ -646,7 +647,11 @@
 								if ($scope.isEditPage) {
 									$window.location.reload();	
 								}else{
-									$window.location.href = $window.location.origin + '/' + result.rule.Id;
+									var ruleId = result.rule.Id;
+									if (ruleId)
+									{
+										$window.location.href = encodeURI('/' + ruleId);
+									}
 								}
 							}
 						})
@@ -877,7 +882,7 @@
 					$scope.initialize = function(searchString){
 						$scope.nsPrefix = '{!nsPrefix}';
 						$scope.sobjectTypes = [];
-						$scope.ruleId = '{!ruleId}';
+						$scope.ruleId = '{!JSENCODE(ruleId)}';
 
 						$scope.rule = {};
 						//rule related filter lists
@@ -1021,7 +1026,7 @@
 					
 					$scope.redirect = function(Id){
 						if (Id === undefined) {
-							var ruleId = '{!ruleId}';
+							var ruleId = '{!JSENCODE(ruleId)}';
 							if(ruleId !== ''){
 								window.top.location.href = '/' + ruleId;
 							} else{

@@ -30,6 +30,9 @@
     //var sideBarModule = angular.module('sidebarApp',['CardFramework', 'vlocity']);
     var sideBarModule = angular.module('rightSidebarApp',['CardFramework', 'vlocity', 'forceng', 'cfp.hotkeys']);
 
+    //force runtime to use CardRuntime class
+    window.useRuntime = false;
+
     sideBarModule.config(['$localizableProvider', function($localizableProvider) {
       'use strict';
       $localizableProvider.setLocalizedMap(window.i18n);
@@ -49,7 +52,7 @@
         console.log('inside run');
 
         force.init({
-            accessToken: '{!$Api.Session_ID}',
+            accessToken: '{!vlocAccessToken}',
             useProxy: false
         });
 
@@ -92,7 +95,7 @@
                 sforce.console.getEnclosingPrimaryTabObjectId(load);
             } else {
                 console.info('outside console');
-                var result = { id:'0015e00000AsdJg' };
+                var result = { id:'0011500001ChJqc' };
                 load(result);
             }
         };

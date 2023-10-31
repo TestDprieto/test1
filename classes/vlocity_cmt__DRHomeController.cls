@@ -16,6 +16,9 @@ global class DRHomeController {
     global String namespacePrefix {
         get;
     }
+    global DRHomeController() {
+
+    }
     @RemoteAction
     global static String deleteBundle(String focusBundleIdParam) {
         return null;
@@ -45,5 +48,8 @@ global class DRHomeController {
         return null;
     }
 global class HomePageTableData {
+    global HomePageTableData() {
+
+    }
 }
 }

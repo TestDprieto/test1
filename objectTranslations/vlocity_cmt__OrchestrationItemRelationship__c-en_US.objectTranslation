@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Item --></label>
+        <name>vlocity_cmt__ItemId__c</name>
+        <relationshipLabel><!-- Orchestration Item Relationships (Principal) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Related Item --></label>
+        <name>vlocity_cmt__RelatedItemId__c</name>
+        <relationshipLabel><!-- Orchestration Item Relationships (Related) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Relationship Type --></label>
+        <name>vlocity_cmt__RelationshipType__c</name>
+        <picklistValues>
+            <masterLabel>Amend</masterLabel>
+            <translation><!-- Amend --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

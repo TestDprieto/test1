@@ -19,6 +19,8 @@
                 <stringValue>CHANGE_ME (should be changed to the correct rule name)</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>vlocity_cmt__RuleAction</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Step_1</name>
@@ -42,6 +44,8 @@
                 <stringValue>Recommend Package based on Opportunity Contents</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>vlocity_cmt__RuleAction</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <name>Step_1_0</name>
@@ -68,6 +72,8 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>vlocity_cmt__RuleAction</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>49.0</apiVersion>
     <interviewLabel>Validation Rules Flow {!$Flow.CurrentDateTime}</interviewLabel>

@@ -484,7 +484,7 @@
             "IsActive": true,
             "Type": "Manual",
             "StepFrequency": "Upgrade",
-            "Instruction": "<ol><li>Need to manually activate Product Family picklist field values for the Offer Migration Plan object.</li><li>Navigate to <b>Setup</b> â†’ Search for 'Objects'.</li><li>Select '<b>Objects</b>' under 'Create' - Tab</li><li>Search &amp; Select '<b>Offer Migration Plan</b>' object â†’ Search &amp; Select '<b>Product Family</b>' picklist field â†’ â€˜<b>Activate</b>â€™ any Inactive values applicable to the user. User can add their own values too.</li><li>PickList values here should ideally be subset of Productâ€™s 'Family' picklist values.</li></ol>",
+            "Instruction": "<ol><li>Need to manually activate Product Family picklist field values for the Offer Migration Plan object.</li><li>Navigate to <b>Setup</b> → Search for 'Objects'.</li><li>Select '<b>Objects</b>' under 'Create' - Tab</li><li>Search &amp; Select '<b>Offer Migration Plan</b>' object → Search &amp; Select '<b>Product Family</b>' picklist field → ‘<b>Activate</b>’ any Inactive values applicable to the user. User can add their own values too.</li><li>PickList values here should ideally be subset of Product’s 'Family' picklist values.</li></ol>",
             "CustomInputLabel": "",
             "CustomInputValue": "",
             "Options": "",

@@ -29,7 +29,7 @@
                                 if(result && result[0] && result[0].url) {
                                    url = result[0].url;
                                 }
-                                window.location.href = url;
+                                window.top.location.href = url;
                         });
                     }
                     $scope.init = function(){

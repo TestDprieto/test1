@@ -15,7 +15,7 @@
                 "Code__c": "ACAT_Plans",
                 "Name": "Mobile Plans",
                 "displaySequence": 10,
-                "id": "a0J5e000000pgg9EAA",
+                "id": "a0J5e000001ZjAdEAK",
                 "messages": [
                 ],
                 "productAttributes": {
@@ -23,7 +23,7 @@
                     ],
                     "records": [
                         {
-                            "attributeId": "a0K5e000000bEwJEAU",
+                            "attributeId": "a0K5e000001KN6uEAG",
                             "cloneable": true,
                             "code": "ATT_RT_DP",
                             "dataType": "text",
@@ -80,7 +80,7 @@
                             ]
                         },
                         {
-                            "attributeId": "a0K5e000000bEwREAU",
+                            "attributeId": "a0K5e000001KN72EAG",
                             "cloneable": true,
                             "code": "ATT_RT_NL",
                             "dataType": "number",
@@ -106,7 +106,7 @@
                             ]
                         },
                         {
-                            "attributeId": "a0K5e000000bEwQEAU",
+                            "attributeId": "a0K5e000001KN71EAG",
                             "cloneable": true,
                             "code": "ATT_DT_MPT",
                             "dataType": "text",
@@ -149,6 +149,7 @@
         "totalSize": 1
     },
     "%vlocity_namespace%__AttributeRules__c": "{}",
+    "%vlocity_namespace%__AttributesMarkupConfig__c": "",
     "%vlocity_namespace%__CategoryData__c": [
         {
             "actions": {
@@ -180,12 +181,16 @@
     "%vlocity_namespace%__HeaderData__c": "",
     "%vlocity_namespace%__HelpText__c": "",
     "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsCustomerSubscription__c": false,
     "%vlocity_namespace%__IsLocationDependent__c": false,
     "%vlocity_namespace%__IsNotAssetizable__c": false,
     "%vlocity_namespace%__IsOrderable__c": true,
     "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "",
     "%vlocity_namespace%__JeopardySafetyInterval__c": "",
     "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__MainFeatureQuantityUom__c": "",
+    "%vlocity_namespace%__MainFeatureQuantity__c": "",
+    "%vlocity_namespace%__MainFeatureTermInDays__c": "",
     "%vlocity_namespace%__Modification__c": "",
     "%vlocity_namespace%__ObjectTypeId__c": {
         "%vlocity_namespace%__GlobalKey__c": "d14e749e370a37c0fc6ba62a05ddb7e7",

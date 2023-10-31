@@ -5,7 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
+global class CardCanvasController implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global String bodyClassesToAdd {
         get;
     }
@@ -62,6 +62,10 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
         get;
         set;
     }
+    global String vlocAccessToken {
+        get;
+        set;
+    }
     global String vlocSldsVersion {
         get;
         set;
@@ -83,10 +87,16 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
     global CardCanvasController(Object stdController) {
 
     }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
+    }
     global System.PageReference checkAuth() {
         return null;
     }
     global static Boolean checkPermission(String requiredPermission) {
+        return null;
+    }
+    global static Boolean checkPermissionManaged(String permissions) {
         return null;
     }
     @RemoteAction
@@ -177,6 +187,7 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
     global static String getActionsDetailFromId(String sObjType, String sFilterContextId, String displayOn, String linkType) {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static List<vlocity_cmt__VlocityAction__c> getActionsInfo() {
         return null;
@@ -217,7 +228,15 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
     global static List<vlocity_cmt__VlocityCard__c> getAllCardsDetailsByRecordType(String cardType, String scope, List<Map<String,String>> filters) {
         return null;
     }
+    @RemoteAction
+    global static Object getAllDRBundles() {
+        return null;
+    }
     global static List<vlocity_cmt__VlocityCard__c> getAllFlexCardDefinitions() {
+        return null;
+    }
+    @RemoteAction
+    global static Object getAllIPBundles() {
         return null;
     }
     @AuraEnabled
@@ -237,6 +256,10 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
     @AuraEnabled
     @RemoteAction
     global static List<Map<String,String>> getAllObjects() {
+        return null;
+    }
+    @RemoteAction
+    global static Object getAllOmniscripts() {
         return null;
     }
     @AuraEnabled
@@ -283,6 +306,7 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
     global static List<CustomPermission> getCustomPermissionsForUser() {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static String getCustomSettings(String customSettingName) {
         return null;
@@ -350,6 +374,10 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
     }
     @RemoteAction
     global static List<vlocity_cmt__VlocityUILayout__c> getLayoutsInfo() {
+        return null;
+    }
+    @RemoteAction
+    global static Boolean getLegacyOmniStudioUi() {
         return null;
     }
     @AuraEnabled
@@ -439,6 +467,7 @@ global class CardCanvasController implements vlocity_cmt.VlocityOpenInterface2 {
     global static List<vlocity_cmt__VlocityUILayout__c> setLayoutStatus(List<String> ids, Boolean status) {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static Map<String,Object> trackVlocityInteraction(String trackingData) {
         return null;

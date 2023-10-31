@@ -1,9 +1,3 @@
-<apex:page standardStylesheets="false" sidebar="true" showHeader="false" standardController="vlocity_cmt__Element__c" extensions="vlocity_cmt.VFPageControllerBase" docType="html-5.0">
-    <c:JSONTreeComponent standardController="{!stdController}"
-                         JSONString="{!vlocity_cmt__Element__c.vlocity_cmt__PropertySet__c}"
-                         JSONTreeHTMLTemplateName="JSONTreeEditableHTMLTemplate.html"
-                         strNamespacePrefixList="{!sNS}"
-                         Label="{!$Label.vlocity_cmt__propertyset}"
-                         SaveField="{!sNSP}PropertySet__c"/>  
-    <c:JSONTreeHTMLTemplateComponent />                                                      
+<apex:page standardStylesheets="false" sidebar="true" showHeader="false" standardController="vlocity_cmt__Element__c" extensions="vlocity_cmt.PlatformVFPageControllerBase" docType="html-5.0">
+    <c:VFPageDeprecatedMessage />
 </apex:page>

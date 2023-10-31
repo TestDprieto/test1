@@ -5,12 +5,15 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global virtual class VlocityContinuationIntegration implements vlocity_cmt.VlocityOpenInterface2 {
+global virtual class VlocityContinuationIntegration implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global VlocityContinuationIntegration() {
 
     }
     global void VlocitySetAsyncCallbackState(System.Continuation con, Object state, Map<String,Object> options) {
 
+    }
+    global virtual Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global virtual Object invokeMethod(String methodName, Map<String,Object> inputMap, Map<String,Object> outMap, Map<String,Object> options) {
         return null;

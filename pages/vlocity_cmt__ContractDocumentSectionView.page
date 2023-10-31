@@ -26,6 +26,7 @@
             <!-- PDFTRON Libraries for salesforce side implementation-->
             <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
             <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__docxtemplater_bundle, '/domPurify/domPurify.min.js')}"/>
+            <apex:includeScript value="{!$Resource.vlocity_cmt__cs_pdftron_documentgeneration}"/>
         </head>
         <body>
             <div class="vlocity via-slds vloc-body" ng-app="contractDocumentSectionViewApp" ng-controller="contractDocumentSectionViewCtrl" via-affix="top" via-screen-height="viaScreenHeight">
@@ -200,8 +201,8 @@
 
             <script type="text/javascript">
                 _.noConflict();
-                var nameSpacePrefix, contractId, baseRequestUrl, remoteActions, labels, sitePrefix;
-                window.sessionId = '{!$Api.Session_ID}';
+                var nameSpacePrefix, contractId, baseRequestUrl, remoteActions, labels, sitePrefix, pdfGenerationSource, documentTemplateId;
+                window.sessionId = '{!vlocAccessToken}';
                 nameSpacePrefix = '{!nameSpacePrefix}';
                 contractId = '{!$CurrentPage.parameters.Id}';
                 baseRequestUrl = '{!$Site.BaseRequestUrl}';
@@ -211,6 +212,7 @@
                 userId = '{!$User.Id}';
                 sitePrefix = '{!$Site.Prefix}';
                 pdfGenerationSource = '{!JSENCODE(pdfGenerationSource)}';
+                documentTemplateId = '{!documentTemplateId}';
 
                 remoteActions = {
                     getSectionViewData: {
@@ -255,6 +257,26 @@
                     },
                     getDocumentType: {
                         action: '{!$RemoteAction.ContractDocumentSectionViewController.getDocumentType}',
+                        config: {escape: false}
+                    },
+                    getClientSidePdfLibraries: {
+                        action: '{!$RemoteAction.ContractDocumentSectionViewController.getClientSidePdfLibraries}',
+                        config: {escape: false}
+                    },
+                    getPDFIntegrationConfig: {
+                        action: '{!$RemoteAction.ContractDocumentSectionViewController.getPDFIntegrationConfig}',
+                        config: {escape: false}
+                    },
+                    generatePdfDocument: {
+                        action: '{!$RemoteAction.ContractDocumentSectionViewController.generatePdfDocument}',
+                        config: {escape: false}
+                    },
+                    linkContentVersionToContractVersion: {
+                        action: '{!$RemoteAction.ContractDocumentSectionViewController.linkContentVersionToContractVersion}',
+                        config: {escape: false}
+                    },
+                    resolveDocumentGenerationMethods: {
+                        action: '{!$RemoteAction.ContractDocumentSectionViewController.resolveDocumentGenerationMethods}',
                         config: {escape: false}
                     }
                 };

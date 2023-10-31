@@ -139,6 +139,22 @@
         <name>vlocity_cmt__LwcId__c</name>
     </fields>
     <fields>
+        <label><!-- Omni Process Type --></label>
+        <name>vlocity_cmt__OmniProcessType__c</name>
+        <picklistValues>
+            <masterLabel>Integration Procedure</masterLabel>
+            <translation><!-- Integration Procedure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OmniScript</masterLabel>
+            <translation><!-- OmniScript --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Procedure</masterLabel>
+            <translation><!-- Test Procedure --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Procedure Key --></label>
         <name>vlocity_cmt__ProcedureKey__c</name>
     </fields>

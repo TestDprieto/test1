@@ -74,9 +74,12 @@ global class ActionFunctionQueueable implements Database.AllowsCallouts, System.
 
     }
 }
-global class VFActionFunctionControllerOpen implements vlocity_cmt.VlocityOpenInterface2 {
+global class VFActionFunctionControllerOpen implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global VFActionFunctionControllerOpen() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global Object invokeMethod(String methodName, Map<String,Object> input, Map<String,Object> output, Map<String,Object> options) {
         return null;

@@ -35,11 +35,23 @@ global class DocTemplateListController {
     global static String getContractDocTemplates() {
         return null;
     }
+    @RemoteAction
+    global static SObject getDocumentByTemplate(Id templateId) {
+        return null;
+    }
     global String getNamespacePrefix() {
         return null;
     }
     @RemoteAction
+    global static Map<String,Object> getTemplateContentVersion(Id templateId) {
+        return null;
+    }
+    @RemoteAction
     global static List<Map<String,Object>> getTemplateLanguages() {
+        return null;
+    }
+    @RemoteAction
+    global static Boolean isVerticalFirstThenOs() {
         return null;
     }
     @RemoteAction

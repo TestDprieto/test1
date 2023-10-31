@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- AdServer AdSpace Identifier --></label>
+        <name>vlocity_cmt__AdServerAdSpaceIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Server --></label>
+        <name>vlocity_cmt__AdServerId__c</name>
+        <relationshipLabel><!-- Ad Space Specifications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ad Space Type --></label>
+        <name>vlocity_cmt__AdSpaceType__c</name>
+        <picklistValues>
+            <masterLabel>1 Page Standard</masterLabel>
+            <translation><!-- 1 Page Standard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1/2 Page Horizontal</masterLabel>
+            <translation><!-- 1/2 Page Horizontal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 Page Spread</masterLabel>
+            <translation><!-- 2 Page Spread --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2/3 Page Vertical</masterLabel>
+            <translation><!-- 2/3 Page Vertical --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aston</masterLabel>
+            <translation><!-- Aston --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Billboard</masterLabel>
+            <translation><!-- Billboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full banner WF DFP</masterLabel>
+            <translation><!-- Full banner WF DFP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Graphic Image</masterLabel>
+            <translation><!-- Graphic Image --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Leaderboard</masterLabel>
+            <translation><!-- Leaderboard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mid-Roll</masterLabel>
+            <translation><!-- Mid-Roll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Post-Roll</masterLabel>
+            <translation><!-- Post-Roll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pre-Roll</masterLabel>
+            <translation><!-- Pre-Roll --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skyscraper</masterLabel>
+            <translation><!-- Skyscraper --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Spot Buy</masterLabel>
+            <translation><!-- Spot Buy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sting</masterLabel>
+            <translation><!-- Sting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Title</masterLabel>
+            <translation><!-- Title --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Audience Size Rating --></label>
+        <name>vlocity_cmt__AudienceSizeRating__c</name>
+    </fields>
+    <fields>
+        <label><!-- Core Id --></label>
+        <name>vlocity_cmt__CoreId__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Date Time --></label>
+        <name>vlocity_cmt__EndDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Time --></label>
+        <name>vlocity_cmt__EndTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- End Week Day --></label>
+        <name>vlocity_cmt__EndWeekDay__c</name>
+        <picklistValues>
+            <masterLabel>Friday</masterLabel>
+            <translation><!-- Friday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday</masterLabel>
+            <translation><!-- Monday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday</masterLabel>
+            <translation><!-- Saturday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday</masterLabel>
+            <translation><!-- Sunday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday</masterLabel>
+            <translation><!-- Thursday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday</masterLabel>
+            <translation><!-- Tuesday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday</masterLabel>
+            <translation><!-- Wednesday --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Live Broadcast --></label>
+        <name>vlocity_cmt__IsLiveBroadcast__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Content Title --></label>
+        <name>vlocity_cmt__MediaContentTitleId__c</name>
+        <relationshipLabel><!-- Ad Space Specifications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Media Property --></label>
+        <name>vlocity_cmt__MediaPropertyId__c</name>
+        <relationshipLabel><!-- Ad Space Specifications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ad Space Product --></label>
+        <name>vlocity_cmt__Product2Id__c</name>
+        <relationshipLabel><!-- Ad Space Specifications --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Program Run Type --></label>
+        <name>vlocity_cmt__ProgramRunType__c</name>
+        <picklistValues>
+            <masterLabel>Premiere</masterLabel>
+            <translation><!-- Premiere --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular</masterLabel>
+            <translation><!-- Regular --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repeat</masterLabel>
+            <translation><!-- Repeat --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Publisher Day Part --></label>
+        <name>vlocity_cmt__PublisherDayPart__c</name>
+        <picklistValues>
+            <masterLabel>Non Prime Time</masterLabel>
+            <translation><!-- Non Prime Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prime Time</masterLabel>
+            <translation><!-- Prime Time --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Start Date Time --></label>
+        <name>vlocity_cmt__StartDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Time --></label>
+        <name>vlocity_cmt__StartTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Week Day --></label>
+        <name>vlocity_cmt__StartWeekDay__c</name>
+        <picklistValues>
+            <masterLabel>Friday</masterLabel>
+            <translation><!-- Friday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monday</masterLabel>
+            <translation><!-- Monday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saturday</masterLabel>
+            <translation><!-- Saturday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sunday</masterLabel>
+            <translation><!-- Sunday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thursday</masterLabel>
+            <translation><!-- Thursday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tuesday</masterLabel>
+            <translation><!-- Tuesday --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wednesday</masterLabel>
+            <translation><!-- Wednesday --></translation>
+        </picklistValues>
+    </fields>
+    <recordTypes>
+        <description><!-- The Ad Space record type is used to create a single Ad Space Specification record. --></description>
+        <label><!-- Ad Space --></label>
+        <name>vlocity_cmt__AdSpace</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- The Ad Space Group record type is used to create the Ad Space Specification Group record. --></description>
+        <label><!-- Ad Space Group --></label>
+        <name>vlocity_cmt__AdSpaceGroup</name>
+    </recordTypes>
+    <recordTypes>
+        <description><!-- Represents Ad Space specifications for Linear TV and Radio ads during scheduled programs. --></description>
+        <label><!-- Scheduled Program --></label>
+        <name>vlocity_cmt__ScheduledProgram</name>
+    </recordTypes>
+</CustomObjectTranslation>

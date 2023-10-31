@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Core Id --></label>
+        <name>vlocity_cmt__CoreId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Height --></label>
+        <name>vlocity_cmt__Height__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Type --></label>
+        <name>vlocity_cmt__MediaType__c</name>
+        <picklistValues>
+            <masterLabel>Digital Banner</masterLabel>
+            <translation><!-- Digital Banner --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital Video</masterLabel>
+            <translation><!-- Digital Video --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outdoor</masterLabel>
+            <translation><!-- Outdoor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Run Time --></label>
+        <name>vlocity_cmt__RunTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unit of Measure --></label>
+        <name>vlocity_cmt__UnitOfMeasure__c</name>
+        <picklistValues>
+            <masterLabel>Inches</masterLabel>
+            <translation><!-- Inches --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minutes</masterLabel>
+            <translation><!-- Minutes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pixels</masterLabel>
+            <translation><!-- Pixels --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seconds</masterLabel>
+            <translation><!-- Seconds --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mm</masterLabel>
+            <translation><!-- mm --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Width --></label>
+        <name>vlocity_cmt__Width__c</name>
+    </fields>
+</CustomObjectTranslation>

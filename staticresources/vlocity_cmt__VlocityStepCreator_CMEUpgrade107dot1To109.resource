@@ -232,7 +232,7 @@
             "IsActive": true,
             "Type": "Auto",
             "StepFrequency": "Upgrade",
-            "Instruction": "<p>This populates new fields on existing records for listed objects.</p>",
+            "Instruction": "<p>This job populates new fields on all existing records for listed objects.</p>",
             "CustomInputLabel": "Version Label",
             "CustomInputValue": "V1",
             "Options": {
@@ -300,7 +300,7 @@
             "IsActive": true,
             "Type": "Auto",
             "StepFrequency": "Upgrade",
-            "Instruction": "<p>This populates new fields on existing records for listed objects.</p>",
+            "Instruction": "<p>This job populates new fields on all existing records for listed objects.</p>",
             "CustomInputLabel": "Version Label",
             "CustomInputValue": "V1",
             "Options": {
@@ -507,7 +507,7 @@
             "CustomInputValue": "",
             "Options": "",
             "ArgumentList": "",
-            "StepCommand": "https://docs.vlocity.com/en/Installing-Cards,-Templates,-and-OmniScripts.html",
+            "StepCommand": "https://docs.vlocity.com/en/Installing-Cards,-Templates,-and-OmniScripts-593775-1.html",
             "CheckResultUrl": "",
             "PrecursorStepUniqueId": "",
             "ParentStepUniqueId": "",

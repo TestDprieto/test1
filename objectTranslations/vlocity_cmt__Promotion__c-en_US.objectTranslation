@@ -35,6 +35,15 @@
         <name>vlocity_cmt__Code__c</name>
     </fields>
     <fields>
+        <help><!-- This field defines configurations used in the CPQ Engine and Digital Commerce. --></help>
+        <label><!-- Cpq Engine Hints --></label>
+        <name>vlocity_cmt__CpqEngineHints__c</name>
+        <picklistValues>
+            <masterLabel>MultiAddCompatible</masterLabel>
+            <translation><!-- MultiAddCompatible --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Description --></label>
         <name>vlocity_cmt__Description__c</name>
     </fields>
@@ -168,4 +177,12 @@
         <label><!-- Promotion --></label>
         <name>vlocity_cmt__Promotion</name>
     </recordTypes>
+    <webLinks>
+        <label><!-- New_Discount --></label>
+        <name>vlocity_cmt__New_Discount</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Promotion --></label>
+        <name>vlocity_cmt__New_Promotion</name>
+    </webLinks>
 </CustomObjectTranslation>

@@ -1,5 +1,5 @@
 <!-- Displays a Thor UI page -->
-<apex:page showHeader="true" sidebar="true" controller="vlocity_cmt.SimpleDecompositionController" extensions="vlocity_cmt.XOMOffPlatformAccessConfigController,vlocity_cmt.XOMThorLocalizationController" standardStylesheets="false" docType="html-5.0">
+<apex:page showHeader="true" sidebar="true" controller="vlocity_cmt.SimpleDecompositionController" extensions="vlocity_cmt.XOMOffPlatformAccessConfigController,vlocity_cmt.XOMThorLocalizationController,vlocity_cmt.XOMOMPLAuthController" standardStylesheets="false" docType="html-5.0">
     <apex:slds />
     <script type="text/javascript" src="{!URLFOR($Resource.ThorJsBundle)}"></script>
     <!-- <script src="https://localhost:8443/main.js"></script> -->
@@ -25,7 +25,8 @@
                 getMappingDetails:'{!$RemoteAction.SimpleDecompositionController.getMappingDetails}',
                 getTranslation:'{!$RemoteAction.XOMThorLocalizationController.getTranslation}',
                 getOrderOrchestrationPlanReferenceId : '{!$RemoteAction.SimpleDecompositionController.getOrderOrchestrationPlanReferenceId}',
-                getSfIdByGlobalKey: '{!$RemoteAction.SimpleDecompositionController.getSfIdByGlobalKey}'
+                getSfIdByGlobalKey: '{!$RemoteAction.SimpleDecompositionController.getSfIdByGlobalKey}',
+                generateAuthToken: '{!$RemoteAction.XOMOMPLAuthController.generateAuthToken}'
             });
         }])
         .value('thorLayoutConfig', 
@@ -37,7 +38,7 @@
             hideInactiveTabsForObjectTypes: [], // Object Type Ids to display default tab only
             hideUsername: true,
             namespace: '{!nsPrefix}',
-            userLocal: '{!userLocal}'
+            userLocal: '{!JSENCODE(userLocal)}'
         })
         .value('errorMessageTranslations',
         {

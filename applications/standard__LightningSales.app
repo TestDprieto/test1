@@ -8,6 +8,7 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Sales</label>
     <navType>Standard</navType>
+    <tabs>vlocity_cmt__LWCDesigner</tabs>
     <tabs>standard-home</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>

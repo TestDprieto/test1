@@ -135,19 +135,19 @@
     <div class="vlc-move-wrapper">
       <div class="header">
         <div class="headline">
-          <h1><br/><br/><strong>{!$Label.vlocity_cmt__mlsfdomovetitle}</strong></h1><br/><h3><strong>{!$Label.vlocity_cmt__mlsfdomovesubtitle}</strong><br/><br/><br/></h3>
+          <h1><br/><br/><strong>{!$Label.vlocity_cmt__MLSFDOMoveTitle}</strong></h1><br/><h3><strong>{!$Label.vlocity_cmt__MLSFDOMoveSubTitle}</strong><br/><br/><br/></h3>
         </div>
       </div>
       <div class="vlcpanel">
         <div class="content">
           <div class="top">
-            <h2 class="title">{!$Label.vlocity_cmt__mlsfdomoveaccountselectorlabel}</h2>
+            <h2 class="title">{!$Label.vlocity_cmt__MLSFDOMoveAccountSelectorLabel}</h2>
           </div>
           <div class="bot">
               <fieldset>
                 <div class="form">
                   <div class="vlcinput">
-                    <label>{!$Label.vlocity_cmt__mlsfdomoveinaccountlabel}</label>
+                    <label>{!$Label.vlocity_cmt__MLSFDOMoveInAccountLabel}</label>
                     <apex:form id="apexinput"> 
                       <apex:inputField id="Account"  style="width: 300px; height: 30px" styleclass="input" label="Move-In Account : " value="{!oi.vlocity_cmt__ServiceAccountId__c}"/>
                       </apex:form>
@@ -155,7 +155,7 @@
                   <div class="vlc-button">
                     <apex:form id="apexbutton">
                       <input type="button" style="width:200px;height:30px" class="button btn" disabled="true" value="{!$Label.CMTNext}" onclick="invokeOmniFlow()" />
-                      <apex:commandButton style="width:200px;height:30px" value="{!$Label.vlocity_cmt__cmtcancel}" action="{!cancelMoveFlow}"/>
+                      <apex:commandButton style="width:200px;height:30px" value="{!$Label.vlocity_cmt__CMTCancel}" action="{!cancelMoveFlow}"/>
                       <apex:actionFunction name="setMoveInAccountId"
                                     action="{!setMoveInAccountId}"
                                     status="loading" rerender="none">

@@ -332,7 +332,7 @@ Tracking Formula - Same as above except that Tracking Formula&apos;s will be run
         <protected>false</protected>
         <url>var dataPackType = &apos;AttributeAssignmentRule&apos;;
 var objectId = &apos;{!vlocity_cmt__AttributeAssignmentRule__c.Id}&apos;;
-var suggestedName = &apos;{!vlocity_cmt__AttributeAssignmentRule__c.Name}&apos;;
+var suggestedName = &apos;{!JSENCODE(vlocity_cmt__AttributeAssignmentRule__c.Name)}&apos;;
 
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}

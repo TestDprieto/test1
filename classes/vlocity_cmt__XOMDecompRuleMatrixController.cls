@@ -14,6 +14,10 @@ global class XOMDecompRuleMatrixController {
     global static String deleteRow(Id recId, String sRowToDelete) {
         return null;
     }
+    @RemoteAction
+    global static String getCustomLabels(List<String> labelNames, String language) {
+        return null;
+    }
     @ReadOnly
     @RemoteAction
     global static String getDecompRelationData(Id srcProdId) {

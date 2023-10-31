@@ -10,7 +10,7 @@ export default class TemplateCompiler {
     createZipToDeploy(json, action) {
         return new Promise((resolve, reject) => {
             let type;
-            let url = '';
+            let url = `${json.name}/lwc/`;
             var zip = new JSZip();
 
             if(action === "download") {
@@ -42,42 +42,20 @@ export default class TemplateCompiler {
         });
     }
 
-    getDownloadableZip(zipFile, json) {
+    getDownloadableZip(json) {
         return new Promise((resolve, reject) => {
             var zip = new JSZip();
             var newZip = new JSZip();
             var _this = this;
-            
-            this.zipLoadAsync(zip, zipFile).then(function(retrievedZip){
-                retrievedZip.files["staticresources/lwc_offplatform.resource"].async("base64").then(function(zipFile){
-                    _this.zipLoadAsync(zip, zipFile).then(function(resourceFolder){      
-                        _this.getFileSource(resourceFolder, newZip, json).then(function(zip){
-                            json.files.forEach(function (file) {
-                                zip.file(`src/c/${json.name}/${file.name}`, `${file.source}`);
-                            });
 
-                            zip.file('.npmrc','registry=https://npm.lwcjs.org');
-                            zip.file('.yarnrc','registry "https://npm.lwcjs.org"');
+            json.files.forEach(function (file) {
+                zip.file(`flexout/src/modules/c/${json.name}/${file.name}`, `${file.source}`);
+            });
 
-                            
-                            zip.generateAsync({ type: "blob" })
-                            .then(content => {
-                                resolve(content);
-                            });
-                        });
-                    }, function(e){
-                        reject(e);
-                    });
-                },  function(e){
-                        reject(e);
-                    });
-            }, function(e){
-                reject(e);
-            })
-
-   
-            
-            
+            zip.generateAsync({ type: "blob" })
+            .then(content => {
+                resolve(content);
+            });
         });
     }
 
@@ -101,7 +79,7 @@ export default class TemplateCompiler {
             });
             try {
                 Promise.all(promises).then(function (data) {
-                    paths.map((item, index) => { 
+                    paths.map((item, index) => {
                         let obj = {};
                         obj[item] = data[index];
                         data[index] = data[index].replace(/\${lwc_name}/g, json.name);
@@ -113,7 +91,7 @@ export default class TemplateCompiler {
             } catch(e) {
                 reject(e);
             }
-            
+
         });
     }
 

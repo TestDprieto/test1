@@ -40,6 +40,10 @@
         <errorMessage><!-- Show Order cannot be less than zero. --></errorMessage>
         <name>vlocity_cmt__ShowOrderValidation</name>
     </validationRules>
+    <validationRules>
+        <errorMessage><!-- Show Order cannot have negative values. --></errorMessage>
+        <name>vlocity_cmt__ValidateShowOrder</name>
+    </validationRules>
     <webLinks>
         <label><!-- Export --></label>
         <name>vlocity_cmt__Export</name>

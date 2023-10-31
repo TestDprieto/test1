@@ -1,4 +1,4 @@
-<apex:page docType="html-5.0" applyBodyTag="false" standardController="Order" extensions="vlocity_cmt.SimpleDecompositionController,vlocity_cmt.XOMOffPlatformAccessConfigController">
+<apex:page docType="html-5.0" applyBodyTag="false" standardController="Order" extensions="vlocity_cmt.SimpleDecompositionController,vlocity_cmt.XOMOffPlatformAccessConfigController,vlocity_cmt.XOMOMPLAuthController">
 <html ng-app="decomposeApp">
 <head>
 	<title>Decompose Order</title>
@@ -106,24 +106,24 @@
 	                getOffplatformUrl: "{!$RemoteAction.XOMOffPlatformAccessConfigController.getOffplatformUrl}",
 					startOffPlatformOrchestrationPlan : '{!$RemoteAction.SimpleDecompositionController.startOffPlatformOrchestrationPlan}',
 					getOrderOrchestrationPlanReferenceId : '{!$RemoteAction.SimpleDecompositionController.getOrderOrchestrationPlanReferenceId}',
-					getSfIdByGlobalKey: '{!$RemoteAction.SimpleDecompositionController.getSfIdByGlobalKey}'
+					getSfIdByGlobalKey: '{!$RemoteAction.SimpleDecompositionController.getSfIdByGlobalKey}',
+					generateAuthToken: '{!$RemoteAction.XOMOMPLAuthController.generateAuthToken}'
 				};
 
 		 		var app = angular.module('decomposeApp', ["vlocity", "ngSanitize", "forceng","mgcrea.ngStrap",'ngAnimate', 'vloc.xomNodeView', 'thorIntegration']);
 
 			 	//config data...
 				app.value('configData',{
-					orderId : '{!LEFT($CurrentPage.parameters.Id, 15)}'
+					orderId : '{!LEFT(JSENCODE($CurrentPage.parameters.Id), 15)}'
 				});
 
 				app.config(["remoteActionsProvider", function(remoteActionsProvider){
 				        remoteActionsProvider.setRemoteActions(remoteActions); // configure the remoteActionsProvider
 				    }]);
 
-				app.config(function($provide) {
-				    $provide.decorator('remoteActions', function($delegate, $http, thorIntegrationService)
+				app.factory('universalRemoteActions', function($http, thorIntegrationService, remoteActions)
 				    {
-				        var originalRemoteActions = $delegate;
+				        var originalRemoteActions = remoteActions;
 				        // override the remoteActions methods you know may be off platform
 				        var potentiallyOffPlatformCalls = ['decomposeOrder'];
 				        potentiallyOffPlatformCalls.forEach(function(remoteActionName) {
@@ -163,11 +163,11 @@
 
 				            }
 				        });
-				        return $delegate;
-				    })
-				});
+				        return originalRemoteActions;
+				    });
 
-				app.controller('SimpleDecompositionController', function($scope,$rootScope, $templateCache, $q, $modal, $interpolate,$http, $sce, remoteActions, configData) {
+
+				app.controller('SimpleDecompositionController', function($scope,$rootScope, $templateCache, $q, $modal, $interpolate,$http, $sce, remoteActions, universalRemoteActions, configData) {
 
 					console.log('processing Order id ', configData.orderId);
 
@@ -187,7 +187,7 @@
 
 					$scope.decomposeAndRedirectToView = function () {
                         $scope.showSpinner = true;
-                        remoteActions.decomposeOrder(configData.orderId).then(function(orders)
+						universalRemoteActions.decomposeOrder(configData.orderId).then(function(orders)
                             {
                                 if (orders.sucCode == 0) {
                                     window.location.replace('/apex/XOMViewOrderDecomposition?id=' + configData.orderId);

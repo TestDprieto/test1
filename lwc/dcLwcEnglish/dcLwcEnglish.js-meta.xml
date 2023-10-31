@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-<apiVersion>48.0</apiVersion>
+<apiVersion>54.0</apiVersion>
 <runtimeNamespace>vlocity_cmt</runtimeNamespace>
 <isExposed>true</isExposed>
-<description>Vlocity OmniScript Auto-generated - a295e000000z3jJAAQ</description>
+<description>Vlocity OmniScript Auto-generated - a295e000000f7UgAAI</description>
 <masterLabel>dc/lwc/English</masterLabel>
 <targets>
 <target>lightningCommunity__Page</target>
@@ -40,6 +40,7 @@
                 <property name="inlineLabel" type="string" default="Launch dc/lwc" />
                 <property name="inlineVariant" type="string" default="brand" datasource="brand,outline-brand,neutral,success,destructive,text-destructive,inverse,link"/>
                 <property name="recordId" type="String" label="Record Id" description="Automatically bind the page's record id to the component variable" default="{!recordId}" />
+                <property name="flexipageRegionWidth" type="String" label="Region Width" description="Set the responsive context for the OmniScript." default="LARGE" datasource="LARGE,MEDIUM,SMALL" />
                 <property name="dir" type="string" default="ltr" datasource="ltr,rtl"/>
             </targetConfig></targetConfigs>
 </LightningComponentBundle>

@@ -15,6 +15,7 @@
     <label>Service Console</label>
     <navType>Console</navType>
     <setupExperience>service</setupExperience>
+    <tabs>vlocity_cmt__LWCDesigner</tabs>
     <tabs>standard-Account</tabs>
     <tabs>standard-Contact</tabs>
     <tabs>standard-Case</tabs>
@@ -33,6 +34,9 @@
         </mappings>
         <mappings>
             <tab>standard-Product2</tab>
+        </mappings>
+        <mappings>
+            <tab>vlocity_cmt__LWCDesigner</tab>
         </mappings>
     </workspaceConfig>
 </CustomApplication>

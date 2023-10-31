@@ -21,6 +21,7 @@
                         </div>
                     </div>
                     <div class="slds-form-element">
+                        <!--JSENCODE() is not needed here-->
                         <button class="slds-button slds-button--icon-border" ng-click="search(1)">
                             <slds-button-svg-icon sprite="'utility'" size="'small'" icon="'search'"></slds-button-svg-icon>
                         </button>
@@ -33,6 +34,7 @@
                         <div class="slds-clearfix slds-m-bottom--x-small slds-form--inline">
                             <div class="slds-float--left results-count">Showing {{searchCfg.fromCount}} - {{searchCfg.toCount}} of {{searchCfg.totalCount}}<span ng-if="(searchCfg.totalCount === 40000)">+</span> results</div>
                             <div class="slds-float--right results-page slds-form-element">
+                                <!--JSENCODE() is not needed here-->
                                 <button class="slds-button slds-button--icon" ng-disabled="(searchCfg.currentPage <= 1)" ng-click="search(searchCfg.previousPage)">
                                     <slds-button-svg-icon sprite="'utility'" size="'medium'" icon="'left'"></slds-button-svg-icon>
                                     <span class="slds-assistive-text">Previous Page</span>
@@ -44,6 +46,7 @@
                                     </span>
                                     of {{searchCfg.totalPages}}
                                 </span>
+                                <!--JSENCODE() is not needed here-->
                                 <button class="slds-button slds-button--icon" ng-disabled="(searchCfg.currentPage >= searchCfg.totalPages)" ng-click="search(searchCfg.nextPage)">
                                     <slds-button-svg-icon sprite="'utility'" size="'medium'" icon="'right'"></slds-button-svg-icon>
                                     <span class="slds-assistive-text">Next Page</span>

@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -127,7 +141,7 @@ angular.module('dataraptor')
         'use strict';
         var remoteActions = {
             createNewBundle: {
-                action: fileNsPrefixDot() + 'DRMapperController3.SaveBundleJSON'
+                action: fileNsPrefixDot() + 'DRMapperControllerFoundation.SaveBundle'
             }
         };
         remoteActionsProvider.setRemoteActions(remoteActions);
@@ -170,10 +184,10 @@ angular.module('dataraptor')
                 angular.element(element).on('click', function(event) {
                     $dataraptor.createNewBundle({
                         Name: scope.drName,
-                        DRMapName__c: scope.drName,
-                        Type__c: scope.drType,
-                        InputJson__c: scope.inputJson,
-                        TargetOutJson__c: scope.outputJson,
+                        DRMapName: scope.drName,
+                        Type: scope.drType,
+                        InputJson: scope.inputJson,
+                        TargetOutJson: scope.outputJson,
                     })
                 });
             }

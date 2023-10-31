@@ -3,10 +3,10 @@
         <apex:pageMessages id="cloneMessages" />
         <apex:sectionHeader title="Confirm Clone State Model Version" subtitle="{!cloneVersionMessage}" />
         <apex:commandLink action="{!cloneVersion}" target="_blank" >
-            <apex:commandButton value="{!$Label.vlocity_cmt__actionvalidationcontinue}" rerender="cloneMessages" />
+            <apex:commandButton value="{!$Label.vlocity_cmt__ActionValidationContinue}" rerender="cloneMessages" />
         </apex:commandLink>
         <apex:commandLink action="{!cancel}" >
-            <apex:commandButton value="{!$Label.vlocity_cmt__cancel}" />
+            <apex:commandButton value="{!$Label.vlocity_cmt__Cancel}" />
         </apex:commandLink>
     </apex:form>
 </apex:page>

@@ -26,6 +26,10 @@
         <name>vlocity_cmt__CurrentBalance__c</name>
     </fields>
     <fields>
+        <label><!-- Current Charges --></label>
+        <name>vlocity_cmt__CurrentCharges__c</name>
+    </fields>
+    <fields>
         <label><!-- Current Meter Read --></label>
         <name>vlocity_cmt__CurrentMeterRead__c</name>
     </fields>
@@ -41,6 +45,10 @@
     <fields>
         <label><!-- External ID --></label>
         <name>vlocity_cmt__ExternalID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Overdue Amount --></label>
+        <name>vlocity_cmt__OverdueAmount__c</name>
     </fields>
     <fields>
         <label><!-- Previous Balance --></label>
@@ -71,12 +79,20 @@
         <name>vlocity_cmt__StatementImageURL__c</name>
     </fields>
     <fields>
+        <label><!-- Statement Month --></label>
+        <name>vlocity_cmt__StatementMonth__c</name>
+    </fields>
+    <fields>
         <label><!-- Statement Period End Date --></label>
         <name>vlocity_cmt__StatementPeriodEndDate__c</name>
     </fields>
     <fields>
         <label><!-- Statement Period Start Date --></label>
         <name>vlocity_cmt__StatementPeriodStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Statement Year --></label>
+        <name>vlocity_cmt__StatementYear__c</name>
     </fields>
     <fields>
         <label><!-- Status --></label>

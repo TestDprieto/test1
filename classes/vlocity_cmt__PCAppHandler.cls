@@ -6,6 +6,13 @@ methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
 global class PCAppHandler implements vlocity_cmt.VlocityOpenInterface2 {
+    global Boolean isLanguageRTL {
+        get;
+        set;
+    }
+    global static String namespace {
+        get;
+    }
     global PCAppHandler() {
 
     }

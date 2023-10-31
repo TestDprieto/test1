@@ -2,7 +2,8 @@
             standardStylesheets="false"
             docType="html-5.0" applyBodyTag="false"
             lightningStylesheets="true"
-            title="Template Compiler VF Page">
+            title="Template Compiler VF Page"
+            controller="vlocity_cmt.LWCDesignerController">
   <head>
   <script type="module" crossorigin="use-credentials" src="{!$Resource.templatecompiler}"></script>
   <script src="{!URLFOR($Resource.jsforce_1_7, '/jszip.min.js')}"></script>
@@ -11,7 +12,7 @@
   <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-metadata.min.js')}"></script>
   <script>
     (function() {
-      const conn = new jsforce.Connection({ accessToken: '{!$API.Session_Id}' });
+      const conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}'});
       conn.metadata.pollTimeout = 60000;
 
       window.addEventListener("message", receiveMessage, false);
@@ -20,21 +21,7 @@
         const compiler = new TemplateCompiler();
         const eventData = JSON.parse(event.data);
         if(eventData.action === "download_offplatform") {
-          conn.metadata.retrieve({
-            apiVersion: '45.0',
-            singlePackage: true,
-            unpackaged: {
-              types: [{
-                'members': ['lwc_offplatform'],
-                'name': 'StaticResource'
-              }]
-            }
-          }).complete(function(err, deployResult){
-            if (err) {
-              return;
-            }
-
-            compiler.getDownloadableZip(deployResult.zipFile, eventData.lwcData).then((zipStream) => {
+            compiler.getDownloadableZip(eventData.lwcData).then((zipStream) => {
               saveAs(zipStream, eventData.lwcData.name+".zip");
               window.parent.postMessage(JSON.stringify({
                 name: 'deployresult',
@@ -47,7 +34,6 @@
                 message: e.message || 'Download Failed'
               }), document.referrer);
             });
-          });
         } else {
           compiler.compileZip(eventData.lwcData, eventData.action)
             .then((zipStream) => {

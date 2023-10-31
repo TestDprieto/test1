@@ -23,6 +23,7 @@
         <apex:includeScript value="{!$Resource.vlocity_cmt__SldsAngular}"/>
         <apex:includeScript value="{!$Resource.vlocity_cmt__ContractDocumentEditSectionsApp}"/>
         <apex:includeScript value="{!$Resource.vlocity_cmt__DocXContentTypes}"/>
+        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__docxtemplater_bundle, '/domPurify/domPurify.min.js')}"/>
     </head>
     
     <body style="height: 100%">
@@ -40,6 +41,19 @@
                             <div ng-if="section.sectionDisplayHeader">
                                 <div class="restricted" ng-bind-html="trustAsHtml(section.sectionDisplayHeader)"></div>
                             </div>
+
+                            <!-- Custom Section (Merged) : start -->
+                            <div class="form-group rich-text-editor" ng-if="section.sectionType === 'Custom' && section.rootMergedSection === true">
+                                <div class="restricted" ng-bind-html="trustAsHtml(section.sectionContent)"></div>
+                            </div>
+                            <!-- Custom Section (Merged) : end -->
+
+                            <!-- Custom Section (Normal) : start -->
+                            <div class="form-group rich-text-editor" ng-if="section.sectionType === 'Custom' && section.mergedSection !== true">
+                                <div class="tinymce-editor" ui-tinymce="tinymceOptions" ng-model="section.sectionContent" ng-if="!section.sectionIsRestricted"></div>
+                                <div class="restricted" ng-bind-html="trustAsHtml(section.sectionContent)" ng-if="section.sectionIsRestricted"></div>
+                            </div>
+                            <!-- Custom Section (Normal) : end -->
                             
                             <!--Line Item Section & signature section-->
                             <div class='restricted' ng-show="section.sectionType === 'Item' || section.sectionType === 'Signature' || section.sectionType === 'Embedded Template'">
@@ -48,7 +62,7 @@
                             </div>
                             <!--End Line Item Section & signature section-->
 
-                            <div class="form-group rich-text-editor" ng-if="section.sectionType !== 'Signature' && section.sectionType !== 'Item' && section.sectionType !== 'Embedded Template'">
+                            <div class="form-group rich-text-editor" ng-if="section.sectionType !== 'Signature' && section.sectionType !== 'Item' && section.sectionType !== 'Embedded Template' && section.sectionType !== 'Custom'">
                                 <div class="tinymce-editor" ui-tinymce="tinymceOptions" ng-model="section.sectionContent" ng-if="!section.sectionIsRestricted || isFullAccess"></div>
                                 <div class="restricted" ng-bind-html="trustAsHtml(section.sectionContent)" ng-if="section.sectionIsRestricted && !isFullAccess"></div>
                            </div>

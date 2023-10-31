@@ -97,6 +97,11 @@
         <name>vlocity_cmt__LineNumber__c</name>
     </fields>
     <fields>
+        <label><!-- Main Fulfilment Request Line Id --></label>
+        <name>vlocity_cmt__MainOrderItemId__c</name>
+        <relationshipLabel><!-- Main Fulfilment Request Line Item --></relationshipLabel>
+    </fields>
+    <fields>
         <help><!-- Product2 --></help>
         <label><!-- Product --></label>
         <name>vlocity_cmt__Product2Id__c</name>

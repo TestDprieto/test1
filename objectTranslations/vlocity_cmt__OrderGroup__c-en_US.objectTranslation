@@ -46,6 +46,10 @@
         <name>vlocity_cmt__HasUnappliedGroupItems__c</name>
     </fields>
     <fields>
+        <label><!-- Has Unapplied Members --></label>
+        <name>vlocity_cmt__HasUnappliedMembers__c</name>
+    </fields>
+    <fields>
         <label><!-- Locked By User --></label>
         <name>vlocity_cmt__LockedBy__c</name>
         <relationshipLabel><!-- Order Groups --></relationshipLabel>
@@ -118,7 +122,7 @@
     <fields>
         <label><!-- Quote Group --></label>
         <name>vlocity_cmt__QuoteGroupId__c</name>
-        <relationshipLabel><!-- Group Quotes --></relationshipLabel>
+        <relationshipLabel><!-- Order Groups --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Group Recurring Cost Total --></label>
@@ -131,6 +135,10 @@
     <fields>
         <label><!-- Group Recurring Total --></label>
         <name>vlocity_cmt__RecurringTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Selected Assets Common Configuration --></label>
+        <name>vlocity_cmt__SelectedAssetsCommonConfiguration__c</name>
     </fields>
     <fields>
         <label><!-- Group Usage Cost Total --></label>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__CMEBase</name>
+    </customPermissions>
+    <description>Allows access of Media Cloud features to customer community.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>MediaCloudCC Runtime</label>
+</PermissionSet>

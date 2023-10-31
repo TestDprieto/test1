@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -296,6 +310,169 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
         $scope.startDocumentGeneration();
     }, false);
 
+    $window.addEventListener('message', function(event) {
+        if(!event.data.hasOwnProperty('clmDocxGenIdListBpTreeResponse')) {
+            return;
+        }
+        $scope.pdfContentVersionIds=[];
+        $scope.docxContentVersionIds = [];
+        $scope.bpTreeResponse = event.data.clmDocxGenIdListBpTreeResponse;
+        $scope.documentType = (($scope.bpTreeResponse.documentType && $scope.bpTreeResponse.documentType.toLowerCase()) || 'all');
+        $scope.showDownloadWord = $scope.documentType === 'all' || $scope.documentType === 'word'|| $scope.documentType === 'docx';
+        $scope.showDownloadPDF = $scope.documentType === 'all' || $scope.documentType === 'pdf';
+        $scope.attachFileFormat = $scope.bpTreeResponse.attachFileFormat && $scope.bpTreeResponse.attachFileFormat.toLowerCase();
+        $scope.contextId = $scope.bpTreeResponse.contextId;
+        $scope.pdfGenerationSource = $scope.bpTreeResponse['pdfGenerationSource'];
+        console.log('### $scope.bpTreeResponse: ', $scope.bpTreeResponse);
+        $scope.pdfViewer = 'none' // if converting multiple docx default to none
+        $scope.osPdfViewer = $scope.bpTreeResponse.pdfViewer && $scope.bpTreeResponse.pdfViewer.toLowerCase();
+        if($scope.osPdfViewer == 'vlocityclientsideviewer') {
+            $scope.pdfViewer = 'vlocityclientsideviewer';
+        }
+        if($scope.bpTreeResponse.contentVersionIds != '' && $scope.bpTreeResponse.contentVersionIds!== null) {
+            $scope.docxContentVersionIds  = $scope.bpTreeResponse.contentVersionIds.split(",").map(function(id) {
+                return id.trim();
+            });
+        }
+        
+        if($scope.docxContentVersionIds && $scope.docxContentVersionIds.length > 0) {
+            $scope.x = 0;
+            $scope.initializeDocumentGenerationMethods().then(function() {
+                $scope.generatedPdfDocumentList($scope.docxContentVersionIds); 
+            });
+        } else {
+            var error = {
+                'message':'Missing docxContentVersionIds for generating pdf documents',
+                'type':''
+            }
+            $scope.validationErrorHandler.throwError(error);
+            $scope.vlcLoading = false;
+        }
+    }, false);
+
+    $scope.generatedPdfDocumentList = function(docgenIdList) {
+        $scope.InitiatePDFConversion(docgenIdList).then(function(response){
+            $scope.vlcLoading = false;
+            $scope.doneGeneratingFiles = true;
+            $scope.isPdfDownloadReady = true;
+            $scope.$apply();
+        }); 
+    }
+    $scope.InitiatePDFConversion = function (docGenContentVersionIds) {
+        var deferred = $q.defer();
+        return new Promise(function (resolve, reject) {
+            $scope.getListOfTemplateFileContent(docGenContentVersionIds).then(function(listContentVersions){
+                $scope.sequentialPdfConversion(0, listContentVersions).then(function (listOfConvertedPdfs) {
+                    //save 
+                    console.log('Sequential pdfConversion...');
+                    Promise.all(listOfConvertedPdfs.map(convertedPdf => {
+                        return $scope.saveContent(convertedPdf.pdfFileName, convertedPdf.pdfFileContent);
+                    })).then(generatedPDFContentVersions => {
+                        $scope.pdfContentVersionIds = generatedPDFContentVersions.map(generatedPDFContentVersion => generatedPDFContentVersion.Id);
+                        if(generatedPDFContentVersions.length > 0){
+                            $scope.generatedContentVersion = generatedPDFContentVersions[0];
+                        }
+
+                        window.parent.postMessage({'pdfGenContentVersionIds': $scope.pdfContentVersionIds}, '*');
+                        generatedPDFContentVersions.map( generatedPDFContentVersion => {
+                            generatedPDFContentVersion = {
+                                'Id': generatedPDFContentVersion['Id'],
+                                'Title': generatedPDFContentVersion['Title'],
+                                'VersionData': generatedPDFContentVersion['VersionData']
+                            };
+                            if($scope.attachFileFormat && $scope.attachFileFormat.indexOf("pdf") > -1) {
+                                $scope.linkContentVersionToObject(generatedPDFContentVersion.Id);
+                            }
+                        });
+                        resolve(true);  
+                    });
+                }).catch(function (error) {
+                    console.error('### error sequentialPdfConversion: ', error);
+                    reject(error);
+                });
+            }).catch( function(error){
+                console.error('### error getListOfTemplateFileContent: ', error);
+                reject(error);
+            });
+        });
+     };
+
+     $scope.sequentialPdfConversion = function(index, listOfDocxCV, listOfConvertedPdfs, deferred){
+         if(index === 0) {
+            listOfConvertedPdfs = [];
+            deferred = $q.defer();
+         }
+
+
+         let templateContentVersion = listOfDocxCV[index]; 
+         let generatedContentVersion = {
+             'Id': templateContentVersion.Id,
+             'Title': templateContentVersion.Title,
+             'VersionData': templateContentVersion.Base64VersionData
+         }
+         let inputMap = {
+             'pdfIntegrationConfig': $scope.pdfIntegrationConfig,
+             'contextId': $scope.contextId,
+             'docName': templateContentVersion.sourceFileName,
+             'generatedContentVersion': generatedContentVersion,
+             'isDownload': false
+         };
+
+         
+        generatePDFTronDocument(inputMap).then(function (response) {
+            console.log('### client side pdf generation completed...');
+            listOfConvertedPdfs.push({ pdfFileName: inputMap['docName'] + '.pdf', pdfFileContent: response});
+            index++;
+
+            if(index < listOfDocxCV.length) {
+                $scope.sequentialPdfConversion(index, listOfDocxCV, listOfConvertedPdfs, deferred);
+            } else {
+                deferred.resolve(listOfConvertedPdfs);
+            }
+        });
+        if(index == 0){
+            return deferred.promise;
+        }
+     }
+
+
+    $scope.generatePdfViaClientSide = function (inputMap) {
+        return new Promise(function (resolve, reject) {
+            //Call the Static Resource Method
+            generatePDFTronDocument(inputMap).then(function (response) {
+                console.log('### client side pdf generation completed...');
+                resolve($scope.saveContent(inputMap['docName'] + '.pdf', response));
+            })
+        })
+    }
+    $scope.saveContent = function (fileName, fileContent) {
+        var deferred = $q.defer();
+
+        var contentVersionSObj = new sforce.SObject('ContentVersion');
+        contentVersionSObj.Title = fileName;
+        contentVersionSObj.PathOnClient = fileName;
+        contentVersionSObj.VersionData = fileContent;
+
+        sforce.connection.sessionId = window.sessionId;
+        sforce.connection.create([contentVersionSObj], {
+            onSuccess: function (result) {
+                var status = result[0].getBoolean('success');
+                var generatedContentVersionId = result[0].id;
+                console.log('generatedContentVersionId: ', generatedContentVersionId);
+                var generatedContentVersion = {
+                    'Id': generatedContentVersionId,
+                    'Title': fileName,
+                    'VersionData': fileContent
+                }
+                deferred.resolve(generatedContentVersion);
+            },
+            onFailure: function (result) {
+                deferred.reject(result.faultstring);
+            }
+        });
+
+        return deferred.promise;
+    };
     /**
      * 
      */
@@ -509,10 +686,12 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
                 $scope.templateContentVersion = {
                     'Id': result.records.Id,
                     'Title': result.records.Title,
-                    'VersionData': base64ToArrayBuffer(result.records.VersionData)
+                    'VersionData': base64ToArrayBuffer(result.records.VersionData),
+                    'Base64VersionData': result.records.VersionData
                 }
                 var docName = $scope.templateContentVersion.Title;
                 var FileExtension = '.'+result.records.FileExtension;
+                $scope.fileExtension = result.records.FileExtension;
                 $scope.sourceFileName = docName.substr(0, docName.lastIndexOf(FileExtension));
                 deferred.resolve(true);
             },  
@@ -524,6 +703,48 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
 
         return deferred.promise;
     };
+
+
+    $scope.getListOfTemplateFileContent = function(contentVersionIds) {
+        var deferred = $q.defer();
+        Promise.all(
+            contentVersionIds.map( cvId => {
+                return new Promise(function(resolve,reject){
+                    var queryString = 'Select Id, Title, FileExtension, VersionData FROM ContentVersion where Id = \'' + cvId + '\'';
+                    sforce.connection.queryAll(queryString, {
+                        onSuccess: function(result) {
+                            let records = result.getArray('records');
+                            for(let i = 0; i < records.length; i++) {
+                                let record = records[i];
+                                var docName = record.Title;
+                                var FileExtension = '.'+record.FileExtension;
+                                var sourceFileName = docName.substr(0, docName.lastIndexOf(FileExtension));
+                                var templateContentVersion = {
+                                    'Id': record.Id,
+                                    'Title': record.Title,
+                                    'VersionData': base64ToArrayBuffer(record.VersionData),
+                                    'Base64VersionData': record.VersionData,
+                                    'sourceFileName': sourceFileName
+                                }
+                                console.log('resolving contentVersion..');
+                                resolve(templateContentVersion);
+                            }
+                        },  
+                        onFailure: function(result) {
+                            reject(result);
+                        }
+                    });
+                });
+            })).then( listOfCVs=> {
+                deferred.resolve(listOfCVs);
+            }).catch( (error)=> {
+                var errorMsg = error.faultstring;
+                deferred.reject(errorMsg);
+            });
+
+        return deferred.promise;
+    };
+
 
     /**
      * 
@@ -551,57 +772,7 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
      * 
      */
     $scope.generateDocXFromTokenData = function(fileContentData, docXTokenData) {
-        if ($scope.docGenerationMechanism.match(/vlocitycloud/i)) {
-            // generate doc via cloud
-            return $scope.generateDocXFromTokenDataViaCloud($scope.templateId, docXTokenData);
-        } else {
-            // generate doc via client side (default)
-            return $scope.generateDocXFromTokenDataViaClientSide(fileContentData, docXTokenData);
-        }
-    }
-
-    /**
-     * 
-     */
-    $scope.generateDocXFromTokenDataViaCloud = function(templateId, tokenData) {
-        return new Promise(function(resolve, reject) {
-            let inputMap = {
-                'templateId' : templateId,
-                'objectId' : $scope.contextId,
-                'jsonContent' : JSON.stringify(tokenData)
-            };
-
-            if ($scope.networkId) {
-                inputMap['networkId'] = $scope.networkId;
-            }
-
-            remoteActions.remoteGenerateDoc(inputMap)
-                .then(function(response) {
-                    if (response['success']) {
-                        console.log('### response: ', response);
-                        console.log('### server side doc generation completed...');
-                        
-                        $scope.generatedContentVersion = {
-                            'Id': response['contentVersionId'],
-                            'Title': response['filename'],
-                            'VersionData': response['base64Content']
-                        };
-
-                        resolve({
-                            'fileName': response['filename'], 
-                            'fileContent': response['base64Content']}
-                        );
-                    } else {
-                        throw response;
-                    }
-                })
-                .catch(function(error) {
-                    console.error('### remoteGenerateDoc() error: ', error);
-                    $scope.validationErrorHandler.throwError(error);
-                    reject(error);
-                    $scope.vlcLoading = false;
-                });
-        });
+        return $scope.generateDocXFromTokenDataViaClientSide(fileContentData, docXTokenData);
     }
 
     /**
@@ -774,7 +945,8 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
                     "pdfIntegrationConfig" : $scope.pdfIntegrationConfig,
                     "generatedContentVersion" : $scope.generatedContentVersion,
                     "docName" : $scope.sourceFileName,
-                    "isDownload":false
+                    "isDownload":false,
+                    "fileExtension": $scope.fileExtension
                 }
                 generatePDFTronDocument(inputMap).then(function(result){
                 $scope.saveGeneratedPdfFile($scope.sourceFileName + '.pdf', result);
@@ -782,55 +954,12 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
                     console.error('error: ', error);
                     $scope.vlcLoading = false;
                 });
-            } else if ($scope.pdfGenerationSource.match(/vlocitycloud/i)) {
-            // generate pdf using off-platform service
-                let inputMap = {
-                    'objectId' : $scope.contextId,
-                    'contentVersionId' : $scope.generatedContentVersion.Id,
-                    'docName' : $scope.sourceFileName,
-                    'templateType': $scope.templateType
-                };
-
-                if ($scope.vcloudPdfEncryptionPassword) {
-                    inputMap['encryptionPassword'] = $scope.vcloudPdfEncryptionPassword;
-                }
-
-                remoteActions.remoteGeneratePdf(inputMap)
-                    .then(function(response) {
-                        console.log('### remoteGeneratePdf() response: ', response);
-                        if (response['success']) {
-                            console.log('### server side pdf generation completed...');
-                            //$scope.saveGeneratedPdfFile($scope.sourceFileName + '.pdf', response['base64Content']);
-                            $scope.generatedPDFContentVersion = {
-                                'Id': response.contentVersionId,
-                                'Title': response.title,
-                                'VersionData': response.base64Content
-                           }
-                           $scope.vlcLoading = false;
-                           $scope.isPdfDownloadReady = true;
-                           //$scope.$apply();
-                           // post a message to the window with the generated ContentVersion Id
-                           window.parent.postMessage({'pdfGenContentVersionId': $scope.generatedPDFContentVersion.Id}, '*');
-                           //link the new ContentVersion record to the Object based on the attachFileFormat setup value('PDF' or 'Word,PDF').
-                           
-                           console.log('### $scope.attachFileFormat: ', $scope.attachFileFormat);
-                           
-                           if($scope.attachFileFormat && $scope.attachFileFormat.indexOf("pdf") > -1 && !$scope.inTest) {
-                           		$scope.createDocumentLink($scope.contextId, $scope.templateId, $scope.generatedPDFContentVersion.Id);
-                                $scope.linkContentVersionToObject($scope.generatedPDFContentVersion.Id);
-                           }
-
-                        } else {
-                            throw response;
-                        }
-                    })
-                    .catch(function(error) {
-                        console.error('### remoteGeneratePdf() error: ', error);
-                        $scope.validationErrorHandler.throwError(error);
-                        $scope.vlcLoading = false;
-                    });
             } else {
-                checkPdfDownloadReady($scope.generatedContentVersion.Id);
+                var input = {
+                    'contextId': $scope.contextId,
+                    'sourceContentVersionId': $scope.generatedContentVersion.Id
+                };
+                checkPdfDownloadReady(input);
             }
         }
     }
@@ -854,9 +983,12 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
         var urlPrefix = $scope.communityName ? '/'+ $scope.communityName +'/sfc/servlet.shepherd/version/download/' 
                                             : '/sfc/servlet.shepherd/version/download/';
         if(downloadPdf) {
-            location.href = urlPrefix + $scope.generatedPDFContentVersion.Id;
+            location.href = ($scope.pdfContentVersionIds && $scope.pdfContentVersionIds.length>0) ?
+                                urlPrefix + $scope.pdfContentVersionIds.join('/'): urlPrefix + $scope.generatedPDFContentVersion.Id;
         } else {
-            location.href = urlPrefix + $scope.generatedContentVersion.Id;
+            location.href = ($scope.docxContentVersionIds && $scope.docxContentVersionIds.length>0) ?
+                                urlPrefix + $scope.docxContentVersionIds.join('/'): urlPrefix + $scope.generatedContentVersion.Id;
+            
         }
     };
 
@@ -897,20 +1029,6 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
         });
     };
 
-    //generate PDF document using salesforce (default option)
-    $scope.generatePdfDocument = function() {        
-        var input = {
-            'contextId': $scope.contextId,
-            'sourceContentVersionId': $scope.generatedContentVersion.Id
-        };
-        remoteActions.generatePdfDocument(input).then(function(fileContent) {
-            $scope.saveGeneratedPdfFile($scope.sourceFileName + '.pdf', fileContent);
-        }, function(error) {
-            $scope.vlcLoading = false;
-            console.log(error);
-        })
-    }
-
     /**
      * 
      */
@@ -931,34 +1049,38 @@ angular.module('objectDocumentCreation').controller('objectDocumentCreationDocXC
             });
     }
 
-    function checkPdfDownloadReady(contenVersionId) {
-        var urlPrefix = $scope.communityName ? '/'+ $scope.communityName +'/sfc/servlet.shepherd/version/renditionDownload?rendition=SVGZ&versionId=' 
-                                            : '/sfc/servlet.shepherd/version/renditionDownload?rendition=SVGZ&versionId=';
-        var imgSource = urlPrefix + contenVersionId + '&operationContext=CHATTER&page=0';
-        var img = document.createElement("img");
-        var retries = 0;
-
-        console.log('imgSource=', imgSource);
-        console.log('loading thumbnail');
-        
-        img.setAttribute('src', imgSource);
-           
-        img.addEventListener("load", function() {
-            console.log('successfully verified thumbnail');
-            $scope.generatePdfDocument();
-        }, false); 
-        
-        img.addEventListener("error", function(e) {
-            ++retries;
-            $timeout(function () {
-                img.setAttribute('src', imgSource);
-                console.log('retries=' + retries);
-                console.log('reloading thumbnail');
-            }, 2000 * retries);
-                        
-        }, false); 
-
+    /***
+     * 
+     */
+    function checkPdfDownloadReady(input) {
+        remoteActions.generatePdfDocument(input).then(function(response) {
+            var jsonResponse = JSON.parse(response);
+            console.log('### checkPdfDownloadReady() response: ', response);
+            if (jsonResponse.completed) {
+                console.log('### checkPdfDownloadReady() completed');
+                $scope.saveGeneratedPdfFile($scope.sourceFileName + '.pdf', jsonResponse.versionData);
+            } else {
+                console.log('### checkPdfDownloadReady() not yet complete');
+                sleep(5000).then(function() {
+                    checkPdfDownloadReady(input)
+                });
+            }
+        }, function(error) {
+            $scope.vlcLoading = false;
+            console.log(error);
+        })
     }
+
+    /**
+     * 
+     * @param {*} time 
+     */
+    function sleep (time) {
+        return new Promise(function(resolve) {
+            setTimeout(resolve, time)
+        });
+    }
+
     function base64ToArrayBuffer(base64) {
         var binary_string = window.atob(base64);
         var len = binary_string.length;
@@ -1063,7 +1185,8 @@ angular.module('objectDocumentCreation').directive('filePreviewPdfTron', ['$time
                 //List the elements that need to hide/disable.
                 disabledElements: [
                     'toolsButton',
-                    'textPopup'
+                    'textPopup',
+                    'toolsHeader'
                 ],
                 custom: JSON.stringify(webViewerCustomOptions),
                 l: atob(scope.$parent.$parent.$parent.pdfIntegrationConfig),
@@ -1080,6 +1203,7 @@ angular.module('objectDocumentCreation').directive('filePreviewPdfTron', ['$time
                 instance.disableDownload(); // disable download feature
                 instance.disablePrint(); // disable print feature
                 instance.disableTools(); //disable the tools that are used for editing the document.
+				instance.disableElements(['searchButton','toolbarGroup-View','toolbarGroup-Annotate','toolbarGroup-Shapes','toolbarGroup-Insert','toolbarGroup-Edit','toggleNotesButton']);
                 wv.loadDocument(base64ToBlob(scope.$parent.$parent.generatedContentVersion.VersionData),{ filename: 'myfile.docx' , officeOptions: { disableBrowserFontSubstitution: true } });
             });
 
@@ -1582,7 +1706,7 @@ angular.module('objectDocumentCreation').factory('ValidationErrorHandler', funct
 
         // Error handling helper
         this.throwError = function(error) {
-            var statusCode;
+            var statusCode ='';
             if (!error.message) {
                 error.message = 'No error message.';
             }

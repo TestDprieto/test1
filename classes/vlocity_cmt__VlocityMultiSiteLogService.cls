@@ -5,9 +5,12 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class VlocityMultiSiteLogService implements vlocity_cmt.VlocityOpenInterface {
+global class VlocityMultiSiteLogService implements System.Callable, vlocity_cmt.VlocityOpenInterface {
     global VlocityMultiSiteLogService() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global static Boolean invokeMethod(String methodName, Map<String,Object> input, Map<String,Object> output, Map<String,Object> options) {
         return null;

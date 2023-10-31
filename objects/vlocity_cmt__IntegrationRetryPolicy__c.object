@@ -192,6 +192,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__RetryIntervals__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Use comma-separated values to indicate intervals between attempts in seconds</inlineHelpText>
+        <label>Retry Intervals</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__TimeBetweenRetries__c</fullName>
         <defaultValue>60</defaultValue>
         <deprecated>false</deprecated>
@@ -230,7 +242,36 @@
         <active>true</active>
         <label>No Retry Policy</label>
     </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__StaggeredRetryPolicy</fullName>
+        <active>true</active>
+        <label>Staggered Retry Policy</label>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>vlocity_cmt__MaximumNumberOfRetriesValidation</fullName>
+        <active>true</active>
+        <description>MaximumNumberOfRetries field validation</description>
+        <errorConditionFormula>NOT(vlocity_cmt__MaximumNumberOfRetries__c &gt;= 0)</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__MaximumNumberOfRetries__c</errorDisplayField>
+        <errorMessage>Maximum Number Of Retries cannot be a negative number.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__RetryIntervalsValidation</fullName>
+        <active>true</active>
+        <description>Retry Intervals field validation</description>
+        <errorConditionFormula>AND(NOT(ISBLANK(vlocity_cmt__RetryIntervals__c)), NOT(REGEX(vlocity_cmt__RetryIntervals__c, &quot;(\\d+)(,\\s*\\d+)*&quot;)))</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__RetryIntervals__c</errorDisplayField>
+        <errorMessage>Retry Intervals must be whole numbers separated by commas.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__TimeBetweenRetriesValidation</fullName>
+        <active>true</active>
+        <description>TimeBetweenRetries field validation</description>
+        <errorConditionFormula>NOT(vlocity_cmt__TimeBetweenRetries__c &gt;= 0)</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__TimeBetweenRetries__c</errorDisplayField>
+        <errorMessage>Time Between Retries cannot be a negative number.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
 </CustomObject>

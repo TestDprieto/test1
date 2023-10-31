@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -282,6 +296,7 @@ angular.module('contractDocumentEditSectionsApp').controller('contractDocumentEd
         $scope.tinymceOptions = {
             selector: 'div.tinymce-editor',
             fixed_toolbar_container: '.tinymce-toolbar',
+            branding: false,
             schema: 'html5-strict',
             inline: true,
             body_class: 'vlocity',
@@ -293,6 +308,7 @@ angular.module('contractDocumentEditSectionsApp').controller('contractDocumentEd
             fontsize_formats: '6pt 7pt 8pt 9pt 10pt 11pt 12pt 14pt 16pt 18pt 20pt 22pt 24pt 30pt 36pt',
             advlist_number_styles: 'default,lower-alpha,upper-alpha,lower-roman,upper-roman',
             advlist_bullet_styles: 'default,circle,disc,square',
+            invalid_elements : 'iframe',
             style_formats: [
                 {
                     title: 'Inline', 
@@ -1175,7 +1191,7 @@ angular.module('contractDocumentEditSectionsApp').controller('contractDocumentEd
 
     $scope.switchToSectionView = function() {
         $scope.vlcLoading = true;
-        var sectionViewUrl = location.origin + $scope.sitePrefix + '/apex/'+$scope.nameSpacePrefix+'ContractDocumentSectionView?id=' + $scope.contractId;
+        var sectionViewUrl = $scope.sitePrefix + '/apex/'+$scope.nameSpacePrefix+'ContractDocumentSectionView?id=' + $scope.contractId;
         if ($scope.isConsole) {
             // navigate current subtab to the Section View
             sforce.console.getFocusedSubtabId(function (result) {
@@ -1189,7 +1205,7 @@ angular.module('contractDocumentEditSectionsApp').controller('contractDocumentEd
             });
         } else {
             if (!$scope.isSforce) {
-                window.top.location.href = sectionViewUrl;
+                window.top.open(sectionViewUrl, '_self');
                 return false;
             } else if ($scope.isSforce) {
 				sectionViewUrl = sectionViewUrl.replace(location.origin, '');

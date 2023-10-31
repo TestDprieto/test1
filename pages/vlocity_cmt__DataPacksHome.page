@@ -4,7 +4,8 @@
             standardController="vlocity_cmt__VlocityDataPack__c"
             extensions="vlocity_cmt.DRDataPackRunnerController"
             recordSetVar="datapacks"
-            tabStyle="DataPacks__tab">
+            tabStyle="DataPacks__tab"
+            action="{!checkIfThisIsFirstInstalledPackage}">
   <head>
         <apex:includeScript value="{!$Resource.vlocity_cmt__angular_bundle_1_6}"/>
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/bower_components/ng-table/dist/ng-table.js')}"/>
@@ -14,6 +15,9 @@
         <apex:includeScript value="{!$Resource.vlocity_cmt__DRVComp}"/>
         <apex:includeScript value="{!$Resource.vlocity_cmt__DataPacksHome}"/>
         <apex:includeScript value="{!$Resource.vlocity_cmt__ViaDirectives}"/>
+        <script type="text/javascript">
+            window.industryPkgNSPrefix = '{!industryPkgNSPrefix}';
+        </script>
   <style>
     /* don't show checkbox on Published tab in header since it doesn't work as expected in this context */
     #datapack-published-group-header-select-all {
@@ -100,7 +104,7 @@
   xmlns:xlink="http://www.w3.org/1999/xlink">
     <div ng-app="datapackshome" class="via-slds ng-cloak  {!$User.UIThemeDisplayed}">
       <apex:sectionHeader subtitle="{{ ::'DataPacksHomeHome' | localize:'DataPacks' }}"
-                          title="{{ ::'DataPacksHomeTitle' | localize:'Vlocity' }}"/>
+                          title="{{ ::'DataPacksHomeTitle' | localize:'OmniStudio' }}"/>
 
       <div ng-controller="homeController" style="position: relative">
         <div class="slds-notify_container" ng-if="showNamespaceAlert">
@@ -122,6 +126,10 @@
         </div>
       </div>
     </div>
+    <script>
+      angular.module('datapackshome.core', [])
+             .value('IsFoundation', {!JSENCODE(IF(isFoundation, "true", "false"))});
+    </script>
   </body>
   <c:VFActionFunction />
 </apex:page>

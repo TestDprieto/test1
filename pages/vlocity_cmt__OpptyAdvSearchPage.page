@@ -1,6 +1,4 @@
 <apex:page standardController="Opportunity" extensions="vlocity_cmt.LineItemManagementStandardController" showHeader="false" sidebar="false">
-	<!-- <c:AdvProdSearchComponent buttonTitle="{!$Label.vlocity_cmt__createquotes}" cartUrl="/apex/OpportunityManager?id={!$CurrentPage.parameters.Id}"  showItemLinks="true"/> -->
-	<!--<c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__createquotes}" summaryTitle="Opportunity Summary" cartUrl="/apex/OpportunityManager?id={!$CurrentPage.parameters.Id}" />-->
 	<html xmlns:ng="http://angularjs.org">
 		<head>
 			<apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}"/>
@@ -17,7 +15,7 @@
 		</head>
 		<body>
 			<c:SummaryConfigurationComponent summaryTitle="Opportunity Summary"/>
-			<c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__createquotes}" summaryTitle="Opportunity Summary" cartUrl="/apex/OpportunityManager?id={!$CurrentPage.parameters.Id}" />
+			<c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__CreateQuotes}" summaryTitle="Opportunity Summary" cartUrl="/apex/OpportunityManager?id={!URLENCODE($CurrentPage.parameters.Id)}" />
 		</body>
 	</html>
 </apex:page>

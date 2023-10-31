@@ -25,7 +25,7 @@
             <template if:false={compLoaded}>
                 <div class="slds-spinner-container__wrapper">
                     <vlocity_cmt-spinner variant="brand"
-                                        alternative-text="Loading..."
+                                        alternative-text={allCustomLabelsUtil.OmniSpinnerTextLoading}
                                         size="medium">
                     </vlocity_cmt-spinner>
                 </div>
@@ -57,7 +57,7 @@
                             class={contentSldsClass}>
                             <template if:true={isPageLoading}>
                                 <vlocity_cmt-spinner variant="brand"
-                                                    alternative-text="Loading..."
+                                                    alternative-text={allCustomLabelsUtil.OmniSpinnerTextLoading}
                                                     extraouterclass="slds-theme_default"
                                                     message={spinnerMessage}
                                                     size="medium">
@@ -69,7 +69,7 @@
                                                 auto></vlocity_cmt-omniscript-save-for-later-acknowledge>
                             </template>
                             <template for:each={jsonDef.children} for:item="item" for:index="idx"></template>
-                            <div class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium">
+                            <div class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-show_medium">
                                 <div class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12">
                                     <div class="omniscript-sfl-actions">
                                         <div if:true={cancelAction}>
@@ -112,6 +112,7 @@
                                                 <vlocity_cmt-button
                                                     type="button"
                                                     label={navButton.previous.label}
+                                                    aria-label={navButton.previous.label}
                                                     variant="neutral"
                                                     extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center">
                                                 </vlocity_cmt-button>
@@ -121,6 +122,7 @@
                                                 if:false={_isSeoEnabled}
                                                 type="button"
                                                 label={navButton.previous.label}
+                                                aria-label={navButton.previous.label}
                                                 variant="neutral"
                                                 class={navButton.previous.classes}
                                                 extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
@@ -137,6 +139,7 @@
                                                 <vlocity_cmt-button
                                                     type="button"
                                                     label={navButton.next.label}
+                                                    aria-label={navButton.next.label}
                                                     variant="brand"
                                                     extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center">
                                                 </vlocity_cmt-button>
@@ -146,11 +149,98 @@
                                                 if:false={_isSeoEnabled}
                                                 type="button"
                                                 label={navButton.next.label}
+                                                aria-label={navButton.next.label}
                                                 variant="brand"
                                                 class={navButton.next.classes}
                                                 extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
                                                 onclick={nextStep}>
                                             </vlocity_cmt-button>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-hide_medium">
+                                <div class="slds-col slds-order_1 slds-medium-order_2 slds-size_12-of-12 slds-medium-size_6-of-12">
+                                    <div class="slds-grid slds-wrap slds-grid_align-end">
+                                        <template if:true={hasNext}>
+                                            <vlocity_cmt-navigate-action
+                                                if:true={_isSeoEnabled}
+                                                target-type="Current Page"
+                                                use-href
+                                                class={navButton.next.classes}
+                                                target-params={navButton.next.targetParams}>
+                                                <vlocity_cmt-button
+                                                    type="button"
+                                                    label={navButton.next.label}
+                                                    aria-label={navButton.next.label}
+                                                    variant="brand"
+                                                    extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center">
+                                                </vlocity_cmt-button>
+                                            </vlocity_cmt-navigate-action>
+                                            <vlocity_cmt-button
+                                                if:false={_isSeoEnabled}
+                                                type="button"
+                                                label={navButton.next.label}
+                                                aria-label={navButton.next.label}
+                                                variant="brand"
+                                                class={navButton.next.classes}
+                                                extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
+                                                onclick={nextStep}>
+                                            </vlocity_cmt-button>
+                                        </template>
+                                        <template if:true={hasPrev}>
+                                            <vlocity_cmt-navigate-action
+                                                if:true={_isSeoEnabled}
+                                                target-type="Current Page"
+                                                class={navButton.previous.classes}
+                                                use-href
+                                                target-params={navButton.previous.targetParams}>
+                                                <vlocity_cmt-button
+                                                    type="button"
+                                                    label={navButton.previous.label}
+                                                    aria-label={navButton.previous.label}
+                                                    variant="neutral"
+                                                    extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center">
+                                                </vlocity_cmt-button>
+                                            </vlocity_cmt-navigate-action>
+                                            <vlocity_cmt-button
+                                                if:false={_isSeoEnabled}
+                                                type="button"
+                                                label={navButton.previous.label}
+                                                aria-label={navButton.previous.label}
+                                                variant="neutral"
+                                                class={navButton.previous.classes}
+                                                extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
+                                                onclick={prevStep}>
+                                            </vlocity_cmt-button>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-order_2 slds-medium-order_1 slds-size_12-of-12 slds-medium-size_6-of-12">
+                                    <div class="omniscript-sfl-actions">
+                                        <div if:true={cancelAction}>
+                                            <vlocity_cmt-button
+                                                type="button"
+                                                label={cancelLabel}
+                                                variant="base"
+                                                class={navButton.save.classes}
+                                                onclick={cancel}>
+                                            </vlocity_cmt-button>
+                                        </div>
+                                        <vlocity_cmt-navigate-action
+                                            data-omni-key="DEFAULT-CANCEL"
+                                            target-type={_defaultCancel.type}
+                                            target-params={_defaultCancel.params}>
+                                        </vlocity_cmt-navigate-action>
+                                        <template if:true={allowSfl}>
+                                            <div>
+                                                <vlocity_cmt-button type="button"
+                                                        label={navButton.save.label}
+                                                        variant="base"
+                                                        class={navButton.save.classes}
+                                                        onclick={saveForLater}>
+                                                </vlocity_cmt-button>
+                                            </div>
                                         </template>
                                     </div>
                                 </div>

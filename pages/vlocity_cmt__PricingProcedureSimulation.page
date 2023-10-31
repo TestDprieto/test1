@@ -513,7 +513,8 @@
         </script>
         <body>
             <div ng-controller="content" class="vlocity">
-                <div>
+                <div class="alert alert-warning" ng-if="{!bOmniStudio}" style="margin: 15px 0;">{!omniStudioEnabledErrMessage}</div>
+                <div ng-if="!{!bOmniStudio}">
                     <h4>{{name}}</h4>
                     <table class="table">
                         <tr>

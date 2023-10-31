@@ -143,6 +143,12 @@
     <allowInChatterGroups>false</allowInChatterGroups>
     <compactLayoutAssignment>vlocity_cmt__Vlocity_EPC_Price_List_Compact_Layout</compactLayoutAssignment>
     <compactLayouts>
+        <fullName>vlocity_cmt__Vlocity_EPC_PriceList_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>vlocity_cmt__Code__c</fields>
+        <label>Vlocity EPC PriceList Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
         <fullName>vlocity_cmt__Vlocity_EPC_Price_List_Compact_Layout</fullName>
         <fields>Name</fields>
         <fields>vlocity_cmt__Code__c</fields>
@@ -154,7 +160,6 @@
     </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description>A price list represents the pricing for the products and services that your company offers. A base price list defines the baseline pricing for your products and services. A child price list inherits all the pricing from the base price list and contains exceptions to the baseline pricing.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -353,7 +358,6 @@
         <externalId>false</externalId>
         <label>Parent Price List</label>
         <referenceTo>vlocity_cmt__PriceList__c</referenceTo>
-        <relationshipLabel>Child Price Lists</relationshipLabel>
         <relationshipName>ChildPriceLists</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -366,7 +370,6 @@
         <externalId>false</externalId>
         <label>Price Book</label>
         <referenceTo>Pricebook2</referenceTo>
-        <relationshipLabel>Price Lists</relationshipLabel>
         <relationshipName>PriceLists</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -384,7 +387,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <label>Price List</label>
+    <label>PriceList</label>
     <listViews>
         <fullName>vlocity_cmt__All</fullName>
         <filterScope>Everything</filterScope>
@@ -404,10 +407,31 @@
         <label>Vlocity EPC Price List</label>
     </listViews>
     <nameField>
-        <label>Price List Name</label>
+        <label>Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Price Lists</pluralLabel>
+    <pluralLabel>PriceList</pluralLabel>
+    <recordTypes>
+        <fullName>vlocity_cmt__PriceList</fullName>
+        <active>true</active>
+        <compactLayoutAssignment>vlocity_cmt__Vlocity_EPC_PriceList_Compact_Layout</compactLayoutAssignment>
+        <description>PriceList record</description>
+        <label>PriceList</label>
+        <picklistValues>
+            <picklist>vlocity_cmt__CurrencyCode__c</picklist>
+            <values>
+                <fullName>USD</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LoyaltyCode__c</picklist>
+            <values>
+                <fullName>PTS</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
@@ -418,4 +442,15 @@
         <errorMessage>Effective Until Date should be greater than or equal to Effective From Date.</errorMessage>
     </validationRules>
     <visibility>Public</visibility>
+    <webLinks>
+        <fullName>vlocity_cmt__New_PriceList</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>New PriceList</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__PCNewPriceList</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
 </CustomObject>

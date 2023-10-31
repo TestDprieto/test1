@@ -189,8 +189,8 @@
         <script type="text/javascript">
             var nameSpacePrefix, remoteActions, versionId, sourceId, baseRequestUrl, labels;
             nameSpacePrefix = '{!nameSpacePrefix}';
-            versionId = '{!$CurrentPage.parameters.Id}';
-            sourceId = '{!sourceId}';
+            versionId = '{!JSENCODE($CurrentPage.parameters.Id)}';
+            sourceId = '{!JSENCODE(sourceId)}';
             baseRequestUrl = '{!$Site.BaseRequestUrl}';
             remoteActions = {
                 getContractVersions: {

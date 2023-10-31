@@ -20,10 +20,10 @@
 
 			<!-- Component loads the vloc-layout and cards - defaults to Grid if no layout parameter is present -->
 			<!-- <c:CardLayoutComponent layout="Grid" controllers="myCtrl" modules="myApp"/> -->
-
-			<c:CardLayoutComponent layout="Grid" modules="myApp"/>
-
-
+			<apex:outputPanel layout="none" rendered="{!showLegacyOmniStudioUi}">
+				<c:CardLayoutComponent layout="Grid" modules="myApp"/>
+			</apex:outputPanel>
+			<c:VFPageDeprecatedMessage rendered="{!!showLegacyOmniStudioUi}"/> 
 			<script type="text/javascript">
 				var myApp = angular.module('myApp',['forceng','consoleCards']);
 				var mydomainUrl = '{!JSENCODE(domainUrl)}';

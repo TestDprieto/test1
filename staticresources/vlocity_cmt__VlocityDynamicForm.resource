@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -268,11 +282,21 @@ angular.module('VlocityDynamicForm')
             $scope.watchModel = function(modelObj, debounce) {
                 var debounceTime = debounce ? 800 : 0;
                 var saveDebounce = null;
+                var isNewValue = true;
                 $scope.$watch(modelObj, function(newValue, oldValue) {
                     if (saveDebounce) {
                         $timeout.cancel(saveDebounce);
                     }
-                    if (newValue !== oldValue && isFormAutoSave() && newValue) {
+                    isNewValue = true;
+                    if(newValue && !isNaN(Date.parse(newValue)))
+                    {
+                        var newISODate = new Date(newValue).toISOString();
+                        var oldISODate = new Date(oldValue).toISOString();
+                        if(newISODate == oldISODate) {
+                            isNewValue = false;
+                        }
+                    }
+                    if (newValue !== oldValue && isFormAutoSave() && newValue && isNewValue) {
                         saveDebounce = $timeout(function () {
                             var wrappedResult = angular.element(document.getElementsByName(getFormName()));
                             var formChangeFn = $parse(wrappedResult.attr('form-on-change'));
@@ -708,7 +732,6 @@ angular.module('VlocityDynamicForm')
                         } else if (getFieldType(field) === 'checkbox') {
                             if (angular.isDefined(field.isOn)) {newElement.attr('ng-true-value', field.isOn);}
                             if (angular.isDefined(field.isOff)) {newElement.attr('ng-false-value', field.isOff);}
-                            if (angular.isDefined(field.slaveTo)) {newElement.attr('ng-checked', field.slaveTo);}
                         } else if (getFieldType(field) === 'checklist') {
                             field[fieldMapping.value] = field.value;
 

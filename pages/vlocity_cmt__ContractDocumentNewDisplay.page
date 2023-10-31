@@ -91,8 +91,8 @@
         <script type="text/javascript">
             var nameSpacePrefix, remoteActions, contractId, sourceId, baseRequestUrl, cancelLabel, continueLabel, uploadWordFileLabel, reconcileSuccessLabel, notWordDocument, needCreateDocument, headerLabels,labels, sitePrefix;
             nameSpacePrefix = '{!JSENCODE(nameSpacePrefix)}';
-            contractId = '{!$CurrentPage.parameters.Id}';
-            sourceId = '{!sourceId}';
+            contractId = '{!JSENCODE($CurrentPage.parameters.Id)}';
+            sourceId = '{!JSENCODE(sourceId)}';
             baseRequestUrl = '{!$Site.BaseRequestUrl}';
             cancelLabel = '{!$Label.Cancel}';
             continueLabel = '{!$Label.ActionValidationContinue}';

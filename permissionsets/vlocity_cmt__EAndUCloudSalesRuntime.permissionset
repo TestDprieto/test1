@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__CMEBase</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__ConfigurePriceQuote</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__EAndUDigitalSales</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__SharedProductCatalog</name>
+    </customPermissions>
+    <description>Allows users to access Energy &amp; Utilities Cloud Sales application features.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>EAndU Cloud Sales Runtime</label>
+</PermissionSet>

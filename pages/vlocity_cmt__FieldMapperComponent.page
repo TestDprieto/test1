@@ -2,10 +2,11 @@
     <html xmlns:ng="http://angularjs.org" ng-app="fieldMapperApp" class="ng-cloak" style="height:100%" > 
         <head>
             <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}"/>
-            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/jquery-ui-1.9.1.custom.min.js')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/jquery-ui-1.12.1.custom.min.js')}"/>
             <apex:includeScript value="/soap/ajax/31.0/connection.js" />
             <apex:includeScript value="{!$Resource.vlocity_cmt__ANGULARBOOT}"/>
             <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__bootstrap, '/bootstrap-3.4.1-dist/css/bootstrap.min.css')}"/>
+            <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/css/ui-lightness/jquery-ui-1.12.1.custom.min.css')}"/>
             <style>
 
                 .fieldsContainer{

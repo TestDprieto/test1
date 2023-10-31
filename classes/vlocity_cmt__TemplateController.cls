@@ -26,6 +26,10 @@ global class TemplateController {
     global String orgName {
         get;
     }
+    global String vlocAccessToken {
+        get;
+        set;
+    }
     @RemoteAction
     global static List<Database.DeleteResult> deleteTemplate(String id) {
         return null;

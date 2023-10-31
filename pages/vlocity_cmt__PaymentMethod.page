@@ -1,11 +1,11 @@
 <apex:page StandardController="vlocity_cmt__PaymentMethod__c" showHeader="true" extensions="vlocity_cmt.PaymentMethodController">
 	<apex:form >
 	<apex:sectionHeader title="Payment Method Edit " subtitle="{!vlocity_cmt__PaymentMethod__c.Name}" rendered="{!vlocity_cmt__PaymentMethod__c.Id != null}"/>
-	<apex:sectionHeader title="Payment Method Edit " subtitle="{!$Label.vlocity_cmt__newpaymentmethod}" rendered="{!vlocity_cmt__PaymentMethod__c.Id == null}"/>
+	<apex:sectionHeader title="Payment Method Edit " subtitle="{!$Label.vlocity_cmt__NewPaymentMethod}" rendered="{!vlocity_cmt__PaymentMethod__c.Id == null}"/>
 
 	<!-- <apex:outputLink value="/{!MyObject.Id}">Back to List</apex:outputLink> -->
 
-		<apex:pageBlock title="{!$Label.vlocity_cmt__paymentinformation}" id="pb1">
+		<apex:pageBlock title="{!$Label.vlocity_cmt__PaymentInformation}" id="pb1">
 			<apex:pageBlockSection columns="1">
 				<apex:actionRegion >	
 					<apex:outputLabel value="{!$ObjectType.vlocity_cmt__PaymentMethod__c.fields.vlocity_cmt__MethodType__c.label}" for="if1"/>
@@ -38,9 +38,9 @@
 			</apex:pageBlockSection>
 			
 			<apex:pageblockbuttons >
-				<apex:commandbutton action="{!savePaymentMethod}" value="{!$Label.vlocity_cmt__save}"></apex:commandbutton>
+				<apex:commandbutton action="{!savePaymentMethod}" value="{!$Label.vlocity_cmt__Save}"></apex:commandbutton>
 				<!-- If you wish to implement Save & New functionality you will have to write an apex Extension with your own Save & New Method -->
-				<apex:commandbutton action="{!cancel}" value="{!$Label.vlocity_cmt__cancel}"></apex:commandbutton>
+				<apex:commandbutton action="{!cancel}" value="{!$Label.vlocity_cmt__Cancel}"></apex:commandbutton>
 			</apex:pageblockbuttons>
 		</apex:pageBlock>
 	</apex:form>

@@ -13,7 +13,7 @@
 			</apex:pageBlockButtons>
 			<apex:pageBlockSection id="idMemberRole" columns="1">
 				<apex:pageBlockSectionItem >
-					<apex:outputLabel >{!$Label.vlocity_cmt__householdgroupname}</apex:outputLabel>
+					<apex:outputLabel >{!$Label.vlocity_cmt__HouseholdGroupName}</apex:outputLabel>
 					<apex:inputField value="{!householdSO.Name}"/>
 				</apex:pageBlockSectionItem>
 				<apex:pageBlockSectionItem >

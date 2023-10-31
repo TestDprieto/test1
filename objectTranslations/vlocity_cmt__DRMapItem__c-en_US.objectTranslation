@@ -133,6 +133,11 @@
         <name>vlocity_cmt__MapId__c</name>
     </fields>
     <fields>
+        <help><!-- Enables or disables synchronization to OM+. Value is set by associated DRBundle. --></help>
+        <label><!-- OM Plus Enabled --></label>
+        <name>vlocity_cmt__OMplusSyncEnabled__c</name>
+    </fields>
+    <fields>
         <label><!-- TransformValuesMap --></label>
         <name>vlocity_cmt__TransformValuesMap__c</name>
     </fields>

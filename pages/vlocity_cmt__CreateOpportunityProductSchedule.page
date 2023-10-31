@@ -22,7 +22,7 @@
 	    <br/>
 	    <apex:form >
 	    	<apex:pageMessages />
-	    	<apex:commandButton action="{!emptySchedule}" onclick="showMessage()" value="{!$Label.vlocity_cmt__removescheduledata}" rendered="{!hasSchedule}" style="primary-btn" /> 
+	    	<apex:commandButton action="{!emptySchedule}" onclick="showMessage()" value="{!$Label.vlocity_cmt__RemoveScheduleData}" rendered="{!hasSchedule}" style="primary-btn" /> 
 	 	</apex:form>
 		<span id="cont3" class="normal">{!$Label.ScheduleDeleted}</span>
 

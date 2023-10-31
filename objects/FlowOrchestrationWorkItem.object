@@ -72,7 +72,35 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>ReadWrite</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>AssigneeId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Description</fullName>
+    </fields>
+    <fields>
+        <fullName>Label</fullName>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RelatedRecordId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ScreenFlow</fullName>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+    </fields>
+    <fields>
+        <fullName>StepInstanceId</fullName>
+        <type>Lookup</type>
+    </fields>
     <listViews>
         <fullName>ALL_Open_Work_Items</fullName>
         <filterScope>Everything</filterScope>
@@ -88,5 +116,5 @@
         <filterScope>Everything</filterScope>
         <label>All Work Items</label>
     </listViews>
-    <sharingModel>ReadWrite</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

@@ -5,7 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class InteractionSummaryController implements vlocity_cmt.VlocityOpenInterface2 {
+global class InteractionSummaryController implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global String actionListString {
         get;
         set;
@@ -22,11 +22,18 @@ global class InteractionSummaryController implements vlocity_cmt.VlocityOpenInte
         get;
         set;
     }
+    global String vlocAccessToken {
+        get;
+        set;
+    }
     global InteractionSummaryController() {
 
     }
     global InteractionSummaryController(ApexPages.StandardController stdController) {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     @AuraEnabled
     global static String getCustomerInteraction(String recordId) {

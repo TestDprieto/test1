@@ -51,9 +51,9 @@
             <apex:pageBlock >
                 <apex:pageBlockButtons location="top">
                 <!-- PS 492: Adding sforce changes for mobiles s -->
-                    <!-- <apex:commandButton value="{!$Label.vlocity_cmt__addcontact}" onClick="window.top.location.href = '{!$Site.BaseRequestUrl}{!AddContactLink}'"/> -->
-                     <a ng-if="!isSforce"><apex:commandButton value="{!$Label.vlocity_cmt__addcontact}" onClick="window.top.location.href = '{!$Site.BaseRequestUrl}{!AddContactLink}'"/></a>
-                     <a ng-if="isSforce"> <apex:commandButton value="{!$Label.vlocity_cmt__addcontact}" onClick="javascript:sforce.one.navigateToURL('{!AddContactLink}')"/></a>
+                    <!-- <apex:commandButton value="{!$Label.vlocity_cmt__AddContact}" onClick="window.top.location.href = '{!$Site.BaseRequestUrl}{!AddContactLink}'"/> -->
+                     <a ng-if="!isSforce"><apex:commandButton value="{!$Label.vlocity_cmt__AddContact}" onClick="window.top.location.href = '{!$Site.BaseRequestUrl}{!AddContactLink}'"/></a>
+                     <a ng-if="isSforce"> <apex:commandButton value="{!$Label.vlocity_cmt__AddContact}" onClick="javascript:sforce.one.navigateToURL('{!AddContactLink}')"/></a>
                     <!-- PS 492: Adding sforce changes for mobiles s -->
                 </apex:pageBlockButtons>
                 
@@ -63,7 +63,7 @@
                         <i class="icon icon-v-trash-line" style="cursor: pointer" onClick="removeContactAssociation('{!contact.contactSO.Id}')"/>
                     </apex:column>
                     <apex:column style="width:50px">
-                        <apex:facet name="header">{!$Label.vlocity_cmt__primary}</apex:facet>
+                        <apex:facet name="header">{!$Label.vlocity_cmt__Primary}</apex:facet>
                         <apex:inputCheckbox id="inputCheckBox"
                                             disabled="{!contact.isPrimary}"
                                             value="{!contact.isPrimary}"
@@ -76,7 +76,7 @@
                            <a ng-if="isSforce" href="javascript:sforce.one.navigateToURL('/{!contact.contactSO.Id}')">{!contact.contactSO.Name}</a> 
                     </apex:column>
                     <apex:column >
-                        <apex:facet name="header">{!$Label.vlocity_cmt__role}</apex:facet>
+                        <apex:facet name="header">{!$Label.vlocity_cmt__Role}</apex:facet>
                         <apex:outputText value="{!contact.roleString}"/>
                     </apex:column>
                     <apex:repeat value="{!fieldList}" var="fld"> 

@@ -15,6 +15,9 @@ global class TelcoAdminConsoleController implements vlocity_cmt.VlocityRemoteInt
     global void invokeMethod() {
 
     }
+    global Map<String,Object> invokeMethod(String methodName, Map<String,String> input) {
+        return null;
+    }
     global void setParameters(String parametersInput) {
 
     }

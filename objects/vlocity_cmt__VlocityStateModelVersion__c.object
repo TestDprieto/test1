@@ -158,7 +158,7 @@
     <fields>
         <fullName>vlocity_cmt__AdditionalObjects__c</fullName>
         <deprecated>false</deprecated>
-        <description>long text field to store additional objects which user can use to write conditions and the relationship field to StateModel__c.ObjectAPIName__c.  This is used to pull data from parent to all applicable child objects.</description>
+        <description>Long text field to store additional objects which user can use to write conditions and the relationship field to StateModel__c.ObjectAPIName__c. This is used to pull data from parent to all applicable child objects.</description>
         <externalId>false</externalId>
         <label>Additional Objects</label>
         <length>1000</length>
@@ -170,6 +170,7 @@
         <fullName>vlocity_cmt__CreationVlocityActionId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>The action that is executed when an object record for which the state model is set up gets created.</description>
         <externalId>false</externalId>
         <label>On Creation Action</label>
         <referenceTo>vlocity_cmt__VlocityAction__c</referenceTo>
@@ -224,6 +225,7 @@
     <fields>
         <fullName>vlocity_cmt__RuleEvaluationClassName__c</fullName>
         <deprecated>false</deprecated>
+        <description>Name of a custom Apex class for evaluating Vlocity State Transition Rules.</description>
         <externalId>false</externalId>
         <label>Rule Evaluation Class Name</label>
         <length>255</length>
@@ -235,6 +237,7 @@
     <fields>
         <fullName>vlocity_cmt__RuleEvaluationMethodName__c</fullName>
         <deprecated>false</deprecated>
+        <description>Name of the method in the custom Apex class for evaluating Vlocity State Transition Rules.</description>
         <externalId>false</externalId>
         <label>Rule Evaluation Method Name</label>
         <length>255</length>

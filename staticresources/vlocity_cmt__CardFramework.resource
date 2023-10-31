@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -337,241 +351,255 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
     .config(['remoteActionsProvider', function (remoteActionsProvider) {
 
         var nsPrefixDotNotation = fileNsPrefixDot();
-
+        var classController = window.useRuntime ? 'CardRuntime.' : 'CardCanvasController.';
         var remoteActions = {
             getUserProfile: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getUserProfile',
+                action: nsPrefixDotNotation + classController + 'getUserProfile',
                 config: {
                     escape: false,
                     buffer: true
                 }
             },
-            getDataViaDynamicSoql: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getDataViaDynamicSoql',
-                config: {
-                    escape: false,
-                    buffer: false
-                }
-            },
             getDatasourceQuery: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getDatasourceQuery',
+                action: nsPrefixDotNotation + classController + 'getDatasourceQuery',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getDataViaDataRaptor: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getDataViaDataRaptor',
-                config: {
-                    escape: false,
-                    buffer: false
-                }
-            },
-            getAccountById: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getAccountById',
+                action: nsPrefixDotNotation + classController + 'getDataViaDataRaptor',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getConsoleCardsAction: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getConsoleCardsAction',
+                action: nsPrefixDotNotation + classController + 'getConsoleCardsAction',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getActionsInfo: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getActionsInfo',
+                action: nsPrefixDotNotation + classController + 'getActionsInfo',
                 config: {
                     escape: false,
                     buffer: true
                 }
             },
             getActions: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getActionDetails',
+                action: nsPrefixDotNotation + classController + 'getActionDetails',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getActionDetailsByName: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getActionDetailsByName',
+                action: nsPrefixDotNotation + classController + 'getActionDetailsByName',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getLayouts: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getAllLayouts',
+                action: nsPrefixDotNotation + classController + 'getAllLayouts',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getLayout: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getLayout',
+                action: nsPrefixDotNotation + classController + 'getLayout',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getLayoutsByName: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getLayoutByName',
+                action: nsPrefixDotNotation + classController + 'getLayoutByName',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCards: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getAllCardDefinitions',
+                action: nsPrefixDotNotation + classController + 'getAllCardDefinitions',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCardByName: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getCardByName',
+                action: nsPrefixDotNotation + classController + 'getCardByName',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCardsByNames: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getCardsByNames',
+                action: nsPrefixDotNotation + classController + 'getCardsByNames',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getActiveCardsByNames: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getActiveCardsByNames',
+                action: nsPrefixDotNotation + classController + 'getActiveCardsByNames',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getStaticResourcesUrl: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getStaticResourcesUrl',
+                action: nsPrefixDotNotation + classController + 'getStaticResourcesUrl',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             doGenericInvoke: {
-                action: nsPrefixDotNotation + 'CardCanvasController.doGenericInvoke',
+                action: nsPrefixDotNotation + classController + 'doGenericInvoke',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             doAsyncInvoke: {
-                action: nsPrefixDotNotation + 'CardCanvasController.doAsyncInvoke',
+                action: nsPrefixDotNotation + classController + 'doAsyncInvoke',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getAllObjects: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getAllObjects',
+                action: nsPrefixDotNotation + classController + 'getAllObjects',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getFieldsForObject: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getFieldsForObject',
+                action: nsPrefixDotNotation + classController + 'getFieldsForObject',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getActiveTemplateNames: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getActiveTemplateNames',
+                action: nsPrefixDotNotation + classController + 'getActiveTemplateNames',
                 config: {
                     escape: false,
                     buffer: true
                 }
             },
             getTemplate: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getTemplate',
+                action: nsPrefixDotNotation + classController + 'getTemplate',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCustomLabelValue: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getCustomLabelValue',
+                action: nsPrefixDotNotation + classController + 'getCustomLabelValue',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCustomLabels: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getCustomLabels',
+                action: nsPrefixDotNotation + classController + 'getCustomLabels',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             doNamedCredentialCallout: {
-                action: nsPrefixDotNotation + 'CardCanvasController.doNamedCredentialCallout',
+                action: nsPrefixDotNotation + classController + 'doNamedCredentialCallout',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCustomSettings: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getCustomSettings',
+                action: nsPrefixDotNotation + classController + 'getCustomSettings',
                 config: {
                     escape: false,
                     buffer: true
                 }
             },
             trackVlocityInteraction: {
-                action: nsPrefixDotNotation + 'CardCanvasController.trackVlocityInteraction',
+                action: nsPrefixDotNotation + classController + 'trackVlocityInteraction',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getSearchQuery: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getSearchQuery',
+                action: nsPrefixDotNotation + classController + 'getSearchQuery',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             updateTask: {
-                action: nsPrefixDotNotation + 'CardCanvasController.updateTask',
+                action: nsPrefixDotNotation + classController + 'updateTask',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCardsByGlobalKeys: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getCardsByGlobalKeys',
+                action: nsPrefixDotNotation + classController + 'getCardsByGlobalKeys',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             doEncryptedDatasource: {
-                action: nsPrefixDotNotation + 'CardCanvasController.doEncryptedDatasource',
+                action: nsPrefixDotNotation + classController + 'doEncryptedDatasource',
                 config: {
                     escape: false,
                     buffer: false
                 }
             },
             getCustomPermissionsForUser: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getCustomPermissionsForUser',
+                action: nsPrefixDotNotation + classController + 'getCustomPermissionsForUser',
                 config: {
                     escape: false,
                     buffer: true
                 }
             },
             getNamedCredentials: {
-                action: nsPrefixDotNotation + 'CardCanvasController.getNamedCredentials',
+                action: nsPrefixDotNotation + classController + 'getNamedCredentials',
+                config: {
+                    escape: false,
+                    buffer: false
+                }
+            },
+            getAllOmniscripts: {
+                action: nsPrefixDotNotation + classController + 'getAllOmniscripts',
+                config: {
+                    escape: false,
+                    buffer: false
+                }
+            },
+            getAllIPBundles: {
+                action: nsPrefixDotNotation + classController + 'getAllIPBundles',
+                config: {
+                    escape: false,
+                    buffer: false
+                }
+            },
+            getAllDRBundles: {
+                action: nsPrefixDotNotation + classController + 'getAllDRBundles',
+                config: {
+                    escape: false,
+                    buffer: false
+                }
+            },
+            getLegacyOmniStudioUi: {
+                action: nsPrefixDotNotation + classController + 'getLegacyOmniStudioUi',
                 config: {
                     escape: false,
                     buffer: false
@@ -617,7 +645,7 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                 try {
                     //Private/Incognito mode will throw an error while accessing local/sessionstorage in some browsers
                     sessionStorage.clear();
-                } catch (e) { };
+                } catch (e) {};
             }
 
             //get all vlocity Actions
@@ -903,27 +931,38 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
             return $rootScope.vlocity.getCustomLabel.apply($rootScope.vlocity, args);
         };
     })
-    .filter('picker', function ($interpolate) {
+    .filter('picker', function ($interpolate, $rootScope) {
         return function () {
-            // console.info(arguments);
             var result;
-            if (arguments[1] === 'currency' || arguments[1] === 'datetime' ||
-                arguments[1] === 'percentage' || arguments[1] === 'phone') {
-                result = $interpolate('{{value | ' + arguments[1] + '}}');
-                return result({
-                    value: arguments[0]
-                });
-            } else if (arguments[1] === 'date') {
-                result = $interpolate('{{value | ' + arguments[1] + ':\"shortDate\"}}');
-                return result({
-                    value: arguments[0]
-                });
-            } else if (arguments[1] === 'address') {
-                result = $interpolate('{{value | ' + arguments[1] + '}}');
-                return result({
-                    value: arguments[0]
-                });
-            } else {
+            try {
+                if (typeof arguments[0] === "undefined" || arguments[0] === null) return "";
+                if (arguments[0].trim() === "") return "";
+
+                if (arguments[1] === 'currency' || arguments[1] === 'datetime' ||
+                    arguments[1] === 'percentage' || arguments[1] === 'phone') {
+                    result = $interpolate('{{value | ' + arguments[1] + '}}');
+                    return result({
+                        value: arguments[0]
+                    });
+                } else if (arguments[1] === 'date') {
+
+                    let dateStr = new Date(arguments[0]);
+                    let isISOstr = dateStr && dateStr !== "Invalid Date" ? dateStr.toISOString() === arguments[0] : false;
+                    let abbr = isISOstr ? moment.tz($rootScope.vlocity.userTimeZone).zoneAbbr() : '';
+                    result = $interpolate('{{value | ' + arguments[1] + ':\"shortDate\"' + (isISOstr ? (' :\"' + abbr + '\"') : '') + '}}');
+                    return result({
+                        value: arguments[0]
+                    });
+                } else if (arguments[1] === 'address') {
+                    result = $interpolate('{{value | ' + arguments[1] + '}}');
+                    return result({
+                        value: arguments[0]
+                    });
+                } else {
+                    return arguments[0];
+                }
+            } catch (e) {
+                console.log('Picker filter failed,Reason:', e);
                 return arguments[0];
             }
 
@@ -1045,7 +1084,7 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
 
     .filter('moment', ['$rootScope', function ($rootScope) {
         return function (dateString, format) {
-            var localTime = moment.tz(dateString, $rootScope.vlocity.userTimeZone);
+            var localTime = moment.tz(new Date(dateString), $rootScope.vlocity.userTimeZone);
             return moment(localTime).format(format);
         };
     }])
@@ -1232,7 +1271,7 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                         return deferred.promise;
                     }
                 } else {
-                    return dataService.doGenericInvoke('CardCanvasController', 'getUserProfile').then(
+                    return dataService.doGenericInvoke('CardRuntime', 'getUserProfile').then(
                         function (data) {
                             if (data && data.result) {
                                 return data.result;
@@ -1422,7 +1461,7 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                         }
                         //This is used when remoteactions are not available eg: ionic apps/ mobile apps
                         var payload = {
-                            sClassName: "CardCanvasController",
+                            sClassName: window.useRuntime ? "CardRuntime" : "CardCanvasController",
                             sMethodName: "getActionsInfo",
                             input: '{}',
                             options: '{}'
@@ -1792,9 +1831,9 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                             payload = JSON.stringify(payload);
 
                             return myService.getApexRest(apexRestUrlNameSpacePrefix + '/v1/invoke/' + classMethodPath, 'POST', payload).then(function (records) {
-                                $log.debug('doGenericInvoke completed for ' + methodName + ': ', records);
-                                return records;
-                            },
+                                    $log.debug('doGenericInvoke completed for ' + methodName + ': ', records);
+                                    return records;
+                                },
                                 function (error) {
                                     $log.debug('doGenericInvoke error: ' + error);
                                     return error; // this is needed for the Card Designer to the error
@@ -1847,36 +1886,6 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                     });
             },
 
-            getAccountById: function (id) {
-                //$log.debug('calling dataService: getAccountById()');
-
-                if (typeof remoteActions != 'undefined' && remoteActions != null && remoteActions['getAccountById']) {
-
-                    return remoteActions.getAccountById(id).then(
-                        function (account) {
-                            var account = JSON.parse(account);
-                            $log.debug('getAccountById completed: ', account);
-                            return account;
-                        },
-
-                        function (error) {
-                            $log.debug('getAccountById retrieval error: ' + error);
-                        });
-
-                } else {
-                    return force.retrieve('Account', id, 'Id, Name, Phone, PhotoURL, Website').then(
-                        function (account) {
-                            //$log.debug('getAccountById(): account: ' + account);
-                            account = account.data ? account.data : account;
-                            return account;
-                        },
-
-                        function (error) {
-                            $log.debug('getAccountById retrieval error: ' + error);
-                        });
-                }
-            },
-
             getCustomSettings: function (customSettingsName) {
                 // Create the deferred object
                 var deferred = $q.defer();
@@ -1907,22 +1916,22 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
 
                 } else if (typeof remoteActions === 'undefined' || remoteActions == null) {
                     var genericInvokeMap = {
-                        'className': 'CardCanvasController',
+                        'className': window.useRuntime ? 'CardRuntime' : 'CardCanvasController',
                         'methodName': 'getCustomSettings',
                         'inputMap': {
                             'customSettingsName': customSettingsName
                         }
                     };
                     return myService.doGenericInvoke(genericInvokeMap.className, genericInvokeMap.methodName, JSON.stringify(genericInvokeMap.inputMap)).then(function (data) {
-                        $log.debug('getCustomSettings doGenericInvoke completed for ', data);
-                        if (data.result) {
-                            var customSettings = JSON.parse(data.result);
-                            deferred.resolve(customSettings);
-                            return customSettings;
-                        } else {
-                            deferred.reject(data);
-                        }
-                    },
+                            $log.debug('getCustomSettings doGenericInvoke completed for ', data);
+                            if (data.result) {
+                                var customSettings = JSON.parse(data.result);
+                                deferred.resolve(customSettings);
+                                return customSettings;
+                            } else {
+                                deferred.reject(data);
+                            }
+                        },
                         function (error) {
                             $log.debug('getCustomSettings doGenericInvoke error: ', error);
                             deferred.reject(error);
@@ -2223,7 +2232,7 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
 
                 } else {
                     var genericInvokeMap = {
-                        'className': 'CardCanvasController',
+                        'className': window.useRuntime ? 'CardRuntime' : 'CardCanvasController',
                         'methodName': 'doEncryptedDatasource',
                         'inputMap': {
                             'objId': objId,
@@ -2231,15 +2240,15 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                         }
                     };
                     return myService.doGenericInvoke(genericInvokeMap.className, genericInvokeMap.methodName, JSON.stringify(genericInvokeMap.inputMap)).then(function (data) {
-                        $log.debug('doEncryptedDatasource doGenericInvoke completed for ', data);
-                        if (data.result) {
-                            var records = JSON.parse(data.result);
-                            //deferred.resolve(customSettings);
-                            return records;
-                        } else {
-                            //deferred.reject(data);
-                        }
-                    },
+                            $log.debug('doEncryptedDatasource doGenericInvoke completed for ', data);
+                            if (data.result) {
+                                var records = JSON.parse(data.result);
+                                //deferred.resolve(customSettings);
+                                return records;
+                            } else {
+                                //deferred.reject(data);
+                            }
+                        },
                         function (error) {
                             $log.debug('doEncryptedDatasource doGenericInvoke error: ', error);
                             //deferred.reject(error);
@@ -2344,7 +2353,7 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                 deferred.reject('SOQL Query not enabled');
             }
 
-            if (datasource.value && datasource.value.query) {
+            if (!window.useRuntime && datasource.value && datasource.value.query) {
                 query = datasource.value.query;
                 query = $interpolate(query)(scope);
                 dataService.getRecords(query).then(
@@ -2381,7 +2390,12 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
 
             var objId = scope.objId;
             var params = null;
+
             var dataSourceVal = datasource.value;
+
+            if (dataSourceVal && !dataSourceVal.jsonMap && (dataSourceVal.query || dataSourceVal.search)) {
+                dataSourceVal.jsonMap = dataSourceVal.query ? createJsonMap(dataSourceVal.query) : createJsonMap(dataSourceVal.search);
+            }
 
             if (dataSourceVal && dataSourceVal.jsonMap) {
                 params = $interpolate(dataSourceVal.jsonMap)(scope);
@@ -2414,6 +2428,21 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
             );
         }
 
+        function createJsonMap(queryOrSearch) {
+            var regex = /{{(.*?)}}/gmi;
+            var jsonParams = {};
+            if (queryOrSearch) {
+                var matches = queryOrSearch.match(regex);
+                if (matches) {
+                    for (var i = 0; i < matches.length; i++) {
+                        var key = matches[i].replace(/\{|\}/gi, '');
+                        jsonParams[key] = matches[i];
+                    }
+                    return JSON.stringify(jsonParams);
+                }
+            }
+        }
+
         function handleStreamingAPI(datasource, scope, deferred, errorContainer) {
             var isReplay = false;
             if ($rootScope.vlocityCards.customSettings && $rootScope.vlocityCards.customSettings[$rootScope.nsPrefix + 'DisableStreamingAPI__c']) {
@@ -2427,12 +2456,12 @@ angular.module('CardFramework', ['vlocity', 'vlocTemplates', 'mgcrea.ngStrap', '
                 dataService.getSubscription(datasource.value.channel, isReplay, function (data) {
                     scope.payload = scope.payload ? scope.payload : (scope.records ? scope.records : []);
                     if (_.findIndex(scope.payload, {
-                        'data': {
-                            'event': {
-                                'replayId': data.data.event.replayId
+                            'data': {
+                                'event': {
+                                    'replayId': data.data.event.replayId
+                                }
                             }
-                        }
-                    }) == -1) {
+                        }) == -1) {
                         if (datasource.value.isReplace === 'true') {
                             scope.payload[0] = data;
                         } else {
@@ -3147,7 +3176,7 @@ window.iFrameResizer = {
             if (window.vlocityUniversalCardPage && window.vlocityUniversalCardPage.handleExternalEvent) {
                 window.vlocityUniversalCardPage.handleExternalEvent(message);
             }
-        } catch (e) { };
+        } catch (e) {};
     }
 };
 },{"./VlocTemplates.js":2,"./modules/cardframework/directives/flyout.js":3,"./modules/cardframework/directives/hotkeysLayoutNavigation.js":4,"./modules/cardframework/directives/vlocCard.js":5,"./modules/cardframework/directives/vlocCardIcon.js":6,"./modules/cardframework/directives/vlocCmp.js":7,"./modules/cardframework/directives/vlocInput.js":8,"./modules/cardframework/directives/vlocLayout.js":9,"./modules/cardframework/factory/actionLauncher.js":10,"./modules/cardframework/factory/cardIconFactory.js":11,"./modules/cardframework/factory/configService.js":12,"./modules/cardframework/factory/parseUri.js":13,"./modules/cardframework/factory/performAction.js":14,"./modules/cardframework/templates/templates.js":15}],2:[function(require,module,exports){
@@ -3180,7 +3209,7 @@ angular.module('vlocTemplates', ['vlocity'])
     var escape = document.createElement('textarea');
     function unescapeHTML(html) {
         if (angular.isString(html)) {
-            escape.innerHTML = html;
+            escape.textContent = html;
             return escape.value;
         } else {
             return html;
@@ -4281,6 +4310,9 @@ angular.module('CardFramework')
 
                         $log.debug('fetched card ',card);
                         $scope.data = card;
+                        if(($scope.params.isPreview !== true || $scope.params.isPreview !== "true") && $scope.data && $scope.data.dataSource){
+                            $scope.data.dataSource.contextVariables =[];
+                        } 
                         $scope.data.status = null;
                     }
                 );
@@ -5427,7 +5459,8 @@ angular.module('CardFramework')
             parent: '=?',
             isLoaded: '=?',
             loadingMore: '=?',
-            sessionId: '@'
+            sessionId: '@',
+            isLegacy: '@'
         },
         replace: true,
         controller: ['$scope', '$rootScope','$element', '$window', '$log', '$controller','$filter','$attrs','$http','force','configService', 'dataService',
@@ -5450,7 +5483,8 @@ angular.module('CardFramework')
                 'associationNameLabel': { label : 'CardFrameworkInactiveAssociationNameLabel', value :'associated with'},
                 'associationTypeLabel': { label : 'CardFrameworkInactiveAssociationTypeLabel', value : 'of type'},
                 'associationType': { label : 'CardFrameworkInactiveAssociationTypeLayout', value : 'layout'},
-                'contactAdminMsg':  { label : 'CardFrameworkContactAdminMsg', value : 'Please contact your Salesforce Admin'}
+                'contactAdminMsg':  { label : 'CardFrameworkContactAdminMsg', value : 'Please contact your Salesforce Admin'},
+                'VFDeprecated': { label : 'VFDeprecatedInOmniStudio', value : 'This page is deprecated'}
             };
             var innerElement = null,
                 childScope = null,
@@ -5978,8 +6012,16 @@ angular.module('CardFramework')
 
                 $scope.order = 'order';
                 var skipSetCards = false;
-                $scope.data = layout;
-
+                const isPreview = $scope.params.isPreview === true || $scope.params.isPreview === "true";
+                if(!isPreview && layout &&  layout.dataSource){
+                    layout.dataSource.contextVariables =[];
+                        angular.forEach(layout.Deck, function(cardObj){
+                            if(cardObj.dataSource && cardObj.dataSource.contextVariables){
+                                cardObj.dataSource.contextVariables = [];
+                                }
+                        });
+                 } 
+                 $scope.data = layout;
                 if($scope.params.previewMode)
                 {
                     $scope.test = {};
@@ -6108,10 +6150,30 @@ angular.module('CardFramework')
                 }
             }
 
-            if ($scope.layoutId != null && !/^\s*$/.test($scope.layoutId)) {
-                configService.getLayoutById($scope.layoutId).then(handleLayoutLoaded);
+            $scope.initLayout = function () {
+                if ($scope.layoutId != null && !/^\s*$/.test($scope.layoutId)) {
+                    configService.getLayoutById($scope.layoutId).then(handleLayoutLoaded);
+                } else {
+                    configService.getLayoutByName($scope.layoutName).then(handleLayoutLoaded);
+                }
+            }
+
+            
+            let isLegacyUI = sessionStorage.getItem('vlocity.isLegacyUI');
+            if (isLegacyUI) {
+                let result = JSON.parse(isLegacyUI); 
+                $scope.isLegacy = result;
+                if (result) {
+                    $scope.initLayout();
+                }
             } else {
-                configService.getLayoutByName($scope.layoutName).then(handleLayoutLoaded);
+                configService.showLegacyOmniStudioUi().then((data) => {
+                    sessionStorage.setItem('vlocity.isLegacyUI', JSON.stringify(data));
+                    $scope.isLegacy = data;
+                    if (data) {
+                        $scope.initLayout();
+                    }
+                });
             }
 
             $scope.evaluateSessionVars = function() {
@@ -6359,11 +6421,11 @@ angular.module('CardFramework')
             }
 
         }],
-        template: function(tElement, tAttrs) {
+        template: function (tElement, tAttrs) {
             if (tAttrs.useExistingElementType != null) {
                 return '<' + tElement[0].localName + '></' + tElement[0].localName + '>';
             }
-            return '<div></div>';
+            return '<div> <div ng-if="!isLegacy"> <ng-include src="\'deprecatedMessage.tpl.html\'"></ng-include> </div> </div> ';
         }
     };
 });
@@ -6986,6 +7048,14 @@ angular.module('CardFramework')
                     }, makeErrorHandler('layouts retrieval error: '));
             }
         },
+        showLegacyOmniStudioUi: function () {
+            if (typeof remoteActions !== 'undefined' && remoteActions !== null && remoteActions['getLegacyOmniStudioUi']) {
+                return remoteActions.getLegacyOmniStudioUi().then((data) => {
+                    return data;
+                });
+            }
+            return false;
+        },
 
         // used by vloc-layout, which in turn is used by Console and Community
         getLayoutByName: function(layoutName) {
@@ -7579,7 +7649,7 @@ angular.module('CardFramework')
 });
 
 },{}],15:[function(require,module,exports){
-angular.module("CardFramework").run(["$templateCache",function($templateCache){"use strict";$templateCache.put("displayInactiveError.tpl.html","<style>\n[layout-type=flyout] > ng-include[src='\\'displayInactiveError.tpl.html\\'']:before {\n    width: 1rem;\n    height: 1rem;\n    position: absolute;\n    transform: rotate(45deg);\n    content: '';\n    background-color: inherit;\n    left: 50%;\n    top: -.5rem;\n    margin-left: -.5rem;\n}\n\n[layout-type=flyout] > ng-include[src='\\'displayInactiveError.tpl.html\\'']:after {\n    width: 1rem;\n    height: 1rem;\n    position: absolute;\n    transform: rotate(45deg);\n    content: '';\n    background-color: #FFF;\n    left: 50%;\n    top: -.4rem;\n    margin-left: -.5rem;\n    box-shadow: -1px -1px 0 0 rgba(0,0,0,.16);\n    z-index: 0;\n}\n</style>\n<div class='panel panel-default script-not-found'>\n    <div class='panel-body'>\n        <div class=\"text-danger\">\n            <span class=\"icon-v-close-circle\"></span>\n            <b class=\"has-error\">{{::$root.vlocity.getCustomLabel( inactiveError.header.label , inactiveError.header.value )}}:</b>\n        </div>\n        <br/>\n        <div>\n            <label>{{::$root.vlocity.getCustomLabel(inactiveError.errorMsg.label, inactiveError.errorMsg.value)}}</label>\n            <br/>\n            <div>\n                <span>\n                    <b>{{::$root.vlocity.getCustomLabel(inactiveError.inactiveEntityNameLabel.label, inactiveError.inactiveEntityNameLabel.value)}}: </b><label>{{inactiveError.inactiveEntityName}}</label>\n                    <br/>\n                </span>\n                <span ng-if=\"inactiveError.associationFlag\">\n                    <b>{{::$root.vlocity.getCustomLabel(inactiveError.associationNameLabel.label, inactiveError.associationNameLabel.value)}}: </b><label>{{inactiveError.associationName}}</label>\n                    <br/>\n                    <b>{{::$root.vlocity.getCustomLabel(inactiveError.associationTypeLabel.label , inactiveError.associationTypeLabel.value)}}: </b><label>{{::$root.vlocity.getCustomLabel(inactiveError.associationType.label, inactiveError.associationType.value)}}</label>\n                </span>\n            </div>\n            <br/>\n            <label>{{::$root.vlocity.getCustomLabel(inactiveError.contactAdminMsg.label, inactiveError.contactAdminMsg.value)}}</label>\n        </div>\n    </div>\n</div>"),$templateCache.put("vlocCardIcon.tpl.html","<span ng-class=\"!isSldsIcon && data.vlocityIcon ? 'icon ' + data.vlocityIcon + ' ' + internalExtraClasses : 'slds-icon__container ' + (sprite == 'standard' || sprite == 'custom' ? 'slds-icon-' + sprite + '-' + icon : '')\">\n"+'    <slds-svg-icon sprite="sprite" icon="icon" size="size" extra-classes="internalExtraClasses" no-hint="true" ng-if="isSldsIcon"></slds-svg-icon>\n</span>'),$templateCache.put("vlocCardIconSimple.tpl.html",'<svg aria-hidden="true" class="slds-icon slds-icon--{{size}} {{internalExtraClasses}}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">\n    <use xlink:href=""></use>\n</svg>')}]);
+angular.module("CardFramework").run(["$templateCache",function($templateCache){"use strict";$templateCache.put("displayInactiveError.tpl.html","<style>\n[layout-type=flyout] > ng-include[src='\\'displayInactiveError.tpl.html\\'']:before {\n    width: 1rem;\n    height: 1rem;\n    position: absolute;\n    transform: rotate(45deg);\n    content: '';\n    background-color: inherit;\n    left: 50%;\n    top: -.5rem;\n    margin-left: -.5rem;\n}\n\n[layout-type=flyout] > ng-include[src='\\'displayInactiveError.tpl.html\\'']:after {\n    width: 1rem;\n    height: 1rem;\n    position: absolute;\n    transform: rotate(45deg);\n    content: '';\n    background-color: #FFF;\n    left: 50%;\n    top: -.4rem;\n    margin-left: -.5rem;\n    box-shadow: -1px -1px 0 0 rgba(0,0,0,.16);\n    z-index: 0;\n}\n</style>\n<div class='panel panel-default script-not-found'>\n    <div class='panel-body'>\n        <div class=\"text-danger\">\n            <span class=\"icon-v-close-circle\"></span>\n            <b class=\"has-error\">{{::$root.vlocity.getCustomLabel( inactiveError.header.label , inactiveError.header.value )}}:</b>\n        </div>\n        <br/>\n        <div>\n            <label>{{::$root.vlocity.getCustomLabel(inactiveError.errorMsg.label, inactiveError.errorMsg.value)}}</label>\n            <br/>\n            <div>\n                <span>\n                    <b>{{::$root.vlocity.getCustomLabel(inactiveError.inactiveEntityNameLabel.label, inactiveError.inactiveEntityNameLabel.value)}}: </b><label>{{inactiveError.inactiveEntityName}}</label>\n                    <br/>\n                </span>\n                <span ng-if=\"inactiveError.associationFlag\">\n                    <b>{{::$root.vlocity.getCustomLabel(inactiveError.associationNameLabel.label, inactiveError.associationNameLabel.value)}}: </b><label>{{inactiveError.associationName}}</label>\n                    <br/>\n                    <b>{{::$root.vlocity.getCustomLabel(inactiveError.associationTypeLabel.label , inactiveError.associationTypeLabel.value)}}: </b><label>{{::$root.vlocity.getCustomLabel(inactiveError.associationType.label, inactiveError.associationType.value)}}</label>\n                </span>\n            </div>\n            <br/>\n            <label>{{::$root.vlocity.getCustomLabel(inactiveError.contactAdminMsg.label, inactiveError.contactAdminMsg.value)}}</label>\n        </div>\n    </div>\n</div>"),$templateCache.put("vlocCardIcon.tpl.html","<span ng-class=\"!isSldsIcon && data.vlocityIcon ? 'icon ' + data.vlocityIcon + ' ' + internalExtraClasses : 'slds-icon__container ' + (sprite == 'standard' || sprite == 'custom' ? 'slds-icon-' + sprite + '-' + icon : '')\">\n"+'    <slds-svg-icon sprite="sprite" icon="icon" size="size" extra-classes="internalExtraClasses" no-hint="true" ng-if="isSldsIcon"></slds-svg-icon>\n</span>'),$templateCache.put("vlocCardIconSimple.tpl.html",'<svg aria-hidden="true" class="slds-icon slds-icon--{{size}} {{internalExtraClasses}}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">\n    <use xlink:href=""></use>\n</svg>'),$templateCache.put("deprecatedMessage.tpl.html",'<div class="via-slds"><div class="slds-grid slds-grid--frame slds-grid_align-center slds-grid_vertical-align-center">\n    <div class="slds-illustration slds-illustration_small">\n        <svg class="slds-illustration__svg" viewBox="0 0 424 253" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">\n            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\n                <g transform="translate(-90.000000, -75.000000)">\n                    <g>\n                        <g transform="translate(362.500000, 251.000000) scale(-1, 1) translate(-362.500000, -251.000000) translate(212.000000, 176.000000)">\n                            <g transform="translate(11.000000, 61.000000)" class="slds-illustration__stroke-secondary" stroke-linecap="round" stroke-linejoin="round"\n                                stroke-width="3">\n                                <path vector-effect="non-scaling-stroke" d="M205.678404,88.7060547 C241.204839,79.6402995 264.385375,73.6529948 275.22001,70.7441406 C284.386465,68.2831552 288.919667,66.3692913 289.659463,63.6132812 C290.231312,61.482937 289.575954,58.5184063 280.531534,56.4824219 C263.69169,53.375 221.886026,49.1894531 211.291014,47.6064453 C200.696003,46.0234375 163.447549,43.4306641 163.531534,32.3076172 C163.615518,21.1845703 191.456338,18.3017578 202.277343,16.6347656 C213.098347,14.9677734 215.910155,12.1396484 215.910155,9.08691406 C215.910155,7.05175781 210.827893,4.38736979 200.66337,1.09375"\n                                    transform="translate(226.670882, 44.899902) scale(-1, 1) translate(-226.670882, -44.899902) "></path>\n                                <path vector-effect="non-scaling-stroke" d="M1.31221526,0.5 C13.3068171,2.21419271 20.5131973,3.86816406 22.9313559,5.46191406 C26.5585938,7.85253906 27.8242188,13.1230469 21.7255859,15.6025391 C17.6598307,17.2555339 12.7158203,18.8808594 6.89355469,20.4785156 C2.33626302,22.3964844 0.0576171875,24.4661458 0.0576171875,26.6875 C0.0576171875,30.0195313 2.96846526,31.8701172 10.9206137,33.125 C18.8727621,34.3798828 78.7253012,39.5429688 83.3229575,39.7568359 C87.9206137,39.9707031 163.017293,45.9052734 190.737997,53.4716797 C218.4587,61.0380859 230.180095,69.3007812 231.721395,75.7050781 C232.748929,79.9746094 231.513997,83.4833984 228.016602,86.2314453"\n                                    transform="translate(116.064507, 43.365723) scale(-1, 1) translate(-116.064507, -43.365723) "></path>\n                            </g>\n                            <path vector-effect="non-scaling-stroke" d="M0.96484375,61.5 L241.929687,61.5" class="slds-illustration__stroke-secondary"\n                                stroke-width="3" stroke-linecap="round"></path>\n                            <polyline vector-effect="non-scaling-stroke" class="slds-illustration__stroke-secondary" stroke-width="3" stroke-linecap="round"\n                                stroke-linejoin="round" points="40 61 113.5 0 171.5 45"></polyline>\n                            <polyline vector-effect="non-scaling-stroke" class="slds-illustration__stroke-secondary" stroke-width="3" stroke-linecap="round"\n                                stroke-linejoin="round" points="155 30.9433962 171.5 16 227 60"></polyline>\n                            <path vector-effect="non-scaling-stroke" d="M230.968213,39.968973 L234.46647,56.4296875 L228.542446,61.0018357 L223.607422,61.3664012 L229.020498,39.9319979 C229.155728,39.3965247 229.699439,39.0720629 230.234912,39.2072921 C230.604556,39.3006424 230.888959,39.5960527 230.968213,39.968973 Z"\n                                class="slds-illustration__fill-secondary" transform="translate(229.036946, 50.271507) scale(-1, 1) translate(-229.036946, -50.271507) "></path>\n                        </g>\n                        <g transform="translate(129.000000, 130.000000)">\n                            <g transform="translate(25.000000, 0.000000)" class="slds-illustration__fill-secondary">\n                                <path vector-effect="non-scaling-stroke" d="M24.5,121.514719 L24.5,5 L7.5,0 L7.5,167.671875 C7.48762464,169.600647 6.8735755,171.502553 6,173.377594 C5.1264245,175.252635 2.90714031,177.62677 0,179.5 L32,179.5 C29.1883458,177.694031 27.6521991,175.597198 26.5,174.209503 C25.3478009,172.821808 24.717281,170.944682 24.5,168.578125 L24.5,138.367434 C24.7249438,138.219742 24.4382699,138.047012 24.636039,137.849242 L45.8492424,116.636039 C47.4113396,115.073942 47.4113396,112.541282 45.8492424,110.979185 L43.0208153,108.150758 C41.4587181,106.58866 38.9260582,106.58866 37.363961,108.150758 L24.5,121.514719 Z"></path>\n                            </g>\n                            <g transform="translate(32.000000, 0.000000)" fill="#FFFFFF">\n                                <polygon vector-effect="non-scaling-stroke" points="1.56762695 0.629394531 16.9477539 5.69604492 16.9477539 9.03393555 0.170410156 4.12597656"></polygon>\n                            </g>\n                            <g>\n                                <path vector-effect="non-scaling-stroke" d="M49.5,121.514719 L49.5,5 L32.5,0 L32.5,167.671875 C32.4876246,169.600647 31.8735755,171.502553 31,173.377594 C30.1264245,175.252635 27.9071403,177.62677 25,179.5 L57,179.5 C54.1883458,177.694031 52.6521991,175.597198 51.5,174.209503 C50.3478009,172.821808 49.717281,170.944682 49.5,168.578125 L49.5,138.367434 C49.7249438,138.219742 49.4382699,138.047012 49.636039,137.849242 L70.8492424,116.636039 C72.4113396,115.073942 72.4113396,112.541282 70.8492424,110.979185 L68.0208153,108.150758 C66.4587181,106.58866 63.9260582,106.58866 62.363961,108.150758 L49.5,121.514719 Z"\n                                    class="slds-illustration__stroke-primary" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>\n                                <path vector-effect="non-scaling-stroke" d="M9,179.5 L81,179.5" class="slds-illustration__stroke-primary" stroke-width="3"\n                                    stroke-linecap="round"></path>\n                                <path vector-effect="non-scaling-stroke" d="M0,179.5 L3,179.5" class="slds-illustration__stroke-primary" stroke-width="3"\n                                    stroke-linecap="round"></path>\n                                <path vector-effect="non-scaling-stroke" d="M57.9821839,168.453786 L60,179 L54,179 L56.0178161,168.453786 C56.1216026,167.911341 56.6454769,167.555738 57.1879221,167.659524 C57.5904065,167.736532 57.9051763,168.051302 57.9821839,168.453786 Z"\n                                    class="slds-illustration__fill-primary"></path>\n                                <path vector-effect="non-scaling-stroke" d="M61.9685597,171.091165 L64,179 L58,179 L60.0314403,171.091165 C60.1688385,170.556245 60.7138607,170.233989 61.2487814,170.371387 C61.6020064,170.462115 61.8778313,170.73794 61.9685597,171.091165 Z"\n                                    class="slds-illustration__fill-primary"></path>\n                                <path vector-effect="non-scaling-stroke" d="M22.9685597,171.091165 L25,179 L19,179 L21.0314403,171.091165 C21.1688385,170.556245 21.7138607,170.233989 22.2487814,170.371387 C22.6020064,170.462115 22.8778313,170.73794 22.9685597,171.091165 Z"\n                                    class="slds-illustration__fill-primary"></path>\n                            </g>\n                        </g>\n                        <g transform="translate(91.000000, 147.000000)">\n                            <g class="slds-illustration__fill-secondary">\n                                <path vector-effect="non-scaling-stroke" d="M4,0 L152,0 C154.209139,-1.61026889e-14 156,1.790861 156,4 L156,92 C156,94.209139 154.209139,96 152,96 L4,96 C1.790861,96 2.705415e-16,94.209139 0,92 L0,75.9353173 L5.99999907,73.6003702 L0,71.8894428 L0,67.2234547 L9.99999846,63.907068 L0,59.2127597 L0,4 C-2.705415e-16,1.790861 1.790861,4.05812251e-16 4,0 Z"></path>\n                            </g>\n                            <g>\n                                <polygon vector-effect="non-scaling-stroke" class="slds-illustration__stroke-primary" stroke-width="3" stroke-linecap="round"\n                                    stroke-linejoin="round" points="0.5 0.5 156.5 0.5 156.5 96.5 0.5 96.5 0.5 76.4355469 6.5 74.1005859 0.5 72.3896484 0.5 67.7236328 10.5 64.4072266 0.5 59.7128906"></polygon>\n                                <path vector-effect="non-scaling-stroke" d="M155,32.5 L0,32.5" class="slds-illustration__stroke-primary" stroke-width="3"\n                                    stroke-linejoin="round"></path>\n                                <path vector-effect="non-scaling-stroke" d="M155,64.5 L9,64.5" class="slds-illustration__stroke-primary" stroke-width="3"\n                                    stroke-linejoin="round"></path>\n                                <circle vector-effect="non-scaling-stroke" class="slds-illustration__fill-primary" cx="146" cy="10" r="3"></circle>\n                                <circle vector-effect="non-scaling-stroke" class="slds-illustration__fill-primary" cx="146" cy="86" r="3"></circle>\n                                <circle vector-effect="non-scaling-stroke" class="slds-illustration__fill-primary" cx="10" cy="10" r="3"></circle>\n                                <circle vector-effect="non-scaling-stroke" class="slds-illustration__fill-primary" cx="10" cy="86" r="3"></circle>\n                            </g>\n                            <g transform="translate(2.000000, 2.000000)" fill="#FFFFFF">\n                                <path vector-effect="non-scaling-stroke" d="M55.8642363,32.9353041 C53.419953,36.6948065 52,41.1815794 52,46 C52,59.254834 62.745166,70 76,70 C80.8184206,70 85.3051935,68.580047 89.0646959,66.1357637 L55.8642363,32.9353041 Z M62.9353041,25.8642363 L96.1357637,59.0646959 C98.580047,55.3051935 100,50.8184206 100,46 C100,32.745166 89.254834,22 76,22 C71.1815794,22 66.6948065,23.419953 62.9353041,25.8642363 Z M76,80 C57.2223185,80 42,64.7776815 42,46 C42,27.2223185 57.2223185,12 76,12 C94.7776815,12 110,27.2223185 110,46 C110,64.7776815 94.7776815,80 76,80 Z"></path>\n                                <rect x="0" y="0" width="153" height="3"></rect>\n                            </g>\n                        </g>\n                        <g transform="translate(408.500000, 207.500000)">\n                            <g fill="#FFFFFF">\n                                <path vector-effect="non-scaling-stroke" d="M18.9209988,1.95433401 L33.259296,51.443436 C33.5666778,52.5043744 32.9557995,53.613617 31.8948612,53.9209988 C31.7139843,53.9734036 31.5266126,54 31.3382972,54 L2.6617028,54 C1.5571333,54 0.661702805,53.1045695 0.661702805,52 C0.661702805,51.8116846 0.688299176,51.6243129 0.74070397,51.443436 L15.0790012,1.95433401 C15.386383,0.893395645 16.4956256,0.282517358 17.556564,0.589899164 C18.2152102,0.780726338 18.7301717,1.29568777 18.9209988,1.95433401 Z"></path>\n                            </g>\n                            <g class="slds-illustration__stroke-secondary" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">\n                                <polygon vector-effect="non-scaling-stroke" points="17 0.323943662 34 54 -1.81721305e-12 54"></polygon>\n                                <path vector-effect="non-scaling-stroke" d="M17,4.6953125 C17,43.0456294 17,62.6471919 17,63.5 C17,62.6471919 17,43.0456294 17,4.6953125 Z"></path>\n                                <path vector-effect="non-scaling-stroke" d="M17,29.3239437 C22.3333333,35.7851611 25,39.1184944 25,39.3239437 C25,39.1184944 22.3333333,35.7851611 17,29.3239437 Z"\n                                    transform="translate(21.000000, 34.323944) scale(-1, 1) translate(-21.000000, -34.323944) "></path>\n                            </g>\n                        </g>\n                        <g transform="translate(435.000000, 174.500000)">\n                            <g transform="translate(1.000000, 0.000000)" fill="#FFFFFF">\n                                <path vector-effect="non-scaling-stroke" d="M25.6478873,0 L50.879042,84.4273253 C51.1953215,85.4856452 50.5937789,86.5999782 49.535459,86.9162577 C49.3496374,86.9717906 49.1567264,87 48.9627843,87 L2.33299037,87 C1.22842087,87 0.332990367,86.1045695 0.332990367,85 C0.332990367,84.8060578 0.361199757,84.6131469 0.416732643,84.4273253 L25.6478873,0 Z"></path>\n                            </g>\n                            <g class="slds-illustration__stroke-secondary" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">\n                                <polygon vector-effect="non-scaling-stroke" points="26.5 0 52.5 87 0.5 87"></polygon>\n                                <path vector-effect="non-scaling-stroke" d="M26.5,3.58642578 C26.5,64.0261034 26.5,94.9972948 26.5,96.5 C26.5,94.9972948 26.5,64.0261034 26.5,3.58642578 Z"></path>\n                                <path vector-effect="non-scaling-stroke" d="M16.6478873,37 C22.6478873,41.4120254 25.6478873,43.7453587 25.6478873,44 C25.6478873,43.7453587 22.6478873,41.4120254 16.6478873,37 Z"></path>\n                                <path vector-effect="non-scaling-stroke" d="M27.6478873,68 C36.9812207,57.078692 41.6478873,51.7453587 41.6478873,52 C41.6478873,51.7453587 36.9812207,57.078692 27.6478873,68 Z"></path>\n                            </g>\n                        </g>\n                        <g transform="translate(172.000000, 76.000000)" class="slds-illustration__stroke-secondary" stroke-linecap="round" stroke-width="3">\n                            <path vector-effect="non-scaling-stroke" d="M44,17.5 L63,17.5 C62.2789714,12.0723971 64.081543,7.53186978 68.4077148,3.87841797 C73.3754883,-0.195556641 79.2734375,0.717773438 82.440918,2.12353516 C85.6083984,3.52929687 87.9606934,5.46069336 89.5913086,9.10524041 C90.2822266,10.6397351 90.7517904,11.9379883 91,13"></path>\n                            <path vector-effect="non-scaling-stroke" d="M83,20.5 C84.0558268,16.8461914 86.2227376,14.4572754 89.5007324,13.333252 C94.4177246,11.6472168 99.0800781,13.8925781 100.942383,16.1518555 C102.804687,18.4111328 103.39502,20.2260742 103.746582,22.1201172 C103.980957,23.3828125 104.06543,24.8427734 104,26.5 C108.141764,26.3313802 110.918945,27.1647135 112.331543,29 C114.040039,31.1936035 114.215332,33.817627 113.593018,35.75 C112.970703,37.682373 110.894531,40.5 107,40.5 L28,40.5"></path>\n                            <path vector-effect="non-scaling-stroke" d="M18,27.5 L83.0004985,27.5"></path>\n                            <path vector-effect="non-scaling-stroke" d="M0,27.5 L8,27.5"></path>\n                        </g>\n                        <g transform="translate(316.000000, 121.000000)" class="slds-illustration__stroke-secondary" stroke-linecap="round" stroke-width="3">\n                            <path vector-effect="non-scaling-stroke" d="M44,17.5 L63,17.5 C62.2789714,12.0723971 64.081543,7.53186978 68.4077148,3.87841797 C73.3754883,-0.195556641 79.2734375,0.717773438 82.440918,2.12353516 C85.6083984,3.52929687 87.9606934,5.46069336 89.5913086,9.10524041 C90.2822266,10.6397351 90.7517904,11.9379883 91,13"></path>\n                            <path vector-effect="non-scaling-stroke" d="M83,20.5 C84.0558268,16.8461914 86.2227376,14.4572754 89.5007324,13.333252 C94.4177246,11.6472168 99.0800781,13.8925781 100.942383,16.1518555 C102.804687,18.4111328 103.39502,20.2260742 103.746582,22.1201172 C103.980957,23.3828125 104.06543,24.8427734 104,26.5 C108.141764,26.3313802 110.918945,27.1647135 112.331543,29 C114.040039,31.1936035 114.215332,33.817627 113.593018,35.75 C112.970703,37.682373 110.894531,40.5 107,40.5 L28,40.5"></path>\n                            <path vector-effect="non-scaling-stroke" d="M18,27.5 L83.0004985,27.5"></path>\n                            <path vector-effect="non-scaling-stroke" d="M0,27.5 L8,27.5"></path>\n                        </g>\n                    </g>\n                </g>\n            </g>\n        </svg>\n        <div class="slds-text-longform">\n            <h3 class="slds-text-heading_medium">{{::$root.vlocity.getCustomLabel( inactiveError.VFDeprecated.label , inactiveError.VFDeprecated.value )}}</h3>\n        </div>\n    </div>\n</div></div>')}]);
 
 },{}]},{},[1]);
 })();

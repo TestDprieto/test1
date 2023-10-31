@@ -171,6 +171,34 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__AssetId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the Asset that is suspended.</description>
+        <externalId>false</externalId>
+        <label>Asset</label>
+        <referenceTo>Asset</referenceTo>
+        <relationshipLabel>Account Holds</relationshipLabel>
+        <relationshipName>AccountHolds</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__DunningId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the customer collections activity that is relevant to this hold.</description>
+        <externalId>false</externalId>
+        <label>Collections Activity</label>
+        <referenceTo>vlocity_cmt__Dunning__c</referenceTo>
+        <relationshipLabel>Account Holds</relationshipLabel>
+        <relationshipName>AccountHolds</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__HoldEndDate__c</fullName>
         <deprecated>false</deprecated>
         <description>The date/time until when the hold is effective.</description>
@@ -193,7 +221,7 @@
     <fields>
         <fullName>vlocity_cmt__HoldType__c</fullName>
         <deprecated>false</deprecated>
-        <description>Type of Account hold placed.</description>
+        <description>Indicates the type of hold placed on the account or subscription. The hold type differentiates which business processes are restricted.</description>
         <externalId>false</externalId>
         <label>Hold Type</label>
         <required>true</required>
@@ -215,6 +243,100 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrderId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the Order that is suspended.</description>
+        <externalId>false</externalId>
+        <label>Order</label>
+        <referenceTo>Order</referenceTo>
+        <relationshipLabel>Account Holds</relationshipLabel>
+        <relationshipName>AccountHolds</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ReasonComments__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Comments further explaining the reason for the hold.</description>
+        <externalId>false</externalId>
+        <label>Hold Reason Comments</label>
+        <length>4000</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the reason for suspension of the entity which can be asset, subscription, order or account.</description>
+        <externalId>false</externalId>
+        <label>Hold Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Collections</fullName>
+                    <default>false</default>
+                    <label>Collections</label>
+                </value>
+                <value>
+                    <fullName>Fraud Detected</fullName>
+                    <default>false</default>
+                    <label>Fraud Detected</label>
+                </value>
+                <value>
+                    <fullName>SIM Lost or Stolen</fullName>
+                    <default>false</default>
+                    <label>SIM Lost or Stolen</label>
+                </value>
+                <value>
+                    <fullName>Fraud Reported</fullName>
+                    <default>false</default>
+                    <label>Fraud Reported</label>
+                </value>
+                <value>
+                    <fullName>Out of Country</fullName>
+                    <default>false</default>
+                    <label>Out of Country</label>
+                </value>
+                <value>
+                    <fullName>Billing Dispute</fullName>
+                    <default>false</default>
+                    <label>Billing Dispute</label>
+                </value>
+                <value>
+                    <fullName>MSISDN Recycling</fullName>
+                    <default>false</default>
+                    <label>MSISDN Recycling</label>
+                </value>
+                <value>
+                    <fullName>Port Out In Process</fullName>
+                    <default>false</default>
+                    <label>Port Out In Process</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SubscriptionId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the Subscription that is suspended.</description>
+        <externalId>false</externalId>
+        <label>Subscription</label>
+        <referenceTo>vlocity_cmt__Subscription__c</referenceTo>
+        <relationshipLabel>Account Holds</relationshipLabel>
+        <relationshipName>AccountHolds</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <label>Account Hold</label>
     <nameField>

@@ -11,6 +11,10 @@
         <relationshipLabel><!-- Billed Subscriptions --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Churn Score --></label>
+        <name>vlocity_cmt__ChurnScore__c</name>
+    </fields>
+    <fields>
         <label><!-- Current Contract End Date --></label>
         <name>vlocity_cmt__CurrentContractEndDate__c</name>
     </fields>
@@ -32,6 +36,18 @@
         <name>vlocity_cmt__EndDate__c</name>
     </fields>
     <fields>
+        <label><!-- Last 30 Days Data Spend --></label>
+        <name>vlocity_cmt__Last30DaysDataSpend__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last 30 Days Usage GB --></label>
+        <name>vlocity_cmt__Last30DaysDataUsageInGB__c</name>
+    </fields>
+    <fields>
+        <label><!-- Old MSISDN --></label>
+        <name>vlocity_cmt__OldMSISDN__c</name>
+    </fields>
+    <fields>
         <label><!-- Premises --></label>
         <name>vlocity_cmt__PremisesId__c</name>
         <relationshipLabel><!-- Subscriptions --></relationshipLabel>
@@ -45,6 +61,10 @@
         <label><!-- Service User --></label>
         <name>vlocity_cmt__ServiceContactId__c</name>
         <relationshipLabel><!-- Subscriptions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Service Identifier --></label>
+        <name>vlocity_cmt__ServiceIdentifier__c</name>
     </fields>
     <fields>
         <label><!-- Subscription Start Date --></label>

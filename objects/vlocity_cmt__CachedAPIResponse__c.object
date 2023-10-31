@@ -256,6 +256,32 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Validity of cache records.</description>
+        <externalId>false</externalId>
+        <label>Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>pristine</fullName>
+                    <default>false</default>
+                    <label>pristine</label>
+                </value>
+                <value>
+                    <fullName>stale</fullName>
+                    <default>false</default>
+                    <label>stale</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__Type__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>

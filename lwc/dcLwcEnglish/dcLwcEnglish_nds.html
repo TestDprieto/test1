@@ -26,7 +26,7 @@
                 <template if:false={compLoaded}>
                     <div class="omni-spinner-container_wrapper">
                         <vlocity_cmt-spinner variant="brand"
-                                            alternative-text="Loading.."
+                                            alternative-text={allCustomLabelsUtil.OmniSpinnerTextLoading}
                                             theme={_theme}
                                             size="medium">
                         </vlocity_cmt-spinner>
@@ -56,18 +56,18 @@
                                             props={stepChartProps}
                                             layout={layout}
                                             script-header-def={scriptHeaderDef}>
-                                </vlocity_cmt-omniscript-step-chart>
-                                
+                                </vlocity_cmt-omniscript-step-chart>                    
                                 <template if:true={isPageLoading}>
                                     <vlocity_cmt-spinner variant="brand"
-                                                        alternative-text="Loading..."
-                                                        extraouterclass="nds-theme_default"
+                                                        alternative-text={allCustomLabelsUtil.OmniSpinnerTextLoading}
+                                                        extraclass="nds-theme_default"
                                                         theme={_theme}
                                                         message={spinnerMessage}
                                                         size="medium">
                                     </vlocity_cmt-spinner>
                                 </template>
                                 <template for:each={jsonDef.children} for:item="item" for:index="idx"></template>
+                                
                             </div>
                             <div class="nds-m-around_small">
                                 <div class="nds-grid nds-grid_align-center">
@@ -82,6 +82,7 @@
                                                 <vlocity_cmt-button
                                                     type="button"
                                                     label={navButton.next.label}
+                                                    aria-label={navButton.next.label}
                                                     variant="brand"
                                                     extraclass="slds-size_1-of-1 slds-p-horizontal_none slds-text-align_center"
                                                     theme={_theme}>
@@ -95,6 +96,7 @@
                                                 onclick={nextStep}
                                                 class={navButton.next.classes}
                                                 label={navButton.next.label}
+                                                aria-label={navButton.next.label}
                                                 extraclass="nds-button_stretch nds-p-around_xx-small nds-size_1-of-1"
                                                 theme={_theme}>
                                             </vlocity_cmt-button>
@@ -114,6 +116,7 @@
                                                     type="button"
                                                     variant="neutral"
                                                     label={navButton.previous.label}
+                                                    aria-label={navButton.previous.label}
                                                     extraclass="nds-button_stretch nds-p-around_xx-small nds-size_1-of-1"
                                                     theme={_theme}>
                                                 </vlocity_cmt-button>
@@ -125,6 +128,7 @@
                                                 variant="neutral"
                                                 onclick={prevStep}
                                                 label={navButton.previous.label}
+                                                aria-label={navButton.previous.label}
                                                 class={navButton.previous.classes}
                                                 extraclass="nds-button_stretch nds-p-around_xx-small nds-size_1-of-1"
                                                 theme={_theme}>

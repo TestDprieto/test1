@@ -5,7 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class SetCartItemExternalPriceService implements vlocity_cmt.VlocityOpenInterface {
+global class SetCartItemExternalPriceService implements System.Callable, vlocity_cmt.VlocityOpenInterface {
     global SetCartItemExternalPriceService() {
 
     }

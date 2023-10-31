@@ -1,4 +1,4 @@
-<apex:page docType="html-5.0" applyBodyTag="false" showHeader="false" sidebar="false" standardController="Order" extensions="vlocity_cmt.SimpleDecompositionController,vlocity_cmt.XOMSyncDeltaControllerExtension">
+<apex:page docType="html-5.0" applyBodyTag="false" showHeader="false" sidebar="false" standardController="Order" extensions="vlocity_cmt.SimpleDecompositionController,vlocity_cmt.XOMSyncDeltaControllerExtension,vlocity_cmt.XOMUserInfoControllerExtension">
 <html ng-app="ThorManualTaskOS">
 <head>
     <title>XOM ThorManual Task OmniScript</title>
@@ -14,9 +14,6 @@
                 previewMode="{!$CurrentPage.parameters.previewEmbedded}"
                 verticalMode="{!$CurrentPage.parameters.verticalMode}"
                 strOmniScriptId="{!$CurrentPage.parameters.designerPreviewId}"/>
-    
-            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/javascripts/components/vlocity.js')}"/>
-            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/javascripts/components/remoteActions.js')}"/>
 
             <apex:includeScript value="/support/console/31.0/integration.js"/>
             <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/bower_components/forceng/forceng.js')}"/>
@@ -138,12 +135,12 @@
 
                 app.run(["$sce","$rootScope","force", function($sce, $rootScope, force){
                     force.init({
-                        accessToken: '{!$Api.Session_ID}',
+                        accessToken: '{!currentUserSessionId}',
                         useProxy: false
                     });
 
                     $rootScope.forcetkClient = new forcetk.Client();
-                    $rootScope.forcetkClient.setSessionToken('{!$Api.Session_ID}');
+                    $rootScope.forcetkClient.setSessionToken('{!currentUserSessionId}');
 
                 }]);
                 app.directive('btn', function () {

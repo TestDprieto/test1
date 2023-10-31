@@ -144,7 +144,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description>Summaries from statements produced by a client&apos;s billing software can be imported into this object. Historical statements can be retained as well.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -228,6 +227,17 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__CurrentCharges__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__CurrentMeterRead__c</fullName>
         <deprecated>false</deprecated>
         <description>Current meter read for the billing period.</description>
@@ -273,6 +283,17 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OverdueAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Overdue Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__PreviousBalance__c</fullName>
@@ -350,6 +371,18 @@
         <type>Url</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__StatementMonth__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Statement Month</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__StatementPeriodEndDate__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -366,6 +399,18 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__StatementYear__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Statement Year</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Status__c</fullName>
@@ -434,7 +479,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <label>Statement Name</label>
+        <label>Name</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Statements</pluralLabel>

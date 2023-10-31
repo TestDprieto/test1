@@ -654,7 +654,7 @@ window.location = &apos;apex/&apos;+namespace_prefix+&apos;__ContentSegmentList&
         <protected>false</protected>
         <url>var dataPackType = &apos;AttributeCategory&apos;;
 var objectId = &apos;{!vlocity_cmt__AttributeCategory__c.Id}&apos;;
-var suggestedName = &apos;{!vlocity_cmt__AttributeCategory__c.Name}&apos;;
+var suggestedName = &apos;{!JSENCODE(vlocity_cmt__AttributeCategory__c.Name)}&apos;;
 
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}

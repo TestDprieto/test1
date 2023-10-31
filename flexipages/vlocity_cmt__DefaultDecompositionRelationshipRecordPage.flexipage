@@ -43,6 +43,26 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>force:detailPanel</componentName>
+                <identifier>force_detailPanel</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>detailTabContent</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>vlocity_cmt:mappingRules</componentName>
+                <identifier>mappingRules</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-f4e87e81-b882-4c41-a006-b2a2225b9973</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
                 <componentInstanceProperties>
                     <name>body</name>
                     <value>relatedTabContent</value>
@@ -103,26 +123,6 @@
         </itemInstances>
         <name>main</name>
         <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>force:detailPanel</componentName>
-                <identifier>force_detailPanel</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>detailTabContent</name>
-        <type>Facet</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>vlocity_cmt:mappingRules</componentName>
-                <identifier>mappingRules</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-f4e87e81-b882-4c41-a006-b2a2225b9973</name>
-        <type>Facet</type>
     </flexiPageRegions>
     <masterLabel>Decomposition Relationship Record Page</masterLabel>
     <sobjectType>vlocity_cmt__DecompositionRelationship__c</sobjectType>

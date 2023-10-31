@@ -1,4 +1,4 @@
-<apex:page standardController="vlocity_cmt__OrchestrationItem__c" extensions="vlocity_cmt.CardCanvasController">
+<apex:page standardController="vlocity_cmt__OrchestrationItem__c" extensions="vlocity_cmt.CardCanvasController,vlocity_cmt.XOMOMPLAuthController">
     <html xmlns:ng="http://angularjs.org" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="launchOS" class="ng-cloak" dir="{!IF(isLanguageRTL, 'rtl', 'ltr')}">
         <head>
 		 	<link rel="stylesheet" type="text/css" href="{!URLFOR($Resource.slds, 'assets/styles/salesforce-lightning-design-system-vf.css')}" />
@@ -28,7 +28,9 @@
     				['vlocity','CardFramework' , 'sldsangular', 'ngSanitize', 'forceng', 'tmh.dynamicLocale',
      					'cfp.hotkeys', 'VlocityDynamicForm', 'thorIntegration'])
     				.config(['remoteActionsProvider', function(remoteActionsProvider) {
-        				remoteActionsProvider.setRemoteActions(window.remoteActions || {});
+                        remoteActionsProvider.setRemoteActions({
+                            generateAuthToken: '{!$RemoteAction.XOMOMPLAuthController.generateAuthToken}'
+                        });
     				}]);
             </script>
 		</head>

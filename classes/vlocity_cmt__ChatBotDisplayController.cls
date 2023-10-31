@@ -19,6 +19,10 @@ global virtual class ChatBotDisplayController extends vlocity_cmt.BaseDisplayCon
     global String urlParams {
         get;
     }
+    global String vlocAccessToken {
+        get;
+        set;
+    }
     global ChatBotDisplayController() {
 
     }

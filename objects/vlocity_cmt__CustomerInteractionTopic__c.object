@@ -264,12 +264,158 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__Outcome__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the outcome or the end result of the customer interaction topic.</description>
+        <externalId>false</externalId>
+        <label>Outcome</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Initiated</fullName>
+                    <default>false</default>
+                    <label>Initiated</label>
+                </value>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Successful</fullName>
+                    <default>false</default>
+                    <label>Successful</label>
+                </value>
+                <value>
+                    <fullName>Canceled</fullName>
+                    <default>false</default>
+                    <label>Canceled</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ProcessName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the guided process that has created the customer interaction topic.</description>
+        <externalId>false</externalId>
+        <label>Process Name</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__QuoteId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Quote</label>
         <referenceTo>Quote</referenceTo>
+        <relationshipLabel>Customer Interaction Topics</relationshipLabel>
+        <relationshipName>CustomerInteractionTopics</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Records the reason of the outcome.</description>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Cross Order Validation</fullName>
+                    <default>false</default>
+                    <label>Cross Order Validation</label>
+                </value>
+                <value>
+                    <fullName>Subscription Suspended</fullName>
+                    <default>false</default>
+                    <label>Subscription Suspended</label>
+                </value>
+                <value>
+                    <fullName>Suspension Reason Mismatch</fullName>
+                    <default>false</default>
+                    <label>Suspension Reason Mismatch</label>
+                </value>
+                <value>
+                    <fullName>Eligibility Check</fullName>
+                    <default>false</default>
+                    <label>Eligibility Check</label>
+                </value>
+                <value>
+                    <fullName>Report Fraud</fullName>
+                    <default>false</default>
+                    <label>Report Fraud</label>
+                </value>
+                <value>
+                    <fullName>Payment</fullName>
+                    <default>false</default>
+                    <label>Payment</label>
+                </value>
+                <value>
+                    <fullName>Subscription Validation</fullName>
+                    <default>false</default>
+                    <label>Subscription Validation</label>
+                </value>
+                <value>
+                    <fullName>Add-On</fullName>
+                    <default>false</default>
+                    <label>Add-On</label>
+                </value>
+                <value>
+                    <fullName>Top-Up</fullName>
+                    <default>false</default>
+                    <label>Top-Up</label>
+                </value>
+                <value>
+                    <fullName>Voucher Code Validation</fullName>
+                    <default>false</default>
+                    <label>Voucher Code Validation</label>
+                </value>
+                <value>
+                    <fullName>Provide PUK</fullName>
+                    <default>false</default>
+                    <label>Provide PUK</label>
+                </value>
+                <value>
+                    <fullName>ICCID Validation</fullName>
+                    <default>false</default>
+                    <label>ICCID Validation</label>
+                </value>
+                <value>
+                    <fullName>Change Feature</fullName>
+                    <default>false</default>
+                    <label>Change Feature</label>
+                </value>
+                <value>
+                    <fullName>Credit Check Declined</fullName>
+                    <default>false</default>
+                    <label>Credit Check Declined</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SubscriptionId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the Subscription related to the customer interaction topic.</description>
+        <externalId>false</externalId>
+        <label>Subscription</label>
+        <referenceTo>vlocity_cmt__Subscription__c</referenceTo>
         <relationshipLabel>Customer Interaction Topics</relationshipLabel>
         <relationshipName>CustomerInteractionTopics</relationshipName>
         <required>false</required>

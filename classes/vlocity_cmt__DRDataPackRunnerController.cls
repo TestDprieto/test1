@@ -14,6 +14,10 @@ global class DRDataPackRunnerController {
         get;
         set;
     }
+    global String vlocAccessToken {
+        get;
+        set;
+    }
     global DRDataPackRunnerController() {
 
     }
@@ -47,7 +51,15 @@ global class DRDataPackRunnerController {
         return null;
     }
     @RemoteAction
+    global static List<SObject> getActiveLayouts2(List<String> layouts) {
+        return null;
+    }
+    @RemoteAction
     global static List<vlocity_cmt__VlocityUILayout__c> getActiveLayouts(List<String> layouts) {
+        return null;
+    }
+    @RemoteAction
+    global static List<SObject> getActiveTemplates2(List<String> templates) {
         return null;
     }
     @RemoteAction
@@ -70,6 +82,10 @@ global class DRDataPackRunnerController {
     }
     @RemoteAction
     global static List<StaticResource> getBaseDatapacks(String prefix) {
+        return null;
+    }
+    @RemoteAction
+    global static List<SObject> getCardsByNames2(List<String> cards) {
         return null;
     }
     @RemoteAction
@@ -100,6 +116,10 @@ global class DRDataPackRunnerController {
     }
     @RemoteAction
     global static List<Map<String,Object>> getInstalledTabDataPacks() {
+        return null;
+    }
+    @RemoteAction
+    global static List<SObject> getLayoutsByName2(List<String> layouts) {
         return null;
     }
     @RemoteAction
@@ -137,12 +157,20 @@ global class DRDataPackRunnerController {
         return null;
     }
     @RemoteAction
+    global static List<SObject> getTemplatesByName2(List<String> templates) {
+        return null;
+    }
+    @RemoteAction
     global static List<vlocity_cmt__VlocityUITemplate__c> getTemplatesByName(List<String> templates) {
         return null;
     }
     @AuraEnabled
     @RemoteAction
     global static Map<String,Object> ignoreErrorForDataPacks(String processType, String dataPackId, List<String> dataPackKeys) {
+        return null;
+    }
+    @RemoteAction
+    global static Boolean isFoundationPackage() {
         return null;
     }
     @AuraEnabled

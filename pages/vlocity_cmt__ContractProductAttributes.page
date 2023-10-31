@@ -25,9 +25,9 @@
                 <vloc-layout ctrl="ClmProductAttributesController" class="clm-product-attributes-container" layout-name="clm-product-attributes-container"></vloc-layout>
             </div>
             <script type="text/javascript">
-                var sessionId = '{!$Api.Session_ID}';
+                var sessionId = '{!vlocAccessToken}';
                 var vlocCLM = {
-                    'accessToken': '{!$Api.Session_ID}',
+                    'accessToken': '{!vlocAccessToken}',
                     'staticResourceURL' : {
                         'slds': '{!URLFOR($Resource.slds)}',
                     }

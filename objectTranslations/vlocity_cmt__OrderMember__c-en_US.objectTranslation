@@ -5,6 +5,50 @@
         <name>vlocity_cmt__Address1__c</name>
     </fields>
     <fields>
+        <label><!-- Address Validation Date --></label>
+        <name>vlocity_cmt__AddressValidationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Validation Message --></label>
+        <name>vlocity_cmt__AddressValidationMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Address Validation Result --></label>
+        <name>vlocity_cmt__AddressValidationResult__c</name>
+        <picklistValues>
+            <masterLabel>Fails</masterLabel>
+            <translation><!-- Fails --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invalid</masterLabel>
+            <translation><!-- Invalid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partial</masterLabel>
+            <translation><!-- Partial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valid</masterLabel>
+            <translation><!-- Valid --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Async Operation Status --></label>
+        <name>vlocity_cmt__AsyncOperationStatus__c</name>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Succeeded</masterLabel>
+            <translation><!-- Succeeded --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Async Operation --></label>
         <name>vlocity_cmt__AsyncOperation__c</name>
         <picklistValues>
@@ -25,8 +69,16 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- Broadband Connection Type --></label>
+        <name>vlocity_cmt__BroadbandConnectionType__c</name>
+    </fields>
+    <fields>
         <label><!-- City --></label>
         <name>vlocity_cmt__City__c</name>
+    </fields>
+    <fields>
+        <label><!-- Connect Date --></label>
+        <name>vlocity_cmt__ConnectDate__c</name>
     </fields>
     <fields>
         <label><!-- Country --></label>
@@ -68,6 +120,14 @@
     <fields>
         <label><!-- MSISDN --></label>
         <name>vlocity_cmt__MSISDN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max Download Speed --></label>
+        <name>vlocity_cmt__MaxDownloadSpeed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Max Upload Speed --></label>
+        <name>vlocity_cmt__MaxUploadSpeed__c</name>
     </fields>
     <fields>
         <label><!-- Member Data --></label>
@@ -118,6 +178,10 @@
         <relationshipLabel><!-- Order Members --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Selected Assets --></label>
+        <name>vlocity_cmt__SelectedAssetIds__c</name>
+    </fields>
+    <fields>
         <label><!-- Service Account --></label>
         <name>vlocity_cmt__ServiceAccountId__c</name>
         <relationshipLabel><!-- Order Members --></relationshipLabel>
@@ -130,6 +194,10 @@
     <fields>
         <label><!-- Serviceability Data --></label>
         <name>vlocity_cmt__ServiceabilityData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Serviceability Last Checked At --></label>
+        <name>vlocity_cmt__ServiceabilityLastCheckedDate__c</name>
     </fields>
     <fields>
         <label><!-- State --></label>

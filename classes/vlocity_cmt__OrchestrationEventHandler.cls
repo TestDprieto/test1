@@ -5,10 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class OrchestrationEventHandler {
-    global OrchestrationEventHandler() {
-
-    }
+global class OrchestrationEventHandler implements Database.AllowsCallouts, System.Queueable {
     @Future(callout=true)
     global static void execute(String orchestrationItem) {
 

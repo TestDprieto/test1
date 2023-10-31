@@ -17,7 +17,7 @@
 	</head>
 	<body>
 	  	<c:SummaryConfigurationComponent summaryTitle="Order Summary"/>
-	    <c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__submitorder}" summaryTitle="Order Summary" cartUrl="/apex/OrderManager?id={!$CurrentPage.parameters.Id}" />
+	    <c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__SubmitOrder}" summaryTitle="Order Summary" cartUrl="/apex/OrderManager?id={!JSENCODE($CurrentPage.parameters.Id)}" />
 	</body>
 	</html>
 </apex:page>

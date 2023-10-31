@@ -4,16 +4,6 @@
 <runtimeNamespace>vlocity_cmt</runtimeNamespace>
 <isExposed>true</isExposed>
 <masterLabel>sampleCasesParent</masterLabel>
-<targets>
-<target>lightning__RecordPage</target>
-<target>lightning__AppPage</target>
-<target>lightning__HomePage</target>
-</targets>
-<targetConfigs><targetConfig targets="lightning__AppPage">
-                      <property name="debug" type="Boolean"/>
-                      <property name="recordId" type="String"/>
-                  </targetConfig>
-                  <targetConfig targets="lightning__RecordPage">
-                      <property name="debug" type="Boolean"/>
-                  </targetConfig></targetConfigs>
+<targets><target>lightning__RecordPage</target><target>lightning__AppPage</target><target>lightning__HomePage</target></targets>
+<targetConfigs><targetConfig targets="lightning__AppPage"><property name="debug" type="Boolean"/><property name="recordId" type="String"/></targetConfig><targetConfig targets="lightning__RecordPage"><property name="debug" type="Boolean"/></targetConfig></targetConfigs>
 </LightningComponentBundle>

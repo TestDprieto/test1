@@ -123,8 +123,8 @@
                                     <!--End Line Item Section & signature section-->
 
                                     <div class="form-group rich-text-editor" ng-if="section.sectionType !== 'Signature' && section.sectionType !== 'Item' && section.sectionType !== 'Embedded Template' && section.sectionType !== 'Custom'">
-                                        <div class="tinymce-editor" ui-tinymce="tinymceOptions" ng-model="section.sectionContent" ng-if="!section.sectionIsRestricted"></div>
-                                        <div class="restricted" ng-bind-html="trustAsHtml(section.sectionContent)" ng-if="section.sectionIsRestricted"></div>
+                                        <div class="tinymce-editor" ui-tinymce="tinymceOptions" ng-model="section.sectionContent" ng-if="!section.sectionIsRestricted || isFullAccess"></div>
+                                        <div class="restricted" ng-bind-html="trustAsHtml(section.sectionContent)" ng-if="section.sectionIsRestricted && !isFullAccess"></div>
                                 </div>
                                 </check-section-saved>
                             </div>
@@ -214,7 +214,7 @@
                 baseRequestUrl = '{!$Site.BaseRequestUrl}';
                 sitePrefix = '{!$Site.Prefix}';
 
-                window.sessionId = '{!$Api.Session_ID}';
+                window.sessionId = '{!vlocAccessToken}';
                 labels = {
                     'saveAllSectionLabel':'{!$Label.ContractSaveAllSections}', 
                     'customizeReadyCheckInLabel':'{!$Label.ContractCustomizeReadyCheckIn}',

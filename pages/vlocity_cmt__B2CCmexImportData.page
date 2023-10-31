@@ -1,0 +1,23 @@
+<apex:page controller="vlocity_cmt.B2CCmexImportDataController" showHeader="false" sidebar="false" lightningStylesheets="true">
+    <apex:slds />
+    
+    <apex:pagemessages />
+    <div class = "slds-scope">
+        <apex:form >
+        <apex:pageBlock rendered="{!showButtons}">
+            <apex:pageBlockSection > 
+                <apex:inputFile styleClass="" value="{!csvFileBody}"  filename="{!csvAsString}" accept="csv" contentType="text/csv" />
+                  <apex:commandButton styleClass="slds-button slds-button_brand" style="background-color: #0070d2; border-color: #0070d2;" value="Import Data" action="{!convertCSVToList}" />
+                  <apex:outputText style="" value="{!$Label.vlocity_cmt__B2CCmexBulkUploadDocRefMsg}"/>
+                                    
+            </apex:pageBlockSection> 
+            <div class="slds-text-color_error"> <marquee><strong>Note : </strong>Please make sure that the file is in CSV format before uploading</marquee></div>
+        </apex:pageBlock>
+        <apex:outputText styleClass="slds-text-color_success" style="font-weight:bold;font-size:15px" value="{!$Label.vlocity_cmt__VPL_Bulk_Upload_Success_Msg}" rendered="{!showSuccessMsg}"/>
+        <apex:outputText styleClass="slds-text-color_error" style="font-weight:bold;font-size:15px;color:#c23934" value="{!$Label.vlocity_cmt__VPL_Bulk_Upload_Error_Msg}" rendered="{!showErrorMsg}"/>
+        </apex:form>
+
+    </div>
+
+   
+</apex:page>

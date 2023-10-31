@@ -47,8 +47,97 @@
         <relationshipLabel><!-- Customer Interaction Topics --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Outcome --></label>
+        <name>vlocity_cmt__Outcome__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Initiated</masterLabel>
+            <translation><!-- Initiated --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Successful</masterLabel>
+            <translation><!-- Successful --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Process Name --></label>
+        <name>vlocity_cmt__ProcessName__c</name>
+    </fields>
+    <fields>
         <label><!-- Quote --></label>
         <name>vlocity_cmt__QuoteId__c</name>
+        <relationshipLabel><!-- Customer Interaction Topics --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Reason --></label>
+        <name>vlocity_cmt__Reason__c</name>
+        <picklistValues>
+            <masterLabel>Add-On</masterLabel>
+            <translation><!-- Add-On --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Change Feature</masterLabel>
+            <translation><!-- Change Feature --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Credit Check Declined</masterLabel>
+            <translation><!-- Credit Check Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cross Order Validation</masterLabel>
+            <translation><!-- Cross Order Validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eligibility Check</masterLabel>
+            <translation><!-- Eligibility Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICCID Validation</masterLabel>
+            <translation><!-- ICCID Validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payment</masterLabel>
+            <translation><!-- Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Provide PUK</masterLabel>
+            <translation><!-- Provide PUK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Report Fraud</masterLabel>
+            <translation><!-- Report Fraud --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription Suspended</masterLabel>
+            <translation><!-- Subscription Suspended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subscription Validation</masterLabel>
+            <translation><!-- Subscription Validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspension Reason Mismatch</masterLabel>
+            <translation><!-- Suspension Reason Mismatch --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Top-Up</masterLabel>
+            <translation><!-- Top-Up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Voucher Code Validation</masterLabel>
+            <translation><!-- Voucher Code Validation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subscription --></label>
+        <name>vlocity_cmt__SubscriptionId__c</name>
         <relationshipLabel><!-- Customer Interaction Topics --></relationshipLabel>
     </fields>
 </CustomObjectTranslation>

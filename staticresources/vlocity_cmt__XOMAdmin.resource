@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -153,6 +167,7 @@ angular.module('xomadmin').controller('XOMAdminController',
             $scope.isThorEnabled = config.isThorEnabled == 'true';
             $scope.isDeltaTrackingEnabled = config.isDeltaTrackingEnabled == 'true';
             $scope.isDevEnabled = /devMode=true/.exec(window.location.search);
+            $scope.isRetryJobScheduled = false;
             $scope.showSpinner = false;
             $scope.showMsg = false;
             var completeJobsCount = 0;
@@ -214,7 +229,7 @@ angular.module('xomadmin').controller('XOMAdminController',
                 allJobs.set(currentJob.Id, currentJob);
                 
                 var estimate = 0;
-                for (const k of allJobs.keys()) {
+                for (var k in allJobs.keys()) {
                     if(k == currentJob.Id) {
                         estimate += currentJob.JobItemsProcessed;
                     } else {
@@ -396,11 +411,16 @@ angular.module('xomadmin').controller('XOMAdminController',
                                             $scope.isSyncPreparing = false;
                                             $scope.isSyncInprogress = true;
                                             console.log('schedule response', response);
-                                            updateProgressBar(0);
 
-                                            // if good - iterate and check job status periodically (every 5 sec) until complete
-                                            checkJobStatus();
+                                            if (response.status == 'Failed')
+                                            {
+                                                handleError('Generate Sync Delta job scheduling has failed (): ' + response.message);
+                                            } else {
+                                                updateProgressBar(0);
 
+                                                // if good - iterate and check job status periodically (every 5 sec) until complete
+                                                checkJobStatus();
+                                            }
                                         }).catch(function(err)
                                         {
                                             console.error(err);
@@ -524,11 +544,16 @@ angular.module('xomadmin').controller('XOMAdminController',
                                         $scope.isSyncPreparing = false;
                                         $scope.isSyncInprogress = true;
                                         console.log('schedule response', response);
-                                        updateProgressBar(0);
 
-                                        // if good - iterate and check job status periodically (every 5 sec) until complete
-                                        checkJobStatus();
+                                        if (response.status == 'Failed')
+                                        {
+                                            handleError('Generate Sync Delta job scheduling has failed: ' + response.message);
+                                        } else {
+                                            updateProgressBar(0);
 
+                                            // if good - iterate and check job status periodically (every 5 sec) until complete
+                                            checkJobStatus();
+                                        }
                                     }).catch(function(err)
                                 {
                                     console.error(err);
@@ -800,15 +825,15 @@ angular.module('xomadmin').controller('XOMAdminController',
                         {
                             sync(labels);
                             $scope.refreshLabelsCache();
-                        }).catch(function(err)
-                        {
-                            console.error(err);
-                            $scope.showSpinner = false;
-                            handleError("Error occurs while retrieving labels from Thor");
-                            return $q.reject(err);
-                        });
+                        })
                     }, uiServicesURL
-                );
+                ).catch(function(err)
+                {
+                    console.error('Error while retrieving labels', err);
+                    $scope.showSpinner = false;
+                    handleError("Error occurs while retrieving labels from Thor");
+                    return $q.reject(err);
+                });;
             }
 
             $scope.refreshLabelsCache = function ()
@@ -878,12 +903,21 @@ angular.module('xomadmin').controller('XOMAdminController',
             {
                 // open encryption Keys Page in a separate window
                 console.log('opening Encryption Keys Page URL');
-                window.open('apex/'+config.namespacePrefix+'XOMManageEncryptionKeys');
+                $window.location.href = config.manageEncryptionKeysPage;
             }
 
             $scope.openManageSecretsPage = function () {
                 console.log('opening Manage Secrets Page URL');
-                window.open('apex/'+config.namespacePrefix+'XOMManageSecrets');
+                if (document.referrer.indexOf(".lightning.force.com") > 0) {
+                    $window.location.href = 'apex/n/'+config.namespacePrefix+'XOMManageSecrets';
+                } else {
+                    $window.location.href = 'apex/'+config.namespacePrefix+'XOMManageSecrets';
+                }
+            }
+
+            $scope.openXOMOmplDBQueryPage = function () {
+                console.log('opening OMPL DB Query Runner URL');
+                $window.location.href = config.omplDBQueryPage;
             }
 
             var handleError = function(mesg)
@@ -938,6 +972,48 @@ angular.module('xomadmin').controller('XOMAdminController',
                 _updateOrchQueuesCnt(0);
             };
 
+            $scope.startRetryJob = function ()
+            {
+                $scope.showSpinner = true;
+
+                remoteActions.startJob('OM Integration Retry Job')
+                    .then(function(data, err)
+                    {
+                        console.log('Started retry batch job...', data, err);
+                        $scope.showSpinner = false;
+                        showSuccessMsg(data.message);
+                        $scope.isRetryJobScheduled = true;
+                    })
+                    .catch(function(err)
+                    {
+                        console.error(err);
+                        $scope.showSpinner = false;
+                        handleError("Error " + err.message);
+                        $scope.isRetryJobScheduled = false;
+                    });
+            }
+
+            $scope.stopRetryJob = function ()
+            {
+                $scope.showSpinner = true;
+
+                remoteActions.stopJob('OM Integration Retry Job')
+                    .then(function(data, err)
+                    {
+                        console.log('Stopping retry batch job...', data, err);
+                        $scope.showSpinner = false;
+                        showSuccessMsg("OM Integration Retry Job has been stopped");
+                        $scope.isRetryJobScheduled = false;
+                    })
+                    .catch(function(err)
+                    {
+                        console.error(err);
+                        $scope.showSpinner = false;
+                        handleError("Error " + err.message);
+                        $scope.isRetryJobScheduled = true;
+                    });
+            }
+
             $scope.scheduleJeopardyManagementJobs = function ()
             {
                 $scope.showSpinner = true;
@@ -956,6 +1032,45 @@ angular.module('xomadmin').controller('XOMAdminController',
                         handleError("Error " + err.message);
                     });
 
+            }
+
+            $scope.scheduleOrchFutureDatedJobs = function ()
+            {
+                $scope.showSpinner = true;
+
+                remoteActions.scheduleOrchFutureDatedJobs()
+                    .then(function(data, err)
+                    {
+                        console.log('Creating Future Dated  triggers and queueing apex batch jobs', data, err);
+                        $scope.showSpinner = false;
+                        showSuccessMsg("Future Dated (Process After) Job has been scheduled");
+                    })
+                    .catch(function(err)
+                    {
+                        console.error(err);
+                        $scope.showSpinner = false;
+                        handleError("Error " + err.message);
+                    });
+
+            }
+
+            $scope.abortOrchFutureDatedJobs = function ()
+            {
+                $scope.showSpinner = true;
+
+                remoteActions.abortOrchFutureDatedJobs()
+                    .then(function(data, err)
+                    {
+                        console.log('Stopping Future Dated Jobs', data, err);
+                        $scope.showSpinner = false;
+                        showSuccessMsg("Future Dated (Process After) Job has been stopped");
+                    })
+                    .catch(function(err)
+                    {
+                        console.error(err);
+                        $scope.showSpinner = false;
+                        handleError("Error " + err.message);
+                    });
             }
 
             $scope.scheduleOrchestrationRecoveryJobs = function () {
@@ -1111,6 +1226,263 @@ angular.module('xomadmin').controller('XOMAdminController',
             }
 
 
+            $scope.cleanAttrOverridesStages = ['Collect Attribute Overrides', 'Generate Sync Deltas', 'Sync with OM Plus'];
+            $scope.cleanAttrOverridesStatus = {
+                started: false,
+                progress: 0,
+                stageIdx: 0
+            }
+
+            $scope.cleanAttrOverrides = function () {
+                $scope.cleanAttrOverridesStatus = {
+                    started: false,
+                    progress: 0,
+                    stageIdx: 0
+                };
+
+                function parseCSV(csv) {
+                    var lines = csv.split('\n');
+
+                    console.log('Lines', lines);
+
+                    if (lines.length == 0) {
+                        console.error('Wrong response format');
+                        return [];
+                    }
+
+                    var rx = /^"([^"]+)","([^"]+)"$/;
+
+                    const header = lines[0];
+
+                    var headerMatch;
+
+                    var fieldNames = [];
+
+                    if (headerMatch = rx.exec(header)) {
+                        for (var i = 1; i < headerMatch.length; i++) {
+                            fieldNames.push(headerMatch[i]);
+                        }
+                    } else {
+                        console.error('Header can\'t be matched', header);
+                        return [];
+                    }
+
+                    // Remove the header
+                    lines.shift();
+
+                    const results = lines.filter(line => {
+                        return line;
+                    })
+                    .map(line => {
+                        var m;
+                        if (m = rx.exec(line)) {
+
+                            var record = {};
+
+                            for (var i = 1; i < m.length; i++) {
+                                var name = fieldNames[i-1];
+                                var value = m[i];
+                                record[name] = value;
+                            }
+
+                            return record;
+                        } else {
+                            console.error("Line does not match", line);
+                            return {};
+                        }
+                    })
+                    console.log('Res0', results);
+                    return results;
+                }
+
+                // Splits full scope of records into batches
+                // Bulk API restricts batch size with 10000
+                function splitChunks(records, chunkSize) {
+
+                    const totalSize = records.length;
+
+                    const res = [];
+
+                    for (let i=0; i < totalSize; i += chunkSize) {
+                        res.push(records.slice( i , i + chunkSize));
+                    }
+
+                    return res;
+
+                }
+
+                function batchCreateSyncDeltaRecords(conn, attributeAssignments) {
+
+                    console.log('Creating deltas...');
+
+                    var syncDeltas = attributeAssignments.map (aa => {
+                       var obj = {};
+                       obj[config.namespacePrefix + 'ObjectId__c'] = aa['Id'];
+                       obj[config.namespacePrefix + 'Action__c'] = 'Delete';
+
+                       var payload = {};
+                       payload['VlocityRecordSObjectType'] = 'AttributeAssignment__c';
+                       payload['GlobalKey__c'] = aa[config.namespacePrefix + 'GlobalKey__c'];
+                       obj[config.namespacePrefix + 'Data__c'] = JSON.stringify(payload);
+                       return obj;
+                    });
+
+                    console.log('Sync deltas', syncDeltas);
+
+                    const job = conn.bulk.createJob(config.namespacePrefix + "SyncDeltaObject__c", "insert");
+
+                    const chunks = splitChunks(syncDeltas, 10000);
+
+                    console.log('Chunks', chunks);
+
+                    const totalRecords = syncDeltas.length;
+                    const totalChunks = chunks.length;
+
+                    let processedRecords = 0;
+                    let queuedChunks = 0;
+
+                    function updateProgress() {
+                        const START = 50;
+                        const QUEUEING = 20;
+                        const PROCESSING = 30;
+                        const progress = START + QUEUEING * queuedChunks/totalChunks + PROCESSING * processedRecords/totalRecords;
+                        $scope.cleanAttrOverridesStatus.progress = progress;
+                        console.log('Processed %', progress);
+                    }
+
+                    return $q.all(chunks.map(chunk => {
+                        return $q((resolve, reject) => {
+
+                            const batch = job.createBatch();
+                            batch.execute(chunk)
+                                .on("error", function(batchInfo) { // fired when batch request is queued in server.
+                                    console.log('Error, batchInfo:', batchInfo);
+                                    reject(batchInfo);
+                                })
+                                .on("queue", function(batchInfo) { // fired when batch request is queued in server.
+                                    console.log('queue, batchInfo:', batchInfo);
+                                    queuedChunks++;
+                                    updateProgress();
+                                    batch.poll(5000 /* interval(ms) */, 180000 /* timeout(ms) */); // start polling - Do not poll until the batch has started
+                                })
+                                .on("response", function(rets) { // fired when batch finished and result retrieved
+                                    var allGood = true;
+                                    for (var i=0; i < rets.length; i++) {
+                                        if (!rets[i].success) {
+                                            allGood = false;
+                                            console.log("#" + (i+1) + " error occurred, message = " + rets[i].errors.join(', '));
+                                        }
+                                    }
+
+                                    console.log('Processed', rets.length);
+
+                                    processedRecords += rets.length;
+                                    updateProgress();
+
+                                    if (allGood) {
+                                        console.log('Sync Deltas have been successfully created');
+                                        resolve(true);
+                                    } else {
+                                        console.log('Not all good');
+                                        resolve(false);
+                                    }
+
+
+                                });
+                        });
+                    }));
+
+                }
+
+                function collectAttributeAssignments(conn) {
+                    return $q((resolve, reject) => {
+                        var job = conn.bulk.createJob(config.namespacePrefix + "AttributeAssignment__c", "query");
+                        var batch = job.createBatch();
+
+                        batch.execute("SELECT Id, " + config.namespacePrefix + "GlobalKey__c FROM " +
+                            config.namespacePrefix+"AttributeAssignment__c where " + config.namespacePrefix +"isOverride__c = true");
+                        batch.on('error', err => {
+                            reject(err);
+                        });
+                        batch.on("queue", function(batchInfo) { // fired when batch request is queued in server.
+                            console.log('batchInfo:', batchInfo);
+                            $scope.cleanAttrOverridesStatus.progress = 10;
+                            batchId = batchInfo.id;
+                            jobId = batchInfo.jobId;
+                            batch.poll(1000 /* interval(ms) */, 240000 /* timeout(ms) */); // start polling
+                            batch.on("response", function(rets) {
+                                rets.map(r => {
+                                    console.log('Processing response', r);
+                                    conn.bulk._request({
+                                        method: 'GET',
+                                        path: "/job/" + jobId + "/batch/" + batchId + "/result/" + r.id,
+                                        responseType: "application/octet-stream"
+                                    })
+                                    .then(res => {
+                                        $scope.cleanAttrOverridesStatus.progress = 40;
+                                        console.log('Result', res);
+                                        resolve(parseCSV(res));
+                                    })
+                                });
+                            });
+                        });
+                    });
+                }
+
+                console.log('Starting the Spring cleaning');
+
+                var conn0 = new jsforce.Connection({ accessToken: config.accessToken });
+
+                conn0.query('select InstanceName from Organization')
+                    .then (rec => {
+                        console.log('Rec', rec);
+                        const pod = rec.records[0].InstanceName;
+                        const conn = new jsforce.Connection({ accessToken: config.accessToken, instanceUrl: 'https://' + pod + '.salesforce.com/' });
+                        conn.bulk.pollTimeout = 180000;
+
+                        $scope.cleanAttrOverridesStatus.started = true;
+
+                        collectAttributeAssignments(conn)
+                            .then(attributeAssignments => {
+                                // throw "Test2";
+                                $scope.cleanAttrOverridesStatus.progress = 50;
+                                $scope.cleanAttrOverridesStatus.stageIdx = 1;
+                                return batchCreateSyncDeltaRecords(conn, attributeAssignments)
+                            })
+                            .then(res => {
+
+                                $scope.cleanAttrOverridesStatus.progress = 99;
+
+                                let allGood = true;
+
+                                for (let i = 0; i < res.length; i++) {
+                                    if (!res[i]) {
+                                        allGood = false;
+                                        break;
+                                    }
+                                }
+
+                                if (!allGood) {
+                                    handleError('Sync Delta Objects generation was partially successful. Please check the JavaScript console');
+                                }
+
+                                console.log('All is processed');
+                            })
+                            .then(() => {
+                                return remoteActions.forceStartCatalogSyncBatchJob()
+                            })
+                            .then(s => {
+                                console.log('Starting sync job', s);
+                                $scope.cleanAttrOverridesStatus.progress = 100;
+                                $scope.cleanAttrOverridesStatus.started = false;
+                            })
+                            .catch(err => {
+                                console.error('Error', err);
+                                handleError('Override Attribute Assignment cleanup error: ' + err);
+                            });
+                    });
+
+            }
         }
 
     ]);
@@ -1180,7 +1552,7 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                     'Order':
                         [
                             {
-                                layout: 'Order-' + namespacePrefix + (config.isInsurance?'Order %28Vlocity Insurance%29 Layout V2':'Order %28Vlocity XOM%29 Layout V11')
+                                layout: 'Order-' + namespacePrefix + (config.isInsurance?'Order %28Vlocity Insurance%29 Layout V2':'Order %28Vlocity XOM%29 Layout V12')
                             }
                         ],
                     'InventoryItem__c':
@@ -1201,7 +1573,7 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                     'OrchestrationItem__c':
                         [
                             {
-                                layout: namespacePrefix + 'OrchestrationItem__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item %28Vlocity Insurance%29 Layout V5':'Orchestration Item %28Vlocity XOM%29 Layout V2')
+                                layout: namespacePrefix + 'OrchestrationItem__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item %28Vlocity Insurance%29 Layout V5':'Orchestration Item %28Vlocity XOM%29 Layout V4')
                             }
                         ],
                     'OrchestrationPlanDefinition__c':
@@ -1213,7 +1585,7 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                     'OrchestrationPlan__c':
                         [
                             {
-                                layout: namespacePrefix + 'OrchestrationPlan__c-' + namespacePrefix + (config.isInsurance?'Orchestration Plan %28Vlocity Insurance%29 Layout':'Orchestration Plan %28Vlocity XOM%29 Layout')
+                                layout: namespacePrefix + 'OrchestrationPlan__c-' + namespacePrefix + (config.isInsurance?'Orchestration Plan %28Vlocity Insurance%29 Layout':'Orchestration Plan %28Vlocity XOM%29 Layout V3')
                             }
                         ],
                     'OrchestrationDependency__c':
@@ -1239,7 +1611,7 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                     'Order':
                         [
                             {
-                                layout: 'Order-' + namespacePrefix + (config.isInsurance?'Order %28Vlocity Insurance%29 Layout V2':'Order %28Vlocity XOM%29 Layout V11')
+                                layout: 'Order-' + namespacePrefix + (config.isInsurance?'Order %28Vlocity Insurance%29 Layout V2':'Order %28Vlocity XOM%29 Layout V12')
                             }
                         ],
                     'FulfilmentRequest__c':
@@ -1256,6 +1628,28 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                             recordType: namespacePrefix + 'FulfilmentRequest__c.' + namespacePrefix + 'ServiceQualificationRequest'
                         }
                     ],
+                    'IntegrationRetryPolicy__c':
+                        [
+                            {
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix + 'Monotonous Retry Policy Layout'
+                            },
+                            {
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix + 'No Retry Policy Layout',
+                                recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'NoRetryPolicy'
+                            },
+                            {
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix + 'Monotonous Forever Retry Policy Layout',
+                                recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'MonotonousForeverRetryPolicy'
+                            },
+                            {
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix + 'Monotonous Retry Policy Layout',
+                                recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'MonotonousRetryPolicy'
+                            },
+                            {
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix + 'Staggered Retry Policy Layout',
+                                recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'StaggeredRetryPolicy'
+                            }
+                        ],
                     'InventoryItem__c':
                         config.isInsurance?
                             [
@@ -1274,56 +1668,56 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                     'OrchestrationItemDefinition__c':
                         [
                             {
-                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V7')
+                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V8')
                             },
                             {
-                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V7'),
+                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V8'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'Milestone'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Auto Task %28Vlocity Insurance%29 Layout':'Auto Task %28Vlocity XOM%29 Layout V7'),
+                                    (config.isInsurance?'Auto Task %28Vlocity Insurance%29 Layout':'Auto Task %28Vlocity XOM%29 Layout V8'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'AutoTask'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Callout %28Vlocity Insurance%29 Layout':'Callout %28Vlocity XOM%29 Layout V10'),
+                                    (config.isInsurance?'Callout %28Vlocity Insurance%29 Layout':'Callout %28Vlocity XOM%29 Layout V13'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'Callout'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Manual Task %28Vlocity Insurance%29 Layout V2':'Manual Task %28Vlocity XOM%29 Layout V8'),
+                                    (config.isInsurance?'Manual Task %28Vlocity Insurance%29 Layout V2':'Manual Task %28Vlocity XOM%29 Layout V9'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'ManualTask'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Push Event %28Vlocity Insurance%29 Layout V2':'Push Event %28Vlocity XOM%29 Layout V8'),
+                                    (config.isInsurance?'Push Event %28Vlocity Insurance%29 Layout V2':'Push Event %28Vlocity XOM%29 Layout V9'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'PushEvent'
                             }
                         ],
                     'OrchestrationItem__c':
                         [
                             {
-                                layout: namespacePrefix + 'OrchestrationItem__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item %28Vlocity Insurance%29 Layout V5':'Orchestration Item %28Vlocity XOM%29 Layout V2')
+                                layout: namespacePrefix + 'OrchestrationItem__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item %28Vlocity Insurance%29 Layout V5':'Orchestration Item %28Vlocity XOM%29 Layout V4')
                             }
                         ],
                     'OrchestrationPlan__c':
                         [
                             {
-                                layout: namespacePrefix + 'OrchestrationPlan__c-' + namespacePrefix + (config.isInsurance?'Orchestration Plan %28Vlocity Insurance%29 Layout':'Orchestration Plan %28Vlocity XOM%29 Layout')
+                                layout: namespacePrefix + 'OrchestrationPlan__c-' + namespacePrefix + (config.isInsurance?'Orchestration Plan %28Vlocity Insurance%29 Layout':'Orchestration Plan %28Vlocity XOM%29 Layout V3')
                             }
                         ],
                     'Product2':
                         [
                             {
-                                layout: 'Product2-' + namespacePrefix + (config.isInsurance?'Product %28Vlocity Insurance%29 Layout V2':'Product %28Vlocity XOM%29 Layout V5')
+                                layout: 'Product2-' + namespacePrefix + (config.isInsurance?'Product %28Vlocity Insurance%29 Layout V2':'Product %28Vlocity XOM%29 Layout V6')
                             },
                             {
-                                layout: 'Product2-' + namespacePrefix + (config.isInsurance?'Product %28Vlocity Insurance%29 Layout V2':'Product %28Vlocity XOM%29 Layout V5'),
+                                layout: 'Product2-' + namespacePrefix + (config.isInsurance?'Product %28Vlocity Insurance%29 Layout V2':'Product %28Vlocity XOM%29 Layout V6'),
                                 recordType: 'Product2.' + namespacePrefix + 'Product'
                             },
                             {
-                                layout: 'Product2-' + namespacePrefix + (config.isInsurance?'Product %28Vlocity Insurance%29 Layout V2':'Product %28Vlocity XOM%29 Layout V5'),
+                                layout: 'Product2-' + namespacePrefix + (config.isInsurance?'Product %28Vlocity Insurance%29 Layout V2':'Product %28Vlocity XOM%29 Layout V6'),
                                 recordType: 'Product2.' + namespacePrefix + 'Class'
                             }
                         ],
@@ -1396,7 +1790,7 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                      'OrchestrationPlan__c':
                         [
                             {
-                                layout: namespacePrefix + 'OrchestrationPlan__c-' + namespacePrefix + (config.isInsurance?'Orchestration Plan %28Vlocity Insurance%29 Layout' : 'Orchestration Plan %28Vlocity XOM%29 Layout V2')
+                                layout: namespacePrefix + 'OrchestrationPlan__c-' + namespacePrefix + (config.isInsurance?'Orchestration Plan %28Vlocity Insurance%29 Layout' : 'Orchestration Plan %28Vlocity XOM%29 Layout V3')
                             }
                         ],
                      'OrchestrationQueue__c':
@@ -1445,36 +1839,36 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                     'DecompositionRelationship__c':
                         [
                             {
-                                layout: namespacePrefix + 'DecompositionRelationship__c-' + namespacePrefix +'Decomposition Relationship %28Vlocity XOM%29 Layout V6'
+                                layout: namespacePrefix + 'DecompositionRelationship__c-' + namespacePrefix +'Decomposition Relationship %28Vlocity XOM%29 Layout V4'
                             }
                         ],
                     'OrchestrationItemDefinition__c':
                         [
                             {
-                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V7')
+                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V8')
                             },
                             {
-                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V7'),
+                                layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix + (config.isInsurance?'Orchestration Item Definition %28Vlocity Insurance%29 Layout':'Orchestration Item Definition %28Vlocity XOM%29 Layout V8'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'Milestone'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Auto Task %28Vlocity Insurance%29 Layout':'Auto Task %28Vlocity XOM%29 Layout V7'),
+                                    (config.isInsurance?'Auto Task %28Vlocity Insurance%29 Layout':'Auto Task %28Vlocity XOM%29 Layout V8'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'AutoTask'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Callout %28Vlocity Insurance%29 Layout':'Callout %28Vlocity XOM%29 Layout V10'),
+                                    (config.isInsurance?'Callout %28Vlocity Insurance%29 Layout':'Callout %28Vlocity XOM%29 Layout V13'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'Callout'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Manual Task %28Vlocity Insurance%29 Layout V2':'Manual Task %28Vlocity XOM%29 Layout V8'),
+                                    (config.isInsurance?'Manual Task %28Vlocity Insurance%29 Layout V2':'Manual Task %28Vlocity XOM%29 Layout V9'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'ManualTask'
                             },
                             {
                                 layout: namespacePrefix + 'OrchestrationItemDefinition__c-' + namespacePrefix +
-                                    (config.isInsurance?'Push Event %28Vlocity Insurance%29 Layout V2':'Push Event %28Vlocity XOM%29 Layout V8'),
+                                    (config.isInsurance?'Push Event %28Vlocity Insurance%29 Layout V2':'Push Event %28Vlocity XOM%29 Layout V9'),
                                 recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'PushEvent'
                             }
                         ],
@@ -1507,16 +1901,20 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
                     'IntegrationRetryPolicy__c':
                         [
                             {
-                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix +'Monotonous Forever Retry Policy %28Vlocity XOM%29 Layout',
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix +'Monotonous Forever Retry Policy Layout',
                                 recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'MonotonousForeverRetryPolicy'
                             },
                             {
-                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix +'Monotonous Retry Policy %28Vlocity XOM%29 Layout',
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix +'Monotonous Retry Policy Layout',
                                 recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'MonotonousRetryPolicy'
                             },
                             {
-                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix +'No Retry Policy %28Vlocity XOM%29 Layout',
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix +'No Retry Policy Layout',
                                 recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'NoRetryPolicy'
+                            },
+                            {
+                                layout: namespacePrefix + 'IntegrationRetryPolicy__c-' + namespacePrefix +'Staggered Retry Policy Layout',
+                                recordType: namespacePrefix + 'IntegrationRetryPolicy__c.' + namespacePrefix + 'StaggeredRetryPolicy'
                             }
                         ],
                     'System__c':
@@ -2044,7 +2442,7 @@ angular.module('xomadmin').controller('XOMConfigureLayoutsController',
 
 
 },{}],4:[function(require,module,exports){
-angular.module("xomadmin").run(["$templateCache",function($templateCache){"use strict";$templateCache.put("XOMAdmin.tpl.html",'<div>\n    <div class="slds-clearfix slds-p-around--small">\n    </div>\n    <div style="height: 4rem;" ng-show="showMsg">\n        <div class="slds-notify_container slds-is-relative">\n            <div class="slds-notify slds-notify_toast slds-theme_{{outcome}}" role="alert">\n                <span class="slds-assistive-text">{{outcome}}</span>\n                <span class="slds-icon_container slds-icon-utility-{{outcome}} slds-m-right_small slds-no-flex slds-align-top">\n                    <svg ng-if="outcome == \'success\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#success" />\n                    </svg>\n                    <svg ng-if="outcome == \'error\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#error" />\n                    </svg>\n                </span>\n                <div class="slds-notify__content">\n                    <h2 class="slds-text-heading_small ">{{Message}}.</h2>\n                </div>\n                <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close" ng-click="closeMsg()">\n                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">\n                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close" />\n                    </svg>\n                    <span class="slds-assistive-text">Close</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class="slds-theme--shade">\n        <div class="job-wrapper slds-p-around--medium">\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <div><b>CPQ/Order Management Interface status:</b></div><div ng-style="{color:odinStatusColor}">{{odinStatusLabel}} </div>\n                        </div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="configureOMStd" type="button" ng-click="configureOdin(1)" class="slds-button  slds-button--brand">Configure for Order Management Standard</button>\n                        <button id="configureOMPL" type="button" ng-click="configureOdin(2)" class="slds-button  slds-button--brand">Configure for Order Management Plus</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="createEpcObjectClassesStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Apply Record Types and Page Layout Assignments</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Configures (or restores) Record Types visibility and Page Layouts for Vlocity XOM</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="configureLayouts" type="button" ng-click="configureLayouts()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="createEpcObjectClassesStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Check OM Plus Environment Status</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Retrieves OM Plus Environment Status Information</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="checkEnvStatus" type="button" ng-click="checkEnvStatus()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="checkEnvStatusStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Synchronize Catalog with OM Plus</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Synchronizes an associated OM Plus instance with OM Plus</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="syncCatalog" type="button" ng-click="syncCatalog()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="createEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDeltaTrackingEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Delete Sync Delta Objects</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Deletes all Sync Delta Objects</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="cleanupSyncDeltaBtn" type="button" ng-click="cleanupSyncDelta()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="cleanupSyncDeltaMsg" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDeltaTrackingEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Generate Sync Delta Objects</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Regenerates Sync Delta Objects for the whole catalog</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="forcePopulateSyncDeltaBtn" type="button" ng-if="!isSyncInprogress"\n                                ng-disabled="isSyncPreparing" ng-click="forcePopulateSyncDelta()" class="slds-button  slds-button--brand">Start</button>\n                        <button id="restartPopulateSyncDeltaBtn" type="button" ng-if="isSyncInprogress"\n                                ng-click="restartPopulateSyncDelta()" class="slds-button  slds-button--brand">Restart</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="forcePopulateSyncDeltaMsg" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                        <div ng-if="!hasErrors" class="alert alert-danger" role="alert">{{infoMessage}}</div>\n                    </div>\n                </div>\n                <div ng-if="isSyncDeltaStarted">\n                    <hr/>\n                    <div class="row">\n                        <div id="forcePopulateSyncDeltaProgress" class="slds-grid slds-grid_align-spread slds-p-bottom_x-small">\n                            <div class="slds-progress">\n                                <ol class="slds-progress__list">\n                                    <li ng-class="{\'slds-progress__item\': true, \'slds-is-active\': syncItem.status == \'Active\', \'slds-is-completed\': syncItem.status == \'Completed\'}"\n                                        ng-repeat="syncItem in progressBar.milestones track by syncItem.index">\n                                        <button class="slds-button slds-progress__marker"\n                                                title="Step {{syncItem.index}} - {{syncItem.status}}: {{syncItem.description}}"\n                                                aria-describedby="step-{{syncItem.index}}-tooltip">\n                                            <span class="slds-assistive-text">Step {{syncItem.index}} - {{syncItem.status}}</span>\n                                        </button>\n                                    </li>\n                                </ol>\n                                <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">\n                                    <span class="slds-progress-bar__value" ng-style="{\'width\': progressBar.barValue + \'%\' }">\n                                      <span class="slds-assistive-text">Progress: {{progressBar.barValue}}%</span>\n                                    </span>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="demo-only" style="width: 30rem;">\n                            <article class="slds-tile">\n                                \x3c!--<h3 class="slds-tile__title slds-truncate" title="Salesforce UX"><a href="javascript:void(0);">Salesforce UX</a></h3>--\x3e\n                                <div class="slds-tile__detail">\n                                    <dl class="slds-list_horizontal slds-wrap">\n                                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Progress Status">Current Step:</dt>\n                                        <dd class="slds-item_detail slds-truncate" title="Progress Status">{{progressBar.stageDescription}}</dd>\n                                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Scope">Processed:</dt>\n                                        <dd class="slds-item_detail slds-truncate" title="Scope">{{progressBar.currentValue}} of {{progressBar.totalCount}}</dd>\n                                    </dl>\n                                </div>\n                            </article>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDeltaTrackingEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Generate Global Keys</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Ensures that all Catalog objects have Global Key set</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="genGlobalKeysBtn" type="button" ng-click="ensureGlobalKeys()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="genGlobalKeysMsg" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Create Vlocity DataRaptor Bundles for OM Plus sync</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Creates or (fully re-creates) Vlocity DataRaptor Bundler for OM Plus sync</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="forcePopulateSyncDelta" type="button" ng-click="createDataRaptorBundlesForBackSync()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDevEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Download sync deltas</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Downloads last 200 sync deltas as a file</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="downloadSyncDetas" type="button" ng-click="downloadSyncDeltas()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Synchronize I18n labels and Refresh Cache</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Downloads all labels from OM Plus and sync them to SFDC</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="syncLabels" type="button" ng-click="syncLabels()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Update Orchestration Queues Counters</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Updates number of active Orchestration Items against Orchestration Queues</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="updateOrchQueuesCount" type="button" ng-click="updateOrchQueuesCnt()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="updateOrchQueuesCountStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            \x3c!--<div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Refresh I18n cache</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Refreshes Custom Labels cache</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="syncLabels" type="button" ng-click="refreshLabelsCache()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>--\x3e\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Manage Encryption Keys</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Navigate to Manage Encryption Keys Page</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="openEncryptionKeysPage" type="button" ng-click="openEncryptionKeysPage()" class="slds-button  slds-button--brand">Open</button>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Manage Secrets</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Navigate to Manage Secrets Page</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="openManageSecretsPage" type="button" ng-click="openManageSecretsPage()" class="slds-button  slds-button--brand">Open</button>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Schedule Jeopardy Management Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Schedule Jeopardy Management Job using intervalMins defined in XOMSetup custom settings</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="scheduleJmJobs" type="button" ng-click="scheduleJeopardyManagementJobs()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="jmJobSchedulingStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Schedule Orchestration Recovery Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Schedule Orchestration Recovery Job to execute periodically\n                            (period is defined in XOMSetup custom settings as OrchestrationRecoveryWaitPeriodMins)</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="scheduleOmRecoveryJobs" type="button" ng-click="scheduleOrchestrationRecoveryJobs()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="omJobSchedulingStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Orchestration Data Purge Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small"> Orchestration Data Purge Job Management</div>\n                    </div>\n                    \x3c!-- TODO: Add warning with data purge job description and a confirmation dialog--\x3e\n                    <div class="job-start slds-float--right">\n                        <button id="scheduleOmDataPurgeJobs" type="button" ng-click="scheduleDataPurgeJobs()"\n                                class="slds-button slds-button--brand">Schedule</button>\n                        <button id="stopOmDataPurgeJobs" type="button" ng-click="stopDataPurgeJobs()"\n                                class="slds-button slds-button--brand">Stop Jobs</button>\n                        <button ng-if="isDPInfoHidden" id="ViewOmDataPurgeJobsProgress" type="button" ng-click="viewDataPurgeJobProgress()"\n                                class="slds-button slds-button--brand" aria-controls="dp-info-id">Show Status\n                        </button>\n                        <button ng-if="!isDPInfoHidden" id="HideOmDataPurgeJobsProgress" type="button" ng-click="viewDataPurgeJobProgress()"\n                                class="slds-button slds-button--brand" aria-controls="dp-info-id">Hide Status\n                        </button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="scheduleOmDataPurgeStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n\n                <div ng-if="!isDPInfoHidden" class="demo-only" style="width:30rem">\n                    <article class="slds-tile slds-media">\n                        <div class="slds-media__figure">\n                            <span class="slds-icon_container" title="Data Purge Job Status">\n                                <svg class="slds-icon slds-icon-text-default" aria-hidden="true">\n                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#info"></use>\n                                </svg>\n                            </span>\n                        </div>\n                        <div class="slds-media__body">\n                            <h3 class="slds-tile__title slds-truncate" title="Process Status">\n                                \x3c!--TODO: Url to XOMParameters--\x3e\n                                <a href="javascript:void(0);">Process Status</a>\n                            </h3>\n                                <dl class="slds-dl_horizontal">\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Job Status">Job Status:</dt>\n                                    <dd ng-class="{\'slds-dl_horizontal__detail\': true, \'slds-text-color_error\': dataPurgeStatus.jobStatus == \'Not Scheduled\'}" title="Current Job Status"> {{ dataPurgeStatus.jobStatus }} </dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Last Job Status">Last Job Status:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Progress Status">{{ dataPurgeStatus.lastJobStatus }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="JobStarted">Started at:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Job Started At">{{ dataPurgeStatus.startedAt }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="JobFinished">Finished at:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Job Finished At">{{ dataPurgeStatus.finishedAt }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="NextRunAt">Next Run At:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Next Run Time">{{ dataPurgeStatus.nextRunAt }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="item1">Records Deleted By Type:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Last Run Stats per Object Type">\n                                        <ul>\n                                            <li class="slds-item" ng-repeat="scopeItem in dataPurgeConfigData.scope">{{ scopeItem }} {{ dataPurgeStatus.progress[scopeItem] }}</li>\n                                        </ul>\n                                    </dd>\n                                </dl>\n                        </div>\n                    </article>\n\n                    <article class="slds-tile slds-media">\n                        <div class="slds-media__figure">\n                            <span class="slds-icon_container" title="Data Purge Custom Settings > XOMSetup">\n                                <svg class="slds-icon slds-icon-text-default" aria-hidden="true">\n                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#settings"></use>\n                                </svg>\n                            </span>\n                        </div>\n                        <div class="slds-media__body">\n                            <h3 class="slds-tile__title slds-truncate" title="Settings">\n                                \x3c!--TODO: Url to XOMSetup--\x3e\n                                <a href="javascript:void(0);">Settings</a>\n                            </h3>\n                            <div class="slds-tile__detail">\n                                <dl class="slds-dl_horizontal slds-wrap">\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Objects Scope">Objects Scope:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Objects Scope Values">\n                                        <ul>\n                                            <li class="slds-item" ng-repeat="scopeItem in dataPurgeConfigData.scope">{{ scopeItem }}</li>\n                                        </ul>\n                                    </dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Age">Age Days:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Age Description">{{ dataPurgeConfigData.ageDays }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="ActivatedtatusFilterEnabled">Remove Activated Only?:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="ActivatedStatusFilterEnabledValue">{{ dataPurgeConfigData.isStatusFilterEnabled }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="JobFrequency">Job Frequency Hours:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="JobFrequency Description">{{ dataPurgeConfigData.jobFrequencyHours }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Runtime">Maximum Process Run Time Mins:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="RuntimeValue">{{ dataPurgeConfigData.maxProcessRunTimeMins }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="BatchSize">Batch Size:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="BatchSizeValue">{{ dataPurgeConfigData.batchSize  }}</dd>\n                                </dl>\n                            </div>\n                        </div>\n                    </article>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>\n<div class="slds-spinner_container" ng-show="showSpinner">\n    <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="false" role="alert">\n        <div class="slds-spinner__dot-a"></div>\n        <div class="slds-spinner__dot-b"></div>\n    </div>\n</div>'),$templateCache.put("XOMConfigureLayouts.tpl.html",'<div class="_slds-align--absolute-center">\n    <div class="slds-panel">\n        <form class="slds-form--compound">\n            <div class="slds-panel__section slds-has-divider--bottom">\n                <div class="slds-form-element__row">\n                    <div class="slds-form-element slds-size--1-of-1 slds-clearfix">\n                        <button class="slds-button slds-button--brand slds-float--right"\n                                ng-disabled="readOnly" ng-click="cancel()">Cancel</button>\n                        <button class="slds-button slds-button--brand slds-float--right slds-m-right--medium"\n                                ng-disabled="readOnly" ng-click="save()">Update</button>\n                    </div>\n\n                </div>\n            </div>\n            <div style="height: 4rem;" ng-show="showMsg">\n                <div class="slds-notify_container slds-is-relative">\n                    <div class="slds-notify slds-notify_toast slds-theme_{{outcome}}" role="alert">\n                        <span class="slds-assistive-text">{{outcome}}</span>\n                        <span class="slds-icon_container slds-icon-utility-{{outcome}} slds-m-right_small slds-no-flex slds-align-top">\n                            <svg ng-if="outcome == \'success\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#success" />\n                            </svg>\n                            <svg ng-if="outcome == \'error\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#error" />\n                            </svg>\n                        </span>\n                        <div class="slds-notify__content">\n                            <h2 class="slds-text-heading_small ">{{Message}}.</h2>\n                        </div>\n                        <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close" ng-click="closeMsg()">\n                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">\n                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close" />\n                            </svg>\n                            <span class="slds-assistive-text">Close</span>\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div class="slds-panel__section slds-has-divider--bottom">\n                <h3 class="slds-text-heading--small slds-m-bottom--medium">Profiles Assignments</h3>\n                <div class="slds-form-element__row" ng-repeat="profileChunk in profiles">\n                    <div class="slds-form-element slds-size--1-of-3" ng-repeat="profile in profileChunk track by profile.Id">\n                        <div class="slds-form-element slds-lookup slds-is-open">\n                            <label class="slds-form-element__label" ng-bind="profile.Name"></label>\n                            <div class="slds-form-element__control">\n                                <div class="slds-select_container">\n                                    <select class="slds-select"\n                                            ng-model="profile.xom"\n                                            ng-options="item for item in profileOptions">\n                                    </select>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </form>\n    </div>\n</div>\n<div class="slds-spinner_container" ng-show="showSpinner">\n    <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="false" role="alert">\n        <span class="slds-assistive-text">Deploying layouts</span>\n        <div class="slds-spinner__dot-a"></div>\n        <div class="slds-spinner__dot-b"></div>\n    </div>\n</div>')}]);
+angular.module("xomadmin").run(["$templateCache",function($templateCache){"use strict";$templateCache.put("XOMAdmin.tpl.html",'<div>\n    <div class="slds-clearfix slds-p-around--small">\n    </div>\n    <div style="height: 4rem;" ng-show="showMsg">\n        <div class="slds-notify_container slds-is-relative">\n            <div class="slds-notify slds-notify_toast slds-theme_{{outcome}}" role="alert">\n                <span class="slds-assistive-text">{{outcome}}</span>\n                <span class="slds-icon_container slds-icon-utility-{{outcome}} slds-m-right_small slds-no-flex slds-align-top">\n                    <svg ng-if="outcome == \'success\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#success" />\n                    </svg>\n                    <svg ng-if="outcome == \'error\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#error" />\n                    </svg>\n                </span>\n                <div class="slds-notify__content">\n                    <h2 class="slds-text-heading_small ">{{Message}}.</h2>\n                </div>\n                <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close" ng-click="closeMsg()">\n                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">\n                        <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close" />\n                    </svg>\n                    <span class="slds-assistive-text">Close</span>\n                </button>\n            </div>\n        </div>\n    </div>\n    <div class="slds-theme--shade">\n        <div class="job-wrapper slds-p-around--medium">\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <div><b>CPQ/Order Management Interface status:</b></div><div ng-style="{color:odinStatusColor}">{{odinStatusLabel}} </div>\n                        </div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="configureOMStd" type="button" ng-click="configureOdin(1)" class="slds-button  slds-button--brand">Configure for Order Management Standard</button>\n                        <button id="configureOMPL" type="button" ng-click="configureOdin(2)" class="slds-button  slds-button--brand">Configure for Order Management Plus</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="createEpcObjectClassesStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Apply Record Types and Page Layout Assignments</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Configures (or restores) Record Types visibility and Page Layouts for Vlocity XOM</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="configureLayouts" type="button" ng-click="configureLayouts()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="createEpcObjectClassesStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Check OM Plus Environment Status</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Retrieves OM Plus Environment Status Information</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="checkEnvStatus" type="button" ng-click="checkEnvStatus()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="checkEnvStatusStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Synchronize Catalog with OM Plus</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Synchronizes an associated OM Plus instance with OM Plus</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="syncCatalog" type="button" ng-click="syncCatalog()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="createEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDeltaTrackingEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Delete Sync Delta Objects</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Deletes all Sync Delta Objects</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="cleanupSyncDeltaBtn" type="button" ng-click="cleanupSyncDelta()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="cleanupSyncDeltaMsg" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDeltaTrackingEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Generate Sync Delta Objects</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Regenerates Sync Delta Objects for the whole catalog</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="forcePopulateSyncDeltaBtn" type="button" ng-if="!isSyncInprogress"\n                                ng-disabled="isSyncPreparing" ng-click="forcePopulateSyncDelta()" class="slds-button  slds-button--brand">Start</button>\n                        <button id="restartPopulateSyncDeltaBtn" type="button" ng-if="isSyncInprogress"\n                                ng-click="restartPopulateSyncDelta()" class="slds-button  slds-button--brand">Restart</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="forcePopulateSyncDeltaMsg" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                        <div ng-if="!hasErrors" class="alert alert-danger" role="alert">{{infoMessage}}</div>\n                    </div>\n                </div>\n                <div ng-if="isSyncDeltaStarted">\n                    <hr/>\n                    <div class="row">\n                        <div id="forcePopulateSyncDeltaProgress" class="slds-grid slds-grid_align-spread slds-p-bottom_x-small">\n                            <div class="slds-progress">\n                                <ol class="slds-progress__list">\n                                    <li ng-class="{\'slds-progress__item\': true, \'slds-is-active\': syncItem.status == \'Active\', \'slds-is-completed\': syncItem.status == \'Completed\'}"\n                                        ng-repeat="syncItem in progressBar.milestones track by syncItem.index">\n                                        <button class="slds-button slds-progress__marker"\n                                                title="Step {{syncItem.index}} - {{syncItem.status}}: {{syncItem.description}}"\n                                                aria-describedby="step-{{syncItem.index}}-tooltip">\n                                            <span class="slds-assistive-text">Step {{syncItem.index}} - {{syncItem.status}}</span>\n                                        </button>\n                                    </li>\n                                </ol>\n                                <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">\n                                    <span class="slds-progress-bar__value" ng-style="{\'width\': progressBar.barValue + \'%\' }">\n                                      <span class="slds-assistive-text">Progress: {{progressBar.barValue}}%</span>\n                                    </span>\n                                </div>\n                            </div>\n                        </div>\n                        <div class="demo-only" style="width: 30rem;">\n                            <article class="slds-tile">\n                                \x3c!--<h3 class="slds-tile__title slds-truncate" title="Salesforce UX"><a href="javascript:void(0);">Salesforce UX</a></h3>--\x3e\n                                <div class="slds-tile__detail">\n                                    <dl class="slds-list_horizontal slds-wrap">\n                                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Progress Status">Current Step:</dt>\n                                        <dd class="slds-item_detail slds-truncate" title="Progress Status">{{progressBar.stageDescription}}</dd>\n                                        <dt class="slds-item_label slds-text-color_weak slds-truncate" title="Scope">Processed:</dt>\n                                        <dd class="slds-item_detail slds-truncate" title="Scope">{{progressBar.currentValue}} of {{progressBar.totalCount}}</dd>\n                                    </dl>\n                                </div>\n                            </article>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDeltaTrackingEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Generate Global Keys</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Ensures that all Catalog objects have Global Key set</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="genGlobalKeysBtn" type="button" ng-click="ensureGlobalKeys()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="genGlobalKeysMsg" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled" >\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Create Vlocity DataRaptor Bundles for OM Plus sync</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Creates or (fully re-creates) Vlocity DataRaptor Bundler for OM Plus sync</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="forcePopulateSyncDelta" type="button" ng-click="createDataRaptorBundlesForBackSync()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isDevEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Download sync deltas</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Downloads last 200 sync deltas as a file</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="downloadSyncDetas" type="button" ng-click="downloadSyncDeltas()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Synchronize I18n labels and Refresh Cache</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Downloads all labels from OM Plus and sync them to SFDC</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="syncLabels" type="button" ng-click="syncLabels()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Update Orchestration Queues Counters</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Updates number of active Orchestration Items against Orchestration Queues</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="updateOrchQueuesCount" type="button" ng-click="updateOrchQueuesCnt()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="updateOrchQueuesCountStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            \x3c!--<div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Refresh I18n cache</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Refreshes Custom Labels cache</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="syncLabels" type="button" ng-click="refreshLabelsCache()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="deleteEpcDefaultLayoutsStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>--\x3e\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Manage Encryption Keys</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Navigate to Manage Encryption Keys Page</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="openEncryptionKeysPage" type="button" ng-click="openEncryptionKeysPage()" class="slds-button  slds-button--brand">Open</button>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Manage Secrets</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Navigate to Manage Secrets Page</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="openManageSecretsPage" type="button" ng-click="openManageSecretsPage()" class="slds-button  slds-button--brand">Open</button>\n                    </div>\n                </div>\n            </div>\n\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Schedule Integration Retry Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Start or stop Integration Retry Job. Job is run every minute and processes up to 100 failed items on each run. Interval, scope and batchsize are changed in XOMSetup custom settings (OrchestrationRetryJobIntervalMins, OrchestrationRetryJobScope, OrchestrationRetryJobBatchSize)</div>\n                    </div>\n                    <div class="job-start slds-float--right" ng-if="!isRetryJobScheduled">\n                        <button id="startRetryJobs" type="button" ng-click="startRetryJob()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                    <div class="job-start slds-float--right" ng-if="isRetryJobScheduled">\n                        <button id="stopRetryJobs" type="button" ng-click="stopRetryJob()" class="slds-button  slds-button--brand">Stop</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="retryJobStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n\n\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">OM Plus DB Query Runner</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Navigate to OM Plus DB Query Runner Page</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="openXOMOmplDBQueryPage" type="button" ng-click="openXOMOmplDBQueryPage()" class="slds-button  slds-button--brand">Open</button>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Schedule Jeopardy Management Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Schedule Jeopardy Management Job using SchedulerJobTimeIntervalMins defined in XOMSetup custom settings</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="scheduleJmJobs" type="button" ng-click="scheduleJeopardyManagementJobs()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="jmJobSchedulingStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            \x3c!-- Orch Future dated order --\x3e\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Schedule Future-Dated Tasks Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Schedule the job using OrchFutureDatedIntervalMins defined in XOMSetup custom settings</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="scheduleFDJobs" type="button" ng-click="scheduleOrchFutureDatedJobs()"\n                                class="slds-button  slds-button--brand">Start</button>\n                        <button id="stopFDJobs" type="button" ng-click="abortOrchFutureDatedJobs()"\n                                class="slds-button slds-button--brand">Stop Jobs</button>\n                    </div>\n\n                </div>\n                <div class="row">\n                    <div id="fdJobSchedulingStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            \x3c!-- ----------------------- --\x3e\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Schedule Orchestration Recovery Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Schedule Orchestration Recovery Job to execute periodically\n                            (period is defined in XOMSetup custom settings as OrchestrationRecoveryWaitPeriodMins)</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="scheduleOmRecoveryJobs" type="button" ng-click="scheduleOrchestrationRecoveryJobs()" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="omJobSchedulingStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="!isThorEnabled">\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Orchestration Data Purge Job</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small"> Orchestration Data Purge Job Management</div>\n                    </div>\n                    \x3c!-- TODO: Add warning with data purge job description and a confirmation dialog--\x3e\n                    <div class="job-start slds-float--right">\n                        <button id="scheduleOmDataPurgeJobs" type="button" ng-click="scheduleDataPurgeJobs()"\n                                class="slds-button slds-button--brand">Schedule</button>\n                        <button id="stopOmDataPurgeJobs" type="button" ng-click="stopDataPurgeJobs()"\n                                class="slds-button slds-button--brand">Stop Jobs</button>\n                        <button ng-if="isDPInfoHidden" id="ViewOmDataPurgeJobsProgress" type="button" ng-click="viewDataPurgeJobProgress()"\n                                class="slds-button slds-button--brand" aria-controls="dp-info-id">Show Status\n                        </button>\n                        <button ng-if="!isDPInfoHidden" id="HideOmDataPurgeJobsProgress" type="button" ng-click="viewDataPurgeJobProgress()"\n                                class="slds-button slds-button--brand" aria-controls="dp-info-id">Hide Status\n                        </button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="scheduleOmDataPurgeStatus" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n\n                <div ng-if="!isDPInfoHidden" class="demo-only" style="width:30rem">\n                    <article class="slds-tile slds-media">\n                        <div class="slds-media__figure">\n                            <span class="slds-icon_container" title="Data Purge Job Status">\n                                <svg class="slds-icon slds-icon-text-default" aria-hidden="true">\n                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#info"></use>\n                                </svg>\n                            </span>\n                        </div>\n                        <div class="slds-media__body">\n                            <h3 class="slds-tile__title slds-truncate" title="Process Status">\n                                \x3c!--TODO: Url to XOMParameters--\x3e\n                                <a href="javascript:void(0);">Process Status</a>\n                            </h3>\n                                <dl class="slds-dl_horizontal">\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Job Status">Job Status:</dt>\n                                    <dd ng-class="{\'slds-dl_horizontal__detail\': true, \'slds-text-color_error\': dataPurgeStatus.jobStatus == \'Not Scheduled\'}" title="Current Job Status"> {{ dataPurgeStatus.jobStatus }} </dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Last Job Status">Last Job Status:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Progress Status">{{ dataPurgeStatus.lastJobStatus }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="JobStarted">Started at:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Job Started At">{{ dataPurgeStatus.startedAt }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="JobFinished">Finished at:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Job Finished At">{{ dataPurgeStatus.finishedAt }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="NextRunAt">Next Run At:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Next Run Time">{{ dataPurgeStatus.nextRunAt }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="item1">Records Deleted By Type:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Last Run Stats per Object Type">\n                                        <ul>\n                                            <li class="slds-item" ng-repeat="scopeItem in dataPurgeConfigData.scope">{{ scopeItem }} {{ dataPurgeStatus.progress[scopeItem] }}</li>\n                                        </ul>\n                                    </dd>\n                                </dl>\n                        </div>\n                    </article>\n\n                    <article class="slds-tile slds-media">\n                        <div class="slds-media__figure">\n                            <span class="slds-icon_container" title="Data Purge Custom Settings > XOMSetup">\n                                <svg class="slds-icon slds-icon-text-default" aria-hidden="true">\n                                    <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#settings"></use>\n                                </svg>\n                            </span>\n                        </div>\n                        <div class="slds-media__body">\n                            <h3 class="slds-tile__title slds-truncate" title="Settings">\n                                \x3c!--TODO: Url to XOMSetup--\x3e\n                                <a href="javascript:void(0);">Settings</a>\n                            </h3>\n                            <div class="slds-tile__detail">\n                                <dl class="slds-dl_horizontal slds-wrap">\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Objects Scope">Objects Scope:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Objects Scope Values">\n                                        <ul>\n                                            <li class="slds-item" ng-repeat="scopeItem in dataPurgeConfigData.scope">{{ scopeItem }}</li>\n                                        </ul>\n                                    </dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Age">Age Days:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="Age Description">{{ dataPurgeConfigData.ageDays }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="ActivatedtatusFilterEnabled">Remove Activated Only?:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="ActivatedStatusFilterEnabledValue">{{ dataPurgeConfigData.isStatusFilterEnabled }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="JobFrequency">Job Frequency Hours:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="JobFrequency Description">{{ dataPurgeConfigData.jobFrequencyHours }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="Runtime">Maximum Process Run Time Mins:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="RuntimeValue">{{ dataPurgeConfigData.maxProcessRunTimeMins }}</dd>\n                                    <dt class="slds-dl_horizontal__label slds-text-color_weak" title="BatchSize">Batch Size:</dt>\n                                    <dd class="slds-dl_horizontal__detail" title="BatchSizeValue">{{ dataPurgeConfigData.batchSize  }}</dd>\n                                </dl>\n                            </div>\n                        </div>\n                    </article>\n                </div>\n            </div>\n\n            <div class="job-section slds-m-top--x-small slds-has-divider--bottom" ng-if="isThorEnabled && isDeltaTrackingEnabled">\n                <div ng-if="cleanAttrOverridesStatus.started">\n                    <hr/>\n                    <div class="row">\n                        <div id="forcePopulateSyncDeltaProgress" class="slds-grid slds-grid_align-spread slds-p-bottom_x-small">\n                            <div class="slds-progress">\n                                <ol class="slds-progress__list">\n                                    <li ng-class="{\'slds-progress__item\': true, \'slds-is-active\': $index == cleanAttrOverridesStatus.stageIdx, \'slds-is-completed\': $index < cleanAttrOverridesStatus.stageIdx}"\n                                        ng-repeat="stage in cleanAttrOverridesStages track by stage">\n                                        <button class="slds-button slds-progress__marker"\n                                                title={{stage}}>\n\x3c!--                                            <span class="slds-assistive-text">Step {{$index}} - Done!</span>--\x3e\n                                        </button>\n                                    </li>\n                                </ol>\n                                <div class="slds-progress-bar slds-progress-bar_x-small" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" role="progressbar">\n                                            <span class="slds-progress-bar__value" ng-style="{\'width\': \'\' + cleanAttrOverridesStatus.progress + \'%\' }">\n                                              <span class="slds-assistive-text">Progress: {{cleanAttrOverridesStatus.progress}}%</span>\n                                            </span>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n                <div class="job-content slds-clearfix">\n                    <div class="job-detail slds-float--left">\n                        <div class="job-label">\n                            <a href="javascript:void(0)">Clean Attribute Overrides from OM Plus</a>\n                        </div>\n                        <div class="job-desc slds-m-top--x-small">Generates delete Sync Delta Objects to remove unnecessary Override Attribute Assignments from OM Plus</div>\n                    </div>\n                    <div class="job-start slds-float--right">\n                        <button id="cleanAttrOverrides" type="button" ng-click="cleanAttrOverrides()" ng-disabled="cleanAttrOverridesStatus.started" class="slds-button  slds-button--brand">Start</button>\n                    </div>\n                </div>\n                <div class="row">\n                    <div id="omCleanAttrBindings" class="col-md-12 col-sm-12 col-xs-12">\n                        <div ng-if="hasErrors" class="alert alert-danger" role="alert">{{errorMessage}}</div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>\n<div class="slds-spinner_container" ng-show="showSpinner">\n    <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="false" role="alert">\n        <div class="slds-spinner__dot-a"></div>\n        <div class="slds-spinner__dot-b"></div>\n    </div>\n</div>'),$templateCache.put("XOMConfigureLayouts.tpl.html",'<div class="_slds-align--absolute-center">\n    <div class="slds-panel">\n        <form class="slds-form--compound">\n            <div class="slds-panel__section slds-has-divider--bottom">\n                <div class="slds-form-element__row">\n                    <div class="slds-form-element slds-size--1-of-1 slds-clearfix">\n                        <button class="slds-button slds-button--brand slds-float--right"\n                                ng-disabled="readOnly" ng-click="cancel()">Cancel</button>\n                        <button class="slds-button slds-button--brand slds-float--right slds-m-right--medium"\n                                ng-disabled="readOnly" ng-click="save()">Update</button>\n                    </div>\n\n                </div>\n            </div>\n            <div style="height: 4rem;" ng-show="showMsg">\n                <div class="slds-notify_container slds-is-relative">\n                    <div class="slds-notify slds-notify_toast slds-theme_{{outcome}}" role="alert">\n                        <span class="slds-assistive-text">{{outcome}}</span>\n                        <span class="slds-icon_container slds-icon-utility-{{outcome}} slds-m-right_small slds-no-flex slds-align-top">\n                            <svg ng-if="outcome == \'success\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#success" />\n                            </svg>\n                            <svg ng-if="outcome == \'error\'"class="slds-icon slds-icon_small" aria-hidden="true">\n                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#error" />\n                            </svg>\n                        </span>\n                        <div class="slds-notify__content">\n                            <h2 class="slds-text-heading_small ">{{Message}}.</h2>\n                        </div>\n                        <button class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close" ng-click="closeMsg()">\n                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">\n                                <use xlink:href="/_slds/icons/utility-sprite/svg/symbols.svg#close" />\n                            </svg>\n                            <span class="slds-assistive-text">Close</span>\n                        </button>\n                    </div>\n                </div>\n            </div>\n            <div class="slds-panel__section slds-has-divider--bottom">\n                <h3 class="slds-text-heading--small slds-m-bottom--medium">Profiles Assignments</h3>\n                <div class="slds-form-element__row" ng-repeat="profileChunk in profiles">\n                    <div class="slds-form-element slds-size--1-of-3" ng-repeat="profile in profileChunk track by profile.Id">\n                        <div class="slds-form-element slds-lookup slds-is-open">\n                            <label class="slds-form-element__label" ng-bind="profile.Name"></label>\n                            <div class="slds-form-element__control">\n                                <div class="slds-select_container">\n                                    <select class="slds-select"\n                                            ng-model="profile.xom"\n                                            ng-options="item for item in profileOptions">\n                                    </select>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </form>\n    </div>\n</div>\n<div class="slds-spinner_container" ng-show="showSpinner">\n    <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="false" role="alert">\n        <span class="slds-assistive-text">Deploying layouts</span>\n        <div class="slds-spinner__dot-a"></div>\n        <div class="slds-spinner__dot-b"></div>\n    </div>\n</div>')}]);
 
 },{}]},{},[1]);
 })();

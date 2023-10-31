@@ -1,4 +1,4 @@
-<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.QueuedOrdersController" title="{!$Label.vlocity_cmt__queuedorderheaderlabel}">
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.QueuedOrdersController" title="{!$Label.vlocity_cmt__QueuedOrderHeaderLabel}">
     <html xmlns:ng="http://angularjs.org" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="QueuedOrders" class="ng-cloak">
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -91,7 +91,7 @@
                 };
 
                 var labels = {
-                    QueuedOrderHeaderLabel: "{!$Label.vlocity_cmt__queuedorderheaderlabel}",
+                    QueuedOrderHeaderLabel: "{!$Label.vlocity_cmt__QueuedOrderHeaderLabel}",
                     OkLabel: "{!$Label.Ok}",
                     CancelLabel: "{!$Label.Cancel}",
                     ForceSubmitOrderMessage: "{!$Label.ForceSubmitOrderMessage}",

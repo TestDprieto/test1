@@ -19,7 +19,7 @@
                     <apex:inputField value="{!householdSO.Name}"/>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem >
-                    <apex:outputLabel >{!$Label.vlocity_cmt__primarycontactrole}</apex:outputLabel>
+                    <apex:outputLabel >{!$Label.vlocity_cmt__PrimaryContactRole}</apex:outputLabel>
                     <apex:selectList value="{!partyRelSO.vlocity_cmt__RelationshipTypeId__c}" 
                                         size="1">
                         <apex:selectOptions value="{!TargetRolesList}"/>

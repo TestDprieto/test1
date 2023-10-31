@@ -24,6 +24,15 @@ global class UserSecurity {
     global static String encryptIfNecessary(String stringToEncrypt) {
         return null;
     }
+    global static Boolean hasCCPermissionSet(Boolean throwException) {
+        return null;
+    }
+    global static Boolean hasPermissionSet(String permissionSetName, Boolean throwException) {
+        return null;
+    }
+    global static Boolean isCCUser() {
+        return null;
+    }
     global static Boolean isGuestHandlingEnabled() {
         return null;
     }

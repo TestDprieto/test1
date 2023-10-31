@@ -92,7 +92,7 @@
                 <vlocity-pc-product-form
                             productid="{!$CurrentPage.parameters.id}"
                             sfinstanceurl="{!SalesForceInstanceURL}"
-                            sessionid="{!$Api.Session_ID}"
+                            sessionid="{!vlocAccessToken}"
                             namespace="{!NSP}"
                             action="Edit">
                 </vlocity-pc-product-form>

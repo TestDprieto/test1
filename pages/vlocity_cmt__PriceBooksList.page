@@ -2,31 +2,31 @@
 	<apex:outputPanel layout="block" style="overflow:auto;" >
 	<apex:pageBlock id="pageblock">
 			<apex:pageBlockButtons location="top">
-                <apex:outputLink value="{!'/ui/pricebook/SelectSearch?addTo='+Product2.Id+'&retURL=%2F'+productObject.Id+'AAA'}" rendered="{!hasStandardPrice}" styleClass="btn" target="_top"  style="padding: 3px 10px; margin: 1px; text-decoration: none;">{!$Label.vlocity_cmt__addtopricebook}</apex:outputLink>
-				<apex:outputLink value="{!'/apex/EditProductPrice?id='+Product2.Id+'&source=Product'}" rendered="{!hasPricebook}" styleClass="btn" target="_top"  style="padding: 3px 10px; margin: 1px; text-decoration: none;">{!$Label.vlocity_cmt__editall}</apex:outputLink>
+                <apex:outputLink value="{!'/ui/pricebook/SelectSearch?addTo='+Product2.Id+'&retURL=%2F'+productObject.Id+'AAA'}" rendered="{!hasStandardPrice}" styleClass="btn" target="_top"  style="padding: 3px 10px; margin: 1px; text-decoration: none;">{!$Label.vlocity_cmt__AddToPriceBook}</apex:outputLink>
+				<apex:outputLink value="{!'/apex/EditProductPrice?id='+Product2.Id+'&source=Product'}" rendered="{!hasPricebook}" styleClass="btn" target="_top"  style="padding: 3px 10px; margin: 1px; text-decoration: none;">{!$Label.vlocity_cmt__EditAll}</apex:outputLink>
 			</apex:pageBlockButtons>
 		<apex:form >
 			<apex:pageMessages id="errorMessages"/>	
 			<apex:pageBlockTable value="{!pricebookEntries}" var="pricebookEntry" id="pbeTable">
-				<apex:column headerValue="{!$Label.vlocity_cmt__action}" style="width:100px;">
-					<apex:outputLink value="{!'/'+pricebookEntry.Id}" target="_top" style="color: #015ba7;text-decoration: none;" >{!$Label.vlocity_cmt__view}</apex:outputLink>
+				<apex:column headerValue="{!$Label.vlocity_cmt__Action}" style="width:100px;">
+					<apex:outputLink value="{!'/'+pricebookEntry.Id}" target="_top" style="color: #015ba7;text-decoration: none;" >{!$Label.vlocity_cmt__View}</apex:outputLink>
 					<apex:outputText value=" | "/>
-					<apex:outputLink value="{!'/'+pricebookEntry.Id+'/e?retURL=%2F' + Product2.Id}" target="_top" style="color: #015ba7;text-decoration: none;" >{!$Label.vlocity_cmt__edit}</apex:outputLink>
+					<apex:outputLink value="{!'/'+pricebookEntry.Id+'/e?retURL=%2F' + Product2.Id}" target="_top" style="color: #015ba7;text-decoration: none;" >{!$Label.vlocity_cmt__Edit}</apex:outputLink>
 					<apex:outputText value=" | "/>
-					<apex:commandLink action="{!deletePricebookEntry}" value="{!$Label.vlocity_cmt__del}" style="color: #015ba7;text-decoration: none;">
+					<apex:commandLink action="{!deletePricebookEntry}" value="{!$Label.vlocity_cmt__Del}" style="color: #015ba7;text-decoration: none;">
 						<apex:param name="entryToDelId" value="{!pricebookEntry.Id}" assignTo="{!entryToDelId}"/>
                		</apex:commandLink>
 				</apex:column>
-				<apex:column headerValue="{!$Label.vlocity_cmt__pricebookname}">
+				<apex:column headerValue="{!$Label.vlocity_cmt__PriceBookName}">
 					<apex:outputLink value="{!'/'+pricebookEntry.Pricebook2Id}" target="_top" style="color: #015ba7;text-decoration: none;" >{!pricebookEntry.Pricebook2.Name}</apex:outputLink>
 				</apex:column>
-				<apex:column headerValue="{!$Label.vlocity_cmt__listprice}" styleClass="numericalColumn">
+				<apex:column headerValue="{!$Label.vlocity_cmt__ListPrice}" styleClass="numericalColumn">
 					<apex:outputField value="{!pricebookEntry.UnitPrice}"/>
 				</apex:column>
-				<apex:column headerValue="{!$Label.vlocity_cmt__usestandardprice}">
+				<apex:column headerValue="{!$Label.vlocity_cmt__UseStandardPrice}">
 					<apex:inputCheckbox value="{!pricebookEntry.UseStandardPrice}" disabled="true"/>
 				</apex:column>
-				<apex:column headerValue="{!$Label.vlocity_cmt__active}">
+				<apex:column headerValue="{!$Label.vlocity_cmt__Active}">
 					<apex:inputCheckbox value="{!pricebookEntry.IsActive}" disabled="true"/>
 				</apex:column>
 			</apex:pageBlockTable>

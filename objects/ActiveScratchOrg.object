@@ -100,6 +100,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>Description</fullName>
         <trackHistory>true</trackHistory>
@@ -150,6 +151,9 @@
     </fields>
     <fields>
         <fullName>SignupUsername</fullName>
+    </fields>
+    <fields>
+        <fullName>Snapshot</fullName>
     </fields>
     <listViews>
         <fullName>All_Active_Scratch_Orgs</fullName>

@@ -48,10 +48,10 @@ return new Promise(async function(resolve, reject) {
     }
     var newPageCount = doc.getPageCount() + newDoc.getPageCount();
 
-    return doc.insertPages(newDoc, pages, doc.getPageCount() + 1).then(function() {
+    return newDoc.insertPages(doc).then(function() {
         return resolve({
           next: arrayOfIds.length - 1 > nextCount,
-          doc: doc,
+          doc: newDoc,
         });
     });
   });
@@ -63,17 +63,15 @@ function createDocument(pdfTronLicense, blob) {
   var url = URL.createObjectURL(blob)
   return new Promise(async function(resolve, reject) {
     // 'file.pdf' is temp name, 'pdf' is file type
-    const doc = new CoreControls.Document('file.pdf', 'pdf');
     CoreControls.getDefaultBackendType().then(function(backendType) {
       lic = atob(JSON.parse(pdfTronLicense));
       const options = {
-          workerTransportPromise: CoreControls.initPDFWorkerTransports(backendType, {},lic)
+          workerTransportPromise: CoreControls.initPDFWorkerTransports(backendType, {},lic),
+          l: lic, extension: 'pdf'
       };
-      let partRetriever = new CoreControls.PartRetrievers.ExternalPdfPartRetriever(url);
-      return doc.loadAsync(partRetriever, (err) => {
-          if (err) return reject(err);
-          return resolve(doc);
-      }, options);
+      CoreControls.createDocument(url, options).then(function(doc){
+        return resolve(doc);
+      });
     });
   })
 }
@@ -134,6 +132,7 @@ var pdfTronSetResourcePath = function(remoteActions, VlocityPDFTronNoSystemUserM
                 window.CoreControls.setPDFResourcePath(clientSidePdfGenerationConfig['cs_pdftron_resource']);
                 window.CoreControls.setPDFAsmPath(clientSidePdfGenerationConfig['cs_pdftron_asm']);
                 window.CoreControls.setExternalPath(clientSidePdfGenerationConfig['cs_pdftron_external']);
+                window.CoreControls.setWorkerPath(clientSidePdfGenerationConfig['cs_pdftron_lib']+'/core');
 
                 //Set the path for Fonts
                 window.CoreControls.setCustomFontURL(clientSidePdfGenerationConfig['cs_vlocity_webfonts_main'] + '/');

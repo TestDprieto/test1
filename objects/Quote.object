@@ -162,81 +162,121 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>AdditionalAddress</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>AdditionalName</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>BillingAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>BillingName</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ContactId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ContractId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Discount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Email</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ExpirationDate</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Fax</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>GrandTotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>IsSyncing</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>LineItemCount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Name</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>OpportunityId</fullName>
+        <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>QuoteToAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>QuoteToName</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ShippingAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ShippingHandling</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ShippingName</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Status</fullName>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Subtotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Tax</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>vlocity_cmt__AccountRecordType__c</fullName>
@@ -246,6 +286,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Record Type</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -257,8 +298,60 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account SLA</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AsyncJobId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores asynchronous job Id if any jobs running on this quote.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores asynchronous job Id if any jobs running on this quote.</inlineHelpText>
+        <label>Async Job</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AsyncOperation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the asynchronous operation name for which this quote is locked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the asynchronous operation name for which this quote is locked.</inlineHelpText>
+        <label>Async Operation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                    <label>Price</label>
+                </value>
+                <value>
+                    <fullName>Validate</fullName>
+                    <default>false</default>
+                    <label>Validate</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BudgetAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The budget amount which the customer says they cannot spend above.</description>
+        <externalId>false</externalId>
+        <label>Budget</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__CampaignId__c</fullName>
@@ -270,7 +363,64 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CartContextValues__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field is used to store context value of the quote.</description>
+        <externalId>false</externalId>
+        <label>Cart Context Values</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CreditCheckDecision__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores the result of the credit check.</description>
+        <externalId>false</externalId>
+        <label>Credit Check Decision</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Accepted</fullName>
+                    <default>true</default>
+                    <label>Accepted</label>
+                </value>
+                <value>
+                    <fullName>Declined</fullName>
+                    <default>false</default>
+                    <label>Declined</label>
+                </value>
+                <value>
+                    <fullName>Accepted-Reference</fullName>
+                    <default>false</default>
+                    <label>Accepted-Reference</label>
+                </value>
+                <value>
+                    <fullName>Accept-Deposit</fullName>
+                    <default>false</default>
+                    <label>Accept-Deposit</label>
+                </value>
+                <value>
+                    <fullName>Accepted-Upsell</fullName>
+                    <default>false</default>
+                    <label>Accepted-Upsell</label>
+                </value>
+                <value>
+                    <fullName>Accepted-Downsale</fullName>
+                    <default>false</default>
+                    <label>Accepted-Downsale</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>vlocity_cmt__DefaultBillingAccountId__c</fullName>
@@ -282,6 +432,7 @@
         <relationshipLabel>Billing Account Quotes</relationshipLabel>
         <relationshipName>BillingAccountQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -290,6 +441,7 @@
         <externalId>false</externalId>
         <label>Default Currency Payment Mode</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -319,18 +471,21 @@
         <relationshipLabel>Premises Quotes</relationshipLabel>
         <relationshipName>PremisesQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__DefaultServiceAccountId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>The default Service Account associated with this Quote</description>
         <externalId>false</externalId>
         <label>Service Account</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Service Account Quotes</relationshipLabel>
         <relationshipName>ServiceAccountQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -344,6 +499,7 @@
         <relationshipLabel>Service Point Quotes</relationshipLabel>
         <relationshipName>ServicePointQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -352,6 +508,7 @@
         <externalId>false</externalId>
         <label>Delivery Installation Status</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -375,6 +532,30 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__EffectiveBaseOneTimeCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Roll up of the one-time charges of the quote line items before applying adjustments.</description>
+        <externalId>false</externalId>
+        <label>Effective Total: Base One Time Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveBaseRecurringCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Roll up of the recurring charges of the quote line items before applying adjustments.</description>
+        <externalId>false</externalId>
+        <label>Effective Total: Base Recurring Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__EffectiveOneTimeCostTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
@@ -383,6 +564,7 @@
         <precision>16</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -394,6 +576,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -405,6 +588,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__EffectiveOneTimeTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -417,6 +601,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -428,6 +613,7 @@
         <precision>16</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -438,6 +624,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__EffectiveRecurringTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -449,6 +636,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -460,6 +648,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -469,6 +658,7 @@
         <externalId>false</externalId>
         <label>External Pricing Status</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -522,6 +712,7 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes1</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -531,6 +722,7 @@
         <description>Denotes if quote requires a contract</description>
         <externalId>false</externalId>
         <label>Require Contract</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -540,6 +732,7 @@
         <formula>NOT(ISNULL(vlocity_cmt__LastPricedAt__c))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Priced</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -549,6 +742,7 @@
         <formula>NOT(ISNULL(vlocity_cmt__ValidationDate__c))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Validated</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -557,6 +751,7 @@
         <externalId>false</externalId>
         <label>Last Priced At</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -565,6 +760,7 @@
         <externalId>false</externalId>
         <label>Lead Source</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -598,12 +794,55 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__LockedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This indicates if an quote is locked by a user.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This indicates if an quote is locked by a user.</inlineHelpText>
+        <label>Locked By User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipLabel>Quotes</relationshipLabel>
+        <relationshipName>Quotes</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LockedFor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the reason for doing lock on the quote.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the reason for doing lock on the quote.</inlineHelpText>
+        <label>Locked For</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Async Operation</fullName>
+                    <default>false</default>
+                    <label>Async Operation</label>
+                </value>
+                <value>
+                    <fullName>Manual Edit</fullName>
+                    <default>false</default>
+                    <label>Manual Edit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__MultiServiceMessageData__c</fullName>
         <deprecated>false</deprecated>
         <description>This field stores messages that are generated and displayed in a MultiService feature.</description>
         <externalId>false</externalId>
         <label>Multi Service Message Data</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -615,6 +854,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -627,6 +867,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -638,6 +879,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -650,6 +892,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -660,6 +903,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__OneTimeTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -671,6 +915,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Opportunity Account Id</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -681,6 +926,7 @@
         <externalId>false</externalId>
         <label>Originating Channel</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -719,6 +965,7 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -727,6 +974,7 @@
         <externalId>false</externalId>
         <label>PO Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Date</type>
     </fields>
     <fields>
@@ -736,6 +984,7 @@
         <label>PO Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -749,6 +998,7 @@
         <relationshipLabel>Quotes Using This Price List</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -762,6 +1012,7 @@
         <relationshipLabel>Group Quotes</relationshipLabel>
         <relationshipName>GroupQuotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -772,6 +1023,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -784,6 +1036,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -794,6 +1047,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -806,6 +1060,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -816,6 +1071,7 @@
         <summarizedField>QuoteLineItem.vlocity_cmt__RecurringTotal__c</summarizedField>
         <summaryForeignKey>QuoteLineItem.QuoteId</summaryForeignKey>
         <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
         <type>Summary</type>
     </fields>
     <fields>
@@ -828,6 +1084,7 @@
         <relationshipLabel>Renewal Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -838,6 +1095,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Shipping Postal Code</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -849,6 +1107,7 @@
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Shipping State</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -862,6 +1121,7 @@
         <relationshipLabel>Quotes</relationshipLabel>
         <relationshipName>Quotes</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -871,6 +1131,7 @@
         <label>Tracking Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -880,6 +1141,7 @@
         <externalId>false</externalId>
         <label>Type</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -916,6 +1178,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -926,6 +1189,7 @@
         <inlineHelpText>Date of last validation run</inlineHelpText>
         <label>Validation Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -936,6 +1200,7 @@
         <inlineHelpText>Message from the last validation run</inlineHelpText>
         <label>Validation Message</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -947,6 +1212,7 @@
         <inlineHelpText>The result status of the last validation run</inlineHelpText>
         <label>Validation Status</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -980,6 +1246,7 @@
         <filterScope>Mine</filterScope>
         <label>My Quotes</label>
     </listViews>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>vlocity_cmt__EnterpriseQuote</fullName>
         <active>true</active>
@@ -1017,6 +1284,44 @@
             </values>
             <values>
                 <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CreditCheckDecision__c</picklist>
+            <values>
+                <fullName>Accept-Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Accepted-Downsale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1097,6 +1402,17 @@
             </values>
             <values>
                 <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1195,6 +1511,44 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CreditCheckDecision__c</picklist>
+            <values>
+                <fullName>Accept-Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Accepted-Downsale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
             <values>
                 <fullName>Currency</fullName>
@@ -1271,6 +1625,17 @@
             </values>
             <values>
                 <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1369,6 +1734,44 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CreditCheckDecision__c</picklist>
+            <values>
+                <fullName>Accept-Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Accepted-Downsale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
             <values>
                 <fullName>Currency</fullName>
@@ -1445,6 +1848,224 @@
             </values>
             <values>
                 <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Type__c</picklist>
+            <values>
+                <fullName>Existing Customer - Downgrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Customer - Replacement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Customer - Upgrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Customer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__QuotedMediaPlan</fullName>
+        <active>true</active>
+        <description>Use the Media Plan Quote to create the Media Plan and AdPlacement details.</description>
+        <label>Media Plan</label>
+        <picklistValues>
+            <picklist>Status</picklist>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Review</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CreditCheckDecision__c</picklist>
+            <values>
+                <fullName>Accept-Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Accepted-Downsale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DeliveryInstallationStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yet to begin</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ExternalPricingStatus__c</picklist>
+            <values>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invalidated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Ready</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Ready</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request Confirmed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requested</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LeadSource__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner Referral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Inquiry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased List</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1543,6 +2164,44 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CreditCheckDecision__c</picklist>
+            <values>
+                <fullName>Accept-Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Accepted-Downsale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
             <values>
                 <fullName>Currency</fullName>
@@ -1619,6 +2278,17 @@
             </values>
             <values>
                 <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1717,6 +2387,44 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CreditCheckDecision__c</picklist>
+            <values>
+                <fullName>Accept-Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Accepted-Downsale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
             <values>
                 <fullName>Currency</fullName>
@@ -1793,6 +2501,17 @@
             </values>
             <values>
                 <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1891,6 +2610,44 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CreditCheckDecision__c</picklist>
+            <values>
+                <fullName>Accept-Deposit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Accepted-Downsale</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Reference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Accepted-Upsell</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Declined</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
             <values>
                 <fullName>Currency</fullName>
@@ -1967,6 +2724,17 @@
             </values>
             <values>
                 <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2162,6 +2930,25 @@ window.location.href = target_url;</url>
         <url>/apex/vlocity_cmt__hybridcpq?id={!Quote.Id}</url>
     </webLinks>
     <webLinks>
+        <fullName>vlocity_cmt__Configure_Enterprise_Quote</fullName>
+        <availability>online</availability>
+        <description>Configure an existing enterprise quote within the B2B Enterprise Sales App.</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Configure Enterprise Quote</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__B2BCmexConfigureEnterpriseQuote</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
         <fullName>vlocity_cmt__Create_Contract</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -2221,6 +3008,43 @@ window.location.href = &apos;/&apos; + result + &apos;/e?retURL=%2F&apos; + resu
         <masterLabel>Generate Document PDF</masterLabel>
         <openType>newWindow</openType>
         <page>vlocity_cmt__QuoteDocumentPdf</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__GenerateProposal</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Generate Proposal</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__B2BCmexGenerateProposal</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__GenerateProposalLWC</fullName>
+        <availability>online</availability>
+        <description>Calls OmniScript to generate the proposal document</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Generate Proposal LWC</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__B2BCmexGenerateProposalLWC</page>
         <position>none</position>
         <protected>false</protected>
         <showsLocation>false</showsLocation>

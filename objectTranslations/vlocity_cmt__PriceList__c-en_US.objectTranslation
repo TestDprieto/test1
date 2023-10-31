@@ -47,19 +47,28 @@
     <fields>
         <label><!-- Parent Price List --></label>
         <name>vlocity_cmt__ParentPriceListId__c</name>
-        <relationshipLabel><!-- Child Price Lists --></relationshipLabel>
+        <relationshipLabel><!-- PriceList --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Price Book --></label>
         <name>vlocity_cmt__Pricebook2Id__c</name>
-        <relationshipLabel><!-- Price Lists --></relationshipLabel>
+        <relationshipLabel><!-- PriceList --></relationshipLabel>
     </fields>
     <fields>
         <label><!-- Sequence --></label>
         <name>vlocity_cmt__Sequence__c</name>
     </fields>
+    <recordTypes>
+        <description><!-- PriceList record --></description>
+        <label><!-- PriceList --></label>
+        <name>vlocity_cmt__PriceList</name>
+    </recordTypes>
     <validationRules>
         <errorMessage><!-- Effective Until Date should be greater than or equal to Effective From Date. --></errorMessage>
         <name>vlocity_cmt__EffectiveFromDate_Greater_UntilDate</name>
     </validationRules>
+    <webLinks>
+        <label><!-- New_PriceList --></label>
+        <name>vlocity_cmt__New_PriceList</name>
+    </webLinks>
 </CustomObjectTranslation>

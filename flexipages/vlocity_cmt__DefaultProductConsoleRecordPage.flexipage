@@ -193,27 +193,21 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentInstanceProperties>
-                    <name>height</name>
-                    <value>550</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>label</name>
-                    <value>ProductAttributes</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>pageName</name>
-                    <value>vlocity_cmt__PCProductAttributes</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showLabel</name>
-                    <value>false</value>
-                </componentInstanceProperties>
-                <componentName>flexipage:visualforcePage</componentName>
-                <identifier>flexipage_visualforcePage5</identifier>
+                <componentName>vlocity_cmt:UPCProductAttributeRulesAura</componentName>
+                <identifier>UPCProductAttributeRulesAura</identifier>
             </componentInstance>
         </itemInstances>
         <name>Facet-ac7f79d0-d0ae-4b33-9aa6-5cce6bbc48e3</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentName>vlocity_cmt:PCProductContextRulesAura</componentName>
+                <identifier>PCProductContextRulesAura</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-66eb9f1b-aaec-4a0d-b5e0-a134147ce470</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -337,16 +331,6 @@
         <mode>Replace</mode>
         <name>main</name>
         <type>Region</type>
-    </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentName>vlocity_cmt:PCProductContextRulesAura</componentName>
-                <identifier>PCProductContextRulesAura</identifier>
-            </componentInstance>
-        </itemInstances>
-        <name>Facet-66eb9f1b-aaec-4a0d-b5e0-a134147ce470</name>
-        <type>Facet</type>
     </flexiPageRegions>
     <masterLabel>Default Product Console Record Page</masterLabel>
     <parentFlexiPage>sfa__Product2_rec_L</parentFlexiPage>

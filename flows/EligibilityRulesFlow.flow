@@ -23,6 +23,8 @@
                 <stringValue>Eligibility</stringValue>
             </value>
         </inputParameters>
+        <nameSegment>vlocity_cmt__RuleAction</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <actionCalls>
         <description>Eligibility rule placeholder. Change the ruleName to refer to the eligibility rule definition. The doCommit flag must be set to True for the last step in the flow.</description>
@@ -50,6 +52,8 @@
                 <booleanValue>true</booleanValue>
             </value>
         </inputParameters>
+        <nameSegment>vlocity_cmt__RuleAction</nameSegment>
+        <versionSegment>1</versionSegment>
     </actionCalls>
     <apiVersion>49.0</apiVersion>
     <label>Eligibility Rules Flow</label>

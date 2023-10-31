@@ -49,7 +49,7 @@
         <script type="text/javascript">
             var nameSpacePrefix, remoteActions, contractVersionId;
             nameSpacePrefix = '{!nameSpacePrefix}';
-            contractVersionId = '{!$CurrentPage.parameters.Id}';
+            contractVersionId = '{!JSENCODE($CurrentPage.parameters.Id)}';
             remoteActions = {
                 getTemplateList: {
                     action: '{!$RemoteAction.ContractDocumentDisplayController.getTemplateList}',

@@ -49,12 +49,12 @@
   <apex:outputPanel id="page" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
 		<apex:tabPanel switchType="client" selectedTab="tab1" id="tabbedPanel">
 		  <!-- SEARCH TAB -->
-      <apex:tab label="{!$Label.vlocity_cmt__cmtsearch}" name="tab1" id="tabOne">
+      <apex:tab label="{!$Label.vlocity_cmt__CMTSearch}" name="tab1" id="tabOne">
 		    <apex:actionRegion >  
 				  <apex:outputPanel id="top" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
-				    <apex:outputLabel value="{!$Label.vlocity_cmt__cmtsearch}" style="font-weight:Bold;padding-right:10px;" for="txtSearch"/>
+				    <apex:outputLabel value="{!$Label.vlocity_cmt__CMTSearch}" style="font-weight:Bold;padding-right:10px;" for="txtSearch"/>
 				    <apex:inputText id="txtSearch" value="{!searchString}" />
-				      <span style="padding-left:5px"><apex:commandButton id="btnGo" value="{!$Label.vlocity_cmt__cmtgo}" action="{!Search}" rerender="searchResults"  onclick="showSpinner()" oncomplete="stopSpinner()" ></apex:commandButton></span>
+				      <span style="padding-left:5px"><apex:commandButton id="btnGo" value="{!$Label.vlocity_cmt__CMTGo}" action="{!Search}" rerender="searchResults"  onclick="showSpinner()" oncomplete="stopSpinner()" ></apex:commandButton></span>
 				  </apex:outputPanel>
 			    <apex:outputPanel id="pnlSearchResults" style="margin:10px;height:350px;overflow-Y:auto;" layout="block">
 				    <apex:pageBlock id="searchResults"> 
@@ -71,10 +71,10 @@
 		    </apex:actionRegion>
 		  </apex:tab>
 		  <!-- NEW ACCOUNT TAB -->
-		  <apex:tab label="{!$Label.vlocity_cmt__cmtnewaccount}" name="tab2" id="tabTwo">
-        <apex:pageBlock id="newAccount" title="{!$Label.vlocity_cmt__cmtnewaccount}" >
+		  <apex:tab label="{!$Label.vlocity_cmt__CMTNewAccount}" name="tab2" id="tabTwo">
+        <apex:pageBlock id="newAccount" title="{!$Label.vlocity_cmt__CMTNewAccount}" >
           <apex:pageBlockButtons location="bottom">
-            <apex:commandButton action="{!saveAccount}" value="{!$Label.vlocity_cmt__save}" onclick="showSpinner()" />
+            <apex:commandButton action="{!saveAccount}" value="{!$Label.vlocity_cmt__Save}" onclick="showSpinner()" />
             <apex:actionStatus id="actStatusId" >
                 <apex:facet name="start" >
                   <img src="/img/loading.gif" />                    
@@ -82,8 +82,8 @@
             </apex:actionStatus>
           </apex:pageBlockButtons>
           <apex:pageMessages /> 
-          <apex:pageBlockSection title="{!$Label.vlocity_cmt__cmtcurrentaccounttype} {!readAbleAcctType}" columns="2" collapsible="false">
-          <apex:outputField value="{!account.Parent.Name}" label="{!$Label.vlocity_cmt__cmtparentaccount}"/>
+          <apex:pageBlockSection title="{!$Label.vlocity_cmt__CMTCurrentAccountType} {!readAbleAcctType}" columns="2" collapsible="false">
+          <apex:outputField value="{!account.Parent.Name}" label="{!$Label.vlocity_cmt__CMTParentAccount}"/>
               <apex:repeat value="{!accountFields}" var="f">   
               <apex:inputField value="{!account[f]}"/> 
             </apex:repeat>

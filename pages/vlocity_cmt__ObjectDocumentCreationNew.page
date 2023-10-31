@@ -29,7 +29,7 @@
             
         <!-- PDFTRON Libraries for salesforce side implementation-->
         <!-- <apex:includeScript value="{!URLFOR($Resource.cs_pdftron_external, '/jquery-3.2.1.min.js')}"/>-->
-        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/>
+        <!-- <apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/> -->
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
         <!--<apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/pdf/PDFNet.js')}"/>-->
 
@@ -108,7 +108,7 @@
             var documentName = '{!JSENCODE(documentName)}';
             var nameSpacePrefix = '{!JSENCODE(nameSpacePrefix)}';
             var inTest = '{!JSENCODE(inTest)}';
-            window.sessionId = '{!$Api.Session_ID}';
+            window.sessionId = '{!vlocAccessToken}';
             window.sitePrefix = '{!$Site.Prefix}';
             window.defaultPdfGenerationSource = '{!defaultPdfGenerationSource}';
             var remoteActions = {

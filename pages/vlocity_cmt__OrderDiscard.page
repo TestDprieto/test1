@@ -8,7 +8,7 @@
         }
         else
         {
-            alert('{!$Label.vlocity_cmt__unabletodiscardlabel}');
+            alert('{!$Label.vlocity_cmt__UnableToDiscardLabel}');
             window.location.href = '/{!Order.Id}';
         }
     </script>

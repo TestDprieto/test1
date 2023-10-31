@@ -31,10 +31,10 @@
         <apex:slds />
         <apex:stylesheet value="{!$Resource.vlocity_cmt__OmniScriptLwcCompilerCss}" />
         <script type="text/javascript">
-            window.conn = new jsforce.Connection({ accessToken: '{!$API.Session_Id}', version: '48.0' });
+            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '48.0' });
             conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
             window.omniLwcCompilerConfig = {
-                accessToken: '{!$API.Session_Id}',
+                accessToken: '{!vlocAccessToken}',
                 namespacePrefix: '{!sNS}',
                 isInsidePckg: '{!isInsidePckg}',
                 toolingBaseUrl: '{!baseUrl}',

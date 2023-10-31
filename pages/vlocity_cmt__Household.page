@@ -14,15 +14,15 @@
         <apex:outputText value="{!vlocity_cmt__Household__c.vlocity_cmt__ResidenceType__c}" rendered="false" />
         <apex:outputText value="{!vlocity_cmt__Household__c.vlocity_cmt__AnnualIncome__c}" rendered="false" />
         <apex:outputText value="{!vlocity_cmt__Household__c.RecordTypeId}" rendered="false" />
-        <apex:sectionHeader title="{!$Label.vlocity_cmt__householdedit} " subtitle="{!vlocity_cmt__Household__c.Name}" rendered="{!householdSO.Id != null}"/>
-        <apex:sectionHeader title="{!$Label.vlocity_cmt__householdedit} " subtitle="{!$Label.vlocity_cmt__newhousehold}" rendered="{!householdSO.Id == null}"/>
+        <apex:sectionHeader title="{!$Label.vlocity_cmt__HouseholdEdit} " subtitle="{!vlocity_cmt__Household__c.Name}" rendered="{!householdSO.Id != null}"/>
+        <apex:sectionHeader title="{!$Label.vlocity_cmt__HouseholdEdit} " subtitle="{!$Label.vlocity_cmt__NewHousehold}" rendered="{!householdSO.Id == null}"/>
         <apex:pageBlock id="idAddressSection">  
             <apex:pageMessages />
             <apex:pageBlockButtons >
-                <apex:commandButton value="{!$Label.vlocity_cmt__cancel}" 
+                <apex:commandButton value="{!$Label.vlocity_cmt__Cancel}" 
                                     action="{!Cancel}"
                                     immediate="true"/> 
-                <apex:CommandButton value="{!$Label.vlocity_cmt__save}"
+                <apex:CommandButton value="{!$Label.vlocity_cmt__Save}"
                                     action="{!doSave}"/>
             
             </apex:pageBlockButtons>
@@ -32,7 +32,7 @@
                     <apex:inputField value="{!householdSO.Name}"/>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem rendered="{!isGroup}">
-                    <apex:outputLabel >{!$Label.vlocity_cmt__householdgroupname}</apex:outputLabel>
+                    <apex:outputLabel >{!$Label.vlocity_cmt__HouseholdGroupName}</apex:outputLabel>
                     <apex:inputField value="{!householdSO.Name}"/>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem rendered="{!NOT(isEditMode) && isGroup}">
@@ -50,7 +50,7 @@
                     </apex:inputField>
                 </apex:pageBlockSectionItem>
                 <apex:pageBlockSectionItem rendered="{!NOT(isEditMode)}">
-                    <apex:outputLabel >{!$Label.vlocity_cmt__primarycontactrole}</apex:outputLabel>
+                    <apex:outputLabel >{!$Label.vlocity_cmt__PrimaryContactRole}</apex:outputLabel>
                     <apex:selectList value="{!partyRelSO.vlocity_cmt__RelationshipTypeId__c}" 
                                         size="1">
                         <apex:selectOptions value="{!rolesList}"/>

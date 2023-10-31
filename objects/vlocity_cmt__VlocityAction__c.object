@@ -379,6 +379,7 @@
     <fields>
         <fullName>vlocity_cmt__ExecutionSequence__c</fullName>
         <deprecated>false</deprecated>
+        <description>Determines the order in which Vlocity Actions are executed during a state transition.</description>
         <externalId>false</externalId>
         <label>Execution Sequence</label>
         <precision>18</precision>
@@ -451,6 +452,7 @@
         <fullName>vlocity_cmt__IsStateDefaultAction__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>Indicates if this is a default action. During a state transition, only default actions are executed by default.</description>
         <externalId>false</externalId>
         <label>IsStateDefaultAction</label>
         <trackTrending>false</trackTrending>
@@ -623,6 +625,7 @@
         <fullName>vlocity_cmt__VlocityStateModelVersionId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>The Vlocity State Model Version for which this Vlocity Action is specific to.</description>
         <externalId>false</externalId>
         <label>Vlocity State Model Version</label>
         <lookupFilter>

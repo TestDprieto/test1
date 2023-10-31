@@ -1,0 +1,40 @@
+<apex:page docType="html-5.0"
+    applyHtmlTag="true"
+    standardController="vlocity_cmt__OrchestrationPlan__c"
+    extensions="vlocity_cmt.OrchestrationPlanControllerExtension"
+    cache="false">
+<apex:slds />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="generator" content="Plan View" />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+            <meta name="description" content="Plan View" />
+            <script>
+
+                var recordId = '{!$CurrentPage.parameters.Id}';
+                let nsp =  "{!nsp}";
+                let namespace = nsp ? nsp.slice(0, -2) : 'c';
+    
+                $Lightning.use(namespace+":ltngOutVF", function() {
+                $Lightning.createComponent(
+                    namespace + ":xomPlanView", {
+                        recordId: recordId,
+                        container: "Visualforce",
+                        namespace: "{!nsp}"
+                    },
+                    "lightning",
+                    function(cmp) {
+                        console.log('recordId:', recordId);
+                        console.log('nsp:', '{!nsp}');
+                        console.log('namespace:', namespace);
+                    });
+                });
+            </script>
+        </head>
+        <body>
+            <apex:includeLightning />
+            <div id="lightning" />
+        </body>
+    </html>
+</apex:page>

@@ -13,3 +13,4 @@ ContextDimension__c
 ContextMapping__c
 AttributeAssignment__c
 ChargeMeasurement__c
+AttributeCategory__c

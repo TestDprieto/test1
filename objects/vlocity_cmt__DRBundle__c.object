@@ -388,6 +388,17 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__OMplusSyncEnabled__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Enable OM+ sync for this object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Enables or disables synchronization to OM+. Changing this field affects synchronization of associated DRMapItems.</inlineHelpText>
+        <label>OM Plus Enabled</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__OuboundStagingObjectDataField__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>

@@ -1,0 +1,307 @@
+<apex:page showHeader="false" sidebar="false">
+
+  <head>
+    <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}" />
+    <script type="text/javascript">
+      window.$Label = window.$Label || {};
+      $Label.GoogleApiUrl = '{!JSENCODE($Label.CMEXGoogleApiUrl)}';
+
+      loadScript();
+      function loadScript() {
+        var url = new URL(window.location.href);
+        var key = url.searchParams.get("key");
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = $Label.GoogleApiUrl + key;
+        document.head.appendChild(script);
+      }
+      var map;
+      var locations = [];
+      var locationPositions = [];
+      var locationsSet = false;
+      var centerLat;
+      var centerLng;
+      var newMapData = [];
+      var loading;
+      var markers = new Map();
+      var circleGray;
+      var circleBlue;
+      var infowindow;
+      var mapType;
+      //counter for location to send in queue
+      var nextLocationCount = 0;
+      //delay between each gecode API call, will increase in case over limit
+      var delay = 100;
+      //final Array which will hold locations
+      var locationData = [];
+      var MAX_RETRY_ON_QUERY_LIMIT = 5;
+      function loadMapInitials() {
+        var mapStyles = [
+          {
+            featureType: "all",
+            elementType: "all",
+            stylers: [
+              { saturation: -100 }
+            ]
+          }
+        ];
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: { lat: 0, lng: -180 },
+          mapTypeControlOptions: {
+            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'grayscale']
+          },
+          mapTypeId: "roadmap"
+        });
+        var geocoded = false;
+        infowindow = new google.maps.InfoWindow({});
+        mapType = new google.maps.StyledMapType(mapStyles, { name: "Grayscale" });
+        map.mapTypes.set('grayscale', mapType);
+        map.setMapTypeId('roadmap');
+        circleGray = {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 11,
+          fillColor: "#5E5E5E",
+          fillOpacity: 1,
+          strokeColor: '#FFFFFF',
+          strokeWeight: 2
+        };
+        circleBlue = {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 11,
+          fillColor: "#1589EE",
+          fillOpacity: 1,
+          strokeColor: '#FFFFFF',
+          strokeWeight: 2
+        }
+      }
+
+      $(document).ready(function () {
+        setTimeout(() => {
+          loadMapInitials();
+        }, 1000)
+
+        //message from data table via wrapper
+        window.addEventListener("message", function (event) {
+          const { data } = event;                          //passing only 'data' from event
+          if (data && data.record && data.record.locationData) {
+            if (data.record.isSelectedData) {
+              SelectedRowMarker(map, data.record.locationData);
+              focusPosition(data.record.locationData);
+            } else {                                     //initial load of locations
+              locations = data.record.locationData;
+              clearMarkers(map);
+              createMap(map)
+            }
+          }
+        });
+
+        //API Call function to get location
+        function getAddress(locationToSearch) {
+          //Inner Promise
+          return new Promise((resolve, reject) => {
+            //API Call
+            let geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ address: locationToSearch }, function (results, status) {
+              if (status === 'OK') {
+                var p = results[0].geometry.location;
+                //Resolve Inner Promise on Ok status, with returnig location
+                resolve(p);
+              } else {
+                //Reject Inner Promise on failure and return status
+                reject(status);
+              }
+            });
+          });
+        }
+
+        //Recursively called function to get location
+        function nextLocation() {
+          //Outer promise to wait to resolve the recersive call
+          return new Promise((resolve) => {
+            let retrySameAddressCount = 0;
+            if (nextLocationCount < locations.length) {
+              const place = locations[nextLocationCount];
+              //id is set as key in position
+              const position = locationPositions[place.Id];           //getting the Id here
+              //if already got location for id, do not calculate it again  
+              if (!position) {
+                //to call API after specified delay
+                setTimeout(function () {
+                  const address = `${place.StreetAddress__c}, ${place.City__c}, ${place.State__c}, ${place.Country__c}`;
+                  //API Call
+                  getAddress(address).then(
+                    //When API Call is success, store location in array
+                    //call nextLocation with next address also resolve outer promise
+                    result => {
+                      locationData.push(result);
+                      retrySameAddressCount = 0;
+                      resolve(nextLocation());
+                    },
+                    error => {
+                      //When API Call is failed with over limit, do not store location in array
+                      //call nextLocation with same adress retry(by decreasing count) also resolve outer promise
+                      if (error == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+                        if (retrySameAddressCount < MAX_RETRY_ON_QUERY_LIMIT) {
+                          nextLocationCount--;
+                          delay++;
+                        } else {
+                          locationData.push(null);
+                          retrySameAddressCount = 0;
+                        }
+                        resolve(nextLocation());
+                        //When API Call is failed no over limit, store location in array as null
+                        //call nextLocation with next address, no need to retry also resolve outer promise
+                      } else {
+                        locationData.push(null);
+                        retrySameAddressCount = 0;
+                        resolve(nextLocation());
+                      }
+                    }
+                  )
+                }, delay);
+                //count increment for next address  
+                nextLocationCount++;
+              }
+            } else {
+              //finally resolve outer promise
+              resolve(locationData);
+            }
+          });
+        }
+
+        function createMap(map) {
+          if (locations.length > 0) {
+            displayTime("startTime");
+            //Start Calling API to get Location
+            //will execute once outer Promise resolve finally
+            nextLocation().then(finallocationData => {
+              //creating marker on map with final location array
+              finallocationData.forEach(function (val, index) {
+                locationPositions[locations[index].Id] = finallocationData[index];
+                let findPlace = locations[index];
+                findPlace.position = locationPositions[locations[index].Id];
+                setMarker(map, findPlace);
+                if (findPlace.position != undefined) {
+                  centerLat = findPlace.position.lat();
+                  centerLng = findPlace.position.lng();
+                  map.setCenter({ lat: centerLat, lng: centerLng });
+                }
+              });
+              //Post messge back to parent in order to hide map loader
+              google.maps.event.addListenerOnce(map, 'idle', function () {
+                loading = false;
+                window.parent.postMessage(loading, '*');
+              });
+              displayTime("endTime");
+            });
+          }
+        }
+
+        //temprory function to check time differnce
+        function displayTime(type) {
+          const d = new Date();
+        }
+
+        //to focus on selected location
+        function focusPosition(positions) {
+          let geocoder = new google.maps.Geocoder();
+          if (Array.isArray(positions)) {
+            positions.forEach(position => {
+              const address = `${position.StreetAddress__c}, ${position.City__c}, ${position.State__c}, ${position.Country__c}`;
+              geocoder.geocode({ address }, function (results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                  let centerLatfocus = results[0].geometry.location.lat();
+                  let centerLngfocus = results[0].geometry.location.lng();
+                  map.setCenter({ lat: centerLatfocus, lng: centerLngfocus });
+                };
+              })
+            })
+          } else {
+            const address = `${positions.StreetAddress__c}, ${positions.City__c}, ${positions.State__c}, ${positions.Country__c}`;
+          }
+        }
+
+        //clears n sets markers for selections from data table
+        function clearMarkers(map) {
+          //return id from all locations
+          const showIds = locations.reduce((acc, loca) => {
+            acc.push(loca.Id);
+            return acc;
+          }, []);
+          markers.forEach(marker => {
+            const loca = locations.find((loca) => loca.Id === marker.id);
+            if (!showIds.includes(marker.id)) {
+              marker.setMap(null);            //removes markers
+            } else {
+              marker.setMap(map);             //if id,sets marker
+              marker.setIcon(loca.isSelected ? circleBlue : circleGray);
+            }
+          });
+        }
+        //data selected from map > highlight marker
+        function SelectedRowMarker(map, singleRowData) {
+          if (Array.isArray(singleRowData)) {
+            markers.forEach(marker => {
+              singleRowData.forEach(select => {
+                if (select.Id === marker.id) {
+                  marker.setMap(map);
+                  marker.setIcon(select.isSelected ? circleBlue : circleGray);
+                }
+              })
+            });
+          } else {
+            markers.forEach(marker => {
+              if (singleRowData.Id === marker.id) {
+                marker.setMap(map);
+                marker.setIcon(singleRowData.isSelected ? circleBlue : circleGray);
+              }
+            });
+          }
+        }
+        //creates & places markers on map
+        function setMarker(map, place) {
+          if (!place.position) return;
+          if (markers.has(place.Id)) {
+            const foundMarker = markers.get(place.Id);
+            foundMarker.setIcon(place.isSelected ? circleBlue : circleGray)
+          } else {
+            var marker = new google.maps.Marker({
+              position: place.position, //{lat: place.lat, lng: place.long}
+              map: map,                 //specifies map to attach the marker to, if not given can add marker later by marker's setMap()
+              icon: place.isSelected ? circleBlue : circleGray,
+              title: place.Name ? place.Name : place.StreetAddress__c,
+              id: place.Id
+            });
+            markers.set(place.Id, marker);
+            const temp = markers.get(place.Id);
+            marker.addListener('click', function (event) {
+              place.isSelected = !place.isSelected;
+              temp.setIcon(place.isSelected ? circleBlue : circleGray);
+              const locationId = place.Id;
+              const isSelected = place.isSelected;
+              window.parent.postMessage({ locationId, isSelected }, '*');
+            });
+
+            marker.addListener('mouseover', function (event) {
+              infowindow.setContent(`<div>${place.StreetAddress__c}\,</div>
+              <div>${place.PostalCode__c}</div>`);
+              infowindow.open(map, temp);
+            });
+          }
+        }
+      });
+    </script>
+    <style>
+      #map {
+        height: 480px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <div>{!$CurrentPage.parameters.highlight}</div>
+  </body>
+</apex:page>

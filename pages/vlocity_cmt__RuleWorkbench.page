@@ -3,16 +3,17 @@
 		<head>
 
 			<apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}"/>
-			<apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery,  '/ui/jquery-ui-1.9.1.custom.min.js')}"/> 
+			<apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery,  '/ui/jquery-ui-1.12.1.custom.min.js')}"/> 
 			<apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__ANGULAR_SORTABLE)}"/> 
 			<apex:includeScript value="/soap/ajax/31.0/connection.js" />
 			<apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}"/>
 			<apex:includeScript value="{!$Resource.vlocity_cmt__ngtable}"/>
 			<apex:stylesheet value="{!$Resource.vlocity_cmt__ngtablecss}" />		   	
 			<apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__RULEWBCSS)}"/>
+			<apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/css/ui-lightness/jquery-ui-1.12.1.custom.min.css')}"/>
 
 		   	<script>
-		   		sforce.connection.sessionId = '{!$Api.Session_ID}'; 
+		   		sforce.connection.sessionId = '{!vlocAccessToken}'; 
 		   		jQuery.noConflict(); 
 		   		var vnsPrefix ="{!localnsp}" ;
 		   		var vclassType = vnsPrefix+".DefaultAdminUtilitiesImplementation";

@@ -24,7 +24,7 @@
         <apex:stylesheet value="{!$Resource.vlocity_cmt__ContractDocumentCreationCss}"/>
 
         <!-- PDFTRON Libraries for salesforce side implementation-->
-        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/>
+        <!-- <apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/> -->
 
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
         <!--<apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/pdf/PDFNet.js')}"/>-->
@@ -45,9 +45,9 @@
     <script type="text/javascript">
             _.noConflict();
             var nameSpacePrefix, remoteActions, contractVersionId, parentId, sourceId, docName,documentTemplateId,autoAttachDoc, docType, containsRedlines, baseRequestUrl, inLightningExperience, labels;
-            window.sessionId = '{!$Api.Session_ID}';
+            window.sessionId = '{!vlocAccessToken}';
             nameSpacePrefix = '{!nameSpacePrefix}';
-            contractVersionId = '{!$CurrentPage.parameters.Id}';
+            contractVersionId = '{!JSENCODE($CurrentPage.parameters.Id)}';
             parentId = '{!parentId}';
             sourceId = '{!sourceId}';
             docName = '{!JSENCODE(documentName)}';
@@ -60,7 +60,7 @@
             recordDeletionLimit = '{!recordDeletionLimit}';
             templateType = '{!templateType}';
             autoAttachDoc = '{!autoAttachDoc}';
-            documentTemplateId = '{!documentTemplateId}';
+            documentTemplateId = '{!JSENCODE(documentTemplateId)}';
             autoAttachDocType = '{!JSENCODE(autoAttachDocType)}';
             isReconcileDoc = '{!reconcileDoc}';
 

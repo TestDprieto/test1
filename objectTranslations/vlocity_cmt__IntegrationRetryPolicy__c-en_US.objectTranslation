@@ -14,6 +14,11 @@
         <relationshipLabel><!-- Integration Retry Policies --></relationshipLabel>
     </fields>
     <fields>
+        <help><!-- Use comma-separated values to indicate intervals between attempts in seconds --></help>
+        <label><!-- Retry Intervals --></label>
+        <name>vlocity_cmt__RetryIntervals__c</name>
+    </fields>
+    <fields>
         <label><!-- Time between retries (Seconds) --></label>
         <name>vlocity_cmt__TimeBetweenRetries__c</name>
     </fields>
@@ -29,4 +34,20 @@
         <label><!-- No Retry Policy --></label>
         <name>vlocity_cmt__NoRetryPolicy</name>
     </recordTypes>
+    <recordTypes>
+        <label><!-- Staggered Retry Policy --></label>
+        <name>vlocity_cmt__StaggeredRetryPolicy</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Maximum Number Of Retries cannot be a negative number. --></errorMessage>
+        <name>vlocity_cmt__MaximumNumberOfRetriesValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Retry Intervals must be whole numbers separated by commas. --></errorMessage>
+        <name>vlocity_cmt__RetryIntervalsValidation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Time Between Retries cannot be a negative number. --></errorMessage>
+        <name>vlocity_cmt__TimeBetweenRetriesValidation</name>
+    </validationRules>
 </CustomObjectTranslation>

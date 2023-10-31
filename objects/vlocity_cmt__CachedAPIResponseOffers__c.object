@@ -181,6 +181,18 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>vlocity_cmt__OfferId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This will store the unique Id of a specific version of a product which got impacted due to the changes made on SObjects.</description>
+        <externalId>false</externalId>
+        <label>OfferId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>CachedAPIResponseOffers</label>
     <nameField>
         <label>CachedAPIResponseOffers Name</label>

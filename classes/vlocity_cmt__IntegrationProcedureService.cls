@@ -5,10 +5,13 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class IntegrationProcedureService implements vlocity_cmt.VlocityOpenInterface2 {
+global class IntegrationProcedureService implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global static Boolean isTest;
     global IntegrationProcedureService() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global static Boolean clearAllCache(String ipKey) {
         return null;

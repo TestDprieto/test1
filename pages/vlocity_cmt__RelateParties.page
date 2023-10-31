@@ -18,8 +18,6 @@
         }
     </style>
     <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}"/>
-    <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/jquery-ui-1.9.1.custom.min.js')}"/>
-    <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/css/ui-lightness/jquery-ui-1.9.1.custom.min.css')}"/>
     <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__IcoMoonIconPack, 'style.css')}"/>
     <apex:form >
         <apex:outputText value="{!vlocity_cmt__Party__c.vlocity_cmt__AccountId__c}" rendered="false" />
@@ -34,12 +32,12 @@
             <apex:variable value="{!0}" var="lineNumber"/>
             <apex:pageBlockTable value="{!PartyInfoList}" var="partyInfo">
                 <apex:column style="width:5%; text-align:center;">
-                    <apex:facet name="header">{!$Label.vlocity_cmt__actions}</apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__Actions}</apex:facet>
                     <apex:variable var="lineNumber" value="{!lineNumber + 1}"/>
                     <span style="cursor:pointer; padding: 0px 4px 0px 4px; color:red" aria-hidden="true" data-icon="&#xea0d;" class="icon-cancel-circle" onClick="removePartyRow({!lineNumber})"/>
                 </apex:column>
                 <apex:column style="width:10%;">
-                    <apex:facet name="header">{!$Label.vlocity_cmt__party}</apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__Party}</apex:facet>
                     <apex:inputField rendered="{!partyInfo.isSourceDriven && partyInfo.IsModifiable}"
                                         value="{!partyInfo.partyRelSO.vlocity_cmt__TargetPartyId__c}"
                                         onkeypress="return doSearchOnEnter(event,{!lineNumber})"
@@ -48,7 +46,7 @@
                     <apex:outputText rendered="{!NOT(partyInfo.IsModifiable)}" value="{!partyInfo.sourceOrTargetNameString}"/>
                 </apex:column>
                 <apex:column style="width:10%;">
-                    <apex:facet name="header">{!$Label.vlocity_cmt__role}</apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__Role}</apex:facet>
                     <apex:selectList value="{!partyInfo.partyRelSO.vlocity_cmt__RelationshipTypeId__c}"
                                         size="1"
                                         onchange="updateDescription( this.value , {!lineNumber})">
@@ -57,35 +55,35 @@
                 </apex:column>
                 <!-- Added Ram -->
                 <apex:column style="width:30%;" rendered="{!displayPartyCategory}">
-                    <apex:facet name="header">{!$Label.vlocity_cmt__partycategory} </apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__PartyCategory} </apex:facet>
                     <apex:outputText value="{!partyInfo.selectedPartyCategory}"/>
                 </apex:column>
                 <!-- Added Ram -->
                 <apex:column style="width:30%;">
-                    <apex:facet name="header">{!$Label.vlocity_cmt__description}</apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__Description}</apex:facet>
                     <apex:outputText value="{!partyInfo.selectedPartyDescription}"/>
                 </apex:column>
                 <apex:column style="width:5%; text-align:center;">
-                    <apex:facet name="header">{!$Label.vlocity_cmt__display}</apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__Display}</apex:facet>
                     <apex:inputField value="{!partyInfo.partyRelSO.vlocity_cmt__IsActive__c}"/>
                 </apex:column>
                 <apex:column style="width:20%;" >
-                    <apex:facet name="header">{!$Label.vlocity_cmt__relationshipstart}</apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__RelationshipStart}</apex:facet>
                     <apex:inputField value="{!partyInfo.partyRelSO.vlocity_cmt__RelationshipStartDate__c}"/>
                 </apex:column>
                 <apex:column style="width:20%;">
-                    <apex:facet name="header">{!$Label.vlocity_cmt__relationshipend}</apex:facet>
+                    <apex:facet name="header">{!$Label.vlocity_cmt__RelationshipEnd}</apex:facet>
                     <apex:inputField value="{!partyInfo.partyRelSO.vlocity_cmt__RelationshipEndDate__c}"/>
                 </apex:column>
             </apex:pageBlockTable>
             <apex:pageBlockButtons location="bottom">
-                <apex:commandButton value="{!$Label.vlocity_cmt__addnew}"
+                <apex:commandButton value="{!$Label.vlocity_cmt__AddNew}"
                                     action="{!doAddPartyRow}"
                                     rerender="idPartyList, idErrorList"/>
-                <apex:commandButton value="{!$Label.vlocity_cmt__save}"
+                <apex:commandButton value="{!$Label.vlocity_cmt__Save}"
                                     action="{!doSave}"
                                     rerender="idPartyList, idErrorList"/>
-                <apex:commandButton value="{!$Label.vlocity_cmt__cancel}"
+                <apex:commandButton value="{!$Label.vlocity_cmt__Cancel}"
                                     immediate="true"
                                     action="{!doCancel}"/>
             </apex:pageBlockButtons>

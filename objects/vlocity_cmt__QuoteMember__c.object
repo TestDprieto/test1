@@ -156,6 +156,76 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fieldSets>
         <fullName>vlocity_cmt__MemberUploadLocation</fullName>
+        <availableFields>
+            <field>vlocity_cmt__Email__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__FirstName__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__LastName__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__MSISDN__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__MemberData__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__MemberType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__PremisesId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__QuoteGroupId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__QuoteId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__ServiceAccountId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__ServicePointId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__ServiceabilityData__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__Title__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
         <description>The default set of fields to upload data into for a location type of member.</description>
         <displayedFields>
             <field>vlocity_cmt__StreetAddress__c</field>
@@ -191,6 +261,71 @@
     </fieldSets>
     <fieldSets>
         <fullName>vlocity_cmt__MemberUploadSubscriber</fullName>
+        <availableFields>
+            <field>vlocity_cmt__Address1__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__Country__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__MemberData__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__MemberType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__PostalCode__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__PremisesId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__QuoteGroupId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__QuoteId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__ServiceAccountId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__ServicePointId__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__ServiceabilityData__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>vlocity_cmt__StreetAddress__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </availableFields>
         <description>The default set of fields to upload data into for a subscriber type of member.</description>
         <displayedFields>
             <field>vlocity_cmt__Title__c</field>
@@ -217,6 +352,16 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__City__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__State__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>Member Upload Subscriber</label>
     </fieldSets>
     <fields>
@@ -230,6 +375,94 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AddressValidationDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field is used to store the date when address is validated using external system.</description>
+        <externalId>false</externalId>
+        <label>Address Validation Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AddressValidationMessage__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field is used to store validation messages after address validation (ex: Address Not Found/Alternate Address Found).</description>
+        <externalId>false</externalId>
+        <label>Address Validation Message</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AddressValidationResult__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field stores the outcome of validation of address from external system.</description>
+        <externalId>false</externalId>
+        <label>Address Validation Result</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Valid</fullName>
+                    <default>false</default>
+                    <label>Valid</label>
+                </value>
+                <value>
+                    <fullName>Invalid</fullName>
+                    <default>false</default>
+                    <label>Invalid</label>
+                </value>
+                <value>
+                    <fullName>Success</fullName>
+                    <default>false</default>
+                    <label>Success</label>
+                </value>
+                <value>
+                    <fullName>Partial</fullName>
+                    <default>false</default>
+                    <label>Partial</label>
+                </value>
+                <value>
+                    <fullName>Fails</fullName>
+                    <default>false</default>
+                    <label>Fails</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AsyncOperationStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores status of the last asynchronous operation run on this member.</description>
+        <externalId>false</externalId>
+        <label>Async Operation Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Failed</fullName>
+                    <default>false</default>
+                    <label>Failed</label>
+                </value>
+                <value>
+                    <fullName>Succeeded</fullName>
+                    <default>true</default>
+                    <label>Succeeded</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>vlocity_cmt__AsyncOperation__c</fullName>
@@ -267,6 +500,18 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__BroadbandConnectionType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Derived from the Serviceability Data JSON</description>
+        <externalId>false</externalId>
+        <label>Broadband Connection Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__City__c</fullName>
         <deprecated>false</deprecated>
         <description>City name information.</description>
@@ -277,6 +522,16 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ConnectDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Needed to let the User optionally introduce the Connect Date or users can map the value from Quote Line Item.</description>
+        <externalId>false</externalId>
+        <label>Connect Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Country__c</fullName>
@@ -378,6 +633,30 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__MaxDownloadSpeed__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Derived from the Serviceability Data JSON</description>
+        <externalId>false</externalId>
+        <label>Max Download Speed</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MaxUploadSpeed__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Derived from the Serviceability Data JSON</description>
+        <externalId>false</externalId>
+        <label>Max Upload Speed</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__MemberData__c</fullName>
         <deprecated>false</deprecated>
         <description>Member Data information.</description>
@@ -424,8 +703,23 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__OpportunityMemberId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Points to the corresponding Opportunity Member record</description>
+        <externalId>false</externalId>
+        <label>Opportunity Member</label>
+        <referenceTo>vlocity_cmt__OpportunityMember__c</referenceTo>
+        <relationshipLabel>Quote Members</relationshipLabel>
+        <relationshipName>QuoteMembers</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__PostalCode__c</fullName>
         <deprecated>false</deprecated>
+        <description>Postal code of the address</description>
         <externalId>false</externalId>
         <label>Postal Code</label>
         <length>20</length>
@@ -478,6 +772,17 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__SelectedAssetIds__c</fullName>
+        <deprecated>false</deprecated>
+        <description>selected asset ids (separted by comma) belong to this member.</description>
+        <externalId>false</externalId>
+        <label>Selected Assets</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__ServiceAccountId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -515,6 +820,16 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServiceabilityLastCheckedDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The field is store when the serviceability check was done last time.</description>
+        <externalId>false</externalId>
+        <label>Serviceability Last Checked At</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__State__c</fullName>

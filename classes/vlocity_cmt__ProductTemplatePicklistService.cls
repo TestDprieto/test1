@@ -5,8 +5,11 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class ProductTemplatePicklistService implements vlocity_cmt.VlocityOpenInterface {
+global class ProductTemplatePicklistService implements System.Callable, vlocity_cmt.VlocityOpenInterface {
     global ProductTemplatePicklistService() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
 }

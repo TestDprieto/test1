@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -781,6 +795,7 @@ angular.module('contractDocumentNewDisplayApp').controller('contractDocumentNewD
         //sf1
         else if ($scope.isSforce && url != null) {
             sforce.one.navigateToURL($scope.sitePrefix + $scope.currentUrl);
+            $rootScope.vlcLoading = false;
         }
     };
 
@@ -812,6 +827,12 @@ angular.module('contractDocumentNewDisplayApp').controller('contractDocumentNewD
                 selectedAction.attachDocUrl = $scope.locationOrigin + $scope.sitePrefix + '/apex/' + $scope.nameSpacePrefix + 'DocumentGeneration?id=' + $scope.contractId;
                 window.addEventListener('ContractDocumentAttachDone', function() {
                     $scope.invokeAction();
+					
+					// refresh if console app
+					if ($scope.isInConsole) {
+						console.log('### refreshing primary tab');
+						$scope.refreshCurrentPrimaryTab();
+					}
                 });
             } else {
                 $scope.invokeAction();

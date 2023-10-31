@@ -1,25 +1,31 @@
-<apex:page standardStylesheets="false"
+<apex:page standardStylesheets="true"
            showHeader="true"
            sidebar="false"
            docType="html-5.0"
            tabStyle="OmniScriptHome__tab"
-           standardController="vlocity_cmt__OmniScript__c"
-           extensions="vlocity_cmt.OmniScriptDesignerController,vlocity_cmt.OmniScriptHomeController,vlocity_cmt.DRMapperController3,vlocity_cmt.DRDataPackRunnerController,vlocity_cmt.LWCDesignerController"
-           language="{!$CurrentPage.parameters.LanguageCode}">
+           controller="vlocity_cmt.OmniScriptDesignerController"
+           extensions="vlocity_cmt.OmniScriptHomeController,vlocity_cmt.DRMapperControllerFoundation,vlocity_cmt.DRDataPackRunnerController,vlocity_cmt.LWCDesignerController"
+           language="{!$CurrentPage.parameters.LanguageCode}"
+           action="{!checkIfOmniScriptDesignerThisIsIndustryPackage}">
+    <apex:outputPanel rendered="{!showLegacyOmniScriptDesigner}">
     <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-core.min.js')}"></script>
     <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-metadata.min.js')}"></script>
     <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-tooling.min.js')}"></script>
     <script src="{!URLFOR($Resource.jsforce_1_7, '/jszip.min.js')}"></script>
     <script>
-        window.conn = new jsforce.Connection({ accessToken: '{!$API.Session_Id}', version: '48.0' });
+        window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
         window.conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
+        window.IsFoundation = {!JSENCODE(IF(isFoundation, "true", "false"))};
+        window.OmniScriptFieldMappings = JSON.parse('{!JSENCODE(omniScriptFieldMappings)}');
+        window.OmniElementFieldMappings = JSON.parse('{!JSENCODE(omniElementFieldMappings)}');
+        window.OmniScriptObjectName = '{!JSENCODE(omniScriptObjectName)}';
     </script>
     <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
     <script src="{!URLFOR($Resource.angular_strap_bundle_1_6)}"></script>
 
     <script src="{!URLFOR($Resource.vlocity_assets, '/bower_components/angular-rangeslider/angular.rangeSlider.js')}"></script>
     <script src="{!URLFOR($Resource.vlocity_assets, '/bower_components/clipboard/dist/clipboard.min.js')}"></script>
-    <script src="{!URLFOR($Resource.tinymce, '/js/tinymce/tinymce.min.js')}"></script>
+    <script src="{!URLFOR($Resource.tinymce_5, '/tinymce.min.js')}"></script>
     <script src="{!URLFOR($Resource.ui_tinymce, '/src/tinymce.js')}"></script>
     <script src="{!$Resource.DataRaptor}"></script>
     <script src="{!$Resource.DRVComp}"></script>
@@ -34,7 +40,9 @@
     <script src="{!$Resource.OmniscriptLwcCompiler}"></script>
     <script src="{!$Resource.OmniScriptDesigner}"></script>
     <script src="{!URLFOR($Resource.fileSaver_2_0_1, '/fileSaver.js')}"></script>
-
+    <script type="text/javascript">
+        window.industryPkgNSPrefix = '{!industryPkgNSPrefix}';
+    </script>
     <style>
         .vlocity .fa {
             font-family: FontAwesome;
@@ -205,13 +213,13 @@
                                 dnd-list="scriptElement.children"
                                 dnd-allowed-types="scriptElement.allowedTypes()"
                                 ng-attr-data-element-id="{{scriptElement.Id}}"
-                                dnd-disable-if="$parent.$parent.scriptElement.IsActive__c || scriptElement.saving"
+                                dnd-disable-if="scriptElement.isDisabled() || scriptElement.saving"
                                 dnd-drop="onDNDDrop(event, index, item, external, type, 'itemType')"
                                 dnd-dragover="onDNDMove(event, index, item, external, type, 'itemType')">
                                 <li class="canvasElement {{element | className}}"
                                     ng-class="{'active': activeElement == element, 'filter': element.filter}"
                                     ng-repeat="element in scriptElement.children track by $index"
-                                    dnd-disable-if="$parent.$parent.scriptElement.IsActive__c || element.saving"
+                                    dnd-disable-if="scriptElement.isDisabled() || element.saving"
                                     dnd-draggable="element.Id"
                                     dnd-effect-allowed="move"
                                     dnd-type="element.Type__c.type"
@@ -230,7 +238,7 @@
                              class="right-tabs">
                             <div ng-repeat="tab in tabs"
                                  title="{{tab.title}}"
-                                 disabled=""
+                                 disabled="{{tab.disabled}}"
                                  ng-bind="tab.content"
                                  bs-pane="bs-pane">
                             </div>
@@ -311,7 +319,7 @@
                                      style="margin-top: 5px;">
                                     <label style="margin-top: auto">
                                         <input type="checkbox"
-                                               ng-disabled="scriptElement.IsActive__c"
+                                               ng-disabled="scriptElement.isDisabled()"
                                                ng-model="activeElement.Active__c" /> {{ ::'OmniDesActive' | localize }}
                                     </label>
                                 </div>
@@ -325,7 +333,7 @@
                                             <textarea class="form-control json-editor"
                                                       ng-model="propertySetAsText"
                                                       ng-change="onJsonChange(propertySetAsText)"
-                                                      ng-disabled="scriptElement.IsActive__c"
+                                                      ng-disabled="scriptElement.isDisabled()"
                                                       rows="30"></textarea>
                                             <span ng-if="propertySetInvalid"
                                                   class="icon-v-close-circle form-control-feedback"
@@ -549,9 +557,9 @@
                                     <dd id="OmniScript__c_Version__c">{{scriptElement.Version__c}}</dd>
                                     <dt>{{ ::'OmniDesActive' | localize }}</dt>
                                     <dd id="OmniScript__c_IsActive__c"
-                                        ng-if="scriptElement.IsActive__c">{{ ::'OmniDesYes' | localize }}</dd>
+                                        ng-if="scriptElement.isDisabled()">{{ ::'OmniDesYes' | localize }}</dd>
                                     <dd id="OmniScript__c_IsActive__c"
-                                        ng-if="!scriptElement.IsActive__c">{{ ::'OmniDesNo' | localize }}</dd>
+                                        ng-if="!scriptElement.isDisabled()">{{ ::'OmniDesNo' | localize }}</dd>
                                     <dt>{{ ::'OmniDesOwner' | localize }}</dt>
                                     <dd id="OmniScript__c_Owner">{{scriptElement.Owner}}</dd>
                                     <dt>{{ ::'OmniDesCreatedBy' | localize }}</dt>
@@ -573,7 +581,7 @@
                                     <button id="OmniScript__c_deleteBtn"
                                             type="button"
                                             class="btn btn-default"
-                                            ng-disabled="scriptElement.IsActive__c || !scriptElement.Id || scriptElement.saving"
+                                            ng-disabled="scriptElement.isDisabled() || !scriptElement.Id || scriptElement.saving"
                                             ng-click="delete()">{{ ::'OmniDesDelete' | localize }}</button>
                                     <button id="OmniScript__c_createVersionBtn"
                                             type="button"
@@ -619,7 +627,7 @@
                                     <button id="OmniScript__c_saveBtn"
                                             type="button"
                                             class="btn btn-primary"
-                                            ng-disabled="scriptElement.saving || (scriptElement.Id && scriptElement.hasErrors())"
+                                            ng-disabled="scriptElement.saving || (scriptElement.Id && scriptElement.hasErrors()) || scriptElement.isDisabled()"
 
                                             ng-if="!scriptElement.IsActive__c"
                                             ng-click="saveOmniScript()">{{ ::'OmniDesSave' | localize }}</button>
@@ -710,15 +718,26 @@
 
     <script>
         angular.module('omnidesigner.core', [])
-            .value('OmniScriptJson', JSON.parse('{!JSENCODE(omniscriptJSON)}'))
-            .value('ElementsJson', JSON.parse('{!JSENCODE(elementsJSON)}'))
+            .value('OmniScriptJson', '{!JSENCODE(omniscriptJSON)}')
+            .value('ElementsJson', '{!JSENCODE(elementsJSON)}')
             .value('ElementTypesJson', JSON.parse('{!JSENCODE(elementTypesJSON)}'))
-            .value('ReusableScriptsInit', JSON.parse('{!JSENCODE(reusableScriptsInitJSON)}'))
+            .value('ReusableScriptsInit', '{!JSENCODE(reusableScriptsInitJSON)}')
             .value('LanguagesJson', JSON.parse('{!JSENCODE(languagesJson)}'))
             .value('AvailableScriptTypesInit', JSON.parse('{!JSENCODE(availableScriptTypesInitJSON)}'))
             .value('OmniScriptTypesInit', JSON.parse('{!JSENCODE(omniScriptTypesInitJSON)}'))
-            .value('ScriptElementTypes', JSON.parse('{!JSENCODE(scriptElementTypesJson)}'));
+            .value('ScriptElementTypes', JSON.parse('{!JSENCODE(scriptElementTypesJson)}'))
+            .value('IsFoundation', {!JSENCODE(IF(isFoundation, "true", "false"))})
+            .value('IsIndustryPkg', {!JSENCODE(IF(isIndustryPkg, "true", "false"))})
+            .value('IsIndustryPkgInstalledSecond', {!JSENCODE(IF(isIndustryPkgInstalledSecond, "true", "false"))})
+            .value('IsOmniStudioPkg', {!JSENCODE(IF(isOmniStudioPkg, "true", "false"))})
+            .value('showLegacyOmniStudioUi', {!JSENCODE(IF(showLegacyOmniStudioUi, "true", "false"))})
+            .value('OmniScriptObjectName', '{!JSENCODE(omniScriptObjectName)}')
+            .value('OmniScriptInstanceObjectName', '{!JSENCODE(omniScriptInstanceObjectName)}')
+            .value('OmniScriptFieldMappings', JSON.parse('{!JSENCODE(omniScriptFieldMappings)}'))
+            .value('OmniScriptFieldMappingsNamespace', JSON.parse('{!JSENCODE(omniScriptFieldMappingsNamespace)}'));
 
+        angular.module('oui')
+            .value('isOmniMetadataApiEnabled', {!JSENCODE(IF(isOmniMetadataApiEnabled, "true", "false"))});
     </script>
 
     <script type="text/javascript">
@@ -905,8 +924,8 @@
 
     <script type="text/javascript">
         window.omniLwcCompilerConfig = {
-            accessToken: '{!$API.Session_Id}',
-            namespacePrefix: '{!namespace}',
+            accessToken: '{!vlocAccessToken}',
+            namespacePrefix: '{!namespaceInVF}',
             isInsidePckg: '{!isInsidePckg}',
             toolingBaseUrl: '{!baseUrl}',
             remoteActions: {
@@ -922,4 +941,6 @@
         };
     </script>
     <c:VFActionFunction />
+    </apex:outputPanel>
+    <c:VFPageDeprecatedMessage rendered="{!!showLegacyOmniScriptDesigner}"/>
 </apex:page>

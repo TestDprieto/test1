@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -110,11 +124,24 @@
     }
   };(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 require('./xompolyfills/objectpolyfills/Object.values.js');
-},{"./xompolyfills/objectpolyfills/Object.values.js":2}],2:[function(require,module,exports){
+require('./xompolyfills/stringpolyfills/string.prototype.includes.js');
+},{"./xompolyfills/objectpolyfills/Object.values.js":2,"./xompolyfills/stringpolyfills/string.prototype.includes.js":3}],2:[function(require,module,exports){
 if (!Object.values) {
 	Object.values = function values(O) {
 		return Object.keys(O).map(function(e) {  return O[e]});
 	};
 	}
+},{}],3:[function(require,module,exports){
+if (!String.prototype.includes) {
+  String.prototype.includes = function(search, start) {
+    'use strict';
+
+    if (search instanceof RegExp) {
+      throw TypeError('first argument must not be a RegExp');
+    }
+    if (start === undefined) { start = 0; }
+    return this.indexOf(search, start) !== -1;
+  };
+}
 },{}]},{},[1]);
 })();

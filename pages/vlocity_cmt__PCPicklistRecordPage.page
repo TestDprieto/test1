@@ -75,7 +75,7 @@
     <body>
         <div class="via-slds">
             <apex:outputpanel >
-                <vlocity-product-console namespaceprefix="{!NSP}" sfinstanceurl="{!SalesForceInstanceURL}" sessionid="{!$Api.Session_ID}"
+                <vlocity-product-console namespaceprefix="{!NSP}" sfinstanceurl="{!SalesForceInstanceURL}" sessionid="{!vlocAccessToken}"
                     userlocale="{!UserLocale}" islanguageRTL="{!isLanguageRTL}" sfcontentinstanceurl="{!SalesForceContentInstanceUrl}" timezone="{!TimeZone}"
                         timezoneoffset="{!TimeZoneOffset}" currentdate="{!CurrentDate}">
                     <template id="vpcMainContent">

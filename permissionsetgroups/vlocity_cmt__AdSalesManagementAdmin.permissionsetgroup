@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>AdSalesManagementAdmin</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>AdSalesManagementAdmin</label>
+    <permissionSets>vlocity_cmt__AdSalesRuntime</permissionSets>
+    <permissionSets>vlocity_cmt__ContractMgmtIndCmeAdmin</permissionSets>
+    <permissionSets>vlocity_cmt__ContractMgmtIndCmeRuntime</permissionSets>
+    <permissionSets>vlocity_cmt__DocGenIndCmeDesigner</permissionSets>
+    <permissionSets>vlocity_cmt__DocGenIndCmeRuntime</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

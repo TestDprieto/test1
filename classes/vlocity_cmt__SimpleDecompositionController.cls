@@ -9,6 +9,7 @@ global class SimpleDecompositionController {
     global SimpleDecompositionController(ApexPages.StandardController stdController) {
 
     }
+    @AuraEnabled
     webService static String decompose(Id orderId) {
         return null;
     }
@@ -34,8 +35,14 @@ global class SimpleDecompositionController {
     global static Id getManualQueueSfIdByGlobalKey(String globalKey) {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static String getMappingDetails(List<Id> allSpecIds, Boolean offPlatformMode) {
+        return null;
+    }
+    @AuraEnabled
+    @RemoteAction
+    global static Map<String,Object> getOrderDetailsLWC(Id orderId) {
         return null;
     }
     @RemoteAction
@@ -46,6 +53,12 @@ global class SimpleDecompositionController {
     global static String getOrderOrchestrationPlanReferenceId(Id orderId) {
         return null;
     }
+    @AuraEnabled
+    @RemoteAction
+    global static Id getSfIdByAssetReferenceKey(String assetReferenceId) {
+        return null;
+    }
+    @AuraEnabled
     @RemoteAction
     global static Id getSfIdByGlobalKey(String globalKey) {
         return null;
@@ -54,6 +67,7 @@ global class SimpleDecompositionController {
     global static Id getSfIdByGlobalKeyAndObjectName(String globalKey, String objectName) {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static Map<Id,Map<String,String>> getSourceOrderAssetInfo(Id orderId) {
         return null;

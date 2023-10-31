@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__EnterpriseProductCatalog</name>
+    </customPermissions>
+    <description>Allows users to access Enterprise Product Catalog.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>EPC Admin User</label>
+</PermissionSet>

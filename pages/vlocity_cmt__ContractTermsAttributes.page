@@ -127,9 +127,9 @@
             </div>
             <script type="text/javascript">
 
-                var sessionId = '{!$Api.Session_ID}';
+                var sessionId = '{!vlocAccessToken}';
                 var vlocCLM = {
-                    'accessToken': '{!$Api.Session_ID}',
+                    'accessToken': '{!vlocAccessToken}',
                         'staticResourceURL' : {
                         'slds': '{!URLFOR($Resource.slds)}',
                     }

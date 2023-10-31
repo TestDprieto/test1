@@ -370,17 +370,6 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
-        <fullName>Aug_27_Friday2__c</fullName>
-        <externalId>false</externalId>
-        <label>Aug 27 Friday2!</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>BillingAddress</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -389,40 +378,6 @@
     </fields>
     <fields>
         <fullName>ChannelProgramName</fullName>
-    </fields>
-    <fields>
-        <fullName>CustomerPriority__c</fullName>
-        <description>descp1</description>
-        <externalId>false</externalId>
-        <label>Customer Priority</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Picklist</type>
-        <valueSet>
-            <valueSetDefinition>
-                <sorted>false</sorted>
-                <value>
-                    <fullName>High</fullName>
-                    <default>false</default>
-                    <label>High</label>
-                </value>
-                <value>
-                    <fullName>Low</fullName>
-                    <default>false</default>
-                    <label>Low</label>
-                </value>
-                <value>
-                    <fullName>Medium</fullName>
-                    <default>false</default>
-                    <label>Medium</label>
-                </value>
-                <value>
-                    <fullName>From Dev1</fullName>
-                    <default>false</default>
-                    <label>From Dev1</label>
-                </value>
-            </valueSetDefinition>
-        </valueSet>
     </fields>
     <fields>
         <fullName>Description</fullName>
@@ -794,6 +749,36 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__BillingAccountStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the status of the customer billing account.</description>
+        <externalId>false</externalId>
+        <label>Billing Account Status</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Current</fullName>
+                    <default>false</default>
+                    <label>Current</label>
+                </value>
+                <value>
+                    <fullName>Overdue</fullName>
+                    <default>false</default>
+                    <label>Overdue</label>
+                </value>
+                <value>
+                    <fullName>In Collections</fullName>
+                    <default>false</default>
+                    <label>In Collections</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__BillingEmailAddress__c</fullName>
         <deprecated>false</deprecated>
         <description>Email address to use for email delivery of bills. Part of the billing profile of a customer or billing account.</description>
@@ -949,6 +934,45 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
         </valueSet>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__CustomerPriority__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Customer Priority</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>High</fullName>
+                    <default>false</default>
+                    <label>High</label>
+                </value>
+                <value>
+                    <fullName>Low</fullName>
+                    <default>false</default>
+                    <label>Low</label>
+                </value>
+                <value>
+                    <fullName>Medium</fullName>
+                    <default>false</default>
+                    <label>Medium</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CustomerSinceDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Date when the account first became a customer. For example, when the account purchased their first product or service.</description>
+        <externalId>false</externalId>
+        <label>Customer Since Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__CustomerValue__c</fullName>
         <deprecated>false</deprecated>
         <description>A ranking of the value of this customer to your business expressed in marketing terms such as Gold, Silver, Bronze, Diamond, Platinum.</description>
@@ -1045,6 +1069,26 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
         <description>Indicates whether the customer has opted in to automatic payment. Part of the billing profile of a customer or billing account.</description>
         <externalId>false</externalId>
         <label>Enable Autopay</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FraudReason__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the reason of the account being fraud.</description>
+        <externalId>false</externalId>
+        <label>Fraud Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__HasFraud__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates whether the customer is involved in or experiencing fraudulent activity.</description>
+        <externalId>false</externalId>
+        <label>Fraud</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
@@ -1436,6 +1480,35 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__UpsellOpportunity__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Upsell Opportunity</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Maybe</fullName>
+                    <default>false</default>
+                    <label>Maybe</label>
+                </value>
+                <value>
+                    <fullName>No</fullName>
+                    <default>false</default>
+                    <label>No</label>
+                </value>
+                <value>
+                    <fullName>Yes</fullName>
+                    <default>false</default>
+                    <label>Yes</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__vCustomerPriority__c</fullName>
         <deprecated>false</deprecated>
         <description>A ranking of the priority of this customer to your business expressed in marketing terms such as High, Medium or Low.</description>
@@ -1556,10 +1629,10 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
-        <fullName>vlocity_cmt__Billing</fullName>
+        <fullName>vlocity_cmt__Advertiser</fullName>
         <active>true</active>
-        <description>Use a billing account to add an alternate billing profile to a business account, consumer account or billing aggregator account.</description>
-        <label>Billing</label>
+        <description>Use the Advertiser Account to create an Entity which buys Ad-Deals directly from Publisher.</description>
+        <label>Advertiser</label>
         <picklistValues>
             <picklist>AccountSource</picklist>
             <values>
@@ -1568,21 +1641,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1856,6 +1914,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -1889,6 +1962,1083 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerValue__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diamond</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Juridsiction1__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Jurisdiction2__c</picklist>
+            <values>
+                <fullName>Secondary jurisdiction A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Secondary jurisdiction B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LegalForm__c</picklist>
+            <values>
+                <fullName>Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not for Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Proprietorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__TaxExemptionType__c</picklist>
+            <values>
+                <fullName>Exempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__vCustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__vSLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__Agency</fullName>
+        <active>true</active>
+        <description>Use the Agency Account to create an Entity which buys Ad-Deals on behalf of an Advertiser.</description>
+        <label>Agency</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AccountPaymentType__c</picklist>
+            <values>
+                <fullName>Postpaid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prepaid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Active__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AutoPaymentAmount__c</picklist>
+            <values>
+                <fullName>Full Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minimum Due</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillCycle__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillDeliveryMethod__c</picklist>
+            <values>
+                <fullName>Electronic Statements Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillFormat__c</picklist>
+            <values>
+                <fullName>Detail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillFrequency__c</picklist>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ContactPreferences__c</picklist>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerClass__c</picklist>
+            <values>
+                <fullName>C%26I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMB</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerValue__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diamond</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Juridsiction1__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Jurisdiction2__c</picklist>
+            <values>
+                <fullName>Secondary jurisdiction A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Secondary jurisdiction B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LegalForm__c</picklist>
+            <values>
+                <fullName>Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not for Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Proprietorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__TaxExemptionType__c</picklist>
+            <values>
+                <fullName>Exempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__vCustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__vSLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__Billing</fullName>
+        <active>true</active>
+        <description>Use a billing account to add an alternate billing profile to a business account, consumer account or billing aggregator account.</description>
+        <label>Billing</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AccountPaymentType__c</picklist>
+            <values>
+                <fullName>Postpaid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prepaid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Active__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AutoPaymentAmount__c</picklist>
+            <values>
+                <fullName>Full Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minimum Due</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillCycle__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillDeliveryMethod__c</picklist>
+            <values>
+                <fullName>Electronic Statements Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillFormat__c</picklist>
+            <values>
+                <fullName>Detail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillFrequency__c</picklist>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ContactPreferences__c</picklist>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerClass__c</picklist>
+            <values>
+                <fullName>C%26I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMB</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2022,6 +3172,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2077,7 +3242,328 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
+            <picklist>Industry</picklist>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food %26 Beverage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Ownership</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Private</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Public</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Subsidiary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Rating</picklist>
+            <values>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Customer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prospect</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AccountPaymentType__c</picklist>
+            <values>
+                <fullName>Postpaid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prepaid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Active__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AutoPaymentAmount__c</picklist>
+            <values>
+                <fullName>Full Balance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minimum Due</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillCycle__c</picklist>
+            <values>
+                <fullName>1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillDeliveryMethod__c</picklist>
+            <values>
+                <fullName>Electronic Statements Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper Billing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillFormat__c</picklist>
+            <values>
+                <fullName>Detail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillFrequency__c</picklist>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ContactPreferences__c</picklist>
+            <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>eMail</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerClass__c</picklist>
+            <values>
+                <fullName>C%26I</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residential</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SMB</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
             <values>
                 <fullName>High</fullName>
                 <default>false</default>
@@ -2088,6 +3574,205 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerValue__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Diamond</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Juridsiction1__c</picklist>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Region</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Jurisdiction2__c</picklist>
+            <values>
+                <fullName>Secondary jurisdiction A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Secondary jurisdiction B</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LegalForm__c</picklist>
+            <values>
+                <fullName>Corporation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LLP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not for Profit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partnership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sole Proprietorship</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__SLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suspended</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__TaxExemptionType__c</picklist>
+            <values>
+                <fullName>Exempt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__vCustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__vSLA__c</picklist>
+            <values>
+                <fullName>Bronze</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>vlocity_cmt__Brand</fullName>
+        <active>true</active>
+        <description>Use the Brand Account to create an Entity which the Advertiser uses to identify themself in the market.</description>
+        <label>Brand</label>
+        <picklistValues>
+            <picklist>AccountSource</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2361,6 +4046,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -2394,6 +4094,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2507,10 +4222,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
                 <default>false</default>
             </values>
             <values>
-                <fullName>New</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Pending</fullName>
                 <default>false</default>
             </values>
@@ -2527,6 +4238,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2582,21 +4308,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -2866,6 +4577,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -2899,6 +4625,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3032,6 +4773,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3087,21 +4843,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -3371,6 +5112,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -3404,6 +5160,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3541,6 +5312,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__vCustomerPriority__c</picklist>
             <values>
                 <fullName>High</fullName>
@@ -3587,21 +5373,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Web</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3875,6 +5646,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -3908,6 +5694,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4037,6 +5838,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4092,21 +5908,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -4376,6 +6177,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -4409,6 +6225,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4542,6 +6373,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4597,21 +6443,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -4881,6 +6712,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -4914,6 +6760,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5047,6 +6908,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5102,21 +6978,6 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>CustomerPriority__c</picklist>
-            <values>
-                <fullName>High</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Industry</picklist>
             <values>
                 <fullName>Agriculture</fullName>
@@ -5386,6 +7247,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__BillingAccountStatus__c</picklist>
+            <values>
+                <fullName>Current</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In Collections</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__ContactPreferences__c</picklist>
             <values>
                 <fullName>Mail</fullName>
@@ -5419,6 +7295,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             <picklist>vlocity_cmt__CustomerOfBrand__c</picklist>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__CustomerPriority__c</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5552,6 +7443,21 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
             </values>
             <values>
                 <fullName>Non-exempt</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__UpsellOpportunity__c</picklist>
+            <values>
+                <fullName>Maybe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5748,32 +7654,26 @@ IF(CONTAINS(&quot;IL:IN:IA:MI:MN:MO:NE:ND:OH:SD:WI&quot;, BillingState), &quot;N
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/32.0/connection.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/32.0/apex.js&quot;)}
-
-var namespace_prefix_dot = &apos;&apos;; 
-var gettingnamespace = sforce.connection.query(&quot;SELECT NamespacePrefix FROM ApexClass where Name = &apos;ApplicationUtilities&apos; LIMIT 1&quot;); 
-var getname = gettingnamespace.getArray(&quot;records&quot;); 
-if(getname.length &gt; 0 &amp;&amp; getname[0].NamespacePrefix) 
-{ 
-namespace_prefix_dot = getname[0].NamespacePrefix+&quot;.&quot;; 
-}
-
-// Do not include Namespace in this object
-var params = { className: namespace_prefix_dot+&quot;AttributeAssignmentRuleService&quot;, methodName: &quot;createBatch&quot;, input: JSON.stringify({sObjectType: &quot;Account&quot; }), options: &quot;{}&quot; };
-
-var result = sforce.apex.execute(namespace_prefix_dot+&quot;VFActionFunctionController&quot;, &quot;invokeServiceRun&quot;, params);
-
-console.log(result);
-
-if (result != null)
-{
-    alert(&apos;Batch Job Started&apos;);
-}
-else
-{
-    alert(&apos;Batch Job Failed&apos;);
-}</url>
+        <url>alert(&apos;Feature no longer supported&apos;);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__CreateEnterpriseQuote</fullName>
+        <availability>online</availability>
+        <description>Creates a new B2B Enterprise Sales Quote and launches the B2B Enterprise Sales App</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Create Enterprise Quote</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__B2BCmexCreateEnterpriseQuoteFromAccount</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
     </webLinks>
     <webLinks>
         <fullName>vlocity_cmt__CreateGroup</fullName>

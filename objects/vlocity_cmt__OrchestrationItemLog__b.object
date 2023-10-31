@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Represents orchestration item callout attempts. OrchestrationItemLog__b is a big object, which includes orchestration item requests and responses.</description>
+    <fields>
+        <fullName>vlocity_cmt__NumberOfRetries__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number of orchestration retries initiated by the orchestration item.</description>
+        <externalId>false</externalId>
+        <label>Actual Number Of Retries</label>
+        <precision>5</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrchestrationItemId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The orchestration item associated with the orchestration item log.</description>
+        <externalId>false</externalId>
+        <label>Orchestration Item</label>
+        <referenceTo>vlocity_cmt__OrchestrationItem__c</referenceTo>
+        <relationshipLabel>Orchestration Item Log</relationshipLabel>
+        <relationshipName>OrchestrationItemLog</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OrchestrationItemType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The orchestration item&apos;s type. Possible values include Callout, Push Event, Auto Task, Milestone, Manual Task.</description>
+        <externalId>false</externalId>
+        <label>Orchestration Item Type</label>
+        <length>32</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Request__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The orchestration item request JSON or XML data.</description>
+        <externalId>false</externalId>
+        <label>Request</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Response__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The orchestration item response JSON or XML data.</description>
+        <externalId>false</externalId>
+        <label>Response</label>
+        <length>131072</length>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__State__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The state of the orchestration item.</description>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SystemInterfaceId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The system interface associated with the orchestration item log.</description>
+        <externalId>false</externalId>
+        <label>System Interface</label>
+        <referenceTo>vlocity_cmt__SystemInterface__c</referenceTo>
+        <relationshipLabel>Orchestration Item Log</relationshipLabel>
+        <relationshipName>SystemInterface</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TimestampCompleted__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date and time the orchestration item was moved to the Completed state.</description>
+        <externalId>false</externalId>
+        <label>Timestamp (Completed)</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TimestampReady__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date and time the orchestration item was moved to the Ready state.</description>
+        <externalId>false</externalId>
+        <label>Timestamp (Ready)</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <indexes>
+        <fullName>vlocity_cmt__OrchestrationItemLogIndex</fullName>
+        <fields>
+            <name>vlocity_cmt__OrchestrationItemId__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <fields>
+            <name>vlocity_cmt__NumberOfRetries__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <label>OrchestrationItemLogIndex</label>
+    </indexes>
+    <label>Orchestration Item Log</label>
+    <pluralLabel>Orchestration Item Logs</pluralLabel>
+</CustomObject>

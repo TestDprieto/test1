@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__ContractMgmtIndCmeRuntimePC</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__DocGenIndCmeRuntimeCC</name>
+    </customPermissions>
+    <description>Allows users to generate contract documents and manage contract lifecycles in Digital Experience Partner sites for CME Industries.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>ContractMgmtInd CME Digital Experience Partner User</label>
+</PermissionSet>

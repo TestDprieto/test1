@@ -47,7 +47,7 @@
 
     </script>
 
-    <apex:outputText value="{!vlocity_cmt__Application__c.ApplicationTemplateId__r.vlocity_cmt__HtmlBlob__c}" escape="false"/>
+    <apex:outputText value="{!JSENCODE(HTMLENCODE(vlocity_cmt__Application__c.ApplicationTemplateId__r.vlocity_cmt__HtmlBlob__c))}" escape="false"/>
     <apex:form >
         <apex:inputHidden value="{!vlocity_cmt__Application__c.vlocity_cmt__Content__c}" id="templateId"/>
     </apex:form>

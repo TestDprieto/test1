@@ -86,7 +86,7 @@
                 productid="{!$CurrentPage.parameters.id}"
                 namespaceprefix="{!NSP}"
                 sfinstanceurl="{!SalesForceInstanceURL}"
-                sessionid="{!$Api.Session_ID}"></vlocity-pc-fulfilment>
+                sessionid="{!vlocAccessToken}"></vlocity-pc-fulfilment>
             </apex:outputpanel>
             <noscript>
                 Please enable JavaScript to view Vlocity Product Designer.

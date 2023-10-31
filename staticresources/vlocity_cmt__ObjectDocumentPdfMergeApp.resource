@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -291,7 +305,8 @@ angular.module('ObjectDocumentPdfMergeApp').directive('filePreviewPdfTron', ['$t
                 //List the elements that need to hide/disable.
                 disabledElements: [
                     'toolsButton',
-                    'textPopup'
+                    'textPopup',
+                    'toolsHeader'
                 ], 
                 custom: JSON.stringify(webViewerCustomOptions),
                 l: atob(scope.$parent.$parent.pdfIntegrationConfig),
@@ -308,6 +323,7 @@ angular.module('ObjectDocumentPdfMergeApp').directive('filePreviewPdfTron', ['$t
                 instance.disableDownload(); // disable download feature
                 instance.disablePrint(); // disable print feature
                 instance.disableTools(); //disable the tools that are used for editing the document.
+				instance.disableElements(['searchButton','toolbarGroup-View','toolbarGroup-Annotate','toolbarGroup-Shapes','toolbarGroup-Insert','toolbarGroup-Edit','toggleNotesButton']);
                 wv.loadDocument(base64ToBlob(scope.$parent.$parent.generatedPDFContentVersion.VersionData), { officeOptions: { disableBrowserFontSubstitution: true } });
             });
 

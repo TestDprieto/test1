@@ -43,7 +43,7 @@
             var vlocCommunities = {
                 'sfInstanceUrl': '{!sfInstanceUrl}',
                 'nsPrefix': '{!nsPrefix}',
-                'accessToken': '{!$Api.Session_ID}',
+                'accessToken': '{!vlocAccessToken}',
                 'loggedUser': JSON.parse('{!JSENCODE(loggedUser)}'),
                 'staticResourceURL' : {
                     'communityHeader': '{!URLFOR($Resource.communityHeader)}',

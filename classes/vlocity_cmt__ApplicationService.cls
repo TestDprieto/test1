@@ -68,7 +68,18 @@ global class ApplicationService {
     global static String SubmitApp(String bpTree, String files) {
         return null;
     }
+    global static String compileOmniScript(String sId, String scriptState, Boolean bPreview, String multiLangCode) {
+        return null;
+    }
 global class ApplicationException extends Exception {
+}
+global class ApplicationServiceCallable implements System.Callable {
+    global ApplicationServiceCallable() {
+
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
+    }
 }
 global class Bitset {
     global Map<String,Integer> alphaNumCharCodes {

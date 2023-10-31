@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -321,6 +335,7 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
     $scope.showReconcileView = false;
     $scope.showDocumentView = false;
     $scope.docxSectionList =[];
+    $scope.contentVersionMap = {};
 
     var templateTypeCodeMap = {
         'Vlocity Web Template': 'Web',
@@ -450,10 +465,7 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                             $scope.documentSectionSize = $scope.versionLoadedData.documentSectionSize;
                             $scope.documentTemplateResource = $scope.versionLoadedData.documentTemplateResource;
                             $scope.documentMetadata = $scope.versionLoadedData.documentMetadata;
-                            // Check if ContentVersion is associated with template
-                            if (result.contentVersionMap && result.contentVersionMap.contentVersionId) {
-                                $scope.getGeneratedContentVersionDetails(result.contentVersionMap);
-                            }
+                            $scope.contentVersionMap = result.contentVersionMap;
                         }
                         $scope.showBatchableTemplate = true;
                         $scope.showWebTemplate = false;
@@ -462,31 +474,14 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                         $scope.showWebTemplate = true;
                         $scope.showBatchableTemplate = false;
 
-                        // Template sections
-                        $scope.versionData.sections = $scope.versionLoadedData.documentSectionObjs;
-                        // Check if ContentVersion is associated with template
-                        if (result.contentVersionMap && result.contentVersionMap.contentVersionId) {
-                            $scope.getGeneratedContentVersionDetails(result.contentVersionMap);
-                        }
-                        if ($scope.generatedContentVersion.Id) {
-                            $scope.isDocxDownloadReady = true;
-                            if (!$scope.generatedPDFContentVersion.Id && ($scope.isAttachmentTypePdf || $scope.showDownloadPdf)) {
-                                //override the pdfGeneration source using template level settings -- webTemplates.
-                                 $scope.resolveDocumentGenerationMethods().then(function() {
-                                    $scope.generatePDFDocument();
-                                 }).catch(function (error) {
-                                     console.error('### resolveDocumentGenerationMethods() error: ', error);
-                                     reject(error);
-                                 });
-                            } else {
-                                $scope.isPdfDownloadReady = true;
-                            }
-                        } else {
-                            $scope.generateDocumentsForWebTemplate().then(function () {
+                        console.log('### getGeneratedContentVersionDetailsCompleted one');
+                        $scope.$on('getGeneratedContentVersionDetailsCompleted', function () {
+                            console.log('### getGeneratedContentVersionDetailsCompleted one');
+                            if ($scope.generatedContentVersion.Id) {
                                 $scope.isDocxDownloadReady = true;
                                 if (!$scope.generatedPDFContentVersion.Id && ($scope.isAttachmentTypePdf || $scope.showDownloadPdf)) {
                                     //override the pdfGeneration source using template level settings -- webTemplates.
-                                    $scope.resolveDocumentGenerationMethods().then(function () {
+                                    $scope.resolveDocumentGenerationMethods().then(function() {
                                         $scope.generatePDFDocument();
                                     }).catch(function (error) {
                                         console.error('### resolveDocumentGenerationMethods() error: ', error);
@@ -495,20 +490,46 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                                 } else {
                                     $scope.isPdfDownloadReady = true;
                                 }
-                            });
-                        }
+                            } else {
+                                $scope.generateDocumentsForWebTemplate().then(function () {
+                                    $scope.isDocxDownloadReady = true;
+                                    if (!$scope.generatedPDFContentVersion.Id && ($scope.isAttachmentTypePdf || $scope.showDownloadPdf)) {
+                                        //override the pdfGeneration source using template level settings -- webTemplates.
+                                        $scope.resolveDocumentGenerationMethods().then(function () {
+                                            $scope.generatePDFDocument();
+                                        }).catch(function (error) {
+                                            console.error('### resolveDocumentGenerationMethods() error: ', error);
+                                            reject(error);
+                                        });
+                                    } else {
+                                        $scope.isPdfDownloadReady = true;
+                                    }
+                                });
+                            }
 
-                        // Instatiate ReconcileChanges Factory
-                        $scope.reconcileChanges = new ReconcileChanges($scope);
-                        if (window.location.search.indexOf('reconcile=true') > -1) {
-                            $scope.tabs.activeTab = 'Reconcile Changes';
-                            $scope.reconcileChanges.toggleView.label = $scope.labels.clmReconcileDocViewDoc;
-                            $scope.reconcileChanges.toggleView.icon = 'icon-v-view';
+                            // Instatiate ReconcileChanges Factory
+                            $scope.reconcileChanges = new ReconcileChanges($scope);
+                            if (window.location.search.indexOf('reconcile=true') > -1) {
+                                $scope.tabs.activeTab = 'Reconcile Changes';
+                                $scope.reconcileChanges.toggleView.label = $scope.labels.clmReconcileDocViewDoc;
+                                $scope.reconcileChanges.toggleView.icon = 'icon-v-view';
+                            } else {
+                                $scope.tabs.activeTab = 'Document View';
+                            }
+                            $scope.showDocXTemplate = false;
+                        });
+
+                        // Template sections
+                        $scope.versionData.sections = $scope.versionLoadedData.documentSectionObjs;
+                        // Check if ContentVersion is associated with template
+                        if (result.contentVersionMap && result.contentVersionMap.contentVersionId) {
+                            $scope.getGeneratedContentVersionDetails(result.contentVersionMap);
                         } else {
-                            $scope.tabs.activeTab = 'Document View';
+                            console.log('### getGeneratedContentVersionDetailsCompleted emit');
+                            $scope.$emit('getGeneratedContentVersionDetailsCompleted');
                         }
                     }
-                    $scope.showDocXTemplate = false;
+                    
                 } else if (cvTemplateType === 'Microsoft Word .DOCX Template' && $scope.isReconcileDoc === 'false') {
                     // DocX template
                     $scope.showDocXTemplate = true;
@@ -525,35 +546,48 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                         $scope.documentSectionData = $scope.normalizeSectionData($scope.versionLoadedData.documentSectionObjs);
                         if ($scope.documentSectionData && $scope.documentSectionData.length > 0) {
                             for (var i in $scope.documentSectionData) {
-                                $scope.docxSectionList += $scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'];
+                                if($scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'])
+                                    $scope.docxSectionList += $scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'];
                             }
                         }
                     }
+
+                    $scope.$on('getGeneratedContentVersionDetailsCompleted', function () {
+                        console.log('### getGeneratedContentVersionDetailsCompleted 2')
+
+                        if ($scope.generatedContentVersion.Id) {
+                            console.log('## if')
+                            $scope.isDocxDownloadReady = true;
+                            if (!$scope.generatedPDFContentVersion.Id && $scope.autoAttachDoc == "false") {
+                                onsole.log('## generate pdf')
+                                $scope.generatePDFDocument();
+                            } else {
+                                console.log('## isPdfDownloadReady true')
+                                $scope.isPdfDownloadReady = true;
+                                $scope.$apply();
+                            }
+                        } else {
+                            console.log('## else')
+                            $scope.generateContractDocumentDocXTemplate($scope.versionLoadedData.documentObj.Id, $scope.documentTemplateId);
+                        }
+                        // Instatiate ReconcileChanges Factory
+                        $scope.reconcileChanges = new ReconcileChanges($scope);
+                        if (window.location.search.indexOf('reconcile=true') > -1) {
+                            $scope.isReconciledView = true;
+                            $scope.showReconcileView = true;
+                            $scope.showViewTrackSections = false;
+                            $scope.showDocumentView = false;
+                        } 
+                    });
 
                     // Check if ContentVersion is associated with template
                     if (result.contentVersionMap && result.contentVersionMap.contentVersionId) {
                         $scope.getGeneratedContentVersionDetails(result.contentVersionMap);
                         $scope.generatedContentCheckedIn = result.contentVersionMap.contentCheckedIn || result.contentVersionMap.contentPDFCheckedIn;
-                    }
-                    if ($scope.generatedContentVersion.Id) {
-                        $scope.isDocxDownloadReady = true;
-                        if (!$scope.generatedPDFContentVersion.Id && $scope.autoAttachDoc == "false") {
-                            $scope.generatePDFDocument();
-                        } else {
-                            $scope.isPdfDownloadReady = true;
-                        }
                     } else {
-                        $scope.generateContractDocumentDocXTemplate($scope.versionLoadedData.documentObj.Id, $scope.documentTemplateId);
+                        $scope.$emit('getGeneratedContentVersionDetailsCompleted');
                     }
 
-                    // Instatiate ReconcileChanges Factory
-                    $scope.reconcileChanges = new ReconcileChanges($scope);
-                    if (window.location.search.indexOf('reconcile=true') > -1) {
-                        $scope.isReconciledView = true;
-                        $scope.showReconcileView = true;
-                        $scope.showViewTrackSections = false;
-                        $scope.showDocumentView = false;
-                    } 
                 } 
                 //On docx reconcilation, generate pdf document, if documentAttachmentType = 'pdf'.
                 else if (cvTemplateType === 'Microsoft Word .DOCX Template' && $scope.isReconcileDoc === 'true') {
@@ -708,121 +742,93 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
             console.log('### ', $scope.isBatchableTemplate);
             console.log('### ', $scope.batchJobStatus);
 
-            if ($scope.isBatchableTemplate && $scope.pdfGenerationSource.toLowerCase() === $scope.Salesforce) {
-                $scope.showDownloadPdf = false;
-            }
-
             if ($scope.isBatchableTemplate && $scope.batchJobStatus !== undefined && $scope.batchJobStatus === 'Finished') {
 
-                var isPdfGenerationNeeded = ($scope.pdfGenerationSource.toLowerCase() == $scope.VlocityClientSide  && 
-                        ($scope.isAttachmentTypePdf || $scope.showDownloadPdf));
+                $scope.$on('getGeneratedContentVersionDetailsCompleted', function () {
+                    console.log('### getGeneratedContentVersionDetailsCompleted one');
+                    var isPdfGenerationNeeded = $scope.isAttachmentTypePdf || $scope.showDownloadPdf;
 
-                if ($scope.generatedContentVersion && $scope.generatedContentVersion.Id) {
-                    console.log("### skipping document generation");
-
-                    $scope.isDocxDownloadReady = true;
-
-                    if (!isPdfGenerationNeeded) {
-                        console.log("### pdf generation not required");
-
-                        $scope.isBatchCheckinReady = true;
-                        $scope.isPdfDownloadReady = false;
-
-                        return;
-                    }
-                        
-                    if ($scope.generatedPDFContentVersion && $scope.generatedPDFContentVersion.Id) {
-                        console.log("### skipping pdf generation");
+                    if ($scope.generatedContentVersion && $scope.generatedContentVersion.Id) {
+                        console.log("### skipping document generation");
+                        $scope.isDocxDownloadReady = true;
+                        if (isPdfGenerationNeeded && !($scope.generatedPDFContentVersion && $scope.generatedPDFContentVersion.Id)) {
+                            console.log("### pdf generation not required");
     
-                        $scope.isBatchCheckinReady = true;
-                        $scope.isPdfDownloadReady = true;
-    
-                        return;
-                    } 
-    
-                } 
-
-                if ($scope.generatedContentVersion && $scope.generatedContentVersion.Id) {
-                    console.log("### unlinking docx")
-                    $scope.unlinkContentVersionFromContractVersion($scope.contractVersionId, $scope.generatedContentVersion.Id, $scope.contractDocumentCollectionId, false);
-                }
-            
-                if ($scope.generatedPDFContentVersion && $scope.generatedPDFContentVersion.Id) {
-                    console.log("### unlinking pdf")
-                    $scope.unlinkContentVersionFromContractVersion($scope.contractVersionId, $scope.generatedPDFContentVersion.Id, $scope.generatedPDFContentVersion.collectionId, false);
-                }
-                
-                $scope.vlcLoading = true;
-                $scope.generateFileForBatchableTemplate().then(function(wordContents, event) {
-                    console.log('done generating docx');
-
-                    // save docx to memory
-                    $scope.generatedContentVersion = {
-                        'Title': $scope.docName,
-                        'VersionData': wordContents
-                    }
-
-                    if ($scope.documentAttachmentType === 'Word') {
-                        $scope.isBatchCheckinReady = true;
-                    }
-
-                    $scope.isDocxDownloadReady = true;
-                    $scope.vlcLoading = false;
-                    
-                    return ($scope.generatedContentVersion);
-
-                }).then(function(contentVersion) {
-                    console.log("### saving docx as contentVersion");
-                    $scope.saveContent(contentVersion.Title + '.docx', contentVersion.VersionData).then(function(savedContentVersion) {
-                        return $scope.linkContentVersionToContractVersion(savedContentVersion.Id, 'Docx', null);
-                    });
-                }).then(function() {
-                    
-                    if ($scope.pdfGenerationSource.toLowerCase() == $scope.VlocityClientSide  && 
-                        ($scope.isAttachmentTypePdf || $scope.showDownloadPdf)) {
-                        console.log('converting docx to pdf');
-                        
-                         var inputMap= {
-                            "pdfIntegrationConfig" : $scope.pdfIntegrationConfig,
-                            "generatedContentVersion" : $scope.generatedContentVersion,
-                            "docName" : $scope.docName,
-                            "isDownload": false
-                        }
-
-                        console.log('pdfIntegrationConfig: ',  $scope.pdfIntegrationConfig);
-
-                        generatePDFTronDocument(inputMap).then(function(pdfContent){
-                            $scope.saveContent($scope.docName + '.pdf', pdfContent).then(function(savedContentVersion) {
-                                $scope.isPdfDownloadReady = true;
-                                $scope.isBatchCheckinReady = true;
-
-                                // save pdf to memory
-                                $scope.generatedPDFContentVersion = {
-                                    'Id': savedContentVersion['Id'],
-                                    'Title': savedContentVersion['Title'],
-                                    'VersionData': savedContentVersion['VersionData']
-                                };
-
-                                console.log("### saving pdf as contentVersion");
-                                console.log("### $scope.contractDocumentCollectionId: " + $scope.contractDocumentCollectionId);
-                                return $scope.linkContentVersionToContractVersion(savedContentVersion.Id, 'PDF', $scope.contractDocumentCollectionId);
+                            //override the pdfGeneration source using template level settings -- webTemplates.
+                            $scope.resolveDocumentGenerationMethods().then(function() {
+                                $scope.generatePDFDocument();
+                            }).catch(function (error) {
+                                console.error('### resolveDocumentGenerationMethods() error: ', error);
+                                reject(error);
                             });
-                        }, function(error) {
+                        } else {
+                            console.log("### skipping pdf generation");
+                            $scope.isBatchCheckinReady = true;
+                            $scope.isPdfDownloadReady = true;
+                        }
+        
+                    }  else {
+                        $scope.vlcLoading = true;
+                        //unlink if there is a pdf attached
+                        if ($scope.generatedPDFContentVersion && $scope.generatedPDFContentVersion.Id) {
+                            console.log("### unlinking pdf")
+                            $scope.unlinkContentVersionFromContractVersion($scope.contractVersionId, $scope.generatedPDFContentVersion.Id, $scope.generatedPDFContentVersion.collectionId, false);
+                        }
+                
+                        $scope.generateFileForBatchableTemplate().then(function(wordContents, event) {
+                            console.log('done generating docx');
+        
+                            // save docx to memory
+                            $scope.generatedContentVersion = {
+                                'Title': $scope.docName,
+                                'VersionData': wordContents
+                            }
+                            if ($scope.documentAttachmentType === 'Word') {
+                                $scope.isBatchCheckinReady = true;
+                            }
+                            $scope.isDocxDownloadReady = true;
                             $scope.vlcLoading = false;
-                            $scope.validationErrorHandler.throwError(error);
+                            return ($scope.generatedContentVersion);
+        
+                        }).then(function(contentVersion) {
+                            console.log("### saving docx as contentVersion");
+                            return new Promise(function(resolve, reject) {
+                                $scope.saveContent(contentVersion.Title + '.docx', contentVersion.VersionData).then(function(savedContentVersion) {
+                                    $scope.generatedContentVersion.Id = savedContentVersion.Id;
+                                    $scope.linkContentVersionToContractVersion(savedContentVersion.Id, 'Docx', null).then(function() {
+                                        resolve();
+                                    });
+                                });
+                            })
+                        }).then(function() {
+        
+                            if ($scope.isAttachmentTypePdf || $scope.showDownloadPdf) {
+                                //override the pdfGeneration source using template level settings -- webTemplates.
+                                $scope.resolveDocumentGenerationMethods().then(function() {
+                                    console.log('$scope.pdfGenerationSource:', $scope.pdfGenerationSource);
+                                    $scope.generatePDFDocument();
+                                }).catch(function (error) {
+                                    console.error('### resolveDocumentGenerationMethods() error: ', error);
+                                    reject(error);
+                                });
+                            }
+                            else {
+                                console.log("### pdf generation not required");
+                                $scope.isBatchCheckinReady = true;
+                            }
+                        }).finally(function() {
+                            console.log('completed processing batchable template...');
                         });
-                    } 
-                    else {
-
-                        console.log("### pdf generation not required");
-                        
-                        $scope.isBatchCheckinReady = true;
                     }
-
-                }).finally(function() {
-                    console.log('completed processing batchable template...');
                 });
-                            
+                // Check if ContentVersion is associated with template
+                if ($scope.contentVersionMap && $scope.contentVersionMap.contentVersionId) {
+                    $scope.getGeneratedContentVersionDetails($scope.contentVersionMap);
+                } else {
+                    console.log('### getGeneratedContentVersionDetailsCompleted emit');
+                    $scope.$emit('getGeneratedContentVersionDetailsCompleted');
+                }  
+     
             }
         });
     };
@@ -919,23 +925,53 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
     };
 
     $scope.getGeneratedContentVersionDetails = function (contentDetails) {
-        $scope.generatedContentVersion = {
-            'Id': contentDetails.contentVersionId,
-            'Title': contentDetails.contentDocumentTitle,
-            'VersionData': contentDetails.contractDocumentVersionData
-        };
-        $scope.isWordCheckinReady = true;
-        $scope.contractDocumentCollectionId = contentDetails.contractDocumentCollectionId;
-        if (contentDetails && contentDetails.generatedPDFContentVersionId) {
-            console.log('### pdf contentVersion already available')
-            $scope.generatedPDFContentVersion = {
-                'Id': contentDetails.generatedPDFContentVersionId,
-                'collectionId': contentDetails.contractPDFDocumentCollectionId,
-                'contentPDFCheckedIn': contentDetails.contentPDFCheckedIn,
-                'Title': contentDetails.contentPDFDocumentTitle,
-                'parentDocumentId': contentDetails.parentDocumentId
+        console.log('### getGeneratedContentVersionDetails');
+        var promise = new Promise(function(resolve, reject) {
+            if (!contentDetails.contractDocumentVersionData) {
+                console.log('### sforce');
+                sforce.connection.sessionId = window.sessionId;
+                var queryString = 'Select Id, Title, VersionData FROM ContentVersion where Id = \'' + contentDetails.contentVersionId + '\'';
+                sforce.connection.query(queryString, {
+                    onSuccess: function(result) {
+                        contentDetails.contractDocumentVersionData = result.records.VersionData;
+                        resolve();
+                    },
+                    onFailure: function(result) {
+                        var errorMsg = result.faultstring;
+                        reject(errorMsg);
+                    }
+                });
+            } else {
+                console.log('### resolve');
+                resolve();
             }
-        }
+        })
+
+        promise.then(function() {
+            $scope.generatedContentVersion = {
+                'Id': contentDetails.contentVersionId,
+                'Title': contentDetails.contentDocumentTitle,
+                'VersionData': contentDetails.contractDocumentVersionData
+            };
+            $scope.isWordCheckinReady = true;
+            $scope.contractDocumentCollectionId = contentDetails.contractDocumentCollectionId;
+            if (contentDetails && contentDetails.generatedPDFContentVersionId) {
+                console.log('### pdf contentVersion already available')
+                $scope.generatedPDFContentVersion = {
+                    'Id': contentDetails.generatedPDFContentVersionId,
+                    'collectionId': contentDetails.contractPDFDocumentCollectionId,
+                    'contentPDFCheckedIn': contentDetails.contentPDFCheckedIn,
+                    'Title': contentDetails.contentPDFDocumentTitle,
+                    'parentDocumentId': contentDetails.parentDocumentId
+                }
+            }
+            console.log('### $scope.generatedContentVersion', $scope.generatedContentVersion);
+            console.log('### $scope.generatedPDFContentVersion', $scope.generatedPDFContentVersion);
+            console.log('### emit');
+            $scope.$emit('getGeneratedContentVersionDetailsCompleted');
+        }).catch(function(error) {
+            console.error(error);
+        });
     }
 
     $scope.removeTemplate = function() {
@@ -1052,10 +1088,15 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
     }
 
     $scope.setFlags = function () {
-        if ($scope.templateType === 'Vlocity Web Template') {
+        if ($scope.templateType === 'Vlocity Web Template' && !$scope.isBatchableTemplate) {
             $scope.showDocXTemplate = false;
             $scope.showWebTemplate = true;
             $scope.showBatchableTemplate = false;
+        } else if($scope.templateType === 'Vlocity Web Template' && $scope.isBatchableTemplate) {
+            $scope.showDocXTemplate = false;
+            $scope.showWebTemplate = false;
+            $scope.showBatchableTemplate = true;
+            $scope.isBatchCheckinReady = true;
         } else {
             $scope.showDocXTemplate = true;
             $scope.showWebTemplate = false;
@@ -1149,7 +1190,8 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                     $scope.isWordCheckinReady = true;
                     if ($scope.documentSectionData && $scope.documentSectionData.length > 0) {
                         for (var i in $scope.documentSectionData) {
-                            $scope.docxSectionList += $scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'];
+                            if($scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'])
+                                $scope.docxSectionList += $scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'];
                         }
                     }
                     console.log('###isWordCheckinReady###',$scope.isWordCheckinReady);
@@ -1181,7 +1223,8 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                 $scope.documentSectionData = result;
                 if ($scope.documentSectionData && $scope.documentSectionData.length > 0) {
                     for (var i in $scope.documentSectionData) {
-                        $scope.docxSectionList += $scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'];
+                        if($scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'])
+                            $scope.docxSectionList += $scope.documentSectionData[i][$scope.nameSpacePrefix + 'SectionContent__c'];
                     }
                 }
                 if(fileContentData !== undefined){
@@ -1420,65 +1463,35 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
         return new Promise(function(resolve, reject) {
             $scope.resolveDocumentGenerationMethods()
                 .then(function() {
-                    if (isDocGenerationViaCloud()) {
-                        let inputMap = {
-                            templateId: $scope.documentTemplateId, 
-                            objectId : $scope.sourceId,
-                            docName: $scope.docName,
-                            jsonContent: JSON.stringify(docXTokenData)
-                        };
-                        $scope.isWordCheckinReady = true;
-                        $scope.generateDocViaCloud(inputMap)
-                            .then(function(response) {
-                                $scope.generatedContentVersion = {
-                                    'Id': response['contentVersionId'],
-                                    'Title': response['title'],
-                                    'VersionData': response['base64Content']
-                                }
-                                return $scope.linkContentVersionToContractVersion(response['contentVersionId'],'Docx',null);
-                            })
-                            .then(function(response) {
-                                return $scope.generatePDFDocument();
-                            })
-                            .then(function(response) {
-                                $scope.$emit('generatePDFDocumentComplete');
-                            })
-                            .catch(function(error) {
-                                console.error('error: ', error);
-                                $scope.vlcLoading = false;
-                                reject(error);
-                            });
-                    } else {
-                        $scope.generateDocViaClientSide(fileContentData, docXTokenData)
-                            .then(function(data) {
-                                if($scope.autoAttachDoc != "true" && $scope.isNewDocWithSectionsNeeded){
-                                    $scope.isWordCheckinReady = false;
-                                    return $scope.createDocxContractSections(data.fileContent)
-                                    .then(function(){
-                                        return $scope.saveGeneratedDocXFile(data.fileName, data.fileContent);
-                                    });
-                                }
-                                else if($scope.autoAttachDoc == "true" && $scope.isNewDocWithSectionsNeeded){
-                                    return $scope.createAutoDocxContractSections(data.fileContent)
-                                    .then(function(result){
-                                        $scope.isWordCheckinReady = true;
-                                        return $scope.saveGeneratedDocXFile(data.fileName, result.fileContent);
-                                    });
-                                }
-                                else{
-                                    $scope.isWordCheckinReady = true;
+                    $scope.generateDocViaClientSide(fileContentData, docXTokenData)
+                        .then(function(data) {
+                            if($scope.autoAttachDoc != "true" && $scope.isNewDocWithSectionsNeeded){
+                                $scope.isWordCheckinReady = false;
+                                return $scope.createDocxContractSections(data.fileContent)
+                                .then(function(){
                                     return $scope.saveGeneratedDocXFile(data.fileName, data.fileContent);
-                                }
-                            }).then(function(generatedContentVersionId) {
-                                return $scope.linkContentVersionToContractVersion(generatedContentVersionId,'Docx',null);
-                            }).then(function() {
-                                resolve();
-                            }).catch(function(error) {
-                                console.error('error: ', error);
-                                $scope.vlcLoading = false;
-                                reject(error);
-                            });
-                    }
+                                });
+                            }
+                            else if($scope.autoAttachDoc == "true" && $scope.isNewDocWithSectionsNeeded){
+                                return $scope.createAutoDocxContractSections(data.fileContent)
+                                .then(function(result){
+                                    $scope.isWordCheckinReady = true;
+                                    return $scope.saveGeneratedDocXFile(data.fileName, result.fileContent);
+                                });
+                            }
+                            else{
+                                $scope.isWordCheckinReady = true;
+                                return $scope.saveGeneratedDocXFile(data.fileName, data.fileContent);
+                            }
+                        }).then(function(generatedContentVersionId) {
+                            return $scope.linkContentVersionToContractVersion(generatedContentVersionId,'Docx',null);
+                        }).then(function() {
+                            resolve();
+                        }).catch(function(error) {
+                            console.error('error: ', error);
+                            $scope.vlcLoading = false;
+                            reject(error);
+                        });
                 })
                 .catch(function(error) {
                     console.error('### generateDocXFromTokenData() error: ', error);
@@ -1486,38 +1499,6 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                 });
         });
     }
-
-     /**
-     * 
-     */
-    $scope.generateDocViaCloud = function(inputMap) {
-        return new Promise(function(resolve, reject) {
-            remoteActions.remoteGenerateDoc(inputMap)
-                .then(function(response) {
-                    if (response['success']) {
-                        console.log('### generateDocViaCloud() response: ', response);
-                        console.log('### server side doc generation completed...');
-                        resolve({
-                            // TODO: save doc and link in salesforce side
-                            //'fileName': response['filename'], 
-                            'contentVersionId': response['contentVersionId'],
-                            'fileName': $scope.docName + '.docx',
-                            'fileContent': response['base64Content']}
-                        );
-                    } else {
-                        throw response;
-                    }
-                })
-                .catch(function(error) {
-                    console.error('### remoteGenerateDoc() error: ', error);
-                    reject(error);
-
-                    $scope.validationErrorHandler.throwError(error);
-                    $scope.vlcLoading = false;
-                });
-        });
-    }
-
 
     $scope.generateDocViaClientSide = function(fileContentData, docXTokenData) {
         var deferred = $q.defer();
@@ -2083,13 +2064,34 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
     $scope.createAttachmentForBatchableTemplate = function() {
 
         var savePdf = function() {
-            return $scope.saveAttachment(
-                    $scope.generatedPDFContentVersion.Title,
-                    $scope.generatedPDFContentVersion.VersionData,
-                    'application/pdf', 
-                    $scope.parentId
-                );
+            return new Promise(function(resolve, reject) {
+                if (!$scope.generatedPDFContentVersion.VersionData) {
+                    sforce.connection.sessionId = window.sessionId;
+                    var queryString = 'Select VersionData FROM ContentVersion where Id = \'' + $scope.generatedPDFContentVersion.Id + '\'';
+                    sforce.connection.query(queryString, {
+                        onSuccess: function(result) {
+                            $scope.generatedPDFContentVersion.VersionData = result.records.VersionData;
+                            resolve(doSavePdf());
+                        },
+                        onFailure: function(result) {
+                            var errorMsg = result.faultstring;
+                            reject(errorMsg);
+                        }
+                    });
+                } else {
+                    resolve(doSavePdf());
+                }
+            });
         };
+
+        var doSavePdf = function() {
+            return $scope.saveAttachment(
+                $scope.generatedPDFContentVersion.Title,
+                $scope.generatedPDFContentVersion.VersionData,
+                'application/pdf', 
+                $scope.parentId
+            );
+        }
 
         var saveDocx = function() {
             return $scope.saveAttachment(
@@ -2101,7 +2103,6 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
         };
 
         if ($scope.documentAttachmentType.toLowerCase() != 'none') {
-            if ($scope.pdfGenerationSource.toLowerCase() == $scope.VlocityClientSide ) {
                 var documentAttachmentType = $scope.documentAttachmentType.toLowerCase();
                 if (documentAttachmentType === 'word,pdf' || documentAttachmentType === 'pdf,word') {
                     saveDocx().then(function() {
@@ -2124,12 +2125,6 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
                 } else {
                     $scope.checkInDocForWebTemplate(true);
                 }
-            } else {
-                saveDocx().then(function(response) {
-                    console.log('done saving docx attachment...');
-                    $scope.checkInDocForWebTemplate(true);
-                });
-            }
         } else {
             $scope.checkInDocForWebTemplate(true);
         }
@@ -2172,6 +2167,7 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
             console.error('Error in the document template resource: ', $scope.documentTemplateResource.errorString);
         } else {
             var zip = new JSZip($scope.documentTemplateResource, {base64: true});
+            parseContentTypes(zip); // parse the document content to convert all jpeg/jpg images to png
             var contentDataMap = $scope.documentMetadata.contentDataMap;
             var imageDataMap = $scope.documentMetadata.imageDataMap;
             for (var i = 0; i < imageDataMap.numImages; i++) {
@@ -2437,7 +2433,6 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
             $scope.validationErrorHandler.throwError(error);
         });
     };
-    //same as batch download --Naga--- Jojo
     $scope.downloadGeneratedFile = function(downloadPdf) {
         if (downloadPdf) {
             // pdf
@@ -2534,9 +2529,7 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
             'sourceFileName': $scope.docName
         };
         remoteActions.generatePdf(input).then(function(generatedPDFContentVersionId) {
-            //$scope.generatedPDFContentVersion.Id = response['contentVersionId'];
-            //$scope.linkContentVersionToContractVersion(response['contentVersionId'],'PDF',$scope.contractDocumentCollectionId)
-            console.log('### generatePdf() resgeneratedPDFContentVersionIdponse: ', generatedPDFContentVersionId);
+            console.log('### generatePdf() generatedPDFContentVersionId response: ', generatedPDFContentVersionId);
             $scope.$emit('SalesforcePdfGenerationCompelete', { 
                 'Id': generatedPDFContentVersionId
             });
@@ -2632,11 +2625,7 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
      * 
      */
     $scope.getResolvedDocGenerationMethod = function() {
-        if (isDocGenerationViaCloud()) {
-            return $scope.generateDocViaCloud;              
-        } else {
-            return $scope.generateDocViaClientSide;
-        }
+        return $scope.generateDocViaClientSide;
     };
 
     /**
@@ -2809,13 +2798,6 @@ angular.module('contractDocumentCreationApp').controller('contractDocumentCreati
     /**
      * 
      */
-    function isDocGenerationViaCloud() {
-        return  ($scope.docGenerationMechanism.toLowerCase() === $scope.VlocityCloud)
-    }
-
-    /**
-     * 
-     */
     function isDocGenerationViaClientSide() {
         return  ($scope.docGenerationMechanism.toLowerCase() === $scope.VlocityClientSide)
     }
@@ -2871,7 +2853,8 @@ angular.module('contractDocumentCreationApp').directive('filePreviewPdfTron', ['
                 //List the elements that need to hide/disable.
                 disabledElements: [
                     'toolsButton',
-                    'textPopup'
+                    'textPopup',
+                    'toolsHeader'
                 ],
                 custom: JSON.stringify(webViewerCustomOptions),
                 l: atob(scope.$parent.$parent.$parent.pdfIntegrationConfig),
@@ -2889,6 +2872,7 @@ angular.module('contractDocumentCreationApp').directive('filePreviewPdfTron', ['
                 instance.disableDownload(); // disable download feature
                 instance.disablePrint(); // disable print feature
                 instance.disableTools(); //disable the tools that are used for editing the document.
+				instance.disableElements(['searchButton','toolbarGroup-View','toolbarGroup-Annotate','toolbarGroup-Shapes','toolbarGroup-Insert','toolbarGroup-Edit','toggleNotesButton']);
                 var versionData = scope.$parent.contentVersion.VersionData;
                 if(versionData) {
                     wv.loadDocument(base64ToBlob(versionData),{ filename: 'myfile.docx' , officeOptions: { disableBrowserFontSubstitution: true } });

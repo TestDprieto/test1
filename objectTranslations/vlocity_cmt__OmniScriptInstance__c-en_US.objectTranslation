@@ -13,6 +13,18 @@
         <name>vlocity_cmt__LastSaved__c</name>
     </fields>
     <fields>
+        <label><!-- Custom Status --></label>
+        <name>vlocity_cmt__NewStatus__c</name>
+        <picklistValues>
+            <masterLabel>Agent Supported</masterLabel>
+            <translation><!-- Agent Supported --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Retail Channel</masterLabel>
+            <translation><!-- Retail Channel --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Object Id --></label>
         <name>vlocity_cmt__ObjectId__c</name>
     </fields>

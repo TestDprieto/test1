@@ -5,9 +5,12 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class IntegCustomFunctionImplementation implements vlocity_cmt.VlocityOpenInterface {
+global class IntegCustomFunctionImplementation implements System.Callable, vlocity_cmt.VlocityOpenInterface {
     global IntegCustomFunctionImplementation() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global Boolean invokeMethod(String methodName, Map<String,Object> inputMap, Map<String,Object> outputMap, Map<String,Object> options) {
         return null;

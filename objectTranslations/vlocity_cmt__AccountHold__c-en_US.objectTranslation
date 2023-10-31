@@ -6,6 +6,16 @@
         <relationshipLabel><!-- Account Holds --></relationshipLabel>
     </fields>
     <fields>
+        <label><!-- Asset --></label>
+        <name>vlocity_cmt__AssetId__c</name>
+        <relationshipLabel><!-- Account Holds --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Collections Activity --></label>
+        <name>vlocity_cmt__DunningId__c</name>
+        <relationshipLabel><!-- Account Holds --></relationshipLabel>
+    </fields>
+    <fields>
         <label><!-- Hold To --></label>
         <name>vlocity_cmt__HoldEndDate__c</name>
     </fields>
@@ -24,5 +34,55 @@
             <masterLabel>Collections</masterLabel>
             <translation><!-- Collections --></translation>
         </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>vlocity_cmt__OrderId__c</name>
+        <relationshipLabel><!-- Account Holds --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Hold Reason Comments --></label>
+        <name>vlocity_cmt__ReasonComments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hold Reason --></label>
+        <name>vlocity_cmt__Reason__c</name>
+        <picklistValues>
+            <masterLabel>Billing Dispute</masterLabel>
+            <translation><!-- Billing Dispute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collections</masterLabel>
+            <translation><!-- Collections --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fraud Detected</masterLabel>
+            <translation><!-- Fraud Detected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fraud Reported</masterLabel>
+            <translation><!-- Fraud Reported --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MSISDN Recycling</masterLabel>
+            <translation><!-- MSISDN Recycling --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Out of Country</masterLabel>
+            <translation><!-- Out of Country --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Port Out In Process</masterLabel>
+            <translation><!-- Port Out In Process --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SIM Lost or Stolen</masterLabel>
+            <translation><!-- SIM Lost or Stolen --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Subscription --></label>
+        <name>vlocity_cmt__SubscriptionId__c</name>
+        <relationshipLabel><!-- Account Holds --></relationshipLabel>
     </fields>
 </CustomObjectTranslation>

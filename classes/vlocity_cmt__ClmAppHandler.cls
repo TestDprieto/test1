@@ -5,9 +5,12 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class ClmAppHandler implements vlocity_cmt.VlocityOpenInterface2 {
+global class ClmAppHandler implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global ClmAppHandler() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global static Boolean generatePDFConentSalesforce(Map<String,Object> inputs, Map<String,Object> output, Map<String,Object> options) {
         return null;

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Action Link --></label>
+        <name>vlocity_cmt__ActionLink__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dismissed --></label>
+        <name>vlocity_cmt__DismissedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expires --></label>
+        <name>vlocity_cmt__ExpiresDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Identifier --></label>
+        <name>vlocity_cmt__Identifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>vlocity_cmt__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>vlocity_cmt__NotificationType__c</name>
+        <picklistValues>
+            <masterLabel>ASSISTIVE_NOTIFICATION</masterLabel>
+            <translation><!-- ASSISTIVE_NOTIFICATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ERROR_MESSAGE</masterLabel>
+            <translation><!-- ERROR_MESSAGE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WARNING_MESSAGE</masterLabel>
+            <translation><!-- WARNING_MESSAGE --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Read --></label>
+        <name>vlocity_cmt__ReadDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent --></label>
+        <name>vlocity_cmt__SentDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sent To --></label>
+        <name>vlocity_cmt__SentToUserId__c</name>
+        <relationshipLabel><!-- Notifications --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

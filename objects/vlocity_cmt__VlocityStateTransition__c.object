@@ -159,6 +159,7 @@
         <fullName>vlocity_cmt__Alternate__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>This is a state to which an object transitions if the state transition criteria are not met and the primary state transition is unsuccessful.</description>
         <externalId>false</externalId>
         <label>Alternate</label>
         <referenceTo>vlocity_cmt__VlocityState__c</referenceTo>

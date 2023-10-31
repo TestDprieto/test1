@@ -85,6 +85,20 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>PreviewProductAction</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>PreviewProductAction</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>PreviewProductAction</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>SaveEdit</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -340,6 +354,26 @@
         </displayedFields>
         <label>Product Structure</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>vlocity_cmt__VersionAwareCatalogFieldSet</fullName>
+        <description>Version Aware Catalog Service Fieldset</description>
+        <displayedFields>
+            <field>Id</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ProductCode</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>VersionAwareCatalog FieldSet</label>
+    </fieldSets>
     <fields>
         <fullName>CanUseQuantitySchedule</fullName>
         <trackHistory>false</trackHistory>
@@ -468,6 +502,18 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__AttributesMarkupConfig__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Fulfillment Behavior</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Fulfillment Behavior</inlineHelpText>
+        <label>Fulfillment Behavior</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__CategoryData__c</fullName>
         <deprecated>false</deprecated>
         <description>Data about the Catalogs/Categories that this product belongs to, stored in JSON format.</description>
@@ -562,6 +608,7 @@
     <fields>
         <fullName>vlocity_cmt__GlobalGroupKey__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents a common identifier shared by different versions of the same Product.</description>
         <externalId>false</externalId>
         <label>Version Group Key</label>
         <length>255</length>
@@ -621,6 +668,16 @@
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Configurable</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsCustomerSubscription__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates that each asset instance of this product should be considered a distinct customer subscription. Customer subscriptions are intended to be tracked as a materialized record in the Subscription object.</description>
+        <externalId>false</externalId>
+        <label>Is Customer Subscription</label>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
@@ -719,6 +776,7 @@
     <fields>
         <fullName>vlocity_cmt__LifecycleStatus__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents the Lifecycle status of the Product. The Draft and Released status are the initial and final lifecycle status of the entity.</description>
         <externalId>false</externalId>
         <label>Lifecycle Status</label>
         <required>false</required>
@@ -744,6 +802,63 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MainFeatureQuantityUom__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Products main or primary feature unit of measure such as GB or minutes</description>
+        <externalId>false</externalId>
+        <label>Main Feature Unit of Measure</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>GB</fullName>
+                    <default>false</default>
+                    <label>GB</label>
+                </value>
+                <value>
+                    <fullName>Currency</fullName>
+                    <default>false</default>
+                    <label>Currency</label>
+                </value>
+                <value>
+                    <fullName>Minute</fullName>
+                    <default>false</default>
+                    <label>Minute</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MainFeatureQuantity__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Quantity of product main or primary feature e.g. 100 minutes or 64 GB</description>
+        <externalId>false</externalId>
+        <label>Main Feature Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MainFeatureTermInDays__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of days this product is active for use from date of purchase for i.e. 30GB for 30 days</description>
+        <externalId>false</externalId>
+        <label>Main Feature Term in Days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Modification__c</fullName>
@@ -1074,7 +1189,7 @@
     <fields>
         <fullName>vlocity_cmt__Type__c</fullName>
         <deprecated>false</deprecated>
-        <description>Product Type can be used to drive eligibility/compatibility/recommendations/other implementations</description>
+        <description>Product Type can be used to drive eligibility/compatibility/recommendations/other implementations.</description>
         <externalId>false</externalId>
         <label>Type</label>
         <required>false</required>
@@ -1118,6 +1233,7 @@
     <fields>
         <fullName>vlocity_cmt__VersionEndDateTime__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents end date time of a product version. Version end date must be within the bounds of Selling Start date and Retirement date time.</description>
         <externalId>false</externalId>
         <label>Version End Date</label>
         <required>false</required>
@@ -1127,6 +1243,7 @@
     <fields>
         <fullName>vlocity_cmt__VersionLabel__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents user-friendly label for the versioned Product</description>
         <externalId>false</externalId>
         <label>Version Label</label>
         <length>255</length>
@@ -1138,6 +1255,7 @@
     <fields>
         <fullName>vlocity_cmt__VersionStartDateTime__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents start date time of a product version. Version start date must be within the bounds of Selling Start date and Retirement date time.</description>
         <externalId>false</externalId>
         <label>Version Start Date</label>
         <required>false</required>
@@ -1148,6 +1266,43 @@
         <fullName>AllProducts</fullName>
         <filterScope>Everything</filterScope>
         <label>All Products</label>
+    </listViews>
+    <listViews>
+        <fullName>vlocity_cmt__AllProducts</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All Products</label>
+    </listViews>
+    <listViews>
+        <fullName>vlocity_cmt__ProductTemplates</fullName>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.RECORD_TYPE</columns>
+        <columns>PRODUCT2.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PRODUCT2.RECORD_TYPE</field>
+            <operation>equals</operation>
+            <value>Product2.vlocity_cmt__ProductTemplate</value>
+        </filters>
+        <label>Product Templates</label>
+    </listViews>
+    <listViews>
+        <fullName>vlocity_cmt__Products</fullName>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <columns>PRODUCT2.NAME</columns>
+        <columns>PRODUCT2.RECORD_TYPE</columns>
+        <columns>PRODUCT2.CUSTOMER_PRODUCT_ID</columns>
+        <columns>PRODUCT2.DESCRIPTION</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>PRODUCT2.RECORD_TYPE</field>
+            <operation>equals</operation>
+            <value>Product2.vlocity_cmt__Product</value>
+        </filters>
+        <filters>
+            <field>PRODUCT2.RECORD_TYPE</field>
+            <operation>equals</operation>
+        </filters>
+        <label>Products</label>
     </listViews>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
@@ -1166,6 +1321,21 @@
             <picklist>vlocity_cmt__LifecycleStatus__c</picklist>
             <values>
                 <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__MainFeatureQuantityUom__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minute</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1268,6 +1438,21 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>vlocity_cmt__MainFeatureQuantityUom__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minute</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__Scope__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -1362,6 +1547,21 @@
             <picklist>vlocity_cmt__LifecycleStatus__c</picklist>
             <values>
                 <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__MainFeatureQuantityUom__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minute</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1479,6 +1679,21 @@
             <picklist>vlocity_cmt__LifecycleStatus__c</picklist>
             <values>
                 <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__MainFeatureQuantityUom__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GB</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Minute</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1629,6 +1844,13 @@
         <errorConditionFormula>vlocity_cmt__SellingStartDate__c  &gt;  vlocity_cmt__SellingEndDate__c</errorConditionFormula>
         <errorDisplayField>vlocity_cmt__SellingEndDate__c</errorDisplayField>
         <errorMessage>Selling End Date should be greater than or equal to Selling Start Date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__VersionStartDate_Greater_VersionEndDate</fullName>
+        <active>true</active>
+        <errorConditionFormula>vlocity_cmt__VersionStartDateTime__c  &gt;  vlocity_cmt__VersionEndDateTime__c</errorConditionFormula>
+        <errorDisplayField>vlocity_cmt__VersionEndDateTime__c</errorDisplayField>
+        <errorMessage>Version End Date should be greater than or equal to Version Start Date.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>vlocity_cmt__Clone_Product</fullName>

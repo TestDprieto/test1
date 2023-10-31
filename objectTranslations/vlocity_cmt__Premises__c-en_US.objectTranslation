@@ -46,6 +46,26 @@
         <name>vlocity_cmt__Country__c</name>
     </fields>
     <fields>
+        <label><!-- Distribution Area --></label>
+        <name>vlocity_cmt__DistributionArea__c</name>
+        <picklistValues>
+            <masterLabel>Armagh</masterLabel>
+            <translation><!-- Armagh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chichester</masterLabel>
+            <translation><!-- Chichester --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Derby</masterLabel>
+            <translation><!-- Derby --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Salisbury</masterLabel>
+            <translation><!-- Salisbury --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Floor --></label>
         <name>vlocity_cmt__Floor__c</name>
     </fields>

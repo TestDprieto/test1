@@ -81,48 +81,48 @@
                 }
             }
             window.docNewUrl = '{!newUrl}';
-            window.sessionId = '{!$Api.Session_ID}';
+            window.sessionId = '{!vlocAccessToken}';
 
             /* Labels */
             window.i18n = {
-                "SldsObjectHomeHeaderInfo": "{!$Label.vlocity_cmt__sldsobjecthomeheaderinfo}",
-                "RefreshData": "{!$Label.vlocity_cmt__refreshdata}",
-                "Export": "{!$Label.vlocity_cmt__export}",
-                "New": "{!$Label.vlocity_cmt__new}",
-                "FilterList": "{!$Label.vlocity_cmt__filterlist}",
-                "Import": "{!$Label.vlocity_cmt__import}",
-                "AdditionalActions": "{!$Label.vlocity_cmt__additionalactions}",
-                "Delete": "{!$Label.vlocity_cmt__delete}",
-                "Preview": "{!$Label.vlocity_cmt__preview}",
-                "LastModified": "{!$Label.vlocity_cmt__lastmodified}",
-                "Name": "{!$Label.vlocity_cmt__name}",
-                "ModifiedOnBy": "{!$Label.vlocity_cmt__modifiedonby}",
-                "DeleteLayout": "{!$Label.vlocity_cmt__deletelayout}",
-                "InstallDataPack": "{!$Label.vlocity_cmt__installdatapack}",
-                "DeleteLayoutConfirmation": "{!$Label.vlocity_cmt__deletelayoutconfirmation}",
-                "Filters": "{!$Label.vlocity_cmt__filters}",
-                "HideFilter": "{!$Label.vlocity_cmt__hidefilter}",
-                "Cancel": "{!$Label.vlocity_cmt__cancel}",
-                "Save": "{!$Label.vlocity_cmt__save}",
-                "ShowMe": "{!$Label.vlocity_cmt__showme}",
-                "MatchingAllOfTheseFilters": "{!$Label.vlocity_cmt__matchingallofthesefilters}",
-                "Remove": "{!$Label.vlocity_cmt__remove}",
-                "NewFilter": "{!$Label.vlocity_cmt__newfilter}",
-                "AddFilter": "{!$Label.vlocity_cmt__addfilter}",
-                "RemoveAll": "{!$Label.vlocity_cmt__removeall}",
-                "Field": "{!$Label.vlocity_cmt__field}",
-                "Operator": "{!$Label.vlocity_cmt__operator}",
-                "Value": "{!$Label.vlocity_cmt__value}",
-                "Done": "{!$Label.vlocity_cmt__done}",
-                "AllType": "{!$Label.vlocity_cmt__alltype}",
-                "MyType": "{!$Label.vlocity_cmt__mytype}"
+                "SldsObjectHomeHeaderInfo": "{!$Label.vlocity_cmt__SldsObjectHomeHeaderInfo}",
+                "RefreshData": "{!$Label.vlocity_cmt__RefreshData}",
+                "Export": "{!$Label.vlocity_cmt__Export}",
+                "New": "{!$Label.vlocity_cmt__New}",
+                "FilterList": "{!$Label.vlocity_cmt__FilterList}",
+                "Import": "{!$Label.vlocity_cmt__Import}",
+                "AdditionalActions": "{!$Label.vlocity_cmt__AdditionalActions}",
+                "Delete": "{!$Label.vlocity_cmt__Delete}",
+                "Preview": "{!$Label.vlocity_cmt__Preview}",
+                "LastModified": "{!$Label.vlocity_cmt__LastModified}",
+                "Name": "{!$Label.vlocity_cmt__Name}",
+                "ModifiedOnBy": "{!$Label.vlocity_cmt__ModifiedOnBy}",
+                "DeleteLayout": "{!$Label.vlocity_cmt__DeleteLayout}",
+                "InstallDataPack": "{!$Label.vlocity_cmt__InstallDataPack}",
+                "DeleteLayoutConfirmation": "{!$Label.vlocity_cmt__DeleteLayoutConfirmation}",
+                "Filters": "{!$Label.vlocity_cmt__Filters}",
+                "HideFilter": "{!$Label.vlocity_cmt__HideFilter}",
+                "Cancel": "{!$Label.vlocity_cmt__Cancel}",
+                "Save": "{!$Label.vlocity_cmt__Save}",
+                "ShowMe": "{!$Label.vlocity_cmt__ShowMe}",
+                "MatchingAllOfTheseFilters": "{!$Label.vlocity_cmt__MatchingAllOfTheseFilters}",
+                "Remove": "{!$Label.vlocity_cmt__Remove}",
+                "NewFilter": "{!$Label.vlocity_cmt__NewFilter}",
+                "AddFilter": "{!$Label.vlocity_cmt__AddFilter}",
+                "RemoveAll": "{!$Label.vlocity_cmt__RemoveAll}",
+                "Field": "{!$Label.vlocity_cmt__Field}",
+                "Operator": "{!$Label.vlocity_cmt__Operator}",
+                "Value": "{!$Label.vlocity_cmt__Value}",
+                "Done": "{!$Label.vlocity_cmt__Done}",
+                "AllType": "{!$Label.vlocity_cmt__AllType}",
+                "MyType": "{!$Label.vlocity_cmt__MyType}"
             };
             var labels = {
-                'CLMTermDelete': '{!$Label.vlocity_cmt__clmtermdelete}',
-                'CLMTermAreYouSureDelete': '{!$Label.vlocity_cmt__clmtermareyousuredelete}',
-                'CLMTermActionNotUndone': '{!$Label.vlocity_cmt__clmtermactionnotundone}',
-                'CLMTermCancel': '{!$Label.vlocity_cmt__clmtermcancel}',
-                'CLMContractDeleteTermLabel': '{!$Label.vlocity_cmt__clmcontractdeletetermlabel}'
+                'CLMTermDelete': '{!$Label.vlocity_cmt__CLMTermDelete}',
+                'CLMTermAreYouSureDelete': '{!$Label.vlocity_cmt__CLMTermAreYouSureDelete}',
+                'CLMTermActionNotUndone': '{!$Label.vlocity_cmt__CLMTermActionNotUndone}',
+                'CLMTermCancel': '{!$Label.vlocity_cmt__CLMTermCancel}',
+                'CLMContractDeleteTermLabel': '{!$Label.vlocity_cmt__CLMContractDeleteTermLabel}'
             };
             /* Remote Actions */
             var remoteActions = {

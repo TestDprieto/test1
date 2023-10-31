@@ -104,8 +104,8 @@
                 };
 
                 $scope.retrieveAttachments = function() {
-                    var attachmentId = '00P5e00000KktS7';
-                    sforce.connection.sessionId = '{!$Api.Session_ID}';
+                    var attachmentId = '00P6F00001XBCoS';
+                    sforce.connection.sessionId = '{!vlocAccessToken}';
                     sforce.connection.query( "SELECT Id, Name, Body, ContentType FROM Attachment WHERE Id = \'" + attachmentId + "\'", {
                         onSuccess: function(result){
                             var base64EncodedContents = result.records.Body;
@@ -122,7 +122,7 @@
                         var wordContents = result;
                         console.log('Invoking uploadFile server call');
                         //uploadFile(wordContents, $scope.objId, 'Test');
-                        sforce.connection.sessionId = '{!$Api.Session_ID}';
+                        sforce.connection.sessionId = '{!vlocAccessToken}';
                         var attachmentSObj = new sforce.SObject("Attachment");
                         attachmentSObj.Body = wordContents;
                         attachmentSObj.IsPrivate = false;

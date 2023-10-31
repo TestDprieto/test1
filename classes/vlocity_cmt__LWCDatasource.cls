@@ -41,6 +41,7 @@ global class LWCDatasource implements vlocity_cmt.VlocityOpenInterface2 {
         return null;
     }
     @AuraEnabled
+    @RemoteAction
     global static List<vlocity_cmt__VlocityAction__c> getActionsInfo() {
         return null;
     }

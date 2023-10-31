@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -672,109 +686,129 @@ angular.module('thorIntegration').factory('metadataService', function($http, $q,
 });
 },{}],4:[function(require,module,exports){
 // service stores config data e.g. thor Url and authenticates external requests to thor platform
-angular.module('thorIntegration').factory('thorIntegrationService', function($q, $timeout){
-    let thorIntegrationService = {
-        uiMode: undefined,
-        uiServiceUrl: undefined,
-        isOffAuthenticationInProgress: false,
-        loginWindow: undefined,
-        /* getOffplatformUrl and isOffplatformMode is a caching proxy to corresponding remoteActions functions */
-        getOffplatformUrl: function getOffplatformUrl(remoteActionOperations){
-            let uiServiceUrl = this.uiServiceUrl;
-            if(uiServiceUrl != undefined){ // provide cached UI Service Url
-                return $q(function(resolve, reject){
-                    resolve(uiServiceUrl)
-                });
-            } else {
-                // fetch uiServiceUrl from server
-                return remoteActionOperations['getOffplatformUrl']()
-                    .then(function(uiServiceUrl) {
-                                return $q(function(resolve, reject){
-                                    thorIntegrationService.uiServiceUrl = uiServiceUrl;
-                                    resolve(uiServiceUrl);
+angular.module('thorIntegration')
+    .factory('thorIntegrationService', function($q, $timeout, remoteActions, $http){
+        let thorIntegrationService = {
+            uiMode: undefined,
+            uiServiceUrl: undefined,
+            isOffAuthenticationInProgress: false,
+            loginWindow: undefined,
+            /* getOffplatformUrl and isOffplatformMode is a caching proxy to corresponding remoteActions functions */
+            getOffplatformUrl: function getOffplatformUrl(remoteActionOperations){
+                let uiServiceUrl = this.uiServiceUrl;
+                if(uiServiceUrl != undefined){ // provide cached UI Service Url
+                    return $q(function(resolve, reject){
+                        resolve(uiServiceUrl)
+                    });
+                } else {
+                    // fetch uiServiceUrl from server
+                    return remoteActionOperations['getOffplatformUrl']()
+                        .then(function(uiServiceUrl) {
+                                    return $q(function(resolve, reject){
+                                        thorIntegrationService.uiServiceUrl = uiServiceUrl;
+                                        resolve(uiServiceUrl);
+                                    });
                                 });
-                            });
-            }
-        },
-        isOffplatformMode: function isOffplatformMode(remoteActionOperations){
-            let uiMode = this.uiMode;
-            if(uiMode != undefined){ // provide cached UI Mode
-                return $q(function(resolve, reject){
-                    resolve(uiMode)
-                });
-            } else { // fetch uiMode from server
-                return remoteActionOperations['isOffplatformMode']()
-                            .then(function(uiMode) {
-                                return $q(function(resolve, reject){
-                                    thorIntegrationService.uiMode = uiMode;
-                                    resolve(uiMode);
-                                });
-                            });
-            }
-        },
-        retryOperationInCaseAuthenticationError: function(operationToRetry, uiServicesUrl, retryAttemptsNumber, callback){
-            var attemptsCount = 0;
-            if(retryAttemptsNumber){
-                // do nothing
-            } else {
-                retryAttemptsNumber = 3;
-            }
-            return $q(function(resolve, reject){
-                var tryRequest = function(){
-                    // console.log('retrying operation. attempt ' + attemptsCount);
-                    operationToRetry()
-                        .then(function(promiseResult)
-                        {
-                            resolve(promiseResult);
-                        }
-                        )
-                        .catch(function(response){
-                            console.log('Catching response ', response);
-
-                            if (response.status == 401
-                                || (response.data != undefined && response.data.exception == 'org.apache.shiro.authc.AuthenticationException'))
-                            {
-                                    console.error('thorIntegrationService.provideRetryableAuthorizationCatcher: error ', response.data);
-                                    if (callback != undefined)
-                                    {
-                                        callback(response);    
-                                    }
-                                    // redirect to authentication service in a separate window
-                                    if(this.loginWindow == undefined)
-                                    {
-                                        this.isOffAuthenticationInProgress = true;
-                                        this.loginWindow = window.open(uiServicesUrl + '/security/v1/auth/openid/authorize');
-                                    }
-                                    var checkIfClosed = function()
-                                    {
-                                        if(this.loginWindow.closed){
-                                            this.isOffAuthenticationInProgress = false;
-                                            window.location.reload(); // XOM-2370 reloading page to refresh session id for VF page (workaround)
-                                            console.log("thorIntegrationService.Authentication window is now closed. Retrying original operation...");
-                                            if(attemptsCount < retryAttemptsNumber)
-                                                tryRequest();
-                                            attemptsCount++;
-                                            this.loginWindow = undefined;
-                                        }else{
-                                            // console.log('Authentication window is in progress...');
-                                            $timeout(checkIfClosed, 1000)
-                                        }
-                                    }
-                                    $timeout(checkIfClosed, 1000);
-                            } else {
-                                // passing the error through the catch chain
-                                reject(response);
-                            }
-                        })
                 }
-                // call origina operation for the first time
-                tryRequest();
-            })
+            },
+            isOffplatformMode: function isOffplatformMode(remoteActionOperations){
+                let uiMode = this.uiMode;
+                if(uiMode != undefined){ // provide cached UI Mode
+                    return $q(function(resolve, reject){
+                        resolve(uiMode)
+                    });
+                } else { // fetch uiMode from server
+                    return remoteActionOperations['isOffplatformMode']()
+                                .then(function(uiMode) {
+                                    return $q(function(resolve, reject){
+                                        thorIntegrationService.uiMode = uiMode;
+                                        resolve(uiMode);
+                                    });
+                                });
+                }
+            },
+            retryOperationInCaseAuthenticationError: function(operationToRetry, uiServicesUrl, retryAttemptsNumber){
+                var attemptsCount = 0;
+                if(retryAttemptsNumber){
+                    // do nothing
+                } else {
+                    retryAttemptsNumber = 3;
+                }
+                return $q(function(resolve, reject){
+                    var tryRequest = function(){
+                        // console.log('retrying operation. attempt ' + attemptsCount);
+                        operationToRetry()
+                            .then(function(promiseResult)
+                            {
+                                resolve(promiseResult);
+                            }
+                            )
+                            .catch(function(response){
+                                console.log('Catching response ', response);
 
-        }
-    };
-    console.log('thorIntegrationService is initialised');
-    return thorIntegrationService;
-});
+                                if (response.status == 401
+                                    || (response.data != undefined && response.data.exception == 'org.apache.shiro.authc.AuthenticationException'))
+                                {
+                                        console.error('thorIntegrationService.provideRetryableAuthorizationCatcher: error ', response.data);
+                                        // if (callback != undefined)
+                                        // {
+                                        //     callback(response);
+                                        // }
+                                        // redirect to authentication service in a separate window
+
+                                        remoteActions.generateAuthToken()
+                                            .then(function(jwt) {
+
+                                                console.log('Retrying with JWT', jwt, ('Bearer ' + jwt));
+
+                                                $http.defaults.headers.common.Authorization = 'Bearer ' + jwt;
+
+                                                operationToRetry()
+                                                    .then(function(res) {
+                                                        $http.defaults.headers.common.Authorization = '';
+                                                        resolve(res);
+                                                    })
+                                                    .catch(function(err) {
+                                                        $http.defaults.headers.common.Authorization = '';
+                                                        reject(err);
+                                                    });
+                                            });
+
+                                        // if(this.loginWindow == undefined)
+                                        // {
+                                        //     this.isOffAuthenticationInProgress = true;
+                                        //     this.loginWindow = window.open(uiServicesUrl + '/security/v1/auth/openid/authorize');
+                                        // }
+                                        // var checkIfClosed = function()
+                                        // {
+                                        //     if(this.loginWindow.closed){
+                                        //         this.isOffAuthenticationInProgress = false;
+                                        //         window.location.reload(); // XOM-2370 reloading page to refresh session id for VF page (workaround)
+                                        //         console.log("thorIntegrationService.Authentication window is now closed. Retrying original operation...");
+                                        //         if(attemptsCount < retryAttemptsNumber)
+                                        //             tryRequest();
+                                        //         attemptsCount++;
+                                        //         this.loginWindow = undefined;
+                                        //     }else{
+                                        //         // console.log('Authentication window is in progress...');
+                                        //         $timeout(checkIfClosed, 1000)
+                                        //     }
+                                        // }
+                                        // $timeout(checkIfClosed, 1000);
+                                } else {
+                                    // passing the error through the catch chain
+                                    reject(response);
+                                }
+                            })
+                    }
+                    // call origina operation for the first time
+                    tryRequest();
+                })
+
+            }
+        };
+        console.log('thorIntegrationService is initialised');
+        return thorIntegrationService;
+    });
 },{}]},{},[1]);
 })();

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Ad Bleed Amount Unit of Measure --></label>
+        <name>vlocity_cmt__AdBleedAmountUom__c</name>
+        <picklistValues>
+            <masterLabel>Inches</masterLabel>
+            <translation><!-- Inches --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pixels</masterLabel>
+            <translation><!-- Pixels --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mm</masterLabel>
+            <translation><!-- mm --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ad Bleed Amount --></label>
+        <name>vlocity_cmt__AdBleedAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Creative SizeTypes --></label>
+        <name>vlocity_cmt__AdCreativeSizeTypes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Creative URL --></label>
+        <name>vlocity_cmt__AdCreativeUrl__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Placement Priority Type --></label>
+        <name>vlocity_cmt__AdPlacementPriorityType__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Requested End Date --></label>
+        <name>vlocity_cmt__AdRequestedEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Requested Start Date --></label>
+        <name>vlocity_cmt__AdRequestedStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Server Order Identifier --></label>
+        <name>vlocity_cmt__AdServerOrderIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Server Order Line Identifier --></label>
+        <name>vlocity_cmt__AdServerOrderLineIdentiifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- AdSpace Specification --></label>
+        <name>vlocity_cmt__AdSpaceSpecificationId__c</name>
+        <relationshipLabel><!-- Order Ad Placements --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Ad Time Per Episode --></label>
+        <name>vlocity_cmt__AdTimePerEpisode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bonus Ad Time --></label>
+        <name>vlocity_cmt__BonusAdTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Core Id --></label>
+        <name>vlocity_cmt__CoreId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cost Per Rating Point --></label>
+        <name>vlocity_cmt__CostPerRatingPoint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Customer Day Part --></label>
+        <name>vlocity_cmt__CustomerDayPart__c</name>
+        <picklistValues>
+            <masterLabel>Non Prime Time</masterLabel>
+            <translation><!-- Non Prime Time --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prime Time</masterLabel>
+            <translation><!-- Prime Time --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Gross Rating Point --></label>
+        <name>vlocity_cmt__GrossRatingPoint__c</name>
+    </fields>
+    <fields>
+        <label><!-- Implied Rate --></label>
+        <name>vlocity_cmt__ImpliedRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Implied Total --></label>
+        <name>vlocity_cmt__ImpliedTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Bleed --></label>
+        <name>vlocity_cmt__IsAdBleedEnabled__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maximum Frequency Interval --></label>
+        <name>vlocity_cmt__MaximumFrequencyInterval__c</name>
+        <picklistValues>
+            <masterLabel>Day</masterLabel>
+            <translation><!-- Day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hour</masterLabel>
+            <translation><!-- Hour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minute</masterLabel>
+            <translation><!-- Minute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Second</masterLabel>
+            <translation><!-- Second --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Maximum Frequency --></label>
+        <name>vlocity_cmt__MaximumFrequency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Maximum User Frequency Interval --></label>
+        <name>vlocity_cmt__MaximumUserFrequencyInterval__c</name>
+        <picklistValues>
+            <masterLabel>Day</masterLabel>
+            <translation><!-- Day --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hour</masterLabel>
+            <translation><!-- Hour --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Minute</masterLabel>
+            <translation><!-- Minute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Second</masterLabel>
+            <translation><!-- Second --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Maximum User Frequency --></label>
+        <name>vlocity_cmt__MaximumUserFrequency__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Type --></label>
+        <name>vlocity_cmt__MediaType__c</name>
+        <picklistValues>
+            <masterLabel>Digital</masterLabel>
+            <translation><!-- Digital --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outdoor</masterLabel>
+            <translation><!-- Outdoor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Order --></label>
+        <name>vlocity_cmt__OrderId__c</name>
+        <relationshipLabel><!-- Order Ad Placements --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Order Product --></label>
+        <name>vlocity_cmt__OrderItemId__c</name>
+        <relationshipLabel><!-- Order Ad Placements --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Paid Ad Time --></label>
+        <name>vlocity_cmt__PaidAdTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Line Item --></label>
+        <name>vlocity_cmt__QuoteLineItemId__c</name>
+        <relationshipLabel><!-- Order Ad Placements --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Sponsorship Type --></label>
+        <name>vlocity_cmt__SponsorshipType__c</name>
+        <picklistValues>
+            <masterLabel>Co Presented By</masterLabel>
+            <translation><!-- Co Presented By --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Presented By</masterLabel>
+            <translation><!-- Presented By --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sponsored By</masterLabel>
+            <translation><!-- Sponsored By --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Targeting Parameters --></label>
+        <name>vlocity_cmt__TargetingParameters__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Ad Time --></label>
+        <name>vlocity_cmt__TotalAdTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Engagement Goal Type --></label>
+        <name>vlocity_cmt__UserEngagementGoalType__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Engagement Goal Unit Type --></label>
+        <name>vlocity_cmt__UserEngagementGoalUnitType__c</name>
+    </fields>
+    <fields>
+        <label><!-- User Engagement Goal Unit --></label>
+        <name>vlocity_cmt__UserEngagementGoalUnit__c</name>
+    </fields>
+</CustomObjectTranslation>

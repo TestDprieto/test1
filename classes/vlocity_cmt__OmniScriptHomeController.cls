@@ -19,6 +19,10 @@ global class OmniScriptHomeController {
         return null;
     }
     @RemoteAction
+    global static List<SObject> GetOmniScripts2() {
+        return null;
+    }
+    @RemoteAction
     global static List<vlocity_cmt__OmniScript__c> GetOmniScripts() {
         return null;
     }

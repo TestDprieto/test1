@@ -7,8 +7,8 @@
            applyHtmlTag="false"
            title="OmniScript Compiler VF Page"
            cache="false"
-           standardController="vlocity_cmt__OmniScript__c"
-           extensions="vlocity_cmt.OmniScriptDesignerController">
+           controller="vlocity_cmt.OmniScriptDesignerController"
+           action="{!checkIfOmniDesignCustomLabelDeployerThisIsFirstInstalledPackage}">
 
     <html xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -25,9 +25,9 @@
         <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-metadata.min.js')}"></script>
         <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
         <script type="text/javascript">
-            window.conn = new jsforce.Connection({ accessToken: '{!$API.Session_Id}', version: '48.0' });
+            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
             conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
-            const POST_MESSAGE_KEY = '{!$CurrentPage.parameters.postmessagekey}';
+            const POST_MESSAGE_KEY = '{!JSENCODE($CurrentPage.parameters.postmessagekey)}';
         </script>
     </head>
 
@@ -39,7 +39,9 @@
         loadAllCustomLabelsInOrg();
         window.addEventListener("message", (event) => {
             let params = (new URL(document.location)).searchParams;
-            if (event.origin === params.get('sfdcIFrameOrigin') && event.data.message === 'saveLabels') {
+            const eventUrl = new URL(event.origin);
+            const expectedUrl = new URL(params.get('sfdcIFrameOrigin'));
+            if (eventUrl.hostname === expectedUrl.hostname && eventUrl.protocol === expectedUrl.protocol && event.data.message === 'saveLabels') {
                 saveAll(event.data.labels)
                     .then(complete => {
                         setMessage(false, complete);

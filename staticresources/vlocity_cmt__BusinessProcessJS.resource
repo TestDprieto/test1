@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -1692,9 +1706,9 @@ VOUINS.OmniFormCtrl = function($scope, ouiBaseService, $timeout, $rootScope, $q,
                                 result = angular.fromJson(result);
                             }
 
-                            if(result && (control.type==='File' || control.type==='Image')) {
-                                control.response[control.response.length-1].contentDocumentId = result.contentDocumentId;
-                                control.response[control.response.length-1].vId = result.contentVersionId;
+                            if (result && (control.type === 'File' || control.type === 'Image')) {
+                                file.contentDocumentId = result.contentDocumentId;
+                                file.vId = result.contentVersionId;
                                 scp.aggregate(scp, control.index, control.indexInParent, true, -1);
                             }
 
@@ -4623,7 +4637,8 @@ angular.module('vlocity-oui-common')
             'Vlocity BuildJSONWithPrefill' : 'BusinessProcessDisplayController/BuildJSONWithPrefillV2',
             'Vlocity GetUserInfo' : 'BusinessProcessDisplayController/GetUserInfo',
             'Vlocity GetCustomLabels' : 'DRDataPackRunnerController/getCustomLabels',
-            'Vlocity CreateOSContentVersion' : 'BusinessProcessUtility/CreateOSContentVersion'
+            'Vlocity CreateOSContentVersion': 'BusinessProcessUtility/CreateOSContentVersion',
+            'Vlocity LogUsageInteractionEvent': 'BusinessProcessDisplayController/logUsageInteractionEvent',
         }
         // in ChatBot miniform, the VF component attribute will overwrite the default Type-HTML Map
         factory.elementTypeToHTMLMapOW = angular.copy(factory.elementTypeToHTMLMap);        
@@ -6626,6 +6641,17 @@ VOUINS.VlocityTrack = function(trackingData)
             }, {escape: false, buffer: true});
     }
 };
+
+VOUINS.VlocityLogUsageInteractionEvent = function (componentType, componentName, componentId)
+{
+    if (typeof Visualforce !== 'undefined') {
+        Visualforce.remoting.Manager.invokeAction(
+            remoteActionMap.VlocityLogUsageInteractionEvent,
+            componentType, componentName, componentId, function () {
+            },{ escape: false, buffer: false }
+        );
+    }
+}
 
 // VF remote function - launch the script using script id (preview and resume case (submit to Application object))
 // 3.0 - OmniScript Instance case
@@ -9902,7 +9928,10 @@ angular.module('vlocity-oui-common')
                     return this.BuildJSONWithPrefill(configObj.sType, configObj.sSubType, configObj.sLang, configObj.sPFRPBundleName, configObj.drParams, configObj.multiLangCode);
                 if(configObj.sClassName === 'Vlocity GetUserInfo')
                     return this.UserInfo||this.GenericInvoke(configObj.sClassName, configObj.sMethodName, configObj.input, configObj.options, configObj.iTimeout, configObj.label);
-
+                if (configObj.sClassName === 'Vlocity LogUsageInteractionEvent') {
+                    return this.VlocityLogUsageInteractionEvent(configObj.componentType, configObj.componentName, configObj.componentId);
+                }
+                
                 return this.GenericInvoke(configObj.sClassName, configObj.sMethodName, configObj.input, configObj.options, configObj.iTimeout, configObj.label);
             }
             else
@@ -9976,6 +10005,11 @@ angular.module('vlocity-oui-common')
         factory.VlocityTrack = function(trackingData)
         {
             VOUINS.VlocityTrack(trackingData);
+        }
+                 
+        factory.VlocityLogUsageInteractionEvent = function(componentType, componentName, componentId)
+        {
+            VOUINS.VlocityLogUsageInteractionEvent(componentType, componentName, componentId);
         }
 
         // VF remote asyn promise
@@ -11770,6 +11804,8 @@ bpModule.directive('autoSaveforlaterMsg', function ($compile, $templateCache, bp
             if(bLoaded)
                 result = angular.toJson(result).replace(/&lt;\/script/g, '</script');
             $scope.bpTree = angular.fromJson(result);
+            // [PKG-962] creating alternate id for usage in form name attribute.
+            $scope.bpTree.sOmniScriptId2 = (sfdcVars.bOmniStudio ? 'os_' : '') + $scope.bpTree.sOmniScriptId;
 
             if (window.OmniForce&&window.OmniForce.isAuthenticated()){
                 $scope.bpTree.userId = window.OmniForce.getUserId() || $scope.bpTree.userId;
@@ -12113,6 +12149,18 @@ bpModule.directive('autoSaveforlaterMsg', function ($compile, $templateCache, bp
                     // time tracking
                     if($scope.bpTree.propSetMap.timeTracking && !$scope.bpTree.response.vlcTimeTracking)
                         $scope.bpTree.response.vlcTimeTracking = {};
+
+                    // Logging Usage Events
+                    if (bpService.scriptState === 'new') {
+                        var configObj = {
+                            sClassName: "Vlocity LogUsageInteractionEvent",
+                            componentType: 'OmniScript',
+                            componentName: $scope.bpTree.bpType + '_' + $scope.bpTree.bpSubType + '_' + $scope.bpTree.bpLang,
+                            componentId: bpService.bpId,
+                        }
+                        bpService.OmniRemoteInvoke(configObj);
+                    }
+
 
                     // construct the resume link
                     $scope.bpTree.saveURL = VOUINS.constructSFLLink(window.location, bpService);
@@ -15992,7 +16040,7 @@ bpModule.directive('autoSaveforlaterMsg', function ($compile, $templateCache, bp
         $scope.buttonClick = function(payload, control, scp, selectedItem, operation, customizer, callback)
         {
             //MOBILE-508
-            var form = document.querySelector('form#' + scp.bpTree.sOmniScriptId + '-' + scp.activeIndex);
+            var form = document.getElementById(scp.bpTree.sOmniScriptId + '-' + scp.activeIndex);
 
             if (form){
                 var lastInput = form.querySelectorAll('input.ng-valid.ng-dirty');

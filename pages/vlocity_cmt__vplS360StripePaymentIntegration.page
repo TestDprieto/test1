@@ -1,0 +1,93 @@
+<apex:page applyBodyTag="false" applyHtmlTag="false" showHeader="false" sidebar="false" standardStylesheets="false" lightningStyleSheets="true">
+    <html>
+    <head>
+        
+        <apex:slds />
+    </head>
+    <body>
+        <script>
+            window.onload = onLoad;
+
+            async function onLoad() {
+                window.parent.postMessage({loadingCompleted: true}, '*');
+                window.addEventListener("message", function (event) {
+                    if(event && event.data) {
+                        if(event.data.publisherKey){
+                            let dataFromLWC = event.data;
+                            this.origin = event.origin;
+                            initialiseStripe(dataFromLWC);
+                        }
+                        else if(event.data.userCanSubmitPayment){
+                         	submitPayment(event.data);
+                        }
+                        else if(event.data.userCanSetupCard){
+                         	setupCard(event.data);
+                        }
+                        else if(event.data.selfCareUserCanSubmitPayment || event.data.csrCanSubmitPayment){
+                        	submitSelfCarePayment(event.data);
+                        }    
+                    }
+                });
+    
+            }
+            
+            async function initialiseStripe(data) {
+                const cardWrapper = document.querySelector("div.cardWrapper");
+                this.stripe = await Stripe(data.publisherKey);
+                const elements = this.stripe.elements();
+                const style = {
+                    base: {
+                      iconColor: '#666EE8',
+                      background: '#fff',
+                      lineHeight: '1.875 rem',
+                      fontFamily: '"Lato", sans-serif',
+                    
+                      '::placeholder': {
+                        fontSize: '0.875 rem',
+						color: '#949292',
+						fontWeight: '600',
+                      	fontFamily: '"Lato", sans-serif',
+                      }
+                    }
+                };
+                this.cardElement = elements.create("card", style);
+                this.cardElement.mount(cardWrapper);
+            }
+        	
+        	async function submitPayment(data) {
+            	const payload = await this.stripe.confirmCardPayment(data.clientSecretKey, {
+                    payment_method: {
+                        card: this.cardElement
+                    },
+                    setup_future_usage: 'off_session'
+                });
+                window.parent.postMessage(payload, this.origin);
+            }
+        
+        	async function submitSelfCarePayment(data) {
+            	const payload = await this.stripe.confirmCardPayment(data.clientSecretKey);
+                payload.isSelfCarePayment = true;
+                payload.paymentPage = data.submitTo;
+                window.parent.postMessage(payload, this.origin);
+            }
+            
+        	async function setupCard(data) {
+                window.parent.postMessage({setUpIntent: true}, this.origin);
+            	const cardSetUpPayload = await this.stripe.confirmCardSetup(data.clientSecretKey, {
+                    payment_method: {
+                        card: this.cardElement
+                    },
+                });
+                window.parent.postMessage(cardSetUpPayload, this.origin);
+            }
+        	
+        </script>
+        <div class="slds-scope">
+            <div class="slds-p-around_medium" style="background: #fff; border-radius: 4px; ">
+                <div class="cardWrapper"></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="//js.stripe.com/v3/"></script>
+    </body>
+    </html>
+</apex:page>

@@ -1,0 +1,113 @@
+<apex:page showHeader="false"
+           sidebar="false"
+           standardStylesheets="false"
+           docType="html-5.0"
+           applyBodyTag="false"
+           lightningStylesheets="false"
+           applyHtmlTag="false"
+           cache="false"
+           controller="vlocity_cmt.AccessTokenController">
+
+    <html xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          lang="en">
+
+    <head>
+        <meta http-equiv="x-ua-compatible"
+              content="ie=edge" />
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1" />
+        <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-core.min.js')}"></script>
+
+        <apex:includeLightning />
+    </head>
+
+    <body>
+        <p id="operation-message"></p>
+
+        <script type="text/javascript">
+            let url = location.href.split('/apex/'); 
+            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '37.0', instanceUrl : url[0]});
+            console.log('docgenFileUtilVF initialized:'+url[0]);
+            //conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
+            const POST_MESSAGE_KEY = '{!JSENCODE($CurrentPage.parameters.postmessagekey)}';
+            const messageEl = document.getElementById('operation-message');
+            const GET_CONTENT_VERSION_OPERATION = 'GET_CONTENT_VERSION';
+            const SAVE_CONTENT_VERSION_OPERATION = 'SAVE_CONTENT_VERSION';
+            
+            window.addEventListener("message", (event) => {
+                if (event.data.key === POST_MESSAGE_KEY) {
+                    if(event.data.operation === GET_CONTENT_VERSION_OPERATION) {
+                        startGetContentVersionViaJSForce(event.data);
+                    } else if (event.data.operation === SAVE_CONTENT_VERSION_OPERATION) {
+                        startSaveContentVersionViaJSForce(event.data);
+                    } else {
+                        console.log('Invalid operation:'+event.data.operation);
+                        console.log(event.data);
+                    }
+                }
+            });
+
+            function startGetContentVersionViaJSForce(data){
+
+                window.conn.sobject('ContentVersion').retrieve(data.payload, function(err, response) {
+                    console.log('CV');
+                    let CV = response;
+                    if(Array.isArray(response)) { //response sometimes returns an array
+                        CV = response[0];
+                    }
+                    console.log(CV)
+                    if (err) { 
+                        console.error('Failed to get content version:'+data.payload);
+                        console.error(err);
+                    }
+
+                    let url = CV.VersionData;
+                    getBase64FromUrl(url).then(base64Data => {
+                        CV.VersionData = base64Data;
+                        postBackResponse(data.operation, CV);
+                    }).catch(error => {
+                        console.log(error);
+                    });
+                });
+            }
+
+            function startSaveContentVersionViaJSForce(data) {
+                window.conn.sobject('ContentVersion').create(data.payload, function(err, ret) {
+                    if (err || !ret.success) { 
+                        console.error('Failed to save content version:'+data.payload);
+                        console.error(err);
+                    }
+                    postBackResponse(data.operation, ret);
+                });
+            }
+
+
+            function postBackResponse(operation, responseData, error) {
+                window.parent.postMessage({
+                    key: POST_MESSAGE_KEY,
+                    operation: operation,
+                    response: responseData,
+                    error: error
+                }, '*');
+            }
+
+            async function getBase64FromUrl(url){
+                const data = await fetch(url, {"headers": {
+                    "Authorization" : "Bearer " + '{!vlocAccessToken}'
+                }});
+                const blob = await data.blob();
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(blob); 
+                    reader.onloadend = function() {
+                        const base64data = reader.result;   
+                        resolve(base64data.split(",")[1]);
+                    }
+                });
+            }
+        </script>
+    </body>
+
+    </html>
+</apex:page>

@@ -205,6 +205,7 @@
     <fields>
         <fullName>vlocity_cmt__Description__c</fullName>
         <deprecated>false</deprecated>
+        <description>Description of the group record</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>32768</length>
@@ -215,6 +216,7 @@
     <fields>
         <fullName>vlocity_cmt__ExpectedMemberCount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Expected member count in this group</description>
         <externalId>false</externalId>
         <label>Expected Member Count</label>
         <precision>18</precision>
@@ -242,8 +244,19 @@
         <fullName>vlocity_cmt__HasUnappliedGroupItems__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>Indicates if the group has pending configurations to be applied</description>
         <externalId>false</externalId>
         <label>Has Unapplied Group Items</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__HasUnappliedMembers__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if at least one member of the group has no opportunity created</description>
+        <externalId>false</externalId>
+        <label>Has Unapplied Members</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -291,6 +304,7 @@
         <fullName>vlocity_cmt__MemberCount__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Total number of members in this group</description>
         <externalId>false</externalId>
         <label>Member Count</label>
         <precision>18</precision>
@@ -363,6 +377,7 @@
         <fullName>vlocity_cmt__OneTimeMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>One Time Margin Total of Opportunity Group</description>
         <externalId>false</externalId>
         <label>One Time Margin Total</label>
         <precision>18</precision>
@@ -388,6 +403,7 @@
         <fullName>vlocity_cmt__OpportunityGroupMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Total Margin of Opportunity Group</description>
         <externalId>false</externalId>
         <label>Opportunity Group Margin Total</label>
         <precision>18</precision>
@@ -399,6 +415,7 @@
     <fields>
         <fullName>vlocity_cmt__OpportunityId__c</fullName>
         <deprecated>false</deprecated>
+        <description>Parent Opportunity Id</description>
         <externalId>false</externalId>
         <label>Opportunity</label>
         <referenceTo>Opportunity</referenceTo>
@@ -427,6 +444,7 @@
         <fullName>vlocity_cmt__RecurringMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Recurring Margin Total of Opportunity Group</description>
         <externalId>false</externalId>
         <label>Recurring Margin Total</label>
         <precision>18</precision>
@@ -465,6 +483,7 @@
         <fullName>vlocity_cmt__UsageMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Usage Margin Total of Opportunity Group</description>
         <externalId>false</externalId>
         <label>Usage Margin Total</label>
         <precision>18</precision>

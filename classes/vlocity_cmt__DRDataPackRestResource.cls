@@ -18,4 +18,9 @@ global class DRDataPackRestResource {
     global static void doPost() {
 
     }
+global class DRDataPackServiceCallable implements System.Callable {
+    global DRDataPackServiceCallable() {
+
+    }
+}
 }

@@ -1,4 +1,4 @@
-<apex:page controller="vlocity_cmt.CMTAdminController" showHeader="true" sidebar="true" standardStylesheets="false" docType="html-5.0" title="{!$Label.vlocity_cmt__vlocitycmtadministration}">
+<apex:page controller="vlocity_cmt.CMTAdminController" showHeader="true" sidebar="true" standardStylesheets="false" docType="html-5.0" title="{!$Label.vlocity_cmt__VlocityCMTAdministration}">
 	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ng="http://angularjs.org" ng-app="CMTAdmin">
 		<head>
 			<base href="/"/>
@@ -89,6 +89,14 @@
                     getObjectAndFieldsLabel: {
                         action: "{!$RemoteAction.CMTAdminController.getObjectAndFieldsLabel}",
                         config: {escape: false}
+                    },
+                    getCatalogs: {
+                        action: "{!$RemoteAction.CMTAdminController.getCatalogs}",
+                        config: {escape: false}
+                    },
+                    invokeMethod2: {
+                        action: "{!$RemoteAction.CMTAdminController.invokeMethod2}",
+                    	config: {escape: false}
                     }
                 };
                 //Config data from APEX
@@ -101,7 +109,7 @@
                 }
                 //labels
                 var labels = {
-                    CMTAdminHeaderLabel: "{!$Label.vlocity_cmt__vlocitycmtadministration}",
+                    CMTAdminHeaderLabel: "{!$Label.vlocity_cmt__VlocityCMTAdministration}",
                     CMTAdminHeaderDescLabel: "{!$Label.CMTAdminConfigurations}",
                     AccountHierarchyMaintenance:"{!$Label.AccountHierarchyMaintenance}",
                     JobRestoreAccountHierarchy: "{!$Label.JobRestoreAccountHierarchy}",
@@ -134,6 +142,8 @@
                     InstallProductReportDesc:"{!$Label.InstallUPCProductDPDesc}",
                     InstallDefaultPPD: "{!$Label.InstallPricingPlanData}",
                     InstallDefaultPPDDesc:"{!$Label.InstallPricingPlanDataDesc}",
+                    InstallExtendedPPD: "{!$Label.InstallExtendedPricingPlanData}",
+                    InstallExtendedPPDDesc:"{!$Label.InstallExtendedPricingPlanDataDesc}",
                     DeleteDefaultObjectLayouts: "{!$Label.DeleteDefaultObjectLayouts}",
                     DeleteLayoutsDesc: "{!$Label.DeleteLayoutsObjectClasses}",
                     CreateDefaultPVB: "{!$Label.CreateDefaultPricingVariables}",
@@ -249,7 +259,10 @@
                     CreateRelationshipRecords: "{!$Label.CreateRelationshipRecords}",
                     PopulateMissingActionInXLIs: "{!$Label.PopulateMissingActionInXLIs}",
                     PopulateMissingActionInXLIsDesc: "{!$Label.PopulateMissingActionInXLIsDesc}",
+                    PopulateOrderStatusInOrder: "{!$Label.PopulateOrderStatusInOrder}",
+                    PopulateOrderStatusInOrderDesc: "{!$Label.PopulateOrderStatusInOrderDesc}",
                     QuasiEntriesCreationTimeDeletion: "{!$Label.QuasiEntriesCreationTimeDeletion}",
+                    RegenerateEntriesCreationTime: "{!$Label.RegenerateEntriesCreationTime}",
                     RecordsCreationDateTime: "{!$Label.RecordsCreationDateTime}",
                     EmailSendingConfirmation: "{!$Label.EmailSendingConfirmation}",
                     CMTOptionReportJobsLabel: "{!$Label.CMTOptionReportJobsLabel}",
@@ -271,8 +284,28 @@
                     WorkSetItemUpgradeDesc: "{!$Label.WorkSetItemUpgradeDesc}",
                     MutiServiceUpgradeLabel: "{!$Label.MutiServiceUpgradeLabel}",
                     MutiServiceUpgradeDesc: "{!$Label.MutiServiceUpgradeDesc}",
+                    UpdateIsChangesAllowed: "{!$Label.UpdateIsChangesAllowed}",
+                    UpdateIsChangesAllowedDesc: "{!$Label.UpdateIsChangesAllowedDesc}",
                     UpgradePricingFieldsLabel: "{!$Label.UpgradePricingFieldsLabel}",
-                    UpgradePricingFieldsDesc: "{!$Label.UpgradePricingFieldsDesc}"
+                    UpgradePricingFieldsDesc: "{!$Label.UpgradePricingFieldsDesc}",
+                    PopulateOrderStatusInOrder: "{!$Label.PopulateOrderStatusInOrder}",
+                    PopulateOrderStatusInOrderDesc: "{!$Label.PopulateOrderStatusInOrderDesc}",
+                    OrderPoolAPI: "{!$Label.OrderPoolAPI}",
+                    OrderPoolAPIDesc: "{!$Label.OrderPoolAPIDesc}",
+                    ProductCatagoryDataMaintenance:"{!$Label.ProductCatagoryDataMaintenance}",
+                    JobPopulateProductCategoryData: "{!$Label.JobPopulateProductCategoryData}",
+                    PopulateProductCategoryData: "{!$Label.PopulateProductCategoryData}",
+                    ProductCatDataJobBatchSize: "{!$Label.ProductCatDataJobBatchSize}",
+                    LifecycleStatusJob: "{!$Label.LifecycleStatusJob}",
+                    LifecycleStatusJobDesc: "{!$Label.LifecycleStatusJobDesc}",
+                    BatchJobDisabled: "{!$Label.BatchJobDisabled}",
+                    PopulateCatalogItemReferenceDateTimeJob: "{!$Label.PopulateCatalogItemReferenceDateTimeJob}",
+                    PopulateCatalogItemReferenceDateTimeJobDesc: "{!$Label.PopulateCatalogItemReferenceDateTimeJobDesc}",
+                    PreImportValidateVersioningDate: "{!$Label.PreImportValidateVersioningDate}",
+                    PreImportValidateVersioningDateDesc: "{!$Label.PreImportValidateVersioningDateDesc}",
+                    CMTOptionCPQNextJobsLabel: "{!$Label.CMTOptionCPQNextJobsLabel}",
+                    GenerateValidationRulesCompiledData: "{!$Label.GenerateValidationRulesCompiledData}",
+                    GenerateValidationRulesCompiledDataDesc: "{!$Label.GenerateValidationRulesCompiledDataDesc}"
                 }
                 var asyncApexJobFieldsLabels = {
                     status: "{!$ObjectType.AsyncApexJob.Fields.Status.Label}",

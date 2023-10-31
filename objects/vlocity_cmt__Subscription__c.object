@@ -144,7 +144,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description>A service generally used by one user (or at one location) at a time that is governed by a single payment plan at any given time. A user of a network becomes a ”subscriber” through the establishment of their first “subscription”.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -182,6 +181,19 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ChurnScore__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Churn is a score used to predict the probability of a subscriber to end the current subscription. Use this field to store the churn score calculated by your chosen analytics and prediction engine.</description>
+        <externalId>false</externalId>
+        <label>Churn Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>vlocity_cmt__CurrentContractEndDate__c</fullName>
@@ -241,6 +253,44 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__Last30DaysDataSpend__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last 30 Days Spend is the accumulation of prepaid data services the customer has consumed expressed in currency, this field is populated by a batch process.</description>
+        <externalId>false</externalId>
+        <label>Last 30 Days Data Spend</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Last30DaysDataUsageInGB__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Last 30 Days Usage is the accumulation of all Data usage as reported by the OCS, this field is populated by a batch process such in Tableau CRM.</description>
+        <externalId>false</externalId>
+        <label>Last 30 Days Usage GB</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OldMSISDN__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores the previous phone number of the Subscription.</description>
+        <externalId>false</externalId>
+        <label>Old MSISDN</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__PremisesId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -281,6 +331,18 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServiceIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the service used by the customer.</description>
+        <externalId>true</externalId>
+        <label>Service Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>vlocity_cmt__StartDate__c</fullName>

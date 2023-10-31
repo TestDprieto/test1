@@ -1,8 +1,5 @@
-<apex:page sidebar="false" 
-           showHeader="false" 
-           docType="html-5.0" 
-           applyHtmlTag="false"
-           standardcontroller="vlocity_cmt__OrchestrationItemDefinition__c">
-<c:XOMAceEditor recordId="{!$CurrentPage.parameters.Id}" 
-                recordFieldName="AutoTaskParameters__c"/>
+<apex:page sidebar="false" showHeader="false" docType="html-5.0" applyHtmlTag="false" standardcontroller="vlocity_cmt__OrchestrationItemDefinition__c">
+    <c:XOMIllustration title="We’re sorry, but the page you’re looking for no longer exists."
+                       showReturn="false">
+    </c:XOMIllustration>
 </apex:page>

@@ -8,7 +8,7 @@
         }
         else
         {
-            alert('{!$Label.vlocity_cmt__unabletoamendlabel}');
+            alert('{!$Label.vlocity_cmt__UnableToAmendLabel}');
             window.location.href = '/{!Order.Id}';
         }
     </script>

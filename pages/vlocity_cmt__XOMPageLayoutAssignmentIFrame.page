@@ -1,0 +1,188 @@
+<apex:page docType="html-5.0"
+   controller="vlocity_cmt.XOMAdminPageController"
+    applyHtmlTag="true"
+    cache="false"
+>
+
+ <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+        <script type="text/javascript" src="{!URLFOR($Resource.JSZip)}" />
+            <meta charset="utf-8" />
+            <meta name="generator" content="Xom Page layout assignment" />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+            <meta name="description" content="Xom Page layout assignment iframe" />
+            <!-- Common scripts -->
+
+            <script>
+            window.addEventListener("message", receiveMessage, false);
+            let namespacePrefix = '{!namespacePrefix}';
+            let isInsurance = '{!isInsurance}' == 'true';
+            let packageRecordTypesAvailability = {
+            'OrchestrationItemDefinition__c': [{
+                recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'Callout',
+                default: false,
+                visible: true
+            }, {
+                recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'AutoTask',
+                default: false,
+                visible: true
+            }, {
+                recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'Milestone',
+                default: true,
+                visible: true
+            }, {
+                recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'ManualTask',
+                default: false,
+                visible: true
+            }, {
+                recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'PushEvent',
+                default: false,
+                visible: true
+            }, {
+                recordType: namespacePrefix + 'OrchestrationItemDefinition__c.' + namespacePrefix + 'SubPlan',
+                default: false,
+                visible: true
+            }],
+            'Product2': [{
+                recordType: 'Product2.' + namespacePrefix + 'Product',
+                default: true,
+                visible: true
+            }, {
+                recordType: 'Product2.' + namespacePrefix + 'Class',
+                default: false,
+                visible: true
+            }],
+            'IntegrationRetryPolicy__c': [{
+                recordType: namespacePrefix + "IntegrationRetryPolicy__c." + namespacePrefix + "MonotonousForeverRetryPolicy",
+                default: true,
+                visible: true,
+            }, {
+                recordType: namespacePrefix + "IntegrationRetryPolicy__c." + namespacePrefix + "MonotonousRetryPolicy",
+                default: false,
+                visible: true,
+            }, {
+                recordType: namespacePrefix + "IntegrationRetryPolicy__c." + namespacePrefix + "NoRetryPolicy",
+                default: false,
+                visible: true,
+            }, {
+                recordType: namespacePrefix + "IntegrationRetryPolicy__c." + namespacePrefix + "StaggeredRetryPolicy",
+                default: false,
+                visible: true,
+            }]
+        };
+
+        function stripNamespace(name) {
+            if(name.length > 1) {
+                if(namespacePrefix && namespacePrefix.length > 1) {
+                    return name.replace(namespacePrefix, "");
+                }
+                else {
+                    return name;  // if the namespace is not set
+                }
+            }
+        }
+
+        function receiveMessage(event) {
+            const eventData = JSON.parse(event.data);
+            if(eventData.zipContent) {
+                let zipfile = eventData.zipContent;
+                let profilesSettings = eventData.selectedObjects;
+                let zip = new JSZip(zipfile, {
+                    base64: true
+                });
+                let params = new URLSearchParams(document.location.search);
+                let channelId = params.get("channelId");
+                for(let i = 0; i < profilesSettings.length; i++) {
+                    updateProfile(zip, profilesSettings[i]);
+                }
+                zip.remove('objects');
+                zip.remove('layouts');
+                window.parent.postMessage(JSON.stringify({
+                    name: 'updatedZipFile',
+                    success: true,
+                    channelId: channelId,
+                    zip: zip.generate()
+                }), document.referrer);
+            }
+        }
+
+        function updateProfile(zip, profileSettings) {
+            let profileName = profileSettings.fullName
+            let zipFile = zip.file('profiles/' + profileName + '.profile');
+            if(zipFile) {
+                let xml = zipFile.asText();
+                let xmlDoc = new DOMParser().parseFromString(xml, "text/xml");
+                let rootNode = xmlDoc.getElementsByTagName('Profile')[0];
+                let recordTypeNodes = rootNode.getElementsByTagName('recordTypeVisibilities');
+                let recordTypeNodesToRemove = [];
+                for(let i = 0; i < recordTypeNodes.length; i++) {
+                    let objectType = stripNamespace(recordTypeNodes[i].getElementsByTagName('recordType')[0].childNodes[0].nodeValue.split('.')[0]);
+                    if(packageRecordTypesAvailability[objectType]) {
+                        recordTypeNodesToRemove.push(recordTypeNodes[i]);
+                    }
+                }
+                for(let i = 0; i < recordTypeNodesToRemove.length; i++) {
+                    rootNode.removeChild(recordTypeNodesToRemove[i]);
+                }
+                for(let objectType in packageRecordTypesAvailability) {
+                    let assignments = packageRecordTypesAvailability[objectType];
+                    for(let i = 0; i < assignments.length; i++) {
+                        let assignment = assignments[i];
+                        let assignmentNode = xmlDoc.createElement('recordTypeVisibilities');
+                        rootNode.insertBefore(assignmentNode, recordTypeNodes[0]);
+                        let defaultNode = xmlDoc.createElement('default');
+                        assignmentNode.appendChild(defaultNode);
+                        defaultNode.appendChild(xmlDoc.createTextNode(assignment['default']));
+                        let visibleNode = xmlDoc.createElement('visible');
+                        assignmentNode.appendChild(visibleNode);
+                        visibleNode.appendChild(xmlDoc.createTextNode('true'));
+                        let recordTypeNode = xmlDoc.createElement('recordType');
+                        assignmentNode.appendChild(recordTypeNode);
+                        recordTypeNode.appendChild(xmlDoc.createTextNode(assignment['recordType']));
+                    }
+                }
+                let layoutAssignmentsNodesToRemove = [];
+                let layoutAssignmentsNodes = rootNode.getElementsByTagName('layoutAssignments');
+                let standardLayoutAssignments = profileSettings.layouts; // Added selected layouts 
+                for(let i = 0; i < layoutAssignmentsNodes.length; i++) {
+                    let layoutAssignmentsNode = layoutAssignmentsNodes[i];
+                    let objectType, recordType;
+                    let layoutNode = layoutAssignmentsNode.getElementsByTagName('layout')[0];
+                    objectType = stripNamespace(layoutNode.childNodes[0].nodeValue.split('-')[0]);
+                    if(standardLayoutAssignments[objectType]) {
+                        layoutAssignmentsNodesToRemove.push(layoutAssignmentsNode);
+                    }
+                }
+                for(let i = 0; i < layoutAssignmentsNodesToRemove.length; i++) {
+                    rootNode.removeChild(layoutAssignmentsNodesToRemove[i]);
+                }
+                // Now lets setup layoutAssignments
+                for(let assignment in standardLayoutAssignments) {
+                    if(standardLayoutAssignments.hasOwnProperty(assignment)) {
+                        let pageAssignments = standardLayoutAssignments[assignment];
+                        for(let i = 0; i < pageAssignments.length; i++) {
+                            let pageAssignment = pageAssignments[i];
+                            let newAssignment = xmlDoc.createElement('layoutAssignments');
+                            rootNode.insertBefore(newAssignment, layoutAssignmentsNodes[0]);
+                            let newLayout = xmlDoc.createElement('layout');
+                            newAssignment.appendChild(newLayout);
+                            newLayout.appendChild(xmlDoc.createTextNode(pageAssignment['layout']));
+                            let recordType = pageAssignment['recordType'];
+                            if(recordType) {
+                                let newRecordType = xmlDoc.createElement('recordType');
+                                newAssignment.appendChild(newRecordType);
+                                newRecordType.appendChild(xmlDoc.createTextNode(recordType));
+                            }
+                        }
+                    }
+                }
+                let s = new XMLSerializer();
+                xml = s.serializeToString(xmlDoc);
+                zip.file('profiles/' + profileName + '.profile', xml);
+            }
+        }
+		</script>
+	</head>
+	<body> </body>
+	</html>
+</apex:page>

@@ -5,7 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class ObjectsClonerOpenInterfaceImplemenation implements vlocity_cmt.VlocityOpenInterface {
+global class ObjectsClonerOpenInterfaceImplemenation implements System.Callable, vlocity_cmt.VlocityOpenInterface {
     global static String CLONE_SOBJECTS_AND_LINEITEMS;
     global static String CLONE_USING_SOBJECT_IDS;
     global static String CLONE_USING_SOBJECT_INSTANCES;

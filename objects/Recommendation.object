@@ -153,6 +153,28 @@
         <fullName>RejectionLabel</fullName>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__ContextID__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is used to store the Context ID for the Recommendation that was made. It is passed as an input parameter to Flow or OmniScript on accept/reject of Recommendation.</description>
+        <externalId>false</externalId>
+        <label>Context ID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OfferCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is used to store the Product Code corresponding to a Product in the Catalog. The NBA Strategy will surface a Product based on main features of the product compared to usage and customer spend history, this field will allow us to map the Product to the correct Recommendation.</description>
+        <externalId>false</externalId>
+        <label>Offer Code</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__VlocityActionId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>

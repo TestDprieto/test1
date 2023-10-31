@@ -1422,8 +1422,9 @@ var vlocityPdfWriter = (function () {
 
 			
 			var fieldType = this.getPropertyFromObject(fieldObject, "FT");
+			var useAppearanceObject = fieldType == "Tx" && options.useAppearanceObject === true;
 
-			if (fieldType == "Tx" || fieldType == "Ch")
+			if (fieldType == "Ch" || useAppearanceObject)
 			{
 				// Referenced by Form Field In Stream
 				appearenceObject = new PdfWriteObject(this.getNextObjectId());

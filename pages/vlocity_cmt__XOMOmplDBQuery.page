@@ -1,0 +1,15 @@
+<apex:page showHeader="true" sidebar="true" controller="vlocity_cmt.XOMThorDBQueryController">
+    <apex:includeLightning />    
+    <div id="lwcXomOmplDBQueryMainId" />
+    <script>
+        $Lightning.use("{!nameSpace}:ltngOutVF", function() {
+            $Lightning.createComponent(
+                "{!nameSpace}:xomOmplDBQuery",
+                { namespace: "{!nameSpace}"},
+                "lwcXomOmplDBQueryMainId",
+                function(cmp) {
+                    console.log('DB Query LWC Component added in VF page : ' + cmp);
+                });
+        });
+    </script>
+</apex:page>

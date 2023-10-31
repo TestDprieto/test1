@@ -49,6 +49,10 @@ global class DocumentTemplateDisplayController {
         return null;
     }
     @RemoteAction
+    global static SObject createSObjectEntityFilter(String name, String applicableItemType, String nameSpacePrefix) {
+        return null;
+    }
+    @RemoteAction
     global static List<Map<String,Object>> deactivateTemplate(String templateJSON) {
         return null;
     }
@@ -109,7 +113,7 @@ global class DocumentTemplateDisplayController {
         return null;
     }
     @RemoteAction
-    global static Map<String,Object> getClauseContentForDocx(String clauseShortName) {
+    global static Map<String,Object> getClauseContentForDocx(String clauseShortNameNumbering) {
         return null;
     }
     @RemoteAction
@@ -130,6 +134,10 @@ global class DocumentTemplateDisplayController {
     }
     @RemoteAction
     global static String getDefaultContractType() {
+        return null;
+    }
+    @RemoteAction
+    global static SObject getDocuSignSignatureTabs() {
         return null;
     }
     @RemoteAction
@@ -174,6 +182,10 @@ global class DocumentTemplateDisplayController {
     }
     @RemoteAction
     global static List<Product2> getProducts() {
+        return null;
+    }
+    @RemoteAction
+    global static List<SObject> getSObjectEntityFilters(List<String> inputList) {
         return null;
     }
     @RemoteAction
@@ -230,6 +242,10 @@ global class DocumentTemplateDisplayController {
     }
     @RemoteAction
     global static Map<Id,Integer> isEntityFilterEmpty(List<Id> entityFilters) {
+        return null;
+    }
+    @RemoteAction
+    global static Boolean isOsFirstThenVertical() {
         return null;
     }
     @RemoteAction

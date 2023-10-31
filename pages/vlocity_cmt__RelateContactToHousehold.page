@@ -1,8 +1,5 @@
 <apex:page StandardController="vlocity_cmt__Party__c" extensions="vlocity_cmt.RelateContactToHouseholdController" tabStyle="vlocity_cmt__Household__c" docType="html-5.0">
     <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}"/>
-    <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/jquery-ui-1.9.1.custom.min.js')}"/>
-    <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__Jquery, '/ui/css/ui-lightness/jquery-ui-1.9.1.custom.min.css')}"/>
-    <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__bootstrap, '/bootstrap-3.4.1-dist/js/bootstrap.min.js')}"/>
     <apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}" />  
     <style>
         .vlocity .sectionHeaderStyle{
@@ -102,7 +99,7 @@
 
     </script>
 
-    <apex:sectionHeader title="{!$Label.vlocity_cmt__householdmanagerfor}" subtitle="{!PartyName}"/>
+    <apex:sectionHeader title="{!$Label.vlocity_cmt__HouseholdManagerFor}" subtitle="{!PartyName}"/>
 
     <apex:form >
         <apex:outputText value="{!vlocity_cmt__Party__c.vlocity_cmt__AccountId__c}" rendered="false" />
@@ -126,7 +123,7 @@
                 <apex:outputPanel id="idPartyList" layout="none">
                     <div class="panel panel-sf">
                     <div class="panel-heading">
-                        <apex:outputLabel styleClass="sectionHeaderStyle" value="{!$Label.vlocity_cmt__addexistingcontact}" for="idAddExisitingContactPanel"/>
+                        <apex:outputLabel styleClass="sectionHeaderStyle" value="{!$Label.vlocity_cmt__AddExistingContact}" for="idAddExisitingContactPanel"/>
                         <apex:outputPanel id="idAddExisitingContactPanel"/>
                         <apex:variable value="{!0}" var="lineNumber"/>
                     </div>
@@ -137,7 +134,7 @@
                             <span style="cursor:pointer; font-size: 16px;" aria-hidden="true" class="icon-v-trash-line" onClick="removePartyRow({!lineNumber})"></span>
                         </apex:column>
                         <apex:column style="width:35%;">
-                            <apex:facet name="header">{!$Label.vlocity_cmt__party}</apex:facet>
+                            <apex:facet name="header">{!$Label.vlocity_cmt__Party}</apex:facet>
                             <apex:inputField rendered="{!isSourceDriven}" value="{!partyInfo.partyRelSO.vlocity_cmt__TargetPartyId__c}"
                             styleClass="form-control input-sm" style="width: 90%; float: left"
                             onkeypress="return doSearchOnEnter(event,{!lineNumber})"
@@ -151,7 +148,7 @@
                             </apex:inputField>
                         </apex:column>
                         <apex:column style="width:30%;">
-                            <apex:facet name="header">{!$Label.vlocity_cmt__role}</apex:facet>
+                            <apex:facet name="header">{!$Label.vlocity_cmt__Role}</apex:facet>
                            <apex:selectList value="{!partyInfo.partyRelSO.vlocity_cmt__RelationshipTypeId__c}"
                                         size="1"
                                         onchange="updateDescription( this.value , {!lineNumber})">
@@ -170,17 +167,17 @@
                                 <apex:image style="vertical-align: middle; width:18px; display:inline-block; margin-right:5px;" value="/img/loading32.gif" />
                                 </apex:facet>
                             </apex:actionStatus>
-                            <apex:commandLink value="+{!$Label.vlocity_cmt__addnew}"
+                            <apex:commandLink value="+{!$Label.vlocity_cmt__AddNew}"
                                             action="{!doAddPartyRow}"
                                             rerender="idPartyList, idSearchResults, idErrorMessages"
                                             status="idExistContactActionStatus"
                                             style="text-decoration: none; line-height: 1.5" styleClass="btn btn-link  pull-left"/>
-                            <apex:commandButton value="{!$Label.vlocity_cmt__save}"
+                            <apex:commandButton value="{!$Label.vlocity_cmt__Save}"
                                             action="{!doSave}"
                                             rerender="idPartyList, idErrorMessages"
                                             status="idExistContactActionStatus"
                                             styleClass="btn-primary "/>
-                            <apex:commandButton value="{!$Label.vlocity_cmt__cancel}"
+                            <apex:commandButton value="{!$Label.vlocity_cmt__Cancel}"
                                             action="{!doCancel}"
                                             rerender="idPartyList, idErrorMessages"
                                             status="idExistContactActionStatus"
@@ -208,7 +205,7 @@
                 <apex:outputPanel id="idSearchResults" rendered="{!NOT(isPlatformEncryptionEnabled)}" layout="none">
                     <div class="panel panel-sf">
                         <div class="panel-heading">
-                            <apex:outputLabel styleClass="sectionHeaderStyle" value="{!$Label.vlocity_cmt__contactsathouseholdaddress}" for="idAddContactButtonPanel"/>
+                            <apex:outputLabel styleClass="sectionHeaderStyle" value="{!$Label.vlocity_cmt__ContactsAtHouseholdAddress}" for="idAddContactButtonPanel"/>
                             <apex:outputPanel id="idAddContactButtonPanel"/>
                             <apex:variable value="{!0}" var="addrConRowNum"/>
                         </div>
@@ -228,7 +225,7 @@
                                 <apex:outputField value="{!contact.contactSO.vlocity_cmt__Age__c}"/>
                             </apex:column>
                              <apex:column style="width:30%;">
-                                <apex:facet name="header">{!$Label.vlocity_cmt__role}</apex:facet>
+                                <apex:facet name="header">{!$Label.vlocity_cmt__Role}</apex:facet>
                            <apex:selectList value="{!contact.partyRelSO.vlocity_cmt__RelationshipTypeId__c}"
                                         size="1" onchange="setContactRole( this.value , {!addrConRowNum})">
                                         <apex:selectOptions value="{!contact.rolesList}"/>

@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -109,7 +123,7 @@
       return prefix;
     }
   };(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-angular.module('drhome', ['sldsangular', 'drvcomp', 'ngTable', 'vlocity', 'infinite-scroll'])
+angular.module('drhome', ['DRHome.core', 'sldsangular', 'drvcomp', 'ngTable', 'vlocity', 'infinite-scroll'])
 	.config(['$localizableProvider', function($localizableProvider) {
       'use strict';
       $localizableProvider.setLocalizedMap(window.i18n);
@@ -126,11 +140,11 @@ angular.module('drhome')
         'use strict';
         var remoteActions = {
             getAllBundles: {
-                action: fileNsPrefixDot() + 'DRHomeController.getAllBundles',
+                action: fileNsPrefixDot() + 'DRMapperControllerFoundation.getAllBundles',
                 config: {escape: false}
             },
             deleteBundle: {
-                action: fileNsPrefixDot() + 'DRHomeController.deleteBundle'
+                action: fileNsPrefixDot() + 'DRMapperControllerFoundation.deleteBundle'
             }
         };
         remoteActionsProvider.setRemoteActions(remoteActions);
@@ -138,38 +152,40 @@ angular.module('drhome')
 
 },{}],3:[function(require,module,exports){
 angular.module('drhome')
-    .controller('drhome', ['$sanitize', '$scope', 'remoteActions', '$filter', '$localizable',
-                                function($sanitize, $scope, remoteActions, $filter, $localizable) {
+    .controller('drhome', ['$sanitize', '$scope', 'remoteActions', '$filter', '$localizable', 'DRBundleFieldMappingsNamespace', 'IsFoundation',
+                                function($sanitize, $scope, remoteActions, $filter, $localizable, DRBundleFieldMappingsNamespace, IsFoundation) {
         'use strict';
-
+        
+        $scope.isFoundation = IsFoundation;
+        
         $scope.defaultColumns = [{
             field: 'Name',
             resizable: true
         }, {
-            field: fileNsPrefix() + 'Type__c',
+            field: DRBundleFieldMappingsNamespace.Type__c,
             resizable: true,
             width: 180,
-            additionalFields: [fileNsPrefix() + 'InputType__c', fileNsPrefix() + 'OutputType__c'],
-            sortable: fileNsPrefix() + 'Type__c, ' + fileNsPrefix() + 'InputType__c, ' + fileNsPrefix() + 'OutputType__c',
+            additionalFields: [DRBundleFieldMappingsNamespace.InputType__c, DRBundleFieldMappingsNamespace.OutputType__c],
+            sortable: DRBundleFieldMappingsNamespace.Type__c + ', ' + DRBundleFieldMappingsNamespace.InputType__c + ', ' + DRBundleFieldMappingsNamespace.OutputType__c,
             getValue: function($scope, row) {
-                var output = row[fileNsPrefix() + 'Type__c'];
+                var output = row[DRBundleFieldMappingsNamespace.Type__c]
                 if (!/\(/.test(output)) {
-                    if (row[fileNsPrefix() + 'InputType__c'] && row[fileNsPrefix() + 'OutputType__c']) {
-                        output += ' (' + row[fileNsPrefix() + 'InputType__c'] + ' → ' + row[fileNsPrefix() + 'OutputType__c'] + ')';
-                    } else if (row[fileNsPrefix() + 'OutputType__c']) {
-                        output += ' (' + row[fileNsPrefix() + 'OutputType__c'] + ')';
+                    if (row[DRBundleFieldMappingsNamespace.InputType__c] && row[DRBundleFieldMappingsNamespace.OutputType__c]) {
+                        output += ' (' + row[DRBundleFieldMappingsNamespace.InputType__c] + ' → ' + row[DRBundleFieldMappingsNamespace.OutputType__c] + ')';
+                    } else if (row[DRBundleFieldMappingsNamespace.OutputType__c]) {
+                        output += ' (' + row[DRBundleFieldMappingsNamespace.OutputType__c] + ')';
                     }
                 }
                 return _.escape(output);
             }
         }, {
-            field: fileNsPrefix() + 'Description__c',
+            field: DRBundleFieldMappingsNamespace.Description__c,
             getValue: function($scope, row) {
-                if (!row[fileNsPrefix() + 'Description__c']) {
+                if (!row[DRBundleFieldMappingsNamespace.Description__c]) {
                     return '';
                 }
-                return '<span title="' + _.escape(row[fileNsPrefix() + 'Description__c']) + '">' +
-                _.escape(row[fileNsPrefix() + 'Description__c']) + '</span>';
+                return '<span title="' + _.escape(row[DRBundleFieldMappingsNamespace.Description__c]) + '">' +
+                _.escape(row[DRBundleFieldMappingsNamespace.Description__c]) + '</span>';
             },
             resizable: true
         }, {
@@ -213,13 +229,13 @@ angular.module('drhome')
 
         $scope.extraFilters = [{
             name: {
-                Name: fileNsPrefix() + 'Type__c'
+                Name: DRBundleFieldMappingsNamespace.Type__c
             },
             operator: '!=',
             value: 'Migration'
         }, {
             name: {
-                Name: fileNsPrefix() + 'Type__c'
+                Name: DRBundleFieldMappingsNamespace.Type__c
             },
             operator: '!=',
             value: 'Export (Component)'

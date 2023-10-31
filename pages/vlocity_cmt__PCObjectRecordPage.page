@@ -70,12 +70,20 @@
 
         <!-- Load your application shell -->
         <script type="module" crossorigin="use-credentials" src="{!URLFOR($Resource.productconsole, 'latest/src/vlocity-product-console.js')}"></script>
+        <style>
+            html,
+            body,
+            body+div {
+                height: 100%;
+                overflow: hidden;
+            }
+        </style>
     </head>
 
     <body>
         <div class="via-slds">
             <apex:outputpanel >
-                <vlocity-product-console namespaceprefix="{!NSP}" sfinstanceurl="{!SalesForceInstanceURL}" sessionid="{!$Api.Session_ID}"
+                <vlocity-product-console namespaceprefix="{!NSP}" sfinstanceurl="{!SalesForceInstanceURL}" sessionid="{!vlocAccessToken}"
                     userlocale="{!UserLocale}" islanguageRTL="{!isLanguageRTL}" sfcontentinstanceurl="{!SalesForceContentInstanceUrl}" timezone="{!TimeZone}" timezoneoffset="{!TimeZoneOffset}" currentdate="{!CurrentDate}">
                     <template id="vpcMainContent">
                         <vlocity-pc-object objectid="{!$CurrentPage.parameters.id}">

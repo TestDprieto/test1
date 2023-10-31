@@ -12,9 +12,12 @@ global class BusinessProcessController {
     global static Boolean bulkActivateBP(List<Id> bpIds) {
         return null;
     }
-global class BusinessProcessControllerOpen implements vlocity_cmt.VlocityOpenInterface2 {
+global class BusinessProcessControllerOpen implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global BusinessProcessControllerOpen() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global Object invokeMethod(String methodName, Map<String,Object> input, Map<String,Object> output, Map<String,Object> options) {
         return null;

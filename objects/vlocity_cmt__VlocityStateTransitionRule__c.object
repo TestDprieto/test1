@@ -169,6 +169,7 @@
     <fields>
         <fullName>vlocity_cmt__Description__c</fullName>
         <deprecated>false</deprecated>
+        <description>The description for this rule.</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>255</length>
@@ -193,6 +194,7 @@
     <fields>
         <fullName>vlocity_cmt__FailureMessage__c</fullName>
         <deprecated>false</deprecated>
+        <description>The message to be logged or displayed when this rule evaluates to false.</description>
         <externalId>false</externalId>
         <label>Failure Message</label>
         <length>255</length>
@@ -214,6 +216,7 @@
     <fields>
         <fullName>vlocity_cmt__Message__c</fullName>
         <deprecated>false</deprecated>
+        <description>The message to be logged or displayed when this rule evaluates to true.</description>
         <externalId>false</externalId>
         <label>Success Message</label>
         <length>255</length>
@@ -253,6 +256,7 @@
     <fields>
         <fullName>vlocity_cmt__StateTransitionId__c</fullName>
         <deprecated>false</deprecated>
+        <description>The Vlocity State Transition that this rule applies to.</description>
         <externalId>false</externalId>
         <label>State Transition</label>
         <referenceTo>vlocity_cmt__VlocityStateTransition__c</referenceTo>

@@ -16,7 +16,7 @@
                 "Code__c": "ACAT_COMM_OFFER",
                 "Name": "Commodity Offer",
                 "displaySequence": 120,
-                "id": "a0J5e000000pggBEAQ",
+                "id": "a0J5e000001ZjAfEAK",
                 "messages": [
                 ],
                 "productAttributes": {
@@ -24,7 +24,7 @@
                     ],
                     "records": [
                         {
-                            "attributeId": "a0K5e000000bEwlEAE",
+                            "attributeId": "a0K5e000001KN7MEAW",
                             "cloneable": true,
                             "code": "ATT_CUST_CATEGORY",
                             "dataType": "text",
@@ -78,7 +78,7 @@
                             ]
                         },
                         {
-                            "attributeId": "a0K5e000000bEwmEAE",
+                            "attributeId": "a0K5e000001KN7NEAW",
                             "cloneable": true,
                             "code": "ATT_METER_TYPE",
                             "dataType": "text",
@@ -124,7 +124,7 @@
                             ]
                         },
                         {
-                            "attributeId": "a0K5e000000bEwnEAE",
+                            "attributeId": "a0K5e000001KN7OEAW",
                             "cloneable": true,
                             "code": "ATT_PRICING_SCHEME",
                             "dataType": "text",
@@ -170,7 +170,7 @@
                             ]
                         },
                         {
-                            "attributeId": "a0K5e000000bEwoEAE",
+                            "attributeId": "a0K5e000001KN7PEAW",
                             "cloneable": true,
                             "code": "ATT_PAYMENT_METHOD",
                             "dataType": "text",
@@ -203,6 +203,7 @@
         "totalSize": 1
     },
     "%vlocity_namespace%__AttributeRules__c": "",
+    "%vlocity_namespace%__AttributesMarkupConfig__c": "",
     "%vlocity_namespace%__CategoryData__c": "",
     "%vlocity_namespace%__ChangeDetectorImplementation__c": "",
     "%vlocity_namespace%__ClassId__c": "",
@@ -216,12 +217,16 @@
     "%vlocity_namespace%__HeaderData__c": "",
     "%vlocity_namespace%__HelpText__c": "",
     "%vlocity_namespace%__IsConfigurable__c": true,
+    "%vlocity_namespace%__IsCustomerSubscription__c": false,
     "%vlocity_namespace%__IsLocationDependent__c": false,
     "%vlocity_namespace%__IsNotAssetizable__c": false,
     "%vlocity_namespace%__IsOrderable__c": true,
     "%vlocity_namespace%__JeopardySafetyIntervalUnit__c": "Seconds",
     "%vlocity_namespace%__JeopardySafetyInterval__c": "",
     "%vlocity_namespace%__LifecycleStatus__c": "",
+    "%vlocity_namespace%__MainFeatureQuantityUom__c": "",
+    "%vlocity_namespace%__MainFeatureQuantity__c": "",
+    "%vlocity_namespace%__MainFeatureTermInDays__c": "",
     "%vlocity_namespace%__Modification__c": "",
     "%vlocity_namespace%__ObjectTypeId__c": {
         "%vlocity_namespace%__GlobalKey__c": null,

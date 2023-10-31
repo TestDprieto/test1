@@ -103,41 +103,57 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Discount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>HasSchedule</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>LineNumber</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ListPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Product2Id</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ProductCode</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Quantity</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>QuoteId</fullName>
+        <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
     </fields>
     <fields>
         <fullName>ServiceDate</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Subtotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>UnitPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Action__c</fullName>
@@ -146,6 +162,7 @@
         <externalId>false</externalId>
         <label>Action</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -195,6 +212,7 @@
         <relationshipLabel>Quoted Changes</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -205,15 +223,48 @@
         <label>Asset Reference Id</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AsyncOperation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the asynchronous operation name for which this quote line item is locked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the asynchronous operation name for which this quote line item  is locked.</inlineHelpText>
+        <label>Async Operation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                    <label>Price</label>
+                </value>
+                <value>
+                    <fullName>Validate</fullName>
+                    <default>false</default>
+                    <label>Validate</label>
+                </value>
+                <value>
+                    <fullName>Mass Update</fullName>
+                    <default>false</default>
+                    <label>Mass Update</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>vlocity_cmt__AttributeMetadataChanges__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Attribute Metadata Changes</label>
-        <length>32768</length>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -223,8 +274,57 @@
         <externalId>false</externalId>
         <label>Attribute Selected Values</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseOneTimeCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the one-time charge of the quote line items before applying overrides and adjustments.</description>
+        <externalId>false</externalId>
+        <label>Base One Time Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseOneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the total one-time charge including rollups of the children and multiplied by the line&apos;s quantity.</description>
+        <externalId>false</externalId>
+        <label>Base One Time Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseRecurringCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the recurring charge of the quote line items before applying overrides or adjustments.</description>
+        <externalId>false</externalId>
+        <label>Base Recurring Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseRecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the total recurring charges including rollups of the children and multiplied by the line&apos;s quantity.</description>
+        <externalId>false</externalId>
+        <label>Base Recurring Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__BillingAccountId__c</fullName>
@@ -237,14 +337,17 @@
         <relationshipLabel>Quote Items</relationshipLabel>
         <relationshipName>BillingAccountQuoteItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__CatalogItemReferenceDateTime__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents the date and time a product is added to the cart. With versioning enabled, Reference Time value is used to render the bundle structure with valid child products to ensure valid configuration.</description>
         <externalId>false</externalId>
         <label>Reference Time</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -253,6 +356,7 @@
         <externalId>false</externalId>
         <label>Connect Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -261,6 +365,7 @@
         <externalId>false</externalId>
         <label>Cpq Cardinality Message</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -270,6 +375,7 @@
         <externalId>false</externalId>
         <label>Cpq Message Data</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -279,6 +385,7 @@
         <externalId>false</externalId>
         <label>Cpq Pricing Message</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -288,6 +395,7 @@
         <externalId>false</externalId>
         <label>Currency Payment Mode</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -312,7 +420,32 @@
         <externalId>false</externalId>
         <label>Disconnect Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveBaseOneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculated only for the root. The value is the same as the Base One Time Total of the root item. This field is 0.0 for non-root item.</description>
+        <externalId>false</externalId>
+        <label>Effective Base One Time Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveBaseRecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculated only for the root. The value is the same as the Base Recurring Total of the root item. This field is 0.0 for non-root item.</description>
+        <externalId>false</externalId>
+        <label>Effective Base Recurring Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__EffectiveOneTimeCostTotal__c</fullName>
@@ -322,6 +455,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -332,6 +466,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -343,6 +478,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -353,6 +489,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -364,6 +501,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -374,6 +512,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -385,6 +524,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -396,6 +536,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -406,6 +547,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -415,7 +557,44 @@
         <externalId>false</externalId>
         <label>Filter</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FinancedAmountTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Rollup of the Financed Amount.</description>
+        <externalId>false</externalId>
+        <label>Financed Amount Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FinancedAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores the total amount to be paid to the finance provider.</description>
+        <externalId>false</externalId>
+        <label>Financed Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FinancedInstallmentAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores the installment amount to be paid each month to the finance provider.</description>
+        <externalId>false</externalId>
+        <label>Financed Installment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__InCartQuantityMap__c</fullName>
@@ -424,8 +603,19 @@
         <externalId>false</externalId>
         <label>InCartQuantityMap</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsPriced__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field to indicate if line item is priced</description>
+        <externalId>false</externalId>
+        <formula>NOT(ISNULL(vlocity_cmt__LastPricedAt__c))</formula>
+        <label>Priced</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__IsProductTrackAgreement__c</fullName>
@@ -435,15 +625,18 @@
         <formula>Product2.vlocity_cmt__TrackAsAgreement__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Product Track Agreement</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__IsValidated__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field to indicate if line item is validated</description>
         <externalId>false</externalId>
         <formula>NOT(ISNULL(vlocity_cmt__ValidationDate__c))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Validated</label>
+        <trackHistory>false</trackHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
@@ -453,6 +646,7 @@
         <label>Item Name</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -463,6 +657,7 @@
         <externalId>false</externalId>
         <label>JSONAttribute</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -473,15 +668,18 @@
         <label>JSONNode</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>vlocity_cmt__LastPricedAt__c</fullName>
         <deprecated>false</deprecated>
+        <description>Time when this line item was last priced</description>
         <externalId>false</externalId>
         <label>Last Priced At</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <fields>
@@ -492,8 +690,51 @@
         <label>Line Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LockedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This indicates if an quote line item is locked by a user.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This indicates if an quote line item is locked by a user.</inlineHelpText>
+        <label>Locked By User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipLabel>Quote Line Items</relationshipLabel>
+        <relationshipName>QuoteLineItems</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LockedFor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the reason for doing lock on the quote line item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the reason for doing lock on the quote line item.</inlineHelpText>
+        <label>Locked For</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Async Operation</fullName>
+                    <default>false</default>
+                    <label>Async Operation</label>
+                </value>
+                <value>
+                    <fullName>Manual Edit</fullName>
+                    <default>false</default>
+                    <label>Manual Edit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Modification__c</fullName>
@@ -503,6 +744,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -515,6 +757,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -525,6 +768,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -535,6 +779,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -545,6 +790,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -556,6 +802,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -566,6 +813,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -577,6 +825,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -589,6 +838,7 @@
         <precision>5</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -599,6 +849,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -609,6 +860,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -620,6 +872,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -631,6 +884,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -642,6 +896,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -653,6 +908,7 @@
         <precision>5</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -663,6 +919,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -671,6 +928,7 @@
         <externalId>false</externalId>
         <label>Overage UOM</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -701,6 +959,7 @@
         <label>ParentItemId</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -714,6 +973,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -723,8 +983,23 @@
         <externalId>false</externalId>
         <label>Pricing Log</label>
         <length>131072</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PriorQuoteLineItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Identifies the original Quote Line Item from which a new Quote Line Item was created.</description>
+        <externalId>false</externalId>
+        <label>Prior Quote Line Item</label>
+        <referenceTo>QuoteLineItem</referenceTo>
+        <relationshipLabel>Quote Line Items</relationshipLabel>
+        <relationshipName>QuoteLineItems</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Product2Id__c</fullName>
@@ -737,6 +1012,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>Quote_Line_Items</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -750,6 +1026,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>Quote_Line_Items</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -761,6 +1038,7 @@
         <inlineHelpText>Version Group Key of Product</inlineHelpText>
         <label>Product Group Key</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -772,6 +1050,7 @@
         <inlineHelpText>Stores the resulting string obtained by replacing every Product Id in the Product Hierarchy Path with its Version Group key</inlineHelpText>
         <label>Product Hierarchy Group Key Path</label>
         <length>32768</length>
+        <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
     </fields>
@@ -783,6 +1062,7 @@
         <label>Product Hierarchy Path</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -794,6 +1074,7 @@
         <label>Provisioning Status</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -804,6 +1085,7 @@
         <label>Query</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -818,6 +1100,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -831,6 +1114,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -842,6 +1126,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -853,6 +1138,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -863,6 +1149,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -873,6 +1160,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -884,6 +1172,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -895,6 +1184,7 @@
         <precision>5</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -905,6 +1195,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -915,6 +1206,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -923,6 +1215,7 @@
         <externalId>false</externalId>
         <label>Recurring UOM</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -946,6 +1239,7 @@
         <externalId>false</externalId>
         <label>Recurring UOM</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <valueSetDefinition>
@@ -969,6 +1263,7 @@
         <externalId>false</externalId>
         <label>RelationshipType</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -995,6 +1290,7 @@
         <label>Relies on Item</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1006,6 +1302,7 @@
         <label>RootItemId</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1017,6 +1314,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1027,6 +1325,7 @@
         <label>Serial Number</label>
         <length>255</length>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
@@ -1041,6 +1340,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>ServiceAccountQuoteItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1050,7 +1350,20 @@
         <externalId>false</externalId>
         <label>Service Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServiceIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the service used by the customer.</description>
+        <externalId>true</externalId>
+        <label>Service Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>vlocity_cmt__ServicePointId__c</fullName>
@@ -1063,7 +1376,20 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SourceLineNumber__c</fullName>
+        <deprecated>false</deprecated>
+        <description>For Quote Line Items in a temporary cart, this field indicates the Line Number of this line item in the source Quote. For example, this is used for line items in a Working Cart to identify the same line item in the source Enterprise Quote.</description>
+        <externalId>false</externalId>
+        <label>Source Line Number</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>vlocity_cmt__SubAction__c</fullName>
@@ -1072,6 +1398,7 @@
         <externalId>false</externalId>
         <label>Sub Action</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
         <valueSet>
             <restricted>true</restricted>
@@ -1111,6 +1438,7 @@
         <relationshipLabel>Quote Line Items</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1122,6 +1450,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1133,6 +1462,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Percent</type>
     </fields>
     <fields>
@@ -1146,6 +1476,7 @@
         <relationshipLabel>Quote Products</relationshipLabel>
         <relationshipName>QuoteLineItems</relationshipName>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
@@ -1157,6 +1488,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1168,6 +1500,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
+        <trackHistory>false</trackHistory>
         <type>Number</type>
         <unique>false</unique>
     </fields>
@@ -1180,6 +1513,7 @@
         <precision>18</precision>
         <required>false</required>
         <scale>5</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
@@ -1191,14 +1525,17 @@
         <precision>18</precision>
         <required>false</required>
         <scale>5</scale>
+        <trackHistory>false</trackHistory>
         <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__ValidationDate__c</fullName>
         <deprecated>false</deprecated>
+        <description>Time when this line item was last validated</description>
         <externalId>false</externalId>
         <label>Validation Date</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
         <type>DateTime</type>
     </fields>
     <sharingModel>ControlledByParent</sharingModel>

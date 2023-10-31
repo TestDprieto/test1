@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Ad Server Advertiser Identifier --></label>
+        <name>vlocity_cmt__AdServerAdvertiserIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ad Server --></label>
+        <name>vlocity_cmt__AdServerId__c</name>
+        <relationshipLabel><!-- Account Ad Servers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Advertiser --></label>
+        <name>vlocity_cmt__AdvertiserId__c</name>
+        <relationshipLabel><!-- Account Ad Servers --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Core Id --></label>
+        <name>vlocity_cmt__CoreId__c</name>
+    </fields>
+</CustomObjectTranslation>

@@ -13,4 +13,10 @@ global class NewportUtilities {
     global static String getNewportUrl() {
         return null;
     }
+    global static String getResolvedNewportForAngularOS(Boolean isRTL) {
+        return null;
+    }
+    global static String getResolvedNewportUrl(Boolean forceScoped) {
+        return null;
+    }
 }

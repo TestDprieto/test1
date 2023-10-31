@@ -111,7 +111,7 @@
     </style>
 
     <script type="text/javascript">
-        sforce.connection.sessionId = '{!$Api.Session_ID}';
+        sforce.connection.sessionId = '{!vlocAccessToken}';
         var enclosingTabId;
         var delayTime = 200;
         
@@ -140,6 +140,7 @@
             var stmtAlreadyOpen = false;
             consoleHelper.startMappingSubtabs(function (result1) {
                 for (var i = 0; i<Object.keys(result1).length; i++) {
+                    //CMT-9380 : Can't use JSENCODE() to resolve the issue as stmt is not a text
                     if (result1[Object.keys(result1)[i]]=='{!stmt}') {
                         sforce.console.focusSubtabById(Object.keys(result1)[i], function (result2) {
                             if (!result2.success) {

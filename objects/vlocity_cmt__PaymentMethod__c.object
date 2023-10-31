@@ -447,6 +447,30 @@
         </valueSet>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__PaymentCustomerIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the customer generated in the Payment Gateway.</description>
+        <externalId>true</externalId>
+        <label>External Customer Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PaymentMethodIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the payment method generated in the Payment Gateway.</description>
+        <externalId>true</externalId>
+        <label>External Payment Method Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__RoutingTransitNumber__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>

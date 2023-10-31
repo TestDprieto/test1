@@ -23,6 +23,8 @@
             <apex:includeScript value="{!$Resource.vlocity_cmt__SldsAngular}"/>
             <apex:includeScript value="{!$Resource.vlocity_cmt__ContractDocumentEditSectionsApp}"/>
             <apex:includeScript value="{!$Resource.vlocity_cmt__DocXContentTypes}"/>
+            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
+                        
         </head>
         <body>
             <div class="vlocity via-slds vloc-body contract-edit-sections" ng-app="contractDocumentEditSectionsApp" ng-controller="contractDocumentEditSectionsCtrl" via-affix="top" via-screen-height="viaScreenHeight" ng-class="{'msie': isInternetExplorer}">
@@ -93,6 +95,7 @@
             </div>
 
             <script type="text/javascript">
+             _.noConflict();
                 // Limit scope pollution from any deprecated API
                 (function() {
                     var matched, browser;

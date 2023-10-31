@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -112,7 +126,7 @@
 require('./polyfills/Array.find.js');
 require('./polyfills/Array.findIndex.js');
 
-angular.module('ouihome', ['vlocity', 'sldsangular', 'drvcomp', 'ngTable', 'infinite-scroll', 'omniscriptLwcCompiler']);
+angular.module('ouihome', ['vlocity', 'ouihome.core', 'sldsangular', 'drvcomp', 'ngTable', 'infinite-scroll', 'omniscriptLwcCompiler']);
 
 require('./modules/ouihome/config/config.js');
 require('./modules/ouihome/factory/BackcompatExport.js');
@@ -153,38 +167,54 @@ angular.module('ouihome')
 },{}],3:[function(require,module,exports){
 angular.module('ouihome')
     .controller('ouihome', ['$scope', '$rootScope', '$injector',
-        '$filter', 'backcompatExport', 'backcompatImport', '$modal', '$q',
-        function ($scope, $rootScope, $injector, $filter, backcompatExport, backcompatImport, $modal, $q) {
+        '$filter', 'backcompatExport', 'backcompatImport', '$modal', '$q', 'OmniScriptFieldMappingsNamespace',
+        function ($scope, $rootScope, $injector, $filter, backcompatExport, backcompatImport, $modal, $q, OmniScriptFieldMappingsNamespace) {
 
             'use strict';
             $scope.groupBy = function (script) {
-                var type = script[fileNsPrefix() + 'Type__c'],
-                    subType = script[fileNsPrefix() + 'SubType__c'],
-                    language = script[fileNsPrefix() + 'Language__c'];
+                var type = script[OmniScriptFieldMappingsNamespace.Type__c],
+                    subType = script[OmniScriptFieldMappingsNamespace.SubType__c],
+                    language = script[OmniScriptFieldMappingsNamespace.Language__c]
                 return (type ? type : '') + '/' + (subType ? subType : '') + '/' +
                     (language ? language : '');
             };
 
+            window.OmniInvalidConfigForFoundation = '';
+            $rootScope.vlocity.getCustomLabels('OmniInvalidConfigForFoundation')
+                .then(result => {
+                    window.OmniInvalidConfigForFoundation = result[0];
+                })
+                .catch(reason => { });
+
             $scope.backcompatImport = backcompatImport;
-            $scope.searchColumns = [fileNsPrefix() + 'Type__c', fileNsPrefix() + 'SubType__c', 'Name'];
+            $scope.searchColumns = [OmniScriptFieldMappingsNamespace.Type__c, OmniScriptFieldMappingsNamespace.SubType__c, 'Name'];
             $scope.defaultColumns = [
                 {
                     resizable: true,
-                    field: fileNsPrefix() + 'Type__c',
-                    additionalFields: [fileNsPrefix() + 'SubType__c', fileNsPrefix() + 'Version__c'],
+                    field: OmniScriptFieldMappingsNamespace.Type__c,
+                    additionalFields: [OmniScriptFieldMappingsNamespace.SubType__c, OmniScriptFieldMappingsNamespace.Version__c],
                     getValue: function ($scope, row) {
                         var url;
-                        if (!window.disableLwcDesigner && row[fileNsPrefix() + 'IsLwcEnabled__c']) {
+                        if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
                             url = window.omniLwcNewUrl + row.Id;
                         } else {
                             url = window.omniNewUrl + '?id=' + row.Id;
                         }
-                        return '<a title="' + _.escape(row.Name) + ' (Version ' + row[fileNsPrefix() + 'Version__c'] + ')" href="' + url + '" ng-mouseup="$root.vlocityOpenUrl(\'' + url + '\', $event, false, null, true)">' +
-                        _.escape(row.Name) + ' (Version ' + row[fileNsPrefix() + 'Version__c'] + ')</a>';
+
+                        if (window.showLegacyOmniStudioUi === false && !row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
+                            return '<span slds-popover container=".via-slds"  title="' + window.OmniInvalidConfigForFoundation + '" class="slds-grid"><span class="slds-icon_container">' +
+                                '<slds-svg-icon sprite="\'utility\'"' +
+                                ' icon="\'warning\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-warning\'\"></slds-svg-icon></span>&nbsp;' +
+                                '<span title="' + _.escape(row.Name) + ' (Version ' + row[OmniScriptFieldMappingsNamespace.Version__c] + ')" class="slds-m-top_xxx-small">' +
+                                _.escape(row.Name) + ' (Version ' + row[OmniScriptFieldMappingsNamespace.Version__c] + ')</span><span>'
+                        }
+
+                        return '<a title="' + _.escape(row.Name) + ' (Version ' + row[OmniScriptFieldMappingsNamespace.Version__c] + ')" href="' + url + '" ng-mouseup="$root.vlocityOpenUrl(\'' + url + '\', $event, false, null, true)">' +
+                        _.escape(row.Name) + ' (Version ' + row[OmniScriptFieldMappingsNamespace.Version__c] + ')</a>';
             },
                     getGroupValue: function ($scope, $group) {
-                        var type = $group.data[0][fileNsPrefix() + 'Type__c'],
-                            subType = $group.data[0][fileNsPrefix() + 'SubType__c'];
+                        var type = $group.data[0][OmniScriptFieldMappingsNamespace.Type__c],
+                            subType = $group.data[0][OmniScriptFieldMappingsNamespace.SubType__c];
                         if (!type) {
                             return '<span>&nbsp;</span>';
                         }
@@ -195,12 +225,12 @@ angular.module('ouihome')
                 }, {
                     resizable: true,
                     width: 115,
-                    field: fileNsPrefix() + 'Language__c',
+                    field: OmniScriptFieldMappingsNamespace.Language__c,
                     sortable: false
                 }, {
                     title: 'Description',
                     resizable: true,
-                    field: fileNsPrefix() + 'AdditionalInformation__c'
+                    field: OmniScriptFieldMappingsNamespace.AdditionalInformation__c
                 }, {
                     title: 'Last Modified Date',
                     resizable: true,
@@ -224,12 +254,12 @@ angular.module('ouihome')
                         return _.escape(row.LastModifiedBy.Name);
                     }
                 }, {
-                    field: fileNsPrefix() + 'IsReusable__c',
+                    field: OmniScriptFieldMappingsNamespace.IsReusable__c,
                     resizable: false,
                     dynamic: true,
                     width: 110,
                     getValue: function ($scope, row) {
-                        if (row[fileNsPrefix() + 'IsReusable__c']) {
+                        if (row[OmniScriptFieldMappingsNamespace.IsReusable__c]) {
                             return '<span class="slds-icon_container" title="Is Reusable"' +
                                 '><slds-svg-icon sprite="\'utility\'"' +
                                 ' icon="\'success\'" size="\'x-small\'" extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
@@ -238,7 +268,7 @@ angular.module('ouihome')
                     getGroupSortValue: function ($scope, $group) {
                         var hasAnActiveEntry = false;
                         _.forEach($group.data, function (row) {
-                            if (row[fileNsPrefix() + 'IsReusable__c']) {
+                            if (row[OmniScriptFieldMappingsNamespace.IsReusable__c]) {
                                 hasAnActiveEntry = true;
                                 return false;
                             }
@@ -248,7 +278,7 @@ angular.module('ouihome')
                     getGroupValue: function ($scope, $group) {
                         var hasAResusableEntry = false;
                         _.forEach($group.data, function (row) {
-                            if (row[fileNsPrefix() + 'IsReusable__c']) {
+                            if (row[OmniScriptFieldMappingsNamespace.IsReusable__c]) {
                                 hasAResusableEntry = true;
                                 return false;
                             }
@@ -260,12 +290,12 @@ angular.module('ouihome')
                         }
                     }
                 }, {
-                    field: fileNsPrefix() + 'IsActive__c',
+                    field: OmniScriptFieldMappingsNamespace.IsActive__c,
                     resizable: false,
                     width: 90,
                     dynamic: true,
                     getValue: function ($scope, row) {
-                        if (row[fileNsPrefix() + 'IsActive__c']) {
+                        if (row[OmniScriptFieldMappingsNamespace.IsActive__c]) {
                             return '<span class="slds-icon_container" title="Is Active">' +
                                 '<slds-svg-icon sprite="\'utility\'"' +
                                 ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
@@ -274,7 +304,7 @@ angular.module('ouihome')
                     getGroupSortValue: function ($scope, $group) {
                         var hasAnActiveEntry = false;
                         _.forEach($group.data, function (row) {
-                            if (row[fileNsPrefix() + 'IsActive__c']) {
+                            if (row[OmniScriptFieldMappingsNamespace.IsActive__c]) {
                                 hasAnActiveEntry = true;
                                 return false;
                             }
@@ -284,7 +314,7 @@ angular.module('ouihome')
                     getGroupValue: function ($scope, $group) {
                         var hasAnActiveEntry = false;
                         _.forEach($group.data, function (row) {
-                            if (row[fileNsPrefix() + 'IsActive__c']) {
+                            if (row[OmniScriptFieldMappingsNamespace.IsActive__c]) {
                                 hasAnActiveEntry = true;
                                 return false;
                             }
@@ -296,13 +326,13 @@ angular.module('ouihome')
                         }
                     }
                 }, {
-                    field: fileNsPrefix() + 'IsLwcEnabled__c',
+                    field: OmniScriptFieldMappingsNamespace.IsLwcEnabled__c,
                     resizable: false,
                     width: 110,
                     dynamic: true,
                     title: 'LWC Enabled',
                     getValue: function ($scope, row) {
-                        if (row[fileNsPrefix() + 'IsLwcEnabled__c']) {
+                        if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
                             return '<span class="slds-icon_container" title="Is Lightning Web Component Enabled">' +
                                 '<slds-svg-icon sprite="\'utility\'"' +
                                 ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
@@ -311,7 +341,7 @@ angular.module('ouihome')
                     getGroupSortValue: function ($scope, $group) {
                         var hasAnActiveEntry = false;
                         _.forEach($group.data, function (row) {
-                            if (row[fileNsPrefix() + 'IsLwcEnabled__c']) {
+                            if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
                                 hasAnActiveEntry = true;
                                 return false;
                             }
@@ -321,7 +351,7 @@ angular.module('ouihome')
                     getGroupValue: function ($scope, $group) {
                         var hasAnActiveEntry = false;
                         _.forEach($group.data, function (row) {
-                            if (row[fileNsPrefix() + 'IsLwcEnabled__c']) {
+                            if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
                                 hasAnActiveEntry = true;
                                 return false;
                             }
@@ -338,11 +368,11 @@ angular.module('ouihome')
             function changeActivation(row, group, isActivate) {
 
                 // We need to validate if LWC is enabled
-                if (row[fileNsPrefix() + 'IsLwcEnabled__c'] && isActivate) {
+                if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c] && isActivate) {
                     const compilerService = $injector.get('compilerService'),
-                        type = row[fileNsPrefix() + 'Type__c'],
-                        subType = row[fileNsPrefix() + 'SubType__c'],
-                        language = row[fileNsPrefix() + 'Language__c'];
+                        type = row[OmniScriptFieldMappingsNamespace.Type__c],
+                        subType = row[OmniScriptFieldMappingsNamespace.SubType__c],
+                        language = row[OmniScriptFieldMappingsNamespace.Language__c];
 
                     $q.all([compilerService.validate(type, subType, language),
                     $rootScope.vlocity.getCustomLabels('OmniDesActivation', 'OmniDesConfirmActivationWithLwc')])
@@ -407,10 +437,10 @@ angular.module('ouihome')
                     row.deleting = false;
                     if (isActivate) {
                         group.data.forEach(function (row) {
-                            row[fileNsPrefix() + 'IsActive__c'] = false;
+                            row[OmniScriptFieldMappingsNamespace.IsActive__c] = false;
                         });
                     }
-                    row[fileNsPrefix() + 'IsActive__c'] = isActivate;
+                    row[OmniScriptFieldMappingsNamespace.IsActive__c] = isActivate && success;
                 });
             }
 
@@ -418,7 +448,7 @@ angular.module('ouihome')
                 return new Promise((resolve, reject) => {
 
                     // if LWC is disabled, return
-                    if (!row[fileNsPrefix() + 'IsLwcEnabled__c']) {
+                    if (!row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
                         resolve();
                         return;
                     }
@@ -427,9 +457,9 @@ angular.module('ouihome')
                     const compilerService = $injector.get('compilerService'),
                         toolingService = $injector.get('toolingService'),
                         bpService = $injector.get('bpService'),
-                        type = row[fileNsPrefix() + 'Type__c'],
-                        subType = row[fileNsPrefix() + 'SubType__c'],
-                        language = row[fileNsPrefix() + 'Language__c'],
+                        type = row[OmniScriptFieldMappingsNamespace.Type__c],
+                        subType = row[OmniScriptFieldMappingsNamespace.SubType__c],
+                        language = row[OmniScriptFieldMappingsNamespace.Language__c],
                         sId = row['Id'],
                         lwcName = compilerService.getLwcName(type, subType, language),
                         addRuntimeNamespace = window.omniLwcCompilerConfig.isInsidePckg,
@@ -443,7 +473,10 @@ angular.module('ouihome')
                             .catch(error =>
                                 $rootScope.vlocity.getCustomLabels('OmniDesLwcDeployError')
                                     .then(function (results) {
-                                        compilerService.showDeploymentError(error, results[0]).then(() => resolve(true));
+                                        executeActivation(row, false)
+                                            .then(_ => {
+                                                compilerService.showDeploymentError(error, results[0]).then(() => resolve(false));
+                                            });
                                     }));
 
                     } else {
@@ -466,19 +499,6 @@ angular.module('ouihome')
 
             $scope.rowActions = [
                 {
-                    text: 'Open in LWC OmniScript Designer',
-                    icon: {
-                        sprite: 'utility',
-                        icon: 'builder'
-                    },
-                    click: function (row, group) {
-                        $rootScope.vlocityOpenUrl(window.omniLwcNewUrl + row.Id, null, null, null, true);
-                    },
-                    hide: function (row, group) {
-                        return !row[fileNsPrefix() + 'IsLwcEnabled__c'];
-                    }
-                },
-                {
                     text: 'Activate',
                     icon: {
                         sprite: 'utility',
@@ -488,7 +508,7 @@ angular.module('ouihome')
                         changeActivation(row, group, true);
                     },
                     hide: function (row, group) {
-                        return row[fileNsPrefix() + 'IsActive__c'];
+                        return row[OmniScriptFieldMappingsNamespace.IsActive__c] || (!window.showLegacyOmniStudioUi && !row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]);
                     }
                 },
                 {
@@ -501,7 +521,7 @@ angular.module('ouihome')
                         changeActivation(row, group, false);
                     },
                     hide: function (row, group) {
-                        return !row[fileNsPrefix() + 'IsActive__c'];
+                        return !row[OmniScriptFieldMappingsNamespace.IsActive__c];
                     }
                 },
                 {
@@ -513,10 +533,10 @@ angular.module('ouihome')
                     promptTitle: 'Delete OmniScript?',
                     promptContent: function (row) {
                         return 'Are you sure you want to delete this OmniScript?<br/> <br/>"' +
-                            _.escape(row.Name) + ' (Version ' + row[fileNsPrefix() + 'Version__c'] + ')" ';
+                            _.escape(row.Name) + ' (Version ' + row[OmniScriptFieldMappingsNamespace.Version__c] + ')" ';
                     },
                     hide: function (row, group) {
-                        return row[fileNsPrefix() + 'IsActive__c'];
+                        return row[OmniScriptFieldMappingsNamespace.IsActive__c];
                     }
                 }, {
                     text: 'Preview (Newport)',
@@ -525,8 +545,30 @@ angular.module('ouihome')
                         icon: 'preview'
                     },
                     click: function (row, group, $event) {
-                        var url = '/apex/' + fileNsPrefix() + 'omniscriptpreviewpage?layout=newport&id=' + row.Id;
+                        let url;
+                        const isInsidePkg = window.omniLwcCompilerConfig.isInsidePckg === true || window.omniLwcCompilerConfig.isInsidePckg === 'true';
+
+                        if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
+                            const urlParams = [
+                                'ns=' + (row.IsActive && isInsidePkg ? 'c' : fileNsPrefix().replace('__', '')),
+                                'lwc=' + (row.IsActive ? row.Type + row.SubType + row.Language : 'omniscriptPreview'),
+                                'layout=' + 'newport',
+                                'isdtp=p1',
+                                'sfdcIFrameOrigin=' + encodeURIComponent(window.location.protocol + '//' + window.location.hostname),
+                                'sfdcIFrameHost=web',
+                            ];
+
+                            if (!row.IsActive) {
+                                urlParams.push(`id=${row.Id}`);
+                            }
+                            url = `/apex/${fileNsPrefix()}OmniscriptLwcPreviewPage?${urlParams.join('&')}`;
+                        } else {
+                            url = window.previewUrl + '?layout=newport&id=' + row.Id;
+                        }
                         window.vlocityOpenUrl(url, $event);
+                    },
+                    hide: function (row, group) {
+                        return (!window.showLegacyOmniStudioUi && !row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]);
                     }
                 }, {
                     text: 'Preview (Lightning)',
@@ -535,18 +577,30 @@ angular.module('ouihome')
                         icon: 'preview'
                     },
                     click: function (row, group, $event) {
-                        var url = '/apex/' + fileNsPrefix() + 'omniscriptpreviewpage?layout=lightning&id=' + row.Id;
+                        let url;
+                        const isInsidePkg = window.omniLwcCompilerConfig.isInsidePckg === true || window.omniLwcCompilerConfig.isInsidePckg === 'true';
+
+                        if (row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]) {
+                            const urlParams = [
+                                'ns=' + (row.IsActive && isInsidePkg ? 'c' : fileNsPrefix().replace('__', '')),
+                                'lwc=' + (row.IsActive ? row.Type + row.SubType + row.Language : 'omniscriptPreview'),
+                                'layout=' + 'lightning',
+                                'isdtp=p1',
+                                'sfdcIFrameOrigin=' + encodeURIComponent(window.location.protocol + '//' + window.location.hostname),
+                                'sfdcIFrameHost=web',
+                            ];
+
+                            if (!row.IsActive) {
+                                urlParams.push(`id=${row.Id}`);
+                            }
+                            url = `/apex/${fileNsPrefix()}OmniscriptLwcPreviewPage?${urlParams.join('&')}`;
+                        } else {
+                            url = window.previewUrl + '?layout=lightning&id=' + row.Id;
+                        }
                         window.vlocityOpenUrl(url, $event);
-                    }
-                }, {
-                    text: 'Preview (Classic)',
-                    icon: {
-                        sprite: 'utility',
-                        icon: 'preview'
                     },
-                    click: function (row, group, $event) {
-                        var url = '/apex/' + fileNsPrefix() + 'omniscriptpreviewpage?id=' + row.Id;
-                        window.vlocityOpenUrl(url, $event);
+                    hide: function (row, group) {
+                        return (!window.showLegacyOmniStudioUi && !row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]);
                     }
                 },
                 {
@@ -559,29 +613,44 @@ angular.module('ouihome')
                         backcompatExport(row, false, true);
                     },
                     hide: function (row, group) {
-                        return !row[fileNsPrefix() + 'IsActive__c'];
+                        return !row[OmniScriptFieldMappingsNamespace.IsActive__c] || (!window.showLegacyOmniStudioUi && !row[OmniScriptFieldMappingsNamespace.IsLwcEnabled__c]);
                     }
                 }
             ];
 
-            $scope.sorting = {
-            };
-            $scope.sorting[fileNsPrefix() + 'Type__c'] = 'asc';
+            $scope.sorting = { [OmniScriptFieldMappingsNamespace.Type__c]: 'asc' };
 
             $scope.extraFilters = [{
                 name: {
-                    Name: fileNsPrefix() + 'IsProcedure__c',
+                    Name: OmniScriptFieldMappingsNamespace.IsProcedure__c,
                     Type: 'BOOLEAN'
                 },
                 operator: '=',
                 value: false
             }];
 
+            $scope.newDesignerCustomizationButtons = [];
+            if(window.isFoundationPkg){
+                $rootScope.vlocity.getCustomLabels('OmniAuraServerError').then(function (results) {
+                    window.omniDesignerCustomizationTypes.forEach(function (data) {
+                        var button;
+                        if(data){
+                            button = {
+                                id :   data.customDesignerTypeLabel,
+                                text : data.newButtonLabel,
+                                click : function(scope, event) {
+                                    window.vlocityOpenUrl(window.newOutSideFeatureUrl+data.newFormAuraComponentNamespaceAndName+'&c__customLabel='+results[0],event);
+                                }
+                            };
+                            $scope.newDesignerCustomizationButtons.push(button);
+                        }
+                    });
+                });
+            }
         }]);
-
 },{}],4:[function(require,module,exports){
 angular.module('ouihome')
-       .factory('backcompatExport', function(remoteActions, $localizable) {
+       .factory('backcompatExport', function(remoteActions, $localizable, OmniScriptFieldMappingsNamespace) {
            var $scope = {};
 
            return function backcompatExport(script, dontRetryCompile, useJSONV2)  {
@@ -605,7 +674,7 @@ angular.module('ouihome')
                         }
                         try {
                             pom.setAttribute('href', 'data:application/zip;charset=utf-8,' + encodeURIComponent(result));
-                            var name = (script[fileNsPrefix() + 'Type__c'] || '') + '_' + (script[fileNsPrefix() + 'SubType__c'] || '') + '_' + (script[fileNsPrefix() + 'Language__c'] || '');
+                            var name = (script[OmniScriptFieldMappingsNamespace.Type__c] || '') + '_' + (script[OmniScriptFieldMappingsNamespace.SubType__c] || '') + '_' + (script[OmniScriptFieldMappingsNamespace.Language__c] || '');
                             name = name.replace(/ /g, '');
                             pom.setAttribute('download', name + '.json');
                             pom.style.display = 'none';

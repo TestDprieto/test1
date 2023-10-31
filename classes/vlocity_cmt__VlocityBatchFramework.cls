@@ -5,7 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class VlocityBatchFramework implements Database.AllowsCallouts, Database.Batchable<vlocity_cmt.VlocityBatchFramework.VlocityScheduledJobIterations>, System.Iterable<vlocity_cmt.VlocityBatchFramework.VlocityScheduledJobIterations>, System.Iterator<vlocity_cmt.VlocityBatchFramework.VlocityScheduledJobIterations>, System.Schedulable, vlocity_cmt.VlocityOpenInterface2 {
+global class VlocityBatchFramework implements Database.AllowsCallouts, Database.Batchable<vlocity_cmt.VlocityBatchFramework.VlocityScheduledJobIterations>, System.Callable, System.Iterable<vlocity_cmt.VlocityBatchFramework.VlocityScheduledJobIterations>, System.Iterator<vlocity_cmt.VlocityBatchFramework.VlocityScheduledJobIterations>, System.Schedulable, vlocity_cmt.VlocityOpenInterface2 {
     global VlocityBatchFramework() {
 
     }
@@ -29,6 +29,9 @@ global class VlocityBatchFramework implements Database.AllowsCallouts, Database.
     }
     global static void abortScheduledBatchJob() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global void execute(System.SchedulableContext ctx) {
 

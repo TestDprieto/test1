@@ -235,6 +235,26 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__EffectiveStartTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>It will store the effectivity of the offer i.e. from what time onwards the offer would be effective.</description>
+        <externalId>false</externalId>
+        <label>EffectiveStartTime</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ExpirationTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>It will store the effectivity of the offer i.e. from what time onwards offer would ineffective.</description>
+        <externalId>false</externalId>
+        <label>ExpirationTime</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__IsProcessed__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -242,6 +262,18 @@
         <label>Is Processed</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OfferId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This will store the unique Id of a specific version of a product which got impacted due to the changes made on SObjects.</description>
+        <externalId>false</externalId>
+        <label>OfferId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>CachedAPIChange</label>
     <nameField>

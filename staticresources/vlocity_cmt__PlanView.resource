@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -160,10 +174,9 @@ var vlocXOM = {
 		};
 // reload RemoteActions - overide with off-platform calls
 angular.module('vloc.planView')
-.config(function($provide) {
-    $provide.decorator('remoteActions', function($delegate, $http, thorIntegrationService, actionToEndpoint) 
+.factory('universalRemoteActions', function($http, thorIntegrationService, actionToEndpoint, remoteActions)
     {
-        var originalRemoteActions = $delegate;
+        var originalRemoteActions = remoteActions;
         // override the remoteActions methods you know may be off platform
         var potentiallyOffPlatformCalls = ['getOrchestrationPlan', 'getOrchestrationItem'];
         potentiallyOffPlatformCalls.forEach(function(remoteActionName) {
@@ -200,9 +213,8 @@ angular.module('vloc.planView')
                 });
             }
         });
-        return $delegate;
-    })
-});
+        return originalRemoteActions;
+    });
 require('./modules/planview/templates/templates.js');
 require('./modules/planview/controller/PlanViewController.js');
 require('./modules/planview/controller/MsgController.js');
@@ -227,7 +239,7 @@ var Grid = require ('../layout/layout.js');
 angular
 .module('vloc.planView')
 .controller('PlanViewController', function($scope, $rootScope,$http, config, id, cometd, 
-    remoteActions, $interval, $timeout, taskTypes, $sldsModal, layoutDataService, thorIntegrationService, $window, msgService, isIframe) {
+    remoteActions, universalRemoteActions, $interval, $timeout, taskTypes, $sldsModal, layoutDataService, thorIntegrationService, $window, msgService, isIframe) {
 
     'use strict';
     $scope.isIframe = isIframe;
@@ -310,8 +322,8 @@ angular
             var item = grid.addItem(items[i].id, grid.getSwimlane (items[i].planDefId, items[i].orderId), items[i].name, items[i].type, items[i].state);
             item.additionalId = items[i].additionalId;
             item.additionalName = items[i].additionalName;
-            item.startDate = convertDate(items[i].startDate);
-            item.dueDate = convertDate(items[i].dueDate);
+            item.startDate = orchestrationPlan.isOffPlatform ? convertDate(items[i].startDate) : items[i].startDate;
+            item.dueDate = orchestrationPlan.isOffPlatform ? convertDate(items[i].dueDate) : items[i].dueDate;
             item.customTaskExecutionUrl = items[i].customTaskExecutionUrl;
             item.isPointOfNoReturn = items[i].isPointOfNoReturn;
             if(items[i].translatedState){
@@ -385,7 +397,7 @@ angular
      }
     $scope.viewMore= function(item){
             var itemDetails ={};
-            remoteActions.getOrchestrationItem(item.id).then(function(ServerItemDetails) {
+        universalRemoteActions.getOrchestrationItem(item.id).then(function(ServerItemDetails) {
                         if(itemDetails){
                             itemDetails=ServerItemDetails
                             console.log("Item Details :"+itemDetails.parameters);
@@ -410,8 +422,11 @@ angular
                     });
         
     };
-    $scope.viewOriginalOrder= function(){
-        window.open(parent.location.origin+'/'+$scope.OriginalOrderId);
+   $scope.viewOriginalOrder= function(){
+        if(sforce && sforce.one)
+            sforce.one.navigateToSObject($scope.OriginalOrderId,"detail");
+        else
+            window.open(parent.location.origin+'/'+$scope.OriginalOrderId);
     };
     $scope.isIdentical = function(currentItemArray,updatedItemArray) {
         if(Object.keys(currentItemArray.items).length>0){
@@ -450,7 +465,7 @@ angular
         }
 
 
-        remoteActions.getOrchestrationPlan (id)
+        universalRemoteActions.getOrchestrationPlan (id)
             .then(function(orchestrationPlan) {
                 msgService.setInfo({
                     "showAlert" : false
@@ -501,12 +516,12 @@ angular
                 console.error("Error during fetching Orchestration Plan View", err);
                 var expr = /not found/;
                 var expr1 = /NumberFormatException/;
-                if(expr.test(err.data.message)||expr1.test(err.data.exception)){
+                if(err.data && (expr.test(err.data.message)||expr1.test(err.data.exception))){
                     $scope.recordNotFound=true;
                 }
                 var errMsg = 'Internal error occurred during fetching Orchestration Plan View. Please check the error log for details.';
                 var type = 'error';
-                if(err.data != undefined && err.data.customMessage != undefined){
+                if(err.data && err.data.customMessage){
                     remoteActions.getOrderDetails(id).then(function(orderDetails){
                         let frStatus = orderDetails['FulfilmentStatus__c'];
                         if(frStatus == "Rejected") {
@@ -524,16 +539,27 @@ angular
                             "type" : type,
                             "showAlert" : true
                         });
+                    },function(error){
+                        errMsg = err.data.customMessage;
+                         msgService.setInfo({
+                            "heading" : errMsg,
+                            "message" : null,
+                            "type" : type,
+                            "showAlert" : true
+                        });
                     });
                 }
                 else {
-                    if(err.data != undefined && err.data.message != undefined && err.status==404){
+                    if(err.data && err.data.message && err.status==404){
                         errMsg = 'Order is queued and will start processing shortly.';
                         type = 'warning';
                         $scope.waitForplanIdGeneration(id);
                     }
-                    else if(err.data != undefined && err.data.message != undefined)
+                    else if(err.data && err.data.message) {
                         errMsg = err.data.message;
+                    } else if (err && err.data.error) {
+                        errMsg = err.data.error;
+                    }
 
                     msgService.setInfo({
                         "heading" : errMsg,
@@ -662,8 +688,8 @@ angular
     $scope.getItemLabelX = function(item) {
         if(item.state == "Running" || item.state == "Cancelled" || item.state == "Amended"
         || item.state == "Failed" || item.state == "Fatally Failed" 
-        || item.state == "Completed" || item.state == "Started" 
-        || item.state == "On Hold" || item.state == "Frozen" || item.state == "Frozen - Running"
+        || item.state == "Completed" || item.state == "Started" || item.state == "Scheduled"
+            || item.state == "On Hold" || item.state == "Frozen" || item.state == "Frozen - Running"
             || item.state == "Frozen - Failed" || item.state == "Frozen - Fatally Failed" || item.state == "Skipped" || item.state == "Discarded" || item.state == "Failed Discarded"){
             if($scope.languageRTL =="rtl"){
                 return $scope.getItemX(item) + config.item_padding_x+24;
@@ -790,6 +816,18 @@ angular
             height: 13,
             icon: 'check',
             path:"M8.8 19.6L1.2 12c-.3-.3-.3-.8 0-1.1l1-1c.3-.3.8-.3 1 0L9 15.7c.1.2.5.2.6 0L20.9 4.4c.2-.3.7-.3 1 0l1 1c.3.3.3.7 0 1L9.8 19.6c-.2.3-.7.3-1 0z"
+        },
+        'Scheduled': {
+             fill: "#FFFFFF",
+             stroke: "#FFFFFF",
+             iconX: headerIconX,
+             iconY: headerIconY,
+             headerWidth: 40, // Space occupied in the header
+             bodyWidth: 0, // Space occupied in the body
+             width: 18,
+             height: 13,
+             icon: 'clock',
+             path:"M12 .9C5.9.9.9 5.9.9 12s5 11.1 11.1 11.1 11.1-5 11.1-11.1S18.1.9 12 .9zm0 19.4c-4.6 0-8.3-3.7-8.3-8.3S7.4 3.7 12 3.7s8.3 3.7 8.3 8.3-3.7 8.3-8.3 8.3zm1.6-8.2c-.2-.1-.2-.3-.2-.5V7.2c0-.4-.3-.7-.7-.7h-1.4c-.4 0-.7.3-.7.7v5.5c0 .2.1.4.2.5l3.4 3.5c.3.2.7.2 1 0l1-1c.2-.3.2-.7 0-1l-2.6-2.6z"
         },
         'Running': {
             fill: "#FFFFFF",
@@ -1130,9 +1168,11 @@ angular
         console.log ('Exiting');
     };
 
-    // Set id from context and fetch orchestration plan either from SFDC or Off-platform endpoint
-    console.log('identifying plan id from contextId ', id);
-    $scope.getOrchestrationPlan(id);
+    $scope.init = function() {
+        // Set id from context and fetch orchestration plan either from SFDC or Off-platform endpoint
+        console.log('identifying plan id from contextId ', id);
+        $scope.getOrchestrationPlan(id);
+    }
 
     // Unsubscribe when user leaves the page
     $scope.$on('$locationChangeStart', function (event) {
@@ -1874,7 +1914,7 @@ function Grid() {
             });
 
             // Now swimlines are sorted in x,upperIndex order
-            orderedItems.forEach(item => {
+            orderedItems.forEach(function(item) {
 
                 if (item.isLayedOut) {
                     return;

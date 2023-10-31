@@ -371,6 +371,20 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__MainOrderItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field looks up to the main fulfilment request line item.</description>
+        <externalId>false</externalId>
+        <label>Main Fulfilment Request Line Id</label>
+        <referenceTo>vlocity_cmt__FulfilmentRequestLine__c</referenceTo>
+        <relationshipLabel>Main Fulfilment Request Line Item</relationshipLabel>
+        <relationshipName>MainOrderItems</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__Product2Id__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>

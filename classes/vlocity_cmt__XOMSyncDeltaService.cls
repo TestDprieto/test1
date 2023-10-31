@@ -10,8 +10,11 @@ global class XOMSyncDeltaService {
 
     }
 global class Size {
+    @AuraEnabled
     global Integer batchSize;
+    @AuraEnabled
     global Integer numberOfBatches;
+    @AuraEnabled
     global Integer totalSize;
 }
 }

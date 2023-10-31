@@ -182,6 +182,7 @@
     </fields>
     <fields>
         <fullName>vlocity_cmt__SchedulingExpirationIntervalSeconds__c</fullName>
+        <defaultValue>31557600</defaultValue>
         <deprecated>false</deprecated>
         <description>Defines a duration in seconds to monitor overdue tasks starting from a task creation date.
 Once scheduling interval is reached then system stops calculating jeopardy statuses for tasks and order due dates (i.e. scheduling is expired).
@@ -262,6 +263,13 @@ This setting allows to switch off Orchestration Plan re-scheduling after some pe
         <errorDisplayField>vlocity_cmt__ShowOrder__c</errorDisplayField>
         <errorMessage>Show Order cannot be less than zero.</errorMessage>
     </validationRules>
+    <validationRules>
+        <fullName>vlocity_cmt__ValidateShowOrder</fullName>
+        <active>true</active>
+        <description>Allow non-negative values in Show Order field</description>
+        <errorConditionFormula>vlocity_cmt__ShowOrder__c &lt; 0</errorConditionFormula>
+        <errorMessage>Show Order cannot have negative values.</errorMessage>
+    </validationRules>
     <visibility>Public</visibility>
     <webLinks>
         <fullName>vlocity_cmt__Export</fullName>
@@ -272,8 +280,8 @@ This setting allows to switch off Orchestration Plan re-scheduling after some pe
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>var dataPackType = &apos;OrchestrationPlanDefinition&apos;;
-var objectId = &apos;{!vlocity_cmt__OrchestrationPlanDefinition__c.Id}&apos;;
-var suggestedName = &apos;{!vlocity_cmt__OrchestrationPlanDefinition__c.Name}&apos;;
+var objectId = &apos;{!JSENCODE(vlocity_cmt__OrchestrationPlanDefinition__c.Id)}&apos;;
+var suggestedName = &apos;{!JSENCODE(vlocity_cmt__OrchestrationPlanDefinition__c.Name)}&apos;;
  
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)}
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)}

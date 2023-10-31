@@ -37,6 +37,18 @@
         <name>vlocity_cmt__OverflowSequence__c</name>
     </fields>
     <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>pristine</masterLabel>
+            <translation><!-- pristine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>stale</masterLabel>
+            <translation><!-- stale --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- Type --></label>
         <name>vlocity_cmt__Type__c</name>
         <picklistValues>

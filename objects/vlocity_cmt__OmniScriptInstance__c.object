@@ -144,7 +144,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description>Represents a specific execution of a Vlocity OmniScript that has been saved for later completion. Do not manually modify the records or the OmniScript will likely not be able to be resumed.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -183,6 +182,30 @@
         <required>true</required>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__NewStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Custom Status</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Agent Supported</fullName>
+                    <default>false</default>
+                    <label>Agent Supported</label>
+                </value>
+                <value>
+                    <fullName>Retail Channel</fullName>
+                    <default>false</default>
+                    <label>Retail Channel</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>vlocity_cmt__ObjectId__c</fullName>

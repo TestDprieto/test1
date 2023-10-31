@@ -267,11 +267,37 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__AsyncOperation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the asynchronous operation name for which this order item is locked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the asynchronous operation name for which this order item  is locked.</inlineHelpText>
+        <label>Async Operation</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                    <label>Price</label>
+                </value>
+                <value>
+                    <fullName>Validate</fullName>
+                    <default>false</default>
+                    <label>Validate</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__AttributeMetadataChanges__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
         <label>Attribute Metadata Changes</label>
-        <length>32768</length>
+        <length>131072</length>
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
@@ -285,6 +311,54 @@
         <trackHistory>false</trackHistory>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseOneTimeCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the one-time charge of the order item before applying overrides and adjustments.</description>
+        <externalId>false</externalId>
+        <label>Base One Time Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseOneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the total one-time charge including rollups of the children and multiplied by the line&apos;s quantity.</description>
+        <externalId>false</externalId>
+        <label>Base One Time Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseRecurringCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the recurring charge of the order item before applying overrides or adjustments.</description>
+        <externalId>false</externalId>
+        <label>Base Recurring Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BaseRecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Holds the total recurring charges including rollups of the children and multiplied by the line&apos;s quantity.</description>
+        <externalId>false</externalId>
+        <label>Base Recurring Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__BillingAccountId__c</fullName>
@@ -303,6 +377,7 @@
     <fields>
         <fullName>vlocity_cmt__CatalogItemReferenceDateTime__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents the date and time a product is added to the cart. With versioning enabled, Reference Time value is used to render the bundle structure with valid child products to ensure valid configuration.</description>
         <externalId>false</externalId>
         <label>Reference Time</label>
         <required>false</required>
@@ -381,6 +456,30 @@
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveBaseOneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculated only for the root. The value is the same as the Base One Time Total of the root item. This field is 0.0 for non-root item.</description>
+        <externalId>false</externalId>
+        <label>Effective Base One Time Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveBaseRecurringTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculated only for the root. The value is the same as the Base Recurring Total of the root item. This field is 0.0 for non-root item.</description>
+        <externalId>false</externalId>
+        <label>Effective Base Recurring Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__EffectiveOneTimeCostTotal__c</fullName>
@@ -505,6 +604,42 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__FinancedAmountTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Rollup of the Financed Amount.</description>
+        <externalId>false</externalId>
+        <label>Financed Amount Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FinancedAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores the total amount to be paid to the finance provider.</description>
+        <externalId>false</externalId>
+        <label>Financed Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__FinancedInstallmentAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Stores the installment amount to be paid each month to the finance provider.</description>
+        <externalId>false</externalId>
+        <label>Financed Installment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__FirstVersionOrderItemId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -523,7 +658,7 @@
         <deprecated>false</deprecated>
         <description>The fulfilment status of this line item. Populated and updated by order management processes for submitted orders.</description>
         <externalId>false</externalId>
-        <label>Fulfilment Status</label>
+        <label>Fulfillment Status</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -633,6 +768,16 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__IsPriced__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field to indicate if line item is priced</description>
+        <externalId>false</externalId>
+        <formula>NOT(ISNULL(vlocity_cmt__LastPricedAt__c))</formula>
+        <label>Priced</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__IsProductTrackAgreement__c</fullName>
         <deprecated>false</deprecated>
         <description>Denotes if product is tracked as part of agreement</description>
@@ -656,6 +801,7 @@
     <fields>
         <fullName>vlocity_cmt__IsValidated__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field to indicate if line item is validated</description>
         <externalId>false</externalId>
         <formula>NOT(ISNULL(vlocity_cmt__ValidationDate__c))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -699,6 +845,7 @@
     <fields>
         <fullName>vlocity_cmt__LastPricedAt__c</fullName>
         <deprecated>false</deprecated>
+        <description>Time when this line item was last priced</description>
         <externalId>false</externalId>
         <label>Last Priced At</label>
         <required>false</required>
@@ -741,6 +888,48 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__LockedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This indicates if an order item is locked by a user.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This indicates if an order item is locked by a user.</inlineHelpText>
+        <label>Locked By User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipLabel>Order Line Items</relationshipLabel>
+        <relationshipName>OrderLineItems</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LockedFor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the reason for doing lock on the order item.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the reason for doing lock on the order item.</inlineHelpText>
+        <label>Locked For</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Async Operation</fullName>
+                    <default>false</default>
+                    <label>Async Operation</label>
+                </value>
+                <value>
+                    <fullName>Manual Edit</fullName>
+                    <default>false</default>
+                    <label>Manual Edit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__MRC__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -750,6 +939,20 @@
         <scale>2</scale>
         <trackHistory>false</trackHistory>
         <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MainOrderItemId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This field looks up to the main order line item.</description>
+        <externalId>false</externalId>
+        <label>Main Order Item Id</label>
+        <referenceTo>OrderItem</referenceTo>
+        <relationshipLabel>Main Order Item</relationshipLabel>
+        <relationshipName>MainOrderItems</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Modification__c</fullName>
@@ -1426,6 +1629,18 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__ServiceIdentifier__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Unique identifier of the service used by the customer.</description>
+        <externalId>true</externalId>
+        <label>Service Identifier</label>
+        <length>80</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__ServicePointId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -1658,6 +1873,7 @@
     <fields>
         <fullName>vlocity_cmt__ValidationDate__c</fullName>
         <deprecated>false</deprecated>
+        <description>Time when this line item was last validated</description>
         <externalId>false</externalId>
         <label>Validation Date</label>
         <required>false</required>

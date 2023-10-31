@@ -74,6 +74,10 @@ global virtual class BusinessProcessDisplayController extends vlocity_cmt.BaseDi
     global String urlParams {
         get;
     }
+    global String vlocAccessToken {
+        get;
+        set;
+    }
     global BusinessProcessDisplayController() {
 
     }
@@ -184,10 +188,20 @@ global virtual class BusinessProcessDisplayController extends vlocity_cmt.BaseDi
         return null;
     }
     @AuraEnabled
+    @RemoteAction
+    global static void logUsageEvent(String componentType, String componentName, String componentId) {
+
+    }
+    @AuraEnabled
+    @RemoteAction
+    global static void logUsageInteractionEvent(String componentType, String componentName, String componentId) {
+
+    }
+    @AuraEnabled
     global static Object vlcContinuationCallback(List<String> labels, Object state) {
         return null;
     }
-global class BusinessProcessDisplayControllerOpen implements vlocity_cmt.VlocityOpenInterface2 {
+global class BusinessProcessDisplayControllerOpen implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global BusinessProcessDisplayControllerOpen() {
 
     }

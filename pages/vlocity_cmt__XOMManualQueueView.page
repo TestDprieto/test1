@@ -1,5 +1,5 @@
 <!-- Displays Manual Tasks assigned to a Queue in off-platform -->
-<apex:page showHeader="false" sidebar="false" standardController="vlocity_cmt__ManualQueue__c" extensions="vlocity_cmt.XOMCatalogObjectControllerExtension,vlocity_cmt.XOMOffPlatformAccessConfigController,vlocity_cmt.XOMThorLocalizationController" standardStylesheets="false" docType="html-5.0">
+<apex:page showHeader="false" sidebar="false" standardController="vlocity_cmt__ManualQueue__c" extensions="vlocity_cmt.XOMCatalogObjectControllerExtension,vlocity_cmt.XOMOffPlatformAccessConfigController,vlocity_cmt.XOMThorLocalizationController,vlocity_cmt.XOMOMPLAuthController" standardStylesheets="false" docType="html-5.0">
     <apex:slds />
     <script type="text/javascript" src="{!URLFOR($Resource.ThorJsBundle)}"></script>
     <!-- <script src="https://localhost:8443/main.js"></script> -->
@@ -16,7 +16,8 @@
             {
                 remoteActionsProvider.setRemoteActions({
                     getTranslation:'{!$RemoteAction.XOMThorLocalizationController.getTranslation}',
-                    getThorBackendUrl: "{!$RemoteAction.XOMOffPlatformAccessConfigController.getOffplatformUrl}"
+                    getThorBackendUrl: "{!$RemoteAction.XOMOffPlatformAccessConfigController.getOffplatformUrl}",
+                    generateAuthToken: '{!$RemoteAction.XOMOMPLAuthController.generateAuthToken}'
                 });
             }])
             .value('thorLayoutConfig', 
@@ -27,7 +28,7 @@
             defaultFilter: {"State":["Ready", "Running", "Failed", "Fatally Failed"]},
             defaultTabId: "4412964684871513729", // Assigned Manual Tasks tab
             hideInactiveTabsForObjectTypes: ["4412964684871505537"], // list of Object Types with active tabs
-            contextObjectId: '{!$CurrentPage.parameters.Id}'
+            contextObjectId: '{!JSENCODE($CurrentPage.parameters.Id)}'
             })
             .value('errorMessageTranslations',
             {

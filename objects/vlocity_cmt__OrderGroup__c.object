@@ -210,6 +210,7 @@
     <fields>
         <fullName>vlocity_cmt__Description__c</fullName>
         <deprecated>false</deprecated>
+        <description>Description of the group record</description>
         <externalId>false</externalId>
         <label>Description</label>
         <length>32768</length>
@@ -220,6 +221,7 @@
     <fields>
         <fullName>vlocity_cmt__ExpectedMemberCount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Expected member count in this group</description>
         <externalId>false</externalId>
         <label>Expected Member Count</label>
         <precision>18</precision>
@@ -247,8 +249,19 @@
         <fullName>vlocity_cmt__HasUnappliedGroupItems__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>Indicates if the group has pending configurations to be applied</description>
         <externalId>false</externalId>
         <label>Has Unapplied Group Items</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__HasUnappliedMembers__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if at least one member of the group has no order created</description>
+        <externalId>false</externalId>
+        <label>Has Unapplied Members</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
@@ -301,6 +314,7 @@
         <fullName>vlocity_cmt__MemberCount__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Total number of members in this group</description>
         <externalId>false</externalId>
         <label>Member Count</label>
         <precision>18</precision>
@@ -373,6 +387,7 @@
         <fullName>vlocity_cmt__OneTimeMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>One Time Margin Total of Order Group</description>
         <externalId>false</externalId>
         <label>One Time Margin Total</label>
         <precision>18</precision>
@@ -398,6 +413,7 @@
         <fullName>vlocity_cmt__OrderGroupMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Total Margin of Order Group</description>
         <externalId>false</externalId>
         <label>Order Group Margin Total</label>
         <precision>18</precision>
@@ -409,6 +425,7 @@
     <fields>
         <fullName>vlocity_cmt__OrderId__c</fullName>
         <deprecated>false</deprecated>
+        <description>Parent Order Id</description>
         <externalId>false</externalId>
         <label>Order</label>
         <referenceTo>Order</referenceTo>
@@ -428,7 +445,7 @@
         <externalId>false</externalId>
         <label>Quote Group</label>
         <referenceTo>vlocity_cmt__QuoteGroup__c</referenceTo>
-        <relationshipLabel>Group Quotes</relationshipLabel>
+        <relationshipLabel>Order Groups</relationshipLabel>
         <relationshipName>GroupQuote</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -451,6 +468,7 @@
         <fullName>vlocity_cmt__RecurringMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Recurring Margin Total of Order Group</description>
         <externalId>false</externalId>
         <label>Recurring Margin Total</label>
         <precision>18</precision>
@@ -473,6 +491,17 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__SelectedAssetsCommonConfiguration__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Common configuration json object related to selected assets in group members</description>
+        <externalId>false</externalId>
+        <label>Selected Assets Common Configuration</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__UsageCostTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
@@ -489,6 +518,7 @@
         <fullName>vlocity_cmt__UsageMarginTotal__c</fullName>
         <defaultValue>0</defaultValue>
         <deprecated>false</deprecated>
+        <description>Usage Margin Total of Order Group</description>
         <externalId>false</externalId>
         <label>Usage Margin Total</label>
         <precision>18</precision>

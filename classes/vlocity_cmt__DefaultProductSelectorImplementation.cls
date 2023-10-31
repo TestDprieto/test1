@@ -5,7 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class DefaultProductSelectorImplementation implements vlocity_cmt.VlocityOpenInterface {
+global class DefaultProductSelectorImplementation implements System.Callable, vlocity_cmt.VlocityOpenInterface {
     global DefaultProductSelectorImplementation() {
 
     }

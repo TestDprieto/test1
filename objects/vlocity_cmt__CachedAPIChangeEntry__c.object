@@ -200,6 +200,19 @@
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
     </fields>
+    <fields>
+        <fullName>vlocity_cmt__Sequence__c</fullName>
+        <deprecated>false</deprecated>
+        <description>provide sequence to the records,to maintain order of execution</description>
+        <externalId>false</externalId>
+        <label>Sequence</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
     <label>CachedAPIChangeEntry</label>
     <nameField>
         <label>CachedAPIChangeEntry Name</label>

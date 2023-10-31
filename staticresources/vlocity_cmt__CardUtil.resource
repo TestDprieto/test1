@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -190,7 +204,7 @@ angular.module('cardutil')
             var obj = {};
             lwcComponent.files.forEach(function (file) {
                 resources.push({
-                    source: btoa(unescape(encodeURIComponent(file.source))), //Fix for non-latin char
+                    source: btoa(unescape(encodeURIComponent(file.source))), //fix for non-latin char
                     filePath: file.filepath
                 });
             });
@@ -299,7 +313,7 @@ angular.module('cardutil')
                                 import { LightningElement, api, track } from "lwc";\
                                 import data from "./definition";';
             if (definition.enableNewport) {
-                layoutJsCode += `import { load } from "c/newportLoader";`
+                layoutJsCode += 'import { load } from "' + namespace + '/newportLoader";';
             }
             if (definition.lwc && definition.lwc.omniSupport) {
                 layoutJsCode += 'import { OmniscriptBaseMixin } from "' + namespace + '/omniscriptBaseMixin";\
@@ -336,9 +350,14 @@ angular.module('cardutil')
             if (itemDefinition && typeof itemDefinition === "string") {
                 itemDefinition = JSON.parse(itemDefinition);
             }
-            itemDefinition.GlobalKey__c = item[$rootScope.nsPrefix + "GlobalKey__c"]
+            
+            itemDefinition.GlobalKey__c = item[$rootScope.nsPrefix + "GlobalKey__c"];
+            const cardDef =  _.cloneDeep(itemDefinition);
+            if (cardDef && cardDef.dataSource && cardDef.dataSource.contextVariables && cardDef.dataSource.contextVariables.length > 0) {
+                cardDef.dataSource.contextVariables = [];
+            }
             return `let definition = 
-                ${angular.toJson(itemDefinition)}; 
+                ${angular.toJson(cardDef)}; 
             export default definition`;
         }
 
@@ -744,11 +763,17 @@ angular.module('cardutil')
                     meta[key] = obj[key];
                 }
 
-                if (key === "targets" && obj[key].length) {
+                if (key === "targets" && (obj[key].length || (obj[key]["target"] && obj[key]["target"].length))) {
                     let targetArr = [];
-                    obj[key].forEach(item => {
-                        targetArr.push(item.target);
-                    });
+                    if (obj[key].length) {
+                        obj[key].forEach(item => {
+                            targetArr.push(item.target);
+                        });
+                    } else {
+                        obj[key]["target"].forEach(item => {
+                            targetArr.push(item);
+                        });
+                    }
                     meta[key] = {
                         target: [...targetArr]
                     };
@@ -916,9 +941,16 @@ angular.module('cardutil')
         }
 
         function addRemoteSiteLightning() {
-
+            
             let fullName = "EnableLWC" + Date.now();
-            let lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.force.com');
+            let lightningUrl;
+            if(window.toolingBaseUrl.indexOf('.stmpa.') != -1 ) {
+                lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.stmpa.stm.force.com');
+            } else if(window.toolingBaseUrl.indexOf('.stmpb.') != -1) {
+                lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.stmpb.stm.force.com');
+            } else {
+                lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.force.com');
+            }
 
             return new Promise(function (resolve, reject) {
                 toolingService.addRemoteSiteSetting(fullName, lightningUrl).then(function (id) {
@@ -946,7 +978,14 @@ angular.module('cardutil')
 
         function isRemoteSiteLightning() {
 
-            let lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.force.com');
+            let lightningUrl;
+            if(window.toolingBaseUrl.indexOf('.stmpa.') != -1 ) {
+                lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.stmpa.stm.force.com');
+            } else if(window.toolingBaseUrl.indexOf('.stmpb.') != -1) {
+                lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.stmpb.stm.force.com');
+            } else {
+                lightningUrl = window.toolingBaseUrl.replace(/(.*)--.*/, '$1.lightning.force.com');
+            }
 
             return new Promise(function (resolve, reject) {
                 toolingService.isRemoteSiteSetting(lightningUrl).then(function (res) {

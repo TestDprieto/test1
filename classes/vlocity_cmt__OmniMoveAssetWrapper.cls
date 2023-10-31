@@ -5,7 +5,7 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class OmniMoveAssetWrapper implements vlocity_cmt.VlocityOpenInterface2 {
+global class OmniMoveAssetWrapper implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global OmniMoveAssetWrapper() {
 
     }

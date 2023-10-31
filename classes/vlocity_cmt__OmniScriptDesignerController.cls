@@ -55,6 +55,11 @@ global class OmniScriptDesignerController {
     }
     @AuraEnabled
     @RemoteAction
+    global static List<SObject> GetElements2(String omniScriptId) {
+        return null;
+    }
+    @AuraEnabled
+    @RemoteAction
     global static List<vlocity_cmt__Element__c> GetElements(String omniScriptId) {
         return null;
     }
@@ -93,8 +98,18 @@ global class OmniScriptDesignerController {
     global static vlocity_cmt__OmniScript__c GetOmniScript(String omniScriptId) {
         return null;
     }
+    @AuraEnabled
+    @RemoteAction
+    global static SObject GetOmniScript2(String omniScriptId) {
+        return null;
+    }
     @RemoteAction
     global static Map<String,Set<String>> GetOmniScriptTypes(Boolean isProcedure) {
+        return null;
+    }
+    @AuraEnabled
+    @RemoteAction
+    global static List<SObject> GetReusableOmniScripts2() {
         return null;
     }
     @RemoteAction
@@ -114,7 +129,16 @@ global class OmniScriptDesignerController {
         return null;
     }
     @RemoteAction
+    global static List<SObject> LoadDataRaptorBundles2() {
+        return null;
+    }
+    @RemoteAction
     global static List<vlocity_cmt__DRBundle__c> LoadDataRaptorBundles() {
+        return null;
+    }
+    @AuraEnabled
+    @RemoteAction
+    global static List<SObject> LoadDocuSignTemplates2() {
         return null;
     }
     @AuraEnabled
@@ -157,6 +181,10 @@ global class OmniScriptDesignerController {
         return null;
     }
     @RemoteAction
+    global static List<SObject> QueryOmniScriptKeys2(Boolean isProcedure, Boolean isReusable) {
+        return null;
+    }
+    @RemoteAction
     global static List<vlocity_cmt__OmniScript__c> QueryOmniScriptKeys(Boolean isProcedure, Boolean isReusable) {
         return null;
     }
@@ -182,12 +210,20 @@ global class OmniScriptDesignerController {
         return null;
     }
     @AuraEnabled
+    global static Map<String,List<SObject>> deleteElement2(String omniscriptId, String elementName) {
+        return null;
+    }
+    @AuraEnabled
     global static Map<String,List<vlocity_cmt__Element__c>> deleteElement(String omniscriptId, String elementName) {
         return null;
     }
     @AuraEnabled
     @RemoteAction
     global static String getCustomLabels(List<String> labelNames, String language) {
+        return null;
+    }
+    @AuraEnabled
+    global static Map<String,Object> getDesignerCustomizations(String designerCustomizationType) {
         return null;
     }
     @AuraEnabled
@@ -205,6 +241,11 @@ global class OmniScriptDesignerController {
     }
     @AuraEnabled
     @RemoteAction
+    global static List<SObject> getMatchingDRBundles2(String name, List<String> types) {
+        return null;
+    }
+    @AuraEnabled
+    @RemoteAction
     global static List<vlocity_cmt__DRBundle__c> getMatchingDRBundles(String name, List<String> types) {
         return null;
     }
@@ -213,11 +254,27 @@ global class OmniScriptDesignerController {
         return null;
     }
     @AuraEnabled
+    global static String getNamespaceOfFirstInstalledPackageIfNotThis() {
+        return null;
+    }
+    @AuraEnabled
     global static Object getNonOmniScriptLwcs(String nextUrl) {
         return null;
     }
     @AuraEnabled
+    global static Map<String,Object> getOmniProcessElementDesignerCustomization(String designerCustomizationType, List<String> elementIds) {
+        return null;
+    }
+    @AuraEnabled
+    global static List<SObject> getReusableOmniScriptsLwc2() {
+        return null;
+    }
+    @AuraEnabled
     global static List<vlocity_cmt__OmniScript__c> getReusableOmniScriptsLwc() {
+        return null;
+    }
+    @RemoteAction
+    global static List<Object> getVlocityScheduledJob() {
         return null;
     }
     @AuraEnabled

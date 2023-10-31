@@ -74,7 +74,7 @@
             <apex:outputpanel >
                 <vlocity-product-console namespaceprefix="{!NSP}"
                         sfinstanceurl="{!SalesForceInstanceURL}"
-                        sessionid="{!$Api.Session_ID}"
+                        sessionid="{!vlocAccessToken}"
                         islanguageRTL="{!isLanguageRTL}"
                         userlocale="{!UserLocale}"
                         timezone="{!TimeZone}"
@@ -83,7 +83,7 @@
                         <template id="vpcMainContent">
                             <vlocity-pc-pricing
                                     productId="{!$CurrentPage.parameters.id}"
-                                    sessionId="{!$Api.Session_ID}"
+                                    sessionId="{!vlocAccessToken}"
                                     sfUrl="{!SalesForceInstanceURL}">
                             </vlocity-pc-pricing>
                         </template>

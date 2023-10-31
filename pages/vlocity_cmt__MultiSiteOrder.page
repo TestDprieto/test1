@@ -561,7 +561,7 @@ angular.module('checklist-model', [])
 
                 $scope.initialize = function() {
                     $scope.loading = true;
-                    $scope.orderId = "{!$CurrentPage.Parameters.id}";
+                    $scope.orderId = "{!JSeNCODE($CurrentPage.Parameters.id)}";
                     $scope.showAllItems = true;
                     $scope.cfgLineItems = {};
                     $scope.attrMap = {};

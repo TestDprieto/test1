@@ -141,10 +141,29 @@
         <type>Default</type>
     </actionOverrides>
     <allowInChatterGroups>false</allowInChatterGroups>
-    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <compactLayoutAssignment>vlocity_cmt__Vlocity_EPC_Promotion_Compact_Layout</compactLayoutAssignment>
+    <compactLayouts>
+        <fullName>vlocity_cmt__Vlocity_EPC_Discount_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>vlocity_cmt__Code__c</fields>
+        <fields>vlocity_cmt__PriceListId__c</fields>
+        <fields>vlocity_cmt__EffectiveStartDate__c</fields>
+        <fields>vlocity_cmt__EffectiveEndDate__c</fields>
+        <fields>vlocity_cmt__DiscountType__c</fields>
+        <label>Vlocity EPC Discount Compact Layout</label>
+    </compactLayouts>
+    <compactLayouts>
+        <fullName>vlocity_cmt__Vlocity_EPC_Promotion_Compact_Layout</fullName>
+        <fields>Name</fields>
+        <fields>vlocity_cmt__Code__c</fields>
+        <fields>vlocity_cmt__PriceListId__c</fields>
+        <fields>vlocity_cmt__EffectiveStartDate__c</fields>
+        <fields>vlocity_cmt__EffectiveEndDate__c</fields>
+        <fields>vlocity_cmt__RedeemableCode__c</fields>
+        <label>Vlocity EPC Promotion Compact Layout</label>
+    </compactLayouts>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description>A promotion is a definition of promotional pricing that can be made available to customers. Promotions are made available to customers for a period of time and usually define limited-time promotional pricing that may also require the customer to commit to certain subscriptions for a defined period.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -350,6 +369,29 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CpqEngineHints__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field defines configurations used in the CPQ Engine and Digital Commerce.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field defines configurations used in the CPQ Engine and Digital Commerce.</inlineHelpText>
+        <label>Cpq Engine Hints</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>MultiAddCompatible</fullName>
+                    <default>false</default>
+                    <label>MultiAddCompatible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>vlocity_cmt__Description__c</fullName>
@@ -692,8 +734,16 @@
     <recordTypes>
         <fullName>vlocity_cmt__Discount</fullName>
         <active>true</active>
+        <compactLayoutAssignment>vlocity_cmt__Vlocity_EPC_Discount_Compact_Layout</compactLayoutAssignment>
         <description>Discount record</description>
         <label>Discount</label>
+        <picklistValues>
+            <picklist>vlocity_cmt__CpqEngineHints__c</picklist>
+            <values>
+                <fullName>MultiAddCompatible</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>vlocity_cmt__DiscountType__c</picklist>
             <values>
@@ -750,6 +800,13 @@
         <description>Promotion record</description>
         <label>Promotion</label>
         <picklistValues>
+            <picklist>vlocity_cmt__CpqEngineHints__c</picklist>
+            <values>
+                <fullName>MultiAddCompatible</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>vlocity_cmt__DiscountType__c</picklist>
             <values>
                 <fullName>Account</fullName>
@@ -802,4 +859,26 @@
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
+    <webLinks>
+        <fullName>vlocity_cmt__New_Discount</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>New Discount</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__PCNewDiscount</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__New_Promotion</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>page</linkType>
+        <masterLabel>New Promotion</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__PCNewPromotion</page>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+    </webLinks>
 </CustomObject>

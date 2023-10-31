@@ -1,0 +1,13 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+    <div class="vlocity via-slds" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="sfiCreatePreProvisionedData1051">
+        <c:BusinessProcessComponent strOmniScriptType="sfi" strOmniScriptSubType="CreatePreProvisionedData" strOmniScriptLang="English"
+            previewMode="{!$CurrentPage.parameters.previewEmbedded}" verticalMode="{!$CurrentPage.parameters.verticalMode}" strOmniScriptId="{!JSENCODE($CurrentPage.parameters.designerPreviewId)}"
+            scriptLayout="newport" />
+        <script type="text/javascript">
+            var modules = ['vlocity-business-process'];
+            var myModule = angular.module('sfiCreatePreProvisionedData1051', modules);
+        </script>
+
+    </div>
+    <c:VFActionFunction />
+</apex:page>

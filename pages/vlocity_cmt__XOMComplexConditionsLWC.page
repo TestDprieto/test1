@@ -3,5 +3,5 @@
             docType="html-5.0" applyBodyTag="false"
             lightningStylesheets="true"
             title="Complex Conditions" cache="false" standardcontroller="vlocity_cmt__DecompositionRelationship__c">
-  <c:XOMConditionsJSONMapper recId="{!$CurrentPage.parameters.Id}" recAttrName="ConditionData__c" />
+  <c:XOMConditionsJSONMapper recId="{!JSENCODE($CurrentPage.parameters.Id)}" recAttrName="ConditionData__c" />
 </apex:page>

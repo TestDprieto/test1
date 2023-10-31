@@ -17,6 +17,18 @@
         <name>vlocity_cmt__Path__c</name>
     </fields>
     <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Offline</masterLabel>
+            <translation><!-- Offline --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
         <label><!-- System --></label>
         <name>vlocity_cmt__SystemId__c</name>
         <relationshipLabel><!-- System --></relationshipLabel>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
     <fields>
+        <label><!-- Asset Field Name --></label>
+        <name>vlocity_cmt__AssetFieldName__c</name>
+    </fields>
+    <fields>
         <label><!-- Display Sequence --></label>
         <name>vlocity_cmt__DisplaySequence__c</name>
     </fields>
@@ -11,6 +15,10 @@
     <fields>
         <label><!-- Member Object Name --></label>
         <name>vlocity_cmt__MemberObjectName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunity Member Field Name --></label>
+        <name>vlocity_cmt__OpportunityMemberFieldName__c</name>
     </fields>
     <fields>
         <label><!-- Order Field Name --></label>

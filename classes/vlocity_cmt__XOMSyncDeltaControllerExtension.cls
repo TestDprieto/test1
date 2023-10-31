@@ -12,6 +12,9 @@ global class XOMSyncDeltaControllerExtension {
     global Boolean isQueueingEnabled {
         get;
     }
+    global String nsp {
+        get;
+    }
     global String thorSyncUrl {
         get;
     }
@@ -22,6 +25,7 @@ global class XOMSyncDeltaControllerExtension {
     global static void commitBatch(List<String> deltaIds) {
 
     }
+    @AuraEnabled
     @RemoteAction
     global static String forceStartCatalogSyncBatchJob() {
         return null;
@@ -30,14 +34,21 @@ global class XOMSyncDeltaControllerExtension {
     global static List<Object> getBatch(Integer batchSize) {
         return null;
     }
+    @AuraEnabled
+    @RemoteAction
+    global static Map<String,Object> getEnvVariables() {
+        return null;
+    }
     @RemoteAction
     global static String getExtendedStatus() {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static AsyncApexJob getJobStatus() {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static vlocity_cmt.XOMSyncDeltaService.Size getNumberOfBatches(Integer batchSize) {
         return null;

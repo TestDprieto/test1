@@ -28,8 +28,7 @@
             <apex:includeScript value="{!$Resource.vlocity_cmt__cs_pdftron_documentgeneration}"/>
             
             <!-- PDFTRON Libraries for salesforce side implementation-->
-           <!-- <apex:includeScript value="{!URLFOR($Resource.cs_pdftron_external, '/jquery-3.2.1.min.js')}"/>-->
-            <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/>
+            <!-- <apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/> -->
             <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
             <!--<apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/pdf/PDFNet.js')}"/>-->
 
@@ -75,7 +74,7 @@
             <script type="text/javascript">
 
                 _.noConflict();
-                window.sessionId = '{!$Api.Session_ID}';
+                window.sessionId = '{!vlocAccessToken}';
                 window.sitePrefix = '{!$Site.Prefix}';
                 var nameSpacePrefix = '{!nameSpacePrefix}';
                 var defaultPdfGenerationSource = '{!defaultPdfGenerationSource}';
@@ -106,14 +105,6 @@
                     getPDFIntegrationConfig: {
                         action: '{!$RemoteAction.ObjectDocumentCreationDocxController.getPDFIntegrationConfig}',
                         config: {escape: false, buffer: false}
-                    },
-                    remoteGeneratePdf: {
-                        action: '{!$RemoteAction.ObjectDocumentCreationDocxController.remoteGeneratePdf}',
-                        config: {escape: false}
-                    },
-                    remoteGenerateDoc: {
-                        action: '{!$RemoteAction.ObjectDocumentCreationDocxController.remoteGenerateDoc}',
-                        config: {escape: false}
                     },
                     createDocumentLink: {
                         action: '{!$RemoteAction.ObjectDocumentCreationDocxController.createDocumentLink}',

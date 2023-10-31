@@ -40,7 +40,7 @@
         <vloc-layout contract-type-id="{!$CurrentPage.parameters.id}" is-loaded="isTermsTabLoaded" layout-name="clm-contract-type-term" ctrl="ClmContractTypeTermModelController"></vloc-layout>
     </div>
     <script type="text/javascript">
-            var sessionId = '{!$Api.Session_ID}';
+            var sessionId = '{!vlocAccessToken}';
             var baseRequestUrl = '{!$Site.BaseRequestUrl}';
             var userId = '{!$User.Id}';
             var modalLabels = {

@@ -1,4 +1,4 @@
-<apex:page standardcontroller="vlocity_cmt__ProductConfigurationProcedure__c" tabStyle="vlocity_cmt__ProductConfigurationProcedure__c"  extensions="vlocity_cmt.ProductConfProcedureController" title="{!$Label.vlocity_cmt__titleprodconfproce}" docType="html-5.0">
+<apex:page standardcontroller="vlocity_cmt__ProductConfigurationProcedure__c" tabStyle="vlocity_cmt__ProductConfigurationProcedure__c"  extensions="vlocity_cmt.ProductConfProcedureController" title="{!$Label.vlocity_cmt__TitleProdConfProce}" docType="html-5.0">
 	<html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ng="http://angularjs.org" ng-app="prodconfigprocedure">
 		<head>
 			<base href="/"/>
@@ -73,16 +73,16 @@
                 };
                 //Config data from APEX
                 var configData = {
-                	adminClassType: "{!classType}",
-                	nsPrefix: "{!nsPrefix}",
+                	adminClassType: "{!JSENCODE(classType)}",
+                	nsPrefix: "{!JSENCODE(nsPrefix)}",
                 	waitingImage: "{!$Resource.WAITGIF}",
                     adminInvokeMethod: "{!$RemoteAction.ProductConfProcedureController.invokeMethod}",
-                    cancelBackURL: "{!cancelBackURL}",
+                    cancelBackURL: "{!JSENCODE(cancelBackURL)}",
                     prodConfigId: "{!confObject}"
                 };
                 //labels
                 var labels = {
-                    titleProdConfProce: "{!$Label.vlocity_cmt__titleprodconfproce}",
+                    titleProdConfProce: "{!$Label.vlocity_cmt__TitleProdConfProce}",
                     titleDescription: "{!$Label.TitleProdConfProceDesc}",
                     save: "{!$Label.Save}",
                     cancel: "{!$Label.Cancel}",

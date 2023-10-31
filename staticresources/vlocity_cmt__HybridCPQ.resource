@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -395,6 +409,7 @@ angular.module('hybridCPQ')
         $scope.isTargetOffersSelected  = true;
         $scope.transformDoneSpinner = false;
         $scope.isItemAvailable = true;
+        var isNextBtnAvailable = true;
         var hideFunction;
         var finalPayloads=[];
         var arrayOfGroups = [];
@@ -427,6 +442,7 @@ angular.module('hybridCPQ')
 
         $scope.selectedMultiBundleList = function (choice) {
             indexOfChoice = $scope.multiFamilySelectionList.indexOf(choice);
+            isNextBtnAvailable = true;
             if (indexOfChoice < 0) {
               $scope.multiFamilySelectionList.push(choice);
             } else {
@@ -443,13 +459,16 @@ angular.module('hybridCPQ')
 
         $scope.$on('showMultiFamilyBundlelist', function () { 
             $scope.isSelectionListShown = true;
+            isNextBtnAvailable = false;
         });
 
         $scope.$on('transformMultiFamilyBundleBtnEvent', function () { 
-            transformMultiFamilyBundle();
+            isNextBtnAvailable ? transformMultiFamilyBundle() : $scope.isSelectionListShown = false;
         });
 
         function transformMultiFamilyBundle() {
+            $scope.$emit("selectedComponentsEvt", false);
+            selectedTargetOffers =[];
             $scope.multiplayOffersComponents = [];
             $scope.arrayOfMultiplayComponents = [];
             childToParentNameObj = {};
@@ -1304,8 +1323,9 @@ angular.module('hybridCPQ')
         $scope.detailEditableServerErrorMsg = null;
 
         if (isConfigEnabled && data.itemObject) {
-
-            itemObject = CPQCartItemConfigService.getItemFields(data.itemObject);
+            if (!data.isUpdateConfig) {
+                itemObject = CPQCartItemConfigService.getItemFields(data.itemObject);
+            }
             if (itemObject.promotions) {
                 itemObject.i18TranslationComplete = false;
                 itemObject = CPQTranslateService.translateAttributeObj(itemObject);
@@ -1519,7 +1539,7 @@ angular.module('hybridCPQ')
             queue[0].сonfigItem.attributeCategories.records = queue[0].updatedAttributes;
         }
 
-        if (queue[0].parent) {
+        if (queue[0].parent && queue[0].parent.Id.value !== queue[0].сonfigItem.Id.value) {
             // update on a lineItem that has a parent
             configUpdateObject.records[0] = angular.copy(queue[0].parent);
             angular.forEach(deleteArrayList, function(key) {
@@ -1556,7 +1576,7 @@ angular.module('hybridCPQ')
                 var updatedItemObj = data.records[0];
                 var hasError = false;
                 var updateSuccessful = false;
-                var errorMsg;
+                var errorMsg, errorMsgList;
                 var updatedLineItem;
                 var int;
 
@@ -1571,6 +1591,8 @@ angular.module('hybridCPQ')
                         if (message.code !== CPQ_CONST.BUNDLE_HAS_ERRORS && message.code === CPQ_CONST.REQUIRED_ATTR_MISSING) {
                             // accumulate any error messages
                             errorMsg = errorMsg ? errorMsg + '\n' + message.message : '\n' + message.message;
+                        } else {
+                            errorMsgList = errorMsgList ? errorMsgList + '\n' + message.message : '\n' + message.message;
                         }
                     }
                     if (message.severity === CPQ_CONST.INFO && message.code === CPQ_CONST.UPDATE_SUCCESSFUL) {
@@ -1619,18 +1641,17 @@ angular.module('hybridCPQ')
                     }
 
                 } else {
-                    // display only error msg(s)
+                    // display only error msg(s). if there is no message in meesages node then we should display standard message from UI.
                     toastMessage = $sldsToast({
                         backdrop: 'false',
                         title: product2Name,
-                        message: toastCustomLabels['CPQUpdateItemFailed'] + ' ' + product2Name,
+                        message: product2Name  + '' + errorMsgList,
                         severity: 'error',
                         icon: 'warning',
                         templateUrl: 'SldsToast.tpl.html',
                         autohide: true,
                         show: CPQService.toastEnabled('error')
                     });
-
                 }
 
                 // display server side error msg on config panel
@@ -2205,7 +2226,7 @@ angular.module('hybridCPQ')
                 'CPQCancel','CPQPromosToBeDeleted','CPQLineItemsToBeDeleted','CPQDiscountsToBeDeleted','CPQSearchItem','CPQSearch',
                 'CPQCompare','CPQCompareChanges', 'CPQCompareCurrentState', 'CPQCompareFutureState', 'CPQLoadMore','Cancel',
                 'MSAttachGroup', 'MSDetachGroup', 'CPQSave', 'TotalGroupsLabel', 'SelectGroupLabel','SelectedGroupLabel','GroupNameLabel',
-                'MemberCountLabel', 'DescriptionLabel', 'MemberTypeLabel', 'SelectLabel', 'GroupAttchError'];
+                'MemberCountLabel', 'DescriptionLabel', 'MemberTypeLabel', 'SelectLabel', 'GroupAttchError','Disconnect'];
         var toastLabelsArray =  ['CPQAutoRemovedItem','CPQCloneItemFailed','CPQCloningItem','CPQClonedItem','CPQUpdatingItem',
                 'CPQUpdatedItem','CPQUpdateItemFailed','CPQAddingItem','CPQAddItemFailed','CPQAutoReplaceItem','CPQAddedItem',
                 'CPQDeletingItem','CPQDeleteItem','CPQDeleteItemConfirmationMsg','CPQDeleteButtonLabel','CPQDeleteItemFailed',
@@ -2556,7 +2577,7 @@ angular.module('hybridCPQ')
         };
 
         $scope.loadMoreChildren = function(childProd) {
-            CPQLevelBasedApproachService.loadMoreChildren(childProd, $scope.$id);
+            CPQLevelBasedApproachService.loadMoreChildren(childProd, $scope.$id, setProcessingLine);
         }
 
         /*********** CPQ CART ITEM EVENTS ************/
@@ -3010,6 +3031,11 @@ angular.module('hybridCPQ')
             var updateRecord = function(record) {
                 angular.forEach(updatedItems, function(updatedRecord) {
                     if (record.Id.value === updatedRecord.Id.value) {
+                        if(record.promotions && !updatedRecord.promotions){
+                            delete record.promotions;
+                        }else if(record.promotions && record.promotions.records && record.promotions.records.length && updatedRecord.promotions && updatedRecord.promotions.records && updatedRecord.promotions.records.length){
+                            record.promotions.records = record.promotions.records.filter(recordPromo => updatedRecord.promotions.records.some(updatedRecordPromo => recordPromo.Id === updatedRecordPromo.Id));
+                        }
                         _.mergeWith(record, updatedRecord,customizer);
                     }
                 });
@@ -3393,6 +3419,17 @@ angular.module('hybridCPQ')
                     if (data.actions) {
                         actionPromise = CPQCartItemCrossActionService.processActions(data.actions);
                         $q.when(actionPromise).then(function(response) {
+                            if (response && response.messages && response.messages.length > 0) {
+                                $sldsToast({
+                                    backdrop: 'false',
+                                    message: response.messages[0].message,
+                                    severity: 'error',
+                                    icon: 'info',
+                                    templateUrl: 'SldsToast.tpl.html',
+                                    autohide: true,
+                                    show: CPQService.toastEnabled('error')
+                                });
+                            }
                             //Reload the total bar after promises are resolved
                             CPQService.reloadTotalBar();
                         });
@@ -3598,10 +3635,12 @@ angular.module('hybridCPQ')
 
             CPQService.invokeAction(updateItemsActionObj).then(
                 function(data) {
-                    var i, j, errorMsg, modifiedRecords;
+                    var i, j, errorMsg, errorMsgList, modifiedRecords;
                     var hasError = false;
                     var updateSuccessful = false;
                     var validQuantity = true;
+                    var itemMessages = [];
+                    var autoReplaceMsg = {};
 
                     $log.debug('Updated line item field', data);
 
@@ -3618,6 +3657,8 @@ angular.module('hybridCPQ')
                             if (message.code !== CPQ_CONST.BUNDLE_HAS_ERRORS && message.code === CPQ_CONST.REQUIRED_ATTR_MISSING) {
                                 // accumulate any error messages
                                 errorMsg = errorMsg ? errorMsg + '\n' + message.message : '\n' + message.message;
+                            } else {
+                                errorMsgList = errorMsgList ? errorMsgList + '\n' + message.message : '\n' + message.message;
                             }
                         }
                         if (message.severity === CPQ_CONST.INFO && message.code === CPQ_CONST.UPDATE_SUCCESSFUL) {
@@ -3666,19 +3707,16 @@ angular.module('hybridCPQ')
                         }
 
                     } else {
-
-                        // display only error msg(s)
                         toastMessage = $sldsToast({
                             backdrop: 'false',
-                            title: itemObject.PricebookEntry.Product2.Name,
-                            message: toastCustomLabels['CPQUpdateItemFailed'] + ' ' + CPQTranslateService.translate(itemObject.PricebookEntry.Product2.Name, TRANSLATION_FIELDS.PROD2_NAME),
+                            title: CPQTranslateService.translate(itemObject.PricebookEntry.Product2.Name, TRANSLATION_FIELDS.PROD2_NAME),
+                            message: CPQTranslateService.translate(itemObject.PricebookEntry.Product2.Name, TRANSLATION_FIELDS.PROD2_NAME) + '' + errorMsgList,
                             severity: 'error',
                             icon: 'warning',
                             templateUrl: 'SldsToast.tpl.html',
                             autohide: true,
                             show: CPQService.toastEnabled('error')
                         });
-
                     }
 
                     // root is updated when the response has no lineItems and (no parentItemId (in modal) or parentItemId is null (in cart)
@@ -3741,6 +3779,34 @@ angular.module('hybridCPQ')
 
                     // Cross actions
                     if (data.actions) {
+                        //gathering the messages
+                        // if both itemadded and itemdeleted actions exist, this is a case of auto-replace
+                        if (data.actions.itemadded && data.actions.itemdeleted) {
+                            autoReplaceMsg.message = toastCustomLabels['CPQAutoReplaceItem'];
+                            itemMessages = itemMessages.concat(autoReplaceMsg);
+                        }
+                        if (data.actions.itemadded) {
+                            itemMessages = itemMessages.concat(data.actions.itemadded.client.params.items);
+                        }
+                        if (data.actions.itemdeleted) {
+                            itemMessages = itemMessages.concat(data.actions.itemdeleted.client.params.items);
+                        }
+                        // In MACD flow, if auto-remove rule triggered then API will send action node itemupdated instead of itemdeleted.
+                        if (data.actions.itemupdated) {
+                            itemMessages = itemMessages.concat(data.actions.itemupdated.client.params.items);
+                        }
+
+                        angular.forEach(itemMessages, function(item) {
+                            $sldsToast({
+                                backdrop: 'false',
+                                message: item.message,
+                                severity: 'success',
+                                icon: 'success',
+                                templateUrl: 'SldsToast.tpl.html',
+                                autohide: true,
+                                show: CPQService.toastEnabled('success')
+                            });
+                        });
                         CPQCartItemCrossActionService.processActions(data.actions);
                     }
 
@@ -4533,11 +4599,15 @@ angular.module('hybridCPQ')
 
                     //Cross actions
                     if (data.actions) {
-                        CPQCartItemCrossActionService.processActions(data.actions);
+                        actionPromise = CPQCartItemCrossActionService.processActions(data.actions);
+                        $q.when(actionPromise).then(function() {
+                            //Reload the total bar after promises are resolved
+                            CPQService.reloadTotalBar();
+                        });
+                    }else{
+                        afterDeleteItemFromCartHookPayload.data = data;
+                        $scope.afterDeleteItemFromCartHook(afterDeleteItemFromCartHookPayload);
                     }
-
-                    afterDeleteItemFromCartHookPayload.data = data;
-                    $scope.afterDeleteItemFromCartHook(afterDeleteItemFromCartHookPayload);
 
                     deferred.resolve(toastCustomLabels['CPQDeletedItem'] + ' ' + itemObject.PricebookEntry.Product2.Name);
                 }
@@ -5363,7 +5433,6 @@ angular.module('hybridCPQ')
             CPQService.invokeAction(addDiscountActionObj).then(
                 function(data) {
                     $rootScope.$broadcast('vlocity.cpq.header.reload');
-                    $rootScope.$broadcast('vlocity.cpq.cart.reload');
                     if (closeCallback) {
                         closeCallback();
                     }
@@ -5380,7 +5449,7 @@ angular.module('hybridCPQ')
                                 icon: 'warning',
                                 templateUrl: 'SldsToast.tpl.html',
                                 autohide: true,
-                                show: CPQService.toastEnabled('success')
+                                show: CPQService.toastEnabled('error')
                             });
                         } else {
                             $sldsToast({
@@ -6192,7 +6261,7 @@ angular.module('hybridCPQ')
                             autoReplaceMsg.message = toastCustomLabels['CPQAutoReplaceItem'];
                             itemMessages = itemMessages.concat(autoReplaceMsg);
                         // if only itemadded action exist, this is a case of straight forward add
-                        } else {
+                        } else if(!errorMessages) {
                             $sldsToast({
                                 message: toastCustomLabels['CPQAddedItem'] + ' ' + CPQTranslateService.translate(obj.Name.value, TRANSLATION_FIELDS.PROD2_NAME),
                                 severity: 'success',
@@ -6226,7 +6295,7 @@ angular.module('hybridCPQ')
                                 });
                             }
                         });
-                    } else {
+                    } else if (!errorMessages) {
                         //HYB-1309 - the messages check was reduntant
                         //since the product list won't be availble if
                         //the order is not attached to a pricebook
@@ -6261,14 +6330,16 @@ angular.module('hybridCPQ')
                                         show: CPQService.toastEnabled('error')
                                     });
                                 }
+                                CPQService.reloadTotalBar();
                                 afterAddToCartHookPayload.data = data;
                                 $scope.afterAddToCartHook(afterAddToCartHookPayload);
                             }, function(error) {
                                 afterAddToCartHookPayload.error = error;
                                 $scope.afterAddToCartHook(afterAddToCartHookPayload);
                             });
+                        } else {
+                            CPQService.reloadTotalBar();
                         }
-                        CPQService.reloadTotalBar();
                     }, 100); // wait for 0.1 sec
 
                     deferred.resolve(toastCustomLabels['CPQAddedItem'] + ' ' + obj.Name.value);
@@ -8768,7 +8839,8 @@ angular.module('hybridCPQ')
         hasLineItemAlreadyBeenAddedToParent : function(parentInCardData, toBeAddedLineItem) {
             var toBeAddedLineItemHasBeenAdded = false;
             var numOfLineItemsUnderParent, i;
-            if (!parentInCardData.lineItems) {
+            //Check if lineitems node is an empty obj(HYB-4412).
+            if (_.isEmpty(parentInCardData.lineItems) || !parentInCardData.lineItems) {
                 return toBeAddedLineItemHasBeenAdded;
             }
             numOfLineItemsUnderParent = parentInCardData.lineItems.records.length;
@@ -8784,7 +8856,8 @@ angular.module('hybridCPQ')
         insertLineItemToParent : function(parentInCardData, toBeAddedLineItem) {
             var addonList, lineItemIndex;
             var lineItemListWithTheAddedItem = [];
-            if (!parentInCardData.lineItems) {
+            //Check if lineitems node is an empty obj(HYB-4412).
+            if (_.isEmpty(parentInCardData.lineItems) || !parentInCardData.lineItems) {
                 parentInCardData.lineItems = {'records': [{}]};
             } else {
                 lineItemListWithTheAddedItem = angular.copy(parentInCardData.lineItems.records);
@@ -9984,7 +10057,7 @@ angular.module('hybridCPQ').factory('CPQLevelBasedApproachService', ['$rootScope
                 }
             }
         },
-        loadMoreChildren : function(childProd, scopeId) {
+        loadMoreChildren : function(childProd, scopeId, setProcessingLineCallback) {
             var actionMode = CPQService.actionMode;
             var parentInCardData, parentFromAPI, toBeAddedLineItem;
             var productHierarchyPath = childProd.productHierarchyPath;
@@ -9993,6 +10066,10 @@ angular.module('hybridCPQ').factory('CPQLevelBasedApproachService', ['$rootScope
             if (childProd && childProd.lineItems && childProd.lineItems.records){
                 childProd.actions.nextitems[actionMode].params.offsetSize = childProd.lineItems.records.length;
             }
+            if (typeof setProcessingLineCallback === 'function') {
+                setProcessingLineCallback(null, childProd, true);
+            }
+
             CPQService.invokeAction(loadMoreActionObject).then(function (data) {
                 parentInCardData = childProd;
                 parentFromAPI = data.records[0];
@@ -10006,6 +10083,10 @@ angular.module('hybridCPQ').factory('CPQLevelBasedApproachService', ['$rootScope
                         toBeAddedLineItem = record; // child
                         CPQCardinalityService.insertLineItemToParent(parentInCardData, toBeAddedLineItem); // insert child to parent in card
                     });
+                }
+
+                if (typeof setProcessingLineCallback === 'function') {
+                    setProcessingLineCallback(null, childProd, false);
                 }
 
                 if (scopeId) {
@@ -11381,7 +11462,7 @@ angular
                                                 productAttributes.Name,
                                                 TRANSLATION_FIELDS.ATTR_CAT_NAME
                                             );
-                                            if (productAttributes.productAttributes.records && productAttributes.productAttributes.records > 0) {
+                                            if (productAttributes.productAttributes.records && productAttributes.productAttributes.records.length > 0) {
                                             productAttributes
                                             .productAttributes
                                             .records

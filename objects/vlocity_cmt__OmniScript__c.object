@@ -128,11 +128,14 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <type>Default</type>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__Vlocity_OmniScript_Designer</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>View</actionName>
-        <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -144,7 +147,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <deprecated>false</deprecated>
-    <description>Represents a Vlocity OmniScript. Each Vlocity OmniScript is a declarative script that defines a task-based, guided user process enabling users to get work done efficiently and effectively. OmniScripts can be configured to pull data from Salesforce or any other data source via business services and can execute any business service to launch and interact with server-side business process engines.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -421,6 +423,38 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OmniProcessType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of Omni Process: OmniScript, Integration Procedure or Test Procedure.</description>
+        <externalId>false</externalId>
+        <label>Omni Process Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>OmniScript</fullName>
+                    <default>false</default>
+                    <label>OmniScript</label>
+                </value>
+                <value>
+                    <fullName>Integration Procedure</fullName>
+                    <default>false</default>
+                    <label>Integration Procedure</label>
+                </value>
+                <value>
+                    <fullName>Test Procedure</fullName>
+                    <default>false</default>
+                    <label>Test Procedure</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>vlocity_cmt__ProcedureKey__c</fullName>

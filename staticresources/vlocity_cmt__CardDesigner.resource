@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -211,8 +225,10 @@ angular.module('carddesigner')
     $scope.tabs = [];
     $scope.tabs.activeTab = 0;
 
-    $rootScope.$on('rootLayoutReady', function(event, layout) {
-        loadCards(true);
+    $rootScope.$on('rootLayoutReady', function(event, layout, compileLayoutCardLwc) {
+        if(!compileLayoutCardLwc){
+            loadCards(true);
+        }
     });
 
     //Documentation
@@ -1417,6 +1433,10 @@ angular.module('carddesigner')
         $scope.reloadFilter();
     });
 
+    $rootScope.$on('compileCardLwc', function(event, card) {
+        $scope.toggleCardActivation(card);
+    });
+
     // reloadFilter is always called with an $scope.activeCard
     $scope.reloadFilter = function() {
         if(!$scope.activeCard) {
@@ -1468,6 +1488,10 @@ angular.module('carddesigner')
             return /^id\=/.test(item);
         }) : null;
 
+        var compileLayoutCardLwc = window.location ? window.location.href.split(/[?&]/).find(function (item) {
+            return /^compile\=/.test(item);
+        }) : null;
+
         $localizable('Active', 'Active')
             .then(function (label) {
                 $('.pageDescription').addClass('vlocity').append('&nbsp;<span class="active text-success">' + label + '</span>');
@@ -1505,6 +1529,11 @@ angular.module('carddesigner')
         if (layoutId) {
             $rootScope.newLayout = false;
             layoutId = layoutId.replace(/^id=/, '');
+            $rootScope.compileMessage = "COMPILING";
+            if(compileLayoutCardLwc){
+                compileLayoutCardLwc = compileLayoutCardLwc.replace(/^compile=/, '');
+                $rootScope.isCompilingLayoutCardLwc = true;
+            }
             remoteActions.getLayout('Id', layoutId).then(
                 function (data) {
                     if (data.length > 0) {
@@ -1555,7 +1584,7 @@ angular.module('carddesigner')
                         if ($rootScope.layout[$rootScope.nsPrefix + 'RequiredPermission__c']) {
                             $rootScope.layout[$rootScope.nsPrefix + 'Definition__c'].requiredPermission = $rootScope.layout[$rootScope.nsPrefix + 'RequiredPermission__c'];
                         }
-                        $rootScope.$broadcast('rootLayoutReady', $rootScope.layout);
+                        $rootScope.$broadcast('rootLayoutReady', $rootScope.layout, compileLayoutCardLwc);
 
                     } else {
                         $localizable('NewLayout', "New Layout")
@@ -1861,7 +1890,7 @@ angular.module('carddesigner')
                 $scope.lwcUpdateStatus.isCreating = false;
                 obj.savinglwc = false;
                 $rootScope.layout.savinglwc = false;
-                deferred.reject('Failure');
+                deferred.reject(errors);
             });
             return deferred.promise;
         }
@@ -1911,6 +1940,7 @@ angular.module('carddesigner')
                         $scope.lwcUpdateStatus.isUpdating = false;
                         $rootScope.layout.savinglwc = false;
                         deferred.resolve('Success');
+                        $rootScope.compileMessage = "DONE";
                         if (showAlert) {
                             $localizable('LayoutChangesDeployed', "Layout is updated")
                                 .then(function (label) {
@@ -1926,10 +1956,11 @@ angular.module('carddesigner')
                     $scope.lwcUpdateStatus.isUpdating = false;
                     $scope.$evalAsync(function () {
                         $rootScope.layout.savinglwc = false;
-                        deferred.reject('Failure');
+                        deferred.reject(errors);
                     });
                 })
             } else {
+                $rootScope.compileMessage = "DONE";
                 if (showAlert) {
                     $localizable('LayoutChangesDeployed', "Layout is updated").then(function (label) {
                         displayAlert("", " " + label, 'success', 2);
@@ -1945,6 +1976,7 @@ angular.module('carddesigner')
         $scope.doLwcDeploy = function () {
             var modal, modalScope;
             modalScope = $scope.$new();
+            $rootScope.compileMessage = "DEPLOYING";
             modalScope.status = { title: "Deploying LWC", message: "Creating LWC" };
             if ($rootScope.lwcCreatePendingRequests.length > 0 || $rootScope.lwcUpdatePendingRequests.length > 0) {
                 modal = $modal({
@@ -1974,10 +2006,18 @@ angular.module('carddesigner')
                     };
                     $rootScope.$broadcast('saved', null, true);
                     $scope.doLwcDeploy(modal);
-                }, function () {
+                }, function (errors) {
+                    $rootScope.compileMessage = 'ERROR: ' + JSON.stringify(errors);
+                    if($rootScope.isCompilingLayoutCardLwc){
+                        //deactivate Layout
+                        $rootScope.layout[$rootScope.nsPrefix + "Active__c"] = false;
+                        $rootScope.doneLoading = true;
+                        SaveFactory.save($rootScope.layout, null, true);
+                    }
                     if (modal && modal.$isShown) {
                         modal.destroy();
                     };
+
                 });
             } else {
                 if (modal) {
@@ -1990,7 +2030,8 @@ angular.module('carddesigner')
                     if (modal && modal.$isShown) {
                         modal.destroy();
                     };
-                }, function () {
+                }, function (errors) {
+                    $rootScope.compileMessage = 'ERROR: ' + JSON.stringify(errors);
                     if (modal && modal.$isShown) {
                         modal.destroy();
                     };
@@ -2137,16 +2178,17 @@ angular.module('carddesigner')
 
         // Get all dataraptor bundle
         $timeout(function () {
-            remoteActions.getDataViaDynamicSoql('SELECT Id, Name FROM ' + $rootScope.nsPrefix + 'DRBundle__c')
+            remoteActions.getAllDRBundles()
                 .then(function (drBundles) {
-                    drBundles = JSON.parse(drBundles);
-                    $rootScope.drBundles = drBundles.map(function (bundle) {
-                        return {
-                            Id: bundle.Id,
-                            Name: bundle.Name
-                        };
-                    });
-                    $rootScope.drBundles = $scope.sortArray($rootScope.drBundles, 'Name');
+                    if(drBundles) {
+                        $rootScope.drBundles = drBundles.map(function (bundle) {
+                            return {
+                                Id: bundle.Id,
+                                Name: bundle.Name
+                            };
+                        });
+                        $rootScope.drBundles = $scope.sortArray($rootScope.drBundles, 'Name');
+                    }
                 }, function (error) {
                     $rootScope.drBundles = [];
                     console.log('dataraptor bundle retrieval error: ' + error);
@@ -2155,46 +2197,53 @@ angular.module('carddesigner')
 
         //get omniscript types
         $timeout(function () {
-            dataService.getRecords('SELECT ' + $rootScope.nsPrefix + 'Type__c, ' + $rootScope.nsPrefix + 'SubType__c, ' + $rootScope.nsPrefix + 'Language__c, ' + $rootScope.nsPrefix + 'IsLwcEnabled__c FROM ' + $rootScope.nsPrefix + 'OmniScript__c WHERE ' + $rootScope.nsPrefix + 'IsActive__c = true' ).then(function (omniType) {
-                omniType.map(function (bundle) {
-                    if (checkDuplicateOmniScript.indexOf(bundle['Id']) == -1) {
-                        let omniTypeElement = {};
-                        checkDuplicateOmniScript.push(bundle['Id']);
-                        omniTypeElement.Name = bundle[$rootScope.nsPrefix + 'Type__c'] + '/' + bundle[$rootScope.nsPrefix + 'SubType__c'] + '/' + bundle[$rootScope.nsPrefix + 'Language__c'];
-                        omniTypeElement.Type = bundle[$rootScope.nsPrefix + 'Type__c'];
-                        omniTypeElement.SubType = bundle[$rootScope.nsPrefix + 'SubType__c'];
-                        omniTypeElement.Language = bundle[$rootScope.nsPrefix + 'Language__c'];
-                        omniTypeElement.Id = bundle['Id'];
-                        omniTypeElement.isLwc = bundle[$rootScope.nsPrefix + 'IsLwcEnabled__c'];
-                        if (omniTypeElement.isLwc) {
-                            lwcOmniScriptsArr.push(omniTypeElement);
+            remoteActions.getAllOmniscripts().then(function (omniType) {
+                if(omniType) {
+                    omniType.map(function (bundle) {
+                        if (checkDuplicateOmniScript.indexOf(bundle['Id']) == -1) {
+                            let omniTypeElement = {};
+                            let type = bundle.Type || bundle[$rootScope.nsPrefix + 'Type__c']
+                            let subType = bundle.SubType || bundle[$rootScope.nsPrefix + 'SubType__c'];
+                            let language = bundle.Language || bundle[$rootScope.nsPrefix + 'Language__c'];
+                            let lwcEnabled =  bundle.IsWebCompEnabled || bundle[$rootScope.nsPrefix + 'IsLwcEnabled__c'];
+                            checkDuplicateOmniScript.push(bundle['Id']);
+                            omniTypeElement.Name = type + '/' + subType+ '/' + language;
+                            omniTypeElement.Type = type;
+                            omniTypeElement.SubType = subType;
+                            omniTypeElement.Language = language;
+                            omniTypeElement.Id = bundle['Id'];
+                            omniTypeElement.isLwc = lwcEnabled;
+                            if (omniTypeElement.isLwc) {
+                                lwcOmniScriptsArr.push(omniTypeElement);
+                            }
+                            allOmniScriptsArr.push(omniTypeElement);
                         }
-                        allOmniScriptsArr.push(omniTypeElement);
-                    }
-                });
-                lwcOmniScriptsArr.sort(function(a, b){
-                    return a.Name > b.Name ? 1: -1;
-                });
-                allOmniScriptsArr.sort(function(a, b){
-                    return a.Name > b.Name ? 1: -1;
-                });
-                $rootScope.omniScriptsArr = allOmniScriptsArr;
+                    });
+                    lwcOmniScriptsArr.sort(function(a, b){
+                        return a.Name > b.Name ? 1: -1;
+                    });
+                    allOmniScriptsArr.sort(function(a, b){
+                        return a.Name > b.Name ? 1: -1;
+                    });
+                    $rootScope.omniScriptsArr = allOmniScriptsArr;
+                }
             });
         }, 0);
 
 
         // Get all integration procedure bundle
         $timeout(function () {
-            remoteActions.getDataViaDynamicSoql('SELECT Id,' + $rootScope.nsPrefix + 'ProcedureKey__c FROM ' + $rootScope.nsPrefix + 'OmniScript__c WHERE ' + $rootScope.nsPrefix + 'IsProcedure__c = true AND ' + $rootScope.nsPrefix + 'IsActive__c = true')
+            remoteActions.getAllIPBundles()
                 .then(function (ipBundles) {
-                    ipBundles = JSON.parse(ipBundles);
-                    $rootScope.ipBundles = ipBundles.map(function (bundle) {
-                        return {
-                            Id: bundle.Id,
-                            Name: bundle[$rootScope.nsPrefix + 'ProcedureKey__c']
-                        };
-                    });
-                    $rootScope.ipBundles = $scope.sortArray($rootScope.ipBundles, 'Name');
+                    if(ipBundles) {
+                        $rootScope.ipBundles = ipBundles.map(function (bundle) {
+                            return {
+                                Id: bundle.Id,
+                                Name: bundle[$rootScope.nsPrefix + 'ProcedureKey__c'] || bundle.OmniProcessKey
+                            };
+                        });
+                        $rootScope.ipBundles = $scope.sortArray($rootScope.ipBundles, 'Name');
+                    }
                 }, function (error) {
                     $rootScope.ipBundles = [];
                     console.log('dataraptor bundle retrieval error: ' + error);
@@ -2513,6 +2562,25 @@ angular.module('carddesigner')
             }
         }
 
+        $scope.compileLwcLayoutAndCards = function(){
+            var workspaceCardKeys = ($rootScope.layout[$rootScope.nsPrefix + 'Definition__c'].workspace || []).filter(function (cardKey) {
+                return cardKey !== '';
+            });
+            remoteActions.getCardsByGlobalKeys(workspaceCardKeys)
+                .then(function(cards){
+                    $rootScope.lwcCreatePendingRequests = [];
+                    cards = _.sortBy(cards, ['LastModifiedDate']);
+                    cards = _.toArray(_.keyBy(cards, 'Name'));
+                    cards.forEach(function (card) {
+                        card[$rootScope.nsPrefix + "Active__c"] = true;
+                        $scope.createLwc(card, "card");
+                    });
+                    $rootScope.layout[$rootScope.nsPrefix + "Active__c"] = true;
+                    $scope.createLwc($rootScope.layout, "layout");
+                    LightningWebCompFactory.isDeploymentPending = true;
+            });
+        }
+
     });
 
 },{}],6:[function(require,module,exports){
@@ -2536,7 +2604,7 @@ angular
     "use strict";
     var DEFAULT_AUTHOR = "vlocity";
     var DEFAULT_AUTHOR_SUFFIX = "Dev";
-    $rootScope.$on("rootLayoutReady", function (event, layout) {
+    $rootScope.$on("rootLayoutReady", function (event, layout, compileLayoutCardLwc) {
       $rootScope.layout = layout;
       $rootScope.authorLocked =
         $rootScope.layout[$rootScope.nsPrefix + "Author__c"] &&
@@ -2556,6 +2624,7 @@ angular
           "previewType"
         ] = "";
       }
+
       // Check if inside package
       remoteActions.isInsidePckg().then(
         function (insidePckg) {
@@ -2590,6 +2659,10 @@ angular
               );
           }
           $log.debug("is layout locked? ", $rootScope.lockedLayout);
+
+          if(compileLayoutCardLwc){
+            $scope.compileLwcLayoutAndCards();
+          }
         },
         function (err) {
           $log.debug("inside pckg error ", err);
@@ -4188,7 +4261,7 @@ angular.module('carddesigner')
                 if ($scope.loadIframe) {
                     var pageUrl = '/apex/' + nsPrefix + $scope.previewMode.page +
                         '?layout=' + layoutName + '&layoutId=' + $rootScope.layout.Id + '&namespace=c' +
-                        '&previewMode=' + $scope.previewMode.label + '&useCache=false' + '&isPreview=true';
+                        '&previewMode=' + $scope.previewMode.label + '&useCache=false' + '&isPreview=true' + '&isClassicLwc=true'; 
 
                     if (!document.documentElement.classList.contains('Theme3')) {
                         pageUrl += '&isdtp=p1&sfdcIFrameOrigin=' + encodeURIComponent(window.location.protocol + '//' + window.location.hostname) + '&sfdcIFrameHost=web';
@@ -6054,16 +6127,16 @@ angular.module('carddesigner')
 
             function convertNameToValidLWCCase(str) {
                 return str
-                  .replace(/\s(.)/g, function(a) {
-                    return a.toUpperCase();
-                  })
-                  .replace(/\s/g, "")
-                  .replace(/^(.)/, function(b) {
-                    return b.toLowerCase();
-                  })
-                  .replace(/-(\w)/g, m => m[1].toUpperCase())
-                  .replace(/__/g, "_")
-                  .replace(/[^a-zA-Z0-9_]/g, "");
+                    .replace(/\s(.)/g, function (a) {
+                        return a.toUpperCase();
+                    })
+                    .replace(/\s/g, "")
+                    .replace(/^(.)/, function (b) {
+                        return b.toLowerCase();
+                    })
+                    .replace(/-(\w)/g, m => m[1].toUpperCase())
+                    .replace(/__/g, "_")
+                    .replace(/[^a-zA-Z0-9_]/g, "");
             }
 
             // check LWC component exist with same name (for this we first convert layout name to valid LWC name)
@@ -6086,29 +6159,29 @@ angular.module('carddesigner')
                 isLayout &&
                 item.createNewLayout &&
                 item[$rootScope.nsPrefix + "Definition__c"].enableLwc &&
-                $rootScope.layouts.find(function(layout) {
-                return (
-                    JSON.parse(layout[$rootScope.nsPrefix + "Definition__c"])
-                    .enableLwc === true &&
-                    convertNameToValidLWCCase($rootScope.layout.Name).toLowerCase() ===
-                    convertNameToValidLWCCase(layout.Name).toLowerCase() &&
-                    convertNameToValidLWCCase(
-                    $rootScope.layout[$rootScope.nsPrefix + "Author__c"]
-                    ).toLowerCase() ===
-                    convertNameToValidLWCCase(
-                        item[$rootScope.nsPrefix + "Author__c"]
-                    ).toLowerCase()
-                );
+                $rootScope.layouts.find(function (layout) {
+                    return (
+                        JSON.parse(layout[$rootScope.nsPrefix + "Definition__c"])
+                            .enableLwc === true &&
+                        convertNameToValidLWCCase($rootScope.layout.Name).toLowerCase() ===
+                        convertNameToValidLWCCase(layout.Name).toLowerCase() &&
+                        convertNameToValidLWCCase(
+                            $rootScope.layout[$rootScope.nsPrefix + "Author__c"]
+                        ).toLowerCase() ===
+                        convertNameToValidLWCCase(
+                            item[$rootScope.nsPrefix + "Author__c"]
+                        ).toLowerCase()
+                    );
                 })
             ) {
                 $localizable(
                     "LayoutLWCComponentExistsError",
                     "Lwc name already exists. Please try a different name or author"
-                ).then(function(label) {
+                ).then(function (label) {
                     item.errors = [
-                    {
-                        message: label
-                    }
+                        {
+                            message: label
+                        }
                     ];
                 });
                 return false;
@@ -6287,7 +6360,7 @@ angular.module('carddesigner')
                                             $window.location.search + '&') + 'id=' + layout.Id;
                                     $window.history.pushState('', '', newUrl);
                                     if (!(sforce.console && sforce.console.isInConsole())) {
-                                        $window.location = newUrl;
+                                        $window.location = encodeURI(newUrl);
                                     }
                                 }
                             });

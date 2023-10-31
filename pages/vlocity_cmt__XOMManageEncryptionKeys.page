@@ -1,4 +1,4 @@
-<apex:page showHeader="true" sidebar="true" controller="vlocity_cmt.XOMOffPlatformAccessConfigController" standardStylesheets="false" docType="html-5.0" >
+<apex:page showHeader="true" sidebar="true" controller="vlocity_cmt.XOMOffPlatformAccessConfigController" extensions="vlocity_cmt.XOMOMPLAuthController" standardStylesheets="false" docType="html-5.0" >
     <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ng="http://angularjs.org" ng-app="changeKeysApp">
         <head>
           <base href="/"/>
@@ -103,9 +103,11 @@
             
             var remoteActions = {
                 saveXOMSetupCustomSettings: "{!$RemoteAction.XOMOffPlatformAccessConfigController.saveXOMSetupCustomSettings}",
-                rotateAccessKeys: "{!$RemoteAction.XOMOffPlatformAccessConfigController.rotateAccessKeys}",
+                rotateAccessKeysAndReturnObject: "{!$RemoteAction.XOMOffPlatformAccessConfigController.rotateAccessKeysAndReturnObject}",
+                cleanupAccessKeys: "{!$RemoteAction.XOMOffPlatformAccessConfigController.cleanupAccessKeys}",
                 rotateAccessKeysOfNamedCredentials: "{!$RemoteAction.XOMOffPlatformAccessConfigController.rotateAccessKeysOfNamedCredentials}",
-                areThorNamedCredentialsEnabled: "{!$RemoteAction.XOMOffPlatformAccessConfigController.areThorNamedCredentialsEnabled}"  
+                areThorNamedCredentialsEnabled: "{!$RemoteAction.XOMOffPlatformAccessConfigController.areThorNamedCredentialsEnabled}",
+                generateAuthToken: '{!$RemoteAction.XOMOMPLAuthController.generateAuthToken}'
             };
 
             app.config(function (remoteActionsProvider) {
@@ -136,7 +138,7 @@
                 // ping is used to check if session is authenticated and initiate authorization if not
                 this.validateSession = function () {
                     console.log('GET VALIDATE SESSION');
-                    return $http.get(uiServicesUrl + '/security/v1/auth/openid/session/validate/ui', {withCredentials: true});
+                    return $http.get(uiServicesUrl + '/security/v1/users/current', {withCredentials: true});
                 };
 
             }]);
@@ -159,7 +161,7 @@
                 
                 $scope.accessKey = null; 
                 
-                $scope.nsPrefix = '{!nsPrefix}';
+                $scope.nsPrefix = '{!JSENCODE(nsPrefix)}';
                 
                 $scope.info = {};
                 /*$scope.info={
@@ -447,9 +449,22 @@
                                                 $scope.notifyUserForChangeDITKey('error', 'Warning: Named credentials deployment took over 2 minutes. See deployment progress in Setup > Deployment Status');
                                             } else {
                                                 if (result.success == true) {
-                                                    $scope.enableDIT = true;
-                                                    $scope.notifyUserForChangeDITKey('info', 'Data In Transit key changed successfully!');
-                                                } else {
+                                                    remoteActions.cleanupAccessKeys(accessKeyId).then(function(cleanupResult) {
+                                                        if (cleanupResult) {
+                                                            $scope.enableDIT = true;
+                                                            $scope.notifyUserForChangeDITKey('info', 'Data In Transit key changed successfully!');
+                                                        } else {
+                                                            $scope.enableDIT = true;
+                                                            $scope.notifyUserForChangeDITKey('error', 'Data transit key was changed but Cleanup Access Keys failed.');
+                                                        }
+                                                    }).catch(function(err)
+                                                        {
+                                                            $scope.enableDIT = true;
+                                                            let errorObj =  JSON.parse(JSON.stringify(err));
+                                                            $scope.notifyUser('error', 'Data transit key was changed but Cleanup Access Keys failed. Error Code:' + errorObj.statusCode);
+                                                            console.error(err);
+                                                        });
+                                                  } else {
                                                     $scope.enableDIT = true;
                                                     $scope.notifyUserForChangeDITKey('error', 'Unable to change data transit, Reason: Named credentials components deployment failed. See Setup > Deployment Status for details');
                                                 }
@@ -475,11 +490,30 @@
                                 console.error(err);
                             });
                         } else {
-                            remoteActions.rotateAccessKeys().then(function(json)
+                            remoteActions.rotateAccessKeysAndReturnObject().then(function(json)
                             {
                                 $scope.enableDIT = true;
                                 console.log('Rotate Keys JSON: ', json);
-                                $scope.notifyUser('info', 'Data In Transit key changed successfully!');
+                                let response =  JSON.parse(JSON.stringify(json));
+                                if (response.AccessKey) {
+                                    var accessKeyId = response.AccessKey.AccessKeyId;
+                                
+                                    remoteActions.cleanupAccessKeys(accessKeyId).then(function(cleanupResult) {
+                                    if (cleanupResult) {
+                                        $scope.enableDIT = true;
+                                        $scope.notifyUserForChangeDITKey('info', 'Data In Transit key changed successfully!');
+                                    } else {
+                                        $scope.enableDIT = true;
+                                        $scope.notifyUserForChangeDITKey('error', 'Data transit key was changed but Cleanup Access Keys failed.');
+                                    }
+                                    }).catch(function(err)
+                                    {
+                                        $scope.enableDIT = true;
+                                        let errorObj =  JSON.parse(JSON.stringify(err));
+                                        $scope.notifyUser('error', 'Data transit key was changed but Cleanup Access Keys failed. Error Code:' + errorObj.statusCode);
+                                        console.error(err);
+                                    });
+                                }
                             }).catch(function(err)
                             {
                                 $scope.enableDIT = true;
@@ -577,10 +611,11 @@
                 var myModalInstanceCtrl = function ($scope, $modalInstance, items) {
                     $scope.info = items[0];
                     $scope.isValid = false;
-                    $scope.emailPattern    = new RegExp('^[^\s@]+@[^\s@]+\.[^\s@]{2,}$');
-                    $scope.countryPattern  = new RegExp('^[a-zA-Z]+$');
-                    $scope.alphaNumPattern = new RegExp('^[a-zA-Z0-9]+$');
-                    $scope.commonNamePattern = new RegExp('^[A-Za-z0-9]+(?:.[A-Za-z0-9]+)*$');
+                    $scope.emailPattern    = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                    $scope.countryPattern  = /^[a-zA-Z]{2,2}$/;
+                    $scope.alphaNumPattern = /^[a-zA-Z0-9 ]{1,255}$/;
+                    $scope.commonNamePattern = /^[A-Za-z0-9]+(?:.[A-Za-z0-9]+)*$/;
+                    
                     
                     $scope.submit = function (info) {
                     	$modalInstance.close(info);

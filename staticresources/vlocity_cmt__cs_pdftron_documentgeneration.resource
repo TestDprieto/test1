@@ -14,7 +14,7 @@
                                                                     && inputMap.generatedContentVersion.VersionData!= undefined){
                             var blob = b64toBlob(inputMap.generatedContentVersion.VersionData, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
                             console.log("blob=", blob);
-                            convertOfficeToPDF(URL.createObjectURL(blob), inputMap.docName + '.pdf', l, inputMap.isDownload).then(function(res){
+                            convertOfficeToPDF(URL.createObjectURL(blob), inputMap.docName + '.pdf', l, inputMap.isDownload, inputMap.fileExtension).then(function(res){
                                 resolve(res);
                             });
 
@@ -24,7 +24,7 @@
                             getTemplateFileContent(inputMap.generatedContentVersion.Id).then(function(templateContentVersion){
                             var blob = b64toBlob(templateContentVersion.Base64VersionData, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
                             console.log("blob=", blob);
-                            convertOfficeToPDF(URL.createObjectURL(blob), inputMap.docName + '.pdf', l, inputMap.isDownload).then(function(res){
+                            convertOfficeToPDF(URL.createObjectURL(blob), inputMap.docName + '.pdf', l, inputMap.isDownload, inputMap.fileExtension).then(function(res){
                             resolve(res);
                            });
                         });
@@ -43,14 +43,16 @@
         });
     }
 
-    function convertOfficeToPDF(url, outputName, l, isDownload) {
+    function convertOfficeToPDF(url, outputName, l, isDownload, fileExtension) {
             console.log('convertOfficeToPDF');
             console.log('url=' + url);
             console.log('outputName=' + outputName);
-            return new Promise(function (resolve, reject){
+            console.log('fileExtension=' + fileExtension);
+            fileExtension = fileExtension? fileExtension: 'docx'; //default to docx
+            return new Promise(function (resolve, reject){ 
 
                 try {
-                 var promise = PDFNet.Convert.office2PDFBuffer(url, { l: l, officeOptions: { disableBrowserFontSubstitution: true } });
+                 var promise = PDFNet.Convert.office2PDFBuffer(url, { l: l, extension: fileExtension, officeOptions: { disableBrowserFontSubstitution: true } });
 
                  promise.then(function(buffer) {
                       console.log('buffer=', buffer);
@@ -169,6 +171,7 @@ var pdfTronSetResourcePath = function(remoteActions, VlocityPDFTronNoSystemUserM
                 window.CoreControls.forceBackendType('ems');
                 //window.CoreControls.setPDFWorkerPath(clientSidePdfGenerationConfig['cs_pdftron_full']);
                 window.CoreControls.setPDFWorkerPath(clientSidePdfGenerationConfig['cs_pdftron_lean']);
+				window.CoreControls.setWorkerPath(clientSidePdfGenerationConfig['cs_pdftron_lib'] + '/core');
                 window.CoreControls.setOfficeWorkerPath(clientSidePdfGenerationConfig['cs_pdftron_office']);
                 window.CoreControls.setPDFResourcePath(clientSidePdfGenerationConfig['cs_pdftron_resource']);
                 window.CoreControls.setPDFAsmPath(clientSidePdfGenerationConfig['cs_pdftron_asm']);

@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -125,9 +139,12 @@ require('../staticresources-expanded/vlocity_assets/javascripts/components/local
 require('../staticresources-expanded/vlocity_assets/javascripts/components/interactionTracking.js');
 },{"../staticresources-expanded/angular-1-6/angular.js":2,"../staticresources-expanded/angular-animate/angular-animate.js":3,"../staticresources-expanded/angular-aria/angular-aria.js":4,"../staticresources-expanded/angular-messages/angular-messages.js":5,"../staticresources-expanded/angular-sanitize/angular-sanitize.js":6,"../staticresources-expanded/jquery-3-1/dist/jquery.js":7,"../staticresources-expanded/lodash-4-17/dist/lodash.js":8,"../staticresources-expanded/moment-2-17/moment.js":9,"../staticresources-expanded/vlocity_assets/javascripts/components/interactionTracking.js":10,"../staticresources-expanded/vlocity_assets/javascripts/components/localizable.js":11,"../staticresources-expanded/vlocity_assets/javascripts/components/promiseQueue.js":12,"../staticresources-expanded/vlocity_assets/javascripts/components/remoteActions.js":13,"../staticresources-expanded/vlocity_assets/javascripts/components/vlocity.js":14}],2:[function(require,module,exports){
 /**
- * @license AngularJS v1.6.8
+ * @license AngularJS v1.6.8-patched
  * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
+ *
+ * Note this is a Salesforce patched version to fix:
+ * CVE-2020-7676, CVE-2019-10768, SNYK-JS-ANGULAR-572020, npm:angular:20180202
  */
 (function(window) {'use strict';
 
@@ -337,6 +354,7 @@ function minErr(module, ErrorConstructor) {
   hasOwnProperty,
   createMap,
   stringify,
+  UNSAFE_restoreLegacyJqLiteXHTMLReplacement,
 
   NODE_TYPE_ELEMENT,
   NODE_TYPE_ATTRIBUTE,
@@ -2210,6 +2228,25 @@ function bindJQuery() {
 }
 
 /**
+ * @ngdoc function
+ * @name angular.UNSAFE_restoreLegacyJqLiteXHTMLReplacement
+ * @module ng
+ * @kind function
+ *
+ * @description
+ * Restores the pre-1.8 behavior of jqLite that turns XHTML-like strings like
+ * `<div /><span />` to `<div></div><span></span>` instead of `<div><span></span></div>`.
+ * The new behavior is a security fix. Thus, if you need to call this function, please try to adjust
+ * your code for this change and remove your use of this function as soon as possible.
+ * Note that this only patches jqLite. If you use jQuery 3.5.0 or newer, please read the
+ * [jQuery 3.5 upgrade guide](https://jquery.com/upgrade-guide/3.5/) for more details
+ * about the workarounds.
+ */
+ function UNSAFE_restoreLegacyJqLiteXHTMLReplacement() {
+  JQLite.legacyXHTMLReplacement = true;
+}
+
+/**
  * throw error if the argument is falsy.
  */
 function assertArg(arg, name, reason) {
@@ -2853,6 +2890,7 @@ function toDebugString(obj, maxDepth) {
   ngModelOptionsDirective,
   ngAttributeAliasDirectives,
   ngEventDirectives,
+  UNSAFE_restoreLegacyJqLiteXHTMLReplacement,
 
   $AnchorScrollProvider,
   $AnimateProvider,
@@ -2922,7 +2960,7 @@ var version = {
   major: 1,
   minor: 6,
   dot: 8,
-  codeName: 'beneficial-tincture'
+  codeName: 'beneficial-tincture-patched'
 };
 
 
@@ -2957,6 +2995,7 @@ function publishExternalAPI(angular) {
     'callbacks': {$$counter: 0},
     'getTestability': getTestability,
     'reloadWithDebugInfo': reloadWithDebugInfo,
+    'UNSAFE_restoreLegacyJqLiteXHTMLReplacement': UNSAFE_restoreLegacyJqLiteXHTMLReplacement,
     '$$minErr': minErr,
     '$$csp': csp,
     '$$encodeUriSegment': encodeUriSegment,
@@ -3160,6 +3199,16 @@ function publishExternalAPI(angular) {
  * - [`val()`](http://api.jquery.com/val/)
  * - [`wrap()`](http://api.jquery.com/wrap/)
  *
+ * jqLite also provides a method restoring pre-1.8 insecure treatment of XHTML-like tags.
+ * This legacy behavior turns input like `<div /><span />` to `<div></div><span></span>`
+ * instead of `<div><span></span></div>` like version 1.8 & newer do. To restore it, invoke:
+ * ```js
+ * angular.UNSAFE_restoreLegacyJqLiteXHTMLReplacement();
+ * ```
+ * Note that this only patches jqLite. If you use jQuery 3.5.0 or newer, please read the
+ * [jQuery 3.5 upgrade guide](https://jquery.com/upgrade-guide/3.5/) for more details
+ * about the workarounds.
+ *
  * ## jQuery/jqLite Extras
  * Angular also provides the following additional methods and events to both jQuery and jqLite:
  *
@@ -3239,20 +3288,36 @@ var HTML_REGEXP = /<|&#?\w+;/;
 var TAG_NAME_REGEXP = /<([\w:-]+)/;
 var XHTML_TAG_REGEXP = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([\w:-]+)[^>]*)\/>/gi;
 
+// Table parts need to be wrapped with `<table>` or they're
+// stripped to their contents when put in a div.
+// XHTML parsers do not magically insert elements in the
+// same way that tag soup parsers do, so we cannot shorten
+// this by omitting <tbody> or other required elements.
 var wrapMap = {
-  'option': [1, '<select multiple="multiple">', '</select>'],
-
-  'thead': [1, '<table>', '</table>'],
-  'col': [2, '<table><colgroup>', '</colgroup></table>'],
-  'tr': [2, '<table><tbody>', '</tbody></table>'],
-  'td': [3, '<table><tbody><tr>', '</tr></tbody></table>'],
-  '_default': [0, '', '']
+  thead: ['table'],
+  col: ['colgroup', 'table'],
+  tr: ['tbody', 'table'],
+  td: ['tr', 'tbody', 'table']
 };
 
-wrapMap.optgroup = wrapMap.option;
 wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.thead;
 wrapMap.th = wrapMap.td;
 
+// Support: IE <10 only
+// IE 9 requires an option wrapper & it needs to have the whole table structure
+// set up in advance; assigning `"<td></td>"` to `tr.innerHTML` doesn't work, etc.
+var wrapMapIE9 = {
+  option: [1, '<select multiple="multiple">', '</select>'],
+  _default: [0, '', '']
+};
+
+for (var key in wrapMap) {
+  var wrapMapValueClosing = wrapMap[key];
+  var wrapMapValue = wrapMapValueClosing.slice().reverse();
+  wrapMapIE9[key] = [wrapMapValue.length, '<' + wrapMapValue.join('><') + '>', '</' + wrapMapValueClosing.join('></') + '>'];
+}
+
+wrapMapIE9.optgroup = wrapMapIE9.option;
 
 function jqLiteIsTextNode(html) {
   return !HTML_REGEXP.test(html);
@@ -3273,7 +3338,7 @@ function jqLiteHasData(node) {
 }
 
 function jqLiteBuildFragment(html, context) {
-  var tmp, tag, wrap,
+  var tmp, tag, wrap, finalHtml,
       fragment = context.createDocumentFragment(),
       nodes = [], i;
 
@@ -3284,13 +3349,30 @@ function jqLiteBuildFragment(html, context) {
     // Convert html into DOM nodes
     tmp = fragment.appendChild(context.createElement('div'));
     tag = (TAG_NAME_REGEXP.exec(html) || ['', ''])[1].toLowerCase();
-    wrap = wrapMap[tag] || wrapMap._default;
-    tmp.innerHTML = wrap[1] + html.replace(XHTML_TAG_REGEXP, '<$1></$2>') + wrap[2];
+    finalHtml = JQLite.legacyXHTMLReplacement ?
+      html.replace(XHTML_TAG_REGEXP, '<$1></$2>') :
+      html;
 
-    // Descend through wrappers to the right content
-    i = wrap[0];
-    while (i--) {
-      tmp = tmp.lastChild;
+    if (msie < 10) {
+      wrap = wrapMapIE9[tag] || wrapMapIE9._default;
+      tmp.innerHTML = wrap[1] + finalHtml + wrap[2];
+
+      // Descend through wrappers to the right content
+      i = wrap[0];
+      while (i--) {
+        tmp = tmp.firstChild;
+      }
+    } else {
+      wrap = wrapMap[tag] || [];
+
+      // Create wrappers & descend into them
+      i = wrap.length;
+      while (--i > -1) {
+        tmp.appendChild(window.document.createElement(wrap[i]));
+        tmp = tmp.firstChild;
+      }
+
+      tmp.innerHTML = finalHtml;
     }
 
     nodes = concat(nodes, tmp.childNodes);
@@ -34383,9 +34465,12 @@ $provide.value("$locale", {
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
 },{}],3:[function(require,module,exports){
 /**
- * @license AngularJS v1.6.8
+ * @license AngularJS v1.6.8-patched
  * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
+ *
+ * Note this is a Salesforce patched version to fix:
+ * CVE-2020-7676, CVE-2019-10768, SNYK-JS-ANGULAR-572020, npm:angular:20180202
  */
 (function(window, angular) {'use strict';
 
@@ -38543,9 +38628,12 @@ angular.module('ngAnimate', [], function initAngularHelpers() {
 
 },{}],4:[function(require,module,exports){
 /**
- * @license AngularJS v1.6.8
+ * @license AngularJS v1.6.8-patched
  * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
+ *
+ * Note this is a Salesforce patched version to fix:
+ * CVE-2020-7676, CVE-2019-10768, SNYK-JS-ANGULAR-572020, npm:angular:20180202
  */
 (function(window, angular) {'use strict';
 
@@ -38946,9 +39034,12 @@ ngAriaModule.directive('ngShow', ['$aria', function($aria) {
 
 },{}],5:[function(require,module,exports){
 /**
- * @license AngularJS v1.6.8
+ * @license AngularJS v1.6.8-patched
  * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
+ *
+ * Note this is a Salesforce patched version to fix:
+ * CVE-2020-7676, CVE-2019-10768, SNYK-JS-ANGULAR-572020, npm:angular:20180202
  */
 (function(window, angular) {'use strict';
 
@@ -39689,9 +39780,12 @@ function ngMessageDirectiveFactory() {
 
 },{}],6:[function(require,module,exports){
 /**
- * @license AngularJS v1.6.8
+ * @license AngularJS v1.6.8-patched
  * (c) 2010-2017 Google, Inc. http://angularjs.org
  * License: MIT
+ *
+ * Note this is a Salesforce patched version to fix:
+ * CVE-2020-7676, CVE-2019-10768, SNYK-JS-ANGULAR-572020, npm:angular:20180202
  */
 (function(window, angular) {'use strict';
 
@@ -39964,7 +40058,7 @@ function $SanitizeProvider() {
                                      optionalEndTagElements);
 
   //Attributes that have href and hence need to be sanitized
-  var uriAttrs = toMap('background,cite,href,longdesc,src,xlink:href');
+  var uriAttrs = toMap('background,cite,href,longdesc,src,xlink:href,xml:base');
 
   var htmlAttrs = toMap('abbr,align,alt,axis,bgcolor,border,cellpadding,cellspacing,class,clear,' +
       'color,cols,colspan,compact,coords,dir,face,headers,height,hreflang,hspace,' +
@@ -51365,7 +51459,7 @@ return jQuery;
 } );
 
 },{}],8:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 /**
  * @license
  * Lodash <https://lodash.com/>
@@ -68479,7 +68573,7 @@ return jQuery;
   }
 }.call(this));
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],9:[function(require,module,exports){
 //! moment.js
 //! version : 2.20.1

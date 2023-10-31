@@ -112,7 +112,7 @@
         </apex:pageBlockSection>
       </apex:pageBlock>
       <br/>
-      <h1 class="productDetails">{!$Label.vlocity_cmt__upcproductdetailsreportheader}</h1>
+      <h1 class="productDetails">{!$Label.vlocity_cmt__upcProductDetailsReportHeader}</h1>
       <br/>
       <apex:repeat value="{!productDetails}" var="key">
         <apex:pageBlock rendered="{!productDetails[key].response != null}">

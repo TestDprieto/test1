@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__CMEBase</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__ConfigurePriceQuote</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__EnterpriseSalesManagement</name>
+    </customPermissions>
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__MobileSubscriptionManagement</name>
+    </customPermissions>
+    <description>Allows Digital Experience Partner users to access Communications Cloud Advanced features</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Communications Cloud Plus PC Runtime</label>
+</PermissionSet>

@@ -14,7 +14,7 @@
 
         <!-- PDFTRON Libraries for salesforce side implementation-->
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdfconversion_iframe, '/pdf-conversion.js')}"/>
-        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/>
+        <!-- <apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/> -->
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/webviewer.min.js')}"/>
     <style>       
@@ -302,7 +302,7 @@
             $scope.docType = '{!JSENCODE(attachDocType)}';
             $scope.containsRedlines = '{!containsRedlines}';
             $scope.templateType = '{!templateType}';
-            $scope.sessionId = '{!$Api.Session_ID}';
+            $scope.sessionId = '{!vlocAccessToken}';
             $scope.sitePrefix = '{!$Site.prefix}';
             $scope.pdfGenerationSource = '{!JSENCODE(pdfGenerationSource)}';
             $scope.VlocityClientSide = 'vlocityclientside';

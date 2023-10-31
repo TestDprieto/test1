@@ -1,3 +1,23 @@
-<apex:page standardController="vlocity_cmt__FulfilmentRequestLine__c" docType="html-5.0">
-	<c:XOMAttributeUIComponent />
+<apex:page standardController="vlocity_cmt__FulfilmentRequestLine__c" docType="html-5.0" extensions="vlocity_cmt.XOMAttributeUIController" showHeader="true" sidebar="true">
+	<apex:includeLightning />    
+    <div id="LightningComponentid" />    
+    <script>
+    
+        var recordId = '{!LEFT($CurrentPage.parameters.Id, 15)}';
+        let nsp = "{!nsp}";
+        let namespace = nsp ? nsp.slice(0, -2) : 'c';
+        
+        $Lightning.use(namespace+":ltngOutVF", function() {
+            $Lightning.createComponent(
+                namespace + ":xomAttributeUIComponent",{   
+                    recordId: recordId
+                },
+                "LightningComponentid",
+                function(cmp) {
+                    console.log('Inventory Attributes LWC Component added in VF page');
+                    console.log('nsp:', '{!nsp}');
+                    console.log('component created:', cmp);
+              });
+        });
+    </script>
 </apex:page>

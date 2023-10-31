@@ -1,13 +1,6 @@
-<apex:page showHeader="true"
-           sidebar="false"
-           standardStylesheets="false"
-           tabStyle="OmniScriptHome__tab"
-           standardController="vlocity_cmt__OmniScript__c"
-           recordSetVar="omniscripts"
-           extensions="vlocity_cmt.OmniScriptHomeController,vlocity_cmt.DRDataPackRunnerController,vlocity_cmt.OmniScriptDesignerController"
-           docType="html-5.0"
-           applyBodyTag="false"
-           title="Omniscript Designer Home">
+<apex:page showHeader="true" sidebar="false" standardStylesheets="false" tabStyle="OmniScriptHome__tab" controller="vlocity_cmt.OmniScriptHomeController"
+    extensions="vlocity_cmt.DRDataPackRunnerController,vlocity_cmt.OmniScriptDesignerController" docType="html-5.0" applyBodyTag="false" title="Omniscript Designer Home"
+    action="{!checkIfOmniHomeIsFirstInstalledPackage}">
 
     <head>
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__jsforce_1_7, '/jsforce-core.min.js')}" />
@@ -15,7 +8,7 @@
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__jsforce_1_7, '/jsforce-api-tooling.min.js')}" />
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__jsforce_1_7, '/jszip.min.js')}" />
         <script>
-            window.conn = new jsforce.Connection({ accessToken: '{!$API.Session_Id}', version: '48.0' });
+            window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
             window.conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
         </script>
         <script src="{!URLFOR($Resource.vlocity_core_assets, '/latest/vlocity_core_assets.js')}"></script>
@@ -31,7 +24,7 @@
         <apex:includeScript value="/support/console/42.0/integration.js" />
         <script type="text/javascript">
             window.omniLwcCompilerConfig = {
-                accessToken: '{!$API.Session_Id}',
+                accessToken: '{!vlocAccessToken}',
                 namespacePrefix: '{!namespace}',
                 isInsidePckg: '{!isInsidePckg}',
                 toolingBaseUrl: '{!baseUrl}',
@@ -42,11 +35,13 @@
                     }
                 }
             };
+            window.industryPkgNSPrefix = '{!industryPkgNSPrefix}';
         </script>
         <script src="{!$Resource.OmniscriptLwcCompiler}"></script>
         <apex:includeScript value="{!$Resource.vlocity_cmt__OmniScriptHome}" />
         <script>
-            window.sessionId = '{!GETSESSIONID()}';
+            window.vlocAccessToken = '{!vlocAccessToken}';
+            window.sessionId = window.vlocAccessToken;
         </script>
         <apex:includeLightning />
     </head>
@@ -72,23 +67,13 @@
         })();
     </script>
 
-    <body xmlns="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink">
-        <div ng-app="ouihome"
-             class="via-slds ng-cloak {!$User.UIThemeDisplayed}"
-             ng-controller="ouihome">
-            <slds-home new-url="'{!newUrl}'"
-                       search-columns="searchColumns"
-                       page-title="'OmniScripts'"
-                       s-object-type="'{!$ObjectType.OmniScript__c.Name}'"
-                       row-actions="rowActions"
-                       group-by="groupBy"
-                       sorting="sorting"
-                       id-prefix="omni-home"
-                       backcompat-import="backcompatImport(json, done)"
-                       default-columns="defaultColumns"
-                       additional-table-buttons="additionalTableButtons"
-                       extra-filters="extraFilters">
+    <body xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <div ng-app="ouihome" class="via-slds ng-cloak {!$User.UIThemeDisplayed}" ng-controller="ouihome">
+            <!-- NOTE: "{!$ObjectType.OmniScript__c.Name}" will be automatically fixed by Make on deploy -->
+            <slds-home new-url="'{!newUrl}'" search-columns="searchColumns" page-title="'OmniScripts'" s-object-type="'{!omniScriptObjType}'"
+                row-actions="rowActions" group-by="groupBy" sorting="sorting" id-prefix="omni-home" backcompat-import="backcompatImport(json, done)"
+                default-columns="defaultColumns" additional-table-buttons="additionalTableButtons" extra-filters="extraFilters"
+                new-designer-customization-buttons="newDesignerCustomizationButtons">
             </slds-home>
         </div>
         <script type="text/javascript">
@@ -110,18 +95,21 @@
     /* END_VLOC_I18N */
         </script>
         <c:VFActionFunction />
-        <div class="via-slds"
-             id="custom-slds-home-new-modal"
-             style="display: none">
-             <div id="lightning" />
+        <div class="via-slds" id="custom-slds-home-new-modal" style="display: none">
+            <div id="lightning" />
         </div>
         <script>
+            window.omniIsFoundationPackage = {!isFoundationPackage};
             window.omniNewUrl = "{!newUrl}";
+            window.previewUrl = "{!previewUrl}"
             window.omniLwcNewUrl = `/lightning/cmp/{!namespacePrefix}OmniDesignerAuraWrapper?c__recordId=`;
-            window.disableLwcDesigner = false;
+            window.showLegacyOmniStudioUi = {!showLegacyOmniStudioUi};
+            window.isFoundationPkg = {!isFoundationPackage};
+            window.newOutSideFeatureUrl = "/lightning/cmp/{!namespacePrefix}OmniDesignerCustomizationNewFormAuraWrapper?c__componentName=";
+            window.omniDesignerCustomizationTypes = JSON.parse('{!JSENCODE(getNewDesignerCustomizationTypes)}');
             if (typeof sforce !== 'undefined') {
                 if (sforce.console && sforce.console.isInConsole()) {
-                    sforce.console.setTabTitle('Vlocity Omniscript Designer');
+                    sforce.console.setTabTitle('Omniscript Designer');
                     sforce.console.setTabIcon('standard:template');
                 }
             }
@@ -130,10 +118,10 @@
                 creatNewForm();
             });
 
-            function creatNewForm(){
+            function creatNewForm() {
                 $Lightning.createComponent(`${ns}:omniDesignerNewOmniScriptForm`,
                     {
-                        objectApiName: '{!namespacePrefix}OmniScript__c',
+                        objectApiName: '{!JSENCODE(omniObjectNameWithNamespace)}',
                         isNavigationApiUnsupported: true
                     },
                     "lightning",
@@ -142,7 +130,7 @@
                             const newform = document.getElementById('lightning');
                             newform.addEventListener('omninewnavigate', function (event) {
                                 // enable when we want the new designer to be the default.
-                                if (!window.disableLwcDesigner && event.detail.isLwcEnabled && !event.detail.isMultiLanguage) {
+                                if (event.detail.isLwcEnabled) {
                                     vlocityOpenUrl(`${omniLwcNewUrl}${event.detail.recordId}`, null, false);
                                 } else {
                                     vlocityOpenUrl(`${omniNewUrl}?id=${event.detail.recordId}`, null, false);
@@ -167,6 +155,10 @@
                     }
                 );
             }
+        </script>
+        <script>
+            angular.module('ouihome.core', [])
+                .value('OmniScriptFieldMappingsNamespace', JSON.parse('{!JSENCODE(omniScriptFieldMappingsNamespace)}'))
         </script>
     </body>
 

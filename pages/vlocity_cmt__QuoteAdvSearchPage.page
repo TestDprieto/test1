@@ -1,6 +1,6 @@
 <apex:page standardController="Quote" extensions="vlocity_cmt.LineItemManagementStandardController" showHeader="false" sidebar="false">
-	<!-- <c:AdvProdSearchComponent buttonTitle="{!$Label.vlocity_cmt__createorders}" cartUrl="/apex/QuoteManager?id={!$CurrentPage.parameters.Id}" showItemLinks="true"/> -->
-	<!--<c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__createorders}" summaryTitle="Quote Summary" cartUrl="/apex/QuoteManager?id={!$CurrentPage.parameters.Id}" />-->
+	<!-- <c:AdvProdSearchComponent buttonTitle="{!$Label.vlocity_cmt__CreateOrders}" cartUrl="/apex/QuoteManager?id={!$CurrentPage.parameters.Id}" showItemLinks="true"/> -->
+	<!--<c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__CreateOrders}" summaryTitle="Quote Summary" cartUrl="/apex/QuoteManager?id={!$CurrentPage.parameters.Id}" />-->
 	<html xmlns:ng="http://angularjs.org">
 		<head>
 		<apex:stylesheet value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/css/vlocity.css')}"/>
@@ -17,7 +17,7 @@
 	</head>
 	<body>
 		<c:SummaryConfigurationComponent summaryTitle="Quote Summary"/>
-		<c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__createorders}" summaryTitle="Quote Summary" cartUrl="/apex/QuoteManager?id={!$CurrentPage.parameters.Id}" />
+		<c:ProductConfigurationComponent buttonTitle="{!$Label.vlocity_cmt__CreateOrders}" summaryTitle="Quote Summary" cartUrl="/apex/QuoteManager?id={!HTMLENCODE($CurrentPage.parameters.Id)}" />
 	</body>
 	</html>
 </apex:page>

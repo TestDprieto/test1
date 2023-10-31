@@ -69,6 +69,11 @@
         <name>vlocity_cmt__IsProcessSuperBulk__c</name>
     </fields>
     <fields>
+        <help><!-- Enables or disables synchronization to OM+. Changing this field affects synchronization of associated DRMapItems. --></help>
+        <label><!-- OM Plus Enabled --></label>
+        <name>vlocity_cmt__OMplusSyncEnabled__c</name>
+    </fields>
+    <fields>
         <label><!-- Oubound Staging Object Data Field --></label>
         <name>vlocity_cmt__OuboundStagingObjectDataField__c</name>
     </fields>

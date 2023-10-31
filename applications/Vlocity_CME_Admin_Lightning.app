@@ -13,6 +13,31 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>CME Admin</label>
     <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>vlocity_cmt__Vlocity_OmniScript_Designer</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>vlocity_cmt__OmniScript__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analytics Cloud Integration User</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>vlocity_cmt__Vlocity_OmniScript_Designer</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>vlocity_cmt__OmniScript__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Read Only</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>vlocity_cmt__Vlocity_OmniScript_Designer</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>vlocity_cmt__OmniScript__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <tabs>vlocity_cmt__LWCDesigner</tabs>
     <tabs>vlocity_cmt__CMTAdmin</tabs>
     <tabs>vlocity_cmt__Attribute__c</tabs>
     <tabs>vlocity_cmt__VlocityXOMAdministration</tabs>

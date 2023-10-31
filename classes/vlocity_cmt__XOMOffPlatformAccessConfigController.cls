@@ -14,15 +14,25 @@ global class XOMOffPlatformAccessConfigController {
         return null;
     }
     @RemoteAction
+    global static Boolean cleanupAccessKeys(String accessKey) {
+        return null;
+    }
+    @AuraEnabled
+    @RemoteAction
     global static String getOffplatformUrl() {
         return null;
     }
+    @AuraEnabled
     @RemoteAction
     global static Boolean isOffplatformMode() {
         return null;
     }
     @RemoteAction
     global static Boolean rotateAccessKeys() {
+        return null;
+    }
+    @RemoteAction
+    global static Object rotateAccessKeysAndReturnObject() {
         return null;
     }
     @RemoteAction
@@ -33,4 +43,11 @@ global class XOMOffPlatformAccessConfigController {
     global static String saveXOMSetupCustomSettings(String keyCSPairStr) {
         return null;
     }
+    @AuraEnabled
+    @RemoteAction
+    global static void uploadOMPLUIJWTPrivateKey(String pem) {
+
+    }
+global class InvalidPEMException extends Exception {
+}
 }

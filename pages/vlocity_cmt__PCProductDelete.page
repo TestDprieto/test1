@@ -67,7 +67,7 @@
                 sforce.console.getEnclosingPrimaryTabId(result => {
                     primaryTabId = result.id;
                     const tabLabel =  '{!$Label.upcDeleteProduct}';
-                    sforce.console.setTabTitle(tabLabel,primaryTabId);
+                    sforce.console.setTabTitle(tabLabel, primaryTabId);
                 });  
             }
 
@@ -77,12 +77,11 @@
             }
 
             function createComponent(){
-                const namespacePrefix = '{!NSP}';
+                const namespacePrefix = '{!JSINHTMLENCODE(NSP)}';
                 const namespace = namespacePrefix.slice(0,namespacePrefix.length-2);
                 $Lightning.use(namespace+":ltngOutVF", function() {
-                    const currentRecordId = '{!$CurrentPage.parameters.id}';
                     $Lightning.createComponent(
-                        namespace+":upcProductDelete", {recordId:currentRecordId}, "upc-product-delete-container",
+                        namespace+":upcProductDelete", {recordId:"{!JSENCODE($CurrentPage.parameters.id)}"}, "upc-product-delete-container",
                         (cmp)=> {
                             cmp.elements[0].addEventListener("productdeletecancel",event=>{
                                 closeAndRedirectToList();

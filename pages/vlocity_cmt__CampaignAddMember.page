@@ -25,12 +25,12 @@
             </div>
 
             <script type="text/javascript">
-                var sessionId = '{!$Api.Session_ID}';
+                var sessionId = '{!vlocAccessToken}';
                 //$rootScope.forcetkClient = new forcetk.Client();
-                //$rootScope.forcetkClient.setSessionToken('{!$Api.Session_ID}');
+                //$rootScope.forcetkClient.setSessionToken('{!vlocAccessToken}');
 
                 var vlocCPQ = {
-                    'accessToken': '{!$Api.Session_ID}',
+                    'accessToken': '{!vlocAccessToken}',
                     'staticResourceURL' : {
                         'slds': '{!URLFOR($Resource.slds_2_2_2)}',
                     }

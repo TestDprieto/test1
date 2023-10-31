@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Additonal Data --></label>
+        <name>vlocity_cmt__AdditionalData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Async Process --></label>
+        <name>vlocity_cmt__AsyncProcessId__c</name>
+        <relationshipLabel><!-- Async Process Steps --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Items to Process List --></label>
+        <name>vlocity_cmt__ItemsToProcessList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>vlocity_cmt__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number Of Items Processed --></label>
+        <name>vlocity_cmt__NumberOfItemsProcessed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Process Additonal Data --></label>
+        <name>vlocity_cmt__StartProcessAdditionalData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Process Items to Process List --></label>
+        <name>vlocity_cmt__StartProcessItemsToProcessList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>InProgess</masterLabel>
+            <translation><!-- InProgess --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>InProgess-Fail</masterLabel>
+            <translation><!-- InProgess-Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Step Configuration --></label>
+        <name>vlocity_cmt__StepConfiguration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Step Number --></label>
+        <name>vlocity_cmt__StepNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technical Message --></label>
+        <name>vlocity_cmt__TechnicalMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number Of Items To Be Processed --></label>
+        <name>vlocity_cmt__TotalNumberOfItemsToBeProcessed__c</name>
+    </fields>
+</CustomObjectTranslation>

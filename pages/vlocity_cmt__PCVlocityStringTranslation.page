@@ -1,0 +1,63 @@
+<apex:page docType="html-5.0"
+    applyHtmlTag="false"
+    showQuickActionVfHeader="false"
+    showHeader="false"
+    sidebar="false"
+    standardStylesheets="false"
+    cache="false"
+    standardController="vlocity_cmt__StringTranslation__c"
+    extensions="vlocity_cmt.DRDataPackRunnerController,vlocity_cmt.CardCanvasController"
+>
+    <apex:slds />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" dir="{!IF(isLanguageRTL, 'rtl', 'ltr')}">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="generator" content="Vlocity Product Designer" />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+            <meta name="description" content="Vlocity Product Designer" />
+            <!-- Common scripts -->
+            <apex:includeScript value="/support/console/44.0/integration.js" />
+            <style>
+                html,
+                body {
+                    height: 100%;
+                }
+            </style>
+        </head>
+        <body>
+            <apex:includeLightning />
+            <div id="upc-string-translation"></div>
+            <script type="text/javascript">
+                sforce.console.getEnclosingPrimaryTabId(result => {
+                 sforce.console.setTabTitle(
+                  "Vlocity String Translations",
+                  result.id
+                 );
+                });
+
+                function closeTab() {
+                 setTimeout(function() {
+                  sforce.console.getEnclosingPrimaryTabId(result => {
+                   sforce.console.closeTab(result.id);
+                  });
+                 }, 5000);
+                }
+                
+                $Lightning.use("{!namespace}:ltngOutVF", function() {
+                 $Lightning.createComponent(
+                  "{!namespace}:upcStringTranslation", 
+                  {}, 
+                  "upc-string-translation",
+                  function(cmp, status) {
+                      if (status === "SUCCESS") {
+                            cmp.elements[0].addEventListener("closeTab", event => {
+                                closeTab();
+                            });
+                      }
+                  }
+                 );
+                });
+            </script>
+        </body>
+    </html>
+</apex:page>

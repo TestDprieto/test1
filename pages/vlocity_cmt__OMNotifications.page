@@ -1,4 +1,4 @@
-<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.OrderEventsController" title="{!$Label.vlocity_cmt__omnotifications}">
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.OrderEventsController" title="{!$Label.vlocity_cmt__OMNotifications}">
     <html xmlns:ng="http://angularjs.org" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="OMNotifications" class="ng-cloak">
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -62,14 +62,14 @@
                     }
                 };
                 var labels = {
-                    OMNotifications: "{!$Label.vlocity_cmt__omnotifications}",
+                    OMNotifications: "{!$Label.vlocity_cmt__OMNotifications}",
                     NoOrderManagementNotification: "{!$Label.NoOrderManagementNotification}"
                 };
                 var configData = {
                     nsPrefix: "{!nsp}"
                 };
                 var currentOrderId = {
-                    Id : "{!$CurrentPage.parameters.Id}"
+                    Id : "{!JSENCODE($CurrentPage.parameters.Id)}"
                 };
             </script>
         </body>

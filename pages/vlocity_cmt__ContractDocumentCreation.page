@@ -24,7 +24,7 @@
         <apex:stylesheet value="{!$Resource.vlocity_cmt__ContractDocumentCreationCss}"/>
 
         <!-- PDFTRON Libraries for salesforce side implementation-->
-        <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/>
+        <!--<apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/external/jquery-3.5.1.min.js')}"/>-->
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/core/CoreControls.js')}"/>
         <!--<apex:includeScript value="{!URLFOR($Resource.cs_pdftron_lib, '/core/pdf/PDFNet.js')}"/>-->
         <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__cs_pdftron_lib, '/webviewer.min.js')}"/>
@@ -199,7 +199,7 @@
         <script type="text/javascript">
             _.noConflict();
             var nameSpacePrefix, remoteActions, contractVersionId, parentId, sourceId, docName, containsRedlines, baseRequestUrl, inLightningExperience, labels, preview, sitePrefix;
-            window.sessionId = '{!$Api.Session_ID}';
+            window.sessionId = '{!vlocAccessToken}';
             nameSpacePrefix = '{!nameSpacePrefix}';
             contractVersionId = '{!$CurrentPage.parameters.Id}';
             parentId = '{!parentId}';
@@ -214,7 +214,7 @@
             templateType = '{!templateType}';
             autoAttachDoc = '{!autoAttachDoc}';
             isReconcileDoc = '{!reconcileDoc}';
-            documentTemplateId = '{!documentTemplateId}';
+            documentTemplateId = '{!JSENCODE(documentTemplateId)}';
 			preview = '{!preview}';
 			sitePrefix = '{!$Site.Prefix}';
 
@@ -369,14 +369,6 @@
                 },
                 resolveDocumentGenerationMethods: {
                     action: '{!$RemoteAction.ContractDocumentCreationController.resolveDocumentGenerationMethods}',
-                    config: {escape: false}
-                },
-                remoteGeneratePdf: {
-                    action: '{!$RemoteAction.ContractDocumentCreationController.remoteGeneratePdf}',
-                    config: {escape: false}
-                },
-                remoteGenerateDoc: {
-                    action: '{!$RemoteAction.ContractDocumentCreationController.remoteGenerateDoc}',
                     config: {escape: false}
                 },
                 getDocxSectionHtmlContent: {

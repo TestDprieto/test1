@@ -1,4 +1,5 @@
-<apex:page standardStylesheets="false" showHeader="true" sidebar="false" docType="html-5.0" controller="vlocity_cmt.VFPageControllerBase" 
+<apex:page standardStylesheets="false" showHeader="true" sidebar="false" docType="html-5.0" controller="vlocity_cmt.PlatformVFPageControllerBase"
            language="{!$CurrentPage.parameters.LanguageCode}">
-    <c:OmniScriptUniversalComponent />
+    <c:OmniScriptUniversalComponent rendered="{!showLegacyOmniStudioUi}"/>
+    <c:VFPageDeprecatedMessage rendered="{!!showLegacyOmniStudioUi}"/>
 </apex:page>

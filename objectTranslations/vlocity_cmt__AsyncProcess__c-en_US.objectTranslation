@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Additional Data --></label>
+        <name>vlocity_cmt__AdditionalData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Async Process Steps --></label>
+        <name>vlocity_cmt__AsyncProcessSteps__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Step Number --></label>
+        <name>vlocity_cmt__CurrentStepNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Items to Process List --></label>
+        <name>vlocity_cmt__ItemsToProcessList__c</name>
+    </fields>
+    <fields>
+        <label><!-- Last Step Finish Process Additional Data --></label>
+        <name>vlocity_cmt__LastStepFinishProcessAdditionalData__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>vlocity_cmt__Message__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reference Id --></label>
+        <name>vlocity_cmt__ReferenceId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>vlocity_cmt__Status__c</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed</masterLabel>
+            <translation><!-- Failed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>InProgess</masterLabel>
+            <translation><!-- InProgess --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>InProgress-Fail</masterLabel>
+            <translation><!-- InProgress-Fail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Success</masterLabel>
+            <translation><!-- Success --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Step Name --></label>
+        <name>vlocity_cmt__StepName__c</name>
+    </fields>
+    <fields>
+        <label><!-- Technical Message --></label>
+        <name>vlocity_cmt__TechnicalMessage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Number Of Steps --></label>
+        <name>vlocity_cmt__TotalNumberOfSteps__c</name>
+    </fields>
+    <fields>
+        <label><!-- UUID --></label>
+        <name>vlocity_cmt__UUID__c</name>
+    </fields>
+</CustomObjectTranslation>

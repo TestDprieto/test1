@@ -25,43 +25,43 @@
 		} 
 
 	</style>
-	<apex:sectionHeader title="{!$Label.vlocity_cmt__editproductprice}" rendered="true"/>
+	<apex:sectionHeader title="{!$Label.vlocity_cmt__EditProductPrice}" rendered="true"/>
 
     <apex:outputPanel layout="block" style="overflow:auto;" >
 		<apex:form >
 			<apex:pageBlock >
 				<apex:pageBlockButtons >
-                	<apex:commandLink value="{!$Label.vlocity_cmt__save}" action="{!saveProductPrices}" id="saveButton"  styleClass="btn" style="padding: 3px 10px; margin: 1px; text-decoration: none;" />
-                	<apex:commandLink value="{!$Label.vlocity_cmt__cancel}" action="{!cancel}" id="cancelButton"  styleClass="btn" style="padding: 3px 10px; margin: 1px; text-decoration: none;" />
+                	<apex:commandLink value="{!$Label.vlocity_cmt__Save}" action="{!saveProductPrices}" id="saveButton"  styleClass="btn" style="padding: 3px 10px; margin: 1px; text-decoration: none;" />
+                	<apex:commandLink value="{!$Label.vlocity_cmt__Cancel}" action="{!cancel}" id="cancelButton"  styleClass="btn" style="padding: 3px 10px; margin: 1px; text-decoration: none;" />
 				</apex:pageBlockButtons>
 				<apex:DataTable value="{!productPriceEntries}" var="productPriceEntry" id="pbeTable" styleClass="pbeTable">
-					<apex:column headerValue="{!$Label.vlocity_cmt__product}" styleClass="pbeColumn">
+					<apex:column headerValue="{!$Label.vlocity_cmt__Product}" styleClass="pbeColumn">
 						<apex:outputText value="{!productPriceEntry.pricebookEntry.Product2.Name}"/>
 					</apex:column>
-					<apex:column headerValue="{!$Label.vlocity_cmt__pricebook}" styleClass="pbeColumn">
+					<apex:column headerValue="{!$Label.vlocity_cmt__PriceBook}" styleClass="pbeColumn">
 						<apex:outputText value="{!productPriceEntry.pricebookEntry.Pricebook2.Name}"/>
 					</apex:column>
-					<apex:column headerValue="{!$Label.vlocity_cmt__usestandardprice}" styleClass="pbeColumn alignRight">
+					<apex:column headerValue="{!$Label.vlocity_cmt__UseStandardPrice}" styleClass="pbeColumn alignRight">
 						<apex:outputText value="{!productPriceEntry.standardPrice}"/>
 						<apex:inputCheckbox value="{!productPriceEntry.pricebookEntry.UseStandardPrice}" styleClass="usePriceCheckBox">
                             <apex:actionSupport event="onchange" reRender="listpricePanel"/>
 						</apex:inputCheckbox>
 					</apex:column>
-					<apex:column headerValue="{!$Label.vlocity_cmt__listprice}" styleClass="numericalColumn pbeColumn">
+					<apex:column headerValue="{!$Label.vlocity_cmt__ListPrice}" styleClass="numericalColumn pbeColumn">
 					   <apex:outputPanel id="listpricePanel" >
                             <apex:inputField rendered="{!NOT(productPriceEntry.pricebookEntry.UseStandardPrice)}" value="{!productPriceEntry.pricebookEntry.UnitPrice}" />
                             <apex:outputField rendered="{!productPriceEntry.pricebookEntry.UseStandardPrice}" value="{!productPriceEntry.pricebookEntry.UnitPrice}"/>
                        </apex:outputPanel>
                     </apex:column>
-					<apex:column headerValue="{!$Label.vlocity_cmt__recurringprice}" styleClass="numericalColumn pbeColumn">
+					<apex:column headerValue="{!$Label.vlocity_cmt__RecurringPrice}" styleClass="numericalColumn pbeColumn">
 						<apex:inputField value="{!productPriceEntry.pricebookEntry.vlocity_cmt__RecurringPrice__c}"/>
 					</apex:column>
-                    <apex:column headerValue="{!$Label.vlocity_cmt__recurringfrequency}" >
+                    <apex:column headerValue="{!$Label.vlocity_cmt__RecurringFrequency}" >
 	                    <apex:outputField value="{!productPriceEntry.pricebookEntry.vlocity_cmt__RecurringUOM__c}" >
 	                        <apex:inlineEditSupport event="ondblclick" />                    
 	                    </apex:outputField>
 					</apex:column>
-					<apex:column headerValue="{!$Label.vlocity_cmt__active}" styleClass="pbeColumn margin-left">
+					<apex:column headerValue="{!$Label.vlocity_cmt__Active}" styleClass="pbeColumn margin-left">
 						<apex:inputCheckbox value="{!productPriceEntry.pricebookEntry.IsActive}"/>
 					</apex:column>
 				</apex:DataTable>

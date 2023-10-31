@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customPermissions>
+        <enabled>true</enabled>
+        <name>vlocity_cmt__CMEBase</name>
+    </customPermissions>
+    <description>Allows Agents to access Communications Cloud features.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>Communications Cloud Runtime</label>
+</PermissionSet>

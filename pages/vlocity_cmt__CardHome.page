@@ -9,7 +9,7 @@
   <head>
       <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__jsforce_1_7, '/jsforce-core.min.js')}" />
       <script>
-          window.conn = new jsforce.Connection({ accessToken: '{!$Api.Session_Id}', version: '45.0' });
+          window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '45.0' });
       </script>
       <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_core_assets, '/latest/vlocity_core_assets.js')}"/>
       <apex:includeScript value="{!URLFOR($Resource.vlocity_cmt__vlocity_assets, '/bower_components/ng-table/dist/ng-table.js')}"/>
@@ -41,62 +41,65 @@
     })();
   </script>
   <body xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <div ng-app="cardhome" class="via-slds ng-cloak {!$User.UIThemeDisplayed}" ng-controller="cardhome">
-      <slds-home
-                new-url="'{!newUrl}'"
-                page-title="'Layouts & Cards'"
-                s-object-type="'{!$ObjectType.VlocityUILayout__c.Name}'"
-                row-actions="rowActions"
-                min-height="'300px'"
-                id-prefix="cards-home"
-                default-columns="defaultColumns"
-                additional-table-buttons="additionalTableButtons"
-                additional-header-buttons="additionalHeaderButtons"
-                is-global-warnings="isGlobalWarnings"
-                show-global-warnings="showGlobalWarnings">
-      </slds-home>
-    </div>
-    <c:VFActionFunction />
+    <apex:outputPanel layout="none" rendered="{!showLegacyOmniStudioUi}">
+      <div ng-app="cardhome" class="via-slds ng-cloak {!$User.UIThemeDisplayed}" ng-controller="cardhome">
+        <slds-home
+                  new-url="'{!newUrl}'"
+                  page-title="'Layouts & Cards'"
+                  s-object-type="'{!$ObjectType.VlocityUILayout__c.Name}'"
+                  row-actions="rowActions"
+                  min-height="'300px'"
+                  id-prefix="cards-home"
+                  default-columns="defaultColumns"
+                  additional-table-buttons="additionalTableButtons"
+                  additional-header-buttons="additionalHeaderButtons"
+                  is-global-warnings="isGlobalWarnings"
+                  show-global-warnings="showGlobalWarnings">
+        </slds-home>
+      </div>
+      <c:VFActionFunction />
+    </apex:outputPanel>
+   <c:VFPageDeprecatedMessage rendered="{!!showLegacyOmniStudioUi}"/>
     <script>
       window.cardsNewUrl = "{!newUrl}";
       window.orgName = '{!$Organization.Name}';
       window.toolingBaseUrl = '{!baseUrl}';
-      window.sessionId = '{!$Api.Session_ID}',
+      window.sessionId = '{!vlocAccessToken}',
       window.i18n = {
-        "SldsObjectHomeHeaderInfo": "{!$Label.vlocity_cmt__sldsobjecthomeheaderinfo}",
-        "RefreshData": "{!$Label.vlocity_cmt__refreshdata}",
-        "Export": "{!$Label.vlocity_cmt__export}",
-        "New": "{!$Label.vlocity_cmt__new}",
-        "FilterList": "{!$Label.vlocity_cmt__filterlist}",
-        "Import": "{!$Label.vlocity_cmt__import}",
-        "AdditionalActions": "{!$Label.vlocity_cmt__additionalactions}",
-        "Delete": "{!$Label.vlocity_cmt__delete}",
-        "Preview": "{!$Label.vlocity_cmt__preview}",
-        "LastModified": "{!$Label.vlocity_cmt__lastmodified}",
-        "Name": "{!$Label.vlocity_cmt__name}",
-        "ModifiedOnBy": "{!$Label.vlocity_cmt__modifiedonby}",
-        "DeleteLayout": "{!$Label.vlocity_cmt__deletelayout}",
-        "InstallDataPack": "{!$Label.vlocity_cmt__installdatapack}",
-        "DeleteLayoutConfirmation": "{!$Label.vlocity_cmt__deletelayoutconfirmation}",
-        "Filters":"{!$Label.vlocity_cmt__filters}",
-        "HideFilter":"{!$Label.vlocity_cmt__hidefilter}",
-        "Cancel":"{!$Label.vlocity_cmt__cancel}",
-        "Save":"{!$Label.vlocity_cmt__save}",
-        "ShowMe":"{!$Label.vlocity_cmt__showme}",
-        "MatchingAllOfTheseFilters":"{!$Label.vlocity_cmt__matchingallofthesefilters}",
-        "Remove":"{!$Label.vlocity_cmt__remove}",
-        "NewFilter":"{!$Label.vlocity_cmt__newfilter}",
-        "AddFilter":"{!$Label.vlocity_cmt__addfilter}",
-        "RemoveAll":"{!$Label.vlocity_cmt__removeall}",
-        "Field":"{!$Label.vlocity_cmt__field}",
-        "Operator":"{!$Label.vlocity_cmt__operator}",
-        "Value":"{!$Label.vlocity_cmt__value}",
-        "Done":"{!$Label.vlocity_cmt__done}",
-        "AllType":"{!$Label.vlocity_cmt__alltype}",
-        "MyType":"{!$Label.vlocity_cmt__mytype}",
-        "WarningsTitle": "{!$Label.vlocity_cmt__warningstitle}",
-        "RemoteSiteNotOnWarning": "{!$Label.vlocity_cmt__remotesitenotonwarning}",
-        "FixWarnings": "{!$Label.vlocity_cmt__fixwarnings}"
+        "SldsObjectHomeHeaderInfo": "{!$Label.vlocity_cmt__SldsObjectHomeHeaderInfo}",
+        "RefreshData": "{!$Label.vlocity_cmt__RefreshData}",
+        "Export": "{!$Label.vlocity_cmt__Export}",
+        "New": "{!$Label.vlocity_cmt__New}",
+        "FilterList": "{!$Label.vlocity_cmt__FilterList}",
+        "Import": "{!$Label.vlocity_cmt__Import}",
+        "AdditionalActions": "{!$Label.vlocity_cmt__AdditionalActions}",
+        "Delete": "{!$Label.vlocity_cmt__Delete}",
+        "Preview": "{!$Label.vlocity_cmt__Preview}",
+        "LastModified": "{!$Label.vlocity_cmt__LastModified}",
+        "Name": "{!$Label.vlocity_cmt__Name}",
+        "ModifiedOnBy": "{!$Label.vlocity_cmt__ModifiedOnBy}",
+        "DeleteLayout": "{!$Label.vlocity_cmt__DeleteLayout}",
+        "InstallDataPack": "{!$Label.vlocity_cmt__InstallDataPack}",
+        "DeleteLayoutConfirmation": "{!$Label.vlocity_cmt__DeleteLayoutConfirmation}",
+        "Filters":"{!$Label.vlocity_cmt__Filters}",
+        "HideFilter":"{!$Label.vlocity_cmt__HideFilter}",
+        "Cancel":"{!$Label.vlocity_cmt__Cancel}",
+        "Save":"{!$Label.vlocity_cmt__Save}",
+        "ShowMe":"{!$Label.vlocity_cmt__ShowMe}",
+        "MatchingAllOfTheseFilters":"{!$Label.vlocity_cmt__MatchingAllOfTheseFilters}",
+        "Remove":"{!$Label.vlocity_cmt__Remove}",
+        "NewFilter":"{!$Label.vlocity_cmt__NewFilter}",
+        "AddFilter":"{!$Label.vlocity_cmt__AddFilter}",
+        "RemoveAll":"{!$Label.vlocity_cmt__RemoveAll}",
+        "Field":"{!$Label.vlocity_cmt__Field}",
+        "Operator":"{!$Label.vlocity_cmt__Operator}",
+        "Value":"{!$Label.vlocity_cmt__Value}",
+        "Done":"{!$Label.vlocity_cmt__Done}",
+        "AllType":"{!$Label.vlocity_cmt__AllType}",
+        "MyType":"{!$Label.vlocity_cmt__MyType}",
+        "WarningsTitle": "{!$Label.vlocity_cmt__WarningsTitle}",
+        "RemoteSiteNotOnWarning": "{!$Label.vlocity_cmt__RemoteSiteNotOnWarning}",
+        "FixWarnings": "{!$Label.vlocity_cmt__FixWarnings}"
       };
 
       //Setting LEX tab icon and title

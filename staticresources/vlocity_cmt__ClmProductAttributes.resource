@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -966,7 +980,7 @@ angular.module('clmProductAttributes').controller('ClmTermAttributesController',
      *  Return to home page (ConytractTerms List page)
      */
     $scope.returnHomePage = function() {
-        location.href = location.origin + '/apex/ProductContractTermsList';
+        window.open('/apex/ProductContractTermsList', '_self');
 
     }
     $scope.deleteProduct = function() {
@@ -977,7 +991,7 @@ angular.module('clmProductAttributes').controller('ClmTermAttributesController',
         ClmProductAttributesService.deleteProduct($scope, inputMap).then(function(result) {
             $scope.vlcLoading = false;
             if(result) {
-                location.href = location.origin + '/apex/ProductContractTermsList';
+                window.open('/apex/ProductContractTermsList', '_self');
             } else {
                 console.log("error deleting productTerms")
             }
@@ -1375,7 +1389,7 @@ angular.module('clmProductAttributes').factory('NotificationHandler',
     return (NotificationHandler);
 }]);
 },{}],10:[function(require,module,exports){
-angular.module("clmProductAttributes").run(["$templateCache",function($templateCache){"use strict"}]);
+angular.module("clmProductAttributes").run(["$templateCache",function($templateCache){}]);
 
 },{}]},{},[1]);
 })();

@@ -266,6 +266,7 @@
     <fields>
         <fullName>vlocity_cmt__GlobalGroupKey__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents a common identifier shared by different versions of the same Object Type for &apos;Product2&apos; Object.</description>
         <externalId>false</externalId>
         <label>Version Group Key</label>
         <length>255</length>
@@ -307,6 +308,7 @@
     <fields>
         <fullName>vlocity_cmt__LifecycleStatus__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents the Lifecycle status of the Object Type. The Draft and Released status are the initial and final lifecycle status of the entity.</description>
         <externalId>false</externalId>
         <label>Lifecycle Status</label>
         <required>false</required>
@@ -409,6 +411,7 @@
     <fields>
         <fullName>vlocity_cmt__VersionLabel__c</fullName>
         <deprecated>false</deprecated>
+        <description>Represents user-friendly label for the versioned Object Type</description>
         <externalId>false</externalId>
         <label>Version Label</label>
         <length>255</length>

@@ -48,14 +48,14 @@
            <div ng-app="groupmemberlist" ng-controller="ctrlContactList" class="vlocity">
                 <div class="panel panel-default">
                     <div class="panel-heading">&nbsp;
-                            <apex:commandButton value="{!$Label.vlocity_cmt__addmember}" onClick="window.top.location.href = '{!$Site.BaseRequestUrl}{!AddMemberLink}'" styleClass="btn-primary btn-xs"/>
+                            <apex:commandButton value="{!$Label.vlocity_cmt__AddMember}" onClick="window.top.location.href = '{!$Site.BaseRequestUrl}{!AddMemberLink}'" styleClass="btn-primary btn-xs"/>
                     </div>
                     <apex:dataTable styleClass="table table-bordered" var="member" value="{!HouseholdMembers}">
                         <apex:column >                      
                             <span aria-hidden="true" class="icon-v-trash-line" onClick="removeMemberAssociation('{!member.memberFieldValues["Id"]}')" style="cursor: pointer; font-size: 16px"/>
                         </apex:column>
                         <apex:column style="width:50px">
-                            <apex:facet name="header">{!$Label.vlocity_cmt__primary}</apex:facet>      
+                            <apex:facet name="header">{!$Label.vlocity_cmt__Primary}</apex:facet>      
                              <apex:inputCheckbox id="inputCheckBox"
                                                 disabled="{!member.isPrimary}"
                                                 value="{!member.isPrimary}"
@@ -63,12 +63,12 @@
                                                 onchange="doMakePrimary('{!member.memberFieldValues["Id"]}');"/>                                            
                         </apex:column>
                         <apex:column >
-                            <apex:facet name="header">{!$Label.vlocity_cmt__role}</apex:facet>
+                            <apex:facet name="header">{!$Label.vlocity_cmt__Role}</apex:facet>
                             <apex:outputText value="{!member.roleString}"/>
                         </apex:column>
                         
                         <apex:column >
-                            <apex:facet name="header">{!$Label.vlocity_cmt__membername}</apex:facet>
+                            <apex:facet name="header">{!$Label.vlocity_cmt__MemberName}</apex:facet>
                             <a ng-if="!isSforce" onClick="window.top.location.href='{!$Site.BaseRequestUrl}/{!member.entityId}'; return false;">{!member.memberFieldValues["Name"]}</a> 
                             <a ng-if="isSforce" href="javascript:sforce.one.navigateToURL('{!$Site.BaseRequestUrl}/{!member.entityId}')">{!member.memberFieldValues["Name"]}</a> 
                         </apex:column>

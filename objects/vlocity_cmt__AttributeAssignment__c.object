@@ -228,6 +228,11 @@
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__IsNotAssetizable__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
         <label>Attribute Metadata</label>
     </fieldSets>
     <fieldSets>
@@ -435,6 +440,11 @@
         </displayedFields>
         <displayedFields>
             <field>vlocity_cmt__HelpText__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__IsNotAssetizable__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -720,6 +730,11 @@
         </displayedFields>
         <displayedFields>
             <field>vlocity_cmt__AttributeGroupType__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__IsNotAssetizable__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1300,6 +1315,18 @@
         <description>Type of sObject to which this attribute is assigned.</description>
         <externalId>false</externalId>
         <label>Assigned To Object Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__OverrideContext__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Path and other override info that will help to uniquely identify and match an override Attribute Assignment record while migrating data between orgs using the IDX tool.</description>
+        <externalId>false</externalId>
+        <label>Override Context</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>

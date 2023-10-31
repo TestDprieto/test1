@@ -6,6 +6,9 @@ methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
 global class ContractTypeController {
+    global ContractTypeController() {
+
+    }
     global ContractTypeController(ApexPages.StandardController controller) {
 
     }

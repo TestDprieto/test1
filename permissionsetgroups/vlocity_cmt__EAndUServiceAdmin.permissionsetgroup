@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PermissionSetGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Bundles the permission sets required by the Service Administrator to access Energy &amp; Utilities Cloud.</description>
+    <hasActivationRequired>false</hasActivationRequired>
+    <label>EAndU Service Admin</label>
+    <permissionSets>vlocity_cmt__DocGenIndCmeDesigner</permissionSets>
+    <permissionSets>vlocity_cmt__DocGenIndCmeRuntime</permissionSets>
+    <permissionSets>vlocity_cmt__EAndUCloudServiceRuntime</permissionSets>
+    <status>Updated</status>
+</PermissionSetGroup>

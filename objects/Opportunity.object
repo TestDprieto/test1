@@ -144,6 +144,39 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
+        <fullName>vlocity_cmt__AdSales</fullName>
+        <description>AdSales Sales process</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed Lost</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Closed Won</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Needs Analysis</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Negotiation%2FReview</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Proposal%2FPrice Quote</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Prospecting</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Qualification</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
         <fullName>vlocity_cmt__Vlocity Sales Process</fullName>
         <description>Vlocity Sales Process</description>
         <isActive>true</isActive>
@@ -349,6 +382,60 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__AsyncJobId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores asynchronous job Id if any jobs running on this opportunity.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores asynchronous job Id if any jobs running on this opportunity.</inlineHelpText>
+        <label>Async Job</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AsyncOperation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the asynchronous operation name for which this opportunity is locked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the asynchronous operation name for which this opportunity is locked.</inlineHelpText>
+        <label>Async Operation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Price</fullName>
+                    <default>false</default>
+                    <label>Price</label>
+                </value>
+                <value>
+                    <fullName>Validate</fullName>
+                    <default>false</default>
+                    <label>Validate</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BudgetAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The budget amount which the customer says they cannot spend above.</description>
+        <externalId>false</externalId>
+        <label>Budget Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__DefaultCurrencyPaymentMode__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -373,6 +460,32 @@
                 </value>
             </valueSetDefinition>
         </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveBaseOneTimeCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Roll up of the one-time charges of the opportunity products before applying adjustments.</description>
+        <externalId>false</externalId>
+        <label>Effective Total: Base One Time Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__EffectiveBaseRecurringCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Roll up of the recurring charges of the opportunity products before applying adjustments.</description>
+        <externalId>false</externalId>
+        <label>Effective Total: Base Recurring Charges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__EffectiveOneTimeCostTotal__c</fullName>
@@ -534,6 +647,50 @@
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LockedBy__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>This indicates if an opportunity is locked by a user.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This indicates if an opportunity is locked by a user.</inlineHelpText>
+        <label>Locked By User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunities</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__LockedFor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This stores the reason for doing lock on the opportunity.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This stores the reason for doing lock on the opportunity.</inlineHelpText>
+        <label>Locked For</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Async Operation</fullName>
+                    <default>false</default>
+                    <label>Async Operation</label>
+                </value>
+                <value>
+                    <fullName>Manual Edit</fullName>
+                    <default>false</default>
+                    <label>Manual Edit</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
     </fields>
     <fields>
         <fullName>vlocity_cmt__NumberOfContractedMonths__c</fullName>
@@ -919,6 +1076,125 @@
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
+        <fullName>vlocity_cmt__MediaCampaign</fullName>
+        <active>true</active>
+        <businessProcess>vlocity_cmt__AdSales</businessProcess>
+        <description>Use the Media Campagin to create Media Campaign and associated Media Plans and Ad Placements.</description>
+        <label>Media Campaign</label>
+        <picklistValues>
+            <picklist>ForecastCategoryName</picklist>
+            <values>
+                <fullName>Best Case</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Commit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Omitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pipeline</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>LeadSource</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Existing Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__DefaultCurrencyPaymentMode__c</picklist>
+            <values>
+                <fullName>Currency</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__OriginatingChannel__c</picklist>
+            <values>
+                <fullName>Call Center</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__ValidationStatus__c</picklist>
+            <values>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not yet run</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Passed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
         <fullName>vlocity_cmt__MobilePhoneOpportunity</fullName>
         <active>true</active>
         <businessProcess>vlocity_cmt__Vlocity Sales Process</businessProcess>
@@ -966,6 +1242,28 @@
             </values>
             <values>
                 <fullName>New Business</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__AsyncOperation__c</picklist>
+            <values>
+                <fullName>Price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validate</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__LockedFor__c</picklist>
+            <values>
+                <fullName>Async Operation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manual Edit</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1173,6 +1471,25 @@ var result = sforce.apex.execute(namespace_prefix+&quot;ContractServiceResource&
 window.location.href = &apos;/&apos; + result + &apos;/e?retURL=%2F&apos; + result;</url>
     </webLinks>
     <webLinks>
+        <fullName>vlocity_cmt__CreateEnterpriseQuote</fullName>
+        <availability>online</availability>
+        <description>Creates a new B2B Enterprise Sales Quote and launches the B2B Enterprise Sales App</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Create Enterprise Quote</masterLabel>
+        <openType>newWindow</openType>
+        <page>vlocity_cmt__B2BCmexCreateEntQuoteFromOpportunity</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
         <fullName>vlocity_cmt__CreateSchedules</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -1230,6 +1547,17 @@ window.location.href = &apos;/&apos; + result + &apos;/e?retURL=%2F&apos; + resu
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
+    </webLinks>
+    <webLinks>
+        <fullName>vlocity_cmt__ManageOpportunityGroups</fullName>
+        <availability>online</availability>
+        <description>This is a Custom Button on Opportunity page to manage the flow of Opportunity Groups</description>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Manage Opportunity Groups</masterLabel>
+        <openType>replace</openType>
+        <page>vlocity_cmt__MSOpportunityGroupConfiguration</page>
+        <protected>false</protected>
     </webLinks>
     <webLinks>
         <fullName>vlocity_cmt__PickFrameContract</fullName>

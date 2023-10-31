@@ -1,0 +1,82 @@
+<apex:page docType="html-5.0"
+    applyHtmlTag="false"
+    showQuickActionVfHeader="false"
+    showHeader="false"
+    sidebar="false"
+    standardStylesheets="false"
+    standardController="vlocity_cmt__Promotion__c"
+    extensions="vlocity_cmt.ProductConsoleControllerV2"
+    recordSetVar="Promotions"
+    cache="false"
+>
+    <apex:slds />
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" dir="{!IF(isLanguageRTL, 'rtl', 'ltr')}">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="generator" content="Vlocity Pricing Designer" />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+            <meta name="description" content="Vlocity Pricing Designer" />
+            <!-- Common scripts -->
+            <apex:includeScript value="/support/console/44.0/integration.js" />
+            <style>
+                html,
+                body 
+                {
+                    height: 100%;
+                }
+            </style>
+        </head>
+        <body>
+            <apex:includeLightning />
+            <div id="upc-new-discount-container"></div>
+            <script type="text/javascript">
+                sforce.console.getEnclosingPrimaryTabId(result => {
+                    sforce.console.setTabTitle(
+                        "New Discount",
+                        result.id
+                    );
+                });
+
+                function saveAndCloseSubTab(event) {
+                    sforce.console.getEnclosingPrimaryTabId(result => {
+                        sforce.console.openPrimaryTab(
+                            null,
+                            "/" + event.detail.id,
+                            true,
+                            event.detail.name,
+                            result => {},
+                            event.detail.name
+                        );
+                        sforce.console.closeTab(result.id);
+                    });
+                }
+
+                function closeSubTab(event) {
+                    sforce.console.getEnclosingPrimaryTabId(result => {
+                        sforce.console.closeTab(result.id);
+                    });
+                }
+                
+                $Lightning.use("{!JSINHTMLENCODE(Namespace)}:ltngOutVF", function() {
+                    $Lightning.createComponent(
+                        "{!JSINHTMLENCODE(Namespace)}:upcNewPromotionDiscount", 
+                        { 
+                            recordType: "Discount",
+                            recordId: "New"
+                        },
+                        "upc-new-discount-container",
+                        function(cmp) {
+                                cmp.elements[0].addEventListener("savehandler",event => {
+                                    saveAndCloseSubTab(event);
+                                });
+
+                                cmp.elements[0].addEventListener("cancelhandler",event => {
+                                    closeSubTab(event);
+                                });
+                        }
+                    );
+                });
+            </script>
+        </body>
+    </html>
+</apex:page>

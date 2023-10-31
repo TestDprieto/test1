@@ -1,5 +1,5 @@
 <!-- Displays Manual Tasks assigned to a User in off-platform -->
-<apex:page showHeader="true" sidebar="true" standardController="User" extensions="vlocity_cmt.XOMOffPlatformAccessConfigController" standardStylesheets="false" docType="html-5.0">
+<apex:page showHeader="true" sidebar="true" standardController="User" extensions="vlocity_cmt.XOMOffPlatformAccessConfigController,vlocity_cmt.XOMOMPLAuthController" standardStylesheets="false" docType="html-5.0">
     <apex:slds />
     <script type="text/javascript" src="{!URLFOR($Resource.ThorJsBundle)}"></script>
     <!-- <script src="https://localhost:8443/main.js"></script> -->
@@ -13,7 +13,8 @@
             .config(['remoteActionsProvider', function(remoteActionsProvider) 
             {
                 remoteActionsProvider.setRemoteActions({
-                    getThorBackendUrl: "{!$RemoteAction.XOMOffPlatformAccessConfigController.getOffplatformUrl}"
+                    getThorBackendUrl: "{!$RemoteAction.XOMOffPlatformAccessConfigController.getOffplatformUrl}",
+                    generateAuthToken: '{!$RemoteAction.XOMOMPLAuthController.generateAuthToken}'
                 });
             }])
             .value('thorLayoutConfig', 

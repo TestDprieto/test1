@@ -75,7 +75,7 @@
     <body>
         <div class="via-slds">
             <apex:outputpanel >
-                <vlocity-product-console namespaceprefix="{!NSP}" sfinstanceurl="{!SalesForceInstanceURL}" sessionid="{!$Api.Session_ID}"
+                <vlocity-product-console namespaceprefix="{!NSP}" sfinstanceurl="{!SalesForceInstanceURL}" sessionid='{!vlocAccessToken}'
                     userlocale="{!UserLocale}" islanguageRTL="{!isLanguageRTL}" sfcontentinstanceurl="{!SalesForceContentInstanceUrl}">
                     <template id="vpcMainContent">
                         <vlocity-pc-applicable-objects attributeid="{!$CurrentPage.parameters.id}">

@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>The Media Plan Placement is an extension to the Quote LineItem and captures the details specific to an Ad Placement.</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fields>
+        <fullName>vlocity_cmt__AdBleedAmountUom__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Bleed height and width measure.</description>
+        <externalId>false</externalId>
+        <label>Ad Bleed Amount Unit of Measure</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pixels</fullName>
+                    <default>false</default>
+                    <label>Pixels</label>
+                </value>
+                <value>
+                    <fullName>mm</fullName>
+                    <default>false</default>
+                    <label>mm</label>
+                </value>
+                <value>
+                    <fullName>Inches</fullName>
+                    <default>false</default>
+                    <label>Inches</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdBleedAmount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This captures the distance from the edge.</description>
+        <externalId>false</externalId>
+        <label>Ad Bleed Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdCreativeSizeTypes__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Semi colon separated User selected Creative SizeTypes from the possible choices presented by each Ad Space.</description>
+        <externalId>false</externalId>
+        <label>Ad Creative SizeTypes</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdCreativeUrl__c</fullName>
+        <deprecated>false</deprecated>
+        <description>URL to the Ad Creative. It may or may not hosted by Salesforce platform.</description>
+        <externalId>false</externalId>
+        <label>Ad Creative URL</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdPlacementPriorityType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This will be chosen from the Ad Server&apos;s Allowed Ad Priority Type values.
+example : STANDARD, PRICE_PRIORITY</description>
+        <externalId>false</externalId>
+        <label>AdPlacement Priority Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdRequestedEndDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This captures the Requested End Date for the LineItem.</description>
+        <externalId>false</externalId>
+        <label>Ad Requested End Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdRequestedStartDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This captures the Requested Start Date for the Placement.</description>
+        <externalId>false</externalId>
+        <label>Ad Requested Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdSpaceSpecificationAdServer__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field refer to the Ad Space Specification record&apos;s Ad Server.</description>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__AdSpaceSpecificationId__r.vlocity_cmt__AdServerId__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ad Server</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdSpaceSpecificationId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Lookup to the Ad Space Specification record.</description>
+        <externalId>false</externalId>
+        <label>AdSpace Specification</label>
+        <referenceTo>vlocity_cmt__AdSpaceSpecification__c</referenceTo>
+        <relationshipLabel>Media Plan Placements</relationshipLabel>
+        <relationshipName>QuoteLineItemAdPlacements</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdSpaceSpecificationMediaProperty__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This refers to the Media Property of the Ad Space Specification record.</description>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__AdSpaceSpecificationId__r.vlocity_cmt__MediaPropertyId__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Media Property</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdSpaceSpecificationType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This refers to the Ad Space Type fo the Ad Space Specification record.</description>
+        <externalId>false</externalId>
+        <formula>TEXT(vlocity_cmt__AdSpaceSpecificationId__r.vlocity_cmt__AdSpaceType__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Ad Space Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__AdTimePerEpisode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the commercial time (in seconds) for each installment or episode.</description>
+        <externalId>false</externalId>
+        <label>Ad Time Per Episode</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__BonusAdTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Represents the duration (in seconds) of additional, unpaid commercials.</description>
+        <externalId>false</externalId>
+        <label>Bonus Ad Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CoreId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Displays the ID of the core object created when migrating custom data.</description>
+        <externalId>false</externalId>
+        <label>Core Id</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CostPerRatingPoint__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculates the Cost Per Rating Point by dividing the Implied Rate of the Order Line Item by the Audience size rating of the Ad Space specification.</description>
+        <externalId>false</externalId>
+        <label>Cost Per Rating Point</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__CustomerDayPart__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the advertiser&apos;s preferred day time for the ad placement according to target audience and program content.</description>
+        <externalId>false</externalId>
+        <label>Customer Day Part</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Prime Time</fullName>
+                    <default>false</default>
+                    <label>Prime Time</label>
+                </value>
+                <value>
+                    <fullName>Non Prime Time</fullName>
+                    <default>false</default>
+                    <label>Non Prime Time</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__GrossRatingPoint__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Calculates the Gross Rating Point by multiplying the Audience Size Rating of the Ad Space specification by the paid Commercial Time per Linear Commercial Time Slot Unit.</description>
+        <externalId>false</externalId>
+        <label>Gross Rating Point</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ImpliedRate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Implied rate is used by publishers to organise the revenue structure within the deal. This value is often internal to the publisher organisation and not customer facing.</description>
+        <externalId>false</externalId>
+        <label>Implied Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ImpliedTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Implied Total is calculated from the Implied rate and is used by publishers to organise the revenue structure within the deal. This value is often internal to the publisher organisation and not customer facing.</description>
+        <externalId>false</externalId>
+        <label>Implied Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__IsAdBleedEnabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The Ad that extends all the way to the edge of the page on at least one side.</description>
+        <externalId>false</externalId>
+        <label>Ad Bleed</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MaximumFrequencyInterval__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum Frequency Unit used for Frequency Capping.</description>
+        <externalId>false</externalId>
+        <label>Maximum Frequency Interval</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Second</fullName>
+                    <default>false</default>
+                    <label>Second</label>
+                </value>
+                <value>
+                    <fullName>Minute</fullName>
+                    <default>false</default>
+                    <label>Minute</label>
+                </value>
+                <value>
+                    <fullName>Hour</fullName>
+                    <default>false</default>
+                    <label>Hour</label>
+                </value>
+                <value>
+                    <fullName>Day</fullName>
+                    <default>false</default>
+                    <label>Day</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MaximumFrequency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum Number of times Ad will be served. This will used for Frequency Capping.</description>
+        <externalId>false</externalId>
+        <label>Maximum Frequency</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MaximumUserFrequencyInterval__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Maximum User Frequency Interval.</description>
+        <externalId>false</externalId>
+        <label>Maximum User Frequency Interval</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Second</fullName>
+                    <default>false</default>
+                    <label>Second</label>
+                </value>
+                <value>
+                    <fullName>Minute</fullName>
+                    <default>false</default>
+                    <label>Minute</label>
+                </value>
+                <value>
+                    <fullName>Hour</fullName>
+                    <default>false</default>
+                    <label>Hour</label>
+                </value>
+                <value>
+                    <fullName>Day</fullName>
+                    <default>false</default>
+                    <label>Day</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MaximumUserFrequency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The max number of times a unique user sees the Ad over a given time period.</description>
+        <externalId>false</externalId>
+        <label>Maximum User Frequency</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__MediaType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This captures the Media Type of the Placement record.</description>
+        <externalId>false</externalId>
+        <label>Media Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Digital</fullName>
+                    <default>false</default>
+                    <label>Digital</label>
+                </value>
+                <value>
+                    <fullName>TV</fullName>
+                    <default>false</default>
+                    <label>TV</label>
+                </value>
+                <value>
+                    <fullName>Radio</fullName>
+                    <default>false</default>
+                    <label>Radio</label>
+                </value>
+                <value>
+                    <fullName>Print</fullName>
+                    <default>false</default>
+                    <label>Print</label>
+                </value>
+                <value>
+                    <fullName>Outdoor</fullName>
+                    <default>false</default>
+                    <label>Outdoor</label>
+                </value>
+                <value>
+                    <fullName>Other</fullName>
+                    <default>false</default>
+                    <label>Other</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__PaidAdTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Presents the total paid commercial duration (in seconds).</description>
+        <externalId>false</externalId>
+        <label>Paid Ad Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote</label>
+        <referenceTo>Quote</referenceTo>
+        <relationshipLabel>Media Plan Placements</relationshipLabel>
+        <relationshipName>QuoteLineItemAdPlacements</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteLineItemId__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Quote Line Item</label>
+        <referenceTo>QuoteLineItem</referenceTo>
+        <relationshipLabel>Media Plan Placements</relationshipLabel>
+        <relationshipName>QuoteLineItemAdPlacements</relationshipName>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteLineItemOneTimeCharge__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This refers to the One Time Charge of the Quote LineItem record.</description>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__QuoteLineItemId__r.vlocity_cmt__OneTimeCharge__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>One Time Charge</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteLineItemOneTimeTotal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This refers to the One Time Total of the Quote LineItem record.</description>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__QuoteLineItemId__r.vlocity_cmt__OneTimeTotal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>One Time Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteLineItemProductCode__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This captures the Product Code of the Quote LineItem&apos;s Product.</description>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__QuoteLineItemId__r.Product2.ProductCode</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Product Code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__QuoteLineItemQuantity__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This refers to the Quantity of the Quote LineItem record.</description>
+        <externalId>false</externalId>
+        <formula>vlocity_cmt__QuoteLineItemId__r.Quantity</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Quantity</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__SponsorshipType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the Advertiser&apos;s Sponsorship Type for the Placement.</description>
+        <externalId>false</externalId>
+        <label>Sponsorship Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Presented By</fullName>
+                    <default>false</default>
+                    <label>Presented By</label>
+                </value>
+                <value>
+                    <fullName>Co Presented By</fullName>
+                    <default>false</default>
+                    <label>Co Presented By</label>
+                </value>
+                <value>
+                    <fullName>Sponsored By</fullName>
+                    <default>false</default>
+                    <label>Sponsored By</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TargetingParameters__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Ad Creative Targeting Parameters stored in JSON format.</description>
+        <externalId>false</externalId>
+        <label>Targeting Parameters</label>
+        <length>131072</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__TotalAdTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Captures the total paid and bonus commercial time (in seconds) for the placement.</description>
+        <externalId>false</externalId>
+        <label>Total Ad Time</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__UserEngagementGoalType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This is a user engagement goal defined in terms of clicks, impressions, etc.</description>
+        <externalId>false</externalId>
+        <label>User Engagement Goal Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__UserEngagementGoalUnitType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Type of the User Engagement Goal Unit. Example : Daily, Lifetime etc.</description>
+        <externalId>false</externalId>
+        <label>User Engagement Goal Unit Type</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__UserEngagementGoalUnit__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This represents the number or percentage of impressions or clicks that will be reserved for the Ad Creative.</description>
+        <externalId>false</externalId>
+        <label>User Engagement Goal Unit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Media Plan Placement</label>
+    <listViews>
+        <fullName>vlocity_cmt__All</fullName>
+        <columns>NAME</columns>
+        <columns>vlocity_cmt__QuoteId__c</columns>
+        <columns>vlocity_cmt__QuoteLineItemId__c</columns>
+        <columns>vlocity_cmt__MediaType__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>Placement Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Media Plan Placements</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

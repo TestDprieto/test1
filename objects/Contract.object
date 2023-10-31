@@ -315,6 +315,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__ApplicationId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Application</label>
+        <referenceTo>vlocity_cmt__Application__c</referenceTo>
+        <relationshipLabel>Contracts</relationshipLabel>
+        <relationshipName>Contracts</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__AutoRenewObjectCreation__c</fullName>
         <deprecated>false</deprecated>
         <description>The object that is created as part of a renewal initiation. Object could be Opportunity, Quote or Order</description>

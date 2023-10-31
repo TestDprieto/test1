@@ -84,7 +84,7 @@
 
                     <vlocity-product-console namespaceprefix="{!NSP}"
                         sfinstanceurl="{!SalesForceInstanceURL}"
-                        sessionid="{!$Api.Session_ID}"
+                        sessionid="{!vlocAccessToken}"
                         userlocale="{!UserLocale}"
                         islanguageRTL="{!isLanguageRTL}"
                         timezone="{!TimeZone}"

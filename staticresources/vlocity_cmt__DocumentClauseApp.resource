@@ -1,8 +1,22 @@
 (function(){
   var fileNsPrefix = (function() {
-    'use strict';
-    var scripts = document.getElementsByTagName('script');
-    var lastScript = scripts[scripts.length - 1];
+    'use strict';    
+    var lastScript;
+    try {
+      // Locker vNext uses `document.currentScript` instead of `document.getElementsByTagName`
+      // We first check for vNext as the legacy code breaks and won't load with locker next.
+      // If `currentScript` is undefined or not set, it means we are in legacy locker.
+      lastScript = document.currentScript;
+    } catch (err){
+      console.info('Locker vNext is not enabled');
+    }
+
+    if(!lastScript) {
+      var scripts = document.getElementsByTagName('script');
+      lastScript = scripts[scripts.length - 1];
+    }
+
+
     var scriptName = lastScript.src;
     var parts = scriptName.split('/');
     var partsLength = parts.length - 1;
@@ -201,14 +215,16 @@ angular.module('documentClauseApp').controller('documentClauseCtrl', function($s
         return string ? string[1] : null;
     };
     $scope.goToClauseOverview = function() {
-        location.href = location.origin + '/apex/DocClauseList';
+        window.open('/apex/DocClauseList', '_self');
     };
     $scope.tinymceOptions = {
         body_class: 'vlocity',
         selector: 'textarea.tinymce-editor',  // change this value according to your HTML
+        branding: false,
         fixed_toolbar_container: '.tinymce-toolbar',
         advlist_number_styles: 'default,lower-alpha,upper-alpha,lower-roman,upper-roman',
         advlist_bullet_styles: 'default,circle,square',
+        invalid_elements : 'iframe',
         style_formats: [
             {title: 'Inline', items: [
               {title: 'Bold', icon: 'bold', format: 'bold'},
@@ -796,7 +812,7 @@ angular.module('documentClauseApp').controller('documentClauseCtrl', function($s
         // Check Name
         if ($scope.clauseData.clauseName) {
             if ($scope.clauseData.clauseName.length > 80) {
-                $scope.validationErrors.clauseName = $scope.modalLabels.CLMClauseCharMin +
+                $scope.validationErrors.clauseName = $scope.modalLabels.CLMClauseCharMin + ' ' +
                 $scope.clauseData.clauseName.length + $scope.modalLabels.CLMClausePlsShorten;
                 $scope.validationErrors.clauseValid = false;
             }
@@ -805,9 +821,9 @@ angular.module('documentClauseApp').controller('documentClauseCtrl', function($s
             $scope.validationErrors.clauseValid = false;
         }
         // Check clause ShortName
-        if ($scope.clauseData.clauseShortName && $scope.clauseData.clauseShortName.length > 24) {
-            $scope.validationErrors.clauseShortName = $scope.modalLabels.CLMClauseCharShortNameMin + ' '+
-            $scope.clauseData.clauseShortName.length + $scope.modalLabels.CLMClausePlsShorten;
+        if ($scope.clauseData.clauseShortName && $scope.clauseData.clauseShortName.length > 21) {
+            $scope.validationErrors.clauseShortName = $scope.modalLabels.CLMClauseCharShortNameMin + ' ' +
+            ($scope.clauseData.clauseShortName.length+3) + $scope.modalLabels.CLMClausePlsShorten;
             $scope.validationErrors.clauseValid = false;
         }
         // Check Clause Category is selected:

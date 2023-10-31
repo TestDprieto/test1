@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label><!-- Active --></label>
+        <name>vlocity_cmt__VPLActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comment --></label>
+        <name>vlocity_cmt__VPLComment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Flow --></label>
+        <name>vlocity_cmt__VPLFlow__c</name>
+    </fields>
+    <fields>
+        <label><!-- IntegrationKey --></label>
+        <name>vlocity_cmt__VPLIntegrationKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Parent Entity Context --></label>
+        <name>vlocity_cmt__VPLParentEntityContext__c</name>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation><!-- Child --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Root</masterLabel>
+            <translation><!-- Root --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RootChild</masterLabel>
+            <translation><!-- RootChild --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Parent Entity --></label>
+        <name>vlocity_cmt__VPLParentEntity__c</name>
+    </fields>
+    <fields>
+        <label><!-- TargetDataType --></label>
+        <name>vlocity_cmt__VPLTargetDataType__c</name>
+        <picklistValues>
+            <masterLabel>Boolean</masterLabel>
+            <translation><!-- Boolean --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Currency</masterLabel>
+            <translation><!-- Currency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Date</masterLabel>
+            <translation><!-- Date --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DateTime</masterLabel>
+            <translation><!-- DateTime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Double</masterLabel>
+            <translation><!-- Double --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Percent</masterLabel>
+            <translation><!-- Percent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PickList</masterLabel>
+            <translation><!-- PickList --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference</masterLabel>
+            <translation><!-- Reference --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>String</masterLabel>
+            <translation><!-- String --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TextArea</masterLabel>
+            <translation><!-- TextArea --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target Entity Context --></label>
+        <name>vlocity_cmt__VPLTargetEntityContext__c</name>
+        <picklistValues>
+            <masterLabel>Child</masterLabel>
+            <translation><!-- Child --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Root</masterLabel>
+            <translation><!-- Root --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RootChild</masterLabel>
+            <translation><!-- RootChild --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target Entity --></label>
+        <name>vlocity_cmt__VPLTargetEntity__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Group --></label>
+        <name>vlocity_cmt__VPLTargetGroup__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Type --></label>
+        <name>vlocity_cmt__VPLTargetType__c</name>
+        <picklistValues>
+            <masterLabel>Attribute</masterLabel>
+            <translation><!-- Attribute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Field</masterLabel>
+            <translation><!-- Field --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product</masterLabel>
+            <translation><!-- Product --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Target --></label>
+        <name>vlocity_cmt__VPLTarget__c</name>
+    </fields>
+</CustomObjectTranslation>

@@ -3,6 +3,10 @@
     <label>Premises</label>
     <protected>false</protected>
     <values>
+        <field>vlocity_cmt__AssetFieldName__c</field>
+        <value xsi:type="xsd:string">%vlocity_namespace%__PremisesId__c</value>
+    </values>
+    <values>
         <field>vlocity_cmt__DisplaySequence__c</field>
         <value xsi:type="xsd:double">2.0</value>
     </values>
@@ -13,6 +17,10 @@
     <values>
         <field>vlocity_cmt__MemberObjectName__c</field>
         <value xsi:type="xsd:string">%vlocity_namespace%__Premises__c</value>
+    </values>
+    <values>
+        <field>vlocity_cmt__OpportunityMemberFieldName__c</field>
+        <value xsi:type="xsd:string">%vlocity_namespace%__PremisesId__c</value>
     </values>
     <values>
         <field>vlocity_cmt__OrderFieldName__c</field>

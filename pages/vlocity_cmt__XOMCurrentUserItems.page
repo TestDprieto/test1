@@ -1,4 +1,19 @@
-<apex:page showHeader="true" sidebar="true" standardController="User">
-    <c:XOMQueueItemsComponent title="Assigned To Me"
-        displayedFields="state__c, timestampReady__c, account__c, orderFulfilmentRequest__c, manualQueueId__c"/>
+<apex:page showHeader="true" sidebar="true" standardController="User" extensions="vlocity_cmt.XOMAdminPageController">
+    <apex:includeLightning />
+    <div id="LightningComponentid" />
+    <script>
+        var recordId = '{!LEFT($CurrentPage.parameters.Id, 15)}';
+        let nsp = "{!nsp}";
+        let namespace = nsp ? nsp.slice(0, -2) : 'c';
+
+        $Lightning.use(namespace+":ltngOutVF", function() {
+            $Lightning.createComponent(
+                namespace + ":xomCurrentUserItems", {
+                    recordId: recordId
+                },
+                "LightningComponentid",
+                function(cmp) {
+                });
+        });
+    </script>
 </apex:page>

@@ -6,9 +6,6 @@ methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
 global class XOMThorStatusControllerExtension {
-    global XOMThorStatusControllerExtension() {
-
-    }
     @RemoteAction
     global static vlocity_cmt.XOMThorStatusControllerExtension.EnvironmentStatus checkEnvironmentStatus() {
         return null;

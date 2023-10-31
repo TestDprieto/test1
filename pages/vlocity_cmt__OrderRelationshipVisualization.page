@@ -1,4 +1,4 @@
-<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.OrderAmendmentHistoryController" title="{!$Label.vlocity_cmt__orderamendmenthistorytitle}">
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="false" controller="vlocity_cmt.OrderAmendmentHistoryController" title="{!$Label.vlocity_cmt__OrderAmendmentHistoryTitle}">
     <html xmlns:ng="http://angularjs.org" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="OrderRelationshipVisualization" class="ng-cloak">
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -95,14 +95,14 @@
             }
         };
         var labels = {
-            OrderAmendmentHistoryTitle: "{!$Label.vlocity_cmt__orderamendmenthistorytitle}", 
+            OrderAmendmentHistoryTitle: "{!$Label.vlocity_cmt__OrderAmendmentHistoryTitle}", 
             NoOrderAmendmentHistory: "{!$Label.NoOrderAmendmentHistory}"
         };
         var configData = {
             nsPrefix: "{!nsp}"
         };
         var amendmentOrderId = {
-            Id : "{!$CurrentPage.parameters.Id}"
+            Id : "{!JSENCODE($CurrentPage.parameters.Id)}"
         };
     </script>
     </body>

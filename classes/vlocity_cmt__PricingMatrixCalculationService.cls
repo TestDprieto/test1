@@ -5,8 +5,11 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class PricingMatrixCalculationService implements vlocity_cmt.VlocityOpenInterface {
+global class PricingMatrixCalculationService extends vlocity_cmt.AbstractCallableImpl implements vlocity_cmt.VlocityOpenInterface {
     global PricingMatrixCalculationService() {
 
+    }
+    global Boolean invokeMethod(String methodName, Map<String,Object> inputMap, Map<String,Object> outMap, Map<String,Object> options) {
+        return null;
     }
 }

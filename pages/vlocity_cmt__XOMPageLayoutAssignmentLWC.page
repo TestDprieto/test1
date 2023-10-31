@@ -1,0 +1,46 @@
+<apex:page docType="html-5.0"
+   controller="vlocity_cmt.XOMAdminPageController"
+    applyHtmlTag="true"
+    cache="false"
+>
+<apex:slds />
+ <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="generator" content="Xom Page layout assignment" />
+            <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes" />
+            <meta name="description" content="Xom Page layout assignment" />
+            <!-- Common scripts -->
+
+            <style>
+                html,
+                body,
+                #lightning {
+                    height: 100%;
+                }
+            </style>
+            <script>
+            let namespacePrefix = '{!namespacePrefix}';
+            let namespacePrefixLWC = namespacePrefix.slice(0, -2);
+            let vlocAccessToken =  '{!vlocAccessToken}';
+            let isInsurance = '{!isInsurance}' == 'true'
+            let iframeUrl = '{!IframeUrl}';
+            
+            $Lightning.use(namespacePrefixLWC+":ltngOutVF", function() {
+            $Lightning.createComponent(
+                namespacePrefixLWC+":XomPageLayoutAssignment",
+                { container:"Visualforce", namespacePrefix:namespacePrefix,vlocAccessToken:vlocAccessToken,isInsurance:isInsurance,iframeUrl:iframeUrl},
+                "lightning",
+                function(cmp) {
+                    console.log('component created...');
+                    console.log(cmp);
+                });
+            });
+        </script>
+    </head>
+<body>
+    <apex:includeLightning />
+    <div id="lightning" />
+</body>
+</html>
+</apex:page>

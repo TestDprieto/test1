@@ -1,0 +1,8 @@
+{
+    "%vlocity_namespace%__Description__c": "This setting is used by the Offer Migration Plan feature (aka Change of Plan). If true, design time and run time flows will allow source and target products in Offer Migration Component Mappings to have a SpecificationType of only 'Offer'.",
+    "%vlocity_namespace%__SetupValue__c": "False",
+    "Name": "EnforceOfferMigrationOfferTypeMatch",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "%vlocity_namespace%__CpqConfigurationSetup__c",
+    "VlocityRecordSourceKey": "%vlocity_namespace%__CpqConfigurationSetup__c/EnforceOfferMigrationOfferTypeMatch"
+}

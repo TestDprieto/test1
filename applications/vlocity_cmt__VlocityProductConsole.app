@@ -1,5 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__DefaultObjectClassRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__ObjectClass__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__VlocityAttributeRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__Attribute__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__Vlocity_Attribute_Category_Record_Page_Product_Console</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__AttributeCategory__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__Vlocity_Picklist_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__Picklist__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__DefaultProductConsoleRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>Product2</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__CatalogRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__Catalog__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__OfferMigrationPlanRecordPage</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__OfferMigrationPlan__c</pageOrSobjectType>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>vlocity_cmt__Vlocity_EPC_Work_Set_List_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+        <pageOrSobjectType>vlocity_cmt__Project__c</pageOrSobjectType>
+    </actionOverrides>
     <brand>
         <headerColor>#0070D2</headerColor>
         <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
@@ -11,14 +83,6 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Vlocity Product Designer</label>
     <navType>Console</navType>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>vlocity_cmt__Vlocity_Attribute_Category_Record_Page_Product_Console</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>vlocity_cmt__AttributeCategory__c</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
     <profileActionOverrides>
         <actionName>View</actionName>
         <content>vlocity_cmt__VlocityAttributeRecordPage</content>
@@ -69,6 +133,14 @@
         <type>Flexipage</type>
         <profile>Admin</profile>
     </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>vlocity_cmt__Vlocity_Attribute_Category_Record_Page_Product_Console</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>vlocity_cmt__AttributeCategory__c</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
     <subscriberTabs>vlocity_cmt__Project__c</subscriberTabs>
     <subscriberTabs>vlocity_cmt__ObjectClass__c</subscriberTabs>
     <tabs>standard-Product2</tabs>
@@ -78,7 +150,7 @@
     <tabs>vlocity_cmt__OfferMigrationPlan__c</tabs>
     <tabs>vlocity_cmt__Picklist__c</tabs>
     <tabs>vlocity_cmt__ProductRelationship__c</tabs>
-    <tabs>vlocity_cmt__Vlocity_String_Translations</tabs>
+    <tabs>vlocity_cmt__PC_Vlocity_String_Translation</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>vlocity_cmt__Vlocity_Product_Console_UtilityBar</utilityBar>
     <workspaceConfig>
@@ -98,13 +170,13 @@
             <tab>vlocity_cmt__OfferMigrationPlan__c</tab>
         </mappings>
         <mappings>
+            <tab>vlocity_cmt__PC_Vlocity_String_Translation</tab>
+        </mappings>
+        <mappings>
             <tab>vlocity_cmt__Picklist__c</tab>
         </mappings>
         <mappings>
             <tab>vlocity_cmt__ProductRelationship__c</tab>
-        </mappings>
-        <mappings>
-            <tab>vlocity_cmt__Vlocity_String_Translations</tab>
         </mappings>
     </workspaceConfig>
 </CustomApplication>

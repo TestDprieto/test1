@@ -60,4 +60,12 @@ global class VlocityTrackingService {
     global static Map<String,Object> updateInteraction(Map<String,Object> interactionInfo) {
         return null;
     }
+global class TrackingRedirect implements System.Callable {
+    global TrackingRedirect() {
+
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
+    }
+}
 }

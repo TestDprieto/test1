@@ -92,7 +92,7 @@
             <div class="via-slds">
                 <vlocity-product-console namespaceprefix="{!NSP}"
                         sfinstanceurl="{!SalesForceInstanceURL}"
-                        sessionid="{!$Api.Session_ID}"
+                        sessionid="{!vlocAccessToken}"
                         userlocale="{!UserLocale}"
                         timezone="{!TimeZone}"
                         timezoneoffset="{!TimeZoneOffset}"

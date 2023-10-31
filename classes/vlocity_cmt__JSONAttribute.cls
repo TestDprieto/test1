@@ -22,6 +22,7 @@ global class JSONAttribute extends vlocity_cmt.JSONRecord {
     global Boolean hidden;
     global String inputType;
     global Boolean isConfigurable;
+    global Boolean isNotAssetizable;
     global Boolean isNotTranslatable;
     global Boolean isRatingAttribute;
     global static String JSON_KEY_USER_VALUES;

@@ -1,27 +1,27 @@
 <apex:page controller="vlocity_cmt.DeepClonerController" action="{!initializeCloner}">
-  
+  <apex:pageMessages />
   <apex:sectionHeader title="Clone {!objectTypeName}: {!objectName}"/>
 
-  <apex:form id="theform" >{!$Label.vlocity_cmt__cloneproductselect}<br/><br/>
+  <apex:form id="theform" >{!$Label.vlocity_cmt__CloneProductSelect}<br/><br/>
   
     <apex:repeat value="{!objectChildren}" var="child">
       <apex:PageBlock title="{!child.pluralLabel}"> 
         <apex:pageBlockTable value="{!child.objectRows}" 
                              var="objectRow">
-          <apex:column headerValue="{!$Label.vlocity_cmt__clonecardbuttonlabel}" width="10%">
+          <apex:column headerValue="{!$Label.vlocity_cmt__cloneCardButtonLabel}" width="10%">
             <apex:inputCheckbox value="{!objectRow.selected}"/>
           </apex:column>
-           <apex:column headerValue="{!$Label.vlocity_cmt__cloneitemid}" value="{!objectRow.Id}"
+           <apex:column headerValue="{!$Label.vlocity_cmt__CloneItemId}" value="{!objectRow.Id}"
                                           width="20%"/>
-          <apex:column headerValue="{!$Label.vlocity_cmt__name}" value="{!objectRow.name}"
+          <apex:column headerValue="{!$Label.vlocity_cmt__Name}" value="{!objectRow.name}"
                                           width="70%"/>
         </apex:pageBlockTable>
       </apex:PageBlock>
     </apex:repeat>
     
     <apex:PageBlock >
-      <apex:commandButton action="{!doClone}" value="{!$Label.vlocity_cmt__clonecardbuttonlabel}"/>
-      <apex:commandButton action="{!doCancel}" value="{!$Label.vlocity_cmt__cancel}"/>
+      <apex:commandButton action="{!doClone}" value="{!$Label.vlocity_cmt__cloneCardButtonLabel}"/>
+      <apex:commandButton action="{!doCancel}" value="{!$Label.vlocity_cmt__Cancel}"/>
     </apex:PageBlock>
   </apex:form>  
 

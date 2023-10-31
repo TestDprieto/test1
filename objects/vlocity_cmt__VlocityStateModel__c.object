@@ -249,8 +249,8 @@
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/30.0/connection.js&quot;)} 
 {!REQUIRESCRIPT(&quot;/soap/ajax/30.0/apex.js&quot;)} 
 var dataPackType = &apos;VlocityStateModel&apos;;
-var objectId = &apos;{!vlocity_cmt__VlocityStateModel__c.Id}&apos;;
-var suggestedName = &apos;{!vlocity_cmt__VlocityStateModel__c.Name}&apos;;
+var objectId = &apos;{!JSENCODE(vlocity_cmt__VlocityStateModel__c.Id)}&apos;;
+var suggestedName = &apos;{!JSENCODE(vlocity_cmt__VlocityStateModel__c.Name)}&apos;;
 
 var namespace_prefix = &apos;&apos;; 
 var result = sforce.connection.describeGlobal(); 

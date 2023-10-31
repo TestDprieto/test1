@@ -146,6 +146,14 @@
         </picklistValues>
     </fields>
     <fields>
+        <label><!-- External Customer Identifier --></label>
+        <name>vlocity_cmt__PaymentCustomerIdentifier__c</name>
+    </fields>
+    <fields>
+        <label><!-- External Payment Method Identifier --></label>
+        <name>vlocity_cmt__PaymentMethodIdentifier__c</name>
+    </fields>
+    <fields>
         <label><!-- Routing Transit Number --></label>
         <name>vlocity_cmt__RoutingTransitNumber__c</name>
     </fields>

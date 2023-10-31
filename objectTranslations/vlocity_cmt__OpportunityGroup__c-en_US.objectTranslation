@@ -42,6 +42,10 @@
         <name>vlocity_cmt__HasUnappliedGroupItems__c</name>
     </fields>
     <fields>
+        <label><!-- Has Unapplied Members --></label>
+        <name>vlocity_cmt__HasUnappliedMembers__c</name>
+    </fields>
+    <fields>
         <label><!-- Locked By User --></label>
         <name>vlocity_cmt__LockedBy__c</name>
         <relationshipLabel><!-- Opportunity Groups --></relationshipLabel>

@@ -30,7 +30,7 @@
         </div>
         <script type="text/javascript">
             var nsPrefix = '{!nsPrefix}',
-                sessionId = '{!$Api.Session_ID}',
+                sessionId = '{!vlocAccessToken}',
                 remoteActions = {
                     getTemplates: {
                         action: '{!$RemoteAction.TemplateController.getTemplates}',

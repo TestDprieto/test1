@@ -5,8 +5,11 @@ This read-only file shows the class's global constructors,
 methods, variables, and properties.
 To enable code to compile, all methods return null.
 */
-global class ExternalUserSelfRegistration implements vlocity_cmt.VlocityOpenInterface {
+global class ExternalUserSelfRegistration implements System.Callable, vlocity_cmt.VlocityOpenInterface {
     global ExternalUserSelfRegistration() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
 }

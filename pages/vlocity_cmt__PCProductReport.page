@@ -37,22 +37,26 @@
                  );
                 });
 
-                function closeTab() {
-                 setTimeout(function() {
-                  sforce.console.getEnclosingPrimaryTabId(result => {
-                   sforce.console.closeTab(result.id);
-                  });
-                 }, 5000);
+                function showToast(event) {
+                    sforce.one.showToast({
+                        "message": event.detail.reportMessage ,       
+                        "type": event.detail.reportStatus     
+                    });
+                    if(event.detail.closeTab){
+                        sforce.console.getEnclosingPrimaryTabId(result => {
+                            sforce.console.closeTab(result.id);
+                        });
+                    }
                 }
                 
-                $Lightning.use("{!namespace}:ltngOutVF", function() {
+                $Lightning.use("{!JSINHTMLENCODE(namespace)}:ltngOutVF", function() {
                  $Lightning.createComponent(
-                  "{!namespace}:upcProductReport", {
-                   productIds: {!productIds}
+                  "{!JSINHTMLENCODE(namespace)}:upcProductReportSelector", {
+                   productIds: "{!JSENCODE(productIds)}"
                   }, "vloc-upc-report-container",
                   function(cmp) {
-                      cmp.elements[0].addEventListener("closeTab",event=>{
-                                closeTab();
+                      cmp.elements[0].addEventListener("showToast",event=>{
+                                showToast(event);
                         });
                   }
                  );

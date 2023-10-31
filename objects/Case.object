@@ -274,6 +274,46 @@
         </displayedFields>
         <label>StoryFieldSet</label>
     </fieldSets>
+    <fieldSets>
+        <fullName>vlocity_cmt__UpdateCaseWidget</fullName>
+        <description>Used in Update Case Widget Console</description>
+        <displayedFields>
+            <field>Type</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Origin</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Status</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Priority</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Subject</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Description</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>vlocity_cmt__InteractionNotes__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>UpdateCaseWidget</label>
+    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -485,6 +525,22 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__BillingAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the billing account relevant to this case. Usually used for billing disputes.</description>
+        <externalId>false</externalId>
+        <label>Billing Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Billing Cases</relationshipLabel>
+        <relationshipName>BillingCases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__DisputeId__c</fullName>
         <deprecated>false</deprecated>
         <externalId>false</externalId>
@@ -539,6 +595,18 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>vlocity_cmt__InteractionNotes__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Interaction Notes</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__PremisesId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
@@ -566,6 +634,360 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Reason__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The reason why the case was created, such as Instructions not clear, or User didn’t attend training. This field should be used instead of the Case Reason field if you want the available reasons to be dependent on the chosen Case Type.</description>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Type</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Problem with change of ownership</fullName>
+                    <default>false</default>
+                    <label>Problem with change of ownership</label>
+                </value>
+                <value>
+                    <fullName>Problem with change of customer information</fullName>
+                    <default>false</default>
+                    <label>Problem with change of customer information</label>
+                </value>
+                <value>
+                    <fullName>Problem with managing users</fullName>
+                    <default>false</default>
+                    <label>Problem with managing users</label>
+                </value>
+                <value>
+                    <fullName>Problem with impairment accessibility</fullName>
+                    <default>false</default>
+                    <label>Problem with impairment accessibility</label>
+                </value>
+                <value>
+                    <fullName>Problem with change of plan</fullName>
+                    <default>false</default>
+                    <label>Problem with change of plan</label>
+                </value>
+                <value>
+                    <fullName>Problem with change of mobile phone</fullName>
+                    <default>false</default>
+                    <label>Problem with change of mobile phone</label>
+                </value>
+                <value>
+                    <fullName>Problem with change of SIM</fullName>
+                    <default>false</default>
+                    <label>Problem with change of SIM</label>
+                </value>
+                <value>
+                    <fullName>Problem with friends and family number configuration</fullName>
+                    <default>false</default>
+                    <label>Problem with friends and family number configuration</label>
+                </value>
+                <value>
+                    <fullName>Problem with SIM unlock</fullName>
+                    <default>false</default>
+                    <label>Problem with SIM unlock</label>
+                </value>
+                <value>
+                    <fullName>Problem with service restoration</fullName>
+                    <default>false</default>
+                    <label>Problem with service restoration</label>
+                </value>
+                <value>
+                    <fullName>Problem with change of MSISDN</fullName>
+                    <default>false</default>
+                    <label>Problem with change of MSISDN</label>
+                </value>
+                <value>
+                    <fullName>Problem creating account</fullName>
+                    <default>false</default>
+                    <label>Problem creating account</label>
+                </value>
+                <value>
+                    <fullName>Problem with IMEI</fullName>
+                    <default>false</default>
+                    <label>Problem with IMEI</label>
+                </value>
+                <value>
+                    <fullName>Problem with termination</fullName>
+                    <default>false</default>
+                    <label>Problem with termination</label>
+                </value>
+                <value>
+                    <fullName>Problem with change to retention plan</fullName>
+                    <default>false</default>
+                    <label>Problem with change to retention plan</label>
+                </value>
+                <value>
+                    <fullName>Problem with port-out</fullName>
+                    <default>false</default>
+                    <label>Problem with port-out</label>
+                </value>
+                <value>
+                    <fullName>Problem with suspensions</fullName>
+                    <default>false</default>
+                    <label>Problem with suspensions</label>
+                </value>
+                <value>
+                    <fullName>Problem with voluntary suspension</fullName>
+                    <default>false</default>
+                    <label>Problem with voluntary suspension</label>
+                </value>
+                <value>
+                    <fullName>Unacknowledged termination</fullName>
+                    <default>false</default>
+                    <label>Unacknowledged termination</label>
+                </value>
+                <value>
+                    <fullName>Problem with delivery</fullName>
+                    <default>false</default>
+                    <label>Problem with delivery</label>
+                </value>
+                <value>
+                    <fullName>Problem with port-in</fullName>
+                    <default>false</default>
+                    <label>Problem with port-in</label>
+                </value>
+                <value>
+                    <fullName>Account info in blacklist removal request</fullName>
+                    <default>false</default>
+                    <label>Account info in blacklist removal request</label>
+                </value>
+                <value>
+                    <fullName>Account requires credit evaluation exception</fullName>
+                    <default>false</default>
+                    <label>Account requires credit evaluation exception</label>
+                </value>
+                <value>
+                    <fullName>Adress does not have pre-feasibility</fullName>
+                    <default>false</default>
+                    <label>Adress does not have pre-feasibility</label>
+                </value>
+                <value>
+                    <fullName>Problem with credit card</fullName>
+                    <default>false</default>
+                    <label>Problem with credit card</label>
+                </value>
+                <value>
+                    <fullName>Problem with top-up creation</fullName>
+                    <default>false</default>
+                    <label>Problem with top-up creation</label>
+                </value>
+                <value>
+                    <fullName>Problem with add-on creation</fullName>
+                    <default>false</default>
+                    <label>Problem with add-on creation</label>
+                </value>
+                <value>
+                    <fullName>Unacknowledged purchase</fullName>
+                    <default>false</default>
+                    <label>Unacknowledged purchase</label>
+                </value>
+                <value>
+                    <fullName>Unacknowledged change of plan</fullName>
+                    <default>false</default>
+                    <label>Unacknowledged change of plan</label>
+                </value>
+                <value>
+                    <fullName>Request change plan terms and conditions</fullName>
+                    <default>false</default>
+                    <label>Request change plan terms and conditions</label>
+                </value>
+                <value>
+                    <fullName>Problem with activation</fullName>
+                    <default>false</default>
+                    <label>Problem with activation</label>
+                </value>
+                <value>
+                    <fullName>Problem with installation</fullName>
+                    <default>false</default>
+                    <label>Problem with installation</label>
+                </value>
+                <value>
+                    <fullName>Problem with change of billing cycle</fullName>
+                    <default>false</default>
+                    <label>Problem with change of billing cycle</label>
+                </value>
+                <value>
+                    <fullName>Problem with transferring credit between accounts</fullName>
+                    <default>false</default>
+                    <label>Problem with transferring credit between accounts</label>
+                </value>
+                <value>
+                    <fullName>Request for adjustments</fullName>
+                    <default>false</default>
+                    <label>Request for adjustments</label>
+                </value>
+                <value>
+                    <fullName>Problem with data</fullName>
+                    <default>false</default>
+                    <label>Problem with data</label>
+                </value>
+                <value>
+                    <fullName>Problem with voice</fullName>
+                    <default>false</default>
+                    <label>Problem with voice</label>
+                </value>
+                <value>
+                    <fullName>Problem with SMS</fullName>
+                    <default>false</default>
+                    <label>Problem with SMS</label>
+                </value>
+                <value>
+                    <fullName>Problem with roaming</fullName>
+                    <default>false</default>
+                    <label>Problem with roaming</label>
+                </value>
+                <value>
+                    <fullName>Problem with add-on registration</fullName>
+                    <default>false</default>
+                    <label>Problem with add-on registration</label>
+                </value>
+                <value>
+                    <fullName>Problem with top up registration</fullName>
+                    <default>false</default>
+                    <label>Problem with top up registration</label>
+                </value>
+                <value>
+                    <fullName>Problem receiving bill</fullName>
+                    <default>false</default>
+                    <label>Problem receiving bill</label>
+                </value>
+                <value>
+                    <fullName>Problem with usage thresholds</fullName>
+                    <default>false</default>
+                    <label>Problem with usage thresholds</label>
+                </value>
+                <value>
+                    <fullName>Problem with bill payment receipt</fullName>
+                    <default>false</default>
+                    <label>Problem with bill payment receipt</label>
+                </value>
+                <value>
+                    <fullName>Problem with bill explanation</fullName>
+                    <default>false</default>
+                    <label>Problem with bill explanation</label>
+                </value>
+                <value>
+                    <fullName>Problem with service consumption details</fullName>
+                    <default>false</default>
+                    <label>Problem with service consumption details</label>
+                </value>
+                <value>
+                    <fullName>Problem with bill adjustment and refunds</fullName>
+                    <default>false</default>
+                    <label>Problem with bill adjustment and refunds</label>
+                </value>
+                <value>
+                    <fullName>Generate a bill copy</fullName>
+                    <default>false</default>
+                    <label>Generate a bill copy</label>
+                </value>
+                <value>
+                    <fullName>Generate consumption details</fullName>
+                    <default>false</default>
+                    <label>Generate consumption details</label>
+                </value>
+                <value>
+                    <fullName>Problem with automatic payment configuration</fullName>
+                    <default>false</default>
+                    <label>Problem with automatic payment configuration</label>
+                </value>
+                <value>
+                    <fullName>Problem with recurring discounts</fullName>
+                    <default>false</default>
+                    <label>Problem with recurring discounts</label>
+                </value>
+                <value>
+                    <fullName>Inquiry service pre-feasibility</fullName>
+                    <default>false</default>
+                    <label>Inquiry service pre-feasibility</label>
+                </value>
+                <value>
+                    <fullName>Inquiry about plan details</fullName>
+                    <default>false</default>
+                    <label>Inquiry about plan details</label>
+                </value>
+                <value>
+                    <fullName>Inquiry about promotion details</fullName>
+                    <default>false</default>
+                    <label>Inquiry about promotion details</label>
+                </value>
+                <value>
+                    <fullName>Inquiry about campaign</fullName>
+                    <default>false</default>
+                    <label>Inquiry about campaign</label>
+                </value>
+                <value>
+                    <fullName>General complaint</fullName>
+                    <default>false</default>
+                    <label>General complaint</label>
+                </value>
+                <value>
+                    <fullName>Suggestions</fullName>
+                    <default>false</default>
+                    <label>Suggestions</label>
+                </value>
+                <value>
+                    <fullName>Require assistance with self service portal</fullName>
+                    <default>false</default>
+                    <label>Require assistance with self service portal</label>
+                </value>
+                <value>
+                    <fullName>Request supervisor</fullName>
+                    <default>false</default>
+                    <label>Request supervisor</label>
+                </value>
+                <value>
+                    <fullName>Problem with mobile configuration</fullName>
+                    <default>false</default>
+                    <label>Problem with mobile configuration</label>
+                </value>
+                <value>
+                    <fullName>Problem with CPE</fullName>
+                    <default>false</default>
+                    <label>Problem with CPE</label>
+                </value>
+                <value>
+                    <fullName>Change of mobile due to malfunction</fullName>
+                    <default>false</default>
+                    <label>Change of mobile due to malfunction</label>
+                </value>
+                <value>
+                    <fullName>Request mobile on loan while repair</fullName>
+                    <default>false</default>
+                    <label>Request mobile on loan while repair</label>
+                </value>
+                <value>
+                    <fullName>Problem with repair pick up</fullName>
+                    <default>false</default>
+                    <label>Problem with repair pick up</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__ServiceAccountId__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>ID of the account (e.g., a location or a subscriber) that is the user of the service relevant to this case.</description>
+        <externalId>false</externalId>
+        <label>Service Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Service Cases</relationshipLabel>
+        <relationshipName>ServiceCases</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>vlocity_cmt__ServiceId__c</fullName>
@@ -697,6 +1119,41 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+    <fields>
+        <fullName>vlocity_cmt__VerificationTimestamp__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Verification Timestamp</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__VerifiedAgentName__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Verified Agent Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>vlocity_cmt__Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Verified</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
     <listViews>
         <fullName>AllOpenCases</fullName>
         <filterScope>Everything</filterScope>
@@ -798,6 +1255,265 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Reason__c</picklist>
+            <values>
+                <fullName>Account info in blacklist removal request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account requires credit evaluation exception</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adress does not have pre-feasibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change of mobile due to malfunction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generate a bill copy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generate consumption details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about plan details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about promotion details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry service pre-feasibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem creating account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem receiving bill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with CPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with IMEI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with SIM unlock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with activation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with add-on creation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with add-on registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with automatic payment configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill adjustment and refunds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill explanation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill payment receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of MSISDN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of SIM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of billing cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of customer information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of mobile phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change to retention plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with credit card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with friends and family number configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with impairment accessibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with installation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with managing users</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with mobile configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with port-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with port-out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with recurring discounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with repair pick up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with roaming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with service consumption details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with service restoration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with suspensions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with top up registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with top-up creation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with transferring credit between accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with usage thresholds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with voice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with voluntary suspension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request change plan terms and conditions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request for adjustments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request mobile on loan while repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request supervisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Require assistance with self service portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suggestions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged change of plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged termination</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>vlocity_cmt__MobilePhoneCase</fullName>
@@ -873,6 +1589,265 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Reason__c</picklist>
+            <values>
+                <fullName>Account info in blacklist removal request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account requires credit evaluation exception</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adress does not have pre-feasibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change of mobile due to malfunction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generate a bill copy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generate consumption details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about plan details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about promotion details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry service pre-feasibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem creating account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem receiving bill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with CPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with IMEI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with SIM unlock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with activation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with add-on creation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with add-on registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with automatic payment configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill adjustment and refunds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill explanation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill payment receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of MSISDN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of SIM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of billing cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of customer information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of mobile phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change to retention plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with credit card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with friends and family number configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with impairment accessibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with installation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with managing users</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with mobile configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with port-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with port-out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with recurring discounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with repair pick up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with roaming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with service consumption details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with service restoration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with suspensions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with top up registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with top-up creation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with transferring credit between accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with usage thresholds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with voice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with voluntary suspension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request change plan terms and conditions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request for adjustments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request mobile on loan while repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request supervisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Require assistance with self service portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suggestions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged change of plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged termination</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <recordTypes>
         <fullName>vlocity_cmt__Service</fullName>
@@ -945,6 +1920,265 @@
             </values>
             <values>
                 <fullName>Question</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>vlocity_cmt__Reason__c</picklist>
+            <values>
+                <fullName>Account info in blacklist removal request</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Account requires credit evaluation exception</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Adress does not have pre-feasibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Change of mobile due to malfunction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generate a bill copy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Generate consumption details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about plan details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry about promotion details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inquiry service pre-feasibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem creating account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem receiving bill</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with CPE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with IMEI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with SIM unlock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with SMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with activation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with add-on creation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with add-on registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with automatic payment configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill adjustment and refunds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill explanation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with bill payment receipt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of MSISDN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of SIM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of billing cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of customer information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of mobile phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of ownership</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change of plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with change to retention plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with credit card</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with data</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with delivery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with friends and family number configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with impairment accessibility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with installation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with managing users</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with mobile configuration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with port-in</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with port-out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with recurring discounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with repair pick up</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with roaming</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with service consumption details</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with service restoration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with suspensions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with termination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with top up registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with top-up creation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with transferring credit between accounts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with usage thresholds</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with voice</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Problem with voluntary suspension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request change plan terms and conditions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request for adjustments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request mobile on loan while repair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Request supervisor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Require assistance with self service portal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Suggestions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged change of plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unacknowledged termination</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

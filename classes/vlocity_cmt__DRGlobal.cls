@@ -101,9 +101,12 @@ global abstract class DRGlobal {
     global static void triggerHandler(List<SObject> objectList) {
 
     }
-global class DROpenImplementation implements vlocity_cmt.VlocityOpenInterface2 {
+global class DROpenImplementation implements System.Callable, vlocity_cmt.VlocityOpenInterface2 {
     global DROpenImplementation() {
 
+    }
+    global Object call(String action, Map<String,Object> args) {
+        return null;
     }
     global Object invokeMethod(String methodName, Map<String,Object> inputs, Map<String,Object> output, Map<String,Object> options) {
         return null;

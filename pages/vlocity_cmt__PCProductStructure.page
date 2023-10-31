@@ -75,7 +75,7 @@
         <apex:outputpanel >
             <vlocity-product-console namespaceprefix="{!NSP}"
                 sfinstanceurl="{!SalesForceInstanceURL}"
-                sessionid="{!$Api.Session_ID}"
+                sessionid="{!vlocAccessToken}"
                 islanguageRTL="{!isLanguageRTL}"
                 userlocale="{!UserLocale}"
                 timezone="{!TimeZone}"
