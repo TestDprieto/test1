@@ -78,6 +78,15 @@
         <type>MasterDetail</type>
     </fields>
     <fields>
+        <fullName>CompanyName</fullName>
+    </fields>
+    <fields>
+        <fullName>DeliverToFirstName</fullName>
+    </fields>
+    <fields>
+        <fullName>DeliverToLastName</fullName>
+    </fields>
+    <fields>
         <fullName>DeliverToName</fullName>
     </fields>
     <fields>
@@ -87,7 +96,17 @@
         <fullName>GrandTotalAmount</fullName>
     </fields>
     <fields>
+        <fullName>IsDefault</fullName>
+    </fields>
+    <fields>
         <fullName>Name</fullName>
+    </fields>
+    <fields>
+        <fullName>SelectedDeliveryMethodId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ShipToPhoneNumber</fullName>
     </fields>
     <fields>
         <fullName>ShippingInstructions</fullName>

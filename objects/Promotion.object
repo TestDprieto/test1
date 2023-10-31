@@ -15,20 +15,6 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>Clone</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Large</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>Clone</actionName>
-        <formFactor>Small</formFactor>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -57,30 +43,30 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>List</actionName>
+        <actionName>LaunchCalendar</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>List</actionName>
+        <actionName>LaunchCalendar</actionName>
         <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>List</actionName>
+        <actionName>LaunchCalendar</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>New</actionName>
+        <actionName>List</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>New</actionName>
+        <actionName>List</actionName>
         <formFactor>Large</formFactor>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>New</actionName>
+        <actionName>List</actionName>
         <formFactor>Small</formFactor>
         <type>Default</type>
     </actionOverrides>
@@ -161,6 +147,11 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>ExclusivityType</fullName>
+        <inlineHelpText>To combine the promotion with other promotions, select No. To prevent combining the promotion with promotions of the same class, select Class. To let it be the only promotion used for an entire order, select Global.</inlineHelpText>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>IsActive</fullName>
         <trackHistory>false</trackHistory>
     </fields>
@@ -170,6 +161,11 @@
     </fields>
     <fields>
         <fullName>IsCommercePromotion</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IsTiered</fullName>
+        <inlineHelpText>This setting is permanent and can&apos;t be changed after the promotion is saved. Create a new promotion instead.</inlineHelpText>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>

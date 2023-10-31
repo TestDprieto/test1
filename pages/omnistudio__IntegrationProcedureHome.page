@@ -22,6 +22,7 @@
       </script>
       <script type="text/javascript">
           window.industryPkgNSPrefix = '{!industryPkgNSPrefix}';
+          window.isFoundationPackage = {!isFoundationPackage};
       </script>
   </head>
   <style>
@@ -60,7 +61,8 @@
                 additional-table-buttons="additionalTableButtons"
                 extra-filters="extraFilters"
                 override-label="Integration Procedure"
-                override-label-plural="Integration Procedures">
+                override-label-plural="Integration Procedures"
+                load-file-based-integration-procedures="{!isFoundationPackage}">
       </slds-home>
     </div>
     <c:VFActionFunction />

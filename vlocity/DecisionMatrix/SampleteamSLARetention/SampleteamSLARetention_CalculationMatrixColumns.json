@@ -1,0 +1,62 @@
+[
+    {
+        "ApiName": "RetentionCost",
+        "CalculationMatrixId": {
+            "Name": "SampleteamSLARetention",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrix"
+        },
+        "ColumnType": "Output",
+        "DataType": "Currency",
+        "DisplaySequence": 2,
+        "IsWildcardColumn": false,
+        "Name": "RetentionCost",
+        "Namespace": "",
+        "RangeValues": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationMatrixColumn",
+        "VlocityRecordSourceKey": "CalculationMatrixColumn/Generated-381123252",
+        "WildcardColumnValue": ""
+    },
+    {
+        "ApiName": "RetentionRate",
+        "CalculationMatrixId": {
+            "Name": "SampleteamSLARetention",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrix"
+        },
+        "ColumnType": "Output",
+        "DataType": "Number",
+        "DisplaySequence": 3,
+        "IsWildcardColumn": false,
+        "Name": "RetentionRate",
+        "Namespace": "",
+        "RangeValues": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationMatrixColumn",
+        "VlocityRecordSourceKey": "CalculationMatrixColumn/Generated-1880040253",
+        "WildcardColumnValue": ""
+    },
+    {
+        "ApiName": "SLA",
+        "CalculationMatrixId": {
+            "Name": "SampleteamSLARetention",
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationMatrix/SampleteamSLARetention",
+            "VlocityRecordSObjectType": "CalculationMatrix"
+        },
+        "ColumnType": "Input",
+        "DataType": "Text",
+        "DisplaySequence": 1,
+        "IsWildcardColumn": false,
+        "Name": "SLA",
+        "Namespace": "",
+        "RangeValues": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationMatrixColumn",
+        "VlocityRecordSourceKey": "CalculationMatrixColumn/Generated-247184810",
+        "WildcardColumnValue": ""
+    }
+]

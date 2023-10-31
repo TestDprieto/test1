@@ -1,0 +1,49 @@
+{
+    "IsActive": true,
+    "IsOmniScriptEmbeddable": false,
+    "Name": "SetValues",
+    "OmniProcessId": {
+        "Name": "Team Stub Account Contact",
+        "VlocityDataPackType": "VlocityMatchingKeyObject",
+        "VlocityMatchingRecordSourceKey": "OmniProcess/team/getAccountContactDetails/Procedure",
+        "VlocityRecordSObjectType": "OmniProcess"
+    },
+    "PropertySetConfig": {
+        "actionMessage": "",
+        "chainOnStep": false,
+        "disOnTplt": false,
+        "elementValueMap": {
+            "Account:AccountId": "0013i0000030LDyZZZ",
+            "Account:AccountName": "PlaceHolder Inc",
+            "Account:AccountPhone": "(123) 123-4567",
+            "Account:AccountPostalCode": 12345,
+            "Account:AccountPriContact": "Ana Holder",
+            "Account:AccountWebsite": "www.placeholderinc.com",
+            "Contact|1:ContactEmail": "pholder@placeholderinc.com",
+            "Contact|1:ContactFirstName": "Place",
+            "Contact|1:ContactId": "0033i0000029WovZZZ",
+            "Contact|1:ContactLastName": "Holder",
+            "Contact|1:ContactPhone": "(123) 123-5678",
+            "Contact|1:ContactTitle": "CEO",
+            "Contact|2:ContactEmail": "aholder@placeholderinc.com",
+            "Contact|2:ContactFirstName": "Ana",
+            "Contact|2:ContactId": "0033i0000029Wp0ZZZ",
+            "Contact|2:ContactLastName": "Holder",
+            "Contact|2:ContactPhone": "(123) 123-6789",
+            "Contact|2:ContactTitle": "SVP"
+        },
+        "executionConditionalFormula": "",
+        "failOnStepError": true,
+        "failureConditionalFormula": "",
+        "label": "SetValues1",
+        "responseJSONNode": "",
+        "responseJSONPath": "",
+        "sendJSONNode": "",
+        "sendJSONPath": "",
+        "show": null
+    },
+    "Type": "Set Values",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcessElement",
+    "VlocityRecordSourceKey": "OmniProcessElement/OmniProcess/team/getAccountContactDetails/Procedure/SetValues"
+}

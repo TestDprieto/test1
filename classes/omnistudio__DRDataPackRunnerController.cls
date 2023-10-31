@@ -114,6 +114,11 @@ global class DRDataPackRunnerController {
     global static List<Object> getFieldsNamesForObject(String objectType) {
         return null;
     }
+    @AuraEnabled
+    @RemoteAction
+    global static List<Object> getFileBasedDataRaptors() {
+        return null;
+    }
     @RemoteAction
     global static List<Map<String,Object>> getInstalledTabDataPacks() {
         return null;

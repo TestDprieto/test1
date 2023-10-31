@@ -47,6 +47,9 @@ global class ApplicationService {
     global static Object GenericInvokeLwc(String sClassName, String sMethodName, Map<String,Object> inputMap, Map<String,Object> optionsMap) {
         return null;
     }
+    global static Map<String,Object> GetActiveOmniscriptVersionFromOmniscriptId(String id) {
+        return null;
+    }
     global static Map<String,Map<String,String>> GetDependentOptions(String pObjName, String controllingFieldName, String dependentFieldName) {
         return null;
     }
@@ -70,6 +73,9 @@ global class ApplicationService {
     }
     global static String compileOmniScript(String sId, String scriptState, Boolean bPreview, String multiLangCode) {
         return null;
+    }
+    global static void logInactiveOmniscriptRequest(String sId, String type, String subType, String language, String namespace, String activeOmniProcessId, String communityId) {
+
     }
 global class ApplicationException extends Exception {
 }

@@ -163,6 +163,11 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>DataUsePurposeId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>EffectiveFromDate</fullName>
         <inlineHelpText>Date when consent starts.</inlineHelpText>
         <trackHistory>false</trackHistory>
@@ -171,6 +176,11 @@
         <fullName>EffectiveToDate</fullName>
         <inlineHelpText>Date when consent ends.</inlineHelpText>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EngagementChannelTypeId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Name</fullName>
@@ -182,9 +192,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>PartyId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>PartyRoleId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>PrivacyConsentStatus</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <listViews>
         <fullName>All_CommSubscriptionConsents</fullName>

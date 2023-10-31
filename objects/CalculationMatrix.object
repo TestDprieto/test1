@@ -173,6 +173,10 @@
         <fullName>UniqueName</fullName>
         <trackHistory>false</trackHistory>
     </fields>
+    <fields>
+        <fullName>UsageType</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
     <listViews>
         <fullName>All_CalculationMatrices</fullName>
         <filterScope>Everything</filterScope>
@@ -181,12 +185,16 @@
     <searchLayouts>
         <customTabListAdditionalFields>Type</customTabListAdditionalFields>
         <customTabListAdditionalFields>DecisionMatrixType</customTabListAdditionalFields>
+        <customTabListAdditionalFields>UsageType</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>Type</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>DecisionMatrixType</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>UsageType</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>Type</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>DecisionMatrixType</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>UsageType</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>Type</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>DecisionMatrixType</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UsageType</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
 </CustomObject>

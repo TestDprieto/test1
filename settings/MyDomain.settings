@@ -3,8 +3,11 @@
     <canOnlyLoginWithMyDomainUrl>false</canOnlyLoginWithMyDomainUrl>
     <doesApiLoginRequireOrgDomain>false</doesApiLoginRequireOrgDomain>
     <domainPartition>develop</domainPartition>
+    <enableEdgeDuringRollout>true</enableEdgeDuringRollout>
     <enableNativeBrowserForAuthOnAndroid>false</enableNativeBrowserForAuthOnAndroid>
     <enableNativeBrowserForAuthOnIos>false</enableNativeBrowserForAuthOnIos>
+    <enableShareBrowserSessionAndroidForAuth>false</enableShareBrowserSessionAndroidForAuth>
+    <enableShareBrowserSessionIOSForAuth>false</enableShareBrowserSessionIOSForAuth>
     <logRedirections>false</logRedirections>
     <myDomainName>copado-1cd-dev-ed</myDomainName>
     <myDomainSuffix>MySalesforce</myDomainSuffix>

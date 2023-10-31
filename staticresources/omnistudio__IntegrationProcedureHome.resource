@@ -149,10 +149,8 @@ angular.module('ouihome')
 
             $scope.groupBy = function (script) {
                 var type = script[OmniScriptFieldMappingsNamespace.Type__c],
-                    subType = script[OmniScriptFieldMappingsNamespace.SubType__c],
-                    language = script[OmniScriptFieldMappingsNamespace.Language__c];
-                return (type ? type : '') + '/' + (subType ? subType : '') + '/' +
-                    (language ? language : '');
+                    subType = script[OmniScriptFieldMappingsNamespace.SubType__c];
+                return (type ? type : '') + '/' + (subType ? subType : '');
             };
 
             $scope.backcompatImport = backcompatImport;
@@ -198,10 +196,10 @@ angular.module('ouihome')
                     width: 140,
                     field: 'LastModifiedById',
                     getGroupValue: function ($scope, $group) {
-                        return _.escape($group.data[0].LastModifiedBy.Name);
+                        return $group.data[0].LastModifiedBy ? _.escape($group.data[0].LastModifiedBy.Name) : '';
                     },
                     getValue: function ($scope, row) {
-                        return _.escape(row.LastModifiedBy.Name)
+                        return row.LastModifiedBy ? _.escape(row.LastModifiedBy.Name) : '';
                     }
                 }, {
                     field: OmniScriptFieldMappingsNamespace.IsActive__c,
@@ -277,6 +275,47 @@ angular.module('ouihome')
                     }
                 }
             ];
+            if (window.isFoundationPackage) {
+                $scope.defaultColumns.push(
+                    {
+                        title: 'Standard Content',
+                        resizable: false,
+                        width: 180,
+                        dynamic: true,
+                        getValue: function ($scope, row) {
+                            if (row?.IsFileBased) {
+                                return '<span class="slds-icon_container" title="Is Standard">' +
+                                    '<slds-svg-icon sprite="\'utility\'"' +
+                                    ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
+                            }
+                        },
+                        getGroupSortValue: function ($scope, $group) {
+                            var hasAnActiveEntry = false;
+                            _.forEach($group.data, function (row) {
+                                if (row?.IsFileBased) {
+                                    hasAnActiveEntry = true;
+                                    return false;
+                                }
+                            });
+                            return hasAnActiveEntry;
+                        },
+                        getGroupValue: function ($scope, $group) {
+                            var hasAnActiveEntry = false;
+                            _.forEach($group.data, function (row) {
+                                if (row?.IsFileBased) {
+                                    hasAnActiveEntry = true;
+                                    return false;
+                                }
+                            });
+                            if (hasAnActiveEntry) {
+                                return '<span class="slds-icon_container" title="Is Standard">' +
+                                    '<slds-svg-icon sprite="\'utility\'"' +
+                                    ' icon="\'success\'" size="\'x-small\'"  extra-classes=\"\'slds-icon-text-default\'\"></slds-svg-icon></span>';
+                            }
+                        }
+                    });
+            }
+
 
             function changeActivation(row, group, isActivate) {
                 var input = angular.toJson({

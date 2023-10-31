@@ -159,81 +159,121 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>AccountId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>AdditionalAddress</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>AdditionalName</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>BillingAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>BillingName</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ContactId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ContractId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Discount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Email</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ExpirationDate</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Fax</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>GrandTotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>IsSyncing</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>LineItemCount</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Name</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>OpportunityId</fullName>
+        <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Phone</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>QuoteToAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>QuoteToName</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>ShippingAddress</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ShippingHandling</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>ShippingName</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Status</fullName>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Subtotal</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Tax</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>TotalPrice</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <listViews>
         <fullName>mine</fullName>

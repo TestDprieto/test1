@@ -7754,7 +7754,7 @@ require('./CustomLWCPropertySet.js');
                     }
                 },
                 getMatchingDRBundles: {
-                    action: fileNsPrefixDot() + "OmniScriptDesignerController.getMatchingDRBundles2",
+                    action: fileNsPrefixDot() + "OmniScriptDesignerController.getMatchingDRBundles3",
                     config: {
                         buffer: false
                     }
@@ -8075,8 +8075,10 @@ angular.module('omniscriptDesigner')
             $rootScope.scriptElement = new ScriptElement(OmniScriptJson);
             if ($rootScope.scriptElement.isDisabled()) {
                 var pageDescription = $('.pageDescription');
-                pageDescription.append('&nbsp;<span class="active text-success">' +
+                if(!$rootScope.scriptElement.IsFileBased) {
+                    pageDescription.append('&nbsp;<span class="active text-success">' +
                     $localizable('OmniDesActive') + '</span>');
+                }
                 pageDescription.addClass('vlocity');
             }
         } else {
@@ -14870,12 +14872,14 @@ function ScriptElement(json) {
     this.DisableMetadataCache__c = !!json[ns + 'DisableMetadataCache__c'];
     this.RequiredPermission__c = json[ns + 'RequiredPermission__c'] ? json[ns + 'RequiredPermission__c'] : '';
     this.IsTest__c = !!json[ns + 'IsTest__c'];
+    // this.Id == null indicates that record is not even created => is not file-based
+    this.IsFileBased = (window.IsFoundation && this.Id != null ? !(this.Id.indexOf('0jN') === 0) : false);
     // fix up persistentComponent to be an array
     if (this.PropertySet__c.persistentComponent && !angular.isArray(this.PropertySet__c.persistentComponent)) {
         this.PropertySet__c.persistentComponent = [this.PropertySet__c.persistentComponent];
     }
     this.isDisabled = function () {
-        return this.IsActive__c;
+        return this.IsActive__c || this.IsFileBased;
     }
     var me = this;
     this.children.splice = function () {

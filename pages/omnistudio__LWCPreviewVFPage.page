@@ -51,6 +51,10 @@
             namespace : namespace
           }
         }
+        let attrs = getUrlParam(url,'attrs');
+        if(attrs){
+          layoutInfo.data.attrs = isValidJSON(attrs) ? JSON.parse(attrs) : attrs;
+        }
         let componentLoading = false;
         let componentName = "";
         if(previewId){
@@ -117,6 +121,14 @@
           container.removeChild(loader);
         }
       }
+    }
+    function isValidJSON(str) {
+      try {
+        JSON.parse(str);
+      } catch (e) {
+        return false;
+      }
+      return true;
     }
 
     })();

@@ -13,7 +13,7 @@
     <script src="{!URLFOR($Resource.jsforce_1_7, '/jsforce-api-tooling.min.js')}"></script>
     <script src="{!URLFOR($Resource.jsforce_1_7, '/jszip.min.js')}"></script>
     <script>
-        window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '54.0' });
+        window.conn = new jsforce.Connection({ accessToken: '{!vlocAccessToken}', version: '55.0' });
         window.conn.metadata.pollTimeout = 600000;  // 10 minute polling timeout
         window.IsFoundation = {!JSENCODE(IF(isFoundation, "true", "false"))};
         window.OmniScriptFieldMappings = JSON.parse('{!JSENCODE(omniScriptFieldMappings)}');

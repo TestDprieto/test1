@@ -73,6 +73,16 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
+    <fields>
+        <fullName>OrchestrationDeveloperName</fullName>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+    </fields>
     <listViews>
         <fullName>All_Orchestration_Instances</fullName>
         <filterScope>Everything</filterScope>

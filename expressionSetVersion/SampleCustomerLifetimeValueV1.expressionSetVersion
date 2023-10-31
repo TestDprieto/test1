@@ -54,45 +54,12 @@
     </steps>
     <variables>
         <collection>false</collection>
-        <dataType>Numeric</dataType>
-        <decimalPlaces>9</decimalPlaces>
-        <input>false</input>
-        <lookupName>SampleteamSLARetention</lookupName>
-        <lookupType>DecisionMatrix</lookupType>
-        <name>SampleteamSLARetention__RetentionRate</name>
-        <output>false</output>
-        <type>Variable</type>
-    </variables>
-    <variables>
-        <collection>false</collection>
-        <dataType>Currency</dataType>
-        <decimalPlaces>9</decimalPlaces>
-        <input>false</input>
-        <lookupName>SampleteamSLARetention</lookupName>
-        <lookupType>DecisionMatrix</lookupType>
-        <name>SampleteamSLARetention__RetentionCost</name>
-        <output>false</output>
-        <type>Variable</type>
-    </variables>
-    <variables>
-        <collection>false</collection>
-        <dataType>Numeric</dataType>
-        <decimalPlaces>2</decimalPlaces>
-        <description>DiscountRate</description>
-        <input>false</input>
-        <name>DiscountRate</name>
-        <output>false</output>
-        <type>Constant</type>
-        <value>0.03</value>
-    </variables>
-    <variables>
-        <collection>false</collection>
         <dataType>Currency</dataType>
         <decimalPlaces>2</decimalPlaces>
-        <description>TotalCLV</description>
-        <input>false</input>
-        <name>TotalCLV</name>
-        <output>true</output>
+        <description>AnnualIncome</description>
+        <input>true</input>
+        <name>AnnualIncome</name>
+        <output>false</output>
         <type>Variable</type>
     </variables>
     <variables>
@@ -108,6 +75,17 @@
     <variables>
         <collection>false</collection>
         <dataType>Numeric</dataType>
+        <decimalPlaces>2</decimalPlaces>
+        <description>DiscountRate</description>
+        <input>false</input>
+        <name>DiscountRate</name>
+        <output>false</output>
+        <type>Constant</type>
+        <value>0.03</value>
+    </variables>
+    <variables>
+        <collection>false</collection>
+        <dataType>Numeric</dataType>
         <decimalPlaces>0</decimalPlaces>
         <description>One</description>
         <input>false</input>
@@ -118,23 +96,42 @@
     </variables>
     <variables>
         <collection>false</collection>
-        <dataType>Currency</dataType>
-        <decimalPlaces>2</decimalPlaces>
-        <description>AnnualIncome</description>
-        <input>true</input>
-        <name>AnnualIncome</name>
-        <output>false</output>
-        <type>Variable</type>
-    </variables>
-    <variables>
-        <collection>false</collection>
         <dataType>Text</dataType>
-        <decimalPlaces>9</decimalPlaces>
         <input>true</input>
         <lookupName>SampleteamSLARetention</lookupName>
         <lookupType>DecisionMatrix</lookupType>
         <name>SLA</name>
         <output>false</output>
+        <type>Variable</type>
+    </variables>
+    <variables>
+        <collection>false</collection>
+        <dataType>Currency</dataType>
+        <input>false</input>
+        <lookupName>SampleteamSLARetention</lookupName>
+        <lookupType>DecisionMatrix</lookupType>
+        <name>SampleteamSLARetention__RetentionCost</name>
+        <output>false</output>
+        <type>Variable</type>
+    </variables>
+    <variables>
+        <collection>false</collection>
+        <dataType>Numeric</dataType>
+        <input>false</input>
+        <lookupName>SampleteamSLARetention</lookupName>
+        <lookupType>DecisionMatrix</lookupType>
+        <name>SampleteamSLARetention__RetentionRate</name>
+        <output>false</output>
+        <type>Variable</type>
+    </variables>
+    <variables>
+        <collection>false</collection>
+        <dataType>Currency</dataType>
+        <decimalPlaces>2</decimalPlaces>
+        <description>TotalCLV</description>
+        <input>false</input>
+        <name>TotalCLV</name>
+        <output>true</output>
         <type>Variable</type>
     </variables>
     <versionNumber>1</versionNumber>

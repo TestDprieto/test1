@@ -320,6 +320,18 @@ angular.module('drvcomp')
             isFoundationPackage: {
                 action: fileNsPrefixDot() + 'DRDataPackRunnerController.isFoundationPackage',
                 config: {escape: false,  buffer: false}
+            },
+            getFileBasedOmniScripts: {
+                action: fileNsPrefixDot() + 'OmniScriptHomeController.getFileBasedOmniScripts',
+                config: {escape: false,  buffer: false}
+            },
+            getFileBasedIntegrationProcedures: {
+                action: fileNsPrefixDot() + 'OmniScriptHomeController.getFileBasedIntegrationProcedures',
+                config: {escape: false,  buffer: false}
+            },
+            getFileBasedDataRaptors: {
+                action: fileNsPrefixDot() + 'DRDataPackRunnerController.getFileBasedDataRaptors',
+                config: {escape: false,  buffer: false}
             }
         };
         remoteActionsProvider.setRemoteActions(remoteActions);

@@ -1,0 +1,140 @@
+[
+    {
+        "ApiName": "AnnualIncome",
+        "CalculationMatrixName": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "DataType": "Currency",
+        "DefaultValue": "",
+        "DisplayName": "",
+        "IsEditable": true,
+        "IsUserDefined": true,
+        "Name": "AnnualIncome",
+        "Namespace": "",
+        "Precision": 2,
+        "UiDisplayOrder": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureVariable",
+        "VlocityRecordSourceKey": "CalculationProcedureVariable/Generated1233938405"
+    },
+    {
+        "ApiName": "CLV",
+        "CalculationMatrixName": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "DataType": "Currency",
+        "DefaultValue": "",
+        "DisplayName": "",
+        "IsEditable": true,
+        "IsUserDefined": true,
+        "Name": "CLV",
+        "Namespace": "",
+        "Precision": 2,
+        "UiDisplayOrder": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureVariable",
+        "VlocityRecordSourceKey": "CalculationProcedureVariable/Generated216918175"
+    },
+    {
+        "ApiName": "RetentionCost",
+        "CalculationMatrixName": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "DataType": "Currency",
+        "DefaultValue": "",
+        "DisplayName": "",
+        "IsEditable": false,
+        "IsUserDefined": false,
+        "Name": "SampleteamSLARetention__RetentionCost",
+        "Namespace": "",
+        "Precision": 2,
+        "UiDisplayOrder": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureVariable",
+        "VlocityRecordSourceKey": "CalculationProcedureVariable/Generated938182"
+    },
+    {
+        "ApiName": "RetentionRate",
+        "CalculationMatrixName": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "DataType": "Number",
+        "DefaultValue": "",
+        "DisplayName": "",
+        "IsEditable": false,
+        "IsUserDefined": false,
+        "Name": "SampleteamSLARetention__RetentionRate",
+        "Namespace": "",
+        "Precision": 2,
+        "UiDisplayOrder": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureVariable",
+        "VlocityRecordSourceKey": "CalculationProcedureVariable/Generated658386520"
+    },
+    {
+        "ApiName": "SLA",
+        "CalculationMatrixName": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "DataType": "Text",
+        "DefaultValue": "",
+        "DisplayName": "",
+        "IsEditable": false,
+        "IsUserDefined": false,
+        "Name": "SLA",
+        "Namespace": "",
+        "Precision": "",
+        "UiDisplayOrder": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureVariable",
+        "VlocityRecordSourceKey": "CalculationProcedureVariable/Generated-451059677"
+    },
+    {
+        "ApiName": "TotalCLV",
+        "CalculationMatrixName": "",
+        "CalculationProcedureVersionId": {
+            "CalculationProcedure.Name": "SampleCustomerLifetimeValue",
+            "VersionNumber": 1,
+            "VlocityDataPackType": "VlocityMatchingKeyObject",
+            "VlocityMatchingRecordSourceKey": "CalculationProcedureVersion/1/CalculationProcedure/SampleCustomerLifetimeValue",
+            "VlocityRecordSObjectType": "CalculationProcedureVersion"
+        },
+        "DataType": "Currency",
+        "DefaultValue": "",
+        "DisplayName": "",
+        "IsEditable": true,
+        "IsUserDefined": true,
+        "Name": "TotalCLV",
+        "Namespace": "",
+        "Precision": 2,
+        "UiDisplayOrder": "",
+        "VlocityDataPackType": "SObject",
+        "VlocityRecordSObjectType": "CalculationProcedureVariable",
+        "VlocityRecordSourceKey": "CalculationProcedureVariable/Generated2067657029"
+    }
+]

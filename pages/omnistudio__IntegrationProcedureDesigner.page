@@ -308,9 +308,11 @@
                                 <dl class="dl-horizontal">
                                     <dt>{{ ::'OmniDesVersion' | localize }}</dt>
                                     <dd>{{scriptElement.Version__c}}</dd>
-                                    <dt>{{ ::'OmniDesActive' | localize }}</dt>
-                                    <dd ng-if="scriptElement.IsActive__c || $parent.$parent.scriptElement.isDisabled()">{{ ::'OmniDesYes' | localize }}</dd>
-                                    <dd ng-if="!scriptElement.IsActive__c || !$parent.$parent.scriptElement.isDisabled()">{{ ::'OmniDesNo' | localize }}</dd>
+                                    <dt ng-if="!scriptElement.IsFileBased">{{ ::'OmniDesActive' | localize }}</dt>
+                                    <dd ng-if="!scriptElement.IsFileBased && (scriptElement.IsActive__c || $parent.$parent.scriptElement.isDisabled())">{{ ::'OmniDesYes' | localize }}</dd>
+                                    <dd ng-if="!scriptElement.IsFileBased && (!scriptElement.IsActive__c || !$parent.$parent.scriptElement.isDisabled())">{{ ::'OmniDesNo' | localize }}</dd>
+                                    <dt ng-if="scriptElement.IsFileBased">{{ ::'OmniDesStandard' | localize }}</dt>
+                                    <dd ng-if="scriptElement.IsFileBased">{{scriptElement.IsFileBased}}</dd>
                                     <dt>{{ ::'OmniDesOwner' | localize }}</dt>
                                     <dd>{{scriptElement.Owner}}</dd>
                                     <dt>{{ ::'OmniDesCreatedBy' | localize }}</dt>
@@ -330,23 +332,23 @@
                                             ng-click="createVersion()">{{ ::'OmniDesCreateVersion' | localize }}</button>
                                     <button type="button"
                                             class="btn btn-default"
-                                            ng-disabled="!scriptElement.Id || scriptElement.deactivating || scriptElement.saving"
+                                            ng-disabled="!scriptElement.Id || scriptElement.deactivating || scriptElement.saving || scriptElement.IsFileBased"
 
                                             ng-if="scriptElement.IsActive__c"
                                             ng-click="deactivateVersion()">{{ ::'OmniDesDeactivateVersion' | localize }}</button>
                                     <button type="button"
                                             class="btn btn-default"
-                                            ng-disabled="!scriptElement.Id || scriptElement.activating || scriptElement.saving"
+                                            ng-disabled="!scriptElement.Id || scriptElement.activating || scriptElement.saving || scriptElement.IsFileBased"
                                             ng-if="!scriptElement.IsActive__c"
                                             ng-click="activateVersion(scriptElement)">{{ ::'OmniDesActivateVersion' | localize }}</button>
                                     <button type="button"
                                             class="btn btn-default"
-                                            ng-disabled="!scriptElement.Id || scriptElement.deactivating || scriptElement.saving"
+                                            ng-disabled="!scriptElement.Id || scriptElement.deactivating || scriptElement.saving || scriptElement.IsFileBased"
 
                                             ng-click="export($event)">{{ ::'OmniHomeExport' | localize }}</button>
                                     <button type="button"
                                             class="btn btn-primary"
-                                            ng-disabled="scriptElement.saving || $parent.$parent.scriptElement.isDisabled()"
+                                            ng-disabled="scriptElement.saving || $parent.$parent.scriptElement.isDisabled() || scriptElement.IsFileBased"
                                             ng-if="!scriptElement.IsActive__c"
                                             ng-click="saveOmniScript()">{{ ::'OmniDesSave' | localize }}</button>
                                 </div>
@@ -370,7 +372,7 @@
     <script>
         angular.module('omnidesigner.core', [])
             .value('OmniScriptJson', '{!JSENCODE(omniscriptJSON)}')
-            .value('ElementsJson', '{!JSENCODE(elementsJSON)}')
+            .value('ElementsJson', '{!JSENCODE(getIPElementsJSON)}')
             .value('ElementTypesJson', JSON.parse('{!JSENCODE(elementTypesJSON)}'))
             .value('ReusableScriptsInit', '{!JSENCODE(reusableScriptsInitJSON)}')
             .value('LanguagesJson', JSON.parse('{!JSENCODE(languagesJson)}'))
@@ -423,6 +425,7 @@
             OmniDesVersion: '{!JSENCODE($Label.OmniDesVersion)}',
             OmniDesYes: '{!JSENCODE($Label.OmniDesYes)}',
             OmniDesNo: '{!JSENCODE($Label.OmniDesNo)}',
+            OmniDesStandard: '{!JSENCODE($Label.ODCFileBasedOmniscriptFieldLabel)}',
             OmniDesOwner: '{!JSENCODE($Label.OmniDesOwner)}',
             OmniDesCreatedBy: '{!JSENCODE($Label.OmniDesCreatedBy)}',
             OmniDesLastModifiedBy: '{!JSENCODE($Label.OmniDesLastModifiedBy)}',

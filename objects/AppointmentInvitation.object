@@ -138,12 +138,22 @@
         <fullName>AppointmentTopicType</fullName>
     </fields>
     <fields>
+        <fullName>AppointmentType</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>BookingEndDate</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>BookingStartDate</fullName>
         <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>EngagementChannelTypeId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>InvitationIdentifier</fullName>

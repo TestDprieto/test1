@@ -64,6 +64,16 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>BuyerGroup</fields>
+        <fields>BUYER_GROUP_DESC</fields>
+        <fields>BUYER_GROUP_OWNER</fields>
+        <relatedList>WebStoreBuyerGroups</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>ProductCatalog</fields>
+        <relatedList>WebStoreCatalogs</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>

@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OmniDataTransform xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <assignmentRulesUsed>false</assignmentRulesUsed>
+    <deletedOnSuccess>false</deletedOnSuccess>
+    <description>Mixed subnode and array output.</description>
+    <errorIgnored>false</errorIgnored>
+    <expectedOutputJson>{
+  &quot;Account&quot; : {
+    &quot;AccountId&quot; : &quot;0013i0000030LDyZZZ&quot;,
+    &quot;AccountName&quot; : &quot;PlaceHolder Inc&quot;,
+    &quot;AccountPhone&quot; : &quot;(123) 123-4567&quot;,
+    &quot;AccountPostalCode&quot; : &quot;12345&quot;,
+    &quot;AccountPriContact&quot; : &quot;Ana Holder&quot;,
+    &quot;AccountWebsite&quot; : &quot;www.placeholderinc.com&quot;
+  },
+  &quot;Contact&quot; : [ {
+    &quot;ContactEmail&quot; : &quot;pholder@placeholderinc.com&quot;,
+    &quot;ContactId&quot; : &quot;0033i0000029WovZZZ&quot;,
+    &quot;ContactName&quot; : &quot;Place Holder&quot;,
+    &quot;ContactPhone&quot; : &quot;(123) 123-5678&quot;
+  }, {
+    &quot;ContactEmail&quot; : &quot;aholder@placeholderinc.com&quot;,
+    &quot;ContactId&quot; : &quot;0033i0000029Wp0ZZZ&quot;,
+    &quot;ContactName&quot; : &quot;Ana Holder&quot;,
+    &quot;ContactPhone&quot; : &quot;(123) 123-6789&quot;
+  } ]
+}</expectedOutputJson>
+    <fieldLevelSecurityEnabled>false</fieldLevelSecurityEnabled>
+    <inputType>JSON</inputType>
+    <name>teamStarterGetAccountContactDetails</name>
+    <nullInputsIncludedInOutput>false</nullInputsIncludedInOutput>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails6526833783921757</globalKey>
+        <inputFieldName>Contact:Email</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Contact:ContactEmail</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails8535507680852925</globalKey>
+        <inputFieldName>Account:Website</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Account:AccountWebsite</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails6346814483082053</globalKey>
+        <inputFieldName>Contact:Id</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Contact:ContactId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails9971575952020286</globalKey>
+        <inputFieldName>Contact:LastName</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Contact:ContactLastName</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <filterValue>AccountId</filterValue>
+        <globalKey>teamStarterGetAccountContactDetails9723089724993768</globalKey>
+        <inputFieldName>Id</inputFieldName>
+        <inputObjectName>Account</inputObjectName>
+        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>Account</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetailsCustom4743</globalKey>
+        <inputFieldName>Contact:FirstName</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Contact:ContactFirstName</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <filterOperator>=</filterOperator>
+        <filterValue>AccountId</filterValue>
+        <globalKey>teamStarterGetAccountContactDetails16210992001849167</globalKey>
+        <inputFieldName>AccountId</inputFieldName>
+        <inputObjectName>Contact</inputObjectName>
+        <inputObjectQuerySequence>2.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>Contact</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails0843251661054838</globalKey>
+        <inputFieldName>Contact:Phone</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Contact:ContactPhone</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails8900773770568988</globalKey>
+        <inputFieldName>Account:Name</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Account:AccountName</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetailsCustom9166</globalKey>
+        <inputFieldName>Contact:Title</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Contact:ContactTitle</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails7613079735138859</globalKey>
+        <inputFieldName>Account:Id</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Account:AccountId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails4999917691701139</globalKey>
+        <inputFieldName>Account:BillingPostalCode</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Account:AccountPostalCode</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterGetAccountContactDetails4074443920824111</globalKey>
+        <inputFieldName>Account:Phone</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Account:AccountPhone</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <outputType>JSON</outputType>
+    <previewJsonData>{
+  &quot;AccountId&quot; : &quot;&quot;
+}</previewJsonData>
+    <processSuperBulk>false</processSuperBulk>
+    <responseCacheTtlMinutes>0.0</responseCacheTtlMinutes>
+    <rollbackOnError>false</rollbackOnError>
+    <sourceObject>json</sourceObject>
+    <sourceObjectDefault>false</sourceObjectDefault>
+    <synchronousProcessThreshold>-1.0</synchronousProcessThreshold>
+    <type>Extract</type>
+    <uniqueName>teamStarterGetAccountContactDetails_1</uniqueName>
+    <versionNumber>1.0</versionNumber>
+    <xmlDeclarationRemoved>false</xmlDeclarationRemoved>
+</OmniDataTransform>
