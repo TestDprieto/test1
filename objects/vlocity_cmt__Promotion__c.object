@@ -315,6 +315,14 @@
         <label>New Promotion</label>
     </fieldSets>
     <fields>
+        <fullName>check__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>check</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>vlocity_cmt__AppliesToAllItems__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -856,7 +864,7 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts />
     <sharingModel>ReadWrite</sharingModel>
     <visibility>Public</visibility>
     <webLinks>
