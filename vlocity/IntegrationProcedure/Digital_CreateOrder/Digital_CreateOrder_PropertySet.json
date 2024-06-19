@@ -1,6 +1,7 @@
 {
     "additionalChainableResponse": {
     },
+    "chainableActualTimeLimit": null,
     "chainableCpuLimit": 2000,
     "chainableDMLRowsLimit": null,
     "chainableDMLStatementsLimit": null,
@@ -11,10 +12,12 @@
     "columnsPropertyMap": [
     ],
     "description": "",
-    "includeAllActionsInResponse": false,
+    "includeAllActionsInResponse": true,
     "labelPlural": "",
     "labelSingular": "",
     "linkToExternalObject": "",
+    "mockResponseMap": {
+    },
     "nameColumn": "",
     "queueableChainableCpuLimit": 40000,
     "queueableChainableHeapSizeLimit": 6,
