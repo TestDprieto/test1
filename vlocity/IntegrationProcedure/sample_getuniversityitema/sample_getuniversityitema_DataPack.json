@@ -1,0 +1,26 @@
+{
+    "CustomJavaScript": "sample_getuniversityitema_SampleInput.json",
+    "Description": "testing",
+    "ElementTypeComponentMapping": "{\"ElementTypeToHTMLTemplateList\":[]}",
+    "IsIntegrationProcedure": true,
+    "IsMetadataCacheDisabled": false,
+    "IsOmniScriptEmbeddable": false,
+    "IsTestProcedure": false,
+    "IsWebCompEnabled": false,
+    "Language": "Procedure",
+    "Name": "US University",
+    "OmniProcessElement": [
+        "sample_getuniversityitema_Element_DataRaptorExtractAction1.json",
+        "sample_getuniversityitema_Element_ResponseAction1.json"
+    ],
+    "OmniProcessKey": "sample_getuniversityitema",
+    "OmniProcessType": "Integration Procedure",
+    "PropertySetConfig": "sample_getuniversityitema_PropertySetConfig.json",
+    "SubType": "getuniversityitema",
+    "Type": "sample",
+    "UniqueName": "sample_getuniversityitema_Procedure_1",
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniProcess",
+    "VlocityRecordSourceKey": "OmniProcess/sample/getuniversityitema/Procedure",
+    "WebComponentKey": "492bdbd1-354e-1d63-61e2-007433139656"
+}

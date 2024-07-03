@@ -131,9 +131,11 @@
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
         <fullName>InventoryCacheTtl</fullName>
+        <inlineHelpText>Enter a value for the Inventory Cache Time To Live that&apos;s between 300 and 14400.</inlineHelpText>
     </fields>
     <fields>
         <fullName>InventoryDimension</fullName>
+        <inlineHelpText>Fulfillment options.</inlineHelpText>
     </fields>
     <fields>
         <fullName>IsEnabled</fullName>
@@ -143,10 +145,12 @@
     </fields>
     <fields>
         <fullName>LocationSourceId</fullName>
+        <inlineHelpText>Default location or location group for inventory reservations.</inlineHelpText>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>ReservationDurationInSeconds</fullName>
+        <inlineHelpText>Enter a value for the reservation time limit that&apos;s between 300 and 14400.</inlineHelpText>
     </fields>
     <fields>
         <fullName>WebStoreId</fullName>

@@ -5,11 +5,13 @@
     <decisionTableParameters>
         <fieldName>Status</fieldName>
         <isGroupByField>false</isGroupByField>
+        <isRequired>false</isRequired>
         <usage>OUTPUT</usage>
     </decisionTableParameters>
     <decisionTableParameters>
         <fieldName>AccountId</fieldName>
         <isGroupByField>false</isGroupByField>
+        <isRequired>false</isRequired>
         <operator>Equals</operator>
         <sequence>1</sequence>
         <usage>INPUT</usage>
@@ -17,15 +19,18 @@
     <decisionTableParameters>
         <fieldName>ProcessingMode</fieldName>
         <isGroupByField>false</isGroupByField>
+        <isRequired>false</isRequired>
         <usage>OUTPUT</usage>
     </decisionTableParameters>
     <decisionTableParameters>
         <fieldName>Id</fieldName>
         <isGroupByField>false</isGroupByField>
+        <isRequired>false</isRequired>
         <operator>Equals</operator>
         <sequence>2</sequence>
         <usage>INPUT</usage>
     </decisionTableParameters>
+    <doesConsiderNullValue>false</doesConsiderNullValue>
     <setupName>sampleteamRefundInfo</setupName>
     <sourceObject>Refund</sourceObject>
     <status>Draft</status>

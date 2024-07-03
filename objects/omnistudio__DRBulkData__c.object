@@ -203,7 +203,6 @@
         <fullName>omnistudio__DRError__c</fullName>
         <deprecated>false</deprecated>
         <description>Full error when processing.</description>
-        <externalId>false</externalId>
         <label>DR Error</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -214,7 +213,6 @@
         <fullName>omnistudio__DRProgressData__c</fullName>
         <deprecated>false</deprecated>
         <description>JSON of current progress processing item if using bulk processing methods</description>
-        <externalId>false</externalId>
         <label>DR Progress</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -236,7 +234,6 @@
     <fields>
         <fullName>omnistudio__Data__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Data</label>
         <length>131072</length>
         <trackTrending>false</trackTrending>

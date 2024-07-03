@@ -1160,7 +1160,6 @@
         <fullName>omnistudio__DRError__c</fullName>
         <deprecated>false</deprecated>
         <description>Full error when processing.</description>
-        <externalId>false</externalId>
         <label>DR Error</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -1171,7 +1170,6 @@
         <fullName>omnistudio__DRProgressData__c</fullName>
         <deprecated>false</deprecated>
         <description>JSON of current progress processing item if using bulk processing methods</description>
-        <externalId>false</externalId>
         <label>DR Progress</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -1182,7 +1180,6 @@
         <fullName>omnistudio__DRStatus__c</fullName>
         <deprecated>false</deprecated>
         <description>Status after processing DR map.</description>
-        <externalId>false</externalId>
         <label>DR Status</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -1191,7 +1188,6 @@
     <fields>
         <fullName>omnistudio__LargeData__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Large Data</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>

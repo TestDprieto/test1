@@ -75,20 +75,6 @@
     <omniDataTransformItem>
         <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
-        <globalKey>sampleGetAccountContactDetails0885411669229974</globalKey>
-        <inputFieldName>Contact:Title</inputFieldName>
-        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
-        <linkedObjectSequence>0.0</linkedObjectSequence>
-        <name>sampleGetAccountContactDetails</name>
-        <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>Contact:ContactTitle</outputFieldName>
-        <outputObjectName>json</outputObjectName>
-        <requiredForUpsert>false</requiredForUpsert>
-        <upsertKey>false</upsertKey>
-    </omniDataTransformItem>
-    <omniDataTransformItem>
-        <disabled>false</disabled>
-        <filterGroup>0.0</filterGroup>
         <globalKey>sampleGetAccountContactDetails3601327232714744</globalKey>
         <inputFieldName>Contact:FirstName</inputFieldName>
         <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
@@ -103,13 +89,13 @@
     <omniDataTransformItem>
         <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
-        <globalKey>sampleGetAccountContactDetails6699973946900115</globalKey>
-        <inputFieldName>Contact:LastName</inputFieldName>
+        <globalKey>sampleGetAccountContactDetails0885411669229974</globalKey>
+        <inputFieldName>Contact:Title</inputFieldName>
         <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>sampleGetAccountContactDetails</name>
         <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>Contact:ContactLastName</outputFieldName>
+        <outputFieldName>Contact:ContactTitle</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>
@@ -124,6 +110,20 @@
         <name>sampleGetAccountContactDetails</name>
         <outputCreationSequence>1.0</outputCreationSequence>
         <outputFieldName>Contact:ContactId</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>sampleGetAccountContactDetails6699973946900115</globalKey>
+        <inputFieldName>Contact:LastName</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>sampleGetAccountContactDetails</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>Contact:ContactLastName</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>

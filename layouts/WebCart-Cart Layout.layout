@@ -8,6 +8,10 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
+                <field>TotalProductLineItemCount</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
                 <field>TotalLineItemsWithErrors</field>
             </layoutItems>
             <layoutItems>
@@ -168,6 +172,7 @@
         <style>CustomLinks</style>
     </layoutSections>
     <miniLayout>
+        <fields>TotalProductLineItemCount</fields>
         <fields>TotalLineItemsWithErrors</fields>
         <fields>TotalAdjustmentAmount</fields>
     </miniLayout>

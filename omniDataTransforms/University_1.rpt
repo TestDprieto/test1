@@ -11,13 +11,16 @@
     <omniDataTransformItem>
         <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
-        <globalKey>UniversityCustom7900</globalKey>
-        <inputFieldName>account:Phone</inputFieldName>
-        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <filterOperator>=</filterOperator>
+        <filterValue>contextId</filterValue>
+        <globalKey>UniversityCustom2124</globalKey>
+        <inputFieldName>Id</inputFieldName>
+        <inputObjectName>Account</inputObjectName>
+        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>University</name>
-        <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>phone</outputFieldName>
+        <outputCreationSequence>0.0</outputCreationSequence>
+        <outputFieldName>account</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>
@@ -39,16 +42,13 @@
     <omniDataTransformItem>
         <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
-        <filterOperator>=</filterOperator>
-        <filterValue>contextId</filterValue>
-        <globalKey>UniversityCustom2124</globalKey>
-        <inputFieldName>Id</inputFieldName>
-        <inputObjectName>Account</inputObjectName>
-        <inputObjectQuerySequence>1.0</inputObjectQuerySequence>
+        <globalKey>UniversityCustom7900</globalKey>
+        <inputFieldName>account:Phone</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>University</name>
-        <outputCreationSequence>0.0</outputCreationSequence>
-        <outputFieldName>account</outputFieldName>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>phone</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>

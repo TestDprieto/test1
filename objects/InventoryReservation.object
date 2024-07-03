@@ -128,7 +128,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>false</enableFeeds>
-    <externalSharingModel>ControlledByLeadOrContact</externalSharingModel>
+    <externalSharingModel>Private</externalSharingModel>
     <fields>
         <fullName>ErrorCode</fullName>
     </fields>
@@ -154,5 +154,5 @@
         <fullName>ReservationSourceId</fullName>
         <type>Lookup</type>
     </fields>
-    <sharingModel>ControlledByLeadOrContact</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

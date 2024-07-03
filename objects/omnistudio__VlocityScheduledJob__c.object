@@ -194,7 +194,6 @@
     <fields>
         <fullName>omnistudio__DataSourceSpec__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Data Source Spec</label>
         <length>131072</length>
         <trackHistory>false</trackHistory>
@@ -205,7 +204,6 @@
     <fields>
         <fullName>omnistudio__DataSourceType__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Data Source Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -240,7 +238,6 @@
     <fields>
         <fullName>omnistudio__Description__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Description</label>
         <length>131072</length>
         <trackHistory>false</trackHistory>
@@ -263,7 +260,6 @@
     <fields>
         <fullName>omnistudio__Frequency__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Frequency</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -317,7 +313,6 @@
         <fullName>omnistudio__IsActive__c</fullName>
         <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Active</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -327,7 +322,6 @@
         <fullName>omnistudio__IsInputAsList__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Is Input As List</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -336,7 +330,6 @@
     <fields>
         <fullName>omnistudio__JobQueue__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Job Queue</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -366,7 +359,6 @@
     <fields>
         <fullName>omnistudio__LastRunDateTime__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Last Run DateTime</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -376,7 +368,6 @@
     <fields>
         <fullName>omnistudio__LastRunErrorMessage__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Last Run Error Message</label>
         <length>131072</length>
         <trackHistory>false</trackHistory>
@@ -387,7 +378,6 @@
     <fields>
         <fullName>omnistudio__NextRunDateTime__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Next Run DateTime</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -398,7 +388,6 @@
         <fullName>omnistudio__NextScheduledJobId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Next Scheduled Job</label>
         <referenceTo>omnistudio__VlocityScheduledJob__c</referenceTo>
         <relationshipLabel>Vlocity ScheduledJobs</relationshipLabel>
@@ -423,7 +412,6 @@
     <fields>
         <fullName>omnistudio__ProcessType__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Process Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -448,7 +436,6 @@
     <fields>
         <fullName>omnistudio__SendEmailOn__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Send Email On</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -490,7 +477,6 @@
     <fields>
         <fullName>omnistudio__WrapUpProcessType__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Wrap Up Process Type</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

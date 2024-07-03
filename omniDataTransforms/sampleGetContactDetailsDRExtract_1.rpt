@@ -12,20 +12,6 @@
     <omniDataTransformItem>
         <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
-        <globalKey>sampleGetContactDetailsDRExtract3724954447122888</globalKey>
-        <inputFieldName>Contact:Id</inputFieldName>
-        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
-        <linkedObjectSequence>0.0</linkedObjectSequence>
-        <name>sampleGetContactDetailsDRExtract</name>
-        <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>ContactId</outputFieldName>
-        <outputObjectName>json</outputObjectName>
-        <requiredForUpsert>false</requiredForUpsert>
-        <upsertKey>false</upsertKey>
-    </omniDataTransformItem>
-    <omniDataTransformItem>
-        <disabled>false</disabled>
-        <filterGroup>0.0</filterGroup>
         <globalKey>sampleGetContactDetailsDRExtractCustom8178</globalKey>
         <inputFieldName>Contact:LastName</inputFieldName>
         <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
@@ -40,13 +26,13 @@
     <omniDataTransformItem>
         <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
-        <globalKey>sampleGetContactDetailsDRExtract11846461565599298</globalKey>
-        <inputFieldName>Contact:Email</inputFieldName>
+        <globalKey>sampleGetContactDetailsDRExtract3724954447122888</globalKey>
+        <inputFieldName>Contact:Id</inputFieldName>
         <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>sampleGetContactDetailsDRExtract</name>
         <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>ContactEmail</outputFieldName>
+        <outputFieldName>ContactId</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>
@@ -61,6 +47,20 @@
         <name>sampleGetContactDetailsDRExtract</name>
         <outputCreationSequence>1.0</outputCreationSequence>
         <outputFieldName>ContactFirstName</outputFieldName>
+        <outputObjectName>json</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>sampleGetContactDetailsDRExtract11846461565599298</globalKey>
+        <inputFieldName>Contact:Email</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>sampleGetContactDetailsDRExtract</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>ContactEmail</outputFieldName>
         <outputObjectName>json</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>

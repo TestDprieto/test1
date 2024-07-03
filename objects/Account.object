@@ -251,7 +251,6 @@
     </fields>
     <fields>
         <fullName>Active__c</fullName>
-        <externalId>false</externalId>
         <label>Active</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -286,7 +285,6 @@
     </fields>
     <fields>
         <fullName>CustomerPriority__c</fullName>
-        <externalId>false</externalId>
         <label>Customer Priority</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -393,7 +391,6 @@
         <fullName>PrimaryContactId__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>ID of the primary person to contact for anything related to this account.</description>
-        <externalId>false</externalId>
         <label>Primary Contact</label>
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>Accounts</relationshipLabel>
@@ -405,7 +402,6 @@
     <fields>
         <fullName>QtrlyCheck__c</fullName>
         <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
         <inlineHelpText>Select if the quarterly check is complete</inlineHelpText>
         <label>Quarterly Check</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -418,7 +414,6 @@
     </fields>
     <fields>
         <fullName>SLAExpirationDate__c</fullName>
-        <externalId>false</externalId>
         <label>SLA Expiration Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -436,7 +431,6 @@
     </fields>
     <fields>
         <fullName>SLA__c</fullName>
-        <externalId>false</externalId>
         <label>SLA</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -501,7 +495,6 @@
     </fields>
     <fields>
         <fullName>UpsellOpportunity__c</fullName>
-        <externalId>false</externalId>
         <label>Upsell Opportunity</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>

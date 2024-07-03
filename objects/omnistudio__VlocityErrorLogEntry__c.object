@@ -198,7 +198,6 @@
         <fullName>omnistudio__ErrorMessage__c</fullName>
         <deprecated>false</deprecated>
         <description>Stores the Error Message</description>
-        <externalId>false</externalId>
         <inlineHelpText>Stores the Error Message</inlineHelpText>
         <label>Error Message</label>
         <length>32768</length>
@@ -210,7 +209,6 @@
         <fullName>omnistudio__ErrorTime__c</fullName>
         <deprecated>false</deprecated>
         <description>The date and time that the error occurred.</description>
-        <externalId>false</externalId>
         <inlineHelpText>The date and time that the error occurred.</inlineHelpText>
         <label>Error Time</label>
         <required>false</required>
@@ -221,7 +219,6 @@
         <fullName>omnistudio__ErrorType__c</fullName>
         <deprecated>false</deprecated>
         <description>A default value set in the data raptor bundle ex: Callout Error, Upsert Error</description>
-        <externalId>false</externalId>
         <inlineHelpText>A default value set in the data raptor bundle ex: Callout Error, Upsert Error</inlineHelpText>
         <label>Error Type</label>
         <required>false</required>
@@ -247,7 +244,6 @@
         <fullName>omnistudio__InputData__c</fullName>
         <deprecated>false</deprecated>
         <description>Records the input data which lead to the error log entry</description>
-        <externalId>false</externalId>
         <inlineHelpText>Records the input data which lead to the error log entry</inlineHelpText>
         <label>Input Data</label>
         <length>131072</length>
@@ -282,7 +278,6 @@
     <fields>
         <fullName>omnistudio__SourceType__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Source Type</label>
         <required>false</required>
         <trackTrending>false</trackTrending>

@@ -130,6 +130,11 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>AppointmentCategoryId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>BackgroundColor</fullName>
         <inlineHelpText>Set a background color to highlight shifts in the schedule view.</inlineHelpText>
         <trackHistory>false</trackHistory>

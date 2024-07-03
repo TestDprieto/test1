@@ -348,6 +348,10 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>ContactSource</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
         <fullName>Department</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -362,7 +366,6 @@
     <fields>
         <fullName>DoNotSMS__c</fullName>
         <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
         <inlineHelpText>select this checkbox if the person does not wish to receive messages on their mobile phone from COMPANY</inlineHelpText>
         <label>Do Not SMS</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -425,7 +428,6 @@
     </fields>
     <fields>
         <fullName>Level__c</fullName>
-        <externalId>false</externalId>
         <label>Level</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -488,7 +490,6 @@
     <fields>
         <fullName>QtrlyCheck__c</fullName>
         <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
         <inlineHelpText>Select this box if the quarterly check is complete.</inlineHelpText>
         <label>Quarterly Check</label>
         <trackFeedHistory>false</trackFeedHistory>

@@ -130,22 +130,31 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>AssignedResourceNumber</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>EventId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <fields>
         <fullName>IsRequiredResource</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Role</fullName>
+        <trackHistory>false</trackHistory>
         <type>Picklist</type>
     </fields>
     <fields>
         <fullName>ServiceAppointmentId</fullName>
+        <trackHistory>false</trackHistory>
         <type>MasterDetail</type>
     </fields>
     <fields>
         <fullName>ServiceResourceId</fullName>
+        <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
     <sharingModel>ControlledByParent</sharingModel>

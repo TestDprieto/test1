@@ -1,0 +1,45 @@
+{
+    "AuthorName": "Copado",
+    "ClonedFromOmniUiCardKey": "",
+    "DataSourceConfig": {
+        "dataSource": {
+            "contextVariables": [
+                {
+                    "id": 14,
+                    "name": "recordId",
+                    "val": ""
+                }
+            ],
+            "orderBy": {
+                "isReverse": "",
+                "name": ""
+            },
+            "type": "IntegrationProcedures",
+            "value": {
+                "dsDelay": "",
+                "inputMap": {
+                    "contextId": "{recordId}"
+                },
+                "ipMethod": "sample_getuniversityitema",
+                "jsonMap": "{\"recordId\":\"{recordId}\"}",
+                "resultVar": "",
+                "vlocityAsync": false
+            }
+        }
+    },
+    "Description": "Testing",
+    "IsTrackingEnabled": false,
+    "Name": "US_University_testing",
+    "Namespace": "",
+    "OmniUiCardKey": "US_University_testing/Copado/2.0",
+    "OmniUiCardType": "Parent",
+    "OverrideKey": "",
+    "PropertySetConfig": "US_University_testing.json",
+    "SampleDataSourceResponse": "[]",
+    "StylingConfiguration": "",
+    "UniqueName": "US_University_testing_Copado_2",
+    "VersionNumber": 2,
+    "VlocityDataPackType": "SObject",
+    "VlocityRecordSObjectType": "OmniUiCard",
+    "VlocityRecordSourceKey": "OmniUiCard/US_University_testing"
+}

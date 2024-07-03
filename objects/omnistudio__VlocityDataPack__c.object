@@ -190,7 +190,6 @@
     <fields>
         <fullName>omnistudio__Description__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Description</label>
         <length>32768</length>
         <trackTrending>false</trackTrending>
@@ -201,7 +200,6 @@
         <fullName>omnistudio__IsLastProcessed__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>Is Last Processed</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -210,7 +208,6 @@
         <fullName>omnistudio__LastProcessedBy__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>LastProcessedBy</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Vlocity_Data_Packs</relationshipName>
@@ -221,7 +218,6 @@
     <fields>
         <fullName>omnistudio__LastProcessedDateTime__c</fullName>
         <deprecated>false</deprecated>
-        <externalId>false</externalId>
         <label>LastProcessedDateTime</label>
         <required>false</required>
         <trackTrending>false</trackTrending>

@@ -4,6 +4,9 @@
     <enableFeeds>false</enableFeeds>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>AdjustedShippingFee</fullName>
+    </fields>
+    <fields>
         <fullName>Carrier</fullName>
         <type>Picklist</type>
     </fields>
@@ -31,6 +34,9 @@
     </fields>
     <fields>
         <fullName>ShippingFee</fullName>
+    </fields>
+    <fields>
+        <fullName>TotalAdjustmentAmount</fullName>
     </fields>
     <fields>
         <fullName>WebCartId</fullName>

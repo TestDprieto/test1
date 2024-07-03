@@ -24,6 +24,20 @@
         <upsertKey>false</upsertKey>
     </omniDataTransformItem>
     <omniDataTransformItem>
+        <disabled>false</disabled>
+        <filterGroup>0.0</filterGroup>
+        <globalKey>teamStarterUpdatePriContactCustom7343</globalKey>
+        <inputFieldName>UpdateContactLastName</inputFieldName>
+        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
+        <linkedObjectSequence>0.0</linkedObjectSequence>
+        <name>teamStarterUpdatePriContact</name>
+        <outputCreationSequence>1.0</outputCreationSequence>
+        <outputFieldName>LastName</outputFieldName>
+        <outputObjectName>Contact</outputObjectName>
+        <requiredForUpsert>false</requiredForUpsert>
+        <upsertKey>false</upsertKey>
+    </omniDataTransformItem>
+    <omniDataTransformItem>
         <disabled>true</disabled>
         <filterGroup>0.0</filterGroup>
         <filterOperator>=</filterOperator>
@@ -41,13 +55,13 @@
     <omniDataTransformItem>
         <disabled>false</disabled>
         <filterGroup>0.0</filterGroup>
-        <globalKey>teamStarterUpdatePriContactCustom7343</globalKey>
-        <inputFieldName>UpdateContactLastName</inputFieldName>
+        <globalKey>teamStarterUpdatePriContactCustom3019</globalKey>
+        <inputFieldName>UpdateContactFirstName</inputFieldName>
         <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
         <linkedObjectSequence>0.0</linkedObjectSequence>
         <name>teamStarterUpdatePriContact</name>
         <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>LastName</outputFieldName>
+        <outputFieldName>FirstName</outputFieldName>
         <outputObjectName>Contact</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>
@@ -62,20 +76,6 @@
         <name>teamStarterUpdatePriContact</name>
         <outputCreationSequence>1.0</outputCreationSequence>
         <outputFieldName>Id</outputFieldName>
-        <outputObjectName>Contact</outputObjectName>
-        <requiredForUpsert>false</requiredForUpsert>
-        <upsertKey>false</upsertKey>
-    </omniDataTransformItem>
-    <omniDataTransformItem>
-        <disabled>false</disabled>
-        <filterGroup>0.0</filterGroup>
-        <globalKey>teamStarterUpdatePriContactCustom3019</globalKey>
-        <inputFieldName>UpdateContactFirstName</inputFieldName>
-        <inputObjectQuerySequence>0.0</inputObjectQuerySequence>
-        <linkedObjectSequence>0.0</linkedObjectSequence>
-        <name>teamStarterUpdatePriContact</name>
-        <outputCreationSequence>1.0</outputCreationSequence>
-        <outputFieldName>FirstName</outputFieldName>
         <outputObjectName>Contact</outputObjectName>
         <requiredForUpsert>false</requiredForUpsert>
         <upsertKey>false</upsertKey>

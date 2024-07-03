@@ -147,6 +147,16 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>RedemptionLimitAllBuyers</fullName>
+        <inlineHelpText>Number of times this coupon can be used in total.</inlineHelpText>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>RedemptionLimitPerBuyer</fullName>
+        <inlineHelpText>Number of times this coupon can be used per customer.</inlineHelpText>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>StartDateTime</fullName>
         <trackHistory>false</trackHistory>
     </fields>

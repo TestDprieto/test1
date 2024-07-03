@@ -128,7 +128,17 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>InvoiceLockedDateTime</fullName>
+        <inlineHelpText>The time at which the invoice record was locked.</inlineHelpText>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>InvoiceNumber</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>IsInvoiceLocked</fullName>
+        <inlineHelpText>Indicates whether the invoice record is locked or not.</inlineHelpText>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>

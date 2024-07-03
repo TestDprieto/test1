@@ -146,6 +146,14 @@
                 <behavior>Required</behavior>
                 <field>GrossAdjustmentAmount</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>UnitItemAdjustmentAmount</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>UnitAdjustedPriceWithItemAdj</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -164,6 +172,8 @@
         <fields>GrossUnitPrice</fields>
         <fields>NetAdjustmentAmount</fields>
         <fields>GrossAdjustmentAmount</fields>
+        <fields>UnitItemAdjustmentAmount</fields>
+        <fields>UnitAdjustedPriceWithItemAdj</fields>
     </miniLayout>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>

@@ -179,6 +179,10 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>AppointmentMode</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>AppointmentType</fullName>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
@@ -196,7 +200,18 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>AttendeeCount</fullName>
+    </fields>
+    <fields>
+        <fullName>AttendeeLimit</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>CancellationReason</fullName>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
+        <fullName>CheckedInTime</fullName>
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
@@ -236,6 +251,10 @@
         <fullName>EngagementChannelTypeId</fullName>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>GroupAppointmentAccessType</fullName>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>IsAnonymousBooking</fullName>
@@ -381,6 +400,7 @@
         <lookupPhoneDialogsAdditionalFields>Status</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ArrivalWindowStartTime</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ArrivalWindowEndTime</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Phone</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>ParentRecord</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ParentRecordType</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Status</searchResultsAdditionalFields>

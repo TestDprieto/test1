@@ -222,11 +222,20 @@
         <fullName>TimeZone</fullName>
         <trackHistory>false</trackHistory>
     </fields>
+    <fields>
+        <fullName>VisitorAddressId</fullName>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
     <searchLayouts>
         <customTabListAdditionalFields>LocationType</customTabListAdditionalFields>
+        <customTabListAdditionalFields>VisitorAddress</customTabListAdditionalFields>
         <lookupDialogsAdditionalFields>LocationType</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>VisitorAddress</lookupDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>LocationType</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>VisitorAddress</lookupPhoneDialogsAdditionalFields>
         <searchResultsAdditionalFields>LocationType</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>VisitorAddress</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>
