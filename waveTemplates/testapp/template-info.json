@@ -1,0 +1,56 @@
+{
+  "templateType" : "app",
+  "label" : "testapp",
+  "name" : "testapp",
+  "description" : "",
+  "assetVersion" : 61.0,
+  "variableDefinition" : "variables.json",
+  "uiDefinition" : "ui.json",
+  "rules" : [
+    {
+      "type" : "templateToApp",
+      "file" : "template-to-app-rules.json"
+    },
+    {
+      "type" : "appToTemplate",
+      "file" : "app-to-template-rules.json"
+    }
+  ],
+  "releaseInfo" : {
+    "templateVersion" : "1.0",
+    "notesFile" : "releaseNotes.html"
+  },
+  "folderDefinition" : "folder.json",
+  "externalFiles" : [ ],
+  "lenses" : [ ],
+  "dashboards" : [
+    {
+      "label" : "testappdashboard",
+      "name" : "testappdashboard_tp",
+      "condition" : "${Variables.Overrides.createAllDashboards}",
+      "file" : "dashboards/testappdashboard.json"
+    }
+  ],
+  "components" : [ ],
+  "dataTransforms" : [ ],
+  "eltDataflows" : [ ],
+  "recipes" : [ ],
+  "datasetFiles" : [ ],
+  "dataModelObjects" : [ ],
+  "storedQueries" : [ ],
+  "mlWorkspaces" : [ ],
+  "mlSetups" : [ ],
+  "mlSetupGroups" : [ ],
+  "imageFiles" : [ ],
+  "extendedTypes" : { },
+  "templateDependencies" : [ ],
+  "icons" : {
+    "appBadge" : {
+      "name" : "16.png"
+    },
+    "templateBadge" : {
+      "name" : "default.png"
+    },
+    "templatePreviews" : [ ]
+  }
+}

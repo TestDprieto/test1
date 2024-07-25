@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>APdist3</members>
-        <name>WaveDataset</name>
+        <members>testapp</members>
+        <name>WaveApplication</name>
     </types>
     <types>
-        <members>APdist3</members>
-        <name>WaveXmd</name>
+        <members>testappdashboard</members>
+        <name>WaveDashboard</name>
     </types>
-    <version>58.0</version>
+    <types>
+        <members>testapp</members>
+        <name>WaveTemplateBundle</name>
+    </types>
+    <version>61.0</version>
 </Package>
